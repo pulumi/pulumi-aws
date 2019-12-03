@@ -12,186 +12,144 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
 type Parameter struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A regular expression used to validate the parameter value.
+	AllowedPattern pulumi.StringOutput `pulumi:"allowedPattern"`
+
+	// The ARN of the parameter.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The description of the parameter.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The KMS key id or arn for encrypting a SecureString.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
+
+	// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
+	Overwrite pulumi.BoolOutput `pulumi:"overwrite"`
+
+	// A mapping of tags to assign to the object.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	Tier pulumi.StringOutput `pulumi:"tier"`
+
+	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// The value of the parameter.
+	Value pulumi.StringOutput `pulumi:"value"`
+
+	// The version of the parameter.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewParameter registers a new resource with the given unique name, arguments, and options.
 func NewParameter(ctx *pulumi.Context,
-	name string, args *ParameterArgs, opts ...pulumi.ResourceOpt) (*Parameter, error) {
+	name string, args *ParameterArgs, opts ...pulumi.ResourceOption) (*Parameter, error) {
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowedPattern"] = nil
-		inputs["arn"] = nil
-		inputs["description"] = nil
-		inputs["keyId"] = nil
-		inputs["name"] = nil
-		inputs["overwrite"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-		inputs["type"] = nil
-		inputs["value"] = nil
-	} else {
-		inputs["allowedPattern"] = args.AllowedPattern
-		inputs["arn"] = args.Arn
-		inputs["description"] = args.Description
-		inputs["keyId"] = args.KeyId
-		inputs["name"] = args.Name
-		inputs["overwrite"] = args.Overwrite
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
-		inputs["type"] = args.Type
-		inputs["value"] = args.Value
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowedPattern; i != nil { inputs["allowedPattern"] = i.ToStringOutput() }
+		if i := args.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Overwrite; i != nil { inputs["overwrite"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("aws:ssm/parameter:Parameter", name, true, inputs, opts...)
+	var resource Parameter
+	err := ctx.RegisterResource("aws:ssm/parameter:Parameter", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Parameter{s: s}, nil
+	return &resource, nil
 }
 
 // GetParameter gets an existing Parameter resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetParameter(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ParameterState, opts ...pulumi.ResourceOpt) (*Parameter, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ParameterState, opts ...pulumi.ResourceOption) (*Parameter, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowedPattern"] = state.AllowedPattern
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["keyId"] = state.KeyId
-		inputs["name"] = state.Name
-		inputs["overwrite"] = state.Overwrite
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
-		inputs["type"] = state.Type
-		inputs["value"] = state.Value
-		inputs["version"] = state.Version
+		if i := state.AllowedPattern; i != nil { inputs["allowedPattern"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Overwrite; i != nil { inputs["overwrite"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.Value; i != nil { inputs["value"] = i.ToStringOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/parameter:Parameter", name, id, inputs, opts...)
+	var resource Parameter
+	err := ctx.ReadResource("aws:ssm/parameter:Parameter", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Parameter{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Parameter) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Parameter) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A regular expression used to validate the parameter value.
-func (r *Parameter) AllowedPattern() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["allowedPattern"])
-}
-
-// The ARN of the parameter.
-func (r *Parameter) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The description of the parameter.
-func (r *Parameter) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The KMS key id or arn for encrypting a SecureString.
-func (r *Parameter) KeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyId"])
-}
-
-// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-func (r *Parameter) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
-func (r *Parameter) Overwrite() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["overwrite"])
-}
-
-// A mapping of tags to assign to the object.
-func (r *Parameter) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-func (r *Parameter) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
-}
-
-// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-func (r *Parameter) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// The value of the parameter.
-func (r *Parameter) Value() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["value"])
-}
-
-// The version of the parameter.
-func (r *Parameter) Version() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Parameter resources.
 type ParameterState struct {
 	// A regular expression used to validate the parameter value.
-	AllowedPattern interface{}
+	AllowedPattern pulumi.StringInput `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The description of the parameter.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
-	Overwrite interface{}
+	Overwrite pulumi.BoolInput `pulumi:"overwrite"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// The value of the parameter.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 	// The version of the parameter.
-	Version interface{}
+	Version pulumi.IntInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Parameter resource.
 type ParameterArgs struct {
 	// A regular expression used to validate the parameter value.
-	AllowedPattern interface{}
+	AllowedPattern pulumi.StringInput `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The description of the parameter.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
-	Overwrite interface{}
+	Overwrite pulumi.BoolInput `pulumi:"overwrite"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// The value of the parameter.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }

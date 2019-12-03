@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -41,121 +43,280 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_route_table.html.markdown.
 type DefaultRouteTable struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Default Routing Table.
+	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
+
+	// The ID of the AWS account that owns the route table
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// A list of virtual gateways for propagation.
+	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
+
+	// A list of route objects. Their keys are documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	Routes DefaultRouteTableRoutesArrayOutput `pulumi:"routes"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewDefaultRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewDefaultRouteTable(ctx *pulumi.Context,
-	name string, args *DefaultRouteTableArgs, opts ...pulumi.ResourceOpt) (*DefaultRouteTable, error) {
+	name string, args *DefaultRouteTableArgs, opts ...pulumi.ResourceOption) (*DefaultRouteTable, error) {
 	if args == nil || args.DefaultRouteTableId == nil {
 		return nil, errors.New("missing required argument 'DefaultRouteTableId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["defaultRouteTableId"] = nil
-		inputs["propagatingVgws"] = nil
-		inputs["routes"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["defaultRouteTableId"] = args.DefaultRouteTableId
-		inputs["propagatingVgws"] = args.PropagatingVgws
-		inputs["routes"] = args.Routes
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DefaultRouteTableId; i != nil { inputs["defaultRouteTableId"] = i.ToStringOutput() }
+		if i := args.PropagatingVgws; i != nil { inputs["propagatingVgws"] = i.ToStringArrayOutput() }
+		if i := args.Routes; i != nil { inputs["routes"] = i.ToDefaultRouteTableRoutesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["ownerId"] = nil
-	inputs["vpcId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, true, inputs, opts...)
+	var resource DefaultRouteTable
+	err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DefaultRouteTable{s: s}, nil
+	return &resource, nil
 }
 
 // GetDefaultRouteTable gets an existing DefaultRouteTable resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDefaultRouteTable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DefaultRouteTableState, opts ...pulumi.ResourceOpt) (*DefaultRouteTable, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DefaultRouteTableState, opts ...pulumi.ResourceOption) (*DefaultRouteTable, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["defaultRouteTableId"] = state.DefaultRouteTableId
-		inputs["ownerId"] = state.OwnerId
-		inputs["propagatingVgws"] = state.PropagatingVgws
-		inputs["routes"] = state.Routes
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.DefaultRouteTableId; i != nil { inputs["defaultRouteTableId"] = i.ToStringOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.PropagatingVgws; i != nil { inputs["propagatingVgws"] = i.ToStringArrayOutput() }
+		if i := state.Routes; i != nil { inputs["routes"] = i.ToDefaultRouteTableRoutesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, id, inputs, opts...)
+	var resource DefaultRouteTable
+	err := ctx.ReadResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DefaultRouteTable{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultRouteTable) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultRouteTable) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Default Routing Table.
-func (r *DefaultRouteTable) DefaultRouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultRouteTableId"])
-}
-
-// The ID of the AWS account that owns the route table
-func (r *DefaultRouteTable) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// A list of virtual gateways for propagation.
-func (r *DefaultRouteTable) PropagatingVgws() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["propagatingVgws"])
-}
-
-// A list of route objects. Their keys are documented below.
-// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *DefaultRouteTable) Routes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["routes"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *DefaultRouteTable) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *DefaultRouteTable) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DefaultRouteTable resources.
 type DefaultRouteTableState struct {
 	// The ID of the Default Routing Table.
-	DefaultRouteTableId interface{}
+	DefaultRouteTableId pulumi.StringInput `pulumi:"defaultRouteTableId"`
 	// The ID of the AWS account that owns the route table
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// A list of virtual gateways for propagation.
-	PropagatingVgws interface{}
+	PropagatingVgws pulumi.StringArrayInput `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Routes interface{}
+	Routes DefaultRouteTableRoutesArrayInput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	VpcId interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a DefaultRouteTable resource.
 type DefaultRouteTableArgs struct {
 	// The ID of the Default Routing Table.
-	DefaultRouteTableId interface{}
+	DefaultRouteTableId pulumi.StringInput `pulumi:"defaultRouteTableId"`
 	// A list of virtual gateways for propagation.
-	PropagatingVgws interface{}
+	PropagatingVgws pulumi.StringArrayInput `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Routes interface{}
+	Routes DefaultRouteTableRoutesArrayInput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type DefaultRouteTableRoutes struct {
+	// The CIDR block of the route.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// Identifier of a VPC Egress Only Internet Gateway.
+	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
+	// Identifier of a VPC internet gateway or a virtual private gateway.
+	GatewayId *string `pulumi:"gatewayId"`
+	// Identifier of an EC2 instance.
+	InstanceId *string `pulumi:"instanceId"`
+	// The Ipv6 CIDR block of the route
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// Identifier of a VPC NAT gateway.
+	NatGatewayId *string `pulumi:"natGatewayId"`
+	// Identifier of an EC2 network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Identifier of an EC2 Transit Gateway.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// Identifier of a VPC peering connection.
+	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
+}
+var defaultRouteTableRoutesType = reflect.TypeOf((*DefaultRouteTableRoutes)(nil)).Elem()
+
+type DefaultRouteTableRoutesInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableRoutesOutput() DefaultRouteTableRoutesOutput
+	ToDefaultRouteTableRoutesOutputWithContext(ctx context.Context) DefaultRouteTableRoutesOutput
+}
+
+type DefaultRouteTableRoutesArgs struct {
+	// The CIDR block of the route.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// Identifier of a VPC Egress Only Internet Gateway.
+	EgressOnlyGatewayId pulumi.StringInput `pulumi:"egressOnlyGatewayId"`
+	// Identifier of a VPC internet gateway or a virtual private gateway.
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
+	// Identifier of an EC2 instance.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// The Ipv6 CIDR block of the route
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+	// Identifier of a VPC NAT gateway.
+	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
+	// Identifier of an EC2 network interface.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	// Identifier of an EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
+	// Identifier of a VPC peering connection.
+	VpcPeeringConnectionId pulumi.StringInput `pulumi:"vpcPeeringConnectionId"`
+}
+
+func (DefaultRouteTableRoutesArgs) ElementType() reflect.Type {
+	return defaultRouteTableRoutesType
+}
+
+func (a DefaultRouteTableRoutesArgs) ToDefaultRouteTableRoutesOutput() DefaultRouteTableRoutesOutput {
+	return pulumi.ToOutput(a).(DefaultRouteTableRoutesOutput)
+}
+
+func (a DefaultRouteTableRoutesArgs) ToDefaultRouteTableRoutesOutputWithContext(ctx context.Context) DefaultRouteTableRoutesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefaultRouteTableRoutesOutput)
+}
+
+type DefaultRouteTableRoutesOutput struct { *pulumi.OutputState }
+
+// The CIDR block of the route.
+func (o DefaultRouteTableRoutesOutput) CidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.CidrBlock == nil { return *new(string) } else { return *v.CidrBlock }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of a VPC Egress Only Internet Gateway.
+func (o DefaultRouteTableRoutesOutput) EgressOnlyGatewayId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.EgressOnlyGatewayId == nil { return *new(string) } else { return *v.EgressOnlyGatewayId }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of a VPC internet gateway or a virtual private gateway.
+func (o DefaultRouteTableRoutesOutput) GatewayId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.GatewayId == nil { return *new(string) } else { return *v.GatewayId }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of an EC2 instance.
+func (o DefaultRouteTableRoutesOutput) InstanceId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.InstanceId == nil { return *new(string) } else { return *v.InstanceId }
+	}).(pulumi.StringOutput)
+}
+
+// The Ipv6 CIDR block of the route
+func (o DefaultRouteTableRoutesOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.Ipv6CidrBlock == nil { return *new(string) } else { return *v.Ipv6CidrBlock }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of a VPC NAT gateway.
+func (o DefaultRouteTableRoutesOutput) NatGatewayId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.NatGatewayId == nil { return *new(string) } else { return *v.NatGatewayId }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of an EC2 network interface.
+func (o DefaultRouteTableRoutesOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.NetworkInterfaceId == nil { return *new(string) } else { return *v.NetworkInterfaceId }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of an EC2 Transit Gateway.
+func (o DefaultRouteTableRoutesOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.TransitGatewayId == nil { return *new(string) } else { return *v.TransitGatewayId }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of a VPC peering connection.
+func (o DefaultRouteTableRoutesOutput) VpcPeeringConnectionId() pulumi.StringOutput {
+	return o.Apply(func(v DefaultRouteTableRoutes) string {
+		if v.VpcPeeringConnectionId == nil { return *new(string) } else { return *v.VpcPeeringConnectionId }
+	}).(pulumi.StringOutput)
+}
+
+func (DefaultRouteTableRoutesOutput) ElementType() reflect.Type {
+	return defaultRouteTableRoutesType
+}
+
+func (o DefaultRouteTableRoutesOutput) ToDefaultRouteTableRoutesOutput() DefaultRouteTableRoutesOutput {
+	return o
+}
+
+func (o DefaultRouteTableRoutesOutput) ToDefaultRouteTableRoutesOutputWithContext(ctx context.Context) DefaultRouteTableRoutesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefaultRouteTableRoutesOutput{}) }
+
+var defaultRouteTableRoutesArrayType = reflect.TypeOf((*[]DefaultRouteTableRoutes)(nil)).Elem()
+
+type DefaultRouteTableRoutesArrayInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableRoutesArrayOutput() DefaultRouteTableRoutesArrayOutput
+	ToDefaultRouteTableRoutesArrayOutputWithContext(ctx context.Context) DefaultRouteTableRoutesArrayOutput
+}
+
+type DefaultRouteTableRoutesArrayArgs []DefaultRouteTableRoutesInput
+
+func (DefaultRouteTableRoutesArrayArgs) ElementType() reflect.Type {
+	return defaultRouteTableRoutesArrayType
+}
+
+func (a DefaultRouteTableRoutesArrayArgs) ToDefaultRouteTableRoutesArrayOutput() DefaultRouteTableRoutesArrayOutput {
+	return pulumi.ToOutput(a).(DefaultRouteTableRoutesArrayOutput)
+}
+
+func (a DefaultRouteTableRoutesArrayArgs) ToDefaultRouteTableRoutesArrayOutputWithContext(ctx context.Context) DefaultRouteTableRoutesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefaultRouteTableRoutesArrayOutput)
+}
+
+type DefaultRouteTableRoutesArrayOutput struct { *pulumi.OutputState }
+
+func (o DefaultRouteTableRoutesArrayOutput) Index(i pulumi.IntInput) DefaultRouteTableRoutesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DefaultRouteTableRoutes {
+		return vs[0].([]DefaultRouteTableRoutes)[vs[1].(int)]
+	}).(DefaultRouteTableRoutesOutput)
+}
+
+func (DefaultRouteTableRoutesArrayOutput) ElementType() reflect.Type {
+	return defaultRouteTableRoutesArrayType
+}
+
+func (o DefaultRouteTableRoutesArrayOutput) ToDefaultRouteTableRoutesArrayOutput() DefaultRouteTableRoutesArrayOutput {
+	return o
+}
+
+func (o DefaultRouteTableRoutesArrayOutput) ToDefaultRouteTableRoutesArrayOutputWithContext(ctx context.Context) DefaultRouteTableRoutesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefaultRouteTableRoutesArrayOutput{}) }
+

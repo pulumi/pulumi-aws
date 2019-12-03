@@ -4,6 +4,8 @@
 package elasticache
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -22,438 +24,403 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_replication_group.html.markdown.
 type ReplicationGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+
+	// Whether to enable encryption at rest.
+	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
+
+	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
+	AuthToken pulumi.StringOutput `pulumi:"authToken"`
+
+	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
+
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	AutomaticFailoverEnabled pulumi.BoolOutput `pulumi:"automaticFailoverEnabled"`
+
+	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+
+	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
+	ClusterMode ReplicationGroupClusterModeOutput `pulumi:"clusterMode"`
+
+	// The address of the replication group configuration endpoint when cluster mode is enabled.
+	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
+
+	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
+	Engine pulumi.StringOutput `pulumi:"engine"`
+
+	// The version number of the cache engine to be used for the cache clusters in this replication group.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+
+	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// Specifies the weekly time range for when maintenance
+	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
+	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
+	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
+
+	// The identifiers of all the nodes that are part of this replication group.
+	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
+
+	// The compute and memory capacity of the nodes in the node group.
+	NodeType pulumi.StringOutput `pulumi:"nodeType"`
+
+	// An Amazon Resource Name (ARN) of an
+	// SNS topic to send ElastiCache notifications to. Example:
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	NotificationTopicArn pulumi.StringOutput `pulumi:"notificationTopicArn"`
+
+	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+	NumberCacheClusters pulumi.IntOutput `pulumi:"numberCacheClusters"`
+
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
+
+	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
+	PrimaryEndpointAddress pulumi.StringOutput `pulumi:"primaryEndpointAddress"`
+
+	// A user-created description for the replication group.
+	ReplicationGroupDescription pulumi.StringOutput `pulumi:"replicationGroupDescription"`
+
+	// The replication group identifier. This parameter is stored as a lowercase string.
+	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
+
+	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+
+	// A list of cache security group names to associate with this replication group.
+	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
+
+	// A single-element string list containing an
+	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
+	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
+	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
+
+	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
+	SnapshotName pulumi.StringOutput `pulumi:"snapshotName"`
+
+	// The number of days for which ElastiCache will
+	// retain automatic cache cluster snapshots before deleting them. For example, if you set
+	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
+	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
+	SnapshotRetentionLimit pulumi.IntOutput `pulumi:"snapshotRetentionLimit"`
+
+	// The daily time range (in UTC) during which ElastiCache will
+	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
+	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
+
+	// The name of the cache subnet group to be used for the replication group.
+	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+
+	// A mapping of tags to assign to the resource
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Whether to enable encryption in transit.
+	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
 // NewReplicationGroup registers a new resource with the given unique name, arguments, and options.
 func NewReplicationGroup(ctx *pulumi.Context,
-	name string, args *ReplicationGroupArgs, opts ...pulumi.ResourceOpt) (*ReplicationGroup, error) {
+	name string, args *ReplicationGroupArgs, opts ...pulumi.ResourceOption) (*ReplicationGroup, error) {
 	if args == nil || args.ReplicationGroupDescription == nil {
 		return nil, errors.New("missing required argument 'ReplicationGroupDescription'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applyImmediately"] = nil
-		inputs["atRestEncryptionEnabled"] = nil
-		inputs["authToken"] = nil
-		inputs["autoMinorVersionUpgrade"] = nil
-		inputs["automaticFailoverEnabled"] = nil
-		inputs["availabilityZones"] = nil
-		inputs["clusterMode"] = nil
-		inputs["engine"] = nil
-		inputs["engineVersion"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["maintenanceWindow"] = nil
-		inputs["nodeType"] = nil
-		inputs["notificationTopicArn"] = nil
-		inputs["numberCacheClusters"] = nil
-		inputs["parameterGroupName"] = nil
-		inputs["port"] = nil
-		inputs["replicationGroupDescription"] = nil
-		inputs["replicationGroupId"] = nil
-		inputs["securityGroupIds"] = nil
-		inputs["securityGroupNames"] = nil
-		inputs["snapshotArns"] = nil
-		inputs["snapshotName"] = nil
-		inputs["snapshotRetentionLimit"] = nil
-		inputs["snapshotWindow"] = nil
-		inputs["subnetGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["transitEncryptionEnabled"] = nil
-	} else {
-		inputs["applyImmediately"] = args.ApplyImmediately
-		inputs["atRestEncryptionEnabled"] = args.AtRestEncryptionEnabled
-		inputs["authToken"] = args.AuthToken
-		inputs["autoMinorVersionUpgrade"] = args.AutoMinorVersionUpgrade
-		inputs["automaticFailoverEnabled"] = args.AutomaticFailoverEnabled
-		inputs["availabilityZones"] = args.AvailabilityZones
-		inputs["clusterMode"] = args.ClusterMode
-		inputs["engine"] = args.Engine
-		inputs["engineVersion"] = args.EngineVersion
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["maintenanceWindow"] = args.MaintenanceWindow
-		inputs["nodeType"] = args.NodeType
-		inputs["notificationTopicArn"] = args.NotificationTopicArn
-		inputs["numberCacheClusters"] = args.NumberCacheClusters
-		inputs["parameterGroupName"] = args.ParameterGroupName
-		inputs["port"] = args.Port
-		inputs["replicationGroupDescription"] = args.ReplicationGroupDescription
-		inputs["replicationGroupId"] = args.ReplicationGroupId
-		inputs["securityGroupIds"] = args.SecurityGroupIds
-		inputs["securityGroupNames"] = args.SecurityGroupNames
-		inputs["snapshotArns"] = args.SnapshotArns
-		inputs["snapshotName"] = args.SnapshotName
-		inputs["snapshotRetentionLimit"] = args.SnapshotRetentionLimit
-		inputs["snapshotWindow"] = args.SnapshotWindow
-		inputs["subnetGroupName"] = args.SubnetGroupName
-		inputs["tags"] = args.Tags
-		inputs["transitEncryptionEnabled"] = args.TransitEncryptionEnabled
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := args.AtRestEncryptionEnabled; i != nil { inputs["atRestEncryptionEnabled"] = i.ToBoolOutput() }
+		if i := args.AuthToken; i != nil { inputs["authToken"] = i.ToStringOutput() }
+		if i := args.AutoMinorVersionUpgrade; i != nil { inputs["autoMinorVersionUpgrade"] = i.ToBoolOutput() }
+		if i := args.AutomaticFailoverEnabled; i != nil { inputs["automaticFailoverEnabled"] = i.ToBoolOutput() }
+		if i := args.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := args.ClusterMode; i != nil { inputs["clusterMode"] = i.ToReplicationGroupClusterModeOutput() }
+		if i := args.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := args.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.MaintenanceWindow; i != nil { inputs["maintenanceWindow"] = i.ToStringOutput() }
+		if i := args.NodeType; i != nil { inputs["nodeType"] = i.ToStringOutput() }
+		if i := args.NotificationTopicArn; i != nil { inputs["notificationTopicArn"] = i.ToStringOutput() }
+		if i := args.NumberCacheClusters; i != nil { inputs["numberCacheClusters"] = i.ToIntOutput() }
+		if i := args.ParameterGroupName; i != nil { inputs["parameterGroupName"] = i.ToStringOutput() }
+		if i := args.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := args.ReplicationGroupDescription; i != nil { inputs["replicationGroupDescription"] = i.ToStringOutput() }
+		if i := args.ReplicationGroupId; i != nil { inputs["replicationGroupId"] = i.ToStringOutput() }
+		if i := args.SecurityGroupIds; i != nil { inputs["securityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.SecurityGroupNames; i != nil { inputs["securityGroupNames"] = i.ToStringArrayOutput() }
+		if i := args.SnapshotArns; i != nil { inputs["snapshotArns"] = i.ToStringArrayOutput() }
+		if i := args.SnapshotName; i != nil { inputs["snapshotName"] = i.ToStringOutput() }
+		if i := args.SnapshotRetentionLimit; i != nil { inputs["snapshotRetentionLimit"] = i.ToIntOutput() }
+		if i := args.SnapshotWindow; i != nil { inputs["snapshotWindow"] = i.ToStringOutput() }
+		if i := args.SubnetGroupName; i != nil { inputs["subnetGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TransitEncryptionEnabled; i != nil { inputs["transitEncryptionEnabled"] = i.ToBoolOutput() }
 	}
-	inputs["configurationEndpointAddress"] = nil
-	inputs["memberClusters"] = nil
-	inputs["primaryEndpointAddress"] = nil
-	s, err := ctx.RegisterResource("aws:elasticache/replicationGroup:ReplicationGroup", name, true, inputs, opts...)
+	var resource ReplicationGroup
+	err := ctx.RegisterResource("aws:elasticache/replicationGroup:ReplicationGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReplicationGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetReplicationGroup gets an existing ReplicationGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetReplicationGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ReplicationGroupState, opts ...pulumi.ResourceOpt) (*ReplicationGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ReplicationGroupState, opts ...pulumi.ResourceOption) (*ReplicationGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applyImmediately"] = state.ApplyImmediately
-		inputs["atRestEncryptionEnabled"] = state.AtRestEncryptionEnabled
-		inputs["authToken"] = state.AuthToken
-		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
-		inputs["automaticFailoverEnabled"] = state.AutomaticFailoverEnabled
-		inputs["availabilityZones"] = state.AvailabilityZones
-		inputs["clusterMode"] = state.ClusterMode
-		inputs["configurationEndpointAddress"] = state.ConfigurationEndpointAddress
-		inputs["engine"] = state.Engine
-		inputs["engineVersion"] = state.EngineVersion
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["maintenanceWindow"] = state.MaintenanceWindow
-		inputs["memberClusters"] = state.MemberClusters
-		inputs["nodeType"] = state.NodeType
-		inputs["notificationTopicArn"] = state.NotificationTopicArn
-		inputs["numberCacheClusters"] = state.NumberCacheClusters
-		inputs["parameterGroupName"] = state.ParameterGroupName
-		inputs["port"] = state.Port
-		inputs["primaryEndpointAddress"] = state.PrimaryEndpointAddress
-		inputs["replicationGroupDescription"] = state.ReplicationGroupDescription
-		inputs["replicationGroupId"] = state.ReplicationGroupId
-		inputs["securityGroupIds"] = state.SecurityGroupIds
-		inputs["securityGroupNames"] = state.SecurityGroupNames
-		inputs["snapshotArns"] = state.SnapshotArns
-		inputs["snapshotName"] = state.SnapshotName
-		inputs["snapshotRetentionLimit"] = state.SnapshotRetentionLimit
-		inputs["snapshotWindow"] = state.SnapshotWindow
-		inputs["subnetGroupName"] = state.SubnetGroupName
-		inputs["tags"] = state.Tags
-		inputs["transitEncryptionEnabled"] = state.TransitEncryptionEnabled
+		if i := state.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := state.AtRestEncryptionEnabled; i != nil { inputs["atRestEncryptionEnabled"] = i.ToBoolOutput() }
+		if i := state.AuthToken; i != nil { inputs["authToken"] = i.ToStringOutput() }
+		if i := state.AutoMinorVersionUpgrade; i != nil { inputs["autoMinorVersionUpgrade"] = i.ToBoolOutput() }
+		if i := state.AutomaticFailoverEnabled; i != nil { inputs["automaticFailoverEnabled"] = i.ToBoolOutput() }
+		if i := state.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := state.ClusterMode; i != nil { inputs["clusterMode"] = i.ToReplicationGroupClusterModeOutput() }
+		if i := state.ConfigurationEndpointAddress; i != nil { inputs["configurationEndpointAddress"] = i.ToStringOutput() }
+		if i := state.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := state.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.MaintenanceWindow; i != nil { inputs["maintenanceWindow"] = i.ToStringOutput() }
+		if i := state.MemberClusters; i != nil { inputs["memberClusters"] = i.ToStringArrayOutput() }
+		if i := state.NodeType; i != nil { inputs["nodeType"] = i.ToStringOutput() }
+		if i := state.NotificationTopicArn; i != nil { inputs["notificationTopicArn"] = i.ToStringOutput() }
+		if i := state.NumberCacheClusters; i != nil { inputs["numberCacheClusters"] = i.ToIntOutput() }
+		if i := state.ParameterGroupName; i != nil { inputs["parameterGroupName"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.PrimaryEndpointAddress; i != nil { inputs["primaryEndpointAddress"] = i.ToStringOutput() }
+		if i := state.ReplicationGroupDescription; i != nil { inputs["replicationGroupDescription"] = i.ToStringOutput() }
+		if i := state.ReplicationGroupId; i != nil { inputs["replicationGroupId"] = i.ToStringOutput() }
+		if i := state.SecurityGroupIds; i != nil { inputs["securityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.SecurityGroupNames; i != nil { inputs["securityGroupNames"] = i.ToStringArrayOutput() }
+		if i := state.SnapshotArns; i != nil { inputs["snapshotArns"] = i.ToStringArrayOutput() }
+		if i := state.SnapshotName; i != nil { inputs["snapshotName"] = i.ToStringOutput() }
+		if i := state.SnapshotRetentionLimit; i != nil { inputs["snapshotRetentionLimit"] = i.ToIntOutput() }
+		if i := state.SnapshotWindow; i != nil { inputs["snapshotWindow"] = i.ToStringOutput() }
+		if i := state.SubnetGroupName; i != nil { inputs["subnetGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TransitEncryptionEnabled; i != nil { inputs["transitEncryptionEnabled"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticache/replicationGroup:ReplicationGroup", name, id, inputs, opts...)
+	var resource ReplicationGroup
+	err := ctx.ReadResource("aws:elasticache/replicationGroup:ReplicationGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReplicationGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicationGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicationGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-func (r *ReplicationGroup) ApplyImmediately() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
-}
-
-// Whether to enable encryption at rest.
-func (r *ReplicationGroup) AtRestEncryptionEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["atRestEncryptionEnabled"])
-}
-
-// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
-func (r *ReplicationGroup) AuthToken() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["authToken"])
-}
-
-// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
-func (r *ReplicationGroup) AutoMinorVersionUpgrade() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
-}
-
-// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-func (r *ReplicationGroup) AutomaticFailoverEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["automaticFailoverEnabled"])
-}
-
-// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-func (r *ReplicationGroup) AvailabilityZones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
-}
-
-// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
-func (r *ReplicationGroup) ClusterMode() pulumi.Output {
-	return r.s.State["clusterMode"]
-}
-
-// The address of the replication group configuration endpoint when cluster mode is enabled.
-func (r *ReplicationGroup) ConfigurationEndpointAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configurationEndpointAddress"])
-}
-
-// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
-func (r *ReplicationGroup) Engine() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engine"])
-}
-
-// The version number of the cache engine to be used for the cache clusters in this replication group.
-func (r *ReplicationGroup) EngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineVersion"])
-}
-
-// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
-func (r *ReplicationGroup) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// Specifies the weekly time range for when maintenance
-// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
-// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-func (r *ReplicationGroup) MaintenanceWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["maintenanceWindow"])
-}
-
-// The identifiers of all the nodes that are part of this replication group.
-func (r *ReplicationGroup) MemberClusters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["memberClusters"])
-}
-
-// The compute and memory capacity of the nodes in the node group.
-func (r *ReplicationGroup) NodeType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeType"])
-}
-
-// An Amazon Resource Name (ARN) of an
-// SNS topic to send ElastiCache notifications to. Example:
-// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-func (r *ReplicationGroup) NotificationTopicArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notificationTopicArn"])
-}
-
-// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
-func (r *ReplicationGroup) NumberCacheClusters() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["numberCacheClusters"])
-}
-
-// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-func (r *ReplicationGroup) ParameterGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parameterGroupName"])
-}
-
-// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-func (r *ReplicationGroup) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-func (r *ReplicationGroup) PrimaryEndpointAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryEndpointAddress"])
-}
-
-// A user-created description for the replication group.
-func (r *ReplicationGroup) ReplicationGroupDescription() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["replicationGroupDescription"])
-}
-
-// The replication group identifier. This parameter is stored as a lowercase string.
-func (r *ReplicationGroup) ReplicationGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["replicationGroupId"])
-}
-
-// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-func (r *ReplicationGroup) SecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
-}
-
-// A list of cache security group names to associate with this replication group.
-func (r *ReplicationGroup) SecurityGroupNames() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
-}
-
-// A single-element string list containing an
-// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
-// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-func (r *ReplicationGroup) SnapshotArns() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["snapshotArns"])
-}
-
-// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
-func (r *ReplicationGroup) SnapshotName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snapshotName"])
-}
-
-// The number of days for which ElastiCache will
-// retain automatic cache cluster snapshots before deleting them. For example, if you set
-// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
-// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
-// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
-func (r *ReplicationGroup) SnapshotRetentionLimit() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["snapshotRetentionLimit"])
-}
-
-// The daily time range (in UTC) during which ElastiCache will
-// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-func (r *ReplicationGroup) SnapshotWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snapshotWindow"])
-}
-
-// The name of the cache subnet group to be used for the replication group.
-func (r *ReplicationGroup) SubnetGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetGroupName"])
-}
-
-// A mapping of tags to assign to the resource
-func (r *ReplicationGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Whether to enable encryption in transit.
-func (r *ReplicationGroup) TransitEncryptionEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["transitEncryptionEnabled"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ReplicationGroup resources.
 type ReplicationGroupState struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// Whether to enable encryption at rest.
-	AtRestEncryptionEnabled interface{}
+	AtRestEncryptionEnabled pulumi.BoolInput `pulumi:"atRestEncryptionEnabled"`
 	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
-	AuthToken interface{}
+	AuthToken pulumi.StringInput `pulumi:"authToken"`
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
-	AutoMinorVersionUpgrade interface{}
+	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-	AutomaticFailoverEnabled interface{}
+	AutomaticFailoverEnabled pulumi.BoolInput `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
-	ClusterMode interface{}
+	ClusterMode ReplicationGroupClusterModeInput `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
-	ConfigurationEndpointAddress interface{}
+	ConfigurationEndpointAddress pulumi.StringInput `pulumi:"configurationEndpointAddress"`
 	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-	MaintenanceWindow interface{}
+	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
 	// The identifiers of all the nodes that are part of this replication group.
-	MemberClusters interface{}
+	MemberClusters pulumi.StringArrayInput `pulumi:"memberClusters"`
 	// The compute and memory capacity of the nodes in the node group.
-	NodeType interface{}
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn interface{}
+	NotificationTopicArn pulumi.StringInput `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
-	NumberCacheClusters interface{}
+	NumberCacheClusters pulumi.IntInput `pulumi:"numberCacheClusters"`
 	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-	ParameterGroupName interface{}
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-	PrimaryEndpointAddress interface{}
+	PrimaryEndpointAddress pulumi.StringInput `pulumi:"primaryEndpointAddress"`
 	// A user-created description for the replication group.
-	ReplicationGroupDescription interface{}
+	ReplicationGroupDescription pulumi.StringInput `pulumi:"replicationGroupDescription"`
 	// The replication group identifier. This parameter is stored as a lowercase string.
-	ReplicationGroupId interface{}
+	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`
 	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-	SecurityGroupIds interface{}
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
-	SecurityGroupNames interface{}
+	SecurityGroupNames pulumi.StringArrayInput `pulumi:"securityGroupNames"`
 	// A single-element string list containing an
 	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
 	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-	SnapshotArns interface{}
+	SnapshotArns pulumi.StringArrayInput `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
-	SnapshotName interface{}
+	SnapshotName pulumi.StringInput `pulumi:"snapshotName"`
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
-	SnapshotRetentionLimit interface{}
+	SnapshotRetentionLimit pulumi.IntInput `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-	SnapshotWindow interface{}
+	SnapshotWindow pulumi.StringInput `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName interface{}
+	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Whether to enable encryption in transit.
-	TransitEncryptionEnabled interface{}
+	TransitEncryptionEnabled pulumi.BoolInput `pulumi:"transitEncryptionEnabled"`
 }
 
 // The set of arguments for constructing a ReplicationGroup resource.
 type ReplicationGroupArgs struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// Whether to enable encryption at rest.
-	AtRestEncryptionEnabled interface{}
+	AtRestEncryptionEnabled pulumi.BoolInput `pulumi:"atRestEncryptionEnabled"`
 	// The password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
-	AuthToken interface{}
+	AuthToken pulumi.StringInput `pulumi:"authToken"`
 	// Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
-	AutoMinorVersionUpgrade interface{}
+	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-	AutomaticFailoverEnabled interface{}
+	AutomaticFailoverEnabled pulumi.BoolInput `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Create a native redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed.
-	ClusterMode interface{}
+	ClusterMode ReplicationGroupClusterModeInput `pulumi:"clusterMode"`
 	// The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// The version number of the cache engine to be used for the cache clusters in this replication group.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-	MaintenanceWindow interface{}
+	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes in the node group.
-	NodeType interface{}
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send ElastiCache notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn interface{}
+	NotificationTopicArn pulumi.StringInput `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
-	NumberCacheClusters interface{}
+	NumberCacheClusters pulumi.IntInput `pulumi:"numberCacheClusters"`
 	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-	ParameterGroupName interface{}
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// A user-created description for the replication group.
-	ReplicationGroupDescription interface{}
+	ReplicationGroupDescription pulumi.StringInput `pulumi:"replicationGroupDescription"`
 	// The replication group identifier. This parameter is stored as a lowercase string.
-	ReplicationGroupId interface{}
+	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`
 	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-	SecurityGroupIds interface{}
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of cache security group names to associate with this replication group.
-	SecurityGroupNames interface{}
+	SecurityGroupNames pulumi.StringArrayInput `pulumi:"securityGroupNames"`
 	// A single-element string list containing an
 	// Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
 	// Example: `arn:aws:s3:::my_bucket/snapshot1.rdb`
-	SnapshotArns interface{}
+	SnapshotArns pulumi.StringArrayInput `pulumi:"snapshotArns"`
 	// The name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
-	SnapshotName interface{}
+	SnapshotName pulumi.StringInput `pulumi:"snapshotName"`
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them. For example, if you set
 	// SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days
 	// before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 	// Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro or cache.t2.* cache nodes
-	SnapshotRetentionLimit interface{}
+	SnapshotRetentionLimit pulumi.IntInput `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache will
 	// begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-	SnapshotWindow interface{}
+	SnapshotWindow pulumi.StringInput `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName interface{}
+	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Whether to enable encryption in transit.
-	TransitEncryptionEnabled interface{}
+	TransitEncryptionEnabled pulumi.BoolInput `pulumi:"transitEncryptionEnabled"`
 }
+type ReplicationGroupClusterMode struct {
+	// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+	NumNodeGroups int `pulumi:"numNodeGroups"`
+	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
+}
+var replicationGroupClusterModeType = reflect.TypeOf((*ReplicationGroupClusterMode)(nil)).Elem()
+
+type ReplicationGroupClusterModeInput interface {
+	pulumi.Input
+
+	ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput
+	ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput
+}
+
+type ReplicationGroupClusterModeArgs struct {
+	// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+	NumNodeGroups pulumi.IntInput `pulumi:"numNodeGroups"`
+	// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+	ReplicasPerNodeGroup pulumi.IntInput `pulumi:"replicasPerNodeGroup"`
+}
+
+func (ReplicationGroupClusterModeArgs) ElementType() reflect.Type {
+	return replicationGroupClusterModeType
+}
+
+func (a ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput {
+	return pulumi.ToOutput(a).(ReplicationGroupClusterModeOutput)
+}
+
+func (a ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReplicationGroupClusterModeOutput)
+}
+
+type ReplicationGroupClusterModeOutput struct { *pulumi.OutputState }
+
+// Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntOutput {
+	return o.Apply(func(v ReplicationGroupClusterMode) int {
+		return v.NumNodeGroups
+	}).(pulumi.IntOutput)
+}
+
+// Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
+func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
+	return o.Apply(func(v ReplicationGroupClusterMode) int {
+		return v.ReplicasPerNodeGroup
+	}).(pulumi.IntOutput)
+}
+
+func (ReplicationGroupClusterModeOutput) ElementType() reflect.Type {
+	return replicationGroupClusterModeType
+}
+
+func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput {
+	return o
+}
+
+func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReplicationGroupClusterModeOutput{}) }
+

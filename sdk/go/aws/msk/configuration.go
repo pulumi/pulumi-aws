@@ -14,123 +14,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_configuration.html.markdown.
 type Configuration struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Description of the configuration.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// List of Apache Kafka versions which can use this configuration.
+	KafkaVersions pulumi.StringArrayOutput `pulumi:"kafkaVersions"`
+
+	// Latest revision of the configuration.
+	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+
+	// Name of the configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
+	ServerProperties pulumi.StringOutput `pulumi:"serverProperties"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
-	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOpt) (*Configuration, error) {
+	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	if args == nil || args.KafkaVersions == nil {
 		return nil, errors.New("missing required argument 'KafkaVersions'")
 	}
 	if args == nil || args.ServerProperties == nil {
 		return nil, errors.New("missing required argument 'ServerProperties'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["kafkaVersions"] = nil
-		inputs["name"] = nil
-		inputs["serverProperties"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["kafkaVersions"] = args.KafkaVersions
-		inputs["name"] = args.Name
-		inputs["serverProperties"] = args.ServerProperties
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.KafkaVersions; i != nil { inputs["kafkaVersions"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ServerProperties; i != nil { inputs["serverProperties"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["latestRevision"] = nil
-	s, err := ctx.RegisterResource("aws:msk/configuration:Configuration", name, true, inputs, opts...)
+	var resource Configuration
+	err := ctx.RegisterResource("aws:msk/configuration:Configuration", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Configuration{s: s}, nil
+	return &resource, nil
 }
 
 // GetConfiguration gets an existing Configuration resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConfiguration(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConfigurationState, opts ...pulumi.ResourceOpt) (*Configuration, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["kafkaVersions"] = state.KafkaVersions
-		inputs["latestRevision"] = state.LatestRevision
-		inputs["name"] = state.Name
-		inputs["serverProperties"] = state.ServerProperties
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.KafkaVersions; i != nil { inputs["kafkaVersions"] = i.ToStringArrayOutput() }
+		if i := state.LatestRevision; i != nil { inputs["latestRevision"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ServerProperties; i != nil { inputs["serverProperties"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:msk/configuration:Configuration", name, id, inputs, opts...)
+	var resource Configuration
+	err := ctx.ReadResource("aws:msk/configuration:Configuration", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Configuration{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Configuration) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Configuration) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the configuration.
-func (r *Configuration) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Description of the configuration.
-func (r *Configuration) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// List of Apache Kafka versions which can use this configuration.
-func (r *Configuration) KafkaVersions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["kafkaVersions"])
-}
-
-// Latest revision of the configuration.
-func (r *Configuration) LatestRevision() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["latestRevision"])
-}
-
-// Name of the configuration.
-func (r *Configuration) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-func (r *Configuration) ServerProperties() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverProperties"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Configuration resources.
 type ConfigurationState struct {
 	// Amazon Resource Name (ARN) of the configuration.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Description of the configuration.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// List of Apache Kafka versions which can use this configuration.
-	KafkaVersions interface{}
+	KafkaVersions pulumi.StringArrayInput `pulumi:"kafkaVersions"`
 	// Latest revision of the configuration.
-	LatestRevision interface{}
+	LatestRevision pulumi.IntInput `pulumi:"latestRevision"`
 	// Name of the configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-	ServerProperties interface{}
+	ServerProperties pulumi.StringInput `pulumi:"serverProperties"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
 	// Description of the configuration.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// List of Apache Kafka versions which can use this configuration.
-	KafkaVersions interface{}
+	KafkaVersions pulumi.StringArrayInput `pulumi:"kafkaVersions"`
 	// Name of the configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-	ServerProperties interface{}
+	ServerProperties pulumi.StringInput `pulumi:"serverProperties"`
 }

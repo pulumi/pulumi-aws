@@ -4,6 +4,8 @@
 package glacier
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -13,120 +15,202 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault.html.markdown.
 type Vault struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The policy document. This is a JSON formatted string.
+	// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+	AccessPolicy pulumi.StringOutput `pulumi:"accessPolicy"`
+
+	// The ARN of the vault.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The URI of the vault that was created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The notifications for the Vault. Fields documented below.
+	Notifications VaultNotificationsArrayOutput `pulumi:"notifications"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
 func NewVault(ctx *pulumi.Context,
-	name string, args *VaultArgs, opts ...pulumi.ResourceOpt) (*Vault, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accessPolicy"] = nil
-		inputs["name"] = nil
-		inputs["notifications"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["accessPolicy"] = args.AccessPolicy
-		inputs["name"] = args.Name
-		inputs["notifications"] = args.Notifications
-		inputs["tags"] = args.Tags
+	name string, args *VaultArgs, opts ...pulumi.ResourceOption) (*Vault, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccessPolicy; i != nil { inputs["accessPolicy"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Notifications; i != nil { inputs["notifications"] = i.ToVaultNotificationsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["location"] = nil
-	s, err := ctx.RegisterResource("aws:glacier/vault:Vault", name, true, inputs, opts...)
+	var resource Vault
+	err := ctx.RegisterResource("aws:glacier/vault:Vault", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Vault{s: s}, nil
+	return &resource, nil
 }
 
 // GetVault gets an existing Vault resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVault(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VaultState, opts ...pulumi.ResourceOpt) (*Vault, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VaultState, opts ...pulumi.ResourceOption) (*Vault, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessPolicy"] = state.AccessPolicy
-		inputs["arn"] = state.Arn
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["notifications"] = state.Notifications
-		inputs["tags"] = state.Tags
+		if i := state.AccessPolicy; i != nil { inputs["accessPolicy"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Notifications; i != nil { inputs["notifications"] = i.ToVaultNotificationsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glacier/vault:Vault", name, id, inputs, opts...)
+	var resource Vault
+	err := ctx.ReadResource("aws:glacier/vault:Vault", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Vault{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Vault) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Vault) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The policy document. This is a JSON formatted string.
-// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-func (r *Vault) AccessPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accessPolicy"])
-}
-
-// The ARN of the vault.
-func (r *Vault) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The URI of the vault that was created.
-func (r *Vault) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-func (r *Vault) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The notifications for the Vault. Fields documented below.
-func (r *Vault) Notifications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["notifications"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Vault) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Vault resources.
 type VaultState struct {
 	// The policy document. This is a JSON formatted string.
 	// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-	AccessPolicy interface{}
+	AccessPolicy pulumi.StringInput `pulumi:"accessPolicy"`
 	// The ARN of the vault.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The URI of the vault that was created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
-	Notifications interface{}
+	Notifications VaultNotificationsArrayInput `pulumi:"notifications"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
 	// The policy document. This is a JSON formatted string.
 	// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-	AccessPolicy interface{}
+	AccessPolicy pulumi.StringInput `pulumi:"accessPolicy"`
 	// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The notifications for the Vault. Fields documented below.
-	Notifications interface{}
+	Notifications VaultNotificationsArrayInput `pulumi:"notifications"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type VaultNotifications struct {
+	// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+	Events []string `pulumi:"events"`
+	// The SNS Topic ARN.
+	SnsTopic string `pulumi:"snsTopic"`
+}
+var vaultNotificationsType = reflect.TypeOf((*VaultNotifications)(nil)).Elem()
+
+type VaultNotificationsInput interface {
+	pulumi.Input
+
+	ToVaultNotificationsOutput() VaultNotificationsOutput
+	ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput
+}
+
+type VaultNotificationsArgs struct {
+	// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// The SNS Topic ARN.
+	SnsTopic pulumi.StringInput `pulumi:"snsTopic"`
+}
+
+func (VaultNotificationsArgs) ElementType() reflect.Type {
+	return vaultNotificationsType
+}
+
+func (a VaultNotificationsArgs) ToVaultNotificationsOutput() VaultNotificationsOutput {
+	return pulumi.ToOutput(a).(VaultNotificationsOutput)
+}
+
+func (a VaultNotificationsArgs) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VaultNotificationsOutput)
+}
+
+type VaultNotificationsOutput struct { *pulumi.OutputState }
+
+// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+func (o VaultNotificationsOutput) Events() pulumi.StringArrayOutput {
+	return o.Apply(func(v VaultNotifications) []string {
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// The SNS Topic ARN.
+func (o VaultNotificationsOutput) SnsTopic() pulumi.StringOutput {
+	return o.Apply(func(v VaultNotifications) string {
+		return v.SnsTopic
+	}).(pulumi.StringOutput)
+}
+
+func (VaultNotificationsOutput) ElementType() reflect.Type {
+	return vaultNotificationsType
+}
+
+func (o VaultNotificationsOutput) ToVaultNotificationsOutput() VaultNotificationsOutput {
+	return o
+}
+
+func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VaultNotificationsOutput{}) }
+
+var vaultNotificationsArrayType = reflect.TypeOf((*[]VaultNotifications)(nil)).Elem()
+
+type VaultNotificationsArrayInput interface {
+	pulumi.Input
+
+	ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput
+	ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput
+}
+
+type VaultNotificationsArrayArgs []VaultNotificationsInput
+
+func (VaultNotificationsArrayArgs) ElementType() reflect.Type {
+	return vaultNotificationsArrayType
+}
+
+func (a VaultNotificationsArrayArgs) ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput {
+	return pulumi.ToOutput(a).(VaultNotificationsArrayOutput)
+}
+
+func (a VaultNotificationsArrayArgs) ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VaultNotificationsArrayOutput)
+}
+
+type VaultNotificationsArrayOutput struct { *pulumi.OutputState }
+
+func (o VaultNotificationsArrayOutput) Index(i pulumi.IntInput) VaultNotificationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VaultNotifications {
+		return vs[0].([]VaultNotifications)[vs[1].(int)]
+	}).(VaultNotificationsOutput)
+}
+
+func (VaultNotificationsArrayOutput) ElementType() reflect.Type {
+	return vaultNotificationsArrayType
+}
+
+func (o VaultNotificationsArrayOutput) ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput {
+	return o
+}
+
+func (o VaultNotificationsArrayOutput) ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VaultNotificationsArrayOutput{}) }
+

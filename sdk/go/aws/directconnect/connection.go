@@ -12,141 +12,108 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection.html.markdown.
 type Connection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The Direct Connect endpoint on which the physical connection terminates.
+	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+
+	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
+	Bandwidth pulumi.StringOutput `pulumi:"bandwidth"`
+
+	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
+
+	// Boolean value representing if jumbo frames have been enabled for this connection.
+	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
+
+	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the connection.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
 func NewConnection(ctx *pulumi.Context,
-	name string, args *ConnectionArgs, opts ...pulumi.ResourceOpt) (*Connection, error) {
+	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
 	if args == nil || args.Bandwidth == nil {
 		return nil, errors.New("missing required argument 'Bandwidth'")
 	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["bandwidth"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["bandwidth"] = args.Bandwidth
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Bandwidth; i != nil { inputs["bandwidth"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["awsDevice"] = nil
-	inputs["hasLogicalRedundancy"] = nil
-	inputs["jumboFrameCapable"] = nil
-	s, err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, true, inputs, opts...)
+	var resource Connection
+	err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Connection{s: s}, nil
+	return &resource, nil
 }
 
 // GetConnection gets an existing Connection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConnection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConnectionState, opts ...pulumi.ResourceOpt) (*Connection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConnectionState, opts ...pulumi.ResourceOption) (*Connection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["awsDevice"] = state.AwsDevice
-		inputs["bandwidth"] = state.Bandwidth
-		inputs["hasLogicalRedundancy"] = state.HasLogicalRedundancy
-		inputs["jumboFrameCapable"] = state.JumboFrameCapable
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AwsDevice; i != nil { inputs["awsDevice"] = i.ToStringOutput() }
+		if i := state.Bandwidth; i != nil { inputs["bandwidth"] = i.ToStringOutput() }
+		if i := state.HasLogicalRedundancy; i != nil { inputs["hasLogicalRedundancy"] = i.ToStringOutput() }
+		if i := state.JumboFrameCapable; i != nil { inputs["jumboFrameCapable"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:directconnect/connection:Connection", name, id, inputs, opts...)
+	var resource Connection
+	err := ctx.ReadResource("aws:directconnect/connection:Connection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Connection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Connection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Connection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the connection.
-func (r *Connection) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The Direct Connect endpoint on which the physical connection terminates.
-func (r *Connection) AwsDevice() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["awsDevice"])
-}
-
-// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
-func (r *Connection) Bandwidth() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bandwidth"])
-}
-
-// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-func (r *Connection) HasLogicalRedundancy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hasLogicalRedundancy"])
-}
-
-// Boolean value representing if jumbo frames have been enabled for this connection.
-func (r *Connection) JumboFrameCapable() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["jumboFrameCapable"])
-}
-
-// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-func (r *Connection) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the connection.
-func (r *Connection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Connection) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Connection resources.
 type ConnectionState struct {
 	// The ARN of the connection.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice interface{}
+	AwsDevice pulumi.StringInput `pulumi:"awsDevice"`
 	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
-	Bandwidth interface{}
+	Bandwidth pulumi.StringInput `pulumi:"bandwidth"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-	HasLogicalRedundancy interface{}
+	HasLogicalRedundancy pulumi.StringInput `pulumi:"hasLogicalRedundancy"`
 	// Boolean value representing if jumbo frames have been enabled for this connection.
-	JumboFrameCapable interface{}
+	JumboFrameCapable pulumi.BoolInput `pulumi:"jumboFrameCapable"`
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the connection.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	// The bandwidth of the connection. Available values: 1Gbps, 10Gbps. Case sensitive.
-	Bandwidth interface{}
+	Bandwidth pulumi.StringInput `pulumi:"bandwidth"`
 	// The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the connection.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

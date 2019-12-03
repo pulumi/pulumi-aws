@@ -4,6 +4,8 @@
 package codebuild
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_project.html.markdown.
 type Project struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the CodeBuild project.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Information about the project's build output artifacts. Artifact blocks are documented below.
+	Artifacts ProjectArtifactsOutput `pulumi:"artifacts"`
+
+	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
+	BadgeEnabled pulumi.BoolOutput `pulumi:"badgeEnabled"`
+
+	// The URL of the build badge when `badgeEnabled` is enabled.
+	BadgeUrl pulumi.StringOutput `pulumi:"badgeUrl"`
+
+	// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+	BuildTimeout pulumi.IntOutput `pulumi:"buildTimeout"`
+
+	// Information about the cache storage for the project. Cache blocks are documented below.
+	Cache ProjectCacheOutput `pulumi:"cache"`
+
+	// A short description of the project.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
+
+	// Information about the project's build environment. Environment blocks are documented below.
+	Environment ProjectEnvironmentOutput `pulumi:"environment"`
+
+	// Configuration for the builds to store log data to CloudWatch or S3.
+	LogsConfig ProjectLogsConfigOutput `pulumi:"logsConfig"`
+
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
+	SecondaryArtifacts ProjectSecondaryArtifactsArrayOutput `pulumi:"secondaryArtifacts"`
+
+	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
+	SecondarySources ProjectSecondarySourcesArrayOutput `pulumi:"secondarySources"`
+
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+
+	// Information about the project's input source code. Source blocks are documented below.
+	Source ProjectSourceOutput `pulumi:"source"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
+	VpcConfig ProjectVpcConfigOutput `pulumi:"vpcConfig"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
 func NewProject(ctx *pulumi.Context,
-	name string, args *ProjectArgs, opts ...pulumi.ResourceOpt) (*Project, error) {
+	name string, args *ProjectArgs, opts ...pulumi.ResourceOption) (*Project, error) {
 	if args == nil || args.Artifacts == nil {
 		return nil, errors.New("missing required argument 'Artifacts'")
 	}
@@ -30,243 +83,1649 @@ func NewProject(ctx *pulumi.Context,
 	if args == nil || args.Source == nil {
 		return nil, errors.New("missing required argument 'Source'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["artifacts"] = nil
-		inputs["badgeEnabled"] = nil
-		inputs["buildTimeout"] = nil
-		inputs["cache"] = nil
-		inputs["description"] = nil
-		inputs["encryptionKey"] = nil
-		inputs["environment"] = nil
-		inputs["logsConfig"] = nil
-		inputs["name"] = nil
-		inputs["secondaryArtifacts"] = nil
-		inputs["secondarySources"] = nil
-		inputs["serviceRole"] = nil
-		inputs["source"] = nil
-		inputs["tags"] = nil
-		inputs["vpcConfig"] = nil
-	} else {
-		inputs["artifacts"] = args.Artifacts
-		inputs["badgeEnabled"] = args.BadgeEnabled
-		inputs["buildTimeout"] = args.BuildTimeout
-		inputs["cache"] = args.Cache
-		inputs["description"] = args.Description
-		inputs["encryptionKey"] = args.EncryptionKey
-		inputs["environment"] = args.Environment
-		inputs["logsConfig"] = args.LogsConfig
-		inputs["name"] = args.Name
-		inputs["secondaryArtifacts"] = args.SecondaryArtifacts
-		inputs["secondarySources"] = args.SecondarySources
-		inputs["serviceRole"] = args.ServiceRole
-		inputs["source"] = args.Source
-		inputs["tags"] = args.Tags
-		inputs["vpcConfig"] = args.VpcConfig
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Artifacts; i != nil { inputs["artifacts"] = i.ToProjectArtifactsOutput() }
+		if i := args.BadgeEnabled; i != nil { inputs["badgeEnabled"] = i.ToBoolOutput() }
+		if i := args.BuildTimeout; i != nil { inputs["buildTimeout"] = i.ToIntOutput() }
+		if i := args.Cache; i != nil { inputs["cache"] = i.ToProjectCacheOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EncryptionKey; i != nil { inputs["encryptionKey"] = i.ToStringOutput() }
+		if i := args.Environment; i != nil { inputs["environment"] = i.ToProjectEnvironmentOutput() }
+		if i := args.LogsConfig; i != nil { inputs["logsConfig"] = i.ToProjectLogsConfigOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.SecondaryArtifacts; i != nil { inputs["secondaryArtifacts"] = i.ToProjectSecondaryArtifactsArrayOutput() }
+		if i := args.SecondarySources; i != nil { inputs["secondarySources"] = i.ToProjectSecondarySourcesArrayOutput() }
+		if i := args.ServiceRole; i != nil { inputs["serviceRole"] = i.ToStringOutput() }
+		if i := args.Source; i != nil { inputs["source"] = i.ToProjectSourceOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToProjectVpcConfigOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["badgeUrl"] = nil
-	s, err := ctx.RegisterResource("aws:codebuild/project:Project", name, true, inputs, opts...)
+	var resource Project
+	err := ctx.RegisterResource("aws:codebuild/project:Project", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Project{s: s}, nil
+	return &resource, nil
 }
 
 // GetProject gets an existing Project resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProject(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProjectState, opts ...pulumi.ResourceOpt) (*Project, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["artifacts"] = state.Artifacts
-		inputs["badgeEnabled"] = state.BadgeEnabled
-		inputs["badgeUrl"] = state.BadgeUrl
-		inputs["buildTimeout"] = state.BuildTimeout
-		inputs["cache"] = state.Cache
-		inputs["description"] = state.Description
-		inputs["encryptionKey"] = state.EncryptionKey
-		inputs["environment"] = state.Environment
-		inputs["logsConfig"] = state.LogsConfig
-		inputs["name"] = state.Name
-		inputs["secondaryArtifacts"] = state.SecondaryArtifacts
-		inputs["secondarySources"] = state.SecondarySources
-		inputs["serviceRole"] = state.ServiceRole
-		inputs["source"] = state.Source
-		inputs["tags"] = state.Tags
-		inputs["vpcConfig"] = state.VpcConfig
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Artifacts; i != nil { inputs["artifacts"] = i.ToProjectArtifactsOutput() }
+		if i := state.BadgeEnabled; i != nil { inputs["badgeEnabled"] = i.ToBoolOutput() }
+		if i := state.BadgeUrl; i != nil { inputs["badgeUrl"] = i.ToStringOutput() }
+		if i := state.BuildTimeout; i != nil { inputs["buildTimeout"] = i.ToIntOutput() }
+		if i := state.Cache; i != nil { inputs["cache"] = i.ToProjectCacheOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EncryptionKey; i != nil { inputs["encryptionKey"] = i.ToStringOutput() }
+		if i := state.Environment; i != nil { inputs["environment"] = i.ToProjectEnvironmentOutput() }
+		if i := state.LogsConfig; i != nil { inputs["logsConfig"] = i.ToProjectLogsConfigOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.SecondaryArtifacts; i != nil { inputs["secondaryArtifacts"] = i.ToProjectSecondaryArtifactsArrayOutput() }
+		if i := state.SecondarySources; i != nil { inputs["secondarySources"] = i.ToProjectSecondarySourcesArrayOutput() }
+		if i := state.ServiceRole; i != nil { inputs["serviceRole"] = i.ToStringOutput() }
+		if i := state.Source; i != nil { inputs["source"] = i.ToProjectSourceOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToProjectVpcConfigOutput() }
 	}
-	s, err := ctx.ReadResource("aws:codebuild/project:Project", name, id, inputs, opts...)
+	var resource Project
+	err := ctx.ReadResource("aws:codebuild/project:Project", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Project{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Project) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Project) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the CodeBuild project.
-func (r *Project) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Information about the project's build output artifacts. Artifact blocks are documented below.
-func (r *Project) Artifacts() pulumi.Output {
-	return r.s.State["artifacts"]
-}
-
-// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
-func (r *Project) BadgeEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["badgeEnabled"])
-}
-
-// The URL of the build badge when `badgeEnabled` is enabled.
-func (r *Project) BadgeUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["badgeUrl"])
-}
-
-// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-func (r *Project) BuildTimeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["buildTimeout"])
-}
-
-// Information about the cache storage for the project. Cache blocks are documented below.
-func (r *Project) Cache() pulumi.Output {
-	return r.s.State["cache"]
-}
-
-// A short description of the project.
-func (r *Project) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-func (r *Project) EncryptionKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["encryptionKey"])
-}
-
-// Information about the project's build environment. Environment blocks are documented below.
-func (r *Project) Environment() pulumi.Output {
-	return r.s.State["environment"]
-}
-
-// Configuration for the builds to store log data to CloudWatch or S3.
-func (r *Project) LogsConfig() pulumi.Output {
-	return r.s.State["logsConfig"]
-}
-
-// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-func (r *Project) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
-func (r *Project) SecondaryArtifacts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["secondaryArtifacts"])
-}
-
-// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
-func (r *Project) SecondarySources() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["secondarySources"])
-}
-
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-func (r *Project) ServiceRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceRole"])
-}
-
-// Information about the project's input source code. Source blocks are documented below.
-func (r *Project) Source() pulumi.Output {
-	return r.s.State["source"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Project) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
-func (r *Project) VpcConfig() pulumi.Output {
-	return r.s.State["vpcConfig"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Project resources.
 type ProjectState struct {
 	// The ARN of the CodeBuild project.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Information about the project's build output artifacts. Artifact blocks are documented below.
-	Artifacts interface{}
+	Artifacts ProjectArtifactsInput `pulumi:"artifacts"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
-	BadgeEnabled interface{}
+	BadgeEnabled pulumi.BoolInput `pulumi:"badgeEnabled"`
 	// The URL of the build badge when `badgeEnabled` is enabled.
-	BadgeUrl interface{}
+	BadgeUrl pulumi.StringInput `pulumi:"badgeUrl"`
 	// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-	BuildTimeout interface{}
+	BuildTimeout pulumi.IntInput `pulumi:"buildTimeout"`
 	// Information about the cache storage for the project. Cache blocks are documented below.
-	Cache interface{}
+	Cache ProjectCacheInput `pulumi:"cache"`
 	// A short description of the project.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-	EncryptionKey interface{}
+	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
 	// Information about the project's build environment. Environment blocks are documented below.
-	Environment interface{}
+	Environment ProjectEnvironmentInput `pulumi:"environment"`
 	// Configuration for the builds to store log data to CloudWatch or S3.
-	LogsConfig interface{}
+	LogsConfig ProjectLogsConfigInput `pulumi:"logsConfig"`
 	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
-	SecondaryArtifacts interface{}
+	SecondaryArtifacts ProjectSecondaryArtifactsArrayInput `pulumi:"secondaryArtifacts"`
 	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
-	SecondarySources interface{}
+	SecondarySources ProjectSecondarySourcesArrayInput `pulumi:"secondarySources"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-	ServiceRole interface{}
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 	// Information about the project's input source code. Source blocks are documented below.
-	Source interface{}
+	Source ProjectSourceInput `pulumi:"source"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
-	VpcConfig interface{}
+	VpcConfig ProjectVpcConfigInput `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
 	// Information about the project's build output artifacts. Artifact blocks are documented below.
-	Artifacts interface{}
+	Artifacts ProjectArtifactsInput `pulumi:"artifacts"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
-	BadgeEnabled interface{}
+	BadgeEnabled pulumi.BoolInput `pulumi:"badgeEnabled"`
 	// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-	BuildTimeout interface{}
+	BuildTimeout pulumi.IntInput `pulumi:"buildTimeout"`
 	// Information about the cache storage for the project. Cache blocks are documented below.
-	Cache interface{}
+	Cache ProjectCacheInput `pulumi:"cache"`
 	// A short description of the project.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-	EncryptionKey interface{}
+	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
 	// Information about the project's build environment. Environment blocks are documented below.
-	Environment interface{}
+	Environment ProjectEnvironmentInput `pulumi:"environment"`
 	// Configuration for the builds to store log data to CloudWatch or S3.
-	LogsConfig interface{}
+	LogsConfig ProjectLogsConfigInput `pulumi:"logsConfig"`
 	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
-	SecondaryArtifacts interface{}
+	SecondaryArtifacts ProjectSecondaryArtifactsArrayInput `pulumi:"secondaryArtifacts"`
 	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
-	SecondarySources interface{}
+	SecondarySources ProjectSecondarySourcesArrayInput `pulumi:"secondarySources"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-	ServiceRole interface{}
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 	// Information about the project's input source code. Source blocks are documented below.
-	Source interface{}
+	Source ProjectSourceInput `pulumi:"source"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
-	VpcConfig interface{}
+	VpcConfig ProjectVpcConfigInput `pulumi:"vpcConfig"`
 }
+type ProjectArtifacts struct {
+	// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+	ArtifactIdentifier *string `pulumi:"artifactIdentifier"`
+	// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// The location of the source code from git or s3.
+	Location *string `pulumi:"location"`
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name *string `pulumi:"name"`
+	// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+	NamespaceType *string `pulumi:"namespaceType"`
+	// If set to true, a name specified in the build spec file overrides the artifact name.
+	OverrideArtifactName *bool `pulumi:"overrideArtifactName"`
+	// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+	Packaging *string `pulumi:"packaging"`
+	// If `type` is set to `S3`, this is the path to the output artifact
+	Path *string `pulumi:"path"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectArtifactsType = reflect.TypeOf((*ProjectArtifacts)(nil)).Elem()
+
+type ProjectArtifactsInput interface {
+	pulumi.Input
+
+	ToProjectArtifactsOutput() ProjectArtifactsOutput
+	ToProjectArtifactsOutputWithContext(ctx context.Context) ProjectArtifactsOutput
+}
+
+type ProjectArtifactsArgs struct {
+	// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+	ArtifactIdentifier pulumi.StringInput `pulumi:"artifactIdentifier"`
+	// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+	EncryptionDisabled pulumi.BoolInput `pulumi:"encryptionDisabled"`
+	// The location of the source code from git or s3.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name pulumi.StringInput `pulumi:"name"`
+	// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+	NamespaceType pulumi.StringInput `pulumi:"namespaceType"`
+	// If set to true, a name specified in the build spec file overrides the artifact name.
+	OverrideArtifactName pulumi.BoolInput `pulumi:"overrideArtifactName"`
+	// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+	Packaging pulumi.StringInput `pulumi:"packaging"`
+	// If `type` is set to `S3`, this is the path to the output artifact
+	Path pulumi.StringInput `pulumi:"path"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectArtifactsArgs) ElementType() reflect.Type {
+	return projectArtifactsType
+}
+
+func (a ProjectArtifactsArgs) ToProjectArtifactsOutput() ProjectArtifactsOutput {
+	return pulumi.ToOutput(a).(ProjectArtifactsOutput)
+}
+
+func (a ProjectArtifactsArgs) ToProjectArtifactsOutputWithContext(ctx context.Context) ProjectArtifactsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectArtifactsOutput)
+}
+
+type ProjectArtifactsOutput struct { *pulumi.OutputState }
+
+// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+func (o ProjectArtifactsOutput) ArtifactIdentifier() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		if v.ArtifactIdentifier == nil { return *new(string) } else { return *v.ArtifactIdentifier }
+	}).(pulumi.StringOutput)
+}
+
+// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+func (o ProjectArtifactsOutput) EncryptionDisabled() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectArtifacts) bool {
+		if v.EncryptionDisabled == nil { return *new(bool) } else { return *v.EncryptionDisabled }
+	}).(pulumi.BoolOutput)
+}
+
+// The location of the source code from git or s3.
+func (o ProjectArtifactsOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+func (o ProjectArtifactsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+func (o ProjectArtifactsOutput) NamespaceType() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		if v.NamespaceType == nil { return *new(string) } else { return *v.NamespaceType }
+	}).(pulumi.StringOutput)
+}
+
+// If set to true, a name specified in the build spec file overrides the artifact name.
+func (o ProjectArtifactsOutput) OverrideArtifactName() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectArtifacts) bool {
+		if v.OverrideArtifactName == nil { return *new(bool) } else { return *v.OverrideArtifactName }
+	}).(pulumi.BoolOutput)
+}
+
+// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+func (o ProjectArtifactsOutput) Packaging() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		if v.Packaging == nil { return *new(string) } else { return *v.Packaging }
+	}).(pulumi.StringOutput)
+}
+
+// If `type` is set to `S3`, this is the path to the output artifact
+func (o ProjectArtifactsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectArtifacts) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectArtifactsOutput) ElementType() reflect.Type {
+	return projectArtifactsType
+}
+
+func (o ProjectArtifactsOutput) ToProjectArtifactsOutput() ProjectArtifactsOutput {
+	return o
+}
+
+func (o ProjectArtifactsOutput) ToProjectArtifactsOutputWithContext(ctx context.Context) ProjectArtifactsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectArtifactsOutput{}) }
+
+type ProjectCache struct {
+	// The location of the source code from git or s3.
+	Location *string `pulumi:"location"`
+	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+	Modes *[]string `pulumi:"modes"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type *string `pulumi:"type"`
+}
+var projectCacheType = reflect.TypeOf((*ProjectCache)(nil)).Elem()
+
+type ProjectCacheInput interface {
+	pulumi.Input
+
+	ToProjectCacheOutput() ProjectCacheOutput
+	ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput
+}
+
+type ProjectCacheArgs struct {
+	// The location of the source code from git or s3.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+	Modes pulumi.StringArrayInput `pulumi:"modes"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectCacheArgs) ElementType() reflect.Type {
+	return projectCacheType
+}
+
+func (a ProjectCacheArgs) ToProjectCacheOutput() ProjectCacheOutput {
+	return pulumi.ToOutput(a).(ProjectCacheOutput)
+}
+
+func (a ProjectCacheArgs) ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectCacheOutput)
+}
+
+type ProjectCacheOutput struct { *pulumi.OutputState }
+
+// The location of the source code from git or s3.
+func (o ProjectCacheOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ProjectCache) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+func (o ProjectCacheOutput) Modes() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProjectCache) []string {
+		if v.Modes == nil { return *new([]string) } else { return *v.Modes }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectCacheOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectCache) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectCacheOutput) ElementType() reflect.Type {
+	return projectCacheType
+}
+
+func (o ProjectCacheOutput) ToProjectCacheOutput() ProjectCacheOutput {
+	return o
+}
+
+func (o ProjectCacheOutput) ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectCacheOutput{}) }
+
+type ProjectEnvironment struct {
+	// The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+	Certificate *string `pulumi:"certificate"`
+	// Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+	ComputeType string `pulumi:"computeType"`
+	// A set of environment variables to make available to builds for this build project.
+	EnvironmentVariables *[]ProjectEnvironmentEnvironmentVariables `pulumi:"environmentVariables"`
+	// The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	Image string `pulumi:"image"`
+	// The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+	ImagePullCredentialsType *string `pulumi:"imagePullCredentialsType"`
+	// If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+	PrivilegedMode *bool `pulumi:"privilegedMode"`
+	// Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+	RegistryCredential *ProjectEnvironmentRegistryCredential `pulumi:"registryCredential"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectEnvironmentType = reflect.TypeOf((*ProjectEnvironment)(nil)).Elem()
+
+type ProjectEnvironmentInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentOutput() ProjectEnvironmentOutput
+	ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput
+}
+
+type ProjectEnvironmentArgs struct {
+	// The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+	Certificate pulumi.StringInput `pulumi:"certificate"`
+	// Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// A set of environment variables to make available to builds for this build project.
+	EnvironmentVariables ProjectEnvironmentEnvironmentVariablesArrayInput `pulumi:"environmentVariables"`
+	// The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	Image pulumi.StringInput `pulumi:"image"`
+	// The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+	ImagePullCredentialsType pulumi.StringInput `pulumi:"imagePullCredentialsType"`
+	// If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+	PrivilegedMode pulumi.BoolInput `pulumi:"privilegedMode"`
+	// Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+	RegistryCredential ProjectEnvironmentRegistryCredentialInput `pulumi:"registryCredential"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectEnvironmentArgs) ElementType() reflect.Type {
+	return projectEnvironmentType
+}
+
+func (a ProjectEnvironmentArgs) ToProjectEnvironmentOutput() ProjectEnvironmentOutput {
+	return pulumi.ToOutput(a).(ProjectEnvironmentOutput)
+}
+
+func (a ProjectEnvironmentArgs) ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectEnvironmentOutput)
+}
+
+type ProjectEnvironmentOutput struct { *pulumi.OutputState }
+
+// The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
+func (o ProjectEnvironmentOutput) Certificate() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironment) string {
+		if v.Certificate == nil { return *new(string) } else { return *v.Certificate }
+	}).(pulumi.StringOutput)
+}
+
+// Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironment) string {
+		return v.ComputeType
+	}).(pulumi.StringOutput)
+}
+
+// A set of environment variables to make available to builds for this build project.
+func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentEnvironmentVariablesArrayOutput {
+	return o.Apply(func(v ProjectEnvironment) []ProjectEnvironmentEnvironmentVariables {
+		if v.EnvironmentVariables == nil { return *new([]ProjectEnvironmentEnvironmentVariables) } else { return *v.EnvironmentVariables }
+	}).(ProjectEnvironmentEnvironmentVariablesArrayOutput)
+}
+
+// The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironment) string {
+		return v.Image
+	}).(pulumi.StringOutput)
+}
+
+// The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
+func (o ProjectEnvironmentOutput) ImagePullCredentialsType() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironment) string {
+		if v.ImagePullCredentialsType == nil { return *new(string) } else { return *v.ImagePullCredentialsType }
+	}).(pulumi.StringOutput)
+}
+
+// If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
+func (o ProjectEnvironmentOutput) PrivilegedMode() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectEnvironment) bool {
+		if v.PrivilegedMode == nil { return *new(bool) } else { return *v.PrivilegedMode }
+	}).(pulumi.BoolOutput)
+}
+
+// Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
+func (o ProjectEnvironmentOutput) RegistryCredential() ProjectEnvironmentRegistryCredentialOutput {
+	return o.Apply(func(v ProjectEnvironment) ProjectEnvironmentRegistryCredential {
+		if v.RegistryCredential == nil { return *new(ProjectEnvironmentRegistryCredential) } else { return *v.RegistryCredential }
+	}).(ProjectEnvironmentRegistryCredentialOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironment) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectEnvironmentOutput) ElementType() reflect.Type {
+	return projectEnvironmentType
+}
+
+func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutput() ProjectEnvironmentOutput {
+	return o
+}
+
+func (o ProjectEnvironmentOutput) ToProjectEnvironmentOutputWithContext(ctx context.Context) ProjectEnvironmentOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectEnvironmentOutput{}) }
+
+type ProjectEnvironmentEnvironmentVariables struct {
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name string `pulumi:"name"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type *string `pulumi:"type"`
+	// The environment variable's value.
+	Value string `pulumi:"value"`
+}
+var projectEnvironmentEnvironmentVariablesType = reflect.TypeOf((*ProjectEnvironmentEnvironmentVariables)(nil)).Elem()
+
+type ProjectEnvironmentEnvironmentVariablesInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentEnvironmentVariablesOutput() ProjectEnvironmentEnvironmentVariablesOutput
+	ToProjectEnvironmentEnvironmentVariablesOutputWithContext(ctx context.Context) ProjectEnvironmentEnvironmentVariablesOutput
+}
+
+type ProjectEnvironmentEnvironmentVariablesArgs struct {
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The environment variable's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectEnvironmentEnvironmentVariablesArgs) ElementType() reflect.Type {
+	return projectEnvironmentEnvironmentVariablesType
+}
+
+func (a ProjectEnvironmentEnvironmentVariablesArgs) ToProjectEnvironmentEnvironmentVariablesOutput() ProjectEnvironmentEnvironmentVariablesOutput {
+	return pulumi.ToOutput(a).(ProjectEnvironmentEnvironmentVariablesOutput)
+}
+
+func (a ProjectEnvironmentEnvironmentVariablesArgs) ToProjectEnvironmentEnvironmentVariablesOutputWithContext(ctx context.Context) ProjectEnvironmentEnvironmentVariablesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectEnvironmentEnvironmentVariablesOutput)
+}
+
+type ProjectEnvironmentEnvironmentVariablesOutput struct { *pulumi.OutputState }
+
+// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+func (o ProjectEnvironmentEnvironmentVariablesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironmentEnvironmentVariables) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectEnvironmentEnvironmentVariablesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironmentEnvironmentVariables) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+// The environment variable's value.
+func (o ProjectEnvironmentEnvironmentVariablesOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironmentEnvironmentVariables) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectEnvironmentEnvironmentVariablesOutput) ElementType() reflect.Type {
+	return projectEnvironmentEnvironmentVariablesType
+}
+
+func (o ProjectEnvironmentEnvironmentVariablesOutput) ToProjectEnvironmentEnvironmentVariablesOutput() ProjectEnvironmentEnvironmentVariablesOutput {
+	return o
+}
+
+func (o ProjectEnvironmentEnvironmentVariablesOutput) ToProjectEnvironmentEnvironmentVariablesOutputWithContext(ctx context.Context) ProjectEnvironmentEnvironmentVariablesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariablesOutput{}) }
+
+var projectEnvironmentEnvironmentVariablesArrayType = reflect.TypeOf((*[]ProjectEnvironmentEnvironmentVariables)(nil)).Elem()
+
+type ProjectEnvironmentEnvironmentVariablesArrayInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentEnvironmentVariablesArrayOutput() ProjectEnvironmentEnvironmentVariablesArrayOutput
+	ToProjectEnvironmentEnvironmentVariablesArrayOutputWithContext(ctx context.Context) ProjectEnvironmentEnvironmentVariablesArrayOutput
+}
+
+type ProjectEnvironmentEnvironmentVariablesArrayArgs []ProjectEnvironmentEnvironmentVariablesInput
+
+func (ProjectEnvironmentEnvironmentVariablesArrayArgs) ElementType() reflect.Type {
+	return projectEnvironmentEnvironmentVariablesArrayType
+}
+
+func (a ProjectEnvironmentEnvironmentVariablesArrayArgs) ToProjectEnvironmentEnvironmentVariablesArrayOutput() ProjectEnvironmentEnvironmentVariablesArrayOutput {
+	return pulumi.ToOutput(a).(ProjectEnvironmentEnvironmentVariablesArrayOutput)
+}
+
+func (a ProjectEnvironmentEnvironmentVariablesArrayArgs) ToProjectEnvironmentEnvironmentVariablesArrayOutputWithContext(ctx context.Context) ProjectEnvironmentEnvironmentVariablesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectEnvironmentEnvironmentVariablesArrayOutput)
+}
+
+type ProjectEnvironmentEnvironmentVariablesArrayOutput struct { *pulumi.OutputState }
+
+func (o ProjectEnvironmentEnvironmentVariablesArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentEnvironmentVariablesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProjectEnvironmentEnvironmentVariables {
+		return vs[0].([]ProjectEnvironmentEnvironmentVariables)[vs[1].(int)]
+	}).(ProjectEnvironmentEnvironmentVariablesOutput)
+}
+
+func (ProjectEnvironmentEnvironmentVariablesArrayOutput) ElementType() reflect.Type {
+	return projectEnvironmentEnvironmentVariablesArrayType
+}
+
+func (o ProjectEnvironmentEnvironmentVariablesArrayOutput) ToProjectEnvironmentEnvironmentVariablesArrayOutput() ProjectEnvironmentEnvironmentVariablesArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentEnvironmentVariablesArrayOutput) ToProjectEnvironmentEnvironmentVariablesArrayOutputWithContext(ctx context.Context) ProjectEnvironmentEnvironmentVariablesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariablesArrayOutput{}) }
+
+type ProjectEnvironmentRegistryCredential struct {
+	// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+	Credential string `pulumi:"credential"`
+	// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+	CredentialProvider string `pulumi:"credentialProvider"`
+}
+var projectEnvironmentRegistryCredentialType = reflect.TypeOf((*ProjectEnvironmentRegistryCredential)(nil)).Elem()
+
+type ProjectEnvironmentRegistryCredentialInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentRegistryCredentialOutput() ProjectEnvironmentRegistryCredentialOutput
+	ToProjectEnvironmentRegistryCredentialOutputWithContext(ctx context.Context) ProjectEnvironmentRegistryCredentialOutput
+}
+
+type ProjectEnvironmentRegistryCredentialArgs struct {
+	// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+	Credential pulumi.StringInput `pulumi:"credential"`
+	// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+	CredentialProvider pulumi.StringInput `pulumi:"credentialProvider"`
+}
+
+func (ProjectEnvironmentRegistryCredentialArgs) ElementType() reflect.Type {
+	return projectEnvironmentRegistryCredentialType
+}
+
+func (a ProjectEnvironmentRegistryCredentialArgs) ToProjectEnvironmentRegistryCredentialOutput() ProjectEnvironmentRegistryCredentialOutput {
+	return pulumi.ToOutput(a).(ProjectEnvironmentRegistryCredentialOutput)
+}
+
+func (a ProjectEnvironmentRegistryCredentialArgs) ToProjectEnvironmentRegistryCredentialOutputWithContext(ctx context.Context) ProjectEnvironmentRegistryCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectEnvironmentRegistryCredentialOutput)
+}
+
+type ProjectEnvironmentRegistryCredentialOutput struct { *pulumi.OutputState }
+
+// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+func (o ProjectEnvironmentRegistryCredentialOutput) Credential() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironmentRegistryCredential) string {
+		return v.Credential
+	}).(pulumi.StringOutput)
+}
+
+// The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
+func (o ProjectEnvironmentRegistryCredentialOutput) CredentialProvider() pulumi.StringOutput {
+	return o.Apply(func(v ProjectEnvironmentRegistryCredential) string {
+		return v.CredentialProvider
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectEnvironmentRegistryCredentialOutput) ElementType() reflect.Type {
+	return projectEnvironmentRegistryCredentialType
+}
+
+func (o ProjectEnvironmentRegistryCredentialOutput) ToProjectEnvironmentRegistryCredentialOutput() ProjectEnvironmentRegistryCredentialOutput {
+	return o
+}
+
+func (o ProjectEnvironmentRegistryCredentialOutput) ToProjectEnvironmentRegistryCredentialOutputWithContext(ctx context.Context) ProjectEnvironmentRegistryCredentialOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectEnvironmentRegistryCredentialOutput{}) }
+
+type ProjectLogsConfig struct {
+	// Configuration for the builds to store logs to CloudWatch
+	CloudwatchLogs *ProjectLogsConfigCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	// Configuration for the builds to store logs to S3.
+	S3Logs *ProjectLogsConfigS3Logs `pulumi:"s3Logs"`
+}
+var projectLogsConfigType = reflect.TypeOf((*ProjectLogsConfig)(nil)).Elem()
+
+type ProjectLogsConfigInput interface {
+	pulumi.Input
+
+	ToProjectLogsConfigOutput() ProjectLogsConfigOutput
+	ToProjectLogsConfigOutputWithContext(ctx context.Context) ProjectLogsConfigOutput
+}
+
+type ProjectLogsConfigArgs struct {
+	// Configuration for the builds to store logs to CloudWatch
+	CloudwatchLogs ProjectLogsConfigCloudwatchLogsInput `pulumi:"cloudwatchLogs"`
+	// Configuration for the builds to store logs to S3.
+	S3Logs ProjectLogsConfigS3LogsInput `pulumi:"s3Logs"`
+}
+
+func (ProjectLogsConfigArgs) ElementType() reflect.Type {
+	return projectLogsConfigType
+}
+
+func (a ProjectLogsConfigArgs) ToProjectLogsConfigOutput() ProjectLogsConfigOutput {
+	return pulumi.ToOutput(a).(ProjectLogsConfigOutput)
+}
+
+func (a ProjectLogsConfigArgs) ToProjectLogsConfigOutputWithContext(ctx context.Context) ProjectLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectLogsConfigOutput)
+}
+
+type ProjectLogsConfigOutput struct { *pulumi.OutputState }
+
+// Configuration for the builds to store logs to CloudWatch
+func (o ProjectLogsConfigOutput) CloudwatchLogs() ProjectLogsConfigCloudwatchLogsOutput {
+	return o.Apply(func(v ProjectLogsConfig) ProjectLogsConfigCloudwatchLogs {
+		if v.CloudwatchLogs == nil { return *new(ProjectLogsConfigCloudwatchLogs) } else { return *v.CloudwatchLogs }
+	}).(ProjectLogsConfigCloudwatchLogsOutput)
+}
+
+// Configuration for the builds to store logs to S3.
+func (o ProjectLogsConfigOutput) S3Logs() ProjectLogsConfigS3LogsOutput {
+	return o.Apply(func(v ProjectLogsConfig) ProjectLogsConfigS3Logs {
+		if v.S3Logs == nil { return *new(ProjectLogsConfigS3Logs) } else { return *v.S3Logs }
+	}).(ProjectLogsConfigS3LogsOutput)
+}
+
+func (ProjectLogsConfigOutput) ElementType() reflect.Type {
+	return projectLogsConfigType
+}
+
+func (o ProjectLogsConfigOutput) ToProjectLogsConfigOutput() ProjectLogsConfigOutput {
+	return o
+}
+
+func (o ProjectLogsConfigOutput) ToProjectLogsConfigOutputWithContext(ctx context.Context) ProjectLogsConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectLogsConfigOutput{}) }
+
+type ProjectLogsConfigCloudwatchLogs struct {
+	// The group name of the logs in CloudWatch Logs.
+	GroupName *string `pulumi:"groupName"`
+	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	Status *string `pulumi:"status"`
+	// The stream name of the logs in CloudWatch Logs.
+	StreamName *string `pulumi:"streamName"`
+}
+var projectLogsConfigCloudwatchLogsType = reflect.TypeOf((*ProjectLogsConfigCloudwatchLogs)(nil)).Elem()
+
+type ProjectLogsConfigCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToProjectLogsConfigCloudwatchLogsOutput() ProjectLogsConfigCloudwatchLogsOutput
+	ToProjectLogsConfigCloudwatchLogsOutputWithContext(ctx context.Context) ProjectLogsConfigCloudwatchLogsOutput
+}
+
+type ProjectLogsConfigCloudwatchLogsArgs struct {
+	// The group name of the logs in CloudWatch Logs.
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The stream name of the logs in CloudWatch Logs.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
+}
+
+func (ProjectLogsConfigCloudwatchLogsArgs) ElementType() reflect.Type {
+	return projectLogsConfigCloudwatchLogsType
+}
+
+func (a ProjectLogsConfigCloudwatchLogsArgs) ToProjectLogsConfigCloudwatchLogsOutput() ProjectLogsConfigCloudwatchLogsOutput {
+	return pulumi.ToOutput(a).(ProjectLogsConfigCloudwatchLogsOutput)
+}
+
+func (a ProjectLogsConfigCloudwatchLogsArgs) ToProjectLogsConfigCloudwatchLogsOutputWithContext(ctx context.Context) ProjectLogsConfigCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectLogsConfigCloudwatchLogsOutput)
+}
+
+type ProjectLogsConfigCloudwatchLogsOutput struct { *pulumi.OutputState }
+
+// The group name of the logs in CloudWatch Logs.
+func (o ProjectLogsConfigCloudwatchLogsOutput) GroupName() pulumi.StringOutput {
+	return o.Apply(func(v ProjectLogsConfigCloudwatchLogs) string {
+		if v.GroupName == nil { return *new(string) } else { return *v.GroupName }
+	}).(pulumi.StringOutput)
+}
+
+// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+func (o ProjectLogsConfigCloudwatchLogsOutput) Status() pulumi.StringOutput {
+	return o.Apply(func(v ProjectLogsConfigCloudwatchLogs) string {
+		if v.Status == nil { return *new(string) } else { return *v.Status }
+	}).(pulumi.StringOutput)
+}
+
+// The stream name of the logs in CloudWatch Logs.
+func (o ProjectLogsConfigCloudwatchLogsOutput) StreamName() pulumi.StringOutput {
+	return o.Apply(func(v ProjectLogsConfigCloudwatchLogs) string {
+		if v.StreamName == nil { return *new(string) } else { return *v.StreamName }
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectLogsConfigCloudwatchLogsOutput) ElementType() reflect.Type {
+	return projectLogsConfigCloudwatchLogsType
+}
+
+func (o ProjectLogsConfigCloudwatchLogsOutput) ToProjectLogsConfigCloudwatchLogsOutput() ProjectLogsConfigCloudwatchLogsOutput {
+	return o
+}
+
+func (o ProjectLogsConfigCloudwatchLogsOutput) ToProjectLogsConfigCloudwatchLogsOutputWithContext(ctx context.Context) ProjectLogsConfigCloudwatchLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectLogsConfigCloudwatchLogsOutput{}) }
+
+type ProjectLogsConfigS3Logs struct {
+	// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// The location of the source code from git or s3.
+	Location *string `pulumi:"location"`
+	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+var projectLogsConfigS3LogsType = reflect.TypeOf((*ProjectLogsConfigS3Logs)(nil)).Elem()
+
+type ProjectLogsConfigS3LogsInput interface {
+	pulumi.Input
+
+	ToProjectLogsConfigS3LogsOutput() ProjectLogsConfigS3LogsOutput
+	ToProjectLogsConfigS3LogsOutputWithContext(ctx context.Context) ProjectLogsConfigS3LogsOutput
+}
+
+type ProjectLogsConfigS3LogsArgs struct {
+	// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+	EncryptionDisabled pulumi.BoolInput `pulumi:"encryptionDisabled"`
+	// The location of the source code from git or s3.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ProjectLogsConfigS3LogsArgs) ElementType() reflect.Type {
+	return projectLogsConfigS3LogsType
+}
+
+func (a ProjectLogsConfigS3LogsArgs) ToProjectLogsConfigS3LogsOutput() ProjectLogsConfigS3LogsOutput {
+	return pulumi.ToOutput(a).(ProjectLogsConfigS3LogsOutput)
+}
+
+func (a ProjectLogsConfigS3LogsArgs) ToProjectLogsConfigS3LogsOutputWithContext(ctx context.Context) ProjectLogsConfigS3LogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectLogsConfigS3LogsOutput)
+}
+
+type ProjectLogsConfigS3LogsOutput struct { *pulumi.OutputState }
+
+// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+func (o ProjectLogsConfigS3LogsOutput) EncryptionDisabled() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectLogsConfigS3Logs) bool {
+		if v.EncryptionDisabled == nil { return *new(bool) } else { return *v.EncryptionDisabled }
+	}).(pulumi.BoolOutput)
+}
+
+// The location of the source code from git or s3.
+func (o ProjectLogsConfigS3LogsOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ProjectLogsConfigS3Logs) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+func (o ProjectLogsConfigS3LogsOutput) Status() pulumi.StringOutput {
+	return o.Apply(func(v ProjectLogsConfigS3Logs) string {
+		if v.Status == nil { return *new(string) } else { return *v.Status }
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectLogsConfigS3LogsOutput) ElementType() reflect.Type {
+	return projectLogsConfigS3LogsType
+}
+
+func (o ProjectLogsConfigS3LogsOutput) ToProjectLogsConfigS3LogsOutput() ProjectLogsConfigS3LogsOutput {
+	return o
+}
+
+func (o ProjectLogsConfigS3LogsOutput) ToProjectLogsConfigS3LogsOutputWithContext(ctx context.Context) ProjectLogsConfigS3LogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectLogsConfigS3LogsOutput{}) }
+
+type ProjectSecondaryArtifacts struct {
+	// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+	ArtifactIdentifier string `pulumi:"artifactIdentifier"`
+	// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// The location of the source code from git or s3.
+	Location *string `pulumi:"location"`
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name *string `pulumi:"name"`
+	// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+	NamespaceType *string `pulumi:"namespaceType"`
+	// If set to true, a name specified in the build spec file overrides the artifact name.
+	OverrideArtifactName *bool `pulumi:"overrideArtifactName"`
+	// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+	Packaging *string `pulumi:"packaging"`
+	// If `type` is set to `S3`, this is the path to the output artifact
+	Path *string `pulumi:"path"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectSecondaryArtifactsType = reflect.TypeOf((*ProjectSecondaryArtifacts)(nil)).Elem()
+
+type ProjectSecondaryArtifactsInput interface {
+	pulumi.Input
+
+	ToProjectSecondaryArtifactsOutput() ProjectSecondaryArtifactsOutput
+	ToProjectSecondaryArtifactsOutputWithContext(ctx context.Context) ProjectSecondaryArtifactsOutput
+}
+
+type ProjectSecondaryArtifactsArgs struct {
+	// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+	ArtifactIdentifier pulumi.StringInput `pulumi:"artifactIdentifier"`
+	// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+	EncryptionDisabled pulumi.BoolInput `pulumi:"encryptionDisabled"`
+	// The location of the source code from git or s3.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	Name pulumi.StringInput `pulumi:"name"`
+	// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+	NamespaceType pulumi.StringInput `pulumi:"namespaceType"`
+	// If set to true, a name specified in the build spec file overrides the artifact name.
+	OverrideArtifactName pulumi.BoolInput `pulumi:"overrideArtifactName"`
+	// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+	Packaging pulumi.StringInput `pulumi:"packaging"`
+	// If `type` is set to `S3`, this is the path to the output artifact
+	Path pulumi.StringInput `pulumi:"path"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSecondaryArtifactsArgs) ElementType() reflect.Type {
+	return projectSecondaryArtifactsType
+}
+
+func (a ProjectSecondaryArtifactsArgs) ToProjectSecondaryArtifactsOutput() ProjectSecondaryArtifactsOutput {
+	return pulumi.ToOutput(a).(ProjectSecondaryArtifactsOutput)
+}
+
+func (a ProjectSecondaryArtifactsArgs) ToProjectSecondaryArtifactsOutputWithContext(ctx context.Context) ProjectSecondaryArtifactsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSecondaryArtifactsOutput)
+}
+
+type ProjectSecondaryArtifactsOutput struct { *pulumi.OutputState }
+
+// The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
+func (o ProjectSecondaryArtifactsOutput) ArtifactIdentifier() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		return v.ArtifactIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
+func (o ProjectSecondaryArtifactsOutput) EncryptionDisabled() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) bool {
+		if v.EncryptionDisabled == nil { return *new(bool) } else { return *v.EncryptionDisabled }
+	}).(pulumi.BoolOutput)
+}
+
+// The location of the source code from git or s3.
+func (o ProjectSecondaryArtifactsOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+func (o ProjectSecondaryArtifactsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+// The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
+func (o ProjectSecondaryArtifactsOutput) NamespaceType() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		if v.NamespaceType == nil { return *new(string) } else { return *v.NamespaceType }
+	}).(pulumi.StringOutput)
+}
+
+// If set to true, a name specified in the build spec file overrides the artifact name.
+func (o ProjectSecondaryArtifactsOutput) OverrideArtifactName() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) bool {
+		if v.OverrideArtifactName == nil { return *new(bool) } else { return *v.OverrideArtifactName }
+	}).(pulumi.BoolOutput)
+}
+
+// The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
+func (o ProjectSecondaryArtifactsOutput) Packaging() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		if v.Packaging == nil { return *new(string) } else { return *v.Packaging }
+	}).(pulumi.StringOutput)
+}
+
+// If `type` is set to `S3`, this is the path to the output artifact
+func (o ProjectSecondaryArtifactsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectSecondaryArtifactsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondaryArtifacts) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectSecondaryArtifactsOutput) ElementType() reflect.Type {
+	return projectSecondaryArtifactsType
+}
+
+func (o ProjectSecondaryArtifactsOutput) ToProjectSecondaryArtifactsOutput() ProjectSecondaryArtifactsOutput {
+	return o
+}
+
+func (o ProjectSecondaryArtifactsOutput) ToProjectSecondaryArtifactsOutputWithContext(ctx context.Context) ProjectSecondaryArtifactsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSecondaryArtifactsOutput{}) }
+
+var projectSecondaryArtifactsArrayType = reflect.TypeOf((*[]ProjectSecondaryArtifacts)(nil)).Elem()
+
+type ProjectSecondaryArtifactsArrayInput interface {
+	pulumi.Input
+
+	ToProjectSecondaryArtifactsArrayOutput() ProjectSecondaryArtifactsArrayOutput
+	ToProjectSecondaryArtifactsArrayOutputWithContext(ctx context.Context) ProjectSecondaryArtifactsArrayOutput
+}
+
+type ProjectSecondaryArtifactsArrayArgs []ProjectSecondaryArtifactsInput
+
+func (ProjectSecondaryArtifactsArrayArgs) ElementType() reflect.Type {
+	return projectSecondaryArtifactsArrayType
+}
+
+func (a ProjectSecondaryArtifactsArrayArgs) ToProjectSecondaryArtifactsArrayOutput() ProjectSecondaryArtifactsArrayOutput {
+	return pulumi.ToOutput(a).(ProjectSecondaryArtifactsArrayOutput)
+}
+
+func (a ProjectSecondaryArtifactsArrayArgs) ToProjectSecondaryArtifactsArrayOutputWithContext(ctx context.Context) ProjectSecondaryArtifactsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSecondaryArtifactsArrayOutput)
+}
+
+type ProjectSecondaryArtifactsArrayOutput struct { *pulumi.OutputState }
+
+func (o ProjectSecondaryArtifactsArrayOutput) Index(i pulumi.IntInput) ProjectSecondaryArtifactsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProjectSecondaryArtifacts {
+		return vs[0].([]ProjectSecondaryArtifacts)[vs[1].(int)]
+	}).(ProjectSecondaryArtifactsOutput)
+}
+
+func (ProjectSecondaryArtifactsArrayOutput) ElementType() reflect.Type {
+	return projectSecondaryArtifactsArrayType
+}
+
+func (o ProjectSecondaryArtifactsArrayOutput) ToProjectSecondaryArtifactsArrayOutput() ProjectSecondaryArtifactsArrayOutput {
+	return o
+}
+
+func (o ProjectSecondaryArtifactsArrayOutput) ToProjectSecondaryArtifactsArrayOutputWithContext(ctx context.Context) ProjectSecondaryArtifactsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSecondaryArtifactsArrayOutput{}) }
+
+type ProjectSecondarySources struct {
+	// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+	Auths *[]ProjectSecondarySourcesAuths `pulumi:"auths"`
+	// The build spec declaration to use for this build project's related builds.
+	Buildspec *string `pulumi:"buildspec"`
+	// Truncate git history to this many commits.
+	GitCloneDepth *int `pulumi:"gitCloneDepth"`
+	// Ignore SSL warnings when connecting to source control.
+	InsecureSsl *bool `pulumi:"insecureSsl"`
+	// The location of the source code from git or s3.
+	Location *string `pulumi:"location"`
+	// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
+	// The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectSecondarySourcesType = reflect.TypeOf((*ProjectSecondarySources)(nil)).Elem()
+
+type ProjectSecondarySourcesInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourcesOutput() ProjectSecondarySourcesOutput
+	ToProjectSecondarySourcesOutputWithContext(ctx context.Context) ProjectSecondarySourcesOutput
+}
+
+type ProjectSecondarySourcesArgs struct {
+	// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+	Auths ProjectSecondarySourcesAuthsArrayInput `pulumi:"auths"`
+	// The build spec declaration to use for this build project's related builds.
+	Buildspec pulumi.StringInput `pulumi:"buildspec"`
+	// Truncate git history to this many commits.
+	GitCloneDepth pulumi.IntInput `pulumi:"gitCloneDepth"`
+	// Ignore SSL warnings when connecting to source control.
+	InsecureSsl pulumi.BoolInput `pulumi:"insecureSsl"`
+	// The location of the source code from git or s3.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+	ReportBuildStatus pulumi.BoolInput `pulumi:"reportBuildStatus"`
+	// The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSecondarySourcesArgs) ElementType() reflect.Type {
+	return projectSecondarySourcesType
+}
+
+func (a ProjectSecondarySourcesArgs) ToProjectSecondarySourcesOutput() ProjectSecondarySourcesOutput {
+	return pulumi.ToOutput(a).(ProjectSecondarySourcesOutput)
+}
+
+func (a ProjectSecondarySourcesArgs) ToProjectSecondarySourcesOutputWithContext(ctx context.Context) ProjectSecondarySourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSecondarySourcesOutput)
+}
+
+type ProjectSecondarySourcesOutput struct { *pulumi.OutputState }
+
+// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+func (o ProjectSecondarySourcesOutput) Auths() ProjectSecondarySourcesAuthsArrayOutput {
+	return o.Apply(func(v ProjectSecondarySources) []ProjectSecondarySourcesAuths {
+		if v.Auths == nil { return *new([]ProjectSecondarySourcesAuths) } else { return *v.Auths }
+	}).(ProjectSecondarySourcesAuthsArrayOutput)
+}
+
+// The build spec declaration to use for this build project's related builds.
+func (o ProjectSecondarySourcesOutput) Buildspec() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondarySources) string {
+		if v.Buildspec == nil { return *new(string) } else { return *v.Buildspec }
+	}).(pulumi.StringOutput)
+}
+
+// Truncate git history to this many commits.
+func (o ProjectSecondarySourcesOutput) GitCloneDepth() pulumi.IntOutput {
+	return o.Apply(func(v ProjectSecondarySources) int {
+		if v.GitCloneDepth == nil { return *new(int) } else { return *v.GitCloneDepth }
+	}).(pulumi.IntOutput)
+}
+
+// Ignore SSL warnings when connecting to source control.
+func (o ProjectSecondarySourcesOutput) InsecureSsl() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectSecondarySources) bool {
+		if v.InsecureSsl == nil { return *new(bool) } else { return *v.InsecureSsl }
+	}).(pulumi.BoolOutput)
+}
+
+// The location of the source code from git or s3.
+func (o ProjectSecondarySourcesOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondarySources) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+func (o ProjectSecondarySourcesOutput) ReportBuildStatus() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectSecondarySources) bool {
+		if v.ReportBuildStatus == nil { return *new(bool) } else { return *v.ReportBuildStatus }
+	}).(pulumi.BoolOutput)
+}
+
+// The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
+func (o ProjectSecondarySourcesOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondarySources) string {
+		return v.SourceIdentifier
+	}).(pulumi.StringOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectSecondarySourcesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondarySources) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectSecondarySourcesOutput) ElementType() reflect.Type {
+	return projectSecondarySourcesType
+}
+
+func (o ProjectSecondarySourcesOutput) ToProjectSecondarySourcesOutput() ProjectSecondarySourcesOutput {
+	return o
+}
+
+func (o ProjectSecondarySourcesOutput) ToProjectSecondarySourcesOutputWithContext(ctx context.Context) ProjectSecondarySourcesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSecondarySourcesOutput{}) }
+
+var projectSecondarySourcesArrayType = reflect.TypeOf((*[]ProjectSecondarySources)(nil)).Elem()
+
+type ProjectSecondarySourcesArrayInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourcesArrayOutput() ProjectSecondarySourcesArrayOutput
+	ToProjectSecondarySourcesArrayOutputWithContext(ctx context.Context) ProjectSecondarySourcesArrayOutput
+}
+
+type ProjectSecondarySourcesArrayArgs []ProjectSecondarySourcesInput
+
+func (ProjectSecondarySourcesArrayArgs) ElementType() reflect.Type {
+	return projectSecondarySourcesArrayType
+}
+
+func (a ProjectSecondarySourcesArrayArgs) ToProjectSecondarySourcesArrayOutput() ProjectSecondarySourcesArrayOutput {
+	return pulumi.ToOutput(a).(ProjectSecondarySourcesArrayOutput)
+}
+
+func (a ProjectSecondarySourcesArrayArgs) ToProjectSecondarySourcesArrayOutputWithContext(ctx context.Context) ProjectSecondarySourcesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSecondarySourcesArrayOutput)
+}
+
+type ProjectSecondarySourcesArrayOutput struct { *pulumi.OutputState }
+
+func (o ProjectSecondarySourcesArrayOutput) Index(i pulumi.IntInput) ProjectSecondarySourcesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProjectSecondarySources {
+		return vs[0].([]ProjectSecondarySources)[vs[1].(int)]
+	}).(ProjectSecondarySourcesOutput)
+}
+
+func (ProjectSecondarySourcesArrayOutput) ElementType() reflect.Type {
+	return projectSecondarySourcesArrayType
+}
+
+func (o ProjectSecondarySourcesArrayOutput) ToProjectSecondarySourcesArrayOutput() ProjectSecondarySourcesArrayOutput {
+	return o
+}
+
+func (o ProjectSecondarySourcesArrayOutput) ToProjectSecondarySourcesArrayOutputWithContext(ctx context.Context) ProjectSecondarySourcesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSecondarySourcesArrayOutput{}) }
+
+type ProjectSecondarySourcesAuths struct {
+	// The resource value that applies to the specified authorization type.
+	Resource *string `pulumi:"resource"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectSecondarySourcesAuthsType = reflect.TypeOf((*ProjectSecondarySourcesAuths)(nil)).Elem()
+
+type ProjectSecondarySourcesAuthsInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourcesAuthsOutput() ProjectSecondarySourcesAuthsOutput
+	ToProjectSecondarySourcesAuthsOutputWithContext(ctx context.Context) ProjectSecondarySourcesAuthsOutput
+}
+
+type ProjectSecondarySourcesAuthsArgs struct {
+	// The resource value that applies to the specified authorization type.
+	Resource pulumi.StringInput `pulumi:"resource"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSecondarySourcesAuthsArgs) ElementType() reflect.Type {
+	return projectSecondarySourcesAuthsType
+}
+
+func (a ProjectSecondarySourcesAuthsArgs) ToProjectSecondarySourcesAuthsOutput() ProjectSecondarySourcesAuthsOutput {
+	return pulumi.ToOutput(a).(ProjectSecondarySourcesAuthsOutput)
+}
+
+func (a ProjectSecondarySourcesAuthsArgs) ToProjectSecondarySourcesAuthsOutputWithContext(ctx context.Context) ProjectSecondarySourcesAuthsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSecondarySourcesAuthsOutput)
+}
+
+type ProjectSecondarySourcesAuthsOutput struct { *pulumi.OutputState }
+
+// The resource value that applies to the specified authorization type.
+func (o ProjectSecondarySourcesAuthsOutput) Resource() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondarySourcesAuths) string {
+		if v.Resource == nil { return *new(string) } else { return *v.Resource }
+	}).(pulumi.StringOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectSecondarySourcesAuthsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSecondarySourcesAuths) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectSecondarySourcesAuthsOutput) ElementType() reflect.Type {
+	return projectSecondarySourcesAuthsType
+}
+
+func (o ProjectSecondarySourcesAuthsOutput) ToProjectSecondarySourcesAuthsOutput() ProjectSecondarySourcesAuthsOutput {
+	return o
+}
+
+func (o ProjectSecondarySourcesAuthsOutput) ToProjectSecondarySourcesAuthsOutputWithContext(ctx context.Context) ProjectSecondarySourcesAuthsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSecondarySourcesAuthsOutput{}) }
+
+var projectSecondarySourcesAuthsArrayType = reflect.TypeOf((*[]ProjectSecondarySourcesAuths)(nil)).Elem()
+
+type ProjectSecondarySourcesAuthsArrayInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourcesAuthsArrayOutput() ProjectSecondarySourcesAuthsArrayOutput
+	ToProjectSecondarySourcesAuthsArrayOutputWithContext(ctx context.Context) ProjectSecondarySourcesAuthsArrayOutput
+}
+
+type ProjectSecondarySourcesAuthsArrayArgs []ProjectSecondarySourcesAuthsInput
+
+func (ProjectSecondarySourcesAuthsArrayArgs) ElementType() reflect.Type {
+	return projectSecondarySourcesAuthsArrayType
+}
+
+func (a ProjectSecondarySourcesAuthsArrayArgs) ToProjectSecondarySourcesAuthsArrayOutput() ProjectSecondarySourcesAuthsArrayOutput {
+	return pulumi.ToOutput(a).(ProjectSecondarySourcesAuthsArrayOutput)
+}
+
+func (a ProjectSecondarySourcesAuthsArrayArgs) ToProjectSecondarySourcesAuthsArrayOutputWithContext(ctx context.Context) ProjectSecondarySourcesAuthsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSecondarySourcesAuthsArrayOutput)
+}
+
+type ProjectSecondarySourcesAuthsArrayOutput struct { *pulumi.OutputState }
+
+func (o ProjectSecondarySourcesAuthsArrayOutput) Index(i pulumi.IntInput) ProjectSecondarySourcesAuthsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProjectSecondarySourcesAuths {
+		return vs[0].([]ProjectSecondarySourcesAuths)[vs[1].(int)]
+	}).(ProjectSecondarySourcesAuthsOutput)
+}
+
+func (ProjectSecondarySourcesAuthsArrayOutput) ElementType() reflect.Type {
+	return projectSecondarySourcesAuthsArrayType
+}
+
+func (o ProjectSecondarySourcesAuthsArrayOutput) ToProjectSecondarySourcesAuthsArrayOutput() ProjectSecondarySourcesAuthsArrayOutput {
+	return o
+}
+
+func (o ProjectSecondarySourcesAuthsArrayOutput) ToProjectSecondarySourcesAuthsArrayOutputWithContext(ctx context.Context) ProjectSecondarySourcesAuthsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSecondarySourcesAuthsArrayOutput{}) }
+
+type ProjectSource struct {
+	// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+	Auths *[]ProjectSourceAuths `pulumi:"auths"`
+	// The build spec declaration to use for this build project's related builds.
+	Buildspec *string `pulumi:"buildspec"`
+	// Truncate git history to this many commits.
+	GitCloneDepth *int `pulumi:"gitCloneDepth"`
+	// Ignore SSL warnings when connecting to source control.
+	InsecureSsl *bool `pulumi:"insecureSsl"`
+	// The location of the source code from git or s3.
+	Location *string `pulumi:"location"`
+	// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectSourceType = reflect.TypeOf((*ProjectSource)(nil)).Elem()
+
+type ProjectSourceInput interface {
+	pulumi.Input
+
+	ToProjectSourceOutput() ProjectSourceOutput
+	ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput
+}
+
+type ProjectSourceArgs struct {
+	// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+	Auths ProjectSourceAuthsArrayInput `pulumi:"auths"`
+	// The build spec declaration to use for this build project's related builds.
+	Buildspec pulumi.StringInput `pulumi:"buildspec"`
+	// Truncate git history to this many commits.
+	GitCloneDepth pulumi.IntInput `pulumi:"gitCloneDepth"`
+	// Ignore SSL warnings when connecting to source control.
+	InsecureSsl pulumi.BoolInput `pulumi:"insecureSsl"`
+	// The location of the source code from git or s3.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+	ReportBuildStatus pulumi.BoolInput `pulumi:"reportBuildStatus"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSourceArgs) ElementType() reflect.Type {
+	return projectSourceType
+}
+
+func (a ProjectSourceArgs) ToProjectSourceOutput() ProjectSourceOutput {
+	return pulumi.ToOutput(a).(ProjectSourceOutput)
+}
+
+func (a ProjectSourceArgs) ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSourceOutput)
+}
+
+type ProjectSourceOutput struct { *pulumi.OutputState }
+
+// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+func (o ProjectSourceOutput) Auths() ProjectSourceAuthsArrayOutput {
+	return o.Apply(func(v ProjectSource) []ProjectSourceAuths {
+		if v.Auths == nil { return *new([]ProjectSourceAuths) } else { return *v.Auths }
+	}).(ProjectSourceAuthsArrayOutput)
+}
+
+// The build spec declaration to use for this build project's related builds.
+func (o ProjectSourceOutput) Buildspec() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSource) string {
+		if v.Buildspec == nil { return *new(string) } else { return *v.Buildspec }
+	}).(pulumi.StringOutput)
+}
+
+// Truncate git history to this many commits.
+func (o ProjectSourceOutput) GitCloneDepth() pulumi.IntOutput {
+	return o.Apply(func(v ProjectSource) int {
+		if v.GitCloneDepth == nil { return *new(int) } else { return *v.GitCloneDepth }
+	}).(pulumi.IntOutput)
+}
+
+// Ignore SSL warnings when connecting to source control.
+func (o ProjectSourceOutput) InsecureSsl() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectSource) bool {
+		if v.InsecureSsl == nil { return *new(bool) } else { return *v.InsecureSsl }
+	}).(pulumi.BoolOutput)
+}
+
+// The location of the source code from git or s3.
+func (o ProjectSourceOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSource) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+func (o ProjectSourceOutput) ReportBuildStatus() pulumi.BoolOutput {
+	return o.Apply(func(v ProjectSource) bool {
+		if v.ReportBuildStatus == nil { return *new(bool) } else { return *v.ReportBuildStatus }
+	}).(pulumi.BoolOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectSourceOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSource) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectSourceOutput) ElementType() reflect.Type {
+	return projectSourceType
+}
+
+func (o ProjectSourceOutput) ToProjectSourceOutput() ProjectSourceOutput {
+	return o
+}
+
+func (o ProjectSourceOutput) ToProjectSourceOutputWithContext(ctx context.Context) ProjectSourceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSourceOutput{}) }
+
+type ProjectSourceAuths struct {
+	// The resource value that applies to the specified authorization type.
+	Resource *string `pulumi:"resource"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type string `pulumi:"type"`
+}
+var projectSourceAuthsType = reflect.TypeOf((*ProjectSourceAuths)(nil)).Elem()
+
+type ProjectSourceAuthsInput interface {
+	pulumi.Input
+
+	ToProjectSourceAuthsOutput() ProjectSourceAuthsOutput
+	ToProjectSourceAuthsOutputWithContext(ctx context.Context) ProjectSourceAuthsOutput
+}
+
+type ProjectSourceAuthsArgs struct {
+	// The resource value that applies to the specified authorization type.
+	Resource pulumi.StringInput `pulumi:"resource"`
+	// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectSourceAuthsArgs) ElementType() reflect.Type {
+	return projectSourceAuthsType
+}
+
+func (a ProjectSourceAuthsArgs) ToProjectSourceAuthsOutput() ProjectSourceAuthsOutput {
+	return pulumi.ToOutput(a).(ProjectSourceAuthsOutput)
+}
+
+func (a ProjectSourceAuthsArgs) ToProjectSourceAuthsOutputWithContext(ctx context.Context) ProjectSourceAuthsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSourceAuthsOutput)
+}
+
+type ProjectSourceAuthsOutput struct { *pulumi.OutputState }
+
+// The resource value that applies to the specified authorization type.
+func (o ProjectSourceAuthsOutput) Resource() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSourceAuths) string {
+		if v.Resource == nil { return *new(string) } else { return *v.Resource }
+	}).(pulumi.StringOutput)
+}
+
+// The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+func (o ProjectSourceAuthsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ProjectSourceAuths) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectSourceAuthsOutput) ElementType() reflect.Type {
+	return projectSourceAuthsType
+}
+
+func (o ProjectSourceAuthsOutput) ToProjectSourceAuthsOutput() ProjectSourceAuthsOutput {
+	return o
+}
+
+func (o ProjectSourceAuthsOutput) ToProjectSourceAuthsOutputWithContext(ctx context.Context) ProjectSourceAuthsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSourceAuthsOutput{}) }
+
+var projectSourceAuthsArrayType = reflect.TypeOf((*[]ProjectSourceAuths)(nil)).Elem()
+
+type ProjectSourceAuthsArrayInput interface {
+	pulumi.Input
+
+	ToProjectSourceAuthsArrayOutput() ProjectSourceAuthsArrayOutput
+	ToProjectSourceAuthsArrayOutputWithContext(ctx context.Context) ProjectSourceAuthsArrayOutput
+}
+
+type ProjectSourceAuthsArrayArgs []ProjectSourceAuthsInput
+
+func (ProjectSourceAuthsArrayArgs) ElementType() reflect.Type {
+	return projectSourceAuthsArrayType
+}
+
+func (a ProjectSourceAuthsArrayArgs) ToProjectSourceAuthsArrayOutput() ProjectSourceAuthsArrayOutput {
+	return pulumi.ToOutput(a).(ProjectSourceAuthsArrayOutput)
+}
+
+func (a ProjectSourceAuthsArrayArgs) ToProjectSourceAuthsArrayOutputWithContext(ctx context.Context) ProjectSourceAuthsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectSourceAuthsArrayOutput)
+}
+
+type ProjectSourceAuthsArrayOutput struct { *pulumi.OutputState }
+
+func (o ProjectSourceAuthsArrayOutput) Index(i pulumi.IntInput) ProjectSourceAuthsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProjectSourceAuths {
+		return vs[0].([]ProjectSourceAuths)[vs[1].(int)]
+	}).(ProjectSourceAuthsOutput)
+}
+
+func (ProjectSourceAuthsArrayOutput) ElementType() reflect.Type {
+	return projectSourceAuthsArrayType
+}
+
+func (o ProjectSourceAuthsArrayOutput) ToProjectSourceAuthsArrayOutput() ProjectSourceAuthsArrayOutput {
+	return o
+}
+
+func (o ProjectSourceAuthsArrayOutput) ToProjectSourceAuthsArrayOutputWithContext(ctx context.Context) ProjectSourceAuthsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectSourceAuthsArrayOutput{}) }
+
+type ProjectVpcConfig struct {
+	// The security group IDs to assign to running builds.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnet IDs within which to run builds.
+	Subnets []string `pulumi:"subnets"`
+	// The ID of the VPC within which to run builds.
+	VpcId string `pulumi:"vpcId"`
+}
+var projectVpcConfigType = reflect.TypeOf((*ProjectVpcConfig)(nil)).Elem()
+
+type ProjectVpcConfigInput interface {
+	pulumi.Input
+
+	ToProjectVpcConfigOutput() ProjectVpcConfigOutput
+	ToProjectVpcConfigOutputWithContext(ctx context.Context) ProjectVpcConfigOutput
+}
+
+type ProjectVpcConfigArgs struct {
+	// The security group IDs to assign to running builds.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The subnet IDs within which to run builds.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID of the VPC within which to run builds.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (ProjectVpcConfigArgs) ElementType() reflect.Type {
+	return projectVpcConfigType
+}
+
+func (a ProjectVpcConfigArgs) ToProjectVpcConfigOutput() ProjectVpcConfigOutput {
+	return pulumi.ToOutput(a).(ProjectVpcConfigOutput)
+}
+
+func (a ProjectVpcConfigArgs) ToProjectVpcConfigOutputWithContext(ctx context.Context) ProjectVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProjectVpcConfigOutput)
+}
+
+type ProjectVpcConfigOutput struct { *pulumi.OutputState }
+
+// The security group IDs to assign to running builds.
+func (o ProjectVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProjectVpcConfig) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs within which to run builds.
+func (o ProjectVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProjectVpcConfig) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC within which to run builds.
+func (o ProjectVpcConfigOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v ProjectVpcConfig) string {
+		return v.VpcId
+	}).(pulumi.StringOutput)
+}
+
+func (ProjectVpcConfigOutput) ElementType() reflect.Type {
+	return projectVpcConfigType
+}
+
+func (o ProjectVpcConfigOutput) ToProjectVpcConfigOutput() ProjectVpcConfigOutput {
+	return o
+}
+
+func (o ProjectVpcConfigOutput) ToProjectVpcConfigOutputWithContext(ctx context.Context) ProjectVpcConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProjectVpcConfigOutput{}) }
+

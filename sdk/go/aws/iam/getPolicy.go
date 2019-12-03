@@ -11,43 +11,33 @@ import (
 // IAM policy.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
-func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["arn"] = args.Arn
-	}
-	outputs, err := ctx.Invoke("aws:iam/getPolicy:getPolicy", inputs)
+func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
+	var rv GetPolicyResult
+	err := ctx.Invoke("aws:iam/getPolicy:getPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPolicyResult{
-		Arn: outputs["arn"],
-		Description: outputs["description"],
-		Name: outputs["name"],
-		Path: outputs["path"],
-		Policy: outputs["policy"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPolicy.
 type GetPolicyArgs struct {
 	// ARN of the IAM policy.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 }
 
 // A collection of values returned by getPolicy.
 type GetPolicyResult struct {
 	// The Amazon Resource Name (ARN) specifying the policy.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The description of the policy.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// The name of the IAM policy.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The path to the policy.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// The policy document of the policy.
-	Policy interface{}
+	Policy string `pulumi:"policy"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

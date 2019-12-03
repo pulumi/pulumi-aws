@@ -13,90 +13,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_static_ip.html.markdown.
 type StaticIp struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the Lightsail static IP
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The allocated static IP address
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+
+	// The name for the allocated static IP
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The support code.
+	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
 }
 
 // NewStaticIp registers a new resource with the given unique name, arguments, and options.
 func NewStaticIp(ctx *pulumi.Context,
-	name string, args *StaticIpArgs, opts ...pulumi.ResourceOpt) (*StaticIp, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-	} else {
-		inputs["name"] = args.Name
+	name string, args *StaticIpArgs, opts ...pulumi.ResourceOption) (*StaticIp, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["ipAddress"] = nil
-	inputs["supportCode"] = nil
-	s, err := ctx.RegisterResource("aws:lightsail/staticIp:StaticIp", name, true, inputs, opts...)
+	var resource StaticIp
+	err := ctx.RegisterResource("aws:lightsail/staticIp:StaticIp", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StaticIp{s: s}, nil
+	return &resource, nil
 }
 
 // GetStaticIp gets an existing StaticIp resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStaticIp(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StaticIpState, opts ...pulumi.ResourceOpt) (*StaticIp, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StaticIpState, opts ...pulumi.ResourceOption) (*StaticIp, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["ipAddress"] = state.IpAddress
-		inputs["name"] = state.Name
-		inputs["supportCode"] = state.SupportCode
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.SupportCode; i != nil { inputs["supportCode"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:lightsail/staticIp:StaticIp", name, id, inputs, opts...)
+	var resource StaticIp
+	err := ctx.ReadResource("aws:lightsail/staticIp:StaticIp", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StaticIp{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StaticIp) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StaticIp) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the Lightsail static IP
-func (r *StaticIp) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The allocated static IP address
-func (r *StaticIp) IpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddress"])
-}
-
-// The name for the allocated static IP
-func (r *StaticIp) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The support code.
-func (r *StaticIp) SupportCode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["supportCode"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StaticIp resources.
 type StaticIpState struct {
 	// The ARN of the Lightsail static IP
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The allocated static IP address
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name for the allocated static IP
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The support code.
-	SupportCode interface{}
+	SupportCode pulumi.StringInput `pulumi:"supportCode"`
 }
 
 // The set of arguments for constructing a StaticIp resource.
 type StaticIpArgs struct {
 	// The name for the allocated static IP
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

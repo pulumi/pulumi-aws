@@ -4,18 +4,101 @@
 package lambda
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
 type Function struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) identifying your Lambda Function.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Nested block to configure the function's *dead letter queue*. See details below.
+	DeadLetterConfig FunctionDeadLetterConfigOutput `pulumi:"deadLetterConfig"`
+
+	// Description of what your Lambda Function does.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The Lambda environment's configuration settings. Fields documented below.
+	Environment FunctionEnvironmentOutput `pulumi:"environment"`
+
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+	Code pulumi.ArchiveOutput `pulumi:"code"`
+
+	// A unique name for your Lambda Function.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The function [entrypoint][3] in your code.
+	Handler pulumi.StringOutput `pulumi:"handler"`
+
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
+
+	// The ARN for the KMS encryption key.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+
+	// The date this resource was last modified.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+
+	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
+	Layers pulumi.StringArrayOutput `pulumi:"layers"`
+
+	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
+	MemorySize pulumi.IntOutput `pulumi:"memorySize"`
+
+	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+	Publish pulumi.BoolOutput `pulumi:"publish"`
+
+	// The Amazon Resource Name (ARN) identifying your Lambda Function Version
+	// (if versioning is enabled via `publish = true`).
+	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
+
+	// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
+	ReservedConcurrentExecutions pulumi.IntOutput `pulumi:"reservedConcurrentExecutions"`
+
+	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
+	Role pulumi.StringOutput `pulumi:"role"`
+
+	// See [Runtimes][6] for valid values.
+	Runtime pulumi.StringOutput `pulumi:"runtime"`
+
+	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
+
+	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+	S3Key pulumi.StringOutput `pulumi:"s3Key"`
+
+	// The object version containing the function's deployment package. Conflicts with `filename`.
+	S3ObjectVersion pulumi.StringOutput `pulumi:"s3ObjectVersion"`
+
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
+	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
+
+	// The size in bytes of the function .zip file.
+	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
+
+	// A mapping of tags to assign to the object.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
+	Timeout pulumi.IntOutput `pulumi:"timeout"`
+
+	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
+
+	// Latest published version of your Lambda Function.
+	Version pulumi.StringOutput `pulumi:"version"`
+
+	// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
+	VpcConfig FunctionVpcConfigOutput `pulumi:"vpcConfig"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
 func NewFunction(ctx *pulumi.Context,
-	name string, args *FunctionArgs, opts ...pulumi.ResourceOpt) (*Function, error) {
+	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
 	if args == nil || args.Handler == nil {
 		return nil, errors.New("missing required argument 'Handler'")
 	}
@@ -25,350 +108,431 @@ func NewFunction(ctx *pulumi.Context,
 	if args == nil || args.Runtime == nil {
 		return nil, errors.New("missing required argument 'Runtime'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deadLetterConfig"] = nil
-		inputs["description"] = nil
-		inputs["environment"] = nil
-		inputs["code"] = nil
-		inputs["name"] = nil
-		inputs["handler"] = nil
-		inputs["kmsKeyArn"] = nil
-		inputs["layers"] = nil
-		inputs["memorySize"] = nil
-		inputs["publish"] = nil
-		inputs["reservedConcurrentExecutions"] = nil
-		inputs["role"] = nil
-		inputs["runtime"] = nil
-		inputs["s3Bucket"] = nil
-		inputs["s3Key"] = nil
-		inputs["s3ObjectVersion"] = nil
-		inputs["sourceCodeHash"] = nil
-		inputs["tags"] = nil
-		inputs["timeout"] = nil
-		inputs["tracingConfig"] = nil
-		inputs["vpcConfig"] = nil
-	} else {
-		inputs["deadLetterConfig"] = args.DeadLetterConfig
-		inputs["description"] = args.Description
-		inputs["environment"] = args.Environment
-		inputs["code"] = args.Code
-		inputs["name"] = args.Name
-		inputs["handler"] = args.Handler
-		inputs["kmsKeyArn"] = args.KmsKeyArn
-		inputs["layers"] = args.Layers
-		inputs["memorySize"] = args.MemorySize
-		inputs["publish"] = args.Publish
-		inputs["reservedConcurrentExecutions"] = args.ReservedConcurrentExecutions
-		inputs["role"] = args.Role
-		inputs["runtime"] = args.Runtime
-		inputs["s3Bucket"] = args.S3Bucket
-		inputs["s3Key"] = args.S3Key
-		inputs["s3ObjectVersion"] = args.S3ObjectVersion
-		inputs["sourceCodeHash"] = args.SourceCodeHash
-		inputs["tags"] = args.Tags
-		inputs["timeout"] = args.Timeout
-		inputs["tracingConfig"] = args.TracingConfig
-		inputs["vpcConfig"] = args.VpcConfig
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeadLetterConfig; i != nil { inputs["deadLetterConfig"] = i.ToFunctionDeadLetterConfigOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Environment; i != nil { inputs["environment"] = i.ToFunctionEnvironmentOutput() }
+		if i := args.Code; i != nil { inputs["code"] = i.ToArchiveOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Handler; i != nil { inputs["handler"] = i.ToStringOutput() }
+		if i := args.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := args.Layers; i != nil { inputs["layers"] = i.ToStringArrayOutput() }
+		if i := args.MemorySize; i != nil { inputs["memorySize"] = i.ToIntOutput() }
+		if i := args.Publish; i != nil { inputs["publish"] = i.ToBoolOutput() }
+		if i := args.ReservedConcurrentExecutions; i != nil { inputs["reservedConcurrentExecutions"] = i.ToIntOutput() }
+		if i := args.Role; i != nil { inputs["role"] = i.ToStringOutput() }
+		if i := args.Runtime; i != nil { inputs["runtime"] = i.ToStringOutput() }
+		if i := args.S3Bucket; i != nil { inputs["s3Bucket"] = i.ToStringOutput() }
+		if i := args.S3Key; i != nil { inputs["s3Key"] = i.ToStringOutput() }
+		if i := args.S3ObjectVersion; i != nil { inputs["s3ObjectVersion"] = i.ToStringOutput() }
+		if i := args.SourceCodeHash; i != nil { inputs["sourceCodeHash"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Timeout; i != nil { inputs["timeout"] = i.ToIntOutput() }
+		if i := args.TracingConfig; i != nil { inputs["tracingConfig"] = i.ToFunctionTracingConfigOutput() }
+		if i := args.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToFunctionVpcConfigOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["invokeArn"] = nil
-	inputs["lastModified"] = nil
-	inputs["qualifiedArn"] = nil
-	inputs["sourceCodeSize"] = nil
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("aws:lambda/function:Function", name, true, inputs, opts...)
+	var resource Function
+	err := ctx.RegisterResource("aws:lambda/function:Function", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Function{s: s}, nil
+	return &resource, nil
 }
 
 // GetFunction gets an existing Function resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFunction(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FunctionState, opts ...pulumi.ResourceOpt) (*Function, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FunctionState, opts ...pulumi.ResourceOption) (*Function, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["deadLetterConfig"] = state.DeadLetterConfig
-		inputs["description"] = state.Description
-		inputs["environment"] = state.Environment
-		inputs["code"] = state.Code
-		inputs["name"] = state.Name
-		inputs["handler"] = state.Handler
-		inputs["invokeArn"] = state.InvokeArn
-		inputs["kmsKeyArn"] = state.KmsKeyArn
-		inputs["lastModified"] = state.LastModified
-		inputs["layers"] = state.Layers
-		inputs["memorySize"] = state.MemorySize
-		inputs["publish"] = state.Publish
-		inputs["qualifiedArn"] = state.QualifiedArn
-		inputs["reservedConcurrentExecutions"] = state.ReservedConcurrentExecutions
-		inputs["role"] = state.Role
-		inputs["runtime"] = state.Runtime
-		inputs["s3Bucket"] = state.S3Bucket
-		inputs["s3Key"] = state.S3Key
-		inputs["s3ObjectVersion"] = state.S3ObjectVersion
-		inputs["sourceCodeHash"] = state.SourceCodeHash
-		inputs["sourceCodeSize"] = state.SourceCodeSize
-		inputs["tags"] = state.Tags
-		inputs["timeout"] = state.Timeout
-		inputs["tracingConfig"] = state.TracingConfig
-		inputs["version"] = state.Version
-		inputs["vpcConfig"] = state.VpcConfig
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DeadLetterConfig; i != nil { inputs["deadLetterConfig"] = i.ToFunctionDeadLetterConfigOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Environment; i != nil { inputs["environment"] = i.ToFunctionEnvironmentOutput() }
+		if i := state.Code; i != nil { inputs["code"] = i.ToArchiveOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Handler; i != nil { inputs["handler"] = i.ToStringOutput() }
+		if i := state.InvokeArn; i != nil { inputs["invokeArn"] = i.ToStringOutput() }
+		if i := state.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := state.LastModified; i != nil { inputs["lastModified"] = i.ToStringOutput() }
+		if i := state.Layers; i != nil { inputs["layers"] = i.ToStringArrayOutput() }
+		if i := state.MemorySize; i != nil { inputs["memorySize"] = i.ToIntOutput() }
+		if i := state.Publish; i != nil { inputs["publish"] = i.ToBoolOutput() }
+		if i := state.QualifiedArn; i != nil { inputs["qualifiedArn"] = i.ToStringOutput() }
+		if i := state.ReservedConcurrentExecutions; i != nil { inputs["reservedConcurrentExecutions"] = i.ToIntOutput() }
+		if i := state.Role; i != nil { inputs["role"] = i.ToStringOutput() }
+		if i := state.Runtime; i != nil { inputs["runtime"] = i.ToStringOutput() }
+		if i := state.S3Bucket; i != nil { inputs["s3Bucket"] = i.ToStringOutput() }
+		if i := state.S3Key; i != nil { inputs["s3Key"] = i.ToStringOutput() }
+		if i := state.S3ObjectVersion; i != nil { inputs["s3ObjectVersion"] = i.ToStringOutput() }
+		if i := state.SourceCodeHash; i != nil { inputs["sourceCodeHash"] = i.ToStringOutput() }
+		if i := state.SourceCodeSize; i != nil { inputs["sourceCodeSize"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Timeout; i != nil { inputs["timeout"] = i.ToIntOutput() }
+		if i := state.TracingConfig; i != nil { inputs["tracingConfig"] = i.ToFunctionTracingConfigOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := state.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToFunctionVpcConfigOutput() }
 	}
-	s, err := ctx.ReadResource("aws:lambda/function:Function", name, id, inputs, opts...)
+	var resource Function
+	err := ctx.ReadResource("aws:lambda/function:Function", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Function{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Function) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Function) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) identifying your Lambda Function.
-func (r *Function) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Nested block to configure the function's *dead letter queue*. See details below.
-func (r *Function) DeadLetterConfig() pulumi.Output {
-	return r.s.State["deadLetterConfig"]
-}
-
-// Description of what your Lambda Function does.
-func (r *Function) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The Lambda environment's configuration settings. Fields documented below.
-func (r *Function) Environment() pulumi.Output {
-	return r.s.State["environment"]
-}
-
-// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-func (r *Function) Code() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["code"])
-}
-
-// A unique name for your Lambda Function.
-func (r *Function) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The function [entrypoint][3] in your code.
-func (r *Function) Handler() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["handler"])
-}
-
-// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
-func (r *Function) InvokeArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["invokeArn"])
-}
-
-// The ARN for the KMS encryption key.
-func (r *Function) KmsKeyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
-}
-
-// The date this resource was last modified.
-func (r *Function) LastModified() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastModified"])
-}
-
-// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-func (r *Function) Layers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["layers"])
-}
-
-// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
-func (r *Function) MemorySize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["memorySize"])
-}
-
-// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-func (r *Function) Publish() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["publish"])
-}
-
-// The Amazon Resource Name (ARN) identifying your Lambda Function Version
-// (if versioning is enabled via `publish = true`).
-func (r *Function) QualifiedArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["qualifiedArn"])
-}
-
-// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
-func (r *Function) ReservedConcurrentExecutions() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["reservedConcurrentExecutions"])
-}
-
-// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-func (r *Function) Role() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["role"])
-}
-
-// See [Runtimes][6] for valid values.
-func (r *Function) Runtime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["runtime"])
-}
-
-// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-func (r *Function) S3Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Bucket"])
-}
-
-// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-func (r *Function) S3Key() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Key"])
-}
-
-// The object version containing the function's deployment package. Conflicts with `filename`.
-func (r *Function) S3ObjectVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
-}
-
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
-func (r *Function) SourceCodeHash() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceCodeHash"])
-}
-
-// The size in bytes of the function .zip file.
-func (r *Function) SourceCodeSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["sourceCodeSize"])
-}
-
-// A mapping of tags to assign to the object.
-func (r *Function) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-func (r *Function) Timeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["timeout"])
-}
-
-func (r *Function) TracingConfig() pulumi.Output {
-	return r.s.State["tracingConfig"]
-}
-
-// Latest published version of your Lambda Function.
-func (r *Function) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
-}
-
-// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
-func (r *Function) VpcConfig() pulumi.Output {
-	return r.s.State["vpcConfig"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Function resources.
 type FunctionState struct {
 	// The Amazon Resource Name (ARN) identifying your Lambda Function.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Nested block to configure the function's *dead letter queue*. See details below.
-	DeadLetterConfig interface{}
+	DeadLetterConfig FunctionDeadLetterConfigInput `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
-	Environment interface{}
+	Environment FunctionEnvironmentInput `pulumi:"environment"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-	Code interface{}
+	Code pulumi.ArchiveInput `pulumi:"code"`
 	// A unique name for your Lambda Function.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The function [entrypoint][3] in your code.
-	Handler interface{}
+	Handler pulumi.StringInput `pulumi:"handler"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
-	InvokeArn interface{}
+	InvokeArn pulumi.StringInput `pulumi:"invokeArn"`
 	// The ARN for the KMS encryption key.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// The date this resource was last modified.
-	LastModified interface{}
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-	Layers interface{}
+	Layers pulumi.StringArrayInput `pulumi:"layers"`
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
-	MemorySize interface{}
+	MemorySize pulumi.IntInput `pulumi:"memorySize"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish interface{}
+	Publish pulumi.BoolInput `pulumi:"publish"`
 	// The Amazon Resource Name (ARN) identifying your Lambda Function Version
 	// (if versioning is enabled via `publish = true`).
-	QualifiedArn interface{}
+	QualifiedArn pulumi.StringInput `pulumi:"qualifiedArn"`
 	// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
-	ReservedConcurrentExecutions interface{}
+	ReservedConcurrentExecutions pulumi.IntInput `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-	Role interface{}
+	Role pulumi.StringInput `pulumi:"role"`
 	// See [Runtimes][6] for valid values.
-	Runtime interface{}
+	Runtime pulumi.StringInput `pulumi:"runtime"`
 	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket interface{}
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-	S3Key interface{}
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 	// The object version containing the function's deployment package. Conflicts with `filename`.
-	S3ObjectVersion interface{}
+	S3ObjectVersion pulumi.StringInput `pulumi:"s3ObjectVersion"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
-	SourceCodeHash interface{}
+	SourceCodeHash pulumi.StringInput `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
-	SourceCodeSize interface{}
+	SourceCodeSize pulumi.IntInput `pulumi:"sourceCodeSize"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout interface{}
-	TracingConfig interface{}
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	TracingConfig FunctionTracingConfigInput `pulumi:"tracingConfig"`
 	// Latest published version of your Lambda Function.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
-	VpcConfig interface{}
+	VpcConfig FunctionVpcConfigInput `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	// Nested block to configure the function's *dead letter queue*. See details below.
-	DeadLetterConfig interface{}
+	DeadLetterConfig FunctionDeadLetterConfigInput `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
-	Environment interface{}
+	Environment FunctionEnvironmentInput `pulumi:"environment"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-	Code interface{}
+	Code pulumi.ArchiveInput `pulumi:"code"`
 	// A unique name for your Lambda Function.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The function [entrypoint][3] in your code.
-	Handler interface{}
+	Handler pulumi.StringInput `pulumi:"handler"`
 	// The ARN for the KMS encryption key.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers][10]
-	Layers interface{}
+	Layers pulumi.StringArrayInput `pulumi:"layers"`
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
-	MemorySize interface{}
+	MemorySize pulumi.IntInput `pulumi:"memorySize"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish interface{}
+	Publish pulumi.BoolInput `pulumi:"publish"`
 	// The amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency][9]
-	ReservedConcurrentExecutions interface{}
+	ReservedConcurrentExecutions pulumi.IntInput `pulumi:"reservedConcurrentExecutions"`
 	// IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model][4] for more details.
-	Role interface{}
+	Role pulumi.StringInput `pulumi:"role"`
 	// See [Runtimes][6] for valid values.
-	Runtime interface{}
+	Runtime pulumi.StringInput `pulumi:"runtime"`
 	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket interface{}
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-	S3Key interface{}
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 	// The object version containing the function's deployment package. Conflicts with `filename`.
-	S3ObjectVersion interface{}
+	S3ObjectVersion pulumi.StringInput `pulumi:"s3ObjectVersion"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
-	SourceCodeHash interface{}
+	SourceCodeHash pulumi.StringInput `pulumi:"sourceCodeHash"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits][5]
-	Timeout interface{}
-	TracingConfig interface{}
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	TracingConfig FunctionTracingConfigInput `pulumi:"tracingConfig"`
 	// Provide this to allow your function to access your VPC. Fields documented below. See [Lambda in VPC][7]
-	VpcConfig interface{}
+	VpcConfig FunctionVpcConfigInput `pulumi:"vpcConfig"`
 }
+type FunctionDeadLetterConfig struct {
+	// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
+	// option is used, the function's IAM role must be granted suitable access to write to the target object,
+	// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
+	// which service is targeted.
+	TargetArn string `pulumi:"targetArn"`
+}
+var functionDeadLetterConfigType = reflect.TypeOf((*FunctionDeadLetterConfig)(nil)).Elem()
+
+type FunctionDeadLetterConfigInput interface {
+	pulumi.Input
+
+	ToFunctionDeadLetterConfigOutput() FunctionDeadLetterConfigOutput
+	ToFunctionDeadLetterConfigOutputWithContext(ctx context.Context) FunctionDeadLetterConfigOutput
+}
+
+type FunctionDeadLetterConfigArgs struct {
+	// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
+	// option is used, the function's IAM role must be granted suitable access to write to the target object,
+	// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
+	// which service is targeted.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
+}
+
+func (FunctionDeadLetterConfigArgs) ElementType() reflect.Type {
+	return functionDeadLetterConfigType
+}
+
+func (a FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigOutput() FunctionDeadLetterConfigOutput {
+	return pulumi.ToOutput(a).(FunctionDeadLetterConfigOutput)
+}
+
+func (a FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigOutputWithContext(ctx context.Context) FunctionDeadLetterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionDeadLetterConfigOutput)
+}
+
+type FunctionDeadLetterConfigOutput struct { *pulumi.OutputState }
+
+// The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
+// option is used, the function's IAM role must be granted suitable access to write to the target object,
+// which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
+// which service is targeted.
+func (o FunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
+	return o.Apply(func(v FunctionDeadLetterConfig) string {
+		return v.TargetArn
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionDeadLetterConfigOutput) ElementType() reflect.Type {
+	return functionDeadLetterConfigType
+}
+
+func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigOutput() FunctionDeadLetterConfigOutput {
+	return o
+}
+
+func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigOutputWithContext(ctx context.Context) FunctionDeadLetterConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{}) }
+
+type FunctionEnvironment struct {
+	// A map that defines environment variables for the Lambda function.
+	Variables *map[string]string `pulumi:"variables"`
+}
+var functionEnvironmentType = reflect.TypeOf((*FunctionEnvironment)(nil)).Elem()
+
+type FunctionEnvironmentInput interface {
+	pulumi.Input
+
+	ToFunctionEnvironmentOutput() FunctionEnvironmentOutput
+	ToFunctionEnvironmentOutputWithContext(ctx context.Context) FunctionEnvironmentOutput
+}
+
+type FunctionEnvironmentArgs struct {
+	// A map that defines environment variables for the Lambda function.
+	Variables pulumi.StringMapInput `pulumi:"variables"`
+}
+
+func (FunctionEnvironmentArgs) ElementType() reflect.Type {
+	return functionEnvironmentType
+}
+
+func (a FunctionEnvironmentArgs) ToFunctionEnvironmentOutput() FunctionEnvironmentOutput {
+	return pulumi.ToOutput(a).(FunctionEnvironmentOutput)
+}
+
+func (a FunctionEnvironmentArgs) ToFunctionEnvironmentOutputWithContext(ctx context.Context) FunctionEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionEnvironmentOutput)
+}
+
+type FunctionEnvironmentOutput struct { *pulumi.OutputState }
+
+// A map that defines environment variables for the Lambda function.
+func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
+	return o.Apply(func(v FunctionEnvironment) map[string]string {
+		if v.Variables == nil { return *new(map[string]string) } else { return *v.Variables }
+	}).(pulumi.StringMapOutput)
+}
+
+func (FunctionEnvironmentOutput) ElementType() reflect.Type {
+	return functionEnvironmentType
+}
+
+func (o FunctionEnvironmentOutput) ToFunctionEnvironmentOutput() FunctionEnvironmentOutput {
+	return o
+}
+
+func (o FunctionEnvironmentOutput) ToFunctionEnvironmentOutputWithContext(ctx context.Context) FunctionEnvironmentOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionEnvironmentOutput{}) }
+
+type FunctionTracingConfig struct {
+	// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
+	// the request from an upstream service if it contains a tracing header with
+	// "sampled=1". If Active, Lambda will respect any tracing header it receives
+	// from an upstream service. If no tracing header is received, Lambda will call
+	// X-Ray for a tracing decision.
+	Mode string `pulumi:"mode"`
+}
+var functionTracingConfigType = reflect.TypeOf((*FunctionTracingConfig)(nil)).Elem()
+
+type FunctionTracingConfigInput interface {
+	pulumi.Input
+
+	ToFunctionTracingConfigOutput() FunctionTracingConfigOutput
+	ToFunctionTracingConfigOutputWithContext(ctx context.Context) FunctionTracingConfigOutput
+}
+
+type FunctionTracingConfigArgs struct {
+	// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
+	// the request from an upstream service if it contains a tracing header with
+	// "sampled=1". If Active, Lambda will respect any tracing header it receives
+	// from an upstream service. If no tracing header is received, Lambda will call
+	// X-Ray for a tracing decision.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (FunctionTracingConfigArgs) ElementType() reflect.Type {
+	return functionTracingConfigType
+}
+
+func (a FunctionTracingConfigArgs) ToFunctionTracingConfigOutput() FunctionTracingConfigOutput {
+	return pulumi.ToOutput(a).(FunctionTracingConfigOutput)
+}
+
+func (a FunctionTracingConfigArgs) ToFunctionTracingConfigOutputWithContext(ctx context.Context) FunctionTracingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionTracingConfigOutput)
+}
+
+type FunctionTracingConfigOutput struct { *pulumi.OutputState }
+
+// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
+// the request from an upstream service if it contains a tracing header with
+// "sampled=1". If Active, Lambda will respect any tracing header it receives
+// from an upstream service. If no tracing header is received, Lambda will call
+// X-Ray for a tracing decision.
+func (o FunctionTracingConfigOutput) Mode() pulumi.StringOutput {
+	return o.Apply(func(v FunctionTracingConfig) string {
+		return v.Mode
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionTracingConfigOutput) ElementType() reflect.Type {
+	return functionTracingConfigType
+}
+
+func (o FunctionTracingConfigOutput) ToFunctionTracingConfigOutput() FunctionTracingConfigOutput {
+	return o
+}
+
+func (o FunctionTracingConfigOutput) ToFunctionTracingConfigOutputWithContext(ctx context.Context) FunctionTracingConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionTracingConfigOutput{}) }
+
+type FunctionVpcConfig struct {
+	// A list of security group IDs associated with the Lambda function.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs associated with the Lambda function.
+	SubnetIds []string `pulumi:"subnetIds"`
+	VpcId *string `pulumi:"vpcId"`
+}
+var functionVpcConfigType = reflect.TypeOf((*FunctionVpcConfig)(nil)).Elem()
+
+type FunctionVpcConfigInput interface {
+	pulumi.Input
+
+	ToFunctionVpcConfigOutput() FunctionVpcConfigOutput
+	ToFunctionVpcConfigOutputWithContext(ctx context.Context) FunctionVpcConfigOutput
+}
+
+type FunctionVpcConfigArgs struct {
+	// A list of security group IDs associated with the Lambda function.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs associated with the Lambda function.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (FunctionVpcConfigArgs) ElementType() reflect.Type {
+	return functionVpcConfigType
+}
+
+func (a FunctionVpcConfigArgs) ToFunctionVpcConfigOutput() FunctionVpcConfigOutput {
+	return pulumi.ToOutput(a).(FunctionVpcConfigOutput)
+}
+
+func (a FunctionVpcConfigArgs) ToFunctionVpcConfigOutputWithContext(ctx context.Context) FunctionVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionVpcConfigOutput)
+}
+
+type FunctionVpcConfigOutput struct { *pulumi.OutputState }
+
+// A list of security group IDs associated with the Lambda function.
+func (o FunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionVpcConfig) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs associated with the Lambda function.
+func (o FunctionVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionVpcConfig) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FunctionVpcConfigOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionVpcConfig) string {
+		if v.VpcId == nil { return *new(string) } else { return *v.VpcId }
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionVpcConfigOutput) ElementType() reflect.Type {
+	return functionVpcConfigType
+}
+
+func (o FunctionVpcConfigOutput) ToFunctionVpcConfigOutput() FunctionVpcConfigOutput {
+	return o
+}
+
+func (o FunctionVpcConfigOutput) ToFunctionVpcConfigOutputWithContext(ctx context.Context) FunctionVpcConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionVpcConfigOutput{}) }
+

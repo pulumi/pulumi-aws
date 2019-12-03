@@ -21,93 +21,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
 type MainRouteTableAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Used internally, see __Notes__ below
+	OriginalRouteTableId pulumi.StringOutput `pulumi:"originalRouteTableId"`
+
+	// The ID of the Route Table to set as the new
+	// main route table for the target VPC
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+
+	// The ID of the VPC whose main route table should be set
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewMainRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewMainRouteTableAssociation(ctx *pulumi.Context,
-	name string, args *MainRouteTableAssociationArgs, opts ...pulumi.ResourceOpt) (*MainRouteTableAssociation, error) {
+	name string, args *MainRouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*MainRouteTableAssociation, error) {
 	if args == nil || args.RouteTableId == nil {
 		return nil, errors.New("missing required argument 'RouteTableId'")
 	}
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["routeTableId"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["routeTableId"] = args.RouteTableId
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	inputs["originalRouteTableId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, true, inputs, opts...)
+	var resource MainRouteTableAssociation
+	err := ctx.RegisterResource("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MainRouteTableAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetMainRouteTableAssociation gets an existing MainRouteTableAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMainRouteTableAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MainRouteTableAssociationState, opts ...pulumi.ResourceOpt) (*MainRouteTableAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MainRouteTableAssociationState, opts ...pulumi.ResourceOption) (*MainRouteTableAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["originalRouteTableId"] = state.OriginalRouteTableId
-		inputs["routeTableId"] = state.RouteTableId
-		inputs["vpcId"] = state.VpcId
+		if i := state.OriginalRouteTableId; i != nil { inputs["originalRouteTableId"] = i.ToStringOutput() }
+		if i := state.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, id, inputs, opts...)
+	var resource MainRouteTableAssociation
+	err := ctx.ReadResource("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MainRouteTableAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MainRouteTableAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MainRouteTableAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Used internally, see __Notes__ below
-func (r *MainRouteTableAssociation) OriginalRouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["originalRouteTableId"])
-}
-
-// The ID of the Route Table to set as the new
-// main route table for the target VPC
-func (r *MainRouteTableAssociation) RouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["routeTableId"])
-}
-
-// The ID of the VPC whose main route table should be set
-func (r *MainRouteTableAssociation) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MainRouteTableAssociation resources.
 type MainRouteTableAssociationState struct {
 	// Used internally, see __Notes__ below
-	OriginalRouteTableId interface{}
+	OriginalRouteTableId pulumi.StringInput `pulumi:"originalRouteTableId"`
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// The ID of the VPC whose main route table should be set
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a MainRouteTableAssociation resource.
 type MainRouteTableAssociationArgs struct {
 	// The ID of the Route Table to set as the new
 	// main route table for the target VPC
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// The ID of the VPC whose main route table should be set
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

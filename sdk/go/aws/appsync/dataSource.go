@@ -4,6 +4,8 @@
 package appsync
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,174 +14,380 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
 type DataSource struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The API ID for the GraphQL API for the DataSource.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+
+	// The ARN
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A description of the DataSource.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// DynamoDB settings. See below
+	DynamodbConfig DataSourceDynamodbConfigOutput `pulumi:"dynamodbConfig"`
+
+	// Amazon Elasticsearch settings. See below
+	ElasticsearchConfig DataSourceElasticsearchConfigOutput `pulumi:"elasticsearchConfig"`
+
+	// HTTP settings. See below
+	HttpConfig DataSourceHttpConfigOutput `pulumi:"httpConfig"`
+
+	// AWS Lambda settings. See below
+	LambdaConfig DataSourceLambdaConfigOutput `pulumi:"lambdaConfig"`
+
+	// A user-supplied name for the DataSource.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The IAM service role ARN for the data source.
+	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
+
+	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
 func NewDataSource(ctx *pulumi.Context,
-	name string, args *DataSourceArgs, opts ...pulumi.ResourceOpt) (*DataSource, error) {
+	name string, args *DataSourceArgs, opts ...pulumi.ResourceOption) (*DataSource, error) {
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiId"] = nil
-		inputs["description"] = nil
-		inputs["dynamodbConfig"] = nil
-		inputs["elasticsearchConfig"] = nil
-		inputs["httpConfig"] = nil
-		inputs["lambdaConfig"] = nil
-		inputs["name"] = nil
-		inputs["serviceRoleArn"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["apiId"] = args.ApiId
-		inputs["description"] = args.Description
-		inputs["dynamodbConfig"] = args.DynamodbConfig
-		inputs["elasticsearchConfig"] = args.ElasticsearchConfig
-		inputs["httpConfig"] = args.HttpConfig
-		inputs["lambdaConfig"] = args.LambdaConfig
-		inputs["name"] = args.Name
-		inputs["serviceRoleArn"] = args.ServiceRoleArn
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DynamodbConfig; i != nil { inputs["dynamodbConfig"] = i.ToDataSourceDynamodbConfigOutput() }
+		if i := args.ElasticsearchConfig; i != nil { inputs["elasticsearchConfig"] = i.ToDataSourceElasticsearchConfigOutput() }
+		if i := args.HttpConfig; i != nil { inputs["httpConfig"] = i.ToDataSourceHttpConfigOutput() }
+		if i := args.LambdaConfig; i != nil { inputs["lambdaConfig"] = i.ToDataSourceLambdaConfigOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ServiceRoleArn; i != nil { inputs["serviceRoleArn"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:appsync/dataSource:DataSource", name, true, inputs, opts...)
+	var resource DataSource
+	err := ctx.RegisterResource("aws:appsync/dataSource:DataSource", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DataSource{s: s}, nil
+	return &resource, nil
 }
 
 // GetDataSource gets an existing DataSource resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDataSource(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DataSourceState, opts ...pulumi.ResourceOpt) (*DataSource, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DataSourceState, opts ...pulumi.ResourceOption) (*DataSource, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiId"] = state.ApiId
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["dynamodbConfig"] = state.DynamodbConfig
-		inputs["elasticsearchConfig"] = state.ElasticsearchConfig
-		inputs["httpConfig"] = state.HttpConfig
-		inputs["lambdaConfig"] = state.LambdaConfig
-		inputs["name"] = state.Name
-		inputs["serviceRoleArn"] = state.ServiceRoleArn
-		inputs["type"] = state.Type
+		if i := state.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DynamodbConfig; i != nil { inputs["dynamodbConfig"] = i.ToDataSourceDynamodbConfigOutput() }
+		if i := state.ElasticsearchConfig; i != nil { inputs["elasticsearchConfig"] = i.ToDataSourceElasticsearchConfigOutput() }
+		if i := state.HttpConfig; i != nil { inputs["httpConfig"] = i.ToDataSourceHttpConfigOutput() }
+		if i := state.LambdaConfig; i != nil { inputs["lambdaConfig"] = i.ToDataSourceLambdaConfigOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ServiceRoleArn; i != nil { inputs["serviceRoleArn"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appsync/dataSource:DataSource", name, id, inputs, opts...)
+	var resource DataSource
+	err := ctx.ReadResource("aws:appsync/dataSource:DataSource", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DataSource{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DataSource) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DataSource) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The API ID for the GraphQL API for the DataSource.
-func (r *DataSource) ApiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiId"])
-}
-
-// The ARN
-func (r *DataSource) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A description of the DataSource.
-func (r *DataSource) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// DynamoDB settings. See below
-func (r *DataSource) DynamodbConfig() pulumi.Output {
-	return r.s.State["dynamodbConfig"]
-}
-
-// Amazon Elasticsearch settings. See below
-func (r *DataSource) ElasticsearchConfig() pulumi.Output {
-	return r.s.State["elasticsearchConfig"]
-}
-
-// HTTP settings. See below
-func (r *DataSource) HttpConfig() pulumi.Output {
-	return r.s.State["httpConfig"]
-}
-
-// AWS Lambda settings. See below
-func (r *DataSource) LambdaConfig() pulumi.Output {
-	return r.s.State["lambdaConfig"]
-}
-
-// A user-supplied name for the DataSource.
-func (r *DataSource) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The IAM service role ARN for the data source.
-func (r *DataSource) ServiceRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceRoleArn"])
-}
-
-// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
-func (r *DataSource) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DataSource resources.
 type DataSourceState struct {
 	// The API ID for the GraphQL API for the DataSource.
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The ARN
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A description of the DataSource.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// DynamoDB settings. See below
-	DynamodbConfig interface{}
+	DynamodbConfig DataSourceDynamodbConfigInput `pulumi:"dynamodbConfig"`
 	// Amazon Elasticsearch settings. See below
-	ElasticsearchConfig interface{}
+	ElasticsearchConfig DataSourceElasticsearchConfigInput `pulumi:"elasticsearchConfig"`
 	// HTTP settings. See below
-	HttpConfig interface{}
+	HttpConfig DataSourceHttpConfigInput `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
-	LambdaConfig interface{}
+	LambdaConfig DataSourceLambdaConfigInput `pulumi:"lambdaConfig"`
 	// A user-supplied name for the DataSource.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The IAM service role ARN for the data source.
-	ServiceRoleArn interface{}
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
 	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
 	// The API ID for the GraphQL API for the DataSource.
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// A description of the DataSource.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// DynamoDB settings. See below
-	DynamodbConfig interface{}
+	DynamodbConfig DataSourceDynamodbConfigInput `pulumi:"dynamodbConfig"`
 	// Amazon Elasticsearch settings. See below
-	ElasticsearchConfig interface{}
+	ElasticsearchConfig DataSourceElasticsearchConfigInput `pulumi:"elasticsearchConfig"`
 	// HTTP settings. See below
-	HttpConfig interface{}
+	HttpConfig DataSourceHttpConfigInput `pulumi:"httpConfig"`
 	// AWS Lambda settings. See below
-	LambdaConfig interface{}
+	LambdaConfig DataSourceLambdaConfigInput `pulumi:"lambdaConfig"`
 	// A user-supplied name for the DataSource.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The IAM service role ARN for the data source.
-	ServiceRoleArn interface{}
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
 	// The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
+type DataSourceDynamodbConfig struct {
+	// AWS region of Elasticsearch domain. Defaults to current region.
+	Region *string `pulumi:"region"`
+	// Name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
+	// Set to `true` to use Amazon Cognito credentials with this data source.
+	UseCallerCredentials *bool `pulumi:"useCallerCredentials"`
+}
+var dataSourceDynamodbConfigType = reflect.TypeOf((*DataSourceDynamodbConfig)(nil)).Elem()
+
+type DataSourceDynamodbConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceDynamodbConfigOutput() DataSourceDynamodbConfigOutput
+	ToDataSourceDynamodbConfigOutputWithContext(ctx context.Context) DataSourceDynamodbConfigOutput
+}
+
+type DataSourceDynamodbConfigArgs struct {
+	// AWS region of Elasticsearch domain. Defaults to current region.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Set to `true` to use Amazon Cognito credentials with this data source.
+	UseCallerCredentials pulumi.BoolInput `pulumi:"useCallerCredentials"`
+}
+
+func (DataSourceDynamodbConfigArgs) ElementType() reflect.Type {
+	return dataSourceDynamodbConfigType
+}
+
+func (a DataSourceDynamodbConfigArgs) ToDataSourceDynamodbConfigOutput() DataSourceDynamodbConfigOutput {
+	return pulumi.ToOutput(a).(DataSourceDynamodbConfigOutput)
+}
+
+func (a DataSourceDynamodbConfigArgs) ToDataSourceDynamodbConfigOutputWithContext(ctx context.Context) DataSourceDynamodbConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DataSourceDynamodbConfigOutput)
+}
+
+type DataSourceDynamodbConfigOutput struct { *pulumi.OutputState }
+
+// AWS region of Elasticsearch domain. Defaults to current region.
+func (o DataSourceDynamodbConfigOutput) Region() pulumi.StringOutput {
+	return o.Apply(func(v DataSourceDynamodbConfig) string {
+		if v.Region == nil { return *new(string) } else { return *v.Region }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the DynamoDB table.
+func (o DataSourceDynamodbConfigOutput) TableName() pulumi.StringOutput {
+	return o.Apply(func(v DataSourceDynamodbConfig) string {
+		return v.TableName
+	}).(pulumi.StringOutput)
+}
+
+// Set to `true` to use Amazon Cognito credentials with this data source.
+func (o DataSourceDynamodbConfigOutput) UseCallerCredentials() pulumi.BoolOutput {
+	return o.Apply(func(v DataSourceDynamodbConfig) bool {
+		if v.UseCallerCredentials == nil { return *new(bool) } else { return *v.UseCallerCredentials }
+	}).(pulumi.BoolOutput)
+}
+
+func (DataSourceDynamodbConfigOutput) ElementType() reflect.Type {
+	return dataSourceDynamodbConfigType
+}
+
+func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigOutput() DataSourceDynamodbConfigOutput {
+	return o
+}
+
+func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigOutputWithContext(ctx context.Context) DataSourceDynamodbConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DataSourceDynamodbConfigOutput{}) }
+
+type DataSourceElasticsearchConfig struct {
+	// HTTP URL.
+	Endpoint string `pulumi:"endpoint"`
+	// AWS region of Elasticsearch domain. Defaults to current region.
+	Region *string `pulumi:"region"`
+}
+var dataSourceElasticsearchConfigType = reflect.TypeOf((*DataSourceElasticsearchConfig)(nil)).Elem()
+
+type DataSourceElasticsearchConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceElasticsearchConfigOutput() DataSourceElasticsearchConfigOutput
+	ToDataSourceElasticsearchConfigOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigOutput
+}
+
+type DataSourceElasticsearchConfigArgs struct {
+	// HTTP URL.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// AWS region of Elasticsearch domain. Defaults to current region.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (DataSourceElasticsearchConfigArgs) ElementType() reflect.Type {
+	return dataSourceElasticsearchConfigType
+}
+
+func (a DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigOutput() DataSourceElasticsearchConfigOutput {
+	return pulumi.ToOutput(a).(DataSourceElasticsearchConfigOutput)
+}
+
+func (a DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DataSourceElasticsearchConfigOutput)
+}
+
+type DataSourceElasticsearchConfigOutput struct { *pulumi.OutputState }
+
+// HTTP URL.
+func (o DataSourceElasticsearchConfigOutput) Endpoint() pulumi.StringOutput {
+	return o.Apply(func(v DataSourceElasticsearchConfig) string {
+		return v.Endpoint
+	}).(pulumi.StringOutput)
+}
+
+// AWS region of Elasticsearch domain. Defaults to current region.
+func (o DataSourceElasticsearchConfigOutput) Region() pulumi.StringOutput {
+	return o.Apply(func(v DataSourceElasticsearchConfig) string {
+		if v.Region == nil { return *new(string) } else { return *v.Region }
+	}).(pulumi.StringOutput)
+}
+
+func (DataSourceElasticsearchConfigOutput) ElementType() reflect.Type {
+	return dataSourceElasticsearchConfigType
+}
+
+func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigOutput() DataSourceElasticsearchConfigOutput {
+	return o
+}
+
+func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DataSourceElasticsearchConfigOutput{}) }
+
+type DataSourceHttpConfig struct {
+	// HTTP URL.
+	Endpoint string `pulumi:"endpoint"`
+}
+var dataSourceHttpConfigType = reflect.TypeOf((*DataSourceHttpConfig)(nil)).Elem()
+
+type DataSourceHttpConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceHttpConfigOutput() DataSourceHttpConfigOutput
+	ToDataSourceHttpConfigOutputWithContext(ctx context.Context) DataSourceHttpConfigOutput
+}
+
+type DataSourceHttpConfigArgs struct {
+	// HTTP URL.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (DataSourceHttpConfigArgs) ElementType() reflect.Type {
+	return dataSourceHttpConfigType
+}
+
+func (a DataSourceHttpConfigArgs) ToDataSourceHttpConfigOutput() DataSourceHttpConfigOutput {
+	return pulumi.ToOutput(a).(DataSourceHttpConfigOutput)
+}
+
+func (a DataSourceHttpConfigArgs) ToDataSourceHttpConfigOutputWithContext(ctx context.Context) DataSourceHttpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DataSourceHttpConfigOutput)
+}
+
+type DataSourceHttpConfigOutput struct { *pulumi.OutputState }
+
+// HTTP URL.
+func (o DataSourceHttpConfigOutput) Endpoint() pulumi.StringOutput {
+	return o.Apply(func(v DataSourceHttpConfig) string {
+		return v.Endpoint
+	}).(pulumi.StringOutput)
+}
+
+func (DataSourceHttpConfigOutput) ElementType() reflect.Type {
+	return dataSourceHttpConfigType
+}
+
+func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigOutput() DataSourceHttpConfigOutput {
+	return o
+}
+
+func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigOutputWithContext(ctx context.Context) DataSourceHttpConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DataSourceHttpConfigOutput{}) }
+
+type DataSourceLambdaConfig struct {
+	// The ARN for the Lambda function.
+	FunctionArn string `pulumi:"functionArn"`
+}
+var dataSourceLambdaConfigType = reflect.TypeOf((*DataSourceLambdaConfig)(nil)).Elem()
+
+type DataSourceLambdaConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceLambdaConfigOutput() DataSourceLambdaConfigOutput
+	ToDataSourceLambdaConfigOutputWithContext(ctx context.Context) DataSourceLambdaConfigOutput
+}
+
+type DataSourceLambdaConfigArgs struct {
+	// The ARN for the Lambda function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+}
+
+func (DataSourceLambdaConfigArgs) ElementType() reflect.Type {
+	return dataSourceLambdaConfigType
+}
+
+func (a DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigOutput() DataSourceLambdaConfigOutput {
+	return pulumi.ToOutput(a).(DataSourceLambdaConfigOutput)
+}
+
+func (a DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigOutputWithContext(ctx context.Context) DataSourceLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DataSourceLambdaConfigOutput)
+}
+
+type DataSourceLambdaConfigOutput struct { *pulumi.OutputState }
+
+// The ARN for the Lambda function.
+func (o DataSourceLambdaConfigOutput) FunctionArn() pulumi.StringOutput {
+	return o.Apply(func(v DataSourceLambdaConfig) string {
+		return v.FunctionArn
+	}).(pulumi.StringOutput)
+}
+
+func (DataSourceLambdaConfigOutput) ElementType() reflect.Type {
+	return dataSourceLambdaConfigType
+}
+
+func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigOutput() DataSourceLambdaConfigOutput {
+	return o
+}
+
+func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigOutputWithContext(ctx context.Context) DataSourceLambdaConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DataSourceLambdaConfigOutput{}) }
+

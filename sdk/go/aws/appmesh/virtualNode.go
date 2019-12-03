@@ -4,6 +4,8 @@
 package appmesh
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -23,132 +25,940 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_node.html.markdown.
 type VirtualNode struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the virtual node.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The creation date of the virtual node.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The last update date of the virtual node.
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+
+	// The name of the service mesh in which to create the virtual node.
+	MeshName pulumi.StringOutput `pulumi:"meshName"`
+
+	// The name to use for the virtual node.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The virtual node specification to apply.
+	Spec VirtualNodeSpecOutput `pulumi:"spec"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewVirtualNode registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNode(ctx *pulumi.Context,
-	name string, args *VirtualNodeArgs, opts ...pulumi.ResourceOpt) (*VirtualNode, error) {
+	name string, args *VirtualNodeArgs, opts ...pulumi.ResourceOption) (*VirtualNode, error) {
 	if args == nil || args.MeshName == nil {
 		return nil, errors.New("missing required argument 'MeshName'")
 	}
 	if args == nil || args.Spec == nil {
 		return nil, errors.New("missing required argument 'Spec'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["meshName"] = nil
-		inputs["name"] = nil
-		inputs["spec"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["meshName"] = args.MeshName
-		inputs["name"] = args.Name
-		inputs["spec"] = args.Spec
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MeshName; i != nil { inputs["meshName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Spec; i != nil { inputs["spec"] = i.ToVirtualNodeSpecOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["lastUpdatedDate"] = nil
-	s, err := ctx.RegisterResource("aws:appmesh/virtualNode:VirtualNode", name, true, inputs, opts...)
+	var resource VirtualNode
+	err := ctx.RegisterResource("aws:appmesh/virtualNode:VirtualNode", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNode{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualNode gets an existing VirtualNode resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualNode(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualNodeState, opts ...pulumi.ResourceOpt) (*VirtualNode, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualNodeState, opts ...pulumi.ResourceOption) (*VirtualNode, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["createdDate"] = state.CreatedDate
-		inputs["lastUpdatedDate"] = state.LastUpdatedDate
-		inputs["meshName"] = state.MeshName
-		inputs["name"] = state.Name
-		inputs["spec"] = state.Spec
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.LastUpdatedDate; i != nil { inputs["lastUpdatedDate"] = i.ToStringOutput() }
+		if i := state.MeshName; i != nil { inputs["meshName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Spec; i != nil { inputs["spec"] = i.ToVirtualNodeSpecOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appmesh/virtualNode:VirtualNode", name, id, inputs, opts...)
+	var resource VirtualNode
+	err := ctx.ReadResource("aws:appmesh/virtualNode:VirtualNode", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNode{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNode) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNode) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the virtual node.
-func (r *VirtualNode) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The creation date of the virtual node.
-func (r *VirtualNode) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The last update date of the virtual node.
-func (r *VirtualNode) LastUpdatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
-}
-
-// The name of the service mesh in which to create the virtual node.
-func (r *VirtualNode) MeshName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["meshName"])
-}
-
-// The name to use for the virtual node.
-func (r *VirtualNode) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The virtual node specification to apply.
-func (r *VirtualNode) Spec() pulumi.Output {
-	return r.s.State["spec"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VirtualNode) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualNode resources.
 type VirtualNodeState struct {
 	// The ARN of the virtual node.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The creation date of the virtual node.
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The last update date of the virtual node.
-	LastUpdatedDate interface{}
+	LastUpdatedDate pulumi.StringInput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the virtual node.
-	MeshName interface{}
+	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// The name to use for the virtual node.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The virtual node specification to apply.
-	Spec interface{}
+	Spec VirtualNodeSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualNode resource.
 type VirtualNodeArgs struct {
 	// The name of the service mesh in which to create the virtual node.
-	MeshName interface{}
+	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// The name to use for the virtual node.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The virtual node specification to apply.
-	Spec interface{}
+	Spec VirtualNodeSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type VirtualNodeSpec struct {
+	// The backends to which the virtual node is expected to send outbound traffic.
+	Backends *[]VirtualNodeSpecBackends `pulumi:"backends"`
+	// The listeners from which the virtual node is expected to receive inbound traffic.
+	Listener *VirtualNodeSpecListener `pulumi:"listener"`
+	// The inbound and outbound access logging information for the virtual node.
+	Logging *VirtualNodeSpecLogging `pulumi:"logging"`
+	// The service discovery information for the virtual node.
+	ServiceDiscovery *VirtualNodeSpecServiceDiscovery `pulumi:"serviceDiscovery"`
+}
+var virtualNodeSpecType = reflect.TypeOf((*VirtualNodeSpec)(nil)).Elem()
+
+type VirtualNodeSpecInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecOutput() VirtualNodeSpecOutput
+	ToVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeSpecOutput
+}
+
+type VirtualNodeSpecArgs struct {
+	// The backends to which the virtual node is expected to send outbound traffic.
+	Backends VirtualNodeSpecBackendsArrayInput `pulumi:"backends"`
+	// The listeners from which the virtual node is expected to receive inbound traffic.
+	Listener VirtualNodeSpecListenerInput `pulumi:"listener"`
+	// The inbound and outbound access logging information for the virtual node.
+	Logging VirtualNodeSpecLoggingInput `pulumi:"logging"`
+	// The service discovery information for the virtual node.
+	ServiceDiscovery VirtualNodeSpecServiceDiscoveryInput `pulumi:"serviceDiscovery"`
+}
+
+func (VirtualNodeSpecArgs) ElementType() reflect.Type {
+	return virtualNodeSpecType
+}
+
+func (a VirtualNodeSpecArgs) ToVirtualNodeSpecOutput() VirtualNodeSpecOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecOutput)
+}
+
+func (a VirtualNodeSpecArgs) ToVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecOutput)
+}
+
+type VirtualNodeSpecOutput struct { *pulumi.OutputState }
+
+// The backends to which the virtual node is expected to send outbound traffic.
+func (o VirtualNodeSpecOutput) Backends() VirtualNodeSpecBackendsArrayOutput {
+	return o.Apply(func(v VirtualNodeSpec) []VirtualNodeSpecBackends {
+		if v.Backends == nil { return *new([]VirtualNodeSpecBackends) } else { return *v.Backends }
+	}).(VirtualNodeSpecBackendsArrayOutput)
+}
+
+// The listeners from which the virtual node is expected to receive inbound traffic.
+func (o VirtualNodeSpecOutput) Listener() VirtualNodeSpecListenerOutput {
+	return o.Apply(func(v VirtualNodeSpec) VirtualNodeSpecListener {
+		if v.Listener == nil { return *new(VirtualNodeSpecListener) } else { return *v.Listener }
+	}).(VirtualNodeSpecListenerOutput)
+}
+
+// The inbound and outbound access logging information for the virtual node.
+func (o VirtualNodeSpecOutput) Logging() VirtualNodeSpecLoggingOutput {
+	return o.Apply(func(v VirtualNodeSpec) VirtualNodeSpecLogging {
+		if v.Logging == nil { return *new(VirtualNodeSpecLogging) } else { return *v.Logging }
+	}).(VirtualNodeSpecLoggingOutput)
+}
+
+// The service discovery information for the virtual node.
+func (o VirtualNodeSpecOutput) ServiceDiscovery() VirtualNodeSpecServiceDiscoveryOutput {
+	return o.Apply(func(v VirtualNodeSpec) VirtualNodeSpecServiceDiscovery {
+		if v.ServiceDiscovery == nil { return *new(VirtualNodeSpecServiceDiscovery) } else { return *v.ServiceDiscovery }
+	}).(VirtualNodeSpecServiceDiscoveryOutput)
+}
+
+func (VirtualNodeSpecOutput) ElementType() reflect.Type {
+	return virtualNodeSpecType
+}
+
+func (o VirtualNodeSpecOutput) ToVirtualNodeSpecOutput() VirtualNodeSpecOutput {
+	return o
+}
+
+func (o VirtualNodeSpecOutput) ToVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeSpecOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecOutput{}) }
+
+type VirtualNodeSpecBackends struct {
+	// Specifies a virtual service to use as a backend for a virtual node.
+	VirtualService *VirtualNodeSpecBackendsVirtualService `pulumi:"virtualService"`
+}
+var virtualNodeSpecBackendsType = reflect.TypeOf((*VirtualNodeSpecBackends)(nil)).Elem()
+
+type VirtualNodeSpecBackendsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendsOutput() VirtualNodeSpecBackendsOutput
+	ToVirtualNodeSpecBackendsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsOutput
+}
+
+type VirtualNodeSpecBackendsArgs struct {
+	// Specifies a virtual service to use as a backend for a virtual node.
+	VirtualService VirtualNodeSpecBackendsVirtualServiceInput `pulumi:"virtualService"`
+}
+
+func (VirtualNodeSpecBackendsArgs) ElementType() reflect.Type {
+	return virtualNodeSpecBackendsType
+}
+
+func (a VirtualNodeSpecBackendsArgs) ToVirtualNodeSpecBackendsOutput() VirtualNodeSpecBackendsOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecBackendsOutput)
+}
+
+func (a VirtualNodeSpecBackendsArgs) ToVirtualNodeSpecBackendsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecBackendsOutput)
+}
+
+type VirtualNodeSpecBackendsOutput struct { *pulumi.OutputState }
+
+// Specifies a virtual service to use as a backend for a virtual node.
+func (o VirtualNodeSpecBackendsOutput) VirtualService() VirtualNodeSpecBackendsVirtualServiceOutput {
+	return o.Apply(func(v VirtualNodeSpecBackends) VirtualNodeSpecBackendsVirtualService {
+		if v.VirtualService == nil { return *new(VirtualNodeSpecBackendsVirtualService) } else { return *v.VirtualService }
+	}).(VirtualNodeSpecBackendsVirtualServiceOutput)
+}
+
+func (VirtualNodeSpecBackendsOutput) ElementType() reflect.Type {
+	return virtualNodeSpecBackendsType
+}
+
+func (o VirtualNodeSpecBackendsOutput) ToVirtualNodeSpecBackendsOutput() VirtualNodeSpecBackendsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendsOutput) ToVirtualNodeSpecBackendsOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecBackendsOutput{}) }
+
+var virtualNodeSpecBackendsArrayType = reflect.TypeOf((*[]VirtualNodeSpecBackends)(nil)).Elem()
+
+type VirtualNodeSpecBackendsArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendsArrayOutput() VirtualNodeSpecBackendsArrayOutput
+	ToVirtualNodeSpecBackendsArrayOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsArrayOutput
+}
+
+type VirtualNodeSpecBackendsArrayArgs []VirtualNodeSpecBackendsInput
+
+func (VirtualNodeSpecBackendsArrayArgs) ElementType() reflect.Type {
+	return virtualNodeSpecBackendsArrayType
+}
+
+func (a VirtualNodeSpecBackendsArrayArgs) ToVirtualNodeSpecBackendsArrayOutput() VirtualNodeSpecBackendsArrayOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecBackendsArrayOutput)
+}
+
+func (a VirtualNodeSpecBackendsArrayArgs) ToVirtualNodeSpecBackendsArrayOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecBackendsArrayOutput)
+}
+
+type VirtualNodeSpecBackendsArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualNodeSpecBackendsArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecBackendsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualNodeSpecBackends {
+		return vs[0].([]VirtualNodeSpecBackends)[vs[1].(int)]
+	}).(VirtualNodeSpecBackendsOutput)
+}
+
+func (VirtualNodeSpecBackendsArrayOutput) ElementType() reflect.Type {
+	return virtualNodeSpecBackendsArrayType
+}
+
+func (o VirtualNodeSpecBackendsArrayOutput) ToVirtualNodeSpecBackendsArrayOutput() VirtualNodeSpecBackendsArrayOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendsArrayOutput) ToVirtualNodeSpecBackendsArrayOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecBackendsArrayOutput{}) }
+
+type VirtualNodeSpecBackendsVirtualService struct {
+	// The name of the virtual service that is acting as a virtual node backend.
+	VirtualServiceName string `pulumi:"virtualServiceName"`
+}
+var virtualNodeSpecBackendsVirtualServiceType = reflect.TypeOf((*VirtualNodeSpecBackendsVirtualService)(nil)).Elem()
+
+type VirtualNodeSpecBackendsVirtualServiceInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecBackendsVirtualServiceOutput() VirtualNodeSpecBackendsVirtualServiceOutput
+	ToVirtualNodeSpecBackendsVirtualServiceOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsVirtualServiceOutput
+}
+
+type VirtualNodeSpecBackendsVirtualServiceArgs struct {
+	// The name of the virtual service that is acting as a virtual node backend.
+	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
+}
+
+func (VirtualNodeSpecBackendsVirtualServiceArgs) ElementType() reflect.Type {
+	return virtualNodeSpecBackendsVirtualServiceType
+}
+
+func (a VirtualNodeSpecBackendsVirtualServiceArgs) ToVirtualNodeSpecBackendsVirtualServiceOutput() VirtualNodeSpecBackendsVirtualServiceOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecBackendsVirtualServiceOutput)
+}
+
+func (a VirtualNodeSpecBackendsVirtualServiceArgs) ToVirtualNodeSpecBackendsVirtualServiceOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsVirtualServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecBackendsVirtualServiceOutput)
+}
+
+type VirtualNodeSpecBackendsVirtualServiceOutput struct { *pulumi.OutputState }
+
+// The name of the virtual service that is acting as a virtual node backend.
+func (o VirtualNodeSpecBackendsVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecBackendsVirtualService) string {
+		return v.VirtualServiceName
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNodeSpecBackendsVirtualServiceOutput) ElementType() reflect.Type {
+	return virtualNodeSpecBackendsVirtualServiceType
+}
+
+func (o VirtualNodeSpecBackendsVirtualServiceOutput) ToVirtualNodeSpecBackendsVirtualServiceOutput() VirtualNodeSpecBackendsVirtualServiceOutput {
+	return o
+}
+
+func (o VirtualNodeSpecBackendsVirtualServiceOutput) ToVirtualNodeSpecBackendsVirtualServiceOutputWithContext(ctx context.Context) VirtualNodeSpecBackendsVirtualServiceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecBackendsVirtualServiceOutput{}) }
+
+type VirtualNodeSpecListener struct {
+	// The health check information for the listener.
+	HealthCheck *VirtualNodeSpecListenerHealthCheck `pulumi:"healthCheck"`
+	// The port mapping information for the listener.
+	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
+}
+var virtualNodeSpecListenerType = reflect.TypeOf((*VirtualNodeSpecListener)(nil)).Elem()
+
+type VirtualNodeSpecListenerInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerOutput() VirtualNodeSpecListenerOutput
+	ToVirtualNodeSpecListenerOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutput
+}
+
+type VirtualNodeSpecListenerArgs struct {
+	// The health check information for the listener.
+	HealthCheck VirtualNodeSpecListenerHealthCheckInput `pulumi:"healthCheck"`
+	// The port mapping information for the listener.
+	PortMapping VirtualNodeSpecListenerPortMappingInput `pulumi:"portMapping"`
+}
+
+func (VirtualNodeSpecListenerArgs) ElementType() reflect.Type {
+	return virtualNodeSpecListenerType
+}
+
+func (a VirtualNodeSpecListenerArgs) ToVirtualNodeSpecListenerOutput() VirtualNodeSpecListenerOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecListenerOutput)
+}
+
+func (a VirtualNodeSpecListenerArgs) ToVirtualNodeSpecListenerOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecListenerOutput)
+}
+
+type VirtualNodeSpecListenerOutput struct { *pulumi.OutputState }
+
+// The health check information for the listener.
+func (o VirtualNodeSpecListenerOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckOutput {
+	return o.Apply(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerHealthCheck {
+		if v.HealthCheck == nil { return *new(VirtualNodeSpecListenerHealthCheck) } else { return *v.HealthCheck }
+	}).(VirtualNodeSpecListenerHealthCheckOutput)
+}
+
+// The port mapping information for the listener.
+func (o VirtualNodeSpecListenerOutput) PortMapping() VirtualNodeSpecListenerPortMappingOutput {
+	return o.Apply(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping {
+		return v.PortMapping
+	}).(VirtualNodeSpecListenerPortMappingOutput)
+}
+
+func (VirtualNodeSpecListenerOutput) ElementType() reflect.Type {
+	return virtualNodeSpecListenerType
+}
+
+func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerOutput() VirtualNodeSpecListenerOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecListenerOutput{}) }
+
+type VirtualNodeSpecListenerHealthCheck struct {
+	// The number of consecutive successful health checks that must occur before declaring listener healthy.
+	// * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
+	HealthyThreshold int `pulumi:"healthyThreshold"`
+	IntervalMillis int `pulumi:"intervalMillis"`
+	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	Path *string `pulumi:"path"`
+	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port *int `pulumi:"port"`
+	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	Protocol string `pulumi:"protocol"`
+	// The amount of time to wait when receiving a response from the health check, in milliseconds.
+	TimeoutMillis int `pulumi:"timeoutMillis"`
+	// The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+}
+var virtualNodeSpecListenerHealthCheckType = reflect.TypeOf((*VirtualNodeSpecListenerHealthCheck)(nil)).Elem()
+
+type VirtualNodeSpecListenerHealthCheckInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerHealthCheckOutput() VirtualNodeSpecListenerHealthCheckOutput
+	ToVirtualNodeSpecListenerHealthCheckOutputWithContext(ctx context.Context) VirtualNodeSpecListenerHealthCheckOutput
+}
+
+type VirtualNodeSpecListenerHealthCheckArgs struct {
+	// The number of consecutive successful health checks that must occur before declaring listener healthy.
+	// * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
+	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
+	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
+	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The amount of time to wait when receiving a response from the health check, in milliseconds.
+	TimeoutMillis pulumi.IntInput `pulumi:"timeoutMillis"`
+	// The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+}
+
+func (VirtualNodeSpecListenerHealthCheckArgs) ElementType() reflect.Type {
+	return virtualNodeSpecListenerHealthCheckType
+}
+
+func (a VirtualNodeSpecListenerHealthCheckArgs) ToVirtualNodeSpecListenerHealthCheckOutput() VirtualNodeSpecListenerHealthCheckOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecListenerHealthCheckOutput)
+}
+
+func (a VirtualNodeSpecListenerHealthCheckArgs) ToVirtualNodeSpecListenerHealthCheckOutputWithContext(ctx context.Context) VirtualNodeSpecListenerHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecListenerHealthCheckOutput)
+}
+
+type VirtualNodeSpecListenerHealthCheckOutput struct { *pulumi.OutputState }
+
+// The number of consecutive successful health checks that must occur before declaring listener healthy.
+// * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
+func (o VirtualNodeSpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) int {
+		return v.HealthyThreshold
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) int {
+		return v.IntervalMillis
+	}).(pulumi.IntOutput)
+}
+
+// The destination path for the health check request. This is only required if the specified protocol is `http`.
+func (o VirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+func (o VirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+// The protocol for the health check request. Valid values are `http` and `tcp`.
+func (o VirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// The amount of time to wait when receiving a response from the health check, in milliseconds.
+func (o VirtualNodeSpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) int {
+		return v.TimeoutMillis
+	}).(pulumi.IntOutput)
+}
+
+// The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+func (o VirtualNodeSpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerHealthCheck) int {
+		return v.UnhealthyThreshold
+	}).(pulumi.IntOutput)
+}
+
+func (VirtualNodeSpecListenerHealthCheckOutput) ElementType() reflect.Type {
+	return virtualNodeSpecListenerHealthCheckType
+}
+
+func (o VirtualNodeSpecListenerHealthCheckOutput) ToVirtualNodeSpecListenerHealthCheckOutput() VirtualNodeSpecListenerHealthCheckOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerHealthCheckOutput) ToVirtualNodeSpecListenerHealthCheckOutputWithContext(ctx context.Context) VirtualNodeSpecListenerHealthCheckOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckOutput{}) }
+
+type VirtualNodeSpecListenerPortMapping struct {
+	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port int `pulumi:"port"`
+	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	Protocol string `pulumi:"protocol"`
+}
+var virtualNodeSpecListenerPortMappingType = reflect.TypeOf((*VirtualNodeSpecListenerPortMapping)(nil)).Elem()
+
+type VirtualNodeSpecListenerPortMappingInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecListenerPortMappingOutput() VirtualNodeSpecListenerPortMappingOutput
+	ToVirtualNodeSpecListenerPortMappingOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingOutput
+}
+
+type VirtualNodeSpecListenerPortMappingArgs struct {
+	// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol for the health check request. Valid values are `http` and `tcp`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (VirtualNodeSpecListenerPortMappingArgs) ElementType() reflect.Type {
+	return virtualNodeSpecListenerPortMappingType
+}
+
+func (a VirtualNodeSpecListenerPortMappingArgs) ToVirtualNodeSpecListenerPortMappingOutput() VirtualNodeSpecListenerPortMappingOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecListenerPortMappingOutput)
+}
+
+func (a VirtualNodeSpecListenerPortMappingArgs) ToVirtualNodeSpecListenerPortMappingOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecListenerPortMappingOutput)
+}
+
+type VirtualNodeSpecListenerPortMappingOutput struct { *pulumi.OutputState }
+
+// The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerPortMapping) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+// The protocol for the health check request. Valid values are `http` and `tcp`.
+func (o VirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecListenerPortMapping) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNodeSpecListenerPortMappingOutput) ElementType() reflect.Type {
+	return virtualNodeSpecListenerPortMappingType
+}
+
+func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortMappingOutput() VirtualNodeSpecListenerPortMappingOutput {
+	return o
+}
+
+func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortMappingOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingOutput{}) }
+
+type VirtualNodeSpecLogging struct {
+	// The access log configuration for a virtual node.
+	AccessLog *VirtualNodeSpecLoggingAccessLog `pulumi:"accessLog"`
+}
+var virtualNodeSpecLoggingType = reflect.TypeOf((*VirtualNodeSpecLogging)(nil)).Elem()
+
+type VirtualNodeSpecLoggingInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingOutput() VirtualNodeSpecLoggingOutput
+	ToVirtualNodeSpecLoggingOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingOutput
+}
+
+type VirtualNodeSpecLoggingArgs struct {
+	// The access log configuration for a virtual node.
+	AccessLog VirtualNodeSpecLoggingAccessLogInput `pulumi:"accessLog"`
+}
+
+func (VirtualNodeSpecLoggingArgs) ElementType() reflect.Type {
+	return virtualNodeSpecLoggingType
+}
+
+func (a VirtualNodeSpecLoggingArgs) ToVirtualNodeSpecLoggingOutput() VirtualNodeSpecLoggingOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecLoggingOutput)
+}
+
+func (a VirtualNodeSpecLoggingArgs) ToVirtualNodeSpecLoggingOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecLoggingOutput)
+}
+
+type VirtualNodeSpecLoggingOutput struct { *pulumi.OutputState }
+
+// The access log configuration for a virtual node.
+func (o VirtualNodeSpecLoggingOutput) AccessLog() VirtualNodeSpecLoggingAccessLogOutput {
+	return o.Apply(func(v VirtualNodeSpecLogging) VirtualNodeSpecLoggingAccessLog {
+		if v.AccessLog == nil { return *new(VirtualNodeSpecLoggingAccessLog) } else { return *v.AccessLog }
+	}).(VirtualNodeSpecLoggingAccessLogOutput)
+}
+
+func (VirtualNodeSpecLoggingOutput) ElementType() reflect.Type {
+	return virtualNodeSpecLoggingType
+}
+
+func (o VirtualNodeSpecLoggingOutput) ToVirtualNodeSpecLoggingOutput() VirtualNodeSpecLoggingOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingOutput) ToVirtualNodeSpecLoggingOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecLoggingOutput{}) }
+
+type VirtualNodeSpecLoggingAccessLog struct {
+	// The file object to send virtual node access logs to.
+	File *VirtualNodeSpecLoggingAccessLogFile `pulumi:"file"`
+}
+var virtualNodeSpecLoggingAccessLogType = reflect.TypeOf((*VirtualNodeSpecLoggingAccessLog)(nil)).Elem()
+
+type VirtualNodeSpecLoggingAccessLogInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingAccessLogOutput() VirtualNodeSpecLoggingAccessLogOutput
+	ToVirtualNodeSpecLoggingAccessLogOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogOutput
+}
+
+type VirtualNodeSpecLoggingAccessLogArgs struct {
+	// The file object to send virtual node access logs to.
+	File VirtualNodeSpecLoggingAccessLogFileInput `pulumi:"file"`
+}
+
+func (VirtualNodeSpecLoggingAccessLogArgs) ElementType() reflect.Type {
+	return virtualNodeSpecLoggingAccessLogType
+}
+
+func (a VirtualNodeSpecLoggingAccessLogArgs) ToVirtualNodeSpecLoggingAccessLogOutput() VirtualNodeSpecLoggingAccessLogOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecLoggingAccessLogOutput)
+}
+
+func (a VirtualNodeSpecLoggingAccessLogArgs) ToVirtualNodeSpecLoggingAccessLogOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecLoggingAccessLogOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogOutput struct { *pulumi.OutputState }
+
+// The file object to send virtual node access logs to.
+func (o VirtualNodeSpecLoggingAccessLogOutput) File() VirtualNodeSpecLoggingAccessLogFileOutput {
+	return o.Apply(func(v VirtualNodeSpecLoggingAccessLog) VirtualNodeSpecLoggingAccessLogFile {
+		if v.File == nil { return *new(VirtualNodeSpecLoggingAccessLogFile) } else { return *v.File }
+	}).(VirtualNodeSpecLoggingAccessLogFileOutput)
+}
+
+func (VirtualNodeSpecLoggingAccessLogOutput) ElementType() reflect.Type {
+	return virtualNodeSpecLoggingAccessLogType
+}
+
+func (o VirtualNodeSpecLoggingAccessLogOutput) ToVirtualNodeSpecLoggingAccessLogOutput() VirtualNodeSpecLoggingAccessLogOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogOutput) ToVirtualNodeSpecLoggingAccessLogOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogOutput{}) }
+
+type VirtualNodeSpecLoggingAccessLogFile struct {
+	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	Path string `pulumi:"path"`
+}
+var virtualNodeSpecLoggingAccessLogFileType = reflect.TypeOf((*VirtualNodeSpecLoggingAccessLogFile)(nil)).Elem()
+
+type VirtualNodeSpecLoggingAccessLogFileInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecLoggingAccessLogFileOutput() VirtualNodeSpecLoggingAccessLogFileOutput
+	ToVirtualNodeSpecLoggingAccessLogFileOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileOutput
+}
+
+type VirtualNodeSpecLoggingAccessLogFileArgs struct {
+	// The destination path for the health check request. This is only required if the specified protocol is `http`.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (VirtualNodeSpecLoggingAccessLogFileArgs) ElementType() reflect.Type {
+	return virtualNodeSpecLoggingAccessLogFileType
+}
+
+func (a VirtualNodeSpecLoggingAccessLogFileArgs) ToVirtualNodeSpecLoggingAccessLogFileOutput() VirtualNodeSpecLoggingAccessLogFileOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecLoggingAccessLogFileOutput)
+}
+
+func (a VirtualNodeSpecLoggingAccessLogFileArgs) ToVirtualNodeSpecLoggingAccessLogFileOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecLoggingAccessLogFileOutput)
+}
+
+type VirtualNodeSpecLoggingAccessLogFileOutput struct { *pulumi.OutputState }
+
+// The destination path for the health check request. This is only required if the specified protocol is `http`.
+func (o VirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecLoggingAccessLogFile) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNodeSpecLoggingAccessLogFileOutput) ElementType() reflect.Type {
+	return virtualNodeSpecLoggingAccessLogFileType
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAccessLogFileOutput() VirtualNodeSpecLoggingAccessLogFileOutput {
+	return o
+}
+
+func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAccessLogFileOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecLoggingAccessLogFileOutput{}) }
+
+type VirtualNodeSpecServiceDiscovery struct {
+	// Specifies any AWS Cloud Map information for the virtual node.
+	AwsCloudMap *VirtualNodeSpecServiceDiscoveryAwsCloudMap `pulumi:"awsCloudMap"`
+	// Specifies the DNS service name for the virtual node.
+	Dns *VirtualNodeSpecServiceDiscoveryDns `pulumi:"dns"`
+}
+var virtualNodeSpecServiceDiscoveryType = reflect.TypeOf((*VirtualNodeSpecServiceDiscovery)(nil)).Elem()
+
+type VirtualNodeSpecServiceDiscoveryInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecServiceDiscoveryOutput() VirtualNodeSpecServiceDiscoveryOutput
+	ToVirtualNodeSpecServiceDiscoveryOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryOutput
+}
+
+type VirtualNodeSpecServiceDiscoveryArgs struct {
+	// Specifies any AWS Cloud Map information for the virtual node.
+	AwsCloudMap VirtualNodeSpecServiceDiscoveryAwsCloudMapInput `pulumi:"awsCloudMap"`
+	// Specifies the DNS service name for the virtual node.
+	Dns VirtualNodeSpecServiceDiscoveryDnsInput `pulumi:"dns"`
+}
+
+func (VirtualNodeSpecServiceDiscoveryArgs) ElementType() reflect.Type {
+	return virtualNodeSpecServiceDiscoveryType
+}
+
+func (a VirtualNodeSpecServiceDiscoveryArgs) ToVirtualNodeSpecServiceDiscoveryOutput() VirtualNodeSpecServiceDiscoveryOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecServiceDiscoveryOutput)
+}
+
+func (a VirtualNodeSpecServiceDiscoveryArgs) ToVirtualNodeSpecServiceDiscoveryOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecServiceDiscoveryOutput)
+}
+
+type VirtualNodeSpecServiceDiscoveryOutput struct { *pulumi.OutputState }
+
+// Specifies any AWS Cloud Map information for the virtual node.
+func (o VirtualNodeSpecServiceDiscoveryOutput) AwsCloudMap() VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
+	return o.Apply(func(v VirtualNodeSpecServiceDiscovery) VirtualNodeSpecServiceDiscoveryAwsCloudMap {
+		if v.AwsCloudMap == nil { return *new(VirtualNodeSpecServiceDiscoveryAwsCloudMap) } else { return *v.AwsCloudMap }
+	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
+}
+
+// Specifies the DNS service name for the virtual node.
+func (o VirtualNodeSpecServiceDiscoveryOutput) Dns() VirtualNodeSpecServiceDiscoveryDnsOutput {
+	return o.Apply(func(v VirtualNodeSpecServiceDiscovery) VirtualNodeSpecServiceDiscoveryDns {
+		if v.Dns == nil { return *new(VirtualNodeSpecServiceDiscoveryDns) } else { return *v.Dns }
+	}).(VirtualNodeSpecServiceDiscoveryDnsOutput)
+}
+
+func (VirtualNodeSpecServiceDiscoveryOutput) ElementType() reflect.Type {
+	return virtualNodeSpecServiceDiscoveryType
+}
+
+func (o VirtualNodeSpecServiceDiscoveryOutput) ToVirtualNodeSpecServiceDiscoveryOutput() VirtualNodeSpecServiceDiscoveryOutput {
+	return o
+}
+
+func (o VirtualNodeSpecServiceDiscoveryOutput) ToVirtualNodeSpecServiceDiscoveryOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecServiceDiscoveryOutput{}) }
+
+type VirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
+	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
+	Attributes *map[string]string `pulumi:"attributes"`
+	// The name of the AWS Cloud Map namespace to use.
+	// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+	NamespaceName string `pulumi:"namespaceName"`
+	// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+	ServiceName string `pulumi:"serviceName"`
+}
+var virtualNodeSpecServiceDiscoveryAwsCloudMapType = reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryAwsCloudMap)(nil)).Elem()
+
+type VirtualNodeSpecServiceDiscoveryAwsCloudMapInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput() VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput
+	ToVirtualNodeSpecServiceDiscoveryAwsCloudMapOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput
+}
+
+type VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs struct {
+	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
+	// The name of the AWS Cloud Map namespace to use.
+	// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ElementType() reflect.Type {
+	return virtualNodeSpecServiceDiscoveryAwsCloudMapType
+}
+
+func (a VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ToVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput() VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
+}
+
+func (a VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ToVirtualNodeSpecServiceDiscoveryAwsCloudMapOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
+}
+
+type VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput struct { *pulumi.OutputState }
+
+// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
+func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi.StringMapOutput {
+	return o.Apply(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string {
+		if v.Attributes == nil { return *new(map[string]string) } else { return *v.Attributes }
+	}).(pulumi.StringMapOutput)
+}
+
+// The name of the AWS Cloud Map namespace to use.
+// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string {
+		return v.NamespaceName
+	}).(pulumi.StringOutput)
+}
+
+// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string {
+		return v.ServiceName
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ElementType() reflect.Type {
+	return virtualNodeSpecServiceDiscoveryAwsCloudMapType
+}
+
+func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToVirtualNodeSpecServiceDiscoveryAwsCloudMapOutput() VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
+	return o
+}
+
+func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToVirtualNodeSpecServiceDiscoveryAwsCloudMapOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput{}) }
+
+type VirtualNodeSpecServiceDiscoveryDns struct {
+	// The DNS host name for your virtual node.
+	Hostname string `pulumi:"hostname"`
+}
+var virtualNodeSpecServiceDiscoveryDnsType = reflect.TypeOf((*VirtualNodeSpecServiceDiscoveryDns)(nil)).Elem()
+
+type VirtualNodeSpecServiceDiscoveryDnsInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecServiceDiscoveryDnsOutput() VirtualNodeSpecServiceDiscoveryDnsOutput
+	ToVirtualNodeSpecServiceDiscoveryDnsOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryDnsOutput
+}
+
+type VirtualNodeSpecServiceDiscoveryDnsArgs struct {
+	// The DNS host name for your virtual node.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+}
+
+func (VirtualNodeSpecServiceDiscoveryDnsArgs) ElementType() reflect.Type {
+	return virtualNodeSpecServiceDiscoveryDnsType
+}
+
+func (a VirtualNodeSpecServiceDiscoveryDnsArgs) ToVirtualNodeSpecServiceDiscoveryDnsOutput() VirtualNodeSpecServiceDiscoveryDnsOutput {
+	return pulumi.ToOutput(a).(VirtualNodeSpecServiceDiscoveryDnsOutput)
+}
+
+func (a VirtualNodeSpecServiceDiscoveryDnsArgs) ToVirtualNodeSpecServiceDiscoveryDnsOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryDnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNodeSpecServiceDiscoveryDnsOutput)
+}
+
+type VirtualNodeSpecServiceDiscoveryDnsOutput struct { *pulumi.OutputState }
+
+// The DNS host name for your virtual node.
+func (o VirtualNodeSpecServiceDiscoveryDnsOutput) Hostname() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNodeSpecServiceDiscoveryDns) string {
+		return v.Hostname
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNodeSpecServiceDiscoveryDnsOutput) ElementType() reflect.Type {
+	return virtualNodeSpecServiceDiscoveryDnsType
+}
+
+func (o VirtualNodeSpecServiceDiscoveryDnsOutput) ToVirtualNodeSpecServiceDiscoveryDnsOutput() VirtualNodeSpecServiceDiscoveryDnsOutput {
+	return o
+}
+
+func (o VirtualNodeSpecServiceDiscoveryDnsOutput) ToVirtualNodeSpecServiceDiscoveryDnsOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryDnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNodeSpecServiceDiscoveryDnsOutput{}) }
+

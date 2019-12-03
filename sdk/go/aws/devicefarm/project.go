@@ -16,72 +16,57 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/devicefarm_project.html.markdown.
 type Project struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name of this project
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name of the project
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
 func NewProject(ctx *pulumi.Context,
-	name string, args *ProjectArgs, opts ...pulumi.ResourceOpt) (*Project, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-	} else {
-		inputs["name"] = args.Name
+	name string, args *ProjectArgs, opts ...pulumi.ResourceOption) (*Project, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:devicefarm/project:Project", name, true, inputs, opts...)
+	var resource Project
+	err := ctx.RegisterResource("aws:devicefarm/project:Project", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Project{s: s}, nil
+	return &resource, nil
 }
 
 // GetProject gets an existing Project resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProject(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProjectState, opts ...pulumi.ResourceOpt) (*Project, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:devicefarm/project:Project", name, id, inputs, opts...)
+	var resource Project
+	err := ctx.ReadResource("aws:devicefarm/project:Project", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Project{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Project) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Project) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name of this project
-func (r *Project) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name of the project
-func (r *Project) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Project resources.
 type ProjectState struct {
 	// The Amazon Resource Name of this project
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name of the project
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
 	// The name of the project
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

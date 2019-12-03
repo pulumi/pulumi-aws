@@ -10,43 +10,31 @@ import (
 // Provides an SSM Parameter data source.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
-func LookupParameter(ctx *pulumi.Context, args *GetParameterArgs) (*GetParameterResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["withDecryption"] = args.WithDecryption
-	}
-	outputs, err := ctx.Invoke("aws:ssm/getParameter:getParameter", inputs)
+func LookupParameter(ctx *pulumi.Context, args *GetParameterArgs, opts ...pulumi.InvokeOption) (*GetParameterResult, error) {
+	var rv GetParameterResult
+	err := ctx.Invoke("aws:ssm/getParameter:getParameter", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetParameterResult{
-		Arn: outputs["arn"],
-		Name: outputs["name"],
-		Type: outputs["type"],
-		Value: outputs["value"],
-		Version: outputs["version"],
-		WithDecryption: outputs["withDecryption"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getParameter.
 type GetParameterArgs struct {
 	// The name of the parameter.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
-	WithDecryption interface{}
+	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
 // A collection of values returned by getParameter.
 type GetParameterResult struct {
-	Arn interface{}
-	Name interface{}
-	Type interface{}
-	Value interface{}
-	Version interface{}
-	WithDecryption interface{}
+	Arn string `pulumi:"arn"`
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+	Value string `pulumi:"value"`
+	Version int `pulumi:"version"`
+	WithDecryption *bool `pulumi:"withDecryption"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

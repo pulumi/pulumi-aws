@@ -16,114 +16,90 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy_attachment.html.markdown.
 type PolicyAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The group(s) the policy should be applied to
+	Groups pulumi.StringArrayOutput `pulumi:"groups"`
+
+	// The name of the attachment. This cannot be an empty string.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ARN of the policy you want to apply
+	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+
+	// The role(s) the policy should be applied to
+	Roles pulumi.StringArrayOutput `pulumi:"roles"`
+
+	// The user(s) the policy should be applied to
+	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
 // NewPolicyAttachment registers a new resource with the given unique name, arguments, and options.
 func NewPolicyAttachment(ctx *pulumi.Context,
-	name string, args *PolicyAttachmentArgs, opts ...pulumi.ResourceOpt) (*PolicyAttachment, error) {
+	name string, args *PolicyAttachmentArgs, opts ...pulumi.ResourceOption) (*PolicyAttachment, error) {
 	if args == nil || args.PolicyArn == nil {
 		return nil, errors.New("missing required argument 'PolicyArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["groups"] = nil
-		inputs["name"] = nil
-		inputs["policyArn"] = nil
-		inputs["roles"] = nil
-		inputs["users"] = nil
-	} else {
-		inputs["groups"] = args.Groups
-		inputs["name"] = args.Name
-		inputs["policyArn"] = args.PolicyArn
-		inputs["roles"] = args.Roles
-		inputs["users"] = args.Users
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Groups; i != nil { inputs["groups"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PolicyArn; i != nil { inputs["policyArn"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToStringArrayOutput() }
+		if i := args.Users; i != nil { inputs["users"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:iam/policyAttachment:PolicyAttachment", name, true, inputs, opts...)
+	var resource PolicyAttachment
+	err := ctx.RegisterResource("aws:iam/policyAttachment:PolicyAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PolicyAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetPolicyAttachment gets an existing PolicyAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPolicyAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PolicyAttachmentState, opts ...pulumi.ResourceOpt) (*PolicyAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PolicyAttachmentState, opts ...pulumi.ResourceOption) (*PolicyAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["groups"] = state.Groups
-		inputs["name"] = state.Name
-		inputs["policyArn"] = state.PolicyArn
-		inputs["roles"] = state.Roles
-		inputs["users"] = state.Users
+		if i := state.Groups; i != nil { inputs["groups"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PolicyArn; i != nil { inputs["policyArn"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToStringArrayOutput() }
+		if i := state.Users; i != nil { inputs["users"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/policyAttachment:PolicyAttachment", name, id, inputs, opts...)
+	var resource PolicyAttachment
+	err := ctx.ReadResource("aws:iam/policyAttachment:PolicyAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PolicyAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PolicyAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PolicyAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The group(s) the policy should be applied to
-func (r *PolicyAttachment) Groups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["groups"])
-}
-
-// The name of the attachment. This cannot be an empty string.
-func (r *PolicyAttachment) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ARN of the policy you want to apply
-func (r *PolicyAttachment) PolicyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policyArn"])
-}
-
-// The role(s) the policy should be applied to
-func (r *PolicyAttachment) Roles() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["roles"])
-}
-
-// The user(s) the policy should be applied to
-func (r *PolicyAttachment) Users() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["users"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type PolicyAttachmentState struct {
 	// The group(s) the policy should be applied to
-	Groups interface{}
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// The name of the attachment. This cannot be an empty string.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of the policy you want to apply
-	PolicyArn interface{}
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
 	// The role(s) the policy should be applied to
-	Roles interface{}
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
 	// The user(s) the policy should be applied to
-	Users interface{}
+	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
 	// The group(s) the policy should be applied to
-	Groups interface{}
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// The name of the attachment. This cannot be an empty string.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of the policy you want to apply
-	PolicyArn interface{}
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
 	// The role(s) the policy should be applied to
-	Roles interface{}
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
 	// The user(s) the policy should be applied to
-	Users interface{}
+	Users pulumi.StringArrayInput `pulumi:"users"`
 }

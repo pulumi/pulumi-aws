@@ -11,67 +11,48 @@ import (
 // can be specified when creating a VPC endpoint within the region configured in the provider.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
-func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceArgs) (*GetVpcEndpointServiceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["service"] = args.Service
-		inputs["serviceName"] = args.ServiceName
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", inputs)
+func LookupVpcEndpointService(ctx *pulumi.Context, args *GetVpcEndpointServiceArgs, opts ...pulumi.InvokeOption) (*GetVpcEndpointServiceResult, error) {
+	var rv GetVpcEndpointServiceResult
+	err := ctx.Invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpcEndpointServiceResult{
-		AcceptanceRequired: outputs["acceptanceRequired"],
-		AvailabilityZones: outputs["availabilityZones"],
-		BaseEndpointDnsNames: outputs["baseEndpointDnsNames"],
-		ManagesVpcEndpoints: outputs["managesVpcEndpoints"],
-		Owner: outputs["owner"],
-		PrivateDnsName: outputs["privateDnsName"],
-		Service: outputs["service"],
-		ServiceId: outputs["serviceId"],
-		ServiceName: outputs["serviceName"],
-		ServiceType: outputs["serviceType"],
-		Tags: outputs["tags"],
-		VpcEndpointPolicySupported: outputs["vpcEndpointPolicySupported"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpcEndpointService.
 type GetVpcEndpointServiceArgs struct {
 	// The common name of an AWS service (e.g. `s3`).
-	Service interface{}
+	Service *string `pulumi:"service"`
 	// The service name that can be specified when creating a VPC endpoint.
-	ServiceName interface{}
-	Tags interface{}
+	ServiceName *string `pulumi:"serviceName"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcEndpointService.
 type GetVpcEndpointServiceResult struct {
 	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-	AcceptanceRequired interface{}
+	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
 	// The Availability Zones in which the service is available.
-	AvailabilityZones interface{}
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
-	BaseEndpointDnsNames interface{}
+	BaseEndpointDnsNames []string `pulumi:"baseEndpointDnsNames"`
 	// Whether or not the service manages its VPC endpoints - `true` or `false`.
-	ManagesVpcEndpoints interface{}
+	ManagesVpcEndpoints bool `pulumi:"managesVpcEndpoints"`
 	// The AWS account ID of the service owner or `amazon`.
-	Owner interface{}
+	Owner string `pulumi:"owner"`
 	// The private DNS name for the service.
-	PrivateDnsName interface{}
-	Service interface{}
+	PrivateDnsName string `pulumi:"privateDnsName"`
+	Service *string `pulumi:"service"`
 	// The ID of the endpoint service.
-	ServiceId interface{}
-	ServiceName interface{}
+	ServiceId string `pulumi:"serviceId"`
+	ServiceName string `pulumi:"serviceName"`
 	// The service type, `Gateway` or `Interface`.
-	ServiceType interface{}
+	ServiceType string `pulumi:"serviceType"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Whether or not the service supports endpoint policies - `true` or `false`.
-	VpcEndpointPolicySupported interface{}
+	VpcEndpointPolicySupported bool `pulumi:"vpcEndpointPolicySupported"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

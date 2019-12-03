@@ -11,50 +11,37 @@ import (
 // Service within a AWS ECS Cluster.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
-func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["clusterArn"] = args.ClusterArn
-		inputs["serviceName"] = args.ServiceName
-	}
-	outputs, err := ctx.Invoke("aws:ecs/getService:getService", inputs)
+func LookupService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
+	var rv GetServiceResult
+	err := ctx.Invoke("aws:ecs/getService:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServiceResult{
-		Arn: outputs["arn"],
-		ClusterArn: outputs["clusterArn"],
-		DesiredCount: outputs["desiredCount"],
-		LaunchType: outputs["launchType"],
-		SchedulingStrategy: outputs["schedulingStrategy"],
-		ServiceName: outputs["serviceName"],
-		TaskDefinition: outputs["taskDefinition"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
 	// The arn of the ECS Cluster
-	ClusterArn interface{}
+	ClusterArn string `pulumi:"clusterArn"`
 	// The name of the ECS Service
-	ServiceName interface{}
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// The ARN of the ECS Service
-	Arn interface{}
-	ClusterArn interface{}
+	Arn string `pulumi:"arn"`
+	ClusterArn string `pulumi:"clusterArn"`
 	// The number of tasks for the ECS Service
-	DesiredCount interface{}
+	DesiredCount int `pulumi:"desiredCount"`
 	// The launch type for the ECS Service
-	LaunchType interface{}
+	LaunchType string `pulumi:"launchType"`
 	// The scheduling strategy for the ECS Service
-	SchedulingStrategy interface{}
-	ServiceName interface{}
+	SchedulingStrategy string `pulumi:"schedulingStrategy"`
+	ServiceName string `pulumi:"serviceName"`
 	// The family for the latest ACTIVE revision
-	TaskDefinition interface{}
+	TaskDefinition string `pulumi:"taskDefinition"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

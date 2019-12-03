@@ -11,114 +11,87 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing.html.markdown.
 type Thing struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the thing.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Map of attributes of the thing.
+	Attributes pulumi.MapOutput `pulumi:"attributes"`
+
+	// The default client ID.
+	DefaultClientId pulumi.StringOutput `pulumi:"defaultClientId"`
+
+	// The name of the thing.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The thing type name.
+	ThingTypeName pulumi.StringOutput `pulumi:"thingTypeName"`
+
+	// The current version of the thing record in the registry.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewThing registers a new resource with the given unique name, arguments, and options.
 func NewThing(ctx *pulumi.Context,
-	name string, args *ThingArgs, opts ...pulumi.ResourceOpt) (*Thing, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["attributes"] = nil
-		inputs["name"] = nil
-		inputs["thingTypeName"] = nil
-	} else {
-		inputs["attributes"] = args.Attributes
-		inputs["name"] = args.Name
-		inputs["thingTypeName"] = args.ThingTypeName
+	name string, args *ThingArgs, opts ...pulumi.ResourceOption) (*Thing, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Attributes; i != nil { inputs["attributes"] = i.ToMapOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ThingTypeName; i != nil { inputs["thingTypeName"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["defaultClientId"] = nil
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("aws:iot/thing:Thing", name, true, inputs, opts...)
+	var resource Thing
+	err := ctx.RegisterResource("aws:iot/thing:Thing", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Thing{s: s}, nil
+	return &resource, nil
 }
 
 // GetThing gets an existing Thing resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetThing(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ThingState, opts ...pulumi.ResourceOpt) (*Thing, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ThingState, opts ...pulumi.ResourceOption) (*Thing, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["attributes"] = state.Attributes
-		inputs["defaultClientId"] = state.DefaultClientId
-		inputs["name"] = state.Name
-		inputs["thingTypeName"] = state.ThingTypeName
-		inputs["version"] = state.Version
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Attributes; i != nil { inputs["attributes"] = i.ToMapOutput() }
+		if i := state.DefaultClientId; i != nil { inputs["defaultClientId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ThingTypeName; i != nil { inputs["thingTypeName"] = i.ToStringOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iot/thing:Thing", name, id, inputs, opts...)
+	var resource Thing
+	err := ctx.ReadResource("aws:iot/thing:Thing", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Thing{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Thing) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Thing) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the thing.
-func (r *Thing) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Map of attributes of the thing.
-func (r *Thing) Attributes() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["attributes"])
-}
-
-// The default client ID.
-func (r *Thing) DefaultClientId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultClientId"])
-}
-
-// The name of the thing.
-func (r *Thing) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The thing type name.
-func (r *Thing) ThingTypeName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thingTypeName"])
-}
-
-// The current version of the thing record in the registry.
-func (r *Thing) Version() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Thing resources.
 type ThingState struct {
 	// The ARN of the thing.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Map of attributes of the thing.
-	Attributes interface{}
+	Attributes pulumi.MapInput `pulumi:"attributes"`
 	// The default client ID.
-	DefaultClientId interface{}
+	DefaultClientId pulumi.StringInput `pulumi:"defaultClientId"`
 	// The name of the thing.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The thing type name.
-	ThingTypeName interface{}
+	ThingTypeName pulumi.StringInput `pulumi:"thingTypeName"`
 	// The current version of the thing record in the registry.
-	Version interface{}
+	Version pulumi.IntInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Thing resource.
 type ThingArgs struct {
 	// Map of attributes of the thing.
-	Attributes interface{}
+	Attributes pulumi.MapInput `pulumi:"attributes"`
 	// The name of the thing.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The thing type name.
-	ThingTypeName interface{}
+	ThingTypeName pulumi.StringInput `pulumi:"thingTypeName"`
 }

@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,429 +13,1605 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
 type LaunchTemplate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the launch template.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
+	// See Block Devices below for details.
+	BlockDeviceMappings LaunchTemplateBlockDeviceMappingsArrayOutput `pulumi:"blockDeviceMappings"`
+
+	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
+
+	// Customize the credit specification of the instance. See Credit
+	// Specification below for more details.
+	CreditSpecification LaunchTemplateCreditSpecificationOutput `pulumi:"creditSpecification"`
+
+	// The default version of the launch template.
+	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
+
+	// Description of the launch template.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// If `true`, enables [EC2 Instance
+	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	DisableApiTermination pulumi.BoolOutput `pulumi:"disableApiTermination"`
+
+	// If `true`, the launched EC2 instance will be EBS-optimized.
+	EbsOptimized pulumi.StringOutput `pulumi:"ebsOptimized"`
+
+	// The elastic GPU to attach to the instance. See Elastic GPU
+	// below for more details.
+	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationsArrayOutput `pulumi:"elasticGpuSpecifications"`
+
+	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorOutput `pulumi:"elasticInferenceAccelerator"`
+
+	// The IAM Instance Profile to launch the instance with. See Instance Profile
+	// below for more details.
+	IamInstanceProfile LaunchTemplateIamInstanceProfileOutput `pulumi:"iamInstanceProfile"`
+
+	// The AMI from which to launch the instance.
+	ImageId pulumi.StringOutput `pulumi:"imageId"`
+
+	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
+	// (Default: `stop`).
+	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
+
+	// The market (purchasing) option for the instance. See Market Options
+	// below for details.
+	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsOutput `pulumi:"instanceMarketOptions"`
+
+	// The type of the instance.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+
+	// The kernel ID.
+	KernelId pulumi.StringOutput `pulumi:"kernelId"`
+
+	// The key name to use for the instance.
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+
+	// The latest version of the launch template.
+	LatestVersion pulumi.IntOutput `pulumi:"latestVersion"`
+
+	// A list of license specifications to associate with. See License Specification below for more details.
+	LicenseSpecifications LaunchTemplateLicenseSpecificationsArrayOutput `pulumi:"licenseSpecifications"`
+
+	// The monitoring option for the instance. See Monitoring below for more details.
+	Monitoring LaunchTemplateMonitoringOutput `pulumi:"monitoring"`
+
+	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// Customize network interfaces to be attached at instance boot time. See Network
+	// Interfaces below for more details.
+	NetworkInterfaces LaunchTemplateNetworkInterfacesArrayOutput `pulumi:"networkInterfaces"`
+
+	// The placement of the instance. See Placement below for more details.
+	Placement LaunchTemplatePlacementOutput `pulumi:"placement"`
+
+	// The ID of the RAM disk.
+	RamDiskId pulumi.StringOutput `pulumi:"ramDiskId"`
+
+	// A list of security group names to associate with. If you are creating Instances in a VPC, use
+	// `vpcSecurityGroupIds` instead.
+	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
+
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+	TagSpecifications LaunchTemplateTagSpecificationsArrayOutput `pulumi:"tagSpecifications"`
+
+	// A mapping of tags to assign to the launch template.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Base64-encoded user data to provide when launching the instance.
+	UserData pulumi.StringOutput `pulumi:"userData"`
+
+	// A list of security group IDs to associate with.
+	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewLaunchTemplate registers a new resource with the given unique name, arguments, and options.
 func NewLaunchTemplate(ctx *pulumi.Context,
-	name string, args *LaunchTemplateArgs, opts ...pulumi.ResourceOpt) (*LaunchTemplate, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["blockDeviceMappings"] = nil
-		inputs["capacityReservationSpecification"] = nil
-		inputs["creditSpecification"] = nil
-		inputs["description"] = nil
-		inputs["disableApiTermination"] = nil
-		inputs["ebsOptimized"] = nil
-		inputs["elasticGpuSpecifications"] = nil
-		inputs["elasticInferenceAccelerator"] = nil
-		inputs["iamInstanceProfile"] = nil
-		inputs["imageId"] = nil
-		inputs["instanceInitiatedShutdownBehavior"] = nil
-		inputs["instanceMarketOptions"] = nil
-		inputs["instanceType"] = nil
-		inputs["kernelId"] = nil
-		inputs["keyName"] = nil
-		inputs["licenseSpecifications"] = nil
-		inputs["monitoring"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["networkInterfaces"] = nil
-		inputs["placement"] = nil
-		inputs["ramDiskId"] = nil
-		inputs["securityGroupNames"] = nil
-		inputs["tagSpecifications"] = nil
-		inputs["tags"] = nil
-		inputs["userData"] = nil
-		inputs["vpcSecurityGroupIds"] = nil
-	} else {
-		inputs["blockDeviceMappings"] = args.BlockDeviceMappings
-		inputs["capacityReservationSpecification"] = args.CapacityReservationSpecification
-		inputs["creditSpecification"] = args.CreditSpecification
-		inputs["description"] = args.Description
-		inputs["disableApiTermination"] = args.DisableApiTermination
-		inputs["ebsOptimized"] = args.EbsOptimized
-		inputs["elasticGpuSpecifications"] = args.ElasticGpuSpecifications
-		inputs["elasticInferenceAccelerator"] = args.ElasticInferenceAccelerator
-		inputs["iamInstanceProfile"] = args.IamInstanceProfile
-		inputs["imageId"] = args.ImageId
-		inputs["instanceInitiatedShutdownBehavior"] = args.InstanceInitiatedShutdownBehavior
-		inputs["instanceMarketOptions"] = args.InstanceMarketOptions
-		inputs["instanceType"] = args.InstanceType
-		inputs["kernelId"] = args.KernelId
-		inputs["keyName"] = args.KeyName
-		inputs["licenseSpecifications"] = args.LicenseSpecifications
-		inputs["monitoring"] = args.Monitoring
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["networkInterfaces"] = args.NetworkInterfaces
-		inputs["placement"] = args.Placement
-		inputs["ramDiskId"] = args.RamDiskId
-		inputs["securityGroupNames"] = args.SecurityGroupNames
-		inputs["tagSpecifications"] = args.TagSpecifications
-		inputs["tags"] = args.Tags
-		inputs["userData"] = args.UserData
-		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
+	name string, args *LaunchTemplateArgs, opts ...pulumi.ResourceOption) (*LaunchTemplate, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BlockDeviceMappings; i != nil { inputs["blockDeviceMappings"] = i.ToLaunchTemplateBlockDeviceMappingsArrayOutput() }
+		if i := args.CapacityReservationSpecification; i != nil { inputs["capacityReservationSpecification"] = i.ToLaunchTemplateCapacityReservationSpecificationOutput() }
+		if i := args.CreditSpecification; i != nil { inputs["creditSpecification"] = i.ToLaunchTemplateCreditSpecificationOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisableApiTermination; i != nil { inputs["disableApiTermination"] = i.ToBoolOutput() }
+		if i := args.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToStringOutput() }
+		if i := args.ElasticGpuSpecifications; i != nil { inputs["elasticGpuSpecifications"] = i.ToLaunchTemplateElasticGpuSpecificationsArrayOutput() }
+		if i := args.ElasticInferenceAccelerator; i != nil { inputs["elasticInferenceAccelerator"] = i.ToLaunchTemplateElasticInferenceAcceleratorOutput() }
+		if i := args.IamInstanceProfile; i != nil { inputs["iamInstanceProfile"] = i.ToLaunchTemplateIamInstanceProfileOutput() }
+		if i := args.ImageId; i != nil { inputs["imageId"] = i.ToStringOutput() }
+		if i := args.InstanceInitiatedShutdownBehavior; i != nil { inputs["instanceInitiatedShutdownBehavior"] = i.ToStringOutput() }
+		if i := args.InstanceMarketOptions; i != nil { inputs["instanceMarketOptions"] = i.ToLaunchTemplateInstanceMarketOptionsOutput() }
+		if i := args.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := args.KernelId; i != nil { inputs["kernelId"] = i.ToStringOutput() }
+		if i := args.KeyName; i != nil { inputs["keyName"] = i.ToStringOutput() }
+		if i := args.LicenseSpecifications; i != nil { inputs["licenseSpecifications"] = i.ToLaunchTemplateLicenseSpecificationsArrayOutput() }
+		if i := args.Monitoring; i != nil { inputs["monitoring"] = i.ToLaunchTemplateMonitoringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.NetworkInterfaces; i != nil { inputs["networkInterfaces"] = i.ToLaunchTemplateNetworkInterfacesArrayOutput() }
+		if i := args.Placement; i != nil { inputs["placement"] = i.ToLaunchTemplatePlacementOutput() }
+		if i := args.RamDiskId; i != nil { inputs["ramDiskId"] = i.ToStringOutput() }
+		if i := args.SecurityGroupNames; i != nil { inputs["securityGroupNames"] = i.ToStringArrayOutput() }
+		if i := args.TagSpecifications; i != nil { inputs["tagSpecifications"] = i.ToLaunchTemplateTagSpecificationsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.UserData; i != nil { inputs["userData"] = i.ToStringOutput() }
+		if i := args.VpcSecurityGroupIds; i != nil { inputs["vpcSecurityGroupIds"] = i.ToStringArrayOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["defaultVersion"] = nil
-	inputs["latestVersion"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/launchTemplate:LaunchTemplate", name, true, inputs, opts...)
+	var resource LaunchTemplate
+	err := ctx.RegisterResource("aws:ec2/launchTemplate:LaunchTemplate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LaunchTemplate{s: s}, nil
+	return &resource, nil
 }
 
 // GetLaunchTemplate gets an existing LaunchTemplate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLaunchTemplate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LaunchTemplateState, opts ...pulumi.ResourceOpt) (*LaunchTemplate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LaunchTemplateState, opts ...pulumi.ResourceOption) (*LaunchTemplate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["blockDeviceMappings"] = state.BlockDeviceMappings
-		inputs["capacityReservationSpecification"] = state.CapacityReservationSpecification
-		inputs["creditSpecification"] = state.CreditSpecification
-		inputs["defaultVersion"] = state.DefaultVersion
-		inputs["description"] = state.Description
-		inputs["disableApiTermination"] = state.DisableApiTermination
-		inputs["ebsOptimized"] = state.EbsOptimized
-		inputs["elasticGpuSpecifications"] = state.ElasticGpuSpecifications
-		inputs["elasticInferenceAccelerator"] = state.ElasticInferenceAccelerator
-		inputs["iamInstanceProfile"] = state.IamInstanceProfile
-		inputs["imageId"] = state.ImageId
-		inputs["instanceInitiatedShutdownBehavior"] = state.InstanceInitiatedShutdownBehavior
-		inputs["instanceMarketOptions"] = state.InstanceMarketOptions
-		inputs["instanceType"] = state.InstanceType
-		inputs["kernelId"] = state.KernelId
-		inputs["keyName"] = state.KeyName
-		inputs["latestVersion"] = state.LatestVersion
-		inputs["licenseSpecifications"] = state.LicenseSpecifications
-		inputs["monitoring"] = state.Monitoring
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["networkInterfaces"] = state.NetworkInterfaces
-		inputs["placement"] = state.Placement
-		inputs["ramDiskId"] = state.RamDiskId
-		inputs["securityGroupNames"] = state.SecurityGroupNames
-		inputs["tagSpecifications"] = state.TagSpecifications
-		inputs["tags"] = state.Tags
-		inputs["userData"] = state.UserData
-		inputs["vpcSecurityGroupIds"] = state.VpcSecurityGroupIds
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.BlockDeviceMappings; i != nil { inputs["blockDeviceMappings"] = i.ToLaunchTemplateBlockDeviceMappingsArrayOutput() }
+		if i := state.CapacityReservationSpecification; i != nil { inputs["capacityReservationSpecification"] = i.ToLaunchTemplateCapacityReservationSpecificationOutput() }
+		if i := state.CreditSpecification; i != nil { inputs["creditSpecification"] = i.ToLaunchTemplateCreditSpecificationOutput() }
+		if i := state.DefaultVersion; i != nil { inputs["defaultVersion"] = i.ToIntOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisableApiTermination; i != nil { inputs["disableApiTermination"] = i.ToBoolOutput() }
+		if i := state.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToStringOutput() }
+		if i := state.ElasticGpuSpecifications; i != nil { inputs["elasticGpuSpecifications"] = i.ToLaunchTemplateElasticGpuSpecificationsArrayOutput() }
+		if i := state.ElasticInferenceAccelerator; i != nil { inputs["elasticInferenceAccelerator"] = i.ToLaunchTemplateElasticInferenceAcceleratorOutput() }
+		if i := state.IamInstanceProfile; i != nil { inputs["iamInstanceProfile"] = i.ToLaunchTemplateIamInstanceProfileOutput() }
+		if i := state.ImageId; i != nil { inputs["imageId"] = i.ToStringOutput() }
+		if i := state.InstanceInitiatedShutdownBehavior; i != nil { inputs["instanceInitiatedShutdownBehavior"] = i.ToStringOutput() }
+		if i := state.InstanceMarketOptions; i != nil { inputs["instanceMarketOptions"] = i.ToLaunchTemplateInstanceMarketOptionsOutput() }
+		if i := state.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := state.KernelId; i != nil { inputs["kernelId"] = i.ToStringOutput() }
+		if i := state.KeyName; i != nil { inputs["keyName"] = i.ToStringOutput() }
+		if i := state.LatestVersion; i != nil { inputs["latestVersion"] = i.ToIntOutput() }
+		if i := state.LicenseSpecifications; i != nil { inputs["licenseSpecifications"] = i.ToLaunchTemplateLicenseSpecificationsArrayOutput() }
+		if i := state.Monitoring; i != nil { inputs["monitoring"] = i.ToLaunchTemplateMonitoringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.NetworkInterfaces; i != nil { inputs["networkInterfaces"] = i.ToLaunchTemplateNetworkInterfacesArrayOutput() }
+		if i := state.Placement; i != nil { inputs["placement"] = i.ToLaunchTemplatePlacementOutput() }
+		if i := state.RamDiskId; i != nil { inputs["ramDiskId"] = i.ToStringOutput() }
+		if i := state.SecurityGroupNames; i != nil { inputs["securityGroupNames"] = i.ToStringArrayOutput() }
+		if i := state.TagSpecifications; i != nil { inputs["tagSpecifications"] = i.ToLaunchTemplateTagSpecificationsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UserData; i != nil { inputs["userData"] = i.ToStringOutput() }
+		if i := state.VpcSecurityGroupIds; i != nil { inputs["vpcSecurityGroupIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/launchTemplate:LaunchTemplate", name, id, inputs, opts...)
+	var resource LaunchTemplate
+	err := ctx.ReadResource("aws:ec2/launchTemplate:LaunchTemplate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LaunchTemplate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LaunchTemplate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LaunchTemplate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the launch template.
-func (r *LaunchTemplate) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Specify volumes to attach to the instance besides the volumes specified by the AMI.
-// See Block Devices below for details.
-func (r *LaunchTemplate) BlockDeviceMappings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["blockDeviceMappings"])
-}
-
-// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-func (r *LaunchTemplate) CapacityReservationSpecification() pulumi.Output {
-	return r.s.State["capacityReservationSpecification"]
-}
-
-// Customize the credit specification of the instance. See Credit
-// Specification below for more details.
-func (r *LaunchTemplate) CreditSpecification() pulumi.Output {
-	return r.s.State["creditSpecification"]
-}
-
-// The default version of the launch template.
-func (r *LaunchTemplate) DefaultVersion() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["defaultVersion"])
-}
-
-// Description of the launch template.
-func (r *LaunchTemplate) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// If `true`, enables [EC2 Instance
-// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-func (r *LaunchTemplate) DisableApiTermination() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["disableApiTermination"])
-}
-
-// If `true`, the launched EC2 instance will be EBS-optimized.
-func (r *LaunchTemplate) EbsOptimized() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ebsOptimized"])
-}
-
-// The elastic GPU to attach to the instance. See Elastic GPU
-// below for more details.
-func (r *LaunchTemplate) ElasticGpuSpecifications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["elasticGpuSpecifications"])
-}
-
-// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-func (r *LaunchTemplate) ElasticInferenceAccelerator() pulumi.Output {
-	return r.s.State["elasticInferenceAccelerator"]
-}
-
-// The IAM Instance Profile to launch the instance with. See Instance Profile
-// below for more details.
-func (r *LaunchTemplate) IamInstanceProfile() pulumi.Output {
-	return r.s.State["iamInstanceProfile"]
-}
-
-// The AMI from which to launch the instance.
-func (r *LaunchTemplate) ImageId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageId"])
-}
-
-// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-// (Default: `stop`).
-func (r *LaunchTemplate) InstanceInitiatedShutdownBehavior() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceInitiatedShutdownBehavior"])
-}
-
-// The market (purchasing) option for the instance. See Market Options
-// below for details.
-func (r *LaunchTemplate) InstanceMarketOptions() pulumi.Output {
-	return r.s.State["instanceMarketOptions"]
-}
-
-// The type of the instance.
-func (r *LaunchTemplate) InstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceType"])
-}
-
-// The kernel ID.
-func (r *LaunchTemplate) KernelId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kernelId"])
-}
-
-// The key name to use for the instance.
-func (r *LaunchTemplate) KeyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyName"])
-}
-
-// The latest version of the launch template.
-func (r *LaunchTemplate) LatestVersion() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["latestVersion"])
-}
-
-// A list of license specifications to associate with. See License Specification below for more details.
-func (r *LaunchTemplate) LicenseSpecifications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["licenseSpecifications"])
-}
-
-// The monitoring option for the instance. See Monitoring below for more details.
-func (r *LaunchTemplate) Monitoring() pulumi.Output {
-	return r.s.State["monitoring"]
-}
-
-// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-func (r *LaunchTemplate) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *LaunchTemplate) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// Customize network interfaces to be attached at instance boot time. See Network
-// Interfaces below for more details.
-func (r *LaunchTemplate) NetworkInterfaces() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["networkInterfaces"])
-}
-
-// The placement of the instance. See Placement below for more details.
-func (r *LaunchTemplate) Placement() pulumi.Output {
-	return r.s.State["placement"]
-}
-
-// The ID of the RAM disk.
-func (r *LaunchTemplate) RamDiskId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ramDiskId"])
-}
-
-// A list of security group names to associate with. If you are creating Instances in a VPC, use
-// `vpcSecurityGroupIds` instead.
-func (r *LaunchTemplate) SecurityGroupNames() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
-}
-
-// The tags to apply to the resources during launch. See Tag Specifications below for more details.
-func (r *LaunchTemplate) TagSpecifications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["tagSpecifications"])
-}
-
-// A mapping of tags to assign to the launch template.
-func (r *LaunchTemplate) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Base64-encoded user data to provide when launching the instance.
-func (r *LaunchTemplate) UserData() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userData"])
-}
-
-// A list of security group IDs to associate with.
-func (r *LaunchTemplate) VpcSecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LaunchTemplate resources.
 type LaunchTemplateState struct {
 	// Amazon Resource Name (ARN) of the launch template.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
-	BlockDeviceMappings interface{}
+	BlockDeviceMappings LaunchTemplateBlockDeviceMappingsArrayInput `pulumi:"blockDeviceMappings"`
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification interface{}
+	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationInput `pulumi:"capacityReservationSpecification"`
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
-	CreditSpecification interface{}
+	CreditSpecification LaunchTemplateCreditSpecificationInput `pulumi:"creditSpecification"`
 	// The default version of the launch template.
-	DefaultVersion interface{}
+	DefaultVersion pulumi.IntInput `pulumi:"defaultVersion"`
 	// Description of the launch template.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-	DisableApiTermination interface{}
+	DisableApiTermination pulumi.BoolInput `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.StringInput `pulumi:"ebsOptimized"`
 	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
-	ElasticGpuSpecifications interface{}
+	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationsArrayInput `pulumi:"elasticGpuSpecifications"`
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	ElasticInferenceAccelerator interface{}
+	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorInput `pulumi:"elasticInferenceAccelerator"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
-	IamInstanceProfile interface{}
+	IamInstanceProfile LaunchTemplateIamInstanceProfileInput `pulumi:"iamInstanceProfile"`
 	// The AMI from which to launch the instance.
-	ImageId interface{}
+	ImageId pulumi.StringInput `pulumi:"imageId"`
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
-	InstanceInitiatedShutdownBehavior interface{}
+	InstanceInitiatedShutdownBehavior pulumi.StringInput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The market (purchasing) option for the instance. See Market Options
 	// below for details.
-	InstanceMarketOptions interface{}
+	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsInput `pulumi:"instanceMarketOptions"`
 	// The type of the instance.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The kernel ID.
-	KernelId interface{}
+	KernelId pulumi.StringInput `pulumi:"kernelId"`
 	// The key name to use for the instance.
-	KeyName interface{}
+	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// The latest version of the launch template.
-	LatestVersion interface{}
+	LatestVersion pulumi.IntInput `pulumi:"latestVersion"`
 	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications interface{}
+	LicenseSpecifications LaunchTemplateLicenseSpecificationsArrayInput `pulumi:"licenseSpecifications"`
 	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring interface{}
+	Monitoring LaunchTemplateMonitoringInput `pulumi:"monitoring"`
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces interface{}
+	NetworkInterfaces LaunchTemplateNetworkInterfacesArrayInput `pulumi:"networkInterfaces"`
 	// The placement of the instance. See Placement below for more details.
-	Placement interface{}
+	Placement LaunchTemplatePlacementInput `pulumi:"placement"`
 	// The ID of the RAM disk.
-	RamDiskId interface{}
+	RamDiskId pulumi.StringInput `pulumi:"ramDiskId"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames interface{}
+	SecurityGroupNames pulumi.StringArrayInput `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
-	TagSpecifications interface{}
+	TagSpecifications LaunchTemplateTagSpecificationsArrayInput `pulumi:"tagSpecifications"`
 	// A mapping of tags to assign to the launch template.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Base64-encoded user data to provide when launching the instance.
-	UserData interface{}
+	UserData pulumi.StringInput `pulumi:"userData"`
 	// A list of security group IDs to associate with.
-	VpcSecurityGroupIds interface{}
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a LaunchTemplate resource.
 type LaunchTemplateArgs struct {
 	// Specify volumes to attach to the instance besides the volumes specified by the AMI.
 	// See Block Devices below for details.
-	BlockDeviceMappings interface{}
+	BlockDeviceMappings LaunchTemplateBlockDeviceMappingsArrayInput `pulumi:"blockDeviceMappings"`
 	// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-	CapacityReservationSpecification interface{}
+	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationInput `pulumi:"capacityReservationSpecification"`
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
-	CreditSpecification interface{}
+	CreditSpecification LaunchTemplateCreditSpecificationInput `pulumi:"creditSpecification"`
 	// Description of the launch template.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
-	DisableApiTermination interface{}
+	DisableApiTermination pulumi.BoolInput `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.StringInput `pulumi:"ebsOptimized"`
 	// The elastic GPU to attach to the instance. See Elastic GPU
 	// below for more details.
-	ElasticGpuSpecifications interface{}
+	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationsArrayInput `pulumi:"elasticGpuSpecifications"`
 	// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	ElasticInferenceAccelerator interface{}
+	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorInput `pulumi:"elasticInferenceAccelerator"`
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
-	IamInstanceProfile interface{}
+	IamInstanceProfile LaunchTemplateIamInstanceProfileInput `pulumi:"iamInstanceProfile"`
 	// The AMI from which to launch the instance.
-	ImageId interface{}
+	ImageId pulumi.StringInput `pulumi:"imageId"`
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
-	InstanceInitiatedShutdownBehavior interface{}
+	InstanceInitiatedShutdownBehavior pulumi.StringInput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The market (purchasing) option for the instance. See Market Options
 	// below for details.
-	InstanceMarketOptions interface{}
+	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsInput `pulumi:"instanceMarketOptions"`
 	// The type of the instance.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The kernel ID.
-	KernelId interface{}
+	KernelId pulumi.StringInput `pulumi:"kernelId"`
 	// The key name to use for the instance.
-	KeyName interface{}
+	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// A list of license specifications to associate with. See License Specification below for more details.
-	LicenseSpecifications interface{}
+	LicenseSpecifications LaunchTemplateLicenseSpecificationsArrayInput `pulumi:"licenseSpecifications"`
 	// The monitoring option for the instance. See Monitoring below for more details.
-	Monitoring interface{}
+	Monitoring LaunchTemplateMonitoringInput `pulumi:"monitoring"`
 	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces interface{}
+	NetworkInterfaces LaunchTemplateNetworkInterfacesArrayInput `pulumi:"networkInterfaces"`
 	// The placement of the instance. See Placement below for more details.
-	Placement interface{}
+	Placement LaunchTemplatePlacementInput `pulumi:"placement"`
 	// The ID of the RAM disk.
-	RamDiskId interface{}
+	RamDiskId pulumi.StringInput `pulumi:"ramDiskId"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
-	SecurityGroupNames interface{}
+	SecurityGroupNames pulumi.StringArrayInput `pulumi:"securityGroupNames"`
 	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
-	TagSpecifications interface{}
+	TagSpecifications LaunchTemplateTagSpecificationsArrayInput `pulumi:"tagSpecifications"`
 	// A mapping of tags to assign to the launch template.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Base64-encoded user data to provide when launching the instance.
-	UserData interface{}
+	UserData pulumi.StringInput `pulumi:"userData"`
 	// A list of security group IDs to associate with.
-	VpcSecurityGroupIds interface{}
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }
+type LaunchTemplateBlockDeviceMappings struct {
+	// The name of the device to mount.
+	DeviceName *string `pulumi:"deviceName"`
+	// Configure EBS volume properties.
+	Ebs *LaunchTemplateBlockDeviceMappingsEbs `pulumi:"ebs"`
+	// Suppresses the specified device included in the AMI's block device mapping.
+	NoDevice *string `pulumi:"noDevice"`
+	// The [Instance Store Device
+	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+	// (e.g. `"ephemeral0"`).
+	VirtualName *string `pulumi:"virtualName"`
+}
+var launchTemplateBlockDeviceMappingsType = reflect.TypeOf((*LaunchTemplateBlockDeviceMappings)(nil)).Elem()
+
+type LaunchTemplateBlockDeviceMappingsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingsOutput() LaunchTemplateBlockDeviceMappingsOutput
+	ToLaunchTemplateBlockDeviceMappingsOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsOutput
+}
+
+type LaunchTemplateBlockDeviceMappingsArgs struct {
+	// The name of the device to mount.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Configure EBS volume properties.
+	Ebs LaunchTemplateBlockDeviceMappingsEbsInput `pulumi:"ebs"`
+	// Suppresses the specified device included in the AMI's block device mapping.
+	NoDevice pulumi.StringInput `pulumi:"noDevice"`
+	// The [Instance Store Device
+	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+	// (e.g. `"ephemeral0"`).
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (LaunchTemplateBlockDeviceMappingsArgs) ElementType() reflect.Type {
+	return launchTemplateBlockDeviceMappingsType
+}
+
+func (a LaunchTemplateBlockDeviceMappingsArgs) ToLaunchTemplateBlockDeviceMappingsOutput() LaunchTemplateBlockDeviceMappingsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateBlockDeviceMappingsOutput)
+}
+
+func (a LaunchTemplateBlockDeviceMappingsArgs) ToLaunchTemplateBlockDeviceMappingsOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateBlockDeviceMappingsOutput)
+}
+
+type LaunchTemplateBlockDeviceMappingsOutput struct { *pulumi.OutputState }
+
+// The name of the device to mount.
+func (o LaunchTemplateBlockDeviceMappingsOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappings) string {
+		if v.DeviceName == nil { return *new(string) } else { return *v.DeviceName }
+	}).(pulumi.StringOutput)
+}
+
+// Configure EBS volume properties.
+func (o LaunchTemplateBlockDeviceMappingsOutput) Ebs() LaunchTemplateBlockDeviceMappingsEbsOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappings) LaunchTemplateBlockDeviceMappingsEbs {
+		if v.Ebs == nil { return *new(LaunchTemplateBlockDeviceMappingsEbs) } else { return *v.Ebs }
+	}).(LaunchTemplateBlockDeviceMappingsEbsOutput)
+}
+
+// Suppresses the specified device included in the AMI's block device mapping.
+func (o LaunchTemplateBlockDeviceMappingsOutput) NoDevice() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappings) string {
+		if v.NoDevice == nil { return *new(string) } else { return *v.NoDevice }
+	}).(pulumi.StringOutput)
+}
+
+// The [Instance Store Device
+// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+// (e.g. `"ephemeral0"`).
+func (o LaunchTemplateBlockDeviceMappingsOutput) VirtualName() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappings) string {
+		if v.VirtualName == nil { return *new(string) } else { return *v.VirtualName }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateBlockDeviceMappingsOutput) ElementType() reflect.Type {
+	return launchTemplateBlockDeviceMappingsType
+}
+
+func (o LaunchTemplateBlockDeviceMappingsOutput) ToLaunchTemplateBlockDeviceMappingsOutput() LaunchTemplateBlockDeviceMappingsOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingsOutput) ToLaunchTemplateBlockDeviceMappingsOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingsOutput{}) }
+
+var launchTemplateBlockDeviceMappingsArrayType = reflect.TypeOf((*[]LaunchTemplateBlockDeviceMappings)(nil)).Elem()
+
+type LaunchTemplateBlockDeviceMappingsArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingsArrayOutput() LaunchTemplateBlockDeviceMappingsArrayOutput
+	ToLaunchTemplateBlockDeviceMappingsArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsArrayOutput
+}
+
+type LaunchTemplateBlockDeviceMappingsArrayArgs []LaunchTemplateBlockDeviceMappingsInput
+
+func (LaunchTemplateBlockDeviceMappingsArrayArgs) ElementType() reflect.Type {
+	return launchTemplateBlockDeviceMappingsArrayType
+}
+
+func (a LaunchTemplateBlockDeviceMappingsArrayArgs) ToLaunchTemplateBlockDeviceMappingsArrayOutput() LaunchTemplateBlockDeviceMappingsArrayOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateBlockDeviceMappingsArrayOutput)
+}
+
+func (a LaunchTemplateBlockDeviceMappingsArrayArgs) ToLaunchTemplateBlockDeviceMappingsArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateBlockDeviceMappingsArrayOutput)
+}
+
+type LaunchTemplateBlockDeviceMappingsArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateBlockDeviceMappingsArrayOutput) Index(i pulumi.IntInput) LaunchTemplateBlockDeviceMappingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchTemplateBlockDeviceMappings {
+		return vs[0].([]LaunchTemplateBlockDeviceMappings)[vs[1].(int)]
+	}).(LaunchTemplateBlockDeviceMappingsOutput)
+}
+
+func (LaunchTemplateBlockDeviceMappingsArrayOutput) ElementType() reflect.Type {
+	return launchTemplateBlockDeviceMappingsArrayType
+}
+
+func (o LaunchTemplateBlockDeviceMappingsArrayOutput) ToLaunchTemplateBlockDeviceMappingsArrayOutput() LaunchTemplateBlockDeviceMappingsArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingsArrayOutput) ToLaunchTemplateBlockDeviceMappingsArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingsArrayOutput{}) }
+
+type LaunchTemplateBlockDeviceMappingsEbs struct {
+	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
+	Encrypted *string `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var launchTemplateBlockDeviceMappingsEbsType = reflect.TypeOf((*LaunchTemplateBlockDeviceMappingsEbs)(nil)).Elem()
+
+type LaunchTemplateBlockDeviceMappingsEbsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingsEbsOutput() LaunchTemplateBlockDeviceMappingsEbsOutput
+	ToLaunchTemplateBlockDeviceMappingsEbsOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsEbsOutput
+}
+
+type LaunchTemplateBlockDeviceMappingsEbsArgs struct {
+	DeleteOnTermination pulumi.StringInput `pulumi:"deleteOnTermination"`
+	Encrypted pulumi.StringInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (LaunchTemplateBlockDeviceMappingsEbsArgs) ElementType() reflect.Type {
+	return launchTemplateBlockDeviceMappingsEbsType
+}
+
+func (a LaunchTemplateBlockDeviceMappingsEbsArgs) ToLaunchTemplateBlockDeviceMappingsEbsOutput() LaunchTemplateBlockDeviceMappingsEbsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateBlockDeviceMappingsEbsOutput)
+}
+
+func (a LaunchTemplateBlockDeviceMappingsEbsArgs) ToLaunchTemplateBlockDeviceMappingsEbsOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateBlockDeviceMappingsEbsOutput)
+}
+
+type LaunchTemplateBlockDeviceMappingsEbsOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) DeleteOnTermination() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) string {
+		if v.DeleteOnTermination == nil { return *new(string) } else { return *v.DeleteOnTermination }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) Encrypted() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) string {
+		if v.Encrypted == nil { return *new(string) } else { return *v.Encrypted }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) KmsKeyId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) string {
+		if v.KmsKeyId == nil { return *new(string) } else { return *v.KmsKeyId }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) SnapshotId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) string {
+		if v.SnapshotId == nil { return *new(string) } else { return *v.SnapshotId }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateBlockDeviceMappingsEbs) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateBlockDeviceMappingsEbsOutput) ElementType() reflect.Type {
+	return launchTemplateBlockDeviceMappingsEbsType
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) ToLaunchTemplateBlockDeviceMappingsEbsOutput() LaunchTemplateBlockDeviceMappingsEbsOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingsEbsOutput) ToLaunchTemplateBlockDeviceMappingsEbsOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingsEbsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingsEbsOutput{}) }
+
+type LaunchTemplateCapacityReservationSpecification struct {
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+var launchTemplateCapacityReservationSpecificationType = reflect.TypeOf((*LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+
+type LaunchTemplateCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput
+	ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput
+}
+
+type LaunchTemplateCapacityReservationSpecificationArgs struct {
+	CapacityReservationPreference pulumi.StringInput `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetInput `pulumi:"capacityReservationTarget"`
+}
+
+func (LaunchTemplateCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return launchTemplateCapacityReservationSpecificationType
+}
+
+func (a LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateCapacityReservationSpecificationOutput)
+}
+
+func (a LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateCapacityReservationSpecificationOutput)
+}
+
+type LaunchTemplateCapacityReservationSpecificationOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateCapacityReservationSpecification) string {
+		if v.CapacityReservationPreference == nil { return *new(string) } else { return *v.CapacityReservationPreference }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o.Apply(func(v LaunchTemplateCapacityReservationSpecification) LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
+		if v.CapacityReservationTarget == nil { return *new(LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) } else { return *v.CapacityReservationTarget }
+	}).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+func (LaunchTemplateCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return launchTemplateCapacityReservationSpecificationType
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationOutput{}) }
+
+type LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget struct {
+	CapacityReservationId *string `pulumi:"capacityReservationId"`
+}
+var launchTemplateCapacityReservationSpecificationCapacityReservationTargetType = reflect.TypeOf((*LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+
+type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput
+	ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput
+}
+
+type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs struct {
+	CapacityReservationId pulumi.StringInput `pulumi:"capacityReservationId"`
+}
+
+func (LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return launchTemplateCapacityReservationSpecificationCapacityReservationTargetType
+}
+
+func (a LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+func (a LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+type LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) string {
+		if v.CapacityReservationId == nil { return *new(string) } else { return *v.CapacityReservationId }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return launchTemplateCapacityReservationSpecificationCapacityReservationTargetType
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput{}) }
+
+type LaunchTemplateCreditSpecification struct {
+	CpuCredits *string `pulumi:"cpuCredits"`
+}
+var launchTemplateCreditSpecificationType = reflect.TypeOf((*LaunchTemplateCreditSpecification)(nil)).Elem()
+
+type LaunchTemplateCreditSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput
+	ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput
+}
+
+type LaunchTemplateCreditSpecificationArgs struct {
+	CpuCredits pulumi.StringInput `pulumi:"cpuCredits"`
+}
+
+func (LaunchTemplateCreditSpecificationArgs) ElementType() reflect.Type {
+	return launchTemplateCreditSpecificationType
+}
+
+func (a LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateCreditSpecificationOutput)
+}
+
+func (a LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateCreditSpecificationOutput)
+}
+
+type LaunchTemplateCreditSpecificationOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateCreditSpecification) string {
+		if v.CpuCredits == nil { return *new(string) } else { return *v.CpuCredits }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateCreditSpecificationOutput) ElementType() reflect.Type {
+	return launchTemplateCreditSpecificationType
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{}) }
+
+type LaunchTemplateElasticGpuSpecifications struct {
+	// Accelerator type.
+	Type string `pulumi:"type"`
+}
+var launchTemplateElasticGpuSpecificationsType = reflect.TypeOf((*LaunchTemplateElasticGpuSpecifications)(nil)).Elem()
+
+type LaunchTemplateElasticGpuSpecificationsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticGpuSpecificationsOutput() LaunchTemplateElasticGpuSpecificationsOutput
+	ToLaunchTemplateElasticGpuSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationsOutput
+}
+
+type LaunchTemplateElasticGpuSpecificationsArgs struct {
+	// Accelerator type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LaunchTemplateElasticGpuSpecificationsArgs) ElementType() reflect.Type {
+	return launchTemplateElasticGpuSpecificationsType
+}
+
+func (a LaunchTemplateElasticGpuSpecificationsArgs) ToLaunchTemplateElasticGpuSpecificationsOutput() LaunchTemplateElasticGpuSpecificationsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateElasticGpuSpecificationsOutput)
+}
+
+func (a LaunchTemplateElasticGpuSpecificationsArgs) ToLaunchTemplateElasticGpuSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateElasticGpuSpecificationsOutput)
+}
+
+type LaunchTemplateElasticGpuSpecificationsOutput struct { *pulumi.OutputState }
+
+// Accelerator type.
+func (o LaunchTemplateElasticGpuSpecificationsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateElasticGpuSpecifications) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateElasticGpuSpecificationsOutput) ElementType() reflect.Type {
+	return launchTemplateElasticGpuSpecificationsType
+}
+
+func (o LaunchTemplateElasticGpuSpecificationsOutput) ToLaunchTemplateElasticGpuSpecificationsOutput() LaunchTemplateElasticGpuSpecificationsOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationsOutput) ToLaunchTemplateElasticGpuSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationsOutput{}) }
+
+var launchTemplateElasticGpuSpecificationsArrayType = reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecifications)(nil)).Elem()
+
+type LaunchTemplateElasticGpuSpecificationsArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticGpuSpecificationsArrayOutput() LaunchTemplateElasticGpuSpecificationsArrayOutput
+	ToLaunchTemplateElasticGpuSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationsArrayOutput
+}
+
+type LaunchTemplateElasticGpuSpecificationsArrayArgs []LaunchTemplateElasticGpuSpecificationsInput
+
+func (LaunchTemplateElasticGpuSpecificationsArrayArgs) ElementType() reflect.Type {
+	return launchTemplateElasticGpuSpecificationsArrayType
+}
+
+func (a LaunchTemplateElasticGpuSpecificationsArrayArgs) ToLaunchTemplateElasticGpuSpecificationsArrayOutput() LaunchTemplateElasticGpuSpecificationsArrayOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateElasticGpuSpecificationsArrayOutput)
+}
+
+func (a LaunchTemplateElasticGpuSpecificationsArrayArgs) ToLaunchTemplateElasticGpuSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateElasticGpuSpecificationsArrayOutput)
+}
+
+type LaunchTemplateElasticGpuSpecificationsArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateElasticGpuSpecificationsArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticGpuSpecificationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchTemplateElasticGpuSpecifications {
+		return vs[0].([]LaunchTemplateElasticGpuSpecifications)[vs[1].(int)]
+	}).(LaunchTemplateElasticGpuSpecificationsOutput)
+}
+
+func (LaunchTemplateElasticGpuSpecificationsArrayOutput) ElementType() reflect.Type {
+	return launchTemplateElasticGpuSpecificationsArrayType
+}
+
+func (o LaunchTemplateElasticGpuSpecificationsArrayOutput) ToLaunchTemplateElasticGpuSpecificationsArrayOutput() LaunchTemplateElasticGpuSpecificationsArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationsArrayOutput) ToLaunchTemplateElasticGpuSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationsArrayOutput{}) }
+
+type LaunchTemplateElasticInferenceAccelerator struct {
+	// Accelerator type.
+	Type string `pulumi:"type"`
+}
+var launchTemplateElasticInferenceAcceleratorType = reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+
+type LaunchTemplateElasticInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput
+	ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput
+}
+
+type LaunchTemplateElasticInferenceAcceleratorArgs struct {
+	// Accelerator type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return launchTemplateElasticInferenceAcceleratorType
+}
+
+func (a LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+func (a LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+type LaunchTemplateElasticInferenceAcceleratorOutput struct { *pulumi.OutputState }
+
+// Accelerator type.
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateElasticInferenceAccelerator) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return launchTemplateElasticInferenceAcceleratorType
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{}) }
+
+type LaunchTemplateIamInstanceProfile struct {
+	// Amazon Resource Name (ARN) of the launch template.
+	Arn *string `pulumi:"arn"`
+	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+	Name *string `pulumi:"name"`
+}
+var launchTemplateIamInstanceProfileType = reflect.TypeOf((*LaunchTemplateIamInstanceProfile)(nil)).Elem()
+
+type LaunchTemplateIamInstanceProfileInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput
+	ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput
+}
+
+type LaunchTemplateIamInstanceProfileArgs struct {
+	// Amazon Resource Name (ARN) of the launch template.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LaunchTemplateIamInstanceProfileArgs) ElementType() reflect.Type {
+	return launchTemplateIamInstanceProfileType
+}
+
+func (a LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateIamInstanceProfileOutput)
+}
+
+func (a LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateIamInstanceProfileOutput)
+}
+
+type LaunchTemplateIamInstanceProfileOutput struct { *pulumi.OutputState }
+
+// Amazon Resource Name (ARN) of the launch template.
+func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateIamInstanceProfile) string {
+		if v.Arn == nil { return *new(string) } else { return *v.Arn }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
+func (o LaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateIamInstanceProfile) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateIamInstanceProfileOutput) ElementType() reflect.Type {
+	return launchTemplateIamInstanceProfileType
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfileOutput{}) }
+
+type LaunchTemplateInstanceMarketOptions struct {
+	MarketType *string `pulumi:"marketType"`
+	SpotOptions *LaunchTemplateInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
+}
+var launchTemplateInstanceMarketOptionsType = reflect.TypeOf((*LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+
+type LaunchTemplateInstanceMarketOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput
+	ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput
+}
+
+type LaunchTemplateInstanceMarketOptionsArgs struct {
+	MarketType pulumi.StringInput `pulumi:"marketType"`
+	SpotOptions LaunchTemplateInstanceMarketOptionsSpotOptionsInput `pulumi:"spotOptions"`
+}
+
+func (LaunchTemplateInstanceMarketOptionsArgs) ElementType() reflect.Type {
+	return launchTemplateInstanceMarketOptionsType
+}
+
+func (a LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateInstanceMarketOptionsOutput)
+}
+
+func (a LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateInstanceMarketOptionsOutput)
+}
+
+type LaunchTemplateInstanceMarketOptionsOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) MarketType() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptions) string {
+		if v.MarketType == nil { return *new(string) } else { return *v.MarketType }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) SpotOptions() LaunchTemplateInstanceMarketOptionsSpotOptionsOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptions) LaunchTemplateInstanceMarketOptionsSpotOptions {
+		if v.SpotOptions == nil { return *new(LaunchTemplateInstanceMarketOptionsSpotOptions) } else { return *v.SpotOptions }
+	}).(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput)
+}
+
+func (LaunchTemplateInstanceMarketOptionsOutput) ElementType() reflect.Type {
+	return launchTemplateInstanceMarketOptionsType
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsOutput{}) }
+
+type LaunchTemplateInstanceMarketOptionsSpotOptions struct {
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	MaxPrice *string `pulumi:"maxPrice"`
+	SpotInstanceType *string `pulumi:"spotInstanceType"`
+	ValidUntil *string `pulumi:"validUntil"`
+}
+var launchTemplateInstanceMarketOptionsSpotOptionsType = reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsSpotOptions)(nil)).Elem()
+
+type LaunchTemplateInstanceMarketOptionsSpotOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceMarketOptionsSpotOptionsOutput() LaunchTemplateInstanceMarketOptionsSpotOptionsOutput
+	ToLaunchTemplateInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsSpotOptionsOutput
+}
+
+type LaunchTemplateInstanceMarketOptionsSpotOptionsArgs struct {
+	BlockDurationMinutes pulumi.IntInput `pulumi:"blockDurationMinutes"`
+	InstanceInterruptionBehavior pulumi.StringInput `pulumi:"instanceInterruptionBehavior"`
+	MaxPrice pulumi.StringInput `pulumi:"maxPrice"`
+	SpotInstanceType pulumi.StringInput `pulumi:"spotInstanceType"`
+	ValidUntil pulumi.StringInput `pulumi:"validUntil"`
+}
+
+func (LaunchTemplateInstanceMarketOptionsSpotOptionsArgs) ElementType() reflect.Type {
+	return launchTemplateInstanceMarketOptionsSpotOptionsType
+}
+
+func (a LaunchTemplateInstanceMarketOptionsSpotOptionsArgs) ToLaunchTemplateInstanceMarketOptionsSpotOptionsOutput() LaunchTemplateInstanceMarketOptionsSpotOptionsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput)
+}
+
+func (a LaunchTemplateInstanceMarketOptionsSpotOptionsArgs) ToLaunchTemplateInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput)
+}
+
+type LaunchTemplateInstanceMarketOptionsSpotOptionsOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) BlockDurationMinutes() pulumi.IntOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) int {
+		if v.BlockDurationMinutes == nil { return *new(int) } else { return *v.BlockDurationMinutes }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) string {
+		if v.InstanceInterruptionBehavior == nil { return *new(string) } else { return *v.InstanceInterruptionBehavior }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) MaxPrice() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) string {
+		if v.MaxPrice == nil { return *new(string) } else { return *v.MaxPrice }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) SpotInstanceType() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) string {
+		if v.SpotInstanceType == nil { return *new(string) } else { return *v.SpotInstanceType }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ValidUntil() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) string {
+		if v.ValidUntil == nil { return *new(string) } else { return *v.ValidUntil }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ElementType() reflect.Type {
+	return launchTemplateInstanceMarketOptionsSpotOptionsType
+}
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ToLaunchTemplateInstanceMarketOptionsSpotOptionsOutput() LaunchTemplateInstanceMarketOptionsSpotOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ToLaunchTemplateInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsSpotOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput{}) }
+
+type LaunchTemplateLicenseSpecifications struct {
+	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
+}
+var launchTemplateLicenseSpecificationsType = reflect.TypeOf((*LaunchTemplateLicenseSpecifications)(nil)).Elem()
+
+type LaunchTemplateLicenseSpecificationsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLicenseSpecificationsOutput() LaunchTemplateLicenseSpecificationsOutput
+	ToLaunchTemplateLicenseSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationsOutput
+}
+
+type LaunchTemplateLicenseSpecificationsArgs struct {
+	LicenseConfigurationArn pulumi.StringInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (LaunchTemplateLicenseSpecificationsArgs) ElementType() reflect.Type {
+	return launchTemplateLicenseSpecificationsType
+}
+
+func (a LaunchTemplateLicenseSpecificationsArgs) ToLaunchTemplateLicenseSpecificationsOutput() LaunchTemplateLicenseSpecificationsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateLicenseSpecificationsOutput)
+}
+
+func (a LaunchTemplateLicenseSpecificationsArgs) ToLaunchTemplateLicenseSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateLicenseSpecificationsOutput)
+}
+
+type LaunchTemplateLicenseSpecificationsOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateLicenseSpecificationsOutput) LicenseConfigurationArn() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateLicenseSpecifications) string {
+		return v.LicenseConfigurationArn
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateLicenseSpecificationsOutput) ElementType() reflect.Type {
+	return launchTemplateLicenseSpecificationsType
+}
+
+func (o LaunchTemplateLicenseSpecificationsOutput) ToLaunchTemplateLicenseSpecificationsOutput() LaunchTemplateLicenseSpecificationsOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationsOutput) ToLaunchTemplateLicenseSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationsOutput{}) }
+
+var launchTemplateLicenseSpecificationsArrayType = reflect.TypeOf((*[]LaunchTemplateLicenseSpecifications)(nil)).Elem()
+
+type LaunchTemplateLicenseSpecificationsArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLicenseSpecificationsArrayOutput() LaunchTemplateLicenseSpecificationsArrayOutput
+	ToLaunchTemplateLicenseSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationsArrayOutput
+}
+
+type LaunchTemplateLicenseSpecificationsArrayArgs []LaunchTemplateLicenseSpecificationsInput
+
+func (LaunchTemplateLicenseSpecificationsArrayArgs) ElementType() reflect.Type {
+	return launchTemplateLicenseSpecificationsArrayType
+}
+
+func (a LaunchTemplateLicenseSpecificationsArrayArgs) ToLaunchTemplateLicenseSpecificationsArrayOutput() LaunchTemplateLicenseSpecificationsArrayOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateLicenseSpecificationsArrayOutput)
+}
+
+func (a LaunchTemplateLicenseSpecificationsArrayArgs) ToLaunchTemplateLicenseSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateLicenseSpecificationsArrayOutput)
+}
+
+type LaunchTemplateLicenseSpecificationsArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateLicenseSpecificationsArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLicenseSpecificationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchTemplateLicenseSpecifications {
+		return vs[0].([]LaunchTemplateLicenseSpecifications)[vs[1].(int)]
+	}).(LaunchTemplateLicenseSpecificationsOutput)
+}
+
+func (LaunchTemplateLicenseSpecificationsArrayOutput) ElementType() reflect.Type {
+	return launchTemplateLicenseSpecificationsArrayType
+}
+
+func (o LaunchTemplateLicenseSpecificationsArrayOutput) ToLaunchTemplateLicenseSpecificationsArrayOutput() LaunchTemplateLicenseSpecificationsArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationsArrayOutput) ToLaunchTemplateLicenseSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationsArrayOutput{}) }
+
+type LaunchTemplateMonitoring struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+var launchTemplateMonitoringType = reflect.TypeOf((*LaunchTemplateMonitoring)(nil)).Elem()
+
+type LaunchTemplateMonitoringInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput
+	ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput
+}
+
+type LaunchTemplateMonitoringArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (LaunchTemplateMonitoringArgs) ElementType() reflect.Type {
+	return launchTemplateMonitoringType
+}
+
+func (a LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateMonitoringOutput)
+}
+
+func (a LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateMonitoringOutput)
+}
+
+type LaunchTemplateMonitoringOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateMonitoringOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchTemplateMonitoring) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (LaunchTemplateMonitoringOutput) ElementType() reflect.Type {
+	return launchTemplateMonitoringType
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{}) }
+
+type LaunchTemplateNetworkInterfaces struct {
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Description of the launch template.
+	Description *string `pulumi:"description"`
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	Ipv4AddressCount *int `pulumi:"ipv4AddressCount"`
+	Ipv4Addresses *[]string `pulumi:"ipv4Addresses"`
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses *[]string `pulumi:"ipv6Addresses"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	SecurityGroups *[]string `pulumi:"securityGroups"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+var launchTemplateNetworkInterfacesType = reflect.TypeOf((*LaunchTemplateNetworkInterfaces)(nil)).Elem()
+
+type LaunchTemplateNetworkInterfacesInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfacesOutput() LaunchTemplateNetworkInterfacesOutput
+	ToLaunchTemplateNetworkInterfacesOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfacesOutput
+}
+
+type LaunchTemplateNetworkInterfacesArgs struct {
+	AssociatePublicIpAddress pulumi.BoolInput `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	// Description of the launch template.
+	Description pulumi.StringInput `pulumi:"description"`
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	Ipv4AddressCount pulumi.IntInput `pulumi:"ipv4AddressCount"`
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	Ipv6AddressCount pulumi.IntInput `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses pulumi.StringArrayInput `pulumi:"ipv6Addresses"`
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (LaunchTemplateNetworkInterfacesArgs) ElementType() reflect.Type {
+	return launchTemplateNetworkInterfacesType
+}
+
+func (a LaunchTemplateNetworkInterfacesArgs) ToLaunchTemplateNetworkInterfacesOutput() LaunchTemplateNetworkInterfacesOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateNetworkInterfacesOutput)
+}
+
+func (a LaunchTemplateNetworkInterfacesArgs) ToLaunchTemplateNetworkInterfacesOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfacesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateNetworkInterfacesOutput)
+}
+
+type LaunchTemplateNetworkInterfacesOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateNetworkInterfacesOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) bool {
+		if v.AssociatePublicIpAddress == nil { return *new(bool) } else { return *v.AssociatePublicIpAddress }
+	}).(pulumi.BoolOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+// Description of the launch template.
+func (o LaunchTemplateNetworkInterfacesOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) DeviceIndex() pulumi.IntOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) int {
+		if v.DeviceIndex == nil { return *new(int) } else { return *v.DeviceIndex }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) Ipv4AddressCount() pulumi.IntOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) int {
+		if v.Ipv4AddressCount == nil { return *new(int) } else { return *v.Ipv4AddressCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) []string {
+		if v.Ipv4Addresses == nil { return *new([]string) } else { return *v.Ipv4Addresses }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) Ipv6AddressCount() pulumi.IntOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) int {
+		if v.Ipv6AddressCount == nil { return *new(int) } else { return *v.Ipv6AddressCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) Ipv6Addresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) []string {
+		if v.Ipv6Addresses == nil { return *new([]string) } else { return *v.Ipv6Addresses }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) string {
+		if v.NetworkInterfaceId == nil { return *new(string) } else { return *v.NetworkInterfaceId }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) string {
+		if v.PrivateIpAddress == nil { return *new(string) } else { return *v.PrivateIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) []string {
+		if v.SecurityGroups == nil { return *new([]string) } else { return *v.SecurityGroups }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateNetworkInterfaces) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplateNetworkInterfacesOutput) ElementType() reflect.Type {
+	return launchTemplateNetworkInterfacesType
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) ToLaunchTemplateNetworkInterfacesOutput() LaunchTemplateNetworkInterfacesOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfacesOutput) ToLaunchTemplateNetworkInterfacesOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfacesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateNetworkInterfacesOutput{}) }
+
+var launchTemplateNetworkInterfacesArrayType = reflect.TypeOf((*[]LaunchTemplateNetworkInterfaces)(nil)).Elem()
+
+type LaunchTemplateNetworkInterfacesArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfacesArrayOutput() LaunchTemplateNetworkInterfacesArrayOutput
+	ToLaunchTemplateNetworkInterfacesArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfacesArrayOutput
+}
+
+type LaunchTemplateNetworkInterfacesArrayArgs []LaunchTemplateNetworkInterfacesInput
+
+func (LaunchTemplateNetworkInterfacesArrayArgs) ElementType() reflect.Type {
+	return launchTemplateNetworkInterfacesArrayType
+}
+
+func (a LaunchTemplateNetworkInterfacesArrayArgs) ToLaunchTemplateNetworkInterfacesArrayOutput() LaunchTemplateNetworkInterfacesArrayOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateNetworkInterfacesArrayOutput)
+}
+
+func (a LaunchTemplateNetworkInterfacesArrayArgs) ToLaunchTemplateNetworkInterfacesArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfacesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateNetworkInterfacesArrayOutput)
+}
+
+type LaunchTemplateNetworkInterfacesArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateNetworkInterfacesArrayOutput) Index(i pulumi.IntInput) LaunchTemplateNetworkInterfacesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchTemplateNetworkInterfaces {
+		return vs[0].([]LaunchTemplateNetworkInterfaces)[vs[1].(int)]
+	}).(LaunchTemplateNetworkInterfacesOutput)
+}
+
+func (LaunchTemplateNetworkInterfacesArrayOutput) ElementType() reflect.Type {
+	return launchTemplateNetworkInterfacesArrayType
+}
+
+func (o LaunchTemplateNetworkInterfacesArrayOutput) ToLaunchTemplateNetworkInterfacesArrayOutput() LaunchTemplateNetworkInterfacesArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfacesArrayOutput) ToLaunchTemplateNetworkInterfacesArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfacesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateNetworkInterfacesArrayOutput{}) }
+
+type LaunchTemplatePlacement struct {
+	Affinity *string `pulumi:"affinity"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	GroupName *string `pulumi:"groupName"`
+	HostId *string `pulumi:"hostId"`
+	SpreadDomain *string `pulumi:"spreadDomain"`
+	Tenancy *string `pulumi:"tenancy"`
+}
+var launchTemplatePlacementType = reflect.TypeOf((*LaunchTemplatePlacement)(nil)).Elem()
+
+type LaunchTemplatePlacementInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput
+	ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput
+}
+
+type LaunchTemplatePlacementArgs struct {
+	Affinity pulumi.StringInput `pulumi:"affinity"`
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	GroupName pulumi.StringInput `pulumi:"groupName"`
+	HostId pulumi.StringInput `pulumi:"hostId"`
+	SpreadDomain pulumi.StringInput `pulumi:"spreadDomain"`
+	Tenancy pulumi.StringInput `pulumi:"tenancy"`
+}
+
+func (LaunchTemplatePlacementArgs) ElementType() reflect.Type {
+	return launchTemplatePlacementType
+}
+
+func (a LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput {
+	return pulumi.ToOutput(a).(LaunchTemplatePlacementOutput)
+}
+
+func (a LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplatePlacementOutput)
+}
+
+type LaunchTemplatePlacementOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplatePlacementOutput) Affinity() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplatePlacement) string {
+		if v.Affinity == nil { return *new(string) } else { return *v.Affinity }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplatePlacement) string {
+		if v.AvailabilityZone == nil { return *new(string) } else { return *v.AvailabilityZone }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplatePlacement) string {
+		if v.GroupName == nil { return *new(string) } else { return *v.GroupName }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplatePlacement) string {
+		if v.HostId == nil { return *new(string) } else { return *v.HostId }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplatePlacement) string {
+		if v.SpreadDomain == nil { return *new(string) } else { return *v.SpreadDomain }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) Tenancy() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplatePlacement) string {
+		if v.Tenancy == nil { return *new(string) } else { return *v.Tenancy }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchTemplatePlacementOutput) ElementType() reflect.Type {
+	return launchTemplatePlacementType
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{}) }
+
+type LaunchTemplateTagSpecifications struct {
+	ResourceType *string `pulumi:"resourceType"`
+	// A mapping of tags to assign to the launch template.
+	Tags *map[string]string `pulumi:"tags"`
+}
+var launchTemplateTagSpecificationsType = reflect.TypeOf((*LaunchTemplateTagSpecifications)(nil)).Elem()
+
+type LaunchTemplateTagSpecificationsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagSpecificationsOutput() LaunchTemplateTagSpecificationsOutput
+	ToLaunchTemplateTagSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationsOutput
+}
+
+type LaunchTemplateTagSpecificationsArgs struct {
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// A mapping of tags to assign to the launch template.
+	Tags pulumi.MapInput `pulumi:"tags"`
+}
+
+func (LaunchTemplateTagSpecificationsArgs) ElementType() reflect.Type {
+	return launchTemplateTagSpecificationsType
+}
+
+func (a LaunchTemplateTagSpecificationsArgs) ToLaunchTemplateTagSpecificationsOutput() LaunchTemplateTagSpecificationsOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateTagSpecificationsOutput)
+}
+
+func (a LaunchTemplateTagSpecificationsArgs) ToLaunchTemplateTagSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateTagSpecificationsOutput)
+}
+
+type LaunchTemplateTagSpecificationsOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateTagSpecificationsOutput) ResourceType() pulumi.StringOutput {
+	return o.Apply(func(v LaunchTemplateTagSpecifications) string {
+		if v.ResourceType == nil { return *new(string) } else { return *v.ResourceType }
+	}).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the launch template.
+func (o LaunchTemplateTagSpecificationsOutput) Tags() pulumi.MapOutput {
+	return o.Apply(func(v LaunchTemplateTagSpecifications) map[string]string {
+		if v.Tags == nil { return *new(map[string]string) } else { return *v.Tags }
+	}).(pulumi.MapOutput)
+}
+
+func (LaunchTemplateTagSpecificationsOutput) ElementType() reflect.Type {
+	return launchTemplateTagSpecificationsType
+}
+
+func (o LaunchTemplateTagSpecificationsOutput) ToLaunchTemplateTagSpecificationsOutput() LaunchTemplateTagSpecificationsOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationsOutput) ToLaunchTemplateTagSpecificationsOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateTagSpecificationsOutput{}) }
+
+var launchTemplateTagSpecificationsArrayType = reflect.TypeOf((*[]LaunchTemplateTagSpecifications)(nil)).Elem()
+
+type LaunchTemplateTagSpecificationsArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagSpecificationsArrayOutput() LaunchTemplateTagSpecificationsArrayOutput
+	ToLaunchTemplateTagSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationsArrayOutput
+}
+
+type LaunchTemplateTagSpecificationsArrayArgs []LaunchTemplateTagSpecificationsInput
+
+func (LaunchTemplateTagSpecificationsArrayArgs) ElementType() reflect.Type {
+	return launchTemplateTagSpecificationsArrayType
+}
+
+func (a LaunchTemplateTagSpecificationsArrayArgs) ToLaunchTemplateTagSpecificationsArrayOutput() LaunchTemplateTagSpecificationsArrayOutput {
+	return pulumi.ToOutput(a).(LaunchTemplateTagSpecificationsArrayOutput)
+}
+
+func (a LaunchTemplateTagSpecificationsArrayArgs) ToLaunchTemplateTagSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchTemplateTagSpecificationsArrayOutput)
+}
+
+type LaunchTemplateTagSpecificationsArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchTemplateTagSpecificationsArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTagSpecificationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchTemplateTagSpecifications {
+		return vs[0].([]LaunchTemplateTagSpecifications)[vs[1].(int)]
+	}).(LaunchTemplateTagSpecificationsOutput)
+}
+
+func (LaunchTemplateTagSpecificationsArrayOutput) ElementType() reflect.Type {
+	return launchTemplateTagSpecificationsArrayType
+}
+
+func (o LaunchTemplateTagSpecificationsArrayOutput) ToLaunchTemplateTagSpecificationsArrayOutput() LaunchTemplateTagSpecificationsArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationsArrayOutput) ToLaunchTemplateTagSpecificationsArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchTemplateTagSpecificationsArrayOutput{}) }
+

@@ -12,135 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
 type SnapshotCopy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The data encryption key identifier for the snapshot.
+	// * `sourceSnapshotId` The ARN of the copied snapshot.
+	// * `sourceRegion` The region of the source snapshot.
+	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
+
+	// A description of what the snapshot is.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Whether the snapshot is encrypted.
+	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+
+	// The ARN for the KMS encryption key.
+	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
+	// * `sourceRegion` The region of the source snapshot.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
+
+	// The AWS account ID of the snapshot owner.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
+
+	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
+
+	// A mapping of tags for the snapshot.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
+
+	// The size of the drive in GiBs.
+	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
 }
 
 // NewSnapshotCopy registers a new resource with the given unique name, arguments, and options.
 func NewSnapshotCopy(ctx *pulumi.Context,
-	name string, args *SnapshotCopyArgs, opts ...pulumi.ResourceOpt) (*SnapshotCopy, error) {
+	name string, args *SnapshotCopyArgs, opts ...pulumi.ResourceOption) (*SnapshotCopy, error) {
 	if args == nil || args.SourceRegion == nil {
 		return nil, errors.New("missing required argument 'SourceRegion'")
 	}
 	if args == nil || args.SourceSnapshotId == nil {
 		return nil, errors.New("missing required argument 'SourceSnapshotId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["encrypted"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["sourceRegion"] = nil
-		inputs["sourceSnapshotId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["encrypted"] = args.Encrypted
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["sourceRegion"] = args.SourceRegion
-		inputs["sourceSnapshotId"] = args.SourceSnapshotId
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.SourceRegion; i != nil { inputs["sourceRegion"] = i.ToStringOutput() }
+		if i := args.SourceSnapshotId; i != nil { inputs["sourceSnapshotId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["dataEncryptionKeyId"] = nil
-	inputs["ownerAlias"] = nil
-	inputs["ownerId"] = nil
-	inputs["volumeId"] = nil
-	inputs["volumeSize"] = nil
-	s, err := ctx.RegisterResource("aws:ebs/snapshotCopy:SnapshotCopy", name, true, inputs, opts...)
+	var resource SnapshotCopy
+	err := ctx.RegisterResource("aws:ebs/snapshotCopy:SnapshotCopy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SnapshotCopy{s: s}, nil
+	return &resource, nil
 }
 
 // GetSnapshotCopy gets an existing SnapshotCopy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSnapshotCopy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SnapshotCopyState, opts ...pulumi.ResourceOpt) (*SnapshotCopy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SnapshotCopyState, opts ...pulumi.ResourceOption) (*SnapshotCopy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dataEncryptionKeyId"] = state.DataEncryptionKeyId
-		inputs["description"] = state.Description
-		inputs["encrypted"] = state.Encrypted
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["ownerAlias"] = state.OwnerAlias
-		inputs["ownerId"] = state.OwnerId
-		inputs["sourceRegion"] = state.SourceRegion
-		inputs["sourceSnapshotId"] = state.SourceSnapshotId
-		inputs["tags"] = state.Tags
-		inputs["volumeId"] = state.VolumeId
-		inputs["volumeSize"] = state.VolumeSize
+		if i := state.DataEncryptionKeyId; i != nil { inputs["dataEncryptionKeyId"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.OwnerAlias; i != nil { inputs["ownerAlias"] = i.ToStringOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.SourceRegion; i != nil { inputs["sourceRegion"] = i.ToStringOutput() }
+		if i := state.SourceSnapshotId; i != nil { inputs["sourceSnapshotId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VolumeId; i != nil { inputs["volumeId"] = i.ToStringOutput() }
+		if i := state.VolumeSize; i != nil { inputs["volumeSize"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ebs/snapshotCopy:SnapshotCopy", name, id, inputs, opts...)
+	var resource SnapshotCopy
+	err := ctx.ReadResource("aws:ebs/snapshotCopy:SnapshotCopy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SnapshotCopy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotCopy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotCopy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The data encryption key identifier for the snapshot.
-// * `sourceSnapshotId` The ARN of the copied snapshot.
-// * `sourceRegion` The region of the source snapshot.
-func (r *SnapshotCopy) DataEncryptionKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
-}
-
-// A description of what the snapshot is.
-func (r *SnapshotCopy) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Whether the snapshot is encrypted.
-func (r *SnapshotCopy) Encrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["encrypted"])
-}
-
-// The ARN for the KMS encryption key.
-// * `sourceSnapshotId` The ARN for the snapshot to be copied.
-// * `sourceRegion` The region of the source snapshot.
-func (r *SnapshotCopy) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (r *SnapshotCopy) OwnerAlias() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerAlias"])
-}
-
-// The AWS account ID of the snapshot owner.
-func (r *SnapshotCopy) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-func (r *SnapshotCopy) SourceRegion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceRegion"])
-}
-
-func (r *SnapshotCopy) SourceSnapshotId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceSnapshotId"])
-}
-
-// A mapping of tags for the snapshot.
-func (r *SnapshotCopy) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *SnapshotCopy) VolumeId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["volumeId"])
-}
-
-// The size of the drive in GiBs.
-func (r *SnapshotCopy) VolumeSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["volumeSize"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SnapshotCopy resources.
@@ -148,40 +106,40 @@ type SnapshotCopyState struct {
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.
-	DataEncryptionKeyId interface{}
+	DataEncryptionKeyId pulumi.StringInput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Whether the snapshot is encrypted.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
 	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias interface{}
+	OwnerAlias pulumi.StringInput `pulumi:"ownerAlias"`
 	// The AWS account ID of the snapshot owner.
-	OwnerId interface{}
-	SourceRegion interface{}
-	SourceSnapshotId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
+	SourceSnapshotId pulumi.StringInput `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
-	Tags interface{}
-	VolumeId interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
-	VolumeSize interface{}
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 }
 
 // The set of arguments for constructing a SnapshotCopy resource.
 type SnapshotCopyArgs struct {
 	// A description of what the snapshot is.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Whether the snapshot is encrypted.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	// * `sourceSnapshotId` The ARN for the snapshot to be copied.
 	// * `sourceRegion` The region of the source snapshot.
-	KmsKeyId interface{}
-	SourceRegion interface{}
-	SourceSnapshotId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
+	SourceSnapshotId pulumi.StringInput `pulumi:"sourceSnapshotId"`
 	// A mapping of tags for the snapshot.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

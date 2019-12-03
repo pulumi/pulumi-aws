@@ -4,6 +4,8 @@
 package ssm
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_target.html.markdown.
 type MaintenanceWindowTarget struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The description of the maintenance window target.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the maintenance window target.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+	OwnerInformation pulumi.StringOutput `pulumi:"ownerInformation"`
+
+	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
+	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+
+	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
+	Targets MaintenanceWindowTargetTargetsArrayOutput `pulumi:"targets"`
+
+	// The Id of the maintenance window to register the target with.
+	WindowId pulumi.StringOutput `pulumi:"windowId"`
 }
 
 // NewMaintenanceWindowTarget registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindowTarget(ctx *pulumi.Context,
-	name string, args *MaintenanceWindowTargetArgs, opts ...pulumi.ResourceOpt) (*MaintenanceWindowTarget, error) {
+	name string, args *MaintenanceWindowTargetArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindowTarget, error) {
 	if args == nil || args.ResourceType == nil {
 		return nil, errors.New("missing required argument 'ResourceType'")
 	}
@@ -27,117 +47,175 @@ func NewMaintenanceWindowTarget(ctx *pulumi.Context,
 	if args == nil || args.WindowId == nil {
 		return nil, errors.New("missing required argument 'WindowId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["ownerInformation"] = nil
-		inputs["resourceType"] = nil
-		inputs["targets"] = nil
-		inputs["windowId"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["ownerInformation"] = args.OwnerInformation
-		inputs["resourceType"] = args.ResourceType
-		inputs["targets"] = args.Targets
-		inputs["windowId"] = args.WindowId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OwnerInformation; i != nil { inputs["ownerInformation"] = i.ToStringOutput() }
+		if i := args.ResourceType; i != nil { inputs["resourceType"] = i.ToStringOutput() }
+		if i := args.Targets; i != nil { inputs["targets"] = i.ToMaintenanceWindowTargetTargetsArrayOutput() }
+		if i := args.WindowId; i != nil { inputs["windowId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, true, inputs, opts...)
+	var resource MaintenanceWindowTarget
+	err := ctx.RegisterResource("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MaintenanceWindowTarget{s: s}, nil
+	return &resource, nil
 }
 
 // GetMaintenanceWindowTarget gets an existing MaintenanceWindowTarget resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMaintenanceWindowTarget(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MaintenanceWindowTargetState, opts ...pulumi.ResourceOpt) (*MaintenanceWindowTarget, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MaintenanceWindowTargetState, opts ...pulumi.ResourceOption) (*MaintenanceWindowTarget, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["ownerInformation"] = state.OwnerInformation
-		inputs["resourceType"] = state.ResourceType
-		inputs["targets"] = state.Targets
-		inputs["windowId"] = state.WindowId
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OwnerInformation; i != nil { inputs["ownerInformation"] = i.ToStringOutput() }
+		if i := state.ResourceType; i != nil { inputs["resourceType"] = i.ToStringOutput() }
+		if i := state.Targets; i != nil { inputs["targets"] = i.ToMaintenanceWindowTargetTargetsArrayOutput() }
+		if i := state.WindowId; i != nil { inputs["windowId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, id, inputs, opts...)
+	var resource MaintenanceWindowTarget
+	err := ctx.ReadResource("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MaintenanceWindowTarget{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MaintenanceWindowTarget) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MaintenanceWindowTarget) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The description of the maintenance window target.
-func (r *MaintenanceWindowTarget) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the maintenance window target.
-func (r *MaintenanceWindowTarget) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-func (r *MaintenanceWindowTarget) OwnerInformation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerInformation"])
-}
-
-// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
-func (r *MaintenanceWindowTarget) ResourceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceType"])
-}
-
-// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
-func (r *MaintenanceWindowTarget) Targets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["targets"])
-}
-
-// The Id of the maintenance window to register the target with.
-func (r *MaintenanceWindowTarget) WindowId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["windowId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MaintenanceWindowTarget resources.
 type MaintenanceWindowTargetState struct {
 	// The description of the maintenance window target.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the maintenance window target.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-	OwnerInformation interface{}
+	OwnerInformation pulumi.StringInput `pulumi:"ownerInformation"`
 	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
-	ResourceType interface{}
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
-	Targets interface{}
+	Targets MaintenanceWindowTargetTargetsArrayInput `pulumi:"targets"`
 	// The Id of the maintenance window to register the target with.
-	WindowId interface{}
+	WindowId pulumi.StringInput `pulumi:"windowId"`
 }
 
 // The set of arguments for constructing a MaintenanceWindowTarget resource.
 type MaintenanceWindowTargetArgs struct {
 	// The description of the maintenance window target.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the maintenance window target.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-	OwnerInformation interface{}
+	OwnerInformation pulumi.StringInput `pulumi:"ownerInformation"`
 	// The type of target being registered with the Maintenance Window. Possible values `INSTANCE`.
-	ResourceType interface{}
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
-	Targets interface{}
+	Targets MaintenanceWindowTargetTargetsArrayInput `pulumi:"targets"`
 	// The Id of the maintenance window to register the target with.
-	WindowId interface{}
+	WindowId pulumi.StringInput `pulumi:"windowId"`
 }
+type MaintenanceWindowTargetTargets struct {
+	Key string `pulumi:"key"`
+	Values []string `pulumi:"values"`
+}
+var maintenanceWindowTargetTargetsType = reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+
+type MaintenanceWindowTargetTargetsInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput
+	ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput
+}
+
+type MaintenanceWindowTargetTargetsArgs struct {
+	Key pulumi.StringInput `pulumi:"key"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTargetTargetsArgs) ElementType() reflect.Type {
+	return maintenanceWindowTargetTargetsType
+}
+
+func (a MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTargetTargetsOutput)
+}
+
+func (a MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTargetTargetsOutput)
+}
+
+type MaintenanceWindowTargetTargetsOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTargetTargetsOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTargetTargets) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTargetTargets) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (MaintenanceWindowTargetTargetsOutput) ElementType() reflect.Type {
+	return maintenanceWindowTargetTargetsType
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsOutput{}) }
+
+var maintenanceWindowTargetTargetsArrayType = reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+
+type MaintenanceWindowTargetTargetsArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput
+	ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput
+}
+
+type MaintenanceWindowTargetTargetsArrayArgs []MaintenanceWindowTargetTargetsInput
+
+func (MaintenanceWindowTargetTargetsArrayArgs) ElementType() reflect.Type {
+	return maintenanceWindowTargetTargetsArrayType
+}
+
+func (a MaintenanceWindowTargetTargetsArrayArgs) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTargetTargetsArrayOutput)
+}
+
+func (a MaintenanceWindowTargetTargetsArrayArgs) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTargetTargetsArrayOutput)
+}
+
+type MaintenanceWindowTargetTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MaintenanceWindowTargetTargets {
+		return vs[0].([]MaintenanceWindowTargetTargets)[vs[1].(int)]
+	}).(MaintenanceWindowTargetTargetsOutput)
+}
+
+func (MaintenanceWindowTargetTargetsArrayOutput) ElementType() reflect.Type {
+	return maintenanceWindowTargetTargetsArrayType
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsArrayOutput{}) }
+

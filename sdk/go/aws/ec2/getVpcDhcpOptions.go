@@ -10,59 +10,55 @@ import (
 // Retrieve information about an EC2 DHCP Options configuration.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
-func LookupVpcDhcpOptions(ctx *pulumi.Context, args *GetVpcDhcpOptionsArgs) (*GetVpcDhcpOptionsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["dhcpOptionsId"] = args.DhcpOptionsId
-		inputs["filters"] = args.Filters
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", inputs)
+func LookupVpcDhcpOptions(ctx *pulumi.Context, args *GetVpcDhcpOptionsArgs, opts ...pulumi.InvokeOption) (*GetVpcDhcpOptionsResult, error) {
+	var rv GetVpcDhcpOptionsResult
+	err := ctx.Invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpcDhcpOptionsResult{
-		DhcpOptionsId: outputs["dhcpOptionsId"],
-		DomainName: outputs["domainName"],
-		DomainNameServers: outputs["domainNameServers"],
-		Filters: outputs["filters"],
-		NetbiosNameServers: outputs["netbiosNameServers"],
-		NetbiosNodeType: outputs["netbiosNodeType"],
-		NtpServers: outputs["ntpServers"],
-		OwnerId: outputs["ownerId"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpcDhcpOptions.
 type GetVpcDhcpOptionsArgs struct {
 	// The EC2 DHCP Options ID.
-	DhcpOptionsId interface{}
+	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// List of custom filters as described below.
-	Filters interface{}
-	Tags interface{}
+	Filters *[]GetVpcDhcpOptionsFiltersArgs `pulumi:"filters"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcDhcpOptions.
 type GetVpcDhcpOptionsResult struct {
 	// EC2 DHCP Options ID
-	DhcpOptionsId interface{}
+	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 	// The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
-	DomainName interface{}
+	DomainName string `pulumi:"domainName"`
 	// List of name servers.
-	DomainNameServers interface{}
-	Filters interface{}
+	DomainNameServers []string `pulumi:"domainNameServers"`
+	Filters *[]GetVpcDhcpOptionsFiltersResult `pulumi:"filters"`
 	// List of NETBIOS name servers.
-	NetbiosNameServers interface{}
+	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType interface{}
+	NetbiosNodeType string `pulumi:"netbiosNodeType"`
 	// List of NTP servers.
-	NtpServers interface{}
+	NtpServers []string `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId interface{}
+	OwnerId string `pulumi:"ownerId"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetVpcDhcpOptionsFiltersArgs struct {
+	// The name of the field to filter.
+	Name string `pulumi:"name"`
+	// Set of values for filtering.
+	Values []string `pulumi:"values"`
+}
+type GetVpcDhcpOptionsFiltersResult struct {
+	// The name of the field to filter.
+	Name string `pulumi:"name"`
+	// Set of values for filtering.
+	Values []string `pulumi:"values"`
 }

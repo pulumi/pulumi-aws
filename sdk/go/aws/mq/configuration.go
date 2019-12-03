@@ -14,12 +14,38 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_configuration.html.markdown.
 type Configuration struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The broker configuration in XML format.
+	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
+	// for supported parameters and format of the XML.
+	Data pulumi.StringOutput `pulumi:"data"`
+
+	// The description of the configuration.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The type of broker engine.
+	EngineType pulumi.StringOutput `pulumi:"engineType"`
+
+	// The version of the broker engine.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+
+	// The latest revision of the configuration.
+	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
+
+	// The name of the configuration
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
-	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOpt) (*Configuration, error) {
+	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	if args == nil || args.Data == nil {
 		return nil, errors.New("missing required argument 'Data'")
 	}
@@ -29,125 +55,66 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args == nil || args.EngineVersion == nil {
 		return nil, errors.New("missing required argument 'EngineVersion'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["data"] = nil
-		inputs["description"] = nil
-		inputs["engineType"] = nil
-		inputs["engineVersion"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["data"] = args.Data
-		inputs["description"] = args.Description
-		inputs["engineType"] = args.EngineType
-		inputs["engineVersion"] = args.EngineVersion
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Data; i != nil { inputs["data"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EngineType; i != nil { inputs["engineType"] = i.ToStringOutput() }
+		if i := args.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["latestRevision"] = nil
-	s, err := ctx.RegisterResource("aws:mq/configuration:Configuration", name, true, inputs, opts...)
+	var resource Configuration
+	err := ctx.RegisterResource("aws:mq/configuration:Configuration", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Configuration{s: s}, nil
+	return &resource, nil
 }
 
 // GetConfiguration gets an existing Configuration resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConfiguration(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConfigurationState, opts ...pulumi.ResourceOpt) (*Configuration, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["data"] = state.Data
-		inputs["description"] = state.Description
-		inputs["engineType"] = state.EngineType
-		inputs["engineVersion"] = state.EngineVersion
-		inputs["latestRevision"] = state.LatestRevision
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Data; i != nil { inputs["data"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EngineType; i != nil { inputs["engineType"] = i.ToStringOutput() }
+		if i := state.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := state.LatestRevision; i != nil { inputs["latestRevision"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:mq/configuration:Configuration", name, id, inputs, opts...)
+	var resource Configuration
+	err := ctx.ReadResource("aws:mq/configuration:Configuration", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Configuration{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Configuration) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Configuration) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the configuration.
-func (r *Configuration) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The broker configuration in XML format.
-// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-// for supported parameters and format of the XML.
-func (r *Configuration) Data() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["data"])
-}
-
-// The description of the configuration.
-func (r *Configuration) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The type of broker engine.
-func (r *Configuration) EngineType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineType"])
-}
-
-// The version of the broker engine.
-func (r *Configuration) EngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineVersion"])
-}
-
-// The latest revision of the configuration.
-func (r *Configuration) LatestRevision() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["latestRevision"])
-}
-
-// The name of the configuration
-func (r *Configuration) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Configuration) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Configuration resources.
 type ConfigurationState struct {
 	// The ARN of the configuration.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The broker configuration in XML format.
 	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
 	// for supported parameters and format of the XML.
-	Data interface{}
+	Data pulumi.StringInput `pulumi:"data"`
 	// The description of the configuration.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The type of broker engine.
-	EngineType interface{}
+	EngineType pulumi.StringInput `pulumi:"engineType"`
 	// The version of the broker engine.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The latest revision of the configuration.
-	LatestRevision interface{}
+	LatestRevision pulumi.IntInput `pulumi:"latestRevision"`
 	// The name of the configuration
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
@@ -155,15 +122,15 @@ type ConfigurationArgs struct {
 	// The broker configuration in XML format.
 	// See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
 	// for supported parameters and format of the XML.
-	Data interface{}
+	Data pulumi.StringInput `pulumi:"data"`
 	// The description of the configuration.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The type of broker engine.
-	EngineType interface{}
+	EngineType pulumi.StringInput `pulumi:"engineType"`
 	// The version of the broker engine.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The name of the configuration
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

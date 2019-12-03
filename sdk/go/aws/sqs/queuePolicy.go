@@ -13,78 +13,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
 type QueuePolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// The URL of the SQS Queue to which to attach the policy
+	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
 }
 
 // NewQueuePolicy registers a new resource with the given unique name, arguments, and options.
 func NewQueuePolicy(ctx *pulumi.Context,
-	name string, args *QueuePolicyArgs, opts ...pulumi.ResourceOpt) (*QueuePolicy, error) {
+	name string, args *QueuePolicyArgs, opts ...pulumi.ResourceOption) (*QueuePolicy, error) {
 	if args == nil || args.Policy == nil {
 		return nil, errors.New("missing required argument 'Policy'")
 	}
 	if args == nil || args.QueueUrl == nil {
 		return nil, errors.New("missing required argument 'QueueUrl'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["policy"] = nil
-		inputs["queueUrl"] = nil
-	} else {
-		inputs["policy"] = args.Policy
-		inputs["queueUrl"] = args.QueueUrl
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.QueueUrl; i != nil { inputs["queueUrl"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:sqs/queuePolicy:QueuePolicy", name, true, inputs, opts...)
+	var resource QueuePolicy
+	err := ctx.RegisterResource("aws:sqs/queuePolicy:QueuePolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &QueuePolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetQueuePolicy gets an existing QueuePolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetQueuePolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *QueuePolicyState, opts ...pulumi.ResourceOpt) (*QueuePolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *QueuePolicyState, opts ...pulumi.ResourceOption) (*QueuePolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["policy"] = state.Policy
-		inputs["queueUrl"] = state.QueueUrl
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.QueueUrl; i != nil { inputs["queueUrl"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:sqs/queuePolicy:QueuePolicy", name, id, inputs, opts...)
+	var resource QueuePolicy
+	err := ctx.ReadResource("aws:sqs/queuePolicy:QueuePolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &QueuePolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *QueuePolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *QueuePolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *QueuePolicy) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// The URL of the SQS Queue to which to attach the policy
-func (r *QueuePolicy) QueueUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["queueUrl"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type QueuePolicyState struct {
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl interface{}
+	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl interface{}
+	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
 }

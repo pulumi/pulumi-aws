@@ -9,102 +9,81 @@ import (
 )
 
 type WebsiteCertificateAuthorityAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The root certificate of the Certificate Authority.
+	Certificate pulumi.StringOutput `pulumi:"certificate"`
+
+	// The certificate name to display.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The ARN of the fleet.
+	FleetArn pulumi.StringOutput `pulumi:"fleetArn"`
+
+	// A unique identifier for the Certificate Authority.
+	WebsiteCaId pulumi.StringOutput `pulumi:"websiteCaId"`
 }
 
 // NewWebsiteCertificateAuthorityAssociation registers a new resource with the given unique name, arguments, and options.
 func NewWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
-	name string, args *WebsiteCertificateAuthorityAssociationArgs, opts ...pulumi.ResourceOpt) (*WebsiteCertificateAuthorityAssociation, error) {
+	name string, args *WebsiteCertificateAuthorityAssociationArgs, opts ...pulumi.ResourceOption) (*WebsiteCertificateAuthorityAssociation, error) {
 	if args == nil || args.Certificate == nil {
 		return nil, errors.New("missing required argument 'Certificate'")
 	}
 	if args == nil || args.FleetArn == nil {
 		return nil, errors.New("missing required argument 'FleetArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificate"] = nil
-		inputs["displayName"] = nil
-		inputs["fleetArn"] = nil
-	} else {
-		inputs["certificate"] = args.Certificate
-		inputs["displayName"] = args.DisplayName
-		inputs["fleetArn"] = args.FleetArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Certificate; i != nil { inputs["certificate"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.FleetArn; i != nil { inputs["fleetArn"] = i.ToStringOutput() }
 	}
-	inputs["websiteCaId"] = nil
-	s, err := ctx.RegisterResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, true, inputs, opts...)
+	var resource WebsiteCertificateAuthorityAssociation
+	err := ctx.RegisterResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WebsiteCertificateAuthorityAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetWebsiteCertificateAuthorityAssociation gets an existing WebsiteCertificateAuthorityAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WebsiteCertificateAuthorityAssociationState, opts ...pulumi.ResourceOpt) (*WebsiteCertificateAuthorityAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WebsiteCertificateAuthorityAssociationState, opts ...pulumi.ResourceOption) (*WebsiteCertificateAuthorityAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["certificate"] = state.Certificate
-		inputs["displayName"] = state.DisplayName
-		inputs["fleetArn"] = state.FleetArn
-		inputs["websiteCaId"] = state.WebsiteCaId
+		if i := state.Certificate; i != nil { inputs["certificate"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.FleetArn; i != nil { inputs["fleetArn"] = i.ToStringOutput() }
+		if i := state.WebsiteCaId; i != nil { inputs["websiteCaId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, id, inputs, opts...)
+	var resource WebsiteCertificateAuthorityAssociation
+	err := ctx.ReadResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WebsiteCertificateAuthorityAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *WebsiteCertificateAuthorityAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *WebsiteCertificateAuthorityAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The root certificate of the Certificate Authority.
-func (r *WebsiteCertificateAuthorityAssociation) Certificate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificate"])
-}
-
-// The certificate name to display.
-func (r *WebsiteCertificateAuthorityAssociation) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The ARN of the fleet.
-func (r *WebsiteCertificateAuthorityAssociation) FleetArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fleetArn"])
-}
-
-// A unique identifier for the Certificate Authority.
-func (r *WebsiteCertificateAuthorityAssociation) WebsiteCaId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["websiteCaId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering WebsiteCertificateAuthorityAssociation resources.
 type WebsiteCertificateAuthorityAssociationState struct {
 	// The root certificate of the Certificate Authority.
-	Certificate interface{}
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The certificate name to display.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The ARN of the fleet.
-	FleetArn interface{}
+	FleetArn pulumi.StringInput `pulumi:"fleetArn"`
 	// A unique identifier for the Certificate Authority.
-	WebsiteCaId interface{}
+	WebsiteCaId pulumi.StringInput `pulumi:"websiteCaId"`
 }
 
 // The set of arguments for constructing a WebsiteCertificateAuthorityAssociation resource.
 type WebsiteCertificateAuthorityAssociationArgs struct {
 	// The root certificate of the Certificate Authority.
-	Certificate interface{}
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The certificate name to display.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The ARN of the fleet.
-	FleetArn interface{}
+	FleetArn pulumi.StringInput `pulumi:"fleetArn"`
 }

@@ -24,153 +24,120 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
 type LifecycleHook struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Auto Scaling group to which you want to assign the lifecycle hook
+	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
+
+	// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
+	DefaultResult pulumi.StringOutput `pulumi:"defaultResult"`
+
+	// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
+	HeartbeatTimeout pulumi.IntOutput `pulumi:"heartbeatTimeout"`
+
+	// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+	LifecycleTransition pulumi.StringOutput `pulumi:"lifecycleTransition"`
+
+	// The name of the lifecycle hook.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
+	NotificationMetadata pulumi.StringOutput `pulumi:"notificationMetadata"`
+
+	// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+	NotificationTargetArn pulumi.StringOutput `pulumi:"notificationTargetArn"`
+
+	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewLifecycleHook registers a new resource with the given unique name, arguments, and options.
 func NewLifecycleHook(ctx *pulumi.Context,
-	name string, args *LifecycleHookArgs, opts ...pulumi.ResourceOpt) (*LifecycleHook, error) {
+	name string, args *LifecycleHookArgs, opts ...pulumi.ResourceOption) (*LifecycleHook, error) {
 	if args == nil || args.AutoscalingGroupName == nil {
 		return nil, errors.New("missing required argument 'AutoscalingGroupName'")
 	}
 	if args == nil || args.LifecycleTransition == nil {
 		return nil, errors.New("missing required argument 'LifecycleTransition'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoscalingGroupName"] = nil
-		inputs["defaultResult"] = nil
-		inputs["heartbeatTimeout"] = nil
-		inputs["lifecycleTransition"] = nil
-		inputs["name"] = nil
-		inputs["notificationMetadata"] = nil
-		inputs["notificationTargetArn"] = nil
-		inputs["roleArn"] = nil
-	} else {
-		inputs["autoscalingGroupName"] = args.AutoscalingGroupName
-		inputs["defaultResult"] = args.DefaultResult
-		inputs["heartbeatTimeout"] = args.HeartbeatTimeout
-		inputs["lifecycleTransition"] = args.LifecycleTransition
-		inputs["name"] = args.Name
-		inputs["notificationMetadata"] = args.NotificationMetadata
-		inputs["notificationTargetArn"] = args.NotificationTargetArn
-		inputs["roleArn"] = args.RoleArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoscalingGroupName; i != nil { inputs["autoscalingGroupName"] = i.ToStringOutput() }
+		if i := args.DefaultResult; i != nil { inputs["defaultResult"] = i.ToStringOutput() }
+		if i := args.HeartbeatTimeout; i != nil { inputs["heartbeatTimeout"] = i.ToIntOutput() }
+		if i := args.LifecycleTransition; i != nil { inputs["lifecycleTransition"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NotificationMetadata; i != nil { inputs["notificationMetadata"] = i.ToStringOutput() }
+		if i := args.NotificationTargetArn; i != nil { inputs["notificationTargetArn"] = i.ToStringOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, true, inputs, opts...)
+	var resource LifecycleHook
+	err := ctx.RegisterResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LifecycleHook{s: s}, nil
+	return &resource, nil
 }
 
 // GetLifecycleHook gets an existing LifecycleHook resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLifecycleHook(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LifecycleHookState, opts ...pulumi.ResourceOpt) (*LifecycleHook, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LifecycleHookState, opts ...pulumi.ResourceOption) (*LifecycleHook, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoscalingGroupName"] = state.AutoscalingGroupName
-		inputs["defaultResult"] = state.DefaultResult
-		inputs["heartbeatTimeout"] = state.HeartbeatTimeout
-		inputs["lifecycleTransition"] = state.LifecycleTransition
-		inputs["name"] = state.Name
-		inputs["notificationMetadata"] = state.NotificationMetadata
-		inputs["notificationTargetArn"] = state.NotificationTargetArn
-		inputs["roleArn"] = state.RoleArn
+		if i := state.AutoscalingGroupName; i != nil { inputs["autoscalingGroupName"] = i.ToStringOutput() }
+		if i := state.DefaultResult; i != nil { inputs["defaultResult"] = i.ToStringOutput() }
+		if i := state.HeartbeatTimeout; i != nil { inputs["heartbeatTimeout"] = i.ToIntOutput() }
+		if i := state.LifecycleTransition; i != nil { inputs["lifecycleTransition"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NotificationMetadata; i != nil { inputs["notificationMetadata"] = i.ToStringOutput() }
+		if i := state.NotificationTargetArn; i != nil { inputs["notificationTargetArn"] = i.ToStringOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, id, inputs, opts...)
+	var resource LifecycleHook
+	err := ctx.ReadResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LifecycleHook{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LifecycleHook) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LifecycleHook) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Auto Scaling group to which you want to assign the lifecycle hook
-func (r *LifecycleHook) AutoscalingGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoscalingGroupName"])
-}
-
-// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
-func (r *LifecycleHook) DefaultResult() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultResult"])
-}
-
-// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
-func (r *LifecycleHook) HeartbeatTimeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["heartbeatTimeout"])
-}
-
-// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
-func (r *LifecycleHook) LifecycleTransition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lifecycleTransition"])
-}
-
-// The name of the lifecycle hook.
-func (r *LifecycleHook) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
-func (r *LifecycleHook) NotificationMetadata() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notificationMetadata"])
-}
-
-// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-func (r *LifecycleHook) NotificationTargetArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notificationTargetArn"])
-}
-
-// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-func (r *LifecycleHook) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LifecycleHook resources.
 type LifecycleHookState struct {
 	// The name of the Auto Scaling group to which you want to assign the lifecycle hook
-	AutoscalingGroupName interface{}
+	AutoscalingGroupName pulumi.StringInput `pulumi:"autoscalingGroupName"`
 	// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
-	DefaultResult interface{}
+	DefaultResult pulumi.StringInput `pulumi:"defaultResult"`
 	// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
-	HeartbeatTimeout interface{}
+	HeartbeatTimeout pulumi.IntInput `pulumi:"heartbeatTimeout"`
 	// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
-	LifecycleTransition interface{}
+	LifecycleTransition pulumi.StringInput `pulumi:"lifecycleTransition"`
 	// The name of the lifecycle hook.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
-	NotificationMetadata interface{}
+	NotificationMetadata pulumi.StringInput `pulumi:"notificationMetadata"`
 	// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-	NotificationTargetArn interface{}
+	NotificationTargetArn pulumi.StringInput `pulumi:"notificationTargetArn"`
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a LifecycleHook resource.
 type LifecycleHookArgs struct {
 	// The name of the Auto Scaling group to which you want to assign the lifecycle hook
-	AutoscalingGroupName interface{}
+	AutoscalingGroupName pulumi.StringInput `pulumi:"autoscalingGroupName"`
 	// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
-	DefaultResult interface{}
+	DefaultResult pulumi.StringInput `pulumi:"defaultResult"`
 	// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
-	HeartbeatTimeout interface{}
+	HeartbeatTimeout pulumi.IntInput `pulumi:"heartbeatTimeout"`
 	// The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
-	LifecycleTransition interface{}
+	LifecycleTransition pulumi.StringInput `pulumi:"lifecycleTransition"`
 	// The name of the lifecycle hook.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
-	NotificationMetadata interface{}
+	NotificationMetadata pulumi.StringInput `pulumi:"notificationMetadata"`
 	// The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
-	NotificationTargetArn interface{}
+	NotificationTargetArn pulumi.StringInput `pulumi:"notificationTargetArn"`
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }

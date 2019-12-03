@@ -12,31 +12,24 @@ import (
 // This data source allows to find a list of name servers associated with a specific delegation set.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
-func LookupDelegationSet(ctx *pulumi.Context, args *GetDelegationSetArgs) (*GetDelegationSetResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["id"] = args.Id
-	}
-	outputs, err := ctx.Invoke("aws:route53/getDelegationSet:getDelegationSet", inputs)
+func LookupDelegationSet(ctx *pulumi.Context, args *GetDelegationSetArgs, opts ...pulumi.InvokeOption) (*GetDelegationSetResult, error) {
+	var rv GetDelegationSetResult
+	err := ctx.Invoke("aws:route53/getDelegationSet:getDelegationSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetDelegationSetResult{
-		CallerReference: outputs["callerReference"],
-		Id: outputs["id"],
-		NameServers: outputs["nameServers"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getDelegationSet.
 type GetDelegationSetArgs struct {
 	// The Hosted Zone id of the desired delegation set.
-	Id interface{}
+	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getDelegationSet.
 type GetDelegationSetResult struct {
-	CallerReference interface{}
-	Id interface{}
-	NameServers interface{}
+	CallerReference string `pulumi:"callerReference"`
+	Id string `pulumi:"id"`
+	NameServers []string `pulumi:"nameServers"`
 }

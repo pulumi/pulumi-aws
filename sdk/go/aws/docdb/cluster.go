@@ -22,272 +22,179 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether any cluster modifications
+	// are applied immediately, or during the next maintenance window. Default is
+	// `false`.
+	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+
+	// Amazon Resource Name (ARN) of cluster
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A list of EC2 Availability Zones that
+	// instances in the DB cluster can be created in.
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+
+	// The days to retain backups for. Default `1`
+	BackupRetentionPeriod pulumi.IntOutput `pulumi:"backupRetentionPeriod"`
+
+	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+
+	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
+	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
+
+	// List of DocDB Instances that are a part of this cluster
+	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
+
+	// The DocDB Cluster Resource ID
+	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+
+	// A cluster parameter group to associate with the cluster.
+	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
+
+	// A DB subnet group to associate with this DB instance.
+	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+
+	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// The following log types are supported: `audit`.
+	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
+
+	// The DNS address of the DocDB instance
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+	Engine pulumi.StringOutput `pulumi:"engine"`
+
+	// The database engine version. Updating this argument results in an outage.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+
+	// The name of your final DB snapshot
+	// when this DB cluster is deleted. If omitted, no final snapshot will be
+	// made.
+	FinalSnapshotIdentifier pulumi.StringOutput `pulumi:"finalSnapshotIdentifier"`
+
+	// The Route53 Hosted Zone ID of the endpoint
+	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// Password for the master DB user. Note that this may
+	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+	MasterPassword pulumi.StringOutput `pulumi:"masterPassword"`
+
+	// Username for the master DB user. 
+	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
+
+	// The port on which the DB accepts connections
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
+	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+
+	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+
+	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
+
+	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
+	SkipFinalSnapshot pulumi.BoolOutput `pulumi:"skipFinalSnapshot"`
+
+	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+	SnapshotIdentifier pulumi.StringOutput `pulumi:"snapshotIdentifier"`
+
+	// Specifies whether the DB cluster is encrypted. The default is `false`.
+	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+
+	// A mapping of tags to assign to the DB cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// List of VPC security groups to associate
+	// with the Cluster
+	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applyImmediately"] = nil
-		inputs["availabilityZones"] = nil
-		inputs["backupRetentionPeriod"] = nil
-		inputs["clusterIdentifier"] = nil
-		inputs["clusterIdentifierPrefix"] = nil
-		inputs["clusterMembers"] = nil
-		inputs["dbClusterParameterGroupName"] = nil
-		inputs["dbSubnetGroupName"] = nil
-		inputs["enabledCloudwatchLogsExports"] = nil
-		inputs["engine"] = nil
-		inputs["engineVersion"] = nil
-		inputs["finalSnapshotIdentifier"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["masterPassword"] = nil
-		inputs["masterUsername"] = nil
-		inputs["port"] = nil
-		inputs["preferredBackupWindow"] = nil
-		inputs["preferredMaintenanceWindow"] = nil
-		inputs["skipFinalSnapshot"] = nil
-		inputs["snapshotIdentifier"] = nil
-		inputs["storageEncrypted"] = nil
-		inputs["tags"] = nil
-		inputs["vpcSecurityGroupIds"] = nil
-	} else {
-		inputs["applyImmediately"] = args.ApplyImmediately
-		inputs["availabilityZones"] = args.AvailabilityZones
-		inputs["backupRetentionPeriod"] = args.BackupRetentionPeriod
-		inputs["clusterIdentifier"] = args.ClusterIdentifier
-		inputs["clusterIdentifierPrefix"] = args.ClusterIdentifierPrefix
-		inputs["clusterMembers"] = args.ClusterMembers
-		inputs["dbClusterParameterGroupName"] = args.DbClusterParameterGroupName
-		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
-		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
-		inputs["engine"] = args.Engine
-		inputs["engineVersion"] = args.EngineVersion
-		inputs["finalSnapshotIdentifier"] = args.FinalSnapshotIdentifier
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["masterPassword"] = args.MasterPassword
-		inputs["masterUsername"] = args.MasterUsername
-		inputs["port"] = args.Port
-		inputs["preferredBackupWindow"] = args.PreferredBackupWindow
-		inputs["preferredMaintenanceWindow"] = args.PreferredMaintenanceWindow
-		inputs["skipFinalSnapshot"] = args.SkipFinalSnapshot
-		inputs["snapshotIdentifier"] = args.SnapshotIdentifier
-		inputs["storageEncrypted"] = args.StorageEncrypted
-		inputs["tags"] = args.Tags
-		inputs["vpcSecurityGroupIds"] = args.VpcSecurityGroupIds
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := args.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := args.BackupRetentionPeriod; i != nil { inputs["backupRetentionPeriod"] = i.ToIntOutput() }
+		if i := args.ClusterIdentifier; i != nil { inputs["clusterIdentifier"] = i.ToStringOutput() }
+		if i := args.ClusterIdentifierPrefix; i != nil { inputs["clusterIdentifierPrefix"] = i.ToStringOutput() }
+		if i := args.ClusterMembers; i != nil { inputs["clusterMembers"] = i.ToStringArrayOutput() }
+		if i := args.DbClusterParameterGroupName; i != nil { inputs["dbClusterParameterGroupName"] = i.ToStringOutput() }
+		if i := args.DbSubnetGroupName; i != nil { inputs["dbSubnetGroupName"] = i.ToStringOutput() }
+		if i := args.EnabledCloudwatchLogsExports; i != nil { inputs["enabledCloudwatchLogsExports"] = i.ToStringArrayOutput() }
+		if i := args.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := args.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := args.FinalSnapshotIdentifier; i != nil { inputs["finalSnapshotIdentifier"] = i.ToStringOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.MasterPassword; i != nil { inputs["masterPassword"] = i.ToStringOutput() }
+		if i := args.MasterUsername; i != nil { inputs["masterUsername"] = i.ToStringOutput() }
+		if i := args.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := args.PreferredBackupWindow; i != nil { inputs["preferredBackupWindow"] = i.ToStringOutput() }
+		if i := args.PreferredMaintenanceWindow; i != nil { inputs["preferredMaintenanceWindow"] = i.ToStringOutput() }
+		if i := args.SkipFinalSnapshot; i != nil { inputs["skipFinalSnapshot"] = i.ToBoolOutput() }
+		if i := args.SnapshotIdentifier; i != nil { inputs["snapshotIdentifier"] = i.ToStringOutput() }
+		if i := args.StorageEncrypted; i != nil { inputs["storageEncrypted"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcSecurityGroupIds; i != nil { inputs["vpcSecurityGroupIds"] = i.ToStringArrayOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["clusterResourceId"] = nil
-	inputs["endpoint"] = nil
-	inputs["hostedZoneId"] = nil
-	inputs["readerEndpoint"] = nil
-	s, err := ctx.RegisterResource("aws:docdb/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:docdb/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applyImmediately"] = state.ApplyImmediately
-		inputs["arn"] = state.Arn
-		inputs["availabilityZones"] = state.AvailabilityZones
-		inputs["backupRetentionPeriod"] = state.BackupRetentionPeriod
-		inputs["clusterIdentifier"] = state.ClusterIdentifier
-		inputs["clusterIdentifierPrefix"] = state.ClusterIdentifierPrefix
-		inputs["clusterMembers"] = state.ClusterMembers
-		inputs["clusterResourceId"] = state.ClusterResourceId
-		inputs["dbClusterParameterGroupName"] = state.DbClusterParameterGroupName
-		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
-		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
-		inputs["endpoint"] = state.Endpoint
-		inputs["engine"] = state.Engine
-		inputs["engineVersion"] = state.EngineVersion
-		inputs["finalSnapshotIdentifier"] = state.FinalSnapshotIdentifier
-		inputs["hostedZoneId"] = state.HostedZoneId
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["masterPassword"] = state.MasterPassword
-		inputs["masterUsername"] = state.MasterUsername
-		inputs["port"] = state.Port
-		inputs["preferredBackupWindow"] = state.PreferredBackupWindow
-		inputs["preferredMaintenanceWindow"] = state.PreferredMaintenanceWindow
-		inputs["readerEndpoint"] = state.ReaderEndpoint
-		inputs["skipFinalSnapshot"] = state.SkipFinalSnapshot
-		inputs["snapshotIdentifier"] = state.SnapshotIdentifier
-		inputs["storageEncrypted"] = state.StorageEncrypted
-		inputs["tags"] = state.Tags
-		inputs["vpcSecurityGroupIds"] = state.VpcSecurityGroupIds
+		if i := state.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := state.BackupRetentionPeriod; i != nil { inputs["backupRetentionPeriod"] = i.ToIntOutput() }
+		if i := state.ClusterIdentifier; i != nil { inputs["clusterIdentifier"] = i.ToStringOutput() }
+		if i := state.ClusterIdentifierPrefix; i != nil { inputs["clusterIdentifierPrefix"] = i.ToStringOutput() }
+		if i := state.ClusterMembers; i != nil { inputs["clusterMembers"] = i.ToStringArrayOutput() }
+		if i := state.ClusterResourceId; i != nil { inputs["clusterResourceId"] = i.ToStringOutput() }
+		if i := state.DbClusterParameterGroupName; i != nil { inputs["dbClusterParameterGroupName"] = i.ToStringOutput() }
+		if i := state.DbSubnetGroupName; i != nil { inputs["dbSubnetGroupName"] = i.ToStringOutput() }
+		if i := state.EnabledCloudwatchLogsExports; i != nil { inputs["enabledCloudwatchLogsExports"] = i.ToStringArrayOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := state.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := state.FinalSnapshotIdentifier; i != nil { inputs["finalSnapshotIdentifier"] = i.ToStringOutput() }
+		if i := state.HostedZoneId; i != nil { inputs["hostedZoneId"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.MasterPassword; i != nil { inputs["masterPassword"] = i.ToStringOutput() }
+		if i := state.MasterUsername; i != nil { inputs["masterUsername"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.PreferredBackupWindow; i != nil { inputs["preferredBackupWindow"] = i.ToStringOutput() }
+		if i := state.PreferredMaintenanceWindow; i != nil { inputs["preferredMaintenanceWindow"] = i.ToStringOutput() }
+		if i := state.ReaderEndpoint; i != nil { inputs["readerEndpoint"] = i.ToStringOutput() }
+		if i := state.SkipFinalSnapshot; i != nil { inputs["skipFinalSnapshot"] = i.ToBoolOutput() }
+		if i := state.SnapshotIdentifier; i != nil { inputs["snapshotIdentifier"] = i.ToStringOutput() }
+		if i := state.StorageEncrypted; i != nil { inputs["storageEncrypted"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcSecurityGroupIds; i != nil { inputs["vpcSecurityGroupIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:docdb/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:docdb/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether any cluster modifications
-// are applied immediately, or during the next maintenance window. Default is
-// `false`.
-func (r *Cluster) ApplyImmediately() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
-}
-
-// Amazon Resource Name (ARN) of cluster
-func (r *Cluster) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A list of EC2 Availability Zones that
-// instances in the DB cluster can be created in.
-func (r *Cluster) AvailabilityZones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
-}
-
-// The days to retain backups for. Default `1`
-func (r *Cluster) BackupRetentionPeriod() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["backupRetentionPeriod"])
-}
-
-// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-func (r *Cluster) ClusterIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
-}
-
-// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
-func (r *Cluster) ClusterIdentifierPrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterIdentifierPrefix"])
-}
-
-// List of DocDB Instances that are a part of this cluster
-func (r *Cluster) ClusterMembers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["clusterMembers"])
-}
-
-// The DocDB Cluster Resource ID
-func (r *Cluster) ClusterResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterResourceId"])
-}
-
-// A cluster parameter group to associate with the cluster.
-func (r *Cluster) DbClusterParameterGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbClusterParameterGroupName"])
-}
-
-// A DB subnet group to associate with this DB instance.
-func (r *Cluster) DbSubnetGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
-}
-
-// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-// The following log types are supported: `audit`.
-func (r *Cluster) EnabledCloudwatchLogsExports() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
-}
-
-// The DNS address of the DocDB instance
-func (r *Cluster) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
-func (r *Cluster) Engine() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engine"])
-}
-
-// The database engine version. Updating this argument results in an outage.
-func (r *Cluster) EngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineVersion"])
-}
-
-// The name of your final DB snapshot
-// when this DB cluster is deleted. If omitted, no final snapshot will be
-// made.
-func (r *Cluster) FinalSnapshotIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["finalSnapshotIdentifier"])
-}
-
-// The Route53 Hosted Zone ID of the endpoint
-func (r *Cluster) HostedZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostedZoneId"])
-}
-
-// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-func (r *Cluster) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// Password for the master DB user. Note that this may
-// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-func (r *Cluster) MasterPassword() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["masterPassword"])
-}
-
-// Username for the master DB user. 
-func (r *Cluster) MasterUsername() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["masterUsername"])
-}
-
-// The port on which the DB accepts connections
-func (r *Cluster) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-func (r *Cluster) PreferredBackupWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
-}
-
-func (r *Cluster) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
-}
-
-// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
-func (r *Cluster) ReaderEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["readerEndpoint"])
-}
-
-// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-func (r *Cluster) SkipFinalSnapshot() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["skipFinalSnapshot"])
-}
-
-// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
-func (r *Cluster) SnapshotIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snapshotIdentifier"])
-}
-
-// Specifies whether the DB cluster is encrypted. The default is `false`.
-func (r *Cluster) StorageEncrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
-}
-
-// A mapping of tags to assign to the DB cluster.
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// List of VPC security groups to associate
-// with the Cluster
-func (r *Cluster) VpcSecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["vpcSecurityGroupIds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
@@ -295,67 +202,67 @@ type ClusterState struct {
 	// Specifies whether any cluster modifications
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A list of EC2 Availability Zones that
 	// instances in the DB cluster can be created in.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod interface{}
+	BackupRetentionPeriod pulumi.IntInput `pulumi:"backupRetentionPeriod"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-	ClusterIdentifier interface{}
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
-	ClusterIdentifierPrefix interface{}
+	ClusterIdentifierPrefix pulumi.StringInput `pulumi:"clusterIdentifierPrefix"`
 	// List of DocDB Instances that are a part of this cluster
-	ClusterMembers interface{}
+	ClusterMembers pulumi.StringArrayInput `pulumi:"clusterMembers"`
 	// The DocDB Cluster Resource ID
-	ClusterResourceId interface{}
+	ClusterResourceId pulumi.StringInput `pulumi:"clusterResourceId"`
 	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName interface{}
+	DbClusterParameterGroupName pulumi.StringInput `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName interface{}
+	DbSubnetGroupName pulumi.StringInput `pulumi:"dbSubnetGroupName"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`.
-	EnabledCloudwatchLogsExports interface{}
+	EnabledCloudwatchLogsExports pulumi.StringArrayInput `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the DocDB instance
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
-	FinalSnapshotIdentifier interface{}
+	FinalSnapshotIdentifier pulumi.StringInput `pulumi:"finalSnapshotIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
-	HostedZoneId interface{}
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword interface{}
+	MasterPassword pulumi.StringInput `pulumi:"masterPassword"`
 	// Username for the master DB user. 
-	MasterUsername interface{}
+	MasterUsername pulumi.StringInput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow interface{}
-	PreferredMaintenanceWindow interface{}
+	PreferredBackupWindow pulumi.StringInput `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
-	ReaderEndpoint interface{}
+	ReaderEndpoint pulumi.StringInput `pulumi:"readerEndpoint"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot interface{}
+	SkipFinalSnapshot pulumi.BoolInput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
-	SnapshotIdentifier interface{}
+	SnapshotIdentifier pulumi.StringInput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted interface{}
+	StorageEncrypted pulumi.BoolInput `pulumi:"storageEncrypted"`
 	// A mapping of tags to assign to the DB cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
-	VpcSecurityGroupIds interface{}
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -363,55 +270,55 @@ type ClusterArgs struct {
 	// Specifies whether any cluster modifications
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// A list of EC2 Availability Zones that
 	// instances in the DB cluster can be created in.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The days to retain backups for. Default `1`
-	BackupRetentionPeriod interface{}
+	BackupRetentionPeriod pulumi.IntInput `pulumi:"backupRetentionPeriod"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
-	ClusterIdentifier interface{}
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifer`.
-	ClusterIdentifierPrefix interface{}
+	ClusterIdentifierPrefix pulumi.StringInput `pulumi:"clusterIdentifierPrefix"`
 	// List of DocDB Instances that are a part of this cluster
-	ClusterMembers interface{}
+	ClusterMembers pulumi.StringArrayInput `pulumi:"clusterMembers"`
 	// A cluster parameter group to associate with the cluster.
-	DbClusterParameterGroupName interface{}
+	DbClusterParameterGroupName pulumi.StringInput `pulumi:"dbClusterParameterGroupName"`
 	// A DB subnet group to associate with this DB instance.
-	DbSubnetGroupName interface{}
+	DbSubnetGroupName pulumi.StringInput `pulumi:"dbSubnetGroupName"`
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`.
-	EnabledCloudwatchLogsExports interface{}
+	EnabledCloudwatchLogsExports pulumi.StringArrayInput `pulumi:"enabledCloudwatchLogsExports"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The name of your final DB snapshot
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
-	FinalSnapshotIdentifier interface{}
+	FinalSnapshotIdentifier pulumi.StringInput `pulumi:"finalSnapshotIdentifier"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword interface{}
+	MasterPassword pulumi.StringInput `pulumi:"masterPassword"`
 	// Username for the master DB user. 
-	MasterUsername interface{}
+	MasterUsername pulumi.StringInput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
 	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-	PreferredBackupWindow interface{}
-	PreferredMaintenanceWindow interface{}
+	PreferredBackupWindow pulumi.StringInput `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
-	SkipFinalSnapshot interface{}
+	SkipFinalSnapshot pulumi.BoolInput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
-	SnapshotIdentifier interface{}
+	SnapshotIdentifier pulumi.StringInput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false`.
-	StorageEncrypted interface{}
+	StorageEncrypted pulumi.BoolInput `pulumi:"storageEncrypted"`
 	// A mapping of tags to assign to the DB cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// List of VPC security groups to associate
 	// with the Cluster
-	VpcSecurityGroupIds interface{}
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }

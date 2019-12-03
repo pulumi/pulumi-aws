@@ -15,12 +15,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_baidu_channel.html.markdown.
 type BaiduChannel struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Platform credential API key from Baidu.
+	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+
+	// Specifies whether to enable the channel. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Platform credential Secret key from Baidu.
+	SecretKey pulumi.StringOutput `pulumi:"secretKey"`
 }
 
 // NewBaiduChannel registers a new resource with the given unique name, arguments, and options.
 func NewBaiduChannel(ctx *pulumi.Context,
-	name string, args *BaiduChannelArgs, opts ...pulumi.ResourceOpt) (*BaiduChannel, error) {
+	name string, args *BaiduChannelArgs, opts ...pulumi.ResourceOption) (*BaiduChannel, error) {
 	if args == nil || args.ApiKey == nil {
 		return nil, errors.New("missing required argument 'ApiKey'")
 	}
@@ -30,93 +42,60 @@ func NewBaiduChannel(ctx *pulumi.Context,
 	if args == nil || args.SecretKey == nil {
 		return nil, errors.New("missing required argument 'SecretKey'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiKey"] = nil
-		inputs["applicationId"] = nil
-		inputs["enabled"] = nil
-		inputs["secretKey"] = nil
-	} else {
-		inputs["apiKey"] = args.ApiKey
-		inputs["applicationId"] = args.ApplicationId
-		inputs["enabled"] = args.Enabled
-		inputs["secretKey"] = args.SecretKey
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiKey; i != nil { inputs["apiKey"] = i.ToStringOutput() }
+		if i := args.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.SecretKey; i != nil { inputs["secretKey"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:pinpoint/baiduChannel:BaiduChannel", name, true, inputs, opts...)
+	var resource BaiduChannel
+	err := ctx.RegisterResource("aws:pinpoint/baiduChannel:BaiduChannel", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BaiduChannel{s: s}, nil
+	return &resource, nil
 }
 
 // GetBaiduChannel gets an existing BaiduChannel resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBaiduChannel(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BaiduChannelState, opts ...pulumi.ResourceOpt) (*BaiduChannel, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BaiduChannelState, opts ...pulumi.ResourceOption) (*BaiduChannel, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiKey"] = state.ApiKey
-		inputs["applicationId"] = state.ApplicationId
-		inputs["enabled"] = state.Enabled
-		inputs["secretKey"] = state.SecretKey
+		if i := state.ApiKey; i != nil { inputs["apiKey"] = i.ToStringOutput() }
+		if i := state.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.SecretKey; i != nil { inputs["secretKey"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:pinpoint/baiduChannel:BaiduChannel", name, id, inputs, opts...)
+	var resource BaiduChannel
+	err := ctx.ReadResource("aws:pinpoint/baiduChannel:BaiduChannel", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BaiduChannel{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *BaiduChannel) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *BaiduChannel) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Platform credential API key from Baidu.
-func (r *BaiduChannel) ApiKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiKey"])
-}
-
-// The application ID.
-func (r *BaiduChannel) ApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationId"])
-}
-
-// Specifies whether to enable the channel. Defaults to `true`.
-func (r *BaiduChannel) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Platform credential Secret key from Baidu.
-func (r *BaiduChannel) SecretKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secretKey"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering BaiduChannel resources.
 type BaiduChannelState struct {
 	// Platform credential API key from Baidu.
-	ApiKey interface{}
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// The application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Platform credential Secret key from Baidu.
-	SecretKey interface{}
+	SecretKey pulumi.StringInput `pulumi:"secretKey"`
 }
 
 // The set of arguments for constructing a BaiduChannel resource.
 type BaiduChannelArgs struct {
 	// Platform credential API key from Baidu.
-	ApiKey interface{}
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// The application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Platform credential Secret key from Baidu.
-	SecretKey interface{}
+	SecretKey pulumi.StringInput `pulumi:"secretKey"`
 }

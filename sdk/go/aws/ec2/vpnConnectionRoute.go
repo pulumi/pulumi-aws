@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection_route.html.markdown.
 type VpnConnectionRoute struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The CIDR block associated with the local subnet of the customer network.
+	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+
+	// The ID of the VPN connection.
+	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
 }
 
 // NewVpnConnectionRoute registers a new resource with the given unique name, arguments, and options.
 func NewVpnConnectionRoute(ctx *pulumi.Context,
-	name string, args *VpnConnectionRouteArgs, opts ...pulumi.ResourceOpt) (*VpnConnectionRoute, error) {
+	name string, args *VpnConnectionRouteArgs, opts ...pulumi.ResourceOption) (*VpnConnectionRoute, error) {
 	if args == nil || args.DestinationCidrBlock == nil {
 		return nil, errors.New("missing required argument 'DestinationCidrBlock'")
 	}
 	if args == nil || args.VpnConnectionId == nil {
 		return nil, errors.New("missing required argument 'VpnConnectionId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["destinationCidrBlock"] = nil
-		inputs["vpnConnectionId"] = nil
-	} else {
-		inputs["destinationCidrBlock"] = args.DestinationCidrBlock
-		inputs["vpnConnectionId"] = args.VpnConnectionId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DestinationCidrBlock; i != nil { inputs["destinationCidrBlock"] = i.ToStringOutput() }
+		if i := args.VpnConnectionId; i != nil { inputs["vpnConnectionId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, true, inputs, opts...)
+	var resource VpnConnectionRoute
+	err := ctx.RegisterResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpnConnectionRoute{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpnConnectionRoute gets an existing VpnConnectionRoute resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpnConnectionRoute(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpnConnectionRouteState, opts ...pulumi.ResourceOpt) (*VpnConnectionRoute, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpnConnectionRouteState, opts ...pulumi.ResourceOption) (*VpnConnectionRoute, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["destinationCidrBlock"] = state.DestinationCidrBlock
-		inputs["vpnConnectionId"] = state.VpnConnectionId
+		if i := state.DestinationCidrBlock; i != nil { inputs["destinationCidrBlock"] = i.ToStringOutput() }
+		if i := state.VpnConnectionId; i != nil { inputs["vpnConnectionId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, id, inputs, opts...)
+	var resource VpnConnectionRoute
+	err := ctx.ReadResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpnConnectionRoute{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpnConnectionRoute) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpnConnectionRoute) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The CIDR block associated with the local subnet of the customer network.
-func (r *VpnConnectionRoute) DestinationCidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
-}
-
-// The ID of the VPN connection.
-func (r *VpnConnectionRoute) VpnConnectionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpnConnectionId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpnConnectionRoute resources.
 type VpnConnectionRouteState struct {
 	// The CIDR block associated with the local subnet of the customer network.
-	DestinationCidrBlock interface{}
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// The ID of the VPN connection.
-	VpnConnectionId interface{}
+	VpnConnectionId pulumi.StringInput `pulumi:"vpnConnectionId"`
 }
 
 // The set of arguments for constructing a VpnConnectionRoute resource.
 type VpnConnectionRouteArgs struct {
 	// The CIDR block associated with the local subnet of the customer network.
-	DestinationCidrBlock interface{}
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// The ID of the VPN connection.
-	VpnConnectionId interface{}
+	VpnConnectionId pulumi.StringInput `pulumi:"vpnConnectionId"`
 }

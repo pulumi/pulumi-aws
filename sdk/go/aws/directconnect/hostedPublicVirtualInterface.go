@@ -13,12 +13,48 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface.html.markdown.
 type HostedPublicVirtualInterface struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
+
+	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
+
+	// The ARN of the virtual interface.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The Direct Connect endpoint on which the virtual interface terminates.
+	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
+
+	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+
+	// The authentication key for BGP configuration.
+	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
+
+	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
+
+	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+
+	// The name for the virtual interface.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The AWS account that will own the new virtual interface.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+
+	// A list of routes to be advertised to the AWS network in this region.
+	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
+
+	// The VLAN ID.
+	Vlan pulumi.IntOutput `pulumi:"vlan"`
 }
 
 // NewHostedPublicVirtualInterface registers a new resource with the given unique name, arguments, and options.
 func NewHostedPublicVirtualInterface(ctx *pulumi.Context,
-	name string, args *HostedPublicVirtualInterfaceArgs, opts ...pulumi.ResourceOpt) (*HostedPublicVirtualInterface, error) {
+	name string, args *HostedPublicVirtualInterfaceArgs, opts ...pulumi.ResourceOption) (*HostedPublicVirtualInterface, error) {
 	if args == nil || args.AddressFamily == nil {
 		return nil, errors.New("missing required argument 'AddressFamily'")
 	}
@@ -37,183 +73,102 @@ func NewHostedPublicVirtualInterface(ctx *pulumi.Context,
 	if args == nil || args.Vlan == nil {
 		return nil, errors.New("missing required argument 'Vlan'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addressFamily"] = nil
-		inputs["amazonAddress"] = nil
-		inputs["bgpAsn"] = nil
-		inputs["bgpAuthKey"] = nil
-		inputs["connectionId"] = nil
-		inputs["customerAddress"] = nil
-		inputs["name"] = nil
-		inputs["ownerAccountId"] = nil
-		inputs["routeFilterPrefixes"] = nil
-		inputs["vlan"] = nil
-	} else {
-		inputs["addressFamily"] = args.AddressFamily
-		inputs["amazonAddress"] = args.AmazonAddress
-		inputs["bgpAsn"] = args.BgpAsn
-		inputs["bgpAuthKey"] = args.BgpAuthKey
-		inputs["connectionId"] = args.ConnectionId
-		inputs["customerAddress"] = args.CustomerAddress
-		inputs["name"] = args.Name
-		inputs["ownerAccountId"] = args.OwnerAccountId
-		inputs["routeFilterPrefixes"] = args.RouteFilterPrefixes
-		inputs["vlan"] = args.Vlan
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddressFamily; i != nil { inputs["addressFamily"] = i.ToStringOutput() }
+		if i := args.AmazonAddress; i != nil { inputs["amazonAddress"] = i.ToStringOutput() }
+		if i := args.BgpAsn; i != nil { inputs["bgpAsn"] = i.ToIntOutput() }
+		if i := args.BgpAuthKey; i != nil { inputs["bgpAuthKey"] = i.ToStringOutput() }
+		if i := args.ConnectionId; i != nil { inputs["connectionId"] = i.ToStringOutput() }
+		if i := args.CustomerAddress; i != nil { inputs["customerAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OwnerAccountId; i != nil { inputs["ownerAccountId"] = i.ToStringOutput() }
+		if i := args.RouteFilterPrefixes; i != nil { inputs["routeFilterPrefixes"] = i.ToStringArrayOutput() }
+		if i := args.Vlan; i != nil { inputs["vlan"] = i.ToIntOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["awsDevice"] = nil
-	s, err := ctx.RegisterResource("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, true, inputs, opts...)
+	var resource HostedPublicVirtualInterface
+	err := ctx.RegisterResource("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HostedPublicVirtualInterface{s: s}, nil
+	return &resource, nil
 }
 
 // GetHostedPublicVirtualInterface gets an existing HostedPublicVirtualInterface resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetHostedPublicVirtualInterface(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *HostedPublicVirtualInterfaceState, opts ...pulumi.ResourceOpt) (*HostedPublicVirtualInterface, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *HostedPublicVirtualInterfaceState, opts ...pulumi.ResourceOption) (*HostedPublicVirtualInterface, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addressFamily"] = state.AddressFamily
-		inputs["amazonAddress"] = state.AmazonAddress
-		inputs["arn"] = state.Arn
-		inputs["awsDevice"] = state.AwsDevice
-		inputs["bgpAsn"] = state.BgpAsn
-		inputs["bgpAuthKey"] = state.BgpAuthKey
-		inputs["connectionId"] = state.ConnectionId
-		inputs["customerAddress"] = state.CustomerAddress
-		inputs["name"] = state.Name
-		inputs["ownerAccountId"] = state.OwnerAccountId
-		inputs["routeFilterPrefixes"] = state.RouteFilterPrefixes
-		inputs["vlan"] = state.Vlan
+		if i := state.AddressFamily; i != nil { inputs["addressFamily"] = i.ToStringOutput() }
+		if i := state.AmazonAddress; i != nil { inputs["amazonAddress"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AwsDevice; i != nil { inputs["awsDevice"] = i.ToStringOutput() }
+		if i := state.BgpAsn; i != nil { inputs["bgpAsn"] = i.ToIntOutput() }
+		if i := state.BgpAuthKey; i != nil { inputs["bgpAuthKey"] = i.ToStringOutput() }
+		if i := state.ConnectionId; i != nil { inputs["connectionId"] = i.ToStringOutput() }
+		if i := state.CustomerAddress; i != nil { inputs["customerAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OwnerAccountId; i != nil { inputs["ownerAccountId"] = i.ToStringOutput() }
+		if i := state.RouteFilterPrefixes; i != nil { inputs["routeFilterPrefixes"] = i.ToStringArrayOutput() }
+		if i := state.Vlan; i != nil { inputs["vlan"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, id, inputs, opts...)
+	var resource HostedPublicVirtualInterface
+	err := ctx.ReadResource("aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HostedPublicVirtualInterface{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *HostedPublicVirtualInterface) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *HostedPublicVirtualInterface) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The address family for the BGP peer. `ipv4 ` or `ipv6`.
-func (r *HostedPublicVirtualInterface) AddressFamily() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["addressFamily"])
-}
-
-// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-func (r *HostedPublicVirtualInterface) AmazonAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["amazonAddress"])
-}
-
-// The ARN of the virtual interface.
-func (r *HostedPublicVirtualInterface) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The Direct Connect endpoint on which the virtual interface terminates.
-func (r *HostedPublicVirtualInterface) AwsDevice() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["awsDevice"])
-}
-
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (r *HostedPublicVirtualInterface) BgpAsn() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["bgpAsn"])
-}
-
-// The authentication key for BGP configuration.
-func (r *HostedPublicVirtualInterface) BgpAuthKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bgpAuthKey"])
-}
-
-// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-func (r *HostedPublicVirtualInterface) ConnectionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["connectionId"])
-}
-
-// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-func (r *HostedPublicVirtualInterface) CustomerAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customerAddress"])
-}
-
-// The name for the virtual interface.
-func (r *HostedPublicVirtualInterface) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The AWS account that will own the new virtual interface.
-func (r *HostedPublicVirtualInterface) OwnerAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerAccountId"])
-}
-
-// A list of routes to be advertised to the AWS network in this region.
-func (r *HostedPublicVirtualInterface) RouteFilterPrefixes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["routeFilterPrefixes"])
-}
-
-// The VLAN ID.
-func (r *HostedPublicVirtualInterface) Vlan() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["vlan"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering HostedPublicVirtualInterface resources.
 type HostedPublicVirtualInterfaceState struct {
 	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
-	AddressFamily interface{}
+	AddressFamily pulumi.StringInput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress interface{}
+	AmazonAddress pulumi.StringInput `pulumi:"amazonAddress"`
 	// The ARN of the virtual interface.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDevice interface{}
+	AwsDevice pulumi.StringInput `pulumi:"awsDevice"`
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn interface{}
+	BgpAsn pulumi.IntInput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
-	BgpAuthKey interface{}
+	BgpAuthKey pulumi.StringInput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId interface{}
+	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress interface{}
+	CustomerAddress pulumi.StringInput `pulumi:"customerAddress"`
 	// The name for the virtual interface.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
-	OwnerAccountId interface{}
+	OwnerAccountId pulumi.StringInput `pulumi:"ownerAccountId"`
 	// A list of routes to be advertised to the AWS network in this region.
-	RouteFilterPrefixes interface{}
+	RouteFilterPrefixes pulumi.StringArrayInput `pulumi:"routeFilterPrefixes"`
 	// The VLAN ID.
-	Vlan interface{}
+	Vlan pulumi.IntInput `pulumi:"vlan"`
 }
 
 // The set of arguments for constructing a HostedPublicVirtualInterface resource.
 type HostedPublicVirtualInterfaceArgs struct {
 	// The address family for the BGP peer. `ipv4 ` or `ipv6`.
-	AddressFamily interface{}
+	AddressFamily pulumi.StringInput `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-	AmazonAddress interface{}
+	AmazonAddress pulumi.StringInput `pulumi:"amazonAddress"`
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn interface{}
+	BgpAsn pulumi.IntInput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
-	BgpAuthKey interface{}
+	BgpAuthKey pulumi.StringInput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-	ConnectionId interface{}
+	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-	CustomerAddress interface{}
+	CustomerAddress pulumi.StringInput `pulumi:"customerAddress"`
 	// The name for the virtual interface.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
-	OwnerAccountId interface{}
+	OwnerAccountId pulumi.StringInput `pulumi:"ownerAccountId"`
 	// A list of routes to be advertised to the AWS network in this region.
-	RouteFilterPrefixes interface{}
+	RouteFilterPrefixes pulumi.StringArrayInput `pulumi:"routeFilterPrefixes"`
 	// The VLAN ID.
-	Vlan interface{}
+	Vlan pulumi.IntInput `pulumi:"vlan"`
 }

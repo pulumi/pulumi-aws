@@ -4,6 +4,8 @@
 package appsync
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_resolver.html.markdown.
 type Resolver struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The API ID for the GraphQL API.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+
+	// The ARN
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The DataSource name.
+	DataSource pulumi.StringOutput `pulumi:"dataSource"`
+
+	// The field name from the schema defined in the GraphQL API.
+	Field pulumi.StringOutput `pulumi:"field"`
+
+	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// The PipelineConfig. A `pipelineConfig` block is documented below.
+	PipelineConfig ResolverPipelineConfigOutput `pulumi:"pipelineConfig"`
+
+	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+	RequestTemplate pulumi.StringOutput `pulumi:"requestTemplate"`
+
+	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+	ResponseTemplate pulumi.StringOutput `pulumi:"responseTemplate"`
+
+	// The type name from the schema defined in the GraphQL API.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewResolver registers a new resource with the given unique name, arguments, and options.
 func NewResolver(ctx *pulumi.Context,
-	name string, args *ResolverArgs, opts ...pulumi.ResourceOpt) (*Resolver, error) {
+	name string, args *ResolverArgs, opts ...pulumi.ResourceOption) (*Resolver, error) {
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
@@ -33,150 +62,137 @@ func NewResolver(ctx *pulumi.Context,
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiId"] = nil
-		inputs["dataSource"] = nil
-		inputs["field"] = nil
-		inputs["kind"] = nil
-		inputs["pipelineConfig"] = nil
-		inputs["requestTemplate"] = nil
-		inputs["responseTemplate"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["apiId"] = args.ApiId
-		inputs["dataSource"] = args.DataSource
-		inputs["field"] = args.Field
-		inputs["kind"] = args.Kind
-		inputs["pipelineConfig"] = args.PipelineConfig
-		inputs["requestTemplate"] = args.RequestTemplate
-		inputs["responseTemplate"] = args.ResponseTemplate
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := args.DataSource; i != nil { inputs["dataSource"] = i.ToStringOutput() }
+		if i := args.Field; i != nil { inputs["field"] = i.ToStringOutput() }
+		if i := args.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := args.PipelineConfig; i != nil { inputs["pipelineConfig"] = i.ToResolverPipelineConfigOutput() }
+		if i := args.RequestTemplate; i != nil { inputs["requestTemplate"] = i.ToStringOutput() }
+		if i := args.ResponseTemplate; i != nil { inputs["responseTemplate"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:appsync/resolver:Resolver", name, true, inputs, opts...)
+	var resource Resolver
+	err := ctx.RegisterResource("aws:appsync/resolver:Resolver", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Resolver{s: s}, nil
+	return &resource, nil
 }
 
 // GetResolver gets an existing Resolver resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetResolver(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ResolverState, opts ...pulumi.ResourceOpt) (*Resolver, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ResolverState, opts ...pulumi.ResourceOption) (*Resolver, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiId"] = state.ApiId
-		inputs["arn"] = state.Arn
-		inputs["dataSource"] = state.DataSource
-		inputs["field"] = state.Field
-		inputs["kind"] = state.Kind
-		inputs["pipelineConfig"] = state.PipelineConfig
-		inputs["requestTemplate"] = state.RequestTemplate
-		inputs["responseTemplate"] = state.ResponseTemplate
-		inputs["type"] = state.Type
+		if i := state.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DataSource; i != nil { inputs["dataSource"] = i.ToStringOutput() }
+		if i := state.Field; i != nil { inputs["field"] = i.ToStringOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.PipelineConfig; i != nil { inputs["pipelineConfig"] = i.ToResolverPipelineConfigOutput() }
+		if i := state.RequestTemplate; i != nil { inputs["requestTemplate"] = i.ToStringOutput() }
+		if i := state.ResponseTemplate; i != nil { inputs["responseTemplate"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appsync/resolver:Resolver", name, id, inputs, opts...)
+	var resource Resolver
+	err := ctx.ReadResource("aws:appsync/resolver:Resolver", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Resolver{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Resolver) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Resolver) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The API ID for the GraphQL API.
-func (r *Resolver) ApiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiId"])
-}
-
-// The ARN
-func (r *Resolver) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The DataSource name.
-func (r *Resolver) DataSource() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataSource"])
-}
-
-// The field name from the schema defined in the GraphQL API.
-func (r *Resolver) Field() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["field"])
-}
-
-// The resolver type. Valid values are `UNIT` and `PIPELINE`.
-func (r *Resolver) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// The PipelineConfig. A `pipelineConfig` block is documented below.
-func (r *Resolver) PipelineConfig() pulumi.Output {
-	return r.s.State["pipelineConfig"]
-}
-
-// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-func (r *Resolver) RequestTemplate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["requestTemplate"])
-}
-
-// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-func (r *Resolver) ResponseTemplate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["responseTemplate"])
-}
-
-// The type name from the schema defined in the GraphQL API.
-func (r *Resolver) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Resolver resources.
 type ResolverState struct {
 	// The API ID for the GraphQL API.
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The ARN
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The DataSource name.
-	DataSource interface{}
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
-	Field interface{}
+	Field pulumi.StringInput `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The PipelineConfig. A `pipelineConfig` block is documented below.
-	PipelineConfig interface{}
+	PipelineConfig ResolverPipelineConfigInput `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-	RequestTemplate interface{}
+	RequestTemplate pulumi.StringInput `pulumi:"requestTemplate"`
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-	ResponseTemplate interface{}
+	ResponseTemplate pulumi.StringInput `pulumi:"responseTemplate"`
 	// The type name from the schema defined in the GraphQL API.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Resolver resource.
 type ResolverArgs struct {
 	// The API ID for the GraphQL API.
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The DataSource name.
-	DataSource interface{}
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The field name from the schema defined in the GraphQL API.
-	Field interface{}
+	Field pulumi.StringInput `pulumi:"field"`
 	// The resolver type. Valid values are `UNIT` and `PIPELINE`.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The PipelineConfig. A `pipelineConfig` block is documented below.
-	PipelineConfig interface{}
+	PipelineConfig ResolverPipelineConfigInput `pulumi:"pipelineConfig"`
 	// The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-	RequestTemplate interface{}
+	RequestTemplate pulumi.StringInput `pulumi:"requestTemplate"`
 	// The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-	ResponseTemplate interface{}
+	ResponseTemplate pulumi.StringInput `pulumi:"responseTemplate"`
 	// The type name from the schema defined in the GraphQL API.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
+type ResolverPipelineConfig struct {
+	Functions *[]string `pulumi:"functions"`
+}
+var resolverPipelineConfigType = reflect.TypeOf((*ResolverPipelineConfig)(nil)).Elem()
+
+type ResolverPipelineConfigInput interface {
+	pulumi.Input
+
+	ToResolverPipelineConfigOutput() ResolverPipelineConfigOutput
+	ToResolverPipelineConfigOutputWithContext(ctx context.Context) ResolverPipelineConfigOutput
+}
+
+type ResolverPipelineConfigArgs struct {
+	Functions pulumi.StringArrayInput `pulumi:"functions"`
+}
+
+func (ResolverPipelineConfigArgs) ElementType() reflect.Type {
+	return resolverPipelineConfigType
+}
+
+func (a ResolverPipelineConfigArgs) ToResolverPipelineConfigOutput() ResolverPipelineConfigOutput {
+	return pulumi.ToOutput(a).(ResolverPipelineConfigOutput)
+}
+
+func (a ResolverPipelineConfigArgs) ToResolverPipelineConfigOutputWithContext(ctx context.Context) ResolverPipelineConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ResolverPipelineConfigOutput)
+}
+
+type ResolverPipelineConfigOutput struct { *pulumi.OutputState }
+
+func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
+	return o.Apply(func(v ResolverPipelineConfig) []string {
+		if v.Functions == nil { return *new([]string) } else { return *v.Functions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ResolverPipelineConfigOutput) ElementType() reflect.Type {
+	return resolverPipelineConfigType
+}
+
+func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigOutput() ResolverPipelineConfigOutput {
+	return o
+}
+
+func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigOutputWithContext(ctx context.Context) ResolverPipelineConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ResolverPipelineConfigOutput{}) }
+

@@ -4,6 +4,8 @@
 package elasticsearch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,253 +13,916 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticsearch_domain.html.markdown.
 type Domain struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// IAM policy document specifying the access policies for the domain
+	AccessPolicies pulumi.StringOutput `pulumi:"accessPolicies"`
+
+	// Key-value string pairs to specify advanced configuration options.
+	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
+	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
+	// domain on every apply.
+	AdvancedOptions pulumi.MapOutput `pulumi:"advancedOptions"`
+
+	// Amazon Resource Name (ARN) of the domain.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Cluster configuration of the domain, see below.
+	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
+
+	CognitoOptions DomainCognitoOptionsOutput `pulumi:"cognitoOptions"`
+
+	// Unique identifier for the domain.
+	DomainId pulumi.StringOutput `pulumi:"domainId"`
+
+	// Name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+
+	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
+	EbsOptions DomainEbsOptionsOutput `pulumi:"ebsOptions"`
+
+	// The version of Elasticsearch to deploy. Defaults to `1.5`
+	ElasticsearchVersion pulumi.StringOutput `pulumi:"elasticsearchVersion"`
+
+	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
+	EncryptAtRest DomainEncryptAtRestOutput `pulumi:"encryptAtRest"`
+
+	// Domain-specific endpoint used to submit index, search, and data upload requests.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// Domain-specific endpoint for kibana without https scheme.
+	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
+
+	// Options for publishing slow logs to CloudWatch Logs.
+	LogPublishingOptions DomainLogPublishingOptionsArrayOutput `pulumi:"logPublishingOptions"`
+
+	// Node-to-node encryption options. See below.
+	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
+
+	// Snapshot related options, see below.
+	SnapshotOptions DomainSnapshotOptionsOutput `pulumi:"snapshotOptions"`
+
+	// A mapping of tags to assign to the resource
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+	VpcOptions DomainVpcOptionsOutput `pulumi:"vpcOptions"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
-	name string, args *DomainArgs, opts ...pulumi.ResourceOpt) (*Domain, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accessPolicies"] = nil
-		inputs["advancedOptions"] = nil
-		inputs["clusterConfig"] = nil
-		inputs["cognitoOptions"] = nil
-		inputs["domainName"] = nil
-		inputs["ebsOptions"] = nil
-		inputs["elasticsearchVersion"] = nil
-		inputs["encryptAtRest"] = nil
-		inputs["logPublishingOptions"] = nil
-		inputs["nodeToNodeEncryption"] = nil
-		inputs["snapshotOptions"] = nil
-		inputs["tags"] = nil
-		inputs["vpcOptions"] = nil
-	} else {
-		inputs["accessPolicies"] = args.AccessPolicies
-		inputs["advancedOptions"] = args.AdvancedOptions
-		inputs["clusterConfig"] = args.ClusterConfig
-		inputs["cognitoOptions"] = args.CognitoOptions
-		inputs["domainName"] = args.DomainName
-		inputs["ebsOptions"] = args.EbsOptions
-		inputs["elasticsearchVersion"] = args.ElasticsearchVersion
-		inputs["encryptAtRest"] = args.EncryptAtRest
-		inputs["logPublishingOptions"] = args.LogPublishingOptions
-		inputs["nodeToNodeEncryption"] = args.NodeToNodeEncryption
-		inputs["snapshotOptions"] = args.SnapshotOptions
-		inputs["tags"] = args.Tags
-		inputs["vpcOptions"] = args.VpcOptions
+	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccessPolicies; i != nil { inputs["accessPolicies"] = i.ToStringOutput() }
+		if i := args.AdvancedOptions; i != nil { inputs["advancedOptions"] = i.ToMapOutput() }
+		if i := args.ClusterConfig; i != nil { inputs["clusterConfig"] = i.ToDomainClusterConfigOutput() }
+		if i := args.CognitoOptions; i != nil { inputs["cognitoOptions"] = i.ToDomainCognitoOptionsOutput() }
+		if i := args.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := args.EbsOptions; i != nil { inputs["ebsOptions"] = i.ToDomainEbsOptionsOutput() }
+		if i := args.ElasticsearchVersion; i != nil { inputs["elasticsearchVersion"] = i.ToStringOutput() }
+		if i := args.EncryptAtRest; i != nil { inputs["encryptAtRest"] = i.ToDomainEncryptAtRestOutput() }
+		if i := args.LogPublishingOptions; i != nil { inputs["logPublishingOptions"] = i.ToDomainLogPublishingOptionsArrayOutput() }
+		if i := args.NodeToNodeEncryption; i != nil { inputs["nodeToNodeEncryption"] = i.ToDomainNodeToNodeEncryptionOutput() }
+		if i := args.SnapshotOptions; i != nil { inputs["snapshotOptions"] = i.ToDomainSnapshotOptionsOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcOptions; i != nil { inputs["vpcOptions"] = i.ToDomainVpcOptionsOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["domainId"] = nil
-	inputs["endpoint"] = nil
-	inputs["kibanaEndpoint"] = nil
-	s, err := ctx.RegisterResource("aws:elasticsearch/domain:Domain", name, true, inputs, opts...)
+	var resource Domain
+	err := ctx.RegisterResource("aws:elasticsearch/domain:Domain", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{s: s}, nil
+	return &resource, nil
 }
 
 // GetDomain gets an existing Domain resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDomain(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DomainState, opts ...pulumi.ResourceOpt) (*Domain, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessPolicies"] = state.AccessPolicies
-		inputs["advancedOptions"] = state.AdvancedOptions
-		inputs["arn"] = state.Arn
-		inputs["clusterConfig"] = state.ClusterConfig
-		inputs["cognitoOptions"] = state.CognitoOptions
-		inputs["domainId"] = state.DomainId
-		inputs["domainName"] = state.DomainName
-		inputs["ebsOptions"] = state.EbsOptions
-		inputs["elasticsearchVersion"] = state.ElasticsearchVersion
-		inputs["encryptAtRest"] = state.EncryptAtRest
-		inputs["endpoint"] = state.Endpoint
-		inputs["kibanaEndpoint"] = state.KibanaEndpoint
-		inputs["logPublishingOptions"] = state.LogPublishingOptions
-		inputs["nodeToNodeEncryption"] = state.NodeToNodeEncryption
-		inputs["snapshotOptions"] = state.SnapshotOptions
-		inputs["tags"] = state.Tags
-		inputs["vpcOptions"] = state.VpcOptions
+		if i := state.AccessPolicies; i != nil { inputs["accessPolicies"] = i.ToStringOutput() }
+		if i := state.AdvancedOptions; i != nil { inputs["advancedOptions"] = i.ToMapOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ClusterConfig; i != nil { inputs["clusterConfig"] = i.ToDomainClusterConfigOutput() }
+		if i := state.CognitoOptions; i != nil { inputs["cognitoOptions"] = i.ToDomainCognitoOptionsOutput() }
+		if i := state.DomainId; i != nil { inputs["domainId"] = i.ToStringOutput() }
+		if i := state.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := state.EbsOptions; i != nil { inputs["ebsOptions"] = i.ToDomainEbsOptionsOutput() }
+		if i := state.ElasticsearchVersion; i != nil { inputs["elasticsearchVersion"] = i.ToStringOutput() }
+		if i := state.EncryptAtRest; i != nil { inputs["encryptAtRest"] = i.ToDomainEncryptAtRestOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.KibanaEndpoint; i != nil { inputs["kibanaEndpoint"] = i.ToStringOutput() }
+		if i := state.LogPublishingOptions; i != nil { inputs["logPublishingOptions"] = i.ToDomainLogPublishingOptionsArrayOutput() }
+		if i := state.NodeToNodeEncryption; i != nil { inputs["nodeToNodeEncryption"] = i.ToDomainNodeToNodeEncryptionOutput() }
+		if i := state.SnapshotOptions; i != nil { inputs["snapshotOptions"] = i.ToDomainSnapshotOptionsOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcOptions; i != nil { inputs["vpcOptions"] = i.ToDomainVpcOptionsOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticsearch/domain:Domain", name, id, inputs, opts...)
+	var resource Domain
+	err := ctx.ReadResource("aws:elasticsearch/domain:Domain", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// IAM policy document specifying the access policies for the domain
-func (r *Domain) AccessPolicies() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accessPolicies"])
-}
-
-// Key-value string pairs to specify advanced configuration options.
-// Note that the values for these configuration options must be strings (wrapped in quotes) or they
-// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
-// domain on every apply.
-func (r *Domain) AdvancedOptions() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["advancedOptions"])
-}
-
-// Amazon Resource Name (ARN) of the domain.
-func (r *Domain) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Cluster configuration of the domain, see below.
-func (r *Domain) ClusterConfig() pulumi.Output {
-	return r.s.State["clusterConfig"]
-}
-
-func (r *Domain) CognitoOptions() pulumi.Output {
-	return r.s.State["cognitoOptions"]
-}
-
-// Unique identifier for the domain.
-func (r *Domain) DomainId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainId"])
-}
-
-// Name of the domain.
-func (r *Domain) DomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainName"])
-}
-
-// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
-func (r *Domain) EbsOptions() pulumi.Output {
-	return r.s.State["ebsOptions"]
-}
-
-// The version of Elasticsearch to deploy. Defaults to `1.5`
-func (r *Domain) ElasticsearchVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticsearchVersion"])
-}
-
-// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
-func (r *Domain) EncryptAtRest() pulumi.Output {
-	return r.s.State["encryptAtRest"]
-}
-
-// Domain-specific endpoint used to submit index, search, and data upload requests.
-func (r *Domain) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// Domain-specific endpoint for kibana without https scheme.
-// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
-func (r *Domain) KibanaEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kibanaEndpoint"])
-}
-
-// Options for publishing slow logs to CloudWatch Logs.
-func (r *Domain) LogPublishingOptions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["logPublishingOptions"])
-}
-
-// Node-to-node encryption options. See below.
-func (r *Domain) NodeToNodeEncryption() pulumi.Output {
-	return r.s.State["nodeToNodeEncryption"]
-}
-
-// Snapshot related options, see below.
-func (r *Domain) SnapshotOptions() pulumi.Output {
-	return r.s.State["snapshotOptions"]
-}
-
-// A mapping of tags to assign to the resource
-func (r *Domain) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
-func (r *Domain) VpcOptions() pulumi.Output {
-	return r.s.State["vpcOptions"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Domain resources.
 type DomainState struct {
 	// IAM policy document specifying the access policies for the domain
-	AccessPolicies interface{}
+	AccessPolicies pulumi.StringInput `pulumi:"accessPolicies"`
 	// Key-value string pairs to specify advanced configuration options.
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions interface{}
+	AdvancedOptions pulumi.MapInput `pulumi:"advancedOptions"`
 	// Amazon Resource Name (ARN) of the domain.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig interface{}
-	CognitoOptions interface{}
+	ClusterConfig DomainClusterConfigInput `pulumi:"clusterConfig"`
+	CognitoOptions DomainCognitoOptionsInput `pulumi:"cognitoOptions"`
 	// Unique identifier for the domain.
-	DomainId interface{}
+	DomainId pulumi.StringInput `pulumi:"domainId"`
 	// Name of the domain.
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
-	EbsOptions interface{}
+	EbsOptions DomainEbsOptionsInput `pulumi:"ebsOptions"`
 	// The version of Elasticsearch to deploy. Defaults to `1.5`
-	ElasticsearchVersion interface{}
+	ElasticsearchVersion pulumi.StringInput `pulumi:"elasticsearchVersion"`
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
-	EncryptAtRest interface{}
+	EncryptAtRest DomainEncryptAtRestInput `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Domain-specific endpoint for kibana without https scheme.
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
-	KibanaEndpoint interface{}
+	KibanaEndpoint pulumi.StringInput `pulumi:"kibanaEndpoint"`
 	// Options for publishing slow logs to CloudWatch Logs.
-	LogPublishingOptions interface{}
+	LogPublishingOptions DomainLogPublishingOptionsArrayInput `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
-	NodeToNodeEncryption interface{}
+	NodeToNodeEncryption DomainNodeToNodeEncryptionInput `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
-	SnapshotOptions interface{}
+	SnapshotOptions DomainSnapshotOptionsInput `pulumi:"snapshotOptions"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
-	VpcOptions interface{}
+	VpcOptions DomainVpcOptionsInput `pulumi:"vpcOptions"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// IAM policy document specifying the access policies for the domain
-	AccessPolicies interface{}
+	AccessPolicies pulumi.StringInput `pulumi:"accessPolicies"`
 	// Key-value string pairs to specify advanced configuration options.
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions interface{}
+	AdvancedOptions pulumi.MapInput `pulumi:"advancedOptions"`
 	// Cluster configuration of the domain, see below.
-	ClusterConfig interface{}
-	CognitoOptions interface{}
+	ClusterConfig DomainClusterConfigInput `pulumi:"clusterConfig"`
+	CognitoOptions DomainCognitoOptionsInput `pulumi:"cognitoOptions"`
 	// Name of the domain.
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
-	EbsOptions interface{}
+	EbsOptions DomainEbsOptionsInput `pulumi:"ebsOptions"`
 	// The version of Elasticsearch to deploy. Defaults to `1.5`
-	ElasticsearchVersion interface{}
+	ElasticsearchVersion pulumi.StringInput `pulumi:"elasticsearchVersion"`
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
-	EncryptAtRest interface{}
+	EncryptAtRest DomainEncryptAtRestInput `pulumi:"encryptAtRest"`
 	// Options for publishing slow logs to CloudWatch Logs.
-	LogPublishingOptions interface{}
+	LogPublishingOptions DomainLogPublishingOptionsArrayInput `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
-	NodeToNodeEncryption interface{}
+	NodeToNodeEncryption DomainNodeToNodeEncryptionInput `pulumi:"nodeToNodeEncryption"`
 	// Snapshot related options, see below.
-	SnapshotOptions interface{}
+	SnapshotOptions DomainSnapshotOptionsInput `pulumi:"snapshotOptions"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
-	VpcOptions interface{}
+	VpcOptions DomainVpcOptionsInput `pulumi:"vpcOptions"`
 }
+type DomainClusterConfig struct {
+	// Number of dedicated master nodes in the cluster
+	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
+	// Indicates whether dedicated master nodes are enabled for the cluster.
+	DedicatedMasterEnabled *bool `pulumi:"dedicatedMasterEnabled"`
+	// Instance type of the dedicated master nodes in the cluster.
+	DedicatedMasterType *string `pulumi:"dedicatedMasterType"`
+	// Number of instances in the cluster.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance type of data nodes in the cluster.
+	InstanceType *string `pulumi:"instanceType"`
+	// Configuration block containing zone awareness settings. Documented below.
+	ZoneAwarenessConfig *DomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
+	// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+	ZoneAwarenessEnabled *bool `pulumi:"zoneAwarenessEnabled"`
+}
+var domainClusterConfigType = reflect.TypeOf((*DomainClusterConfig)(nil)).Elem()
+
+type DomainClusterConfigInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigOutput() DomainClusterConfigOutput
+	ToDomainClusterConfigOutputWithContext(ctx context.Context) DomainClusterConfigOutput
+}
+
+type DomainClusterConfigArgs struct {
+	// Number of dedicated master nodes in the cluster
+	DedicatedMasterCount pulumi.IntInput `pulumi:"dedicatedMasterCount"`
+	// Indicates whether dedicated master nodes are enabled for the cluster.
+	DedicatedMasterEnabled pulumi.BoolInput `pulumi:"dedicatedMasterEnabled"`
+	// Instance type of the dedicated master nodes in the cluster.
+	DedicatedMasterType pulumi.StringInput `pulumi:"dedicatedMasterType"`
+	// Number of instances in the cluster.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// Instance type of data nodes in the cluster.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Configuration block containing zone awareness settings. Documented below.
+	ZoneAwarenessConfig DomainClusterConfigZoneAwarenessConfigInput `pulumi:"zoneAwarenessConfig"`
+	// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+	ZoneAwarenessEnabled pulumi.BoolInput `pulumi:"zoneAwarenessEnabled"`
+}
+
+func (DomainClusterConfigArgs) ElementType() reflect.Type {
+	return domainClusterConfigType
+}
+
+func (a DomainClusterConfigArgs) ToDomainClusterConfigOutput() DomainClusterConfigOutput {
+	return pulumi.ToOutput(a).(DomainClusterConfigOutput)
+}
+
+func (a DomainClusterConfigArgs) ToDomainClusterConfigOutputWithContext(ctx context.Context) DomainClusterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainClusterConfigOutput)
+}
+
+type DomainClusterConfigOutput struct { *pulumi.OutputState }
+
+// Number of dedicated master nodes in the cluster
+func (o DomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntOutput {
+	return o.Apply(func(v DomainClusterConfig) int {
+		if v.DedicatedMasterCount == nil { return *new(int) } else { return *v.DedicatedMasterCount }
+	}).(pulumi.IntOutput)
+}
+
+// Indicates whether dedicated master nodes are enabled for the cluster.
+func (o DomainClusterConfigOutput) DedicatedMasterEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainClusterConfig) bool {
+		if v.DedicatedMasterEnabled == nil { return *new(bool) } else { return *v.DedicatedMasterEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Instance type of the dedicated master nodes in the cluster.
+func (o DomainClusterConfigOutput) DedicatedMasterType() pulumi.StringOutput {
+	return o.Apply(func(v DomainClusterConfig) string {
+		if v.DedicatedMasterType == nil { return *new(string) } else { return *v.DedicatedMasterType }
+	}).(pulumi.StringOutput)
+}
+
+// Number of instances in the cluster.
+func (o DomainClusterConfigOutput) InstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v DomainClusterConfig) int {
+		if v.InstanceCount == nil { return *new(int) } else { return *v.InstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+// Instance type of data nodes in the cluster.
+func (o DomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v DomainClusterConfig) string {
+		if v.InstanceType == nil { return *new(string) } else { return *v.InstanceType }
+	}).(pulumi.StringOutput)
+}
+
+// Configuration block containing zone awareness settings. Documented below.
+func (o DomainClusterConfigOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigOutput {
+	return o.Apply(func(v DomainClusterConfig) DomainClusterConfigZoneAwarenessConfig {
+		if v.ZoneAwarenessConfig == nil { return *new(DomainClusterConfigZoneAwarenessConfig) } else { return *v.ZoneAwarenessConfig }
+	}).(DomainClusterConfigZoneAwarenessConfigOutput)
+}
+
+// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+func (o DomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainClusterConfig) bool {
+		if v.ZoneAwarenessEnabled == nil { return *new(bool) } else { return *v.ZoneAwarenessEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (DomainClusterConfigOutput) ElementType() reflect.Type {
+	return domainClusterConfigType
+}
+
+func (o DomainClusterConfigOutput) ToDomainClusterConfigOutput() DomainClusterConfigOutput {
+	return o
+}
+
+func (o DomainClusterConfigOutput) ToDomainClusterConfigOutputWithContext(ctx context.Context) DomainClusterConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainClusterConfigOutput{}) }
+
+type DomainClusterConfigZoneAwarenessConfig struct {
+	// Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
+	AvailabilityZoneCount *int `pulumi:"availabilityZoneCount"`
+}
+var domainClusterConfigZoneAwarenessConfigType = reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
+
+type DomainClusterConfigZoneAwarenessConfigInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigZoneAwarenessConfigOutput() DomainClusterConfigZoneAwarenessConfigOutput
+	ToDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx context.Context) DomainClusterConfigZoneAwarenessConfigOutput
+}
+
+type DomainClusterConfigZoneAwarenessConfigArgs struct {
+	// Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
+	AvailabilityZoneCount pulumi.IntInput `pulumi:"availabilityZoneCount"`
+}
+
+func (DomainClusterConfigZoneAwarenessConfigArgs) ElementType() reflect.Type {
+	return domainClusterConfigZoneAwarenessConfigType
+}
+
+func (a DomainClusterConfigZoneAwarenessConfigArgs) ToDomainClusterConfigZoneAwarenessConfigOutput() DomainClusterConfigZoneAwarenessConfigOutput {
+	return pulumi.ToOutput(a).(DomainClusterConfigZoneAwarenessConfigOutput)
+}
+
+func (a DomainClusterConfigZoneAwarenessConfigArgs) ToDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx context.Context) DomainClusterConfigZoneAwarenessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainClusterConfigZoneAwarenessConfigOutput)
+}
+
+type DomainClusterConfigZoneAwarenessConfigOutput struct { *pulumi.OutputState }
+
+// Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
+func (o DomainClusterConfigZoneAwarenessConfigOutput) AvailabilityZoneCount() pulumi.IntOutput {
+	return o.Apply(func(v DomainClusterConfigZoneAwarenessConfig) int {
+		if v.AvailabilityZoneCount == nil { return *new(int) } else { return *v.AvailabilityZoneCount }
+	}).(pulumi.IntOutput)
+}
+
+func (DomainClusterConfigZoneAwarenessConfigOutput) ElementType() reflect.Type {
+	return domainClusterConfigZoneAwarenessConfigType
+}
+
+func (o DomainClusterConfigZoneAwarenessConfigOutput) ToDomainClusterConfigZoneAwarenessConfigOutput() DomainClusterConfigZoneAwarenessConfigOutput {
+	return o
+}
+
+func (o DomainClusterConfigZoneAwarenessConfigOutput) ToDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx context.Context) DomainClusterConfigZoneAwarenessConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{}) }
+
+type DomainCognitoOptions struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled *bool `pulumi:"enabled"`
+	// ID of the Cognito Identity Pool to use
+	IdentityPoolId string `pulumi:"identityPoolId"`
+	// ARN of the IAM role that has the AmazonESCognitoAccess policy attached
+	RoleArn string `pulumi:"roleArn"`
+	// ID of the Cognito User Pool to use
+	UserPoolId string `pulumi:"userPoolId"`
+}
+var domainCognitoOptionsType = reflect.TypeOf((*DomainCognitoOptions)(nil)).Elem()
+
+type DomainCognitoOptionsInput interface {
+	pulumi.Input
+
+	ToDomainCognitoOptionsOutput() DomainCognitoOptionsOutput
+	ToDomainCognitoOptionsOutputWithContext(ctx context.Context) DomainCognitoOptionsOutput
+}
+
+type DomainCognitoOptionsArgs struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// ID of the Cognito Identity Pool to use
+	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
+	// ARN of the IAM role that has the AmazonESCognitoAccess policy attached
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// ID of the Cognito User Pool to use
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
+}
+
+func (DomainCognitoOptionsArgs) ElementType() reflect.Type {
+	return domainCognitoOptionsType
+}
+
+func (a DomainCognitoOptionsArgs) ToDomainCognitoOptionsOutput() DomainCognitoOptionsOutput {
+	return pulumi.ToOutput(a).(DomainCognitoOptionsOutput)
+}
+
+func (a DomainCognitoOptionsArgs) ToDomainCognitoOptionsOutputWithContext(ctx context.Context) DomainCognitoOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainCognitoOptionsOutput)
+}
+
+type DomainCognitoOptionsOutput struct { *pulumi.OutputState }
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainCognitoOptions) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// ID of the Cognito Identity Pool to use
+func (o DomainCognitoOptionsOutput) IdentityPoolId() pulumi.StringOutput {
+	return o.Apply(func(v DomainCognitoOptions) string {
+		return v.IdentityPoolId
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role that has the AmazonESCognitoAccess policy attached
+func (o DomainCognitoOptionsOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v DomainCognitoOptions) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// ID of the Cognito User Pool to use
+func (o DomainCognitoOptionsOutput) UserPoolId() pulumi.StringOutput {
+	return o.Apply(func(v DomainCognitoOptions) string {
+		return v.UserPoolId
+	}).(pulumi.StringOutput)
+}
+
+func (DomainCognitoOptionsOutput) ElementType() reflect.Type {
+	return domainCognitoOptionsType
+}
+
+func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsOutput() DomainCognitoOptionsOutput {
+	return o
+}
+
+func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsOutputWithContext(ctx context.Context) DomainCognitoOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainCognitoOptionsOutput{}) }
+
+type DomainEbsOptions struct {
+	// Whether EBS volumes are attached to data nodes in the domain.
+	EbsEnabled bool `pulumi:"ebsEnabled"`
+	// The baseline input/output (I/O) performance of EBS volumes
+	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+	Iops *int `pulumi:"iops"`
+	// The size of EBS volumes attached to data nodes (in GB).
+	// **Required** if `ebsEnabled` is set to `true`.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The type of EBS volumes attached to data nodes.
+	VolumeType *string `pulumi:"volumeType"`
+}
+var domainEbsOptionsType = reflect.TypeOf((*DomainEbsOptions)(nil)).Elem()
+
+type DomainEbsOptionsInput interface {
+	pulumi.Input
+
+	ToDomainEbsOptionsOutput() DomainEbsOptionsOutput
+	ToDomainEbsOptionsOutputWithContext(ctx context.Context) DomainEbsOptionsOutput
+}
+
+type DomainEbsOptionsArgs struct {
+	// Whether EBS volumes are attached to data nodes in the domain.
+	EbsEnabled pulumi.BoolInput `pulumi:"ebsEnabled"`
+	// The baseline input/output (I/O) performance of EBS volumes
+	// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// The size of EBS volumes attached to data nodes (in GB).
+	// **Required** if `ebsEnabled` is set to `true`.
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	// The type of EBS volumes attached to data nodes.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (DomainEbsOptionsArgs) ElementType() reflect.Type {
+	return domainEbsOptionsType
+}
+
+func (a DomainEbsOptionsArgs) ToDomainEbsOptionsOutput() DomainEbsOptionsOutput {
+	return pulumi.ToOutput(a).(DomainEbsOptionsOutput)
+}
+
+func (a DomainEbsOptionsArgs) ToDomainEbsOptionsOutputWithContext(ctx context.Context) DomainEbsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainEbsOptionsOutput)
+}
+
+type DomainEbsOptionsOutput struct { *pulumi.OutputState }
+
+// Whether EBS volumes are attached to data nodes in the domain.
+func (o DomainEbsOptionsOutput) EbsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainEbsOptions) bool {
+		return v.EbsEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// The baseline input/output (I/O) performance of EBS volumes
+// attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+func (o DomainEbsOptionsOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v DomainEbsOptions) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+// The size of EBS volumes attached to data nodes (in GB).
+// **Required** if `ebsEnabled` is set to `true`.
+func (o DomainEbsOptionsOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v DomainEbsOptions) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+// The type of EBS volumes attached to data nodes.
+func (o DomainEbsOptionsOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v DomainEbsOptions) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (DomainEbsOptionsOutput) ElementType() reflect.Type {
+	return domainEbsOptionsType
+}
+
+func (o DomainEbsOptionsOutput) ToDomainEbsOptionsOutput() DomainEbsOptionsOutput {
+	return o
+}
+
+func (o DomainEbsOptionsOutput) ToDomainEbsOptionsOutputWithContext(ctx context.Context) DomainEbsOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainEbsOptionsOutput{}) }
+
+type DomainEncryptAtRest struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled bool `pulumi:"enabled"`
+	// The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+var domainEncryptAtRestType = reflect.TypeOf((*DomainEncryptAtRest)(nil)).Elem()
+
+type DomainEncryptAtRestInput interface {
+	pulumi.Input
+
+	ToDomainEncryptAtRestOutput() DomainEncryptAtRestOutput
+	ToDomainEncryptAtRestOutputWithContext(ctx context.Context) DomainEncryptAtRestOutput
+}
+
+type DomainEncryptAtRestArgs struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+}
+
+func (DomainEncryptAtRestArgs) ElementType() reflect.Type {
+	return domainEncryptAtRestType
+}
+
+func (a DomainEncryptAtRestArgs) ToDomainEncryptAtRestOutput() DomainEncryptAtRestOutput {
+	return pulumi.ToOutput(a).(DomainEncryptAtRestOutput)
+}
+
+func (a DomainEncryptAtRestArgs) ToDomainEncryptAtRestOutputWithContext(ctx context.Context) DomainEncryptAtRestOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainEncryptAtRestOutput)
+}
+
+type DomainEncryptAtRestOutput struct { *pulumi.OutputState }
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainEncryptAtRestOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainEncryptAtRest) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+// The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+func (o DomainEncryptAtRestOutput) KmsKeyId() pulumi.StringOutput {
+	return o.Apply(func(v DomainEncryptAtRest) string {
+		if v.KmsKeyId == nil { return *new(string) } else { return *v.KmsKeyId }
+	}).(pulumi.StringOutput)
+}
+
+func (DomainEncryptAtRestOutput) ElementType() reflect.Type {
+	return domainEncryptAtRestType
+}
+
+func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestOutput() DomainEncryptAtRestOutput {
+	return o
+}
+
+func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestOutputWithContext(ctx context.Context) DomainEncryptAtRestOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainEncryptAtRestOutput{}) }
+
+type DomainLogPublishingOptions struct {
+	// ARN of the Cloudwatch log group to which log needs to be published.
+	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled *bool `pulumi:"enabled"`
+	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+	LogType string `pulumi:"logType"`
+}
+var domainLogPublishingOptionsType = reflect.TypeOf((*DomainLogPublishingOptions)(nil)).Elem()
+
+type DomainLogPublishingOptionsInput interface {
+	pulumi.Input
+
+	ToDomainLogPublishingOptionsOutput() DomainLogPublishingOptionsOutput
+	ToDomainLogPublishingOptionsOutputWithContext(ctx context.Context) DomainLogPublishingOptionsOutput
+}
+
+type DomainLogPublishingOptionsArgs struct {
+	// ARN of the Cloudwatch log group to which log needs to be published.
+	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+	LogType pulumi.StringInput `pulumi:"logType"`
+}
+
+func (DomainLogPublishingOptionsArgs) ElementType() reflect.Type {
+	return domainLogPublishingOptionsType
+}
+
+func (a DomainLogPublishingOptionsArgs) ToDomainLogPublishingOptionsOutput() DomainLogPublishingOptionsOutput {
+	return pulumi.ToOutput(a).(DomainLogPublishingOptionsOutput)
+}
+
+func (a DomainLogPublishingOptionsArgs) ToDomainLogPublishingOptionsOutputWithContext(ctx context.Context) DomainLogPublishingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainLogPublishingOptionsOutput)
+}
+
+type DomainLogPublishingOptionsOutput struct { *pulumi.OutputState }
+
+// ARN of the Cloudwatch log group to which log needs to be published.
+func (o DomainLogPublishingOptionsOutput) CloudwatchLogGroupArn() pulumi.StringOutput {
+	return o.Apply(func(v DomainLogPublishingOptions) string {
+		return v.CloudwatchLogGroupArn
+	}).(pulumi.StringOutput)
+}
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainLogPublishingOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainLogPublishingOptions) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
+func (o DomainLogPublishingOptionsOutput) LogType() pulumi.StringOutput {
+	return o.Apply(func(v DomainLogPublishingOptions) string {
+		return v.LogType
+	}).(pulumi.StringOutput)
+}
+
+func (DomainLogPublishingOptionsOutput) ElementType() reflect.Type {
+	return domainLogPublishingOptionsType
+}
+
+func (o DomainLogPublishingOptionsOutput) ToDomainLogPublishingOptionsOutput() DomainLogPublishingOptionsOutput {
+	return o
+}
+
+func (o DomainLogPublishingOptionsOutput) ToDomainLogPublishingOptionsOutputWithContext(ctx context.Context) DomainLogPublishingOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainLogPublishingOptionsOutput{}) }
+
+var domainLogPublishingOptionsArrayType = reflect.TypeOf((*[]DomainLogPublishingOptions)(nil)).Elem()
+
+type DomainLogPublishingOptionsArrayInput interface {
+	pulumi.Input
+
+	ToDomainLogPublishingOptionsArrayOutput() DomainLogPublishingOptionsArrayOutput
+	ToDomainLogPublishingOptionsArrayOutputWithContext(ctx context.Context) DomainLogPublishingOptionsArrayOutput
+}
+
+type DomainLogPublishingOptionsArrayArgs []DomainLogPublishingOptionsInput
+
+func (DomainLogPublishingOptionsArrayArgs) ElementType() reflect.Type {
+	return domainLogPublishingOptionsArrayType
+}
+
+func (a DomainLogPublishingOptionsArrayArgs) ToDomainLogPublishingOptionsArrayOutput() DomainLogPublishingOptionsArrayOutput {
+	return pulumi.ToOutput(a).(DomainLogPublishingOptionsArrayOutput)
+}
+
+func (a DomainLogPublishingOptionsArrayArgs) ToDomainLogPublishingOptionsArrayOutputWithContext(ctx context.Context) DomainLogPublishingOptionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainLogPublishingOptionsArrayOutput)
+}
+
+type DomainLogPublishingOptionsArrayOutput struct { *pulumi.OutputState }
+
+func (o DomainLogPublishingOptionsArrayOutput) Index(i pulumi.IntInput) DomainLogPublishingOptionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DomainLogPublishingOptions {
+		return vs[0].([]DomainLogPublishingOptions)[vs[1].(int)]
+	}).(DomainLogPublishingOptionsOutput)
+}
+
+func (DomainLogPublishingOptionsArrayOutput) ElementType() reflect.Type {
+	return domainLogPublishingOptionsArrayType
+}
+
+func (o DomainLogPublishingOptionsArrayOutput) ToDomainLogPublishingOptionsArrayOutput() DomainLogPublishingOptionsArrayOutput {
+	return o
+}
+
+func (o DomainLogPublishingOptionsArrayOutput) ToDomainLogPublishingOptionsArrayOutputWithContext(ctx context.Context) DomainLogPublishingOptionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainLogPublishingOptionsArrayOutput{}) }
+
+type DomainNodeToNodeEncryption struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled bool `pulumi:"enabled"`
+}
+var domainNodeToNodeEncryptionType = reflect.TypeOf((*DomainNodeToNodeEncryption)(nil)).Elem()
+
+type DomainNodeToNodeEncryptionInput interface {
+	pulumi.Input
+
+	ToDomainNodeToNodeEncryptionOutput() DomainNodeToNodeEncryptionOutput
+	ToDomainNodeToNodeEncryptionOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionOutput
+}
+
+type DomainNodeToNodeEncryptionArgs struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DomainNodeToNodeEncryptionArgs) ElementType() reflect.Type {
+	return domainNodeToNodeEncryptionType
+}
+
+func (a DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionOutput() DomainNodeToNodeEncryptionOutput {
+	return pulumi.ToOutput(a).(DomainNodeToNodeEncryptionOutput)
+}
+
+func (a DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainNodeToNodeEncryptionOutput)
+}
+
+type DomainNodeToNodeEncryptionOutput struct { *pulumi.OutputState }
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DomainNodeToNodeEncryption) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (DomainNodeToNodeEncryptionOutput) ElementType() reflect.Type {
+	return domainNodeToNodeEncryptionType
+}
+
+func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionOutput() DomainNodeToNodeEncryptionOutput {
+	return o
+}
+
+func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOutput{}) }
+
+type DomainSnapshotOptions struct {
+	// Hour during which the service takes an automated daily
+	// snapshot of the indices in the domain.
+	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
+}
+var domainSnapshotOptionsType = reflect.TypeOf((*DomainSnapshotOptions)(nil)).Elem()
+
+type DomainSnapshotOptionsInput interface {
+	pulumi.Input
+
+	ToDomainSnapshotOptionsOutput() DomainSnapshotOptionsOutput
+	ToDomainSnapshotOptionsOutputWithContext(ctx context.Context) DomainSnapshotOptionsOutput
+}
+
+type DomainSnapshotOptionsArgs struct {
+	// Hour during which the service takes an automated daily
+	// snapshot of the indices in the domain.
+	AutomatedSnapshotStartHour pulumi.IntInput `pulumi:"automatedSnapshotStartHour"`
+}
+
+func (DomainSnapshotOptionsArgs) ElementType() reflect.Type {
+	return domainSnapshotOptionsType
+}
+
+func (a DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsOutput() DomainSnapshotOptionsOutput {
+	return pulumi.ToOutput(a).(DomainSnapshotOptionsOutput)
+}
+
+func (a DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsOutputWithContext(ctx context.Context) DomainSnapshotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainSnapshotOptionsOutput)
+}
+
+type DomainSnapshotOptionsOutput struct { *pulumi.OutputState }
+
+// Hour during which the service takes an automated daily
+// snapshot of the indices in the domain.
+func (o DomainSnapshotOptionsOutput) AutomatedSnapshotStartHour() pulumi.IntOutput {
+	return o.Apply(func(v DomainSnapshotOptions) int {
+		return v.AutomatedSnapshotStartHour
+	}).(pulumi.IntOutput)
+}
+
+func (DomainSnapshotOptionsOutput) ElementType() reflect.Type {
+	return domainSnapshotOptionsType
+}
+
+func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsOutput() DomainSnapshotOptionsOutput {
+	return o
+}
+
+func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsOutputWithContext(ctx context.Context) DomainSnapshotOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{}) }
+
+type DomainVpcOptions struct {
+	AvailabilityZones *[]string `pulumi:"availabilityZones"`
+	// List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+	SecurityGroupIds *[]string `pulumi:"securityGroupIds"`
+	// List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+	SubnetIds *[]string `pulumi:"subnetIds"`
+	VpcId *string `pulumi:"vpcId"`
+}
+var domainVpcOptionsType = reflect.TypeOf((*DomainVpcOptions)(nil)).Elem()
+
+type DomainVpcOptionsInput interface {
+	pulumi.Input
+
+	ToDomainVpcOptionsOutput() DomainVpcOptionsOutput
+	ToDomainVpcOptionsOutputWithContext(ctx context.Context) DomainVpcOptionsOutput
+}
+
+type DomainVpcOptionsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (DomainVpcOptionsArgs) ElementType() reflect.Type {
+	return domainVpcOptionsType
+}
+
+func (a DomainVpcOptionsArgs) ToDomainVpcOptionsOutput() DomainVpcOptionsOutput {
+	return pulumi.ToOutput(a).(DomainVpcOptionsOutput)
+}
+
+func (a DomainVpcOptionsArgs) ToDomainVpcOptionsOutputWithContext(ctx context.Context) DomainVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainVpcOptionsOutput)
+}
+
+type DomainVpcOptionsOutput struct { *pulumi.OutputState }
+
+func (o DomainVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.Apply(func(v DomainVpcOptions) []string {
+		if v.AvailabilityZones == nil { return *new([]string) } else { return *v.AvailabilityZones }
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+func (o DomainVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v DomainVpcOptions) []string {
+		if v.SecurityGroupIds == nil { return *new([]string) } else { return *v.SecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+func (o DomainVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v DomainVpcOptions) []string {
+		if v.SubnetIds == nil { return *new([]string) } else { return *v.SubnetIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DomainVpcOptionsOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v DomainVpcOptions) string {
+		if v.VpcId == nil { return *new(string) } else { return *v.VpcId }
+	}).(pulumi.StringOutput)
+}
+
+func (DomainVpcOptionsOutput) ElementType() reflect.Type {
+	return domainVpcOptionsType
+}
+
+func (o DomainVpcOptionsOutput) ToDomainVpcOptionsOutput() DomainVpcOptionsOutput {
+	return o
+}
+
+func (o DomainVpcOptionsOutput) ToDomainVpcOptionsOutputWithContext(ctx context.Context) DomainVpcOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainVpcOptionsOutput{}) }
+

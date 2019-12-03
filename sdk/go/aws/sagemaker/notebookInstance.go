@@ -12,162 +12,126 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_notebook_instance.html.markdown.
 type NotebookInstance struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name of ML compute instance type.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// The name of a lifecycle configuration to associate with the notebook instance.
+	LifecycleConfigName pulumi.StringOutput `pulumi:"lifecycleConfigName"`
+
+	// The name of the notebook instance (must be unique).
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// The associated security groups.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
+
+	// The VPC subnet ID.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
 func NewNotebookInstance(ctx *pulumi.Context,
-	name string, args *NotebookInstanceArgs, opts ...pulumi.ResourceOpt) (*NotebookInstance, error) {
+	name string, args *NotebookInstanceArgs, opts ...pulumi.ResourceOption) (*NotebookInstance, error) {
 	if args == nil || args.InstanceType == nil {
 		return nil, errors.New("missing required argument 'InstanceType'")
 	}
 	if args == nil || args.RoleArn == nil {
 		return nil, errors.New("missing required argument 'RoleArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["instanceType"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["lifecycleConfigName"] = nil
-		inputs["name"] = nil
-		inputs["roleArn"] = nil
-		inputs["securityGroups"] = nil
-		inputs["subnetId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["instanceType"] = args.InstanceType
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["lifecycleConfigName"] = args.LifecycleConfigName
-		inputs["name"] = args.Name
-		inputs["roleArn"] = args.RoleArn
-		inputs["securityGroups"] = args.SecurityGroups
-		inputs["subnetId"] = args.SubnetId
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.LifecycleConfigName; i != nil { inputs["lifecycleConfigName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:sagemaker/notebookInstance:NotebookInstance", name, true, inputs, opts...)
+	var resource NotebookInstance
+	err := ctx.RegisterResource("aws:sagemaker/notebookInstance:NotebookInstance", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NotebookInstance{s: s}, nil
+	return &resource, nil
 }
 
 // GetNotebookInstance gets an existing NotebookInstance resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNotebookInstance(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NotebookInstanceState, opts ...pulumi.ResourceOpt) (*NotebookInstance, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NotebookInstanceState, opts ...pulumi.ResourceOption) (*NotebookInstance, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["instanceType"] = state.InstanceType
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["lifecycleConfigName"] = state.LifecycleConfigName
-		inputs["name"] = state.Name
-		inputs["roleArn"] = state.RoleArn
-		inputs["securityGroups"] = state.SecurityGroups
-		inputs["subnetId"] = state.SubnetId
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.LifecycleConfigName; i != nil { inputs["lifecycleConfigName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:sagemaker/notebookInstance:NotebookInstance", name, id, inputs, opts...)
+	var resource NotebookInstance
+	err := ctx.ReadResource("aws:sagemaker/notebookInstance:NotebookInstance", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NotebookInstance{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NotebookInstance) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NotebookInstance) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-func (r *NotebookInstance) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name of ML compute instance type.
-func (r *NotebookInstance) InstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceType"])
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-func (r *NotebookInstance) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// The name of a lifecycle configuration to associate with the notebook instance.
-func (r *NotebookInstance) LifecycleConfigName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lifecycleConfigName"])
-}
-
-// The name of the notebook instance (must be unique).
-func (r *NotebookInstance) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-func (r *NotebookInstance) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// The associated security groups.
-func (r *NotebookInstance) SecurityGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
-}
-
-// The VPC subnet ID.
-func (r *NotebookInstance) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *NotebookInstance) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NotebookInstance resources.
 type NotebookInstanceState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name of ML compute instance type.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The name of a lifecycle configuration to associate with the notebook instance.
-	LifecycleConfigName interface{}
+	LifecycleConfigName pulumi.StringInput `pulumi:"lifecycleConfigName"`
 	// The name of the notebook instance (must be unique).
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The associated security groups.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The VPC subnet ID.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NotebookInstance resource.
 type NotebookInstanceArgs struct {
 	// The name of ML compute instance type.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The name of a lifecycle configuration to associate with the notebook instance.
-	LifecycleConfigName interface{}
+	LifecycleConfigName pulumi.StringInput `pulumi:"lifecycleConfigName"`
 	// The name of the notebook instance (must be unique).
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The associated security groups.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The VPC subnet ID.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

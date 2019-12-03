@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_launch_permission.html.markdown.
 type AmiLaunchPermission struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// An AWS Account ID to add launch permissions.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+
+	// A region-unique name for the AMI.
+	ImageId pulumi.StringOutput `pulumi:"imageId"`
 }
 
 // NewAmiLaunchPermission registers a new resource with the given unique name, arguments, and options.
 func NewAmiLaunchPermission(ctx *pulumi.Context,
-	name string, args *AmiLaunchPermissionArgs, opts ...pulumi.ResourceOpt) (*AmiLaunchPermission, error) {
+	name string, args *AmiLaunchPermissionArgs, opts ...pulumi.ResourceOption) (*AmiLaunchPermission, error) {
 	if args == nil || args.AccountId == nil {
 		return nil, errors.New("missing required argument 'AccountId'")
 	}
 	if args == nil || args.ImageId == nil {
 		return nil, errors.New("missing required argument 'ImageId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountId"] = nil
-		inputs["imageId"] = nil
-	} else {
-		inputs["accountId"] = args.AccountId
-		inputs["imageId"] = args.ImageId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := args.ImageId; i != nil { inputs["imageId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, true, inputs, opts...)
+	var resource AmiLaunchPermission
+	err := ctx.RegisterResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AmiLaunchPermission{s: s}, nil
+	return &resource, nil
 }
 
 // GetAmiLaunchPermission gets an existing AmiLaunchPermission resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAmiLaunchPermission(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AmiLaunchPermissionState, opts ...pulumi.ResourceOpt) (*AmiLaunchPermission, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AmiLaunchPermissionState, opts ...pulumi.ResourceOption) (*AmiLaunchPermission, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountId"] = state.AccountId
-		inputs["imageId"] = state.ImageId
+		if i := state.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := state.ImageId; i != nil { inputs["imageId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, id, inputs, opts...)
+	var resource AmiLaunchPermission
+	err := ctx.ReadResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AmiLaunchPermission{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AmiLaunchPermission) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AmiLaunchPermission) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// An AWS Account ID to add launch permissions.
-func (r *AmiLaunchPermission) AccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountId"])
-}
-
-// A region-unique name for the AMI.
-func (r *AmiLaunchPermission) ImageId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AmiLaunchPermission resources.
 type AmiLaunchPermissionState struct {
 	// An AWS Account ID to add launch permissions.
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// A region-unique name for the AMI.
-	ImageId interface{}
+	ImageId pulumi.StringInput `pulumi:"imageId"`
 }
 
 // The set of arguments for constructing a AmiLaunchPermission resource.
 type AmiLaunchPermissionArgs struct {
 	// An AWS Account ID to add launch permissions.
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// A region-unique name for the AMI.
-	ImageId interface{}
+	ImageId pulumi.StringInput `pulumi:"imageId"`
 }

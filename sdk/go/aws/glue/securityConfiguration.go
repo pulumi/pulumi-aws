@@ -4,6 +4,8 @@
 package glue
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,78 +14,324 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_security_configuration.html.markdown.
 type SecurityConfiguration struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Configuration block containing encryption configuration. Detailed below.
+	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
+
+	// Name of the security configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewSecurityConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewSecurityConfiguration(ctx *pulumi.Context,
-	name string, args *SecurityConfigurationArgs, opts ...pulumi.ResourceOpt) (*SecurityConfiguration, error) {
+	name string, args *SecurityConfigurationArgs, opts ...pulumi.ResourceOption) (*SecurityConfiguration, error) {
 	if args == nil || args.EncryptionConfiguration == nil {
 		return nil, errors.New("missing required argument 'EncryptionConfiguration'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["encryptionConfiguration"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["encryptionConfiguration"] = args.EncryptionConfiguration
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EncryptionConfiguration; i != nil { inputs["encryptionConfiguration"] = i.ToSecurityConfigurationEncryptionConfigurationOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:glue/securityConfiguration:SecurityConfiguration", name, true, inputs, opts...)
+	var resource SecurityConfiguration
+	err := ctx.RegisterResource("aws:glue/securityConfiguration:SecurityConfiguration", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SecurityConfiguration{s: s}, nil
+	return &resource, nil
 }
 
 // GetSecurityConfiguration gets an existing SecurityConfiguration resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSecurityConfiguration(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SecurityConfigurationState, opts ...pulumi.ResourceOpt) (*SecurityConfiguration, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SecurityConfigurationState, opts ...pulumi.ResourceOption) (*SecurityConfiguration, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["encryptionConfiguration"] = state.EncryptionConfiguration
-		inputs["name"] = state.Name
+		if i := state.EncryptionConfiguration; i != nil { inputs["encryptionConfiguration"] = i.ToSecurityConfigurationEncryptionConfigurationOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glue/securityConfiguration:SecurityConfiguration", name, id, inputs, opts...)
+	var resource SecurityConfiguration
+	err := ctx.ReadResource("aws:glue/securityConfiguration:SecurityConfiguration", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SecurityConfiguration{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityConfiguration) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityConfiguration) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Configuration block containing encryption configuration. Detailed below.
-func (r *SecurityConfiguration) EncryptionConfiguration() pulumi.Output {
-	return r.s.State["encryptionConfiguration"]
-}
-
-// Name of the security configuration.
-func (r *SecurityConfiguration) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SecurityConfiguration resources.
 type SecurityConfigurationState struct {
 	// Configuration block containing encryption configuration. Detailed below.
-	EncryptionConfiguration interface{}
+	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationInput `pulumi:"encryptionConfiguration"`
 	// Name of the security configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a SecurityConfiguration resource.
 type SecurityConfigurationArgs struct {
 	// Configuration block containing encryption configuration. Detailed below.
-	EncryptionConfiguration interface{}
+	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationInput `pulumi:"encryptionConfiguration"`
 	// Name of the security configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type SecurityConfigurationEncryptionConfiguration struct {
+	CloudwatchEncryption SecurityConfigurationEncryptionConfigurationCloudwatchEncryption `pulumi:"cloudwatchEncryption"`
+	JobBookmarksEncryption SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption `pulumi:"jobBookmarksEncryption"`
+	// A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
+	S3Encryption SecurityConfigurationEncryptionConfigurationS3Encryption `pulumi:"s3Encryption"`
+}
+var securityConfigurationEncryptionConfigurationType = reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+
+type SecurityConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput
+	ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput
+}
+
+type SecurityConfigurationEncryptionConfigurationArgs struct {
+	CloudwatchEncryption SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput `pulumi:"cloudwatchEncryption"`
+	JobBookmarksEncryption SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput `pulumi:"jobBookmarksEncryption"`
+	// A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
+	S3Encryption SecurityConfigurationEncryptionConfigurationS3EncryptionInput `pulumi:"s3Encryption"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationType
+}
+
+func (a SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutput(a).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+func (a SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationOutput struct { *pulumi.OutputState }
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
+		return v.CloudwatchEncryption
+	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) JobBookmarksEncryption() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
+}
+
+// A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
+func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryption() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption {
+		return v.S3Encryption
+	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
+}
+
+func (SecurityConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationType
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{}) }
+
+type SecurityConfigurationEncryptionConfigurationCloudwatchEncryption struct {
+	// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+	CloudwatchEncryptionMode *string `pulumi:"cloudwatchEncryptionMode"`
+	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+var securityConfigurationEncryptionConfigurationCloudwatchEncryptionType = reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationCloudwatchEncryption)(nil)).Elem()
+
+type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput
+	ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput
+}
+
+type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs struct {
+	// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+	CloudwatchEncryptionMode pulumi.StringInput `pulumi:"cloudwatchEncryptionMode"`
+	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationCloudwatchEncryptionType
+}
+
+func (a SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
+	return pulumi.ToOutput(a).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
+}
+
+func (a SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput struct { *pulumi.OutputState }
+
+// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) CloudwatchEncryptionMode() pulumi.StringOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) string {
+		if v.CloudwatchEncryptionMode == nil { return *new(string) } else { return *v.CloudwatchEncryptionMode }
+	}).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) string {
+		if v.KmsKeyArn == nil { return *new(string) } else { return *v.KmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+func (SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationCloudwatchEncryptionType
+}
+
+func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput{}) }
+
+type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption struct {
+	// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+	JobBookmarksEncryptionMode *string `pulumi:"jobBookmarksEncryptionMode"`
+	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+var securityConfigurationEncryptionConfigurationJobBookmarksEncryptionType = reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption)(nil)).Elem()
+
+type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
+	ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
+}
+
+type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs struct {
+	// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+	JobBookmarksEncryptionMode pulumi.StringInput `pulumi:"jobBookmarksEncryptionMode"`
+	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationJobBookmarksEncryptionType
+}
+
+func (a SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
+	return pulumi.ToOutput(a).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
+}
+
+func (a SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput struct { *pulumi.OutputState }
+
+// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) JobBookmarksEncryptionMode() pulumi.StringOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) string {
+		if v.JobBookmarksEncryptionMode == nil { return *new(string) } else { return *v.JobBookmarksEncryptionMode }
+	}).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) string {
+		if v.KmsKeyArn == nil { return *new(string) } else { return *v.KmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+func (SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationJobBookmarksEncryptionType
+}
+
+func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput{}) }
+
+type SecurityConfigurationEncryptionConfigurationS3Encryption struct {
+	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
+	S3EncryptionMode *string `pulumi:"s3EncryptionMode"`
+}
+var securityConfigurationEncryptionConfigurationS3EncryptionType = reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationS3Encryption)(nil)).Elem()
+
+type SecurityConfigurationEncryptionConfigurationS3EncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationS3EncryptionOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput
+	ToSecurityConfigurationEncryptionConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionOutput
+}
+
+type SecurityConfigurationEncryptionConfigurationS3EncryptionArgs struct {
+	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
+	S3EncryptionMode pulumi.StringInput `pulumi:"s3EncryptionMode"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationS3EncryptionType
+}
+
+func (a SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ToSecurityConfigurationEncryptionConfigurationS3EncryptionOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
+	return pulumi.ToOutput(a).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
+}
+
+func (a SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ToSecurityConfigurationEncryptionConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationS3EncryptionOutput struct { *pulumi.OutputState }
+
+// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) string {
+		if v.KmsKeyArn == nil { return *new(string) } else { return *v.KmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
+func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) S3EncryptionMode() pulumi.StringOutput {
+	return o.Apply(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) string {
+		if v.S3EncryptionMode == nil { return *new(string) } else { return *v.S3EncryptionMode }
+	}).(pulumi.StringOutput)
+}
+
+func (SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ElementType() reflect.Type {
+	return securityConfigurationEncryptionConfigurationS3EncryptionType
+}
+
+func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput{}) }
+

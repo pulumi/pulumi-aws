@@ -16,12 +16,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glacier_vault_lock.html.markdown.
 type VaultLock struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
+	CompleteLock pulumi.BoolOutput `pulumi:"completeLock"`
+
+	// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
+	IgnoreDeletionError pulumi.BoolOutput `pulumi:"ignoreDeletionError"`
+
+	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// The name of the Glacier Vault.
+	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
 
 // NewVaultLock registers a new resource with the given unique name, arguments, and options.
 func NewVaultLock(ctx *pulumi.Context,
-	name string, args *VaultLockArgs, opts ...pulumi.ResourceOpt) (*VaultLock, error) {
+	name string, args *VaultLockArgs, opts ...pulumi.ResourceOption) (*VaultLock, error) {
 	if args == nil || args.CompleteLock == nil {
 		return nil, errors.New("missing required argument 'CompleteLock'")
 	}
@@ -31,93 +43,60 @@ func NewVaultLock(ctx *pulumi.Context,
 	if args == nil || args.VaultName == nil {
 		return nil, errors.New("missing required argument 'VaultName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["completeLock"] = nil
-		inputs["ignoreDeletionError"] = nil
-		inputs["policy"] = nil
-		inputs["vaultName"] = nil
-	} else {
-		inputs["completeLock"] = args.CompleteLock
-		inputs["ignoreDeletionError"] = args.IgnoreDeletionError
-		inputs["policy"] = args.Policy
-		inputs["vaultName"] = args.VaultName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CompleteLock; i != nil { inputs["completeLock"] = i.ToBoolOutput() }
+		if i := args.IgnoreDeletionError; i != nil { inputs["ignoreDeletionError"] = i.ToBoolOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.VaultName; i != nil { inputs["vaultName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:glacier/vaultLock:VaultLock", name, true, inputs, opts...)
+	var resource VaultLock
+	err := ctx.RegisterResource("aws:glacier/vaultLock:VaultLock", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VaultLock{s: s}, nil
+	return &resource, nil
 }
 
 // GetVaultLock gets an existing VaultLock resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVaultLock(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VaultLockState, opts ...pulumi.ResourceOpt) (*VaultLock, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VaultLockState, opts ...pulumi.ResourceOption) (*VaultLock, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["completeLock"] = state.CompleteLock
-		inputs["ignoreDeletionError"] = state.IgnoreDeletionError
-		inputs["policy"] = state.Policy
-		inputs["vaultName"] = state.VaultName
+		if i := state.CompleteLock; i != nil { inputs["completeLock"] = i.ToBoolOutput() }
+		if i := state.IgnoreDeletionError; i != nil { inputs["ignoreDeletionError"] = i.ToBoolOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.VaultName; i != nil { inputs["vaultName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glacier/vaultLock:VaultLock", name, id, inputs, opts...)
+	var resource VaultLock
+	err := ctx.ReadResource("aws:glacier/vaultLock:VaultLock", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VaultLock{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VaultLock) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VaultLock) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
-func (r *VaultLock) CompleteLock() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["completeLock"])
-}
-
-// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
-func (r *VaultLock) IgnoreDeletionError() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["ignoreDeletionError"])
-}
-
-// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
-func (r *VaultLock) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// The name of the Glacier Vault.
-func (r *VaultLock) VaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vaultName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VaultLock resources.
 type VaultLockState struct {
 	// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
-	CompleteLock interface{}
+	CompleteLock pulumi.BoolInput `pulumi:"completeLock"`
 	// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
-	IgnoreDeletionError interface{}
+	IgnoreDeletionError pulumi.BoolInput `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The name of the Glacier Vault.
-	VaultName interface{}
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a VaultLock resource.
 type VaultLockArgs struct {
 	// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
-	CompleteLock interface{}
+	CompleteLock pulumi.BoolInput `pulumi:"completeLock"`
 	// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
-	IgnoreDeletionError interface{}
+	IgnoreDeletionError pulumi.BoolInput `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The name of the Glacier Vault.
-	VaultName interface{}
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
 }

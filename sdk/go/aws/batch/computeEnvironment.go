@@ -4,6 +4,8 @@
 package batch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -18,12 +20,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
 type ComputeEnvironment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the compute environment.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+	ComputeEnvironmentName pulumi.StringOutput `pulumi:"computeEnvironmentName"`
+
+	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+	ComputeResources ComputeEnvironmentComputeResourcesOutput `pulumi:"computeResources"`
+
+	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
+
+	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+
+	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	State pulumi.StringOutput `pulumi:"state"`
+
+	// The current status of the compute environment (for example, CREATING or VALID).
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// A short, human-readable string to provide additional details about the current status of the compute environment.
+	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+
+	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewComputeEnvironment(ctx *pulumi.Context,
-	name string, args *ComputeEnvironmentArgs, opts ...pulumi.ResourceOpt) (*ComputeEnvironment, error) {
+	name string, args *ComputeEnvironmentArgs, opts ...pulumi.ResourceOption) (*ComputeEnvironment, error) {
 	if args == nil || args.ComputeEnvironmentName == nil {
 		return nil, errors.New("missing required argument 'ComputeEnvironmentName'")
 	}
@@ -33,141 +62,349 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["computeEnvironmentName"] = nil
-		inputs["computeResources"] = nil
-		inputs["serviceRole"] = nil
-		inputs["state"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["computeEnvironmentName"] = args.ComputeEnvironmentName
-		inputs["computeResources"] = args.ComputeResources
-		inputs["serviceRole"] = args.ServiceRole
-		inputs["state"] = args.State
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ComputeEnvironmentName; i != nil { inputs["computeEnvironmentName"] = i.ToStringOutput() }
+		if i := args.ComputeResources; i != nil { inputs["computeResources"] = i.ToComputeEnvironmentComputeResourcesOutput() }
+		if i := args.ServiceRole; i != nil { inputs["serviceRole"] = i.ToStringOutput() }
+		if i := args.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["ecsClusterArn"] = nil
-	inputs["status"] = nil
-	inputs["statusReason"] = nil
-	s, err := ctx.RegisterResource("aws:batch/computeEnvironment:ComputeEnvironment", name, true, inputs, opts...)
+	var resource ComputeEnvironment
+	err := ctx.RegisterResource("aws:batch/computeEnvironment:ComputeEnvironment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ComputeEnvironment{s: s}, nil
+	return &resource, nil
 }
 
 // GetComputeEnvironment gets an existing ComputeEnvironment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetComputeEnvironment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ComputeEnvironmentState, opts ...pulumi.ResourceOpt) (*ComputeEnvironment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ComputeEnvironmentState, opts ...pulumi.ResourceOption) (*ComputeEnvironment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["computeEnvironmentName"] = state.ComputeEnvironmentName
-		inputs["computeResources"] = state.ComputeResources
-		inputs["ecsClusterArn"] = state.EcsClusterArn
-		inputs["serviceRole"] = state.ServiceRole
-		inputs["state"] = state.State
-		inputs["status"] = state.Status
-		inputs["statusReason"] = state.StatusReason
-		inputs["type"] = state.Type
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ComputeEnvironmentName; i != nil { inputs["computeEnvironmentName"] = i.ToStringOutput() }
+		if i := state.ComputeResources; i != nil { inputs["computeResources"] = i.ToComputeEnvironmentComputeResourcesOutput() }
+		if i := state.EcsClusterArn; i != nil { inputs["ecsClusterArn"] = i.ToStringOutput() }
+		if i := state.ServiceRole; i != nil { inputs["serviceRole"] = i.ToStringOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.StatusReason; i != nil { inputs["statusReason"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:batch/computeEnvironment:ComputeEnvironment", name, id, inputs, opts...)
+	var resource ComputeEnvironment
+	err := ctx.ReadResource("aws:batch/computeEnvironment:ComputeEnvironment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ComputeEnvironment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ComputeEnvironment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ComputeEnvironment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the compute environment.
-func (r *ComputeEnvironment) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-func (r *ComputeEnvironment) ComputeEnvironmentName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["computeEnvironmentName"])
-}
-
-// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-func (r *ComputeEnvironment) ComputeResources() pulumi.Output {
-	return r.s.State["computeResources"]
-}
-
-// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-func (r *ComputeEnvironment) EcsClusterArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ecsClusterArn"])
-}
-
-// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-func (r *ComputeEnvironment) ServiceRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceRole"])
-}
-
-// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-func (r *ComputeEnvironment) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
-}
-
-// The current status of the compute environment (for example, CREATING or VALID).
-func (r *ComputeEnvironment) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// A short, human-readable string to provide additional details about the current status of the compute environment.
-func (r *ComputeEnvironment) StatusReason() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["statusReason"])
-}
-
-// The type of compute environment. Valid items are `EC2` or `SPOT`.
-func (r *ComputeEnvironment) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ComputeEnvironment resources.
 type ComputeEnvironmentState struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-	ComputeEnvironmentName interface{}
+	ComputeEnvironmentName pulumi.StringInput `pulumi:"computeEnvironmentName"`
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-	ComputeResources interface{}
+	ComputeResources ComputeEnvironmentComputeResourcesInput `pulumi:"computeResources"`
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-	EcsClusterArn interface{}
+	EcsClusterArn pulumi.StringInput `pulumi:"ecsClusterArn"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-	ServiceRole interface{}
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// The current status of the compute environment (for example, CREATING or VALID).
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// A short, human-readable string to provide additional details about the current status of the compute environment.
-	StatusReason interface{}
+	StatusReason pulumi.StringInput `pulumi:"statusReason"`
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ComputeEnvironment resource.
 type ComputeEnvironmentArgs struct {
 	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-	ComputeEnvironmentName interface{}
+	ComputeEnvironmentName pulumi.StringInput `pulumi:"computeEnvironmentName"`
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-	ComputeResources interface{}
+	ComputeResources ComputeEnvironmentComputeResourcesInput `pulumi:"computeResources"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-	ServiceRole interface{}
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 	// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// The type of compute environment. Valid items are `EC2` or `SPOT`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
+type ComputeEnvironmentComputeResources struct {
+	// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+	BidPercentage *int `pulumi:"bidPercentage"`
+	// The desired number of EC2 vCPUS in the compute environment.
+	DesiredVcpus *int `pulumi:"desiredVcpus"`
+	// The EC2 key pair that is used for instances launched in the compute environment.
+	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+	ImageId *string `pulumi:"imageId"`
+	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+	InstanceRole string `pulumi:"instanceRole"`
+	// A list of instance types that may be launched.
+	InstanceTypes []string `pulumi:"instanceTypes"`
+	// The launch template to use for your compute resources. See details below.
+	LaunchTemplate *ComputeEnvironmentComputeResourcesLaunchTemplate `pulumi:"launchTemplate"`
+	// The maximum number of EC2 vCPUs that an environment can reach.
+	MaxVcpus int `pulumi:"maxVcpus"`
+	// The minimum number of EC2 vCPUs that an environment should maintain.
+	MinVcpus int `pulumi:"minVcpus"`
+	// A list of EC2 security group that are associated with instances launched in the compute environment.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+	SpotIamFleetRole *string `pulumi:"spotIamFleetRole"`
+	// A list of VPC subnets into which the compute resources are launched.
+	Subnets []string `pulumi:"subnets"`
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags *map[string]string `pulumi:"tags"`
+	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	Type string `pulumi:"type"`
+}
+var computeEnvironmentComputeResourcesType = reflect.TypeOf((*ComputeEnvironmentComputeResources)(nil)).Elem()
+
+type ComputeEnvironmentComputeResourcesInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentComputeResourcesOutput() ComputeEnvironmentComputeResourcesOutput
+	ToComputeEnvironmentComputeResourcesOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesOutput
+}
+
+type ComputeEnvironmentComputeResourcesArgs struct {
+	// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+	BidPercentage pulumi.IntInput `pulumi:"bidPercentage"`
+	// The desired number of EC2 vCPUS in the compute environment.
+	DesiredVcpus pulumi.IntInput `pulumi:"desiredVcpus"`
+	// The EC2 key pair that is used for instances launched in the compute environment.
+	Ec2KeyPair pulumi.StringInput `pulumi:"ec2KeyPair"`
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
+	// A list of instance types that may be launched.
+	InstanceTypes pulumi.StringArrayInput `pulumi:"instanceTypes"`
+	// The launch template to use for your compute resources. See details below.
+	LaunchTemplate ComputeEnvironmentComputeResourcesLaunchTemplateInput `pulumi:"launchTemplate"`
+	// The maximum number of EC2 vCPUs that an environment can reach.
+	MaxVcpus pulumi.IntInput `pulumi:"maxVcpus"`
+	// The minimum number of EC2 vCPUs that an environment should maintain.
+	MinVcpus pulumi.IntInput `pulumi:"minVcpus"`
+	// A list of EC2 security group that are associated with instances launched in the compute environment.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+	SpotIamFleetRole pulumi.StringInput `pulumi:"spotIamFleetRole"`
+	// A list of VPC subnets into which the compute resources are launched.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// Key-value pair tags to be applied to resources that are launched in the compute environment.
+	Tags pulumi.MapInput `pulumi:"tags"`
+	// The type of compute environment. Valid items are `EC2` or `SPOT`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ComputeEnvironmentComputeResourcesArgs) ElementType() reflect.Type {
+	return computeEnvironmentComputeResourcesType
+}
+
+func (a ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResourcesOutput() ComputeEnvironmentComputeResourcesOutput {
+	return pulumi.ToOutput(a).(ComputeEnvironmentComputeResourcesOutput)
+}
+
+func (a ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResourcesOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ComputeEnvironmentComputeResourcesOutput)
+}
+
+type ComputeEnvironmentComputeResourcesOutput struct { *pulumi.OutputState }
+
+// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+func (o ComputeEnvironmentComputeResourcesOutput) BidPercentage() pulumi.IntOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) int {
+		if v.BidPercentage == nil { return *new(int) } else { return *v.BidPercentage }
+	}).(pulumi.IntOutput)
+}
+
+// The desired number of EC2 vCPUS in the compute environment.
+func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) int {
+		if v.DesiredVcpus == nil { return *new(int) } else { return *v.DesiredVcpus }
+	}).(pulumi.IntOutput)
+}
+
+// The EC2 key pair that is used for instances launched in the compute environment.
+func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) string {
+		if v.Ec2KeyPair == nil { return *new(string) } else { return *v.Ec2KeyPair }
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) string {
+		if v.ImageId == nil { return *new(string) } else { return *v.ImageId }
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+func (o ComputeEnvironmentComputeResourcesOutput) InstanceRole() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) string {
+		return v.InstanceRole
+	}).(pulumi.StringOutput)
+}
+
+// A list of instance types that may be launched.
+func (o ComputeEnvironmentComputeResourcesOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) []string {
+		return v.InstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The launch template to use for your compute resources. See details below.
+func (o ComputeEnvironmentComputeResourcesOutput) LaunchTemplate() ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) ComputeEnvironmentComputeResourcesLaunchTemplate {
+		if v.LaunchTemplate == nil { return *new(ComputeEnvironmentComputeResourcesLaunchTemplate) } else { return *v.LaunchTemplate }
+	}).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput)
+}
+
+// The maximum number of EC2 vCPUs that an environment can reach.
+func (o ComputeEnvironmentComputeResourcesOutput) MaxVcpus() pulumi.IntOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) int {
+		return v.MaxVcpus
+	}).(pulumi.IntOutput)
+}
+
+// The minimum number of EC2 vCPUs that an environment should maintain.
+func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) int {
+		return v.MinVcpus
+	}).(pulumi.IntOutput)
+}
+
+// A list of EC2 security group that are associated with instances launched in the compute environment.
+func (o ComputeEnvironmentComputeResourcesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
+func (o ComputeEnvironmentComputeResourcesOutput) SpotIamFleetRole() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) string {
+		if v.SpotIamFleetRole == nil { return *new(string) } else { return *v.SpotIamFleetRole }
+	}).(pulumi.StringOutput)
+}
+
+// A list of VPC subnets into which the compute resources are launched.
+func (o ComputeEnvironmentComputeResourcesOutput) Subnets() pulumi.StringArrayOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// Key-value pair tags to be applied to resources that are launched in the compute environment.
+func (o ComputeEnvironmentComputeResourcesOutput) Tags() pulumi.MapOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) map[string]string {
+		if v.Tags == nil { return *new(map[string]string) } else { return *v.Tags }
+	}).(pulumi.MapOutput)
+}
+
+// The type of compute environment. Valid items are `EC2` or `SPOT`.
+func (o ComputeEnvironmentComputeResourcesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResources) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ComputeEnvironmentComputeResourcesOutput) ElementType() reflect.Type {
+	return computeEnvironmentComputeResourcesType
+}
+
+func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeResourcesOutput() ComputeEnvironmentComputeResourcesOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeResourcesOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{}) }
+
+type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
+	// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// Name of the launch template.
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// The version number of the launch template. Default: The default version of the launch template.
+	Version *string `pulumi:"version"`
+}
+var computeEnvironmentComputeResourcesLaunchTemplateType = reflect.TypeOf((*ComputeEnvironmentComputeResourcesLaunchTemplate)(nil)).Elem()
+
+type ComputeEnvironmentComputeResourcesLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentComputeResourcesLaunchTemplateOutput() ComputeEnvironmentComputeResourcesLaunchTemplateOutput
+	ToComputeEnvironmentComputeResourcesLaunchTemplateOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesLaunchTemplateOutput
+}
+
+type ComputeEnvironmentComputeResourcesLaunchTemplateArgs struct {
+	// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
+	// Name of the launch template.
+	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
+	// The version number of the launch template. Default: The default version of the launch template.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ElementType() reflect.Type {
+	return computeEnvironmentComputeResourcesLaunchTemplateType
+}
+
+func (a ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironmentComputeResourcesLaunchTemplateOutput() ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
+	return pulumi.ToOutput(a).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput)
+}
+
+func (a ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironmentComputeResourcesLaunchTemplateOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput)
+}
+
+type ComputeEnvironmentComputeResourcesLaunchTemplateOutput struct { *pulumi.OutputState }
+
+// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) LaunchTemplateId() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) string {
+		if v.LaunchTemplateId == nil { return *new(string) } else { return *v.LaunchTemplateId }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the launch template.
+func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) LaunchTemplateName() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) string {
+		if v.LaunchTemplateName == nil { return *new(string) } else { return *v.LaunchTemplateName }
+	}).(pulumi.StringOutput)
+}
+
+// The version number of the launch template. Default: The default version of the launch template.
+func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) string {
+		if v.Version == nil { return *new(string) } else { return *v.Version }
+	}).(pulumi.StringOutput)
+}
+
+func (ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ElementType() reflect.Type {
+	return computeEnvironmentComputeResourcesLaunchTemplateType
+}
+
+func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToComputeEnvironmentComputeResourcesLaunchTemplateOutput() ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToComputeEnvironmentComputeResourcesLaunchTemplateOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesLaunchTemplateOutput{}) }
+

@@ -11,34 +11,27 @@ import (
 // example to supply credentials for a dependency microservice.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
-func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["id"] = args.Id
-	}
-	outputs, err := ctx.Invoke("aws:apigateway/getKey:getKey", inputs)
+func LookupKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
+	var rv GetKeyResult
+	err := ctx.Invoke("aws:apigateway/getKey:getKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetKeyResult{
-		Id: outputs["id"],
-		Name: outputs["name"],
-		Value: outputs["value"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
 	// The ID of the API Key to look up.
-	Id interface{}
+	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
 	// Set to the ID of the API Key.
-	Id interface{}
+	Id string `pulumi:"id"`
 	// Set to the name of the API Key.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Set to the value of the API Key.
-	Value interface{}
+	Value string `pulumi:"value"`
 }

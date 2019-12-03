@@ -4,6 +4,8 @@
 package codedeploy
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,57 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_group.html.markdown.
 type DeploymentGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Configuration block of alarms associated with the deployment group (documented below).
+	AlarmConfiguration DeploymentGroupAlarmConfigurationOutput `pulumi:"alarmConfiguration"`
+
+	// The name of the application.
+	AppName pulumi.StringOutput `pulumi:"appName"`
+
+	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationOutput `pulumi:"autoRollbackConfiguration"`
+
+	// Autoscaling groups associated with the deployment group.
+	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
+
+	// Configuration block of the blue/green deployment options for a deployment group (documented below).
+	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigOutput `pulumi:"blueGreenDeploymentConfig"`
+
+	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+	DeploymentConfigName pulumi.StringOutput `pulumi:"deploymentConfigName"`
+
+	// The name of the deployment group.
+	DeploymentGroupName pulumi.StringOutput `pulumi:"deploymentGroupName"`
+
+	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+	DeploymentStyle DeploymentGroupDeploymentStyleOutput `pulumi:"deploymentStyle"`
+
+	// Tag filters associated with the deployment group. See the AWS docs for details.
+	Ec2TagFilters DeploymentGroupEc2TagFiltersArrayOutput `pulumi:"ec2TagFilters"`
+
+	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+	Ec2TagSets DeploymentGroupEc2TagSetsArrayOutput `pulumi:"ec2TagSets"`
+
+	// Configuration block(s) of the ECS services for a deployment group (documented below).
+	EcsService DeploymentGroupEcsServiceOutput `pulumi:"ecsService"`
+
+	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+	LoadBalancerInfo DeploymentGroupLoadBalancerInfoOutput `pulumi:"loadBalancerInfo"`
+
+	// On premise tag filters associated with the group. See the AWS docs for details.
+	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput `pulumi:"onPremisesInstanceTagFilters"`
+
+	// The service role ARN that allows deployments.
+	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
+
+	// Configuration block(s) of the triggers for the deployment group (documented below).
+	TriggerConfigurations DeploymentGroupTriggerConfigurationsArrayOutput `pulumi:"triggerConfigurations"`
 }
 
 // NewDeploymentGroup registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentGroup(ctx *pulumi.Context,
-	name string, args *DeploymentGroupArgs, opts ...pulumi.ResourceOpt) (*DeploymentGroup, error) {
+	name string, args *DeploymentGroupArgs, opts ...pulumi.ResourceOption) (*DeploymentGroup, error) {
 	if args == nil || args.AppName == nil {
 		return nil, errors.New("missing required argument 'AppName'")
 	}
@@ -29,225 +76,1801 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 	if args == nil || args.ServiceRoleArn == nil {
 		return nil, errors.New("missing required argument 'ServiceRoleArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["alarmConfiguration"] = nil
-		inputs["appName"] = nil
-		inputs["autoRollbackConfiguration"] = nil
-		inputs["autoscalingGroups"] = nil
-		inputs["blueGreenDeploymentConfig"] = nil
-		inputs["deploymentConfigName"] = nil
-		inputs["deploymentGroupName"] = nil
-		inputs["deploymentStyle"] = nil
-		inputs["ec2TagFilters"] = nil
-		inputs["ec2TagSets"] = nil
-		inputs["ecsService"] = nil
-		inputs["loadBalancerInfo"] = nil
-		inputs["onPremisesInstanceTagFilters"] = nil
-		inputs["serviceRoleArn"] = nil
-		inputs["triggerConfigurations"] = nil
-	} else {
-		inputs["alarmConfiguration"] = args.AlarmConfiguration
-		inputs["appName"] = args.AppName
-		inputs["autoRollbackConfiguration"] = args.AutoRollbackConfiguration
-		inputs["autoscalingGroups"] = args.AutoscalingGroups
-		inputs["blueGreenDeploymentConfig"] = args.BlueGreenDeploymentConfig
-		inputs["deploymentConfigName"] = args.DeploymentConfigName
-		inputs["deploymentGroupName"] = args.DeploymentGroupName
-		inputs["deploymentStyle"] = args.DeploymentStyle
-		inputs["ec2TagFilters"] = args.Ec2TagFilters
-		inputs["ec2TagSets"] = args.Ec2TagSets
-		inputs["ecsService"] = args.EcsService
-		inputs["loadBalancerInfo"] = args.LoadBalancerInfo
-		inputs["onPremisesInstanceTagFilters"] = args.OnPremisesInstanceTagFilters
-		inputs["serviceRoleArn"] = args.ServiceRoleArn
-		inputs["triggerConfigurations"] = args.TriggerConfigurations
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AlarmConfiguration; i != nil { inputs["alarmConfiguration"] = i.ToDeploymentGroupAlarmConfigurationOutput() }
+		if i := args.AppName; i != nil { inputs["appName"] = i.ToStringOutput() }
+		if i := args.AutoRollbackConfiguration; i != nil { inputs["autoRollbackConfiguration"] = i.ToDeploymentGroupAutoRollbackConfigurationOutput() }
+		if i := args.AutoscalingGroups; i != nil { inputs["autoscalingGroups"] = i.ToStringArrayOutput() }
+		if i := args.BlueGreenDeploymentConfig; i != nil { inputs["blueGreenDeploymentConfig"] = i.ToDeploymentGroupBlueGreenDeploymentConfigOutput() }
+		if i := args.DeploymentConfigName; i != nil { inputs["deploymentConfigName"] = i.ToStringOutput() }
+		if i := args.DeploymentGroupName; i != nil { inputs["deploymentGroupName"] = i.ToStringOutput() }
+		if i := args.DeploymentStyle; i != nil { inputs["deploymentStyle"] = i.ToDeploymentGroupDeploymentStyleOutput() }
+		if i := args.Ec2TagFilters; i != nil { inputs["ec2TagFilters"] = i.ToDeploymentGroupEc2TagFiltersArrayOutput() }
+		if i := args.Ec2TagSets; i != nil { inputs["ec2TagSets"] = i.ToDeploymentGroupEc2TagSetsArrayOutput() }
+		if i := args.EcsService; i != nil { inputs["ecsService"] = i.ToDeploymentGroupEcsServiceOutput() }
+		if i := args.LoadBalancerInfo; i != nil { inputs["loadBalancerInfo"] = i.ToDeploymentGroupLoadBalancerInfoOutput() }
+		if i := args.OnPremisesInstanceTagFilters; i != nil { inputs["onPremisesInstanceTagFilters"] = i.ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutput() }
+		if i := args.ServiceRoleArn; i != nil { inputs["serviceRoleArn"] = i.ToStringOutput() }
+		if i := args.TriggerConfigurations; i != nil { inputs["triggerConfigurations"] = i.ToDeploymentGroupTriggerConfigurationsArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, true, inputs, opts...)
+	var resource DeploymentGroup
+	err := ctx.RegisterResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DeploymentGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetDeploymentGroup gets an existing DeploymentGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDeploymentGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DeploymentGroupState, opts ...pulumi.ResourceOpt) (*DeploymentGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DeploymentGroupState, opts ...pulumi.ResourceOption) (*DeploymentGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["alarmConfiguration"] = state.AlarmConfiguration
-		inputs["appName"] = state.AppName
-		inputs["autoRollbackConfiguration"] = state.AutoRollbackConfiguration
-		inputs["autoscalingGroups"] = state.AutoscalingGroups
-		inputs["blueGreenDeploymentConfig"] = state.BlueGreenDeploymentConfig
-		inputs["deploymentConfigName"] = state.DeploymentConfigName
-		inputs["deploymentGroupName"] = state.DeploymentGroupName
-		inputs["deploymentStyle"] = state.DeploymentStyle
-		inputs["ec2TagFilters"] = state.Ec2TagFilters
-		inputs["ec2TagSets"] = state.Ec2TagSets
-		inputs["ecsService"] = state.EcsService
-		inputs["loadBalancerInfo"] = state.LoadBalancerInfo
-		inputs["onPremisesInstanceTagFilters"] = state.OnPremisesInstanceTagFilters
-		inputs["serviceRoleArn"] = state.ServiceRoleArn
-		inputs["triggerConfigurations"] = state.TriggerConfigurations
+		if i := state.AlarmConfiguration; i != nil { inputs["alarmConfiguration"] = i.ToDeploymentGroupAlarmConfigurationOutput() }
+		if i := state.AppName; i != nil { inputs["appName"] = i.ToStringOutput() }
+		if i := state.AutoRollbackConfiguration; i != nil { inputs["autoRollbackConfiguration"] = i.ToDeploymentGroupAutoRollbackConfigurationOutput() }
+		if i := state.AutoscalingGroups; i != nil { inputs["autoscalingGroups"] = i.ToStringArrayOutput() }
+		if i := state.BlueGreenDeploymentConfig; i != nil { inputs["blueGreenDeploymentConfig"] = i.ToDeploymentGroupBlueGreenDeploymentConfigOutput() }
+		if i := state.DeploymentConfigName; i != nil { inputs["deploymentConfigName"] = i.ToStringOutput() }
+		if i := state.DeploymentGroupName; i != nil { inputs["deploymentGroupName"] = i.ToStringOutput() }
+		if i := state.DeploymentStyle; i != nil { inputs["deploymentStyle"] = i.ToDeploymentGroupDeploymentStyleOutput() }
+		if i := state.Ec2TagFilters; i != nil { inputs["ec2TagFilters"] = i.ToDeploymentGroupEc2TagFiltersArrayOutput() }
+		if i := state.Ec2TagSets; i != nil { inputs["ec2TagSets"] = i.ToDeploymentGroupEc2TagSetsArrayOutput() }
+		if i := state.EcsService; i != nil { inputs["ecsService"] = i.ToDeploymentGroupEcsServiceOutput() }
+		if i := state.LoadBalancerInfo; i != nil { inputs["loadBalancerInfo"] = i.ToDeploymentGroupLoadBalancerInfoOutput() }
+		if i := state.OnPremisesInstanceTagFilters; i != nil { inputs["onPremisesInstanceTagFilters"] = i.ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutput() }
+		if i := state.ServiceRoleArn; i != nil { inputs["serviceRoleArn"] = i.ToStringOutput() }
+		if i := state.TriggerConfigurations; i != nil { inputs["triggerConfigurations"] = i.ToDeploymentGroupTriggerConfigurationsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, id, inputs, opts...)
+	var resource DeploymentGroup
+	err := ctx.ReadResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DeploymentGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DeploymentGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DeploymentGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Configuration block of alarms associated with the deployment group (documented below).
-func (r *DeploymentGroup) AlarmConfiguration() pulumi.Output {
-	return r.s.State["alarmConfiguration"]
-}
-
-// The name of the application.
-func (r *DeploymentGroup) AppName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appName"])
-}
-
-// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-func (r *DeploymentGroup) AutoRollbackConfiguration() pulumi.Output {
-	return r.s.State["autoRollbackConfiguration"]
-}
-
-// Autoscaling groups associated with the deployment group.
-func (r *DeploymentGroup) AutoscalingGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
-}
-
-// Configuration block of the blue/green deployment options for a deployment group (documented below).
-func (r *DeploymentGroup) BlueGreenDeploymentConfig() pulumi.Output {
-	return r.s.State["blueGreenDeploymentConfig"]
-}
-
-// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-func (r *DeploymentGroup) DeploymentConfigName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deploymentConfigName"])
-}
-
-// The name of the deployment group.
-func (r *DeploymentGroup) DeploymentGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deploymentGroupName"])
-}
-
-// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-func (r *DeploymentGroup) DeploymentStyle() pulumi.Output {
-	return r.s.State["deploymentStyle"]
-}
-
-// Tag filters associated with the deployment group. See the AWS docs for details.
-func (r *DeploymentGroup) Ec2TagFilters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ec2TagFilters"])
-}
-
-// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-func (r *DeploymentGroup) Ec2TagSets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ec2TagSets"])
-}
-
-// Configuration block(s) of the ECS services for a deployment group (documented below).
-func (r *DeploymentGroup) EcsService() pulumi.Output {
-	return r.s.State["ecsService"]
-}
-
-// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-func (r *DeploymentGroup) LoadBalancerInfo() pulumi.Output {
-	return r.s.State["loadBalancerInfo"]
-}
-
-// On premise tag filters associated with the group. See the AWS docs for details.
-func (r *DeploymentGroup) OnPremisesInstanceTagFilters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["onPremisesInstanceTagFilters"])
-}
-
-// The service role ARN that allows deployments.
-func (r *DeploymentGroup) ServiceRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceRoleArn"])
-}
-
-// Configuration block(s) of the triggers for the deployment group (documented below).
-func (r *DeploymentGroup) TriggerConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["triggerConfigurations"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DeploymentGroup resources.
 type DeploymentGroupState struct {
 	// Configuration block of alarms associated with the deployment group (documented below).
-	AlarmConfiguration interface{}
+	AlarmConfiguration DeploymentGroupAlarmConfigurationInput `pulumi:"alarmConfiguration"`
 	// The name of the application.
-	AppName interface{}
+	AppName pulumi.StringInput `pulumi:"appName"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-	AutoRollbackConfiguration interface{}
+	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationInput `pulumi:"autoRollbackConfiguration"`
 	// Autoscaling groups associated with the deployment group.
-	AutoscalingGroups interface{}
+	AutoscalingGroups pulumi.StringArrayInput `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
-	BlueGreenDeploymentConfig interface{}
+	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigInput `pulumi:"blueGreenDeploymentConfig"`
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-	DeploymentConfigName interface{}
+	DeploymentConfigName pulumi.StringInput `pulumi:"deploymentConfigName"`
 	// The name of the deployment group.
-	DeploymentGroupName interface{}
+	DeploymentGroupName pulumi.StringInput `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-	DeploymentStyle interface{}
+	DeploymentStyle DeploymentGroupDeploymentStyleInput `pulumi:"deploymentStyle"`
 	// Tag filters associated with the deployment group. See the AWS docs for details.
-	Ec2TagFilters interface{}
+	Ec2TagFilters DeploymentGroupEc2TagFiltersArrayInput `pulumi:"ec2TagFilters"`
 	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-	Ec2TagSets interface{}
+	Ec2TagSets DeploymentGroupEc2TagSetsArrayInput `pulumi:"ec2TagSets"`
 	// Configuration block(s) of the ECS services for a deployment group (documented below).
-	EcsService interface{}
+	EcsService DeploymentGroupEcsServiceInput `pulumi:"ecsService"`
 	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-	LoadBalancerInfo interface{}
+	LoadBalancerInfo DeploymentGroupLoadBalancerInfoInput `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
-	OnPremisesInstanceTagFilters interface{}
+	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFiltersArrayInput `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.
-	ServiceRoleArn interface{}
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
-	TriggerConfigurations interface{}
+	TriggerConfigurations DeploymentGroupTriggerConfigurationsArrayInput `pulumi:"triggerConfigurations"`
 }
 
 // The set of arguments for constructing a DeploymentGroup resource.
 type DeploymentGroupArgs struct {
 	// Configuration block of alarms associated with the deployment group (documented below).
-	AlarmConfiguration interface{}
+	AlarmConfiguration DeploymentGroupAlarmConfigurationInput `pulumi:"alarmConfiguration"`
 	// The name of the application.
-	AppName interface{}
+	AppName pulumi.StringInput `pulumi:"appName"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-	AutoRollbackConfiguration interface{}
+	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationInput `pulumi:"autoRollbackConfiguration"`
 	// Autoscaling groups associated with the deployment group.
-	AutoscalingGroups interface{}
+	AutoscalingGroups pulumi.StringArrayInput `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
-	BlueGreenDeploymentConfig interface{}
+	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigInput `pulumi:"blueGreenDeploymentConfig"`
 	// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
-	DeploymentConfigName interface{}
+	DeploymentConfigName pulumi.StringInput `pulumi:"deploymentConfigName"`
 	// The name of the deployment group.
-	DeploymentGroupName interface{}
+	DeploymentGroupName pulumi.StringInput `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-	DeploymentStyle interface{}
+	DeploymentStyle DeploymentGroupDeploymentStyleInput `pulumi:"deploymentStyle"`
 	// Tag filters associated with the deployment group. See the AWS docs for details.
-	Ec2TagFilters interface{}
+	Ec2TagFilters DeploymentGroupEc2TagFiltersArrayInput `pulumi:"ec2TagFilters"`
 	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
-	Ec2TagSets interface{}
+	Ec2TagSets DeploymentGroupEc2TagSetsArrayInput `pulumi:"ec2TagSets"`
 	// Configuration block(s) of the ECS services for a deployment group (documented below).
-	EcsService interface{}
+	EcsService DeploymentGroupEcsServiceInput `pulumi:"ecsService"`
 	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-	LoadBalancerInfo interface{}
+	LoadBalancerInfo DeploymentGroupLoadBalancerInfoInput `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
-	OnPremisesInstanceTagFilters interface{}
+	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFiltersArrayInput `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.
-	ServiceRoleArn interface{}
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
-	TriggerConfigurations interface{}
+	TriggerConfigurations DeploymentGroupTriggerConfigurationsArrayInput `pulumi:"triggerConfigurations"`
 }
+type DeploymentGroupAlarmConfiguration struct {
+	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+	Alarms *[]string `pulumi:"alarms"`
+	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+	Enabled *bool `pulumi:"enabled"`
+	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
+	// * `true`: The deployment will proceed even if alarm status information can't be retrieved.
+	// * `false`: The deployment will stop if alarm status information can't be retrieved.
+	IgnorePollAlarmFailure *bool `pulumi:"ignorePollAlarmFailure"`
+}
+var deploymentGroupAlarmConfigurationType = reflect.TypeOf((*DeploymentGroupAlarmConfiguration)(nil)).Elem()
+
+type DeploymentGroupAlarmConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAlarmConfigurationOutput() DeploymentGroupAlarmConfigurationOutput
+	ToDeploymentGroupAlarmConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationOutput
+}
+
+type DeploymentGroupAlarmConfigurationArgs struct {
+	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
+	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
+	// * `true`: The deployment will proceed even if alarm status information can't be retrieved.
+	// * `false`: The deployment will stop if alarm status information can't be retrieved.
+	IgnorePollAlarmFailure pulumi.BoolInput `pulumi:"ignorePollAlarmFailure"`
+}
+
+func (DeploymentGroupAlarmConfigurationArgs) ElementType() reflect.Type {
+	return deploymentGroupAlarmConfigurationType
+}
+
+func (a DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationOutput() DeploymentGroupAlarmConfigurationOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupAlarmConfigurationOutput)
+}
+
+func (a DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupAlarmConfigurationOutput)
+}
+
+type DeploymentGroupAlarmConfigurationOutput struct { *pulumi.OutputState }
+
+// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+func (o DeploymentGroupAlarmConfigurationOutput) Alarms() pulumi.StringArrayOutput {
+	return o.Apply(func(v DeploymentGroupAlarmConfiguration) []string {
+		if v.Alarms == nil { return *new([]string) } else { return *v.Alarms }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+func (o DeploymentGroupAlarmConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DeploymentGroupAlarmConfiguration) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
+// * `true`: The deployment will proceed even if alarm status information can't be retrieved.
+// * `false`: The deployment will stop if alarm status information can't be retrieved.
+func (o DeploymentGroupAlarmConfigurationOutput) IgnorePollAlarmFailure() pulumi.BoolOutput {
+	return o.Apply(func(v DeploymentGroupAlarmConfiguration) bool {
+		if v.IgnorePollAlarmFailure == nil { return *new(bool) } else { return *v.IgnorePollAlarmFailure }
+	}).(pulumi.BoolOutput)
+}
+
+func (DeploymentGroupAlarmConfigurationOutput) ElementType() reflect.Type {
+	return deploymentGroupAlarmConfigurationType
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationOutput() DeploymentGroupAlarmConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupAlarmConfigurationOutput{}) }
+
+type DeploymentGroupAutoRollbackConfiguration struct {
+	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+	Enabled *bool `pulumi:"enabled"`
+	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+	Events *[]string `pulumi:"events"`
+}
+var deploymentGroupAutoRollbackConfigurationType = reflect.TypeOf((*DeploymentGroupAutoRollbackConfiguration)(nil)).Elem()
+
+type DeploymentGroupAutoRollbackConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupAutoRollbackConfigurationOutput() DeploymentGroupAutoRollbackConfigurationOutput
+	ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationOutput
+}
+
+type DeploymentGroupAutoRollbackConfigurationArgs struct {
+	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+}
+
+func (DeploymentGroupAutoRollbackConfigurationArgs) ElementType() reflect.Type {
+	return deploymentGroupAutoRollbackConfigurationType
+}
+
+func (a DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationOutput() DeploymentGroupAutoRollbackConfigurationOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupAutoRollbackConfigurationOutput)
+}
+
+func (a DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupAutoRollbackConfigurationOutput)
+}
+
+type DeploymentGroupAutoRollbackConfigurationOutput struct { *pulumi.OutputState }
+
+// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+func (o DeploymentGroupAutoRollbackConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DeploymentGroupAutoRollbackConfiguration) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+func (o DeploymentGroupAutoRollbackConfigurationOutput) Events() pulumi.StringArrayOutput {
+	return o.Apply(func(v DeploymentGroupAutoRollbackConfiguration) []string {
+		if v.Events == nil { return *new([]string) } else { return *v.Events }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (DeploymentGroupAutoRollbackConfigurationOutput) ElementType() reflect.Type {
+	return deploymentGroupAutoRollbackConfigurationType
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationOutput() DeploymentGroupAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupAutoRollbackConfigurationOutput{}) }
+
+type DeploymentGroupBlueGreenDeploymentConfig struct {
+	// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
+	DeploymentReadyOption *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption `pulumi:"deploymentReadyOption"`
+	// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
+	GreenFleetProvisioningOption *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption `pulumi:"greenFleetProvisioningOption"`
+	// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+	TerminateBlueInstancesOnDeploymentSuccess *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
+}
+var deploymentGroupBlueGreenDeploymentConfigType = reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfig)(nil)).Elem()
+
+type DeploymentGroupBlueGreenDeploymentConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueGreenDeploymentConfigOutput() DeploymentGroupBlueGreenDeploymentConfigOutput
+	ToDeploymentGroupBlueGreenDeploymentConfigOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigOutput
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigArgs struct {
+	// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
+	DeploymentReadyOption DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput `pulumi:"deploymentReadyOption"`
+	// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
+	GreenFleetProvisioningOption DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput `pulumi:"greenFleetProvisioningOption"`
+	// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+	TerminateBlueInstancesOnDeploymentSuccess DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessInput `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigArgs) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigType
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigArgs) ToDeploymentGroupBlueGreenDeploymentConfigOutput() DeploymentGroupBlueGreenDeploymentConfigOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupBlueGreenDeploymentConfigOutput)
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigArgs) ToDeploymentGroupBlueGreenDeploymentConfigOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupBlueGreenDeploymentConfigOutput)
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigOutput struct { *pulumi.OutputState }
+
+// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
+func (o DeploymentGroupBlueGreenDeploymentConfigOutput) DeploymentReadyOption() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
+		if v.DeploymentReadyOption == nil { return *new(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) } else { return *v.DeploymentReadyOption }
+	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
+}
+
+// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
+func (o DeploymentGroupBlueGreenDeploymentConfigOutput) GreenFleetProvisioningOption() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
+		if v.GreenFleetProvisioningOption == nil { return *new(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) } else { return *v.GreenFleetProvisioningOption }
+	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
+}
+
+// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+func (o DeploymentGroupBlueGreenDeploymentConfigOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
+		if v.TerminateBlueInstancesOnDeploymentSuccess == nil { return *new(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) } else { return *v.TerminateBlueInstancesOnDeploymentSuccess }
+	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigOutput) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigType
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToDeploymentGroupBlueGreenDeploymentConfigOutput() DeploymentGroupBlueGreenDeploymentConfigOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToDeploymentGroupBlueGreenDeploymentConfigOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupBlueGreenDeploymentConfigOutput{}) }
+
+type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption struct {
+	// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+	// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+	// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
+	ActionOnTimeout *string `pulumi:"actionOnTimeout"`
+	// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
+	WaitTimeInMinutes *int `pulumi:"waitTimeInMinutes"`
+}
+var deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionType = reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption)(nil)).Elem()
+
+type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput
+	ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs struct {
+	// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+	// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+	// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
+	ActionOnTimeout pulumi.StringInput `pulumi:"actionOnTimeout"`
+	// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
+	WaitTimeInMinutes pulumi.IntInput `pulumi:"waitTimeInMinutes"`
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionType
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput struct { *pulumi.OutputState }
+
+// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
+func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ActionOnTimeout() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) string {
+		if v.ActionOnTimeout == nil { return *new(string) } else { return *v.ActionOnTimeout }
+	}).(pulumi.StringOutput)
+}
+
+// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
+func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) WaitTimeInMinutes() pulumi.IntOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) int {
+		if v.WaitTimeInMinutes == nil { return *new(int) } else { return *v.WaitTimeInMinutes }
+	}).(pulumi.IntOutput)
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionType
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput{}) }
+
+type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption struct {
+	// The action to take on instances in the original environment after a successful blue/green deployment.
+	// * `TERMINATE`: Instances are terminated after a specified wait time.
+	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+	Action *string `pulumi:"action"`
+}
+var deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionType = reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption)(nil)).Elem()
+
+type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput
+	ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs struct {
+	// The action to take on instances in the original environment after a successful blue/green deployment.
+	// * `TERMINATE`: Instances are terminated after a specified wait time.
+	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+	Action pulumi.StringInput `pulumi:"action"`
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionType
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput struct { *pulumi.OutputState }
+
+// The action to take on instances in the original environment after a successful blue/green deployment.
+// * `TERMINATE`: Instances are terminated after a specified wait time.
+// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) string {
+		if v.Action == nil { return *new(string) } else { return *v.Action }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionType
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput{}) }
+
+type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess struct {
+	// The action to take on instances in the original environment after a successful blue/green deployment.
+	// * `TERMINATE`: Instances are terminated after a specified wait time.
+	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+	Action *string `pulumi:"action"`
+	// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+	TerminationWaitTimeInMinutes *int `pulumi:"terminationWaitTimeInMinutes"`
+}
+var deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessType = reflect.TypeOf((*DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess)(nil)).Elem()
+
+type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput
+	ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs struct {
+	// The action to take on instances in the original environment after a successful blue/green deployment.
+	// * `TERMINATE`: Instances are terminated after a specified wait time.
+	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+	TerminationWaitTimeInMinutes pulumi.IntInput `pulumi:"terminationWaitTimeInMinutes"`
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessType
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
+}
+
+func (a DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
+}
+
+type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput struct { *pulumi.OutputState }
+
+// The action to take on instances in the original environment after a successful blue/green deployment.
+// * `TERMINATE`: Instances are terminated after a specified wait time.
+// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) string {
+		if v.Action == nil { return *new(string) } else { return *v.Action }
+	}).(pulumi.StringOutput)
+}
+
+// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) TerminationWaitTimeInMinutes() pulumi.IntOutput {
+	return o.Apply(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) int {
+		if v.TerminationWaitTimeInMinutes == nil { return *new(int) } else { return *v.TerminationWaitTimeInMinutes }
+	}).(pulumi.IntOutput)
+}
+
+func (DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ElementType() reflect.Type {
+	return deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessType
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
+	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput{}) }
+
+type DeploymentGroupDeploymentStyle struct {
+	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+	DeploymentOption *string `pulumi:"deploymentOption"`
+	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+	DeploymentType *string `pulumi:"deploymentType"`
+}
+var deploymentGroupDeploymentStyleType = reflect.TypeOf((*DeploymentGroupDeploymentStyle)(nil)).Elem()
+
+type DeploymentGroupDeploymentStyleInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupDeploymentStyleOutput() DeploymentGroupDeploymentStyleOutput
+	ToDeploymentGroupDeploymentStyleOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStyleOutput
+}
+
+type DeploymentGroupDeploymentStyleArgs struct {
+	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+	DeploymentOption pulumi.StringInput `pulumi:"deploymentOption"`
+	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
+}
+
+func (DeploymentGroupDeploymentStyleArgs) ElementType() reflect.Type {
+	return deploymentGroupDeploymentStyleType
+}
+
+func (a DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStyleOutput() DeploymentGroupDeploymentStyleOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupDeploymentStyleOutput)
+}
+
+func (a DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStyleOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupDeploymentStyleOutput)
+}
+
+type DeploymentGroupDeploymentStyleOutput struct { *pulumi.OutputState }
+
+// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+func (o DeploymentGroupDeploymentStyleOutput) DeploymentOption() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupDeploymentStyle) string {
+		if v.DeploymentOption == nil { return *new(string) } else { return *v.DeploymentOption }
+	}).(pulumi.StringOutput)
+}
+
+// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+func (o DeploymentGroupDeploymentStyleOutput) DeploymentType() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupDeploymentStyle) string {
+		if v.DeploymentType == nil { return *new(string) } else { return *v.DeploymentType }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupDeploymentStyleOutput) ElementType() reflect.Type {
+	return deploymentGroupDeploymentStyleType
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStyleOutput() DeploymentGroupDeploymentStyleOutput {
+	return o
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStyleOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStyleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupDeploymentStyleOutput{}) }
+
+type DeploymentGroupEc2TagFilters struct {
+	// The key of the tag filter.
+	Key *string `pulumi:"key"`
+	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+	Type *string `pulumi:"type"`
+	// The value of the tag filter.
+	Value *string `pulumi:"value"`
+}
+var deploymentGroupEc2TagFiltersType = reflect.TypeOf((*DeploymentGroupEc2TagFilters)(nil)).Elem()
+
+type DeploymentGroupEc2TagFiltersInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagFiltersOutput() DeploymentGroupEc2TagFiltersOutput
+	ToDeploymentGroupEc2TagFiltersOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFiltersOutput
+}
+
+type DeploymentGroupEc2TagFiltersArgs struct {
+	// The key of the tag filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the tag filter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeploymentGroupEc2TagFiltersArgs) ElementType() reflect.Type {
+	return deploymentGroupEc2TagFiltersType
+}
+
+func (a DeploymentGroupEc2TagFiltersArgs) ToDeploymentGroupEc2TagFiltersOutput() DeploymentGroupEc2TagFiltersOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEc2TagFiltersOutput)
+}
+
+func (a DeploymentGroupEc2TagFiltersArgs) ToDeploymentGroupEc2TagFiltersOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEc2TagFiltersOutput)
+}
+
+type DeploymentGroupEc2TagFiltersOutput struct { *pulumi.OutputState }
+
+// The key of the tag filter.
+func (o DeploymentGroupEc2TagFiltersOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagFilters) string {
+		if v.Key == nil { return *new(string) } else { return *v.Key }
+	}).(pulumi.StringOutput)
+}
+
+// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+func (o DeploymentGroupEc2TagFiltersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagFilters) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+// The value of the tag filter.
+func (o DeploymentGroupEc2TagFiltersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagFilters) string {
+		if v.Value == nil { return *new(string) } else { return *v.Value }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupEc2TagFiltersOutput) ElementType() reflect.Type {
+	return deploymentGroupEc2TagFiltersType
+}
+
+func (o DeploymentGroupEc2TagFiltersOutput) ToDeploymentGroupEc2TagFiltersOutput() DeploymentGroupEc2TagFiltersOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagFiltersOutput) ToDeploymentGroupEc2TagFiltersOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEc2TagFiltersOutput{}) }
+
+var deploymentGroupEc2TagFiltersArrayType = reflect.TypeOf((*[]DeploymentGroupEc2TagFilters)(nil)).Elem()
+
+type DeploymentGroupEc2TagFiltersArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagFiltersArrayOutput() DeploymentGroupEc2TagFiltersArrayOutput
+	ToDeploymentGroupEc2TagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFiltersArrayOutput
+}
+
+type DeploymentGroupEc2TagFiltersArrayArgs []DeploymentGroupEc2TagFiltersInput
+
+func (DeploymentGroupEc2TagFiltersArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupEc2TagFiltersArrayType
+}
+
+func (a DeploymentGroupEc2TagFiltersArrayArgs) ToDeploymentGroupEc2TagFiltersArrayOutput() DeploymentGroupEc2TagFiltersArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEc2TagFiltersArrayOutput)
+}
+
+func (a DeploymentGroupEc2TagFiltersArrayArgs) ToDeploymentGroupEc2TagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEc2TagFiltersArrayOutput)
+}
+
+type DeploymentGroupEc2TagFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupEc2TagFiltersArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupEc2TagFilters {
+		return vs[0].([]DeploymentGroupEc2TagFilters)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagFiltersOutput)
+}
+
+func (DeploymentGroupEc2TagFiltersArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupEc2TagFiltersArrayType
+}
+
+func (o DeploymentGroupEc2TagFiltersArrayOutput) ToDeploymentGroupEc2TagFiltersArrayOutput() DeploymentGroupEc2TagFiltersArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagFiltersArrayOutput) ToDeploymentGroupEc2TagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEc2TagFiltersArrayOutput{}) }
+
+type DeploymentGroupEc2TagSets struct {
+	// Tag filters associated with the deployment group. See the AWS docs for details.
+	Ec2TagFilters *[]DeploymentGroupEc2TagSetsEc2TagFilters `pulumi:"ec2TagFilters"`
+}
+var deploymentGroupEc2TagSetsType = reflect.TypeOf((*DeploymentGroupEc2TagSets)(nil)).Elem()
+
+type DeploymentGroupEc2TagSetsInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetsOutput() DeploymentGroupEc2TagSetsOutput
+	ToDeploymentGroupEc2TagSetsOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsOutput
+}
+
+type DeploymentGroupEc2TagSetsArgs struct {
+	// Tag filters associated with the deployment group. See the AWS docs for details.
+	Ec2TagFilters DeploymentGroupEc2TagSetsEc2TagFiltersArrayInput `pulumi:"ec2TagFilters"`
+}
+
+func (DeploymentGroupEc2TagSetsArgs) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsType
+}
+
+func (a DeploymentGroupEc2TagSetsArgs) ToDeploymentGroupEc2TagSetsOutput() DeploymentGroupEc2TagSetsOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEc2TagSetsOutput)
+}
+
+func (a DeploymentGroupEc2TagSetsArgs) ToDeploymentGroupEc2TagSetsOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEc2TagSetsOutput)
+}
+
+type DeploymentGroupEc2TagSetsOutput struct { *pulumi.OutputState }
+
+// Tag filters associated with the deployment group. See the AWS docs for details.
+func (o DeploymentGroupEc2TagSetsOutput) Ec2TagFilters() DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagSets) []DeploymentGroupEc2TagSetsEc2TagFilters {
+		if v.Ec2TagFilters == nil { return *new([]DeploymentGroupEc2TagSetsEc2TagFilters) } else { return *v.Ec2TagFilters }
+	}).(DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput)
+}
+
+func (DeploymentGroupEc2TagSetsOutput) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsType
+}
+
+func (o DeploymentGroupEc2TagSetsOutput) ToDeploymentGroupEc2TagSetsOutput() DeploymentGroupEc2TagSetsOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetsOutput) ToDeploymentGroupEc2TagSetsOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEc2TagSetsOutput{}) }
+
+var deploymentGroupEc2TagSetsArrayType = reflect.TypeOf((*[]DeploymentGroupEc2TagSets)(nil)).Elem()
+
+type DeploymentGroupEc2TagSetsArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetsArrayOutput() DeploymentGroupEc2TagSetsArrayOutput
+	ToDeploymentGroupEc2TagSetsArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsArrayOutput
+}
+
+type DeploymentGroupEc2TagSetsArrayArgs []DeploymentGroupEc2TagSetsInput
+
+func (DeploymentGroupEc2TagSetsArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsArrayType
+}
+
+func (a DeploymentGroupEc2TagSetsArrayArgs) ToDeploymentGroupEc2TagSetsArrayOutput() DeploymentGroupEc2TagSetsArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEc2TagSetsArrayOutput)
+}
+
+func (a DeploymentGroupEc2TagSetsArrayArgs) ToDeploymentGroupEc2TagSetsArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEc2TagSetsArrayOutput)
+}
+
+type DeploymentGroupEc2TagSetsArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupEc2TagSetsArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupEc2TagSets {
+		return vs[0].([]DeploymentGroupEc2TagSets)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagSetsOutput)
+}
+
+func (DeploymentGroupEc2TagSetsArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsArrayType
+}
+
+func (o DeploymentGroupEc2TagSetsArrayOutput) ToDeploymentGroupEc2TagSetsArrayOutput() DeploymentGroupEc2TagSetsArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetsArrayOutput) ToDeploymentGroupEc2TagSetsArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEc2TagSetsArrayOutput{}) }
+
+type DeploymentGroupEc2TagSetsEc2TagFilters struct {
+	// The key of the tag filter.
+	Key *string `pulumi:"key"`
+	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+	Type *string `pulumi:"type"`
+	// The value of the tag filter.
+	Value *string `pulumi:"value"`
+}
+var deploymentGroupEc2TagSetsEc2TagFiltersType = reflect.TypeOf((*DeploymentGroupEc2TagSetsEc2TagFilters)(nil)).Elem()
+
+type DeploymentGroupEc2TagSetsEc2TagFiltersInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetsEc2TagFiltersOutput() DeploymentGroupEc2TagSetsEc2TagFiltersOutput
+	ToDeploymentGroupEc2TagSetsEc2TagFiltersOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsEc2TagFiltersOutput
+}
+
+type DeploymentGroupEc2TagSetsEc2TagFiltersArgs struct {
+	// The key of the tag filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the tag filter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeploymentGroupEc2TagSetsEc2TagFiltersArgs) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsEc2TagFiltersType
+}
+
+func (a DeploymentGroupEc2TagSetsEc2TagFiltersArgs) ToDeploymentGroupEc2TagSetsEc2TagFiltersOutput() DeploymentGroupEc2TagSetsEc2TagFiltersOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEc2TagSetsEc2TagFiltersOutput)
+}
+
+func (a DeploymentGroupEc2TagSetsEc2TagFiltersArgs) ToDeploymentGroupEc2TagSetsEc2TagFiltersOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsEc2TagFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEc2TagSetsEc2TagFiltersOutput)
+}
+
+type DeploymentGroupEc2TagSetsEc2TagFiltersOutput struct { *pulumi.OutputState }
+
+// The key of the tag filter.
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagSetsEc2TagFilters) string {
+		if v.Key == nil { return *new(string) } else { return *v.Key }
+	}).(pulumi.StringOutput)
+}
+
+// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagSetsEc2TagFilters) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+// The value of the tag filter.
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEc2TagSetsEc2TagFilters) string {
+		if v.Value == nil { return *new(string) } else { return *v.Value }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupEc2TagSetsEc2TagFiltersOutput) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsEc2TagFiltersType
+}
+
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersOutput) ToDeploymentGroupEc2TagSetsEc2TagFiltersOutput() DeploymentGroupEc2TagSetsEc2TagFiltersOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersOutput) ToDeploymentGroupEc2TagSetsEc2TagFiltersOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsEc2TagFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEc2TagSetsEc2TagFiltersOutput{}) }
+
+var deploymentGroupEc2TagSetsEc2TagFiltersArrayType = reflect.TypeOf((*[]DeploymentGroupEc2TagSetsEc2TagFilters)(nil)).Elem()
+
+type DeploymentGroupEc2TagSetsEc2TagFiltersArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput() DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput
+	ToDeploymentGroupEc2TagSetsEc2TagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput
+}
+
+type DeploymentGroupEc2TagSetsEc2TagFiltersArrayArgs []DeploymentGroupEc2TagSetsEc2TagFiltersInput
+
+func (DeploymentGroupEc2TagSetsEc2TagFiltersArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsEc2TagFiltersArrayType
+}
+
+func (a DeploymentGroupEc2TagSetsEc2TagFiltersArrayArgs) ToDeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput() DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput)
+}
+
+func (a DeploymentGroupEc2TagSetsEc2TagFiltersArrayArgs) ToDeploymentGroupEc2TagSetsEc2TagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput)
+}
+
+type DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetsEc2TagFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupEc2TagSetsEc2TagFilters {
+		return vs[0].([]DeploymentGroupEc2TagSetsEc2TagFilters)[vs[1].(int)]
+	}).(DeploymentGroupEc2TagSetsEc2TagFiltersOutput)
+}
+
+func (DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupEc2TagSetsEc2TagFiltersArrayType
+}
+
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput) ToDeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput() DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput) ToDeploymentGroupEc2TagSetsEc2TagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEc2TagSetsEc2TagFiltersArrayOutput{}) }
+
+type DeploymentGroupEcsService struct {
+	// The name of the ECS cluster.
+	ClusterName string `pulumi:"clusterName"`
+	// The name of the ECS service.
+	ServiceName string `pulumi:"serviceName"`
+}
+var deploymentGroupEcsServiceType = reflect.TypeOf((*DeploymentGroupEcsService)(nil)).Elem()
+
+type DeploymentGroupEcsServiceInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput
+	ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput
+}
+
+type DeploymentGroupEcsServiceArgs struct {
+	// The name of the ECS cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// The name of the ECS service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (DeploymentGroupEcsServiceArgs) ElementType() reflect.Type {
+	return deploymentGroupEcsServiceType
+}
+
+func (a DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupEcsServiceOutput)
+}
+
+func (a DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupEcsServiceOutput)
+}
+
+type DeploymentGroupEcsServiceOutput struct { *pulumi.OutputState }
+
+// The name of the ECS cluster.
+func (o DeploymentGroupEcsServiceOutput) ClusterName() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEcsService) string {
+		return v.ClusterName
+	}).(pulumi.StringOutput)
+}
+
+// The name of the ECS service.
+func (o DeploymentGroupEcsServiceOutput) ServiceName() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupEcsService) string {
+		return v.ServiceName
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupEcsServiceOutput) ElementType() reflect.Type {
+	return deploymentGroupEcsServiceType
+}
+
+func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServiceOutput() DeploymentGroupEcsServiceOutput {
+	return o
+}
+
+func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServiceOutputWithContext(ctx context.Context) DeploymentGroupEcsServiceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupEcsServiceOutput{}) }
+
+type DeploymentGroupLoadBalancerInfo struct {
+	// The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
+	ElbInfos *[]DeploymentGroupLoadBalancerInfoElbInfos `pulumi:"elbInfos"`
+	// The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
+	TargetGroupInfos *[]DeploymentGroupLoadBalancerInfoTargetGroupInfos `pulumi:"targetGroupInfos"`
+	// The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
+	TargetGroupPairInfo *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo `pulumi:"targetGroupPairInfo"`
+}
+var deploymentGroupLoadBalancerInfoType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfo)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoOutput() DeploymentGroupLoadBalancerInfoOutput
+	ToDeploymentGroupLoadBalancerInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoOutput
+}
+
+type DeploymentGroupLoadBalancerInfoArgs struct {
+	// The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
+	ElbInfos DeploymentGroupLoadBalancerInfoElbInfosArrayInput `pulumi:"elbInfos"`
+	// The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
+	TargetGroupInfos DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayInput `pulumi:"targetGroupInfos"`
+	// The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
+	TargetGroupPairInfo DeploymentGroupLoadBalancerInfoTargetGroupPairInfoInput `pulumi:"targetGroupPairInfo"`
+}
+
+func (DeploymentGroupLoadBalancerInfoArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoType
+}
+
+func (a DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoOutput() DeploymentGroupLoadBalancerInfoOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoOutput struct { *pulumi.OutputState }
+
+// The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
+func (o DeploymentGroupLoadBalancerInfoOutput) ElbInfos() DeploymentGroupLoadBalancerInfoElbInfosArrayOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoElbInfos {
+		if v.ElbInfos == nil { return *new([]DeploymentGroupLoadBalancerInfoElbInfos) } else { return *v.ElbInfos }
+	}).(DeploymentGroupLoadBalancerInfoElbInfosArrayOutput)
+}
+
+// The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
+func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupInfos() DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfo) []DeploymentGroupLoadBalancerInfoTargetGroupInfos {
+		if v.TargetGroupInfos == nil { return *new([]DeploymentGroupLoadBalancerInfoTargetGroupInfos) } else { return *v.TargetGroupInfos }
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput)
+}
+
+// The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
+func (o DeploymentGroupLoadBalancerInfoOutput) TargetGroupPairInfo() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
+		if v.TargetGroupPairInfo == nil { return *new(DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) } else { return *v.TargetGroupPairInfo }
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoType
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoOutput() DeploymentGroupLoadBalancerInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoOutput{}) }
+
+type DeploymentGroupLoadBalancerInfoElbInfos struct {
+	// Name of the target group.
+	Name *string `pulumi:"name"`
+}
+var deploymentGroupLoadBalancerInfoElbInfosType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfoElbInfos)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoElbInfosInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoElbInfosOutput() DeploymentGroupLoadBalancerInfoElbInfosOutput
+	ToDeploymentGroupLoadBalancerInfoElbInfosOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfosOutput
+}
+
+type DeploymentGroupLoadBalancerInfoElbInfosArgs struct {
+	// Name of the target group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DeploymentGroupLoadBalancerInfoElbInfosArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoElbInfosType
+}
+
+func (a DeploymentGroupLoadBalancerInfoElbInfosArgs) ToDeploymentGroupLoadBalancerInfoElbInfosOutput() DeploymentGroupLoadBalancerInfoElbInfosOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoElbInfosOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoElbInfosArgs) ToDeploymentGroupLoadBalancerInfoElbInfosOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfosOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoElbInfosOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoElbInfosOutput struct { *pulumi.OutputState }
+
+// Name of the target group.
+func (o DeploymentGroupLoadBalancerInfoElbInfosOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoElbInfos) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoElbInfosOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoElbInfosType
+}
+
+func (o DeploymentGroupLoadBalancerInfoElbInfosOutput) ToDeploymentGroupLoadBalancerInfoElbInfosOutput() DeploymentGroupLoadBalancerInfoElbInfosOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoElbInfosOutput) ToDeploymentGroupLoadBalancerInfoElbInfosOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfosOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoElbInfosOutput{}) }
+
+var deploymentGroupLoadBalancerInfoElbInfosArrayType = reflect.TypeOf((*[]DeploymentGroupLoadBalancerInfoElbInfos)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoElbInfosArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoElbInfosArrayOutput() DeploymentGroupLoadBalancerInfoElbInfosArrayOutput
+	ToDeploymentGroupLoadBalancerInfoElbInfosArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfosArrayOutput
+}
+
+type DeploymentGroupLoadBalancerInfoElbInfosArrayArgs []DeploymentGroupLoadBalancerInfoElbInfosInput
+
+func (DeploymentGroupLoadBalancerInfoElbInfosArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoElbInfosArrayType
+}
+
+func (a DeploymentGroupLoadBalancerInfoElbInfosArrayArgs) ToDeploymentGroupLoadBalancerInfoElbInfosArrayOutput() DeploymentGroupLoadBalancerInfoElbInfosArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoElbInfosArrayOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoElbInfosArrayArgs) ToDeploymentGroupLoadBalancerInfoElbInfosArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfosArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoElbInfosArrayOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoElbInfosArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupLoadBalancerInfoElbInfosArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoElbInfosOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupLoadBalancerInfoElbInfos {
+		return vs[0].([]DeploymentGroupLoadBalancerInfoElbInfos)[vs[1].(int)]
+	}).(DeploymentGroupLoadBalancerInfoElbInfosOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoElbInfosArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoElbInfosArrayType
+}
+
+func (o DeploymentGroupLoadBalancerInfoElbInfosArrayOutput) ToDeploymentGroupLoadBalancerInfoElbInfosArrayOutput() DeploymentGroupLoadBalancerInfoElbInfosArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoElbInfosArrayOutput) ToDeploymentGroupLoadBalancerInfoElbInfosArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfosArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoElbInfosArrayOutput{}) }
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfos struct {
+	// Name of the target group.
+	Name *string `pulumi:"name"`
+}
+var deploymentGroupLoadBalancerInfoTargetGroupInfosType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupInfos)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfosInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupInfosOutput() DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupInfosOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfosArgs struct {
+	// Name of the target group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupInfosArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupInfosType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupInfosArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosOutput() DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupInfosArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput struct { *pulumi.OutputState }
+
+// Name of the target group.
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupInfos) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupInfosType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosOutput() DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput{}) }
+
+var deploymentGroupLoadBalancerInfoTargetGroupInfosArrayType = reflect.TypeOf((*[]DeploymentGroupLoadBalancerInfoTargetGroupInfos)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput() DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayArgs []DeploymentGroupLoadBalancerInfoTargetGroupInfosInput
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupInfosArrayType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput() DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupLoadBalancerInfoTargetGroupInfos {
+		return vs[0].([]DeploymentGroupLoadBalancerInfoTargetGroupInfos)[vs[1].(int)]
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupInfosOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupInfosArrayType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput() DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupInfosArrayOutput{}) }
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfo struct {
+	// Configuration block for the production traffic route (documented below).
+	ProdTrafficRoute DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute `pulumi:"prodTrafficRoute"`
+	// Configuration blocks for a target group within a target group pair (documented below).
+	TargetGroups []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups `pulumi:"targetGroups"`
+	// Configuration block for the test traffic route (documented below).
+	TestTrafficRoute *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute `pulumi:"testTrafficRoute"`
+}
+var deploymentGroupLoadBalancerInfoTargetGroupPairInfoType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfo)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs struct {
+	// Configuration block for the production traffic route (documented below).
+	ProdTrafficRoute DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput `pulumi:"prodTrafficRoute"`
+	// Configuration blocks for a target group within a target group pair (documented below).
+	TargetGroups DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayInput `pulumi:"targetGroups"`
+	// Configuration block for the test traffic route (documented below).
+	TestTrafficRoute DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteInput `pulumi:"testTrafficRoute"`
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput struct { *pulumi.OutputState }
+
+// Configuration block for the production traffic route (documented below).
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ProdTrafficRoute() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
+		return v.ProdTrafficRoute
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
+}
+
+// Configuration blocks for a target group within a target group pair (documented below).
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) TargetGroups() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups {
+		return v.TargetGroups
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput)
+}
+
+// Configuration block for the test traffic route (documented below).
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) TestTrafficRoute() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
+		if v.TestTrafficRoute == nil { return *new(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) } else { return *v.TestTrafficRoute }
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput{}) }
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute struct {
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	ListenerArns []string `pulumi:"listenerArns"`
+}
+var deploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs struct {
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	ListenerArns pulumi.StringArrayInput `pulumi:"listenerArns"`
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput struct { *pulumi.OutputState }
+
+// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput{}) }
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups struct {
+	// Name of the target group.
+	Name string `pulumi:"name"`
+}
+var deploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArgs struct {
+	// Name of the target group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput struct { *pulumi.OutputState }
+
+// Name of the target group.
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput{}) }
+
+var deploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayType = reflect.TypeOf((*[]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayArgs []DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsInput
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups {
+		return vs[0].([]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroups)[vs[1].(int)]
+	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupsArrayOutput{}) }
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute struct {
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	ListenerArns []string `pulumi:"listenerArns"`
+}
+var deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteType = reflect.TypeOf((*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute)(nil)).Elem()
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput
+	ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs struct {
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	ListenerArns pulumi.StringArrayInput `pulumi:"listenerArns"`
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteType
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
+}
+
+func (a DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
+}
+
+type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput struct { *pulumi.OutputState }
+
+// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
+	return o.Apply(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) []string {
+		return v.ListenerArns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ElementType() reflect.Type {
+	return deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteType
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
+	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput{}) }
+
+type DeploymentGroupOnPremisesInstanceTagFilters struct {
+	// The key of the tag filter.
+	Key *string `pulumi:"key"`
+	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+	Type *string `pulumi:"type"`
+	// The value of the tag filter.
+	Value *string `pulumi:"value"`
+}
+var deploymentGroupOnPremisesInstanceTagFiltersType = reflect.TypeOf((*DeploymentGroupOnPremisesInstanceTagFilters)(nil)).Elem()
+
+type DeploymentGroupOnPremisesInstanceTagFiltersInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOnPremisesInstanceTagFiltersOutput() DeploymentGroupOnPremisesInstanceTagFiltersOutput
+	ToDeploymentGroupOnPremisesInstanceTagFiltersOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFiltersOutput
+}
+
+type DeploymentGroupOnPremisesInstanceTagFiltersArgs struct {
+	// The key of the tag filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the tag filter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeploymentGroupOnPremisesInstanceTagFiltersArgs) ElementType() reflect.Type {
+	return deploymentGroupOnPremisesInstanceTagFiltersType
+}
+
+func (a DeploymentGroupOnPremisesInstanceTagFiltersArgs) ToDeploymentGroupOnPremisesInstanceTagFiltersOutput() DeploymentGroupOnPremisesInstanceTagFiltersOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupOnPremisesInstanceTagFiltersOutput)
+}
+
+func (a DeploymentGroupOnPremisesInstanceTagFiltersArgs) ToDeploymentGroupOnPremisesInstanceTagFiltersOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupOnPremisesInstanceTagFiltersOutput)
+}
+
+type DeploymentGroupOnPremisesInstanceTagFiltersOutput struct { *pulumi.OutputState }
+
+// The key of the tag filter.
+func (o DeploymentGroupOnPremisesInstanceTagFiltersOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupOnPremisesInstanceTagFilters) string {
+		if v.Key == nil { return *new(string) } else { return *v.Key }
+	}).(pulumi.StringOutput)
+}
+
+// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+func (o DeploymentGroupOnPremisesInstanceTagFiltersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupOnPremisesInstanceTagFilters) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+// The value of the tag filter.
+func (o DeploymentGroupOnPremisesInstanceTagFiltersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupOnPremisesInstanceTagFilters) string {
+		if v.Value == nil { return *new(string) } else { return *v.Value }
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupOnPremisesInstanceTagFiltersOutput) ElementType() reflect.Type {
+	return deploymentGroupOnPremisesInstanceTagFiltersType
+}
+
+func (o DeploymentGroupOnPremisesInstanceTagFiltersOutput) ToDeploymentGroupOnPremisesInstanceTagFiltersOutput() DeploymentGroupOnPremisesInstanceTagFiltersOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesInstanceTagFiltersOutput) ToDeploymentGroupOnPremisesInstanceTagFiltersOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupOnPremisesInstanceTagFiltersOutput{}) }
+
+var deploymentGroupOnPremisesInstanceTagFiltersArrayType = reflect.TypeOf((*[]DeploymentGroupOnPremisesInstanceTagFilters)(nil)).Elem()
+
+type DeploymentGroupOnPremisesInstanceTagFiltersArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutput() DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput
+	ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput
+}
+
+type DeploymentGroupOnPremisesInstanceTagFiltersArrayArgs []DeploymentGroupOnPremisesInstanceTagFiltersInput
+
+func (DeploymentGroupOnPremisesInstanceTagFiltersArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupOnPremisesInstanceTagFiltersArrayType
+}
+
+func (a DeploymentGroupOnPremisesInstanceTagFiltersArrayArgs) ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutput() DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput)
+}
+
+func (a DeploymentGroupOnPremisesInstanceTagFiltersArrayArgs) ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput)
+}
+
+type DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOnPremisesInstanceTagFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupOnPremisesInstanceTagFilters {
+		return vs[0].([]DeploymentGroupOnPremisesInstanceTagFilters)[vs[1].(int)]
+	}).(DeploymentGroupOnPremisesInstanceTagFiltersOutput)
+}
+
+func (DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupOnPremisesInstanceTagFiltersArrayType
+}
+
+func (o DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput) ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutput() DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput) ToDeploymentGroupOnPremisesInstanceTagFiltersArrayOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupOnPremisesInstanceTagFiltersArrayOutput{}) }
+
+type DeploymentGroupTriggerConfigurations struct {
+	// The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+	TriggerEvents []string `pulumi:"triggerEvents"`
+	// The name of the notification trigger.
+	TriggerName string `pulumi:"triggerName"`
+	// The ARN of the SNS topic through which notifications are sent.
+	TriggerTargetArn string `pulumi:"triggerTargetArn"`
+}
+var deploymentGroupTriggerConfigurationsType = reflect.TypeOf((*DeploymentGroupTriggerConfigurations)(nil)).Elem()
+
+type DeploymentGroupTriggerConfigurationsInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTriggerConfigurationsOutput() DeploymentGroupTriggerConfigurationsOutput
+	ToDeploymentGroupTriggerConfigurationsOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationsOutput
+}
+
+type DeploymentGroupTriggerConfigurationsArgs struct {
+	// The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+	TriggerEvents pulumi.StringArrayInput `pulumi:"triggerEvents"`
+	// The name of the notification trigger.
+	TriggerName pulumi.StringInput `pulumi:"triggerName"`
+	// The ARN of the SNS topic through which notifications are sent.
+	TriggerTargetArn pulumi.StringInput `pulumi:"triggerTargetArn"`
+}
+
+func (DeploymentGroupTriggerConfigurationsArgs) ElementType() reflect.Type {
+	return deploymentGroupTriggerConfigurationsType
+}
+
+func (a DeploymentGroupTriggerConfigurationsArgs) ToDeploymentGroupTriggerConfigurationsOutput() DeploymentGroupTriggerConfigurationsOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupTriggerConfigurationsOutput)
+}
+
+func (a DeploymentGroupTriggerConfigurationsArgs) ToDeploymentGroupTriggerConfigurationsOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupTriggerConfigurationsOutput)
+}
+
+type DeploymentGroupTriggerConfigurationsOutput struct { *pulumi.OutputState }
+
+// The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
+func (o DeploymentGroupTriggerConfigurationsOutput) TriggerEvents() pulumi.StringArrayOutput {
+	return o.Apply(func(v DeploymentGroupTriggerConfigurations) []string {
+		return v.TriggerEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the notification trigger.
+func (o DeploymentGroupTriggerConfigurationsOutput) TriggerName() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupTriggerConfigurations) string {
+		return v.TriggerName
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the SNS topic through which notifications are sent.
+func (o DeploymentGroupTriggerConfigurationsOutput) TriggerTargetArn() pulumi.StringOutput {
+	return o.Apply(func(v DeploymentGroupTriggerConfigurations) string {
+		return v.TriggerTargetArn
+	}).(pulumi.StringOutput)
+}
+
+func (DeploymentGroupTriggerConfigurationsOutput) ElementType() reflect.Type {
+	return deploymentGroupTriggerConfigurationsType
+}
+
+func (o DeploymentGroupTriggerConfigurationsOutput) ToDeploymentGroupTriggerConfigurationsOutput() DeploymentGroupTriggerConfigurationsOutput {
+	return o
+}
+
+func (o DeploymentGroupTriggerConfigurationsOutput) ToDeploymentGroupTriggerConfigurationsOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupTriggerConfigurationsOutput{}) }
+
+var deploymentGroupTriggerConfigurationsArrayType = reflect.TypeOf((*[]DeploymentGroupTriggerConfigurations)(nil)).Elem()
+
+type DeploymentGroupTriggerConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGroupTriggerConfigurationsArrayOutput() DeploymentGroupTriggerConfigurationsArrayOutput
+	ToDeploymentGroupTriggerConfigurationsArrayOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationsArrayOutput
+}
+
+type DeploymentGroupTriggerConfigurationsArrayArgs []DeploymentGroupTriggerConfigurationsInput
+
+func (DeploymentGroupTriggerConfigurationsArrayArgs) ElementType() reflect.Type {
+	return deploymentGroupTriggerConfigurationsArrayType
+}
+
+func (a DeploymentGroupTriggerConfigurationsArrayArgs) ToDeploymentGroupTriggerConfigurationsArrayOutput() DeploymentGroupTriggerConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(DeploymentGroupTriggerConfigurationsArrayOutput)
+}
+
+func (a DeploymentGroupTriggerConfigurationsArrayArgs) ToDeploymentGroupTriggerConfigurationsArrayOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DeploymentGroupTriggerConfigurationsArrayOutput)
+}
+
+type DeploymentGroupTriggerConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o DeploymentGroupTriggerConfigurationsArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTriggerConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DeploymentGroupTriggerConfigurations {
+		return vs[0].([]DeploymentGroupTriggerConfigurations)[vs[1].(int)]
+	}).(DeploymentGroupTriggerConfigurationsOutput)
+}
+
+func (DeploymentGroupTriggerConfigurationsArrayOutput) ElementType() reflect.Type {
+	return deploymentGroupTriggerConfigurationsArrayType
+}
+
+func (o DeploymentGroupTriggerConfigurationsArrayOutput) ToDeploymentGroupTriggerConfigurationsArrayOutput() DeploymentGroupTriggerConfigurationsArrayOutput {
+	return o
+}
+
+func (o DeploymentGroupTriggerConfigurationsArrayOutput) ToDeploymentGroupTriggerConfigurationsArrayOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DeploymentGroupTriggerConfigurationsArrayOutput{}) }
+

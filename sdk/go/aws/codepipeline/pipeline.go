@@ -4,6 +4,8 @@
 package codepipeline
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
 type Pipeline struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The codepipeline ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// An artifactStore block. Artifact stores are documented below.
+	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
+	ArtifactStore PipelineArtifactStoreOutput `pulumi:"artifactStore"`
+
+	// The name of the pipeline.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	Stages PipelineStagesArrayOutput `pulumi:"stages"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
 func NewPipeline(ctx *pulumi.Context,
-	name string, args *PipelineArgs, opts ...pulumi.ResourceOpt) (*Pipeline, error) {
+	name string, args *PipelineArgs, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	if args == nil || args.ArtifactStore == nil {
 		return nil, errors.New("missing required argument 'ArtifactStore'")
 	}
@@ -29,114 +49,475 @@ func NewPipeline(ctx *pulumi.Context,
 	if args == nil || args.Stages == nil {
 		return nil, errors.New("missing required argument 'Stages'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["artifactStore"] = nil
-		inputs["name"] = nil
-		inputs["roleArn"] = nil
-		inputs["stages"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["artifactStore"] = args.ArtifactStore
-		inputs["name"] = args.Name
-		inputs["roleArn"] = args.RoleArn
-		inputs["stages"] = args.Stages
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ArtifactStore; i != nil { inputs["artifactStore"] = i.ToPipelineArtifactStoreOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.Stages; i != nil { inputs["stages"] = i.ToPipelineStagesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:codepipeline/pipeline:Pipeline", name, true, inputs, opts...)
+	var resource Pipeline
+	err := ctx.RegisterResource("aws:codepipeline/pipeline:Pipeline", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pipeline{s: s}, nil
+	return &resource, nil
 }
 
 // GetPipeline gets an existing Pipeline resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPipeline(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PipelineState, opts ...pulumi.ResourceOpt) (*Pipeline, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["artifactStore"] = state.ArtifactStore
-		inputs["name"] = state.Name
-		inputs["roleArn"] = state.RoleArn
-		inputs["stages"] = state.Stages
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ArtifactStore; i != nil { inputs["artifactStore"] = i.ToPipelineArtifactStoreOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.Stages; i != nil { inputs["stages"] = i.ToPipelineStagesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:codepipeline/pipeline:Pipeline", name, id, inputs, opts...)
+	var resource Pipeline
+	err := ctx.ReadResource("aws:codepipeline/pipeline:Pipeline", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pipeline{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Pipeline) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Pipeline) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The codepipeline ARN.
-func (r *Pipeline) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// An artifactStore block. Artifact stores are documented below.
-// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
-func (r *Pipeline) ArtifactStore() pulumi.Output {
-	return r.s.State["artifactStore"]
-}
-
-// The name of the pipeline.
-func (r *Pipeline) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-func (r *Pipeline) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-func (r *Pipeline) Stages() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["stages"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Pipeline) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Pipeline resources.
 type PipelineState struct {
 	// The codepipeline ARN.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// An artifactStore block. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
-	ArtifactStore interface{}
+	ArtifactStore PipelineArtifactStoreInput `pulumi:"artifactStore"`
 	// The name of the pipeline.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn interface{}
-	Stages interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	Stages PipelineStagesArrayInput `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// An artifactStore block. Artifact stores are documented below.
 	// * `stage` (Minimum of at least two `stage` blocks is required) A stage block. Stages are documented below.
-	ArtifactStore interface{}
+	ArtifactStore PipelineArtifactStoreInput `pulumi:"artifactStore"`
 	// The name of the pipeline.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-	RoleArn interface{}
-	Stages interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	Stages PipelineStagesArrayInput `pulumi:"stages"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type PipelineArtifactStore struct {
+	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
+	Location string `pulumi:"location"`
+	Type string `pulumi:"type"`
+}
+var pipelineArtifactStoreType = reflect.TypeOf((*PipelineArtifactStore)(nil)).Elem()
+
+type PipelineArtifactStoreInput interface {
+	pulumi.Input
+
+	ToPipelineArtifactStoreOutput() PipelineArtifactStoreOutput
+	ToPipelineArtifactStoreOutputWithContext(ctx context.Context) PipelineArtifactStoreOutput
+}
+
+type PipelineArtifactStoreArgs struct {
+	EncryptionKey PipelineArtifactStoreEncryptionKeyInput `pulumi:"encryptionKey"`
+	Location pulumi.StringInput `pulumi:"location"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PipelineArtifactStoreArgs) ElementType() reflect.Type {
+	return pipelineArtifactStoreType
+}
+
+func (a PipelineArtifactStoreArgs) ToPipelineArtifactStoreOutput() PipelineArtifactStoreOutput {
+	return pulumi.ToOutput(a).(PipelineArtifactStoreOutput)
+}
+
+func (a PipelineArtifactStoreArgs) ToPipelineArtifactStoreOutputWithContext(ctx context.Context) PipelineArtifactStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineArtifactStoreOutput)
+}
+
+type PipelineArtifactStoreOutput struct { *pulumi.OutputState }
+
+func (o PipelineArtifactStoreOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyOutput {
+	return o.Apply(func(v PipelineArtifactStore) PipelineArtifactStoreEncryptionKey {
+		if v.EncryptionKey == nil { return *new(PipelineArtifactStoreEncryptionKey) } else { return *v.EncryptionKey }
+	}).(PipelineArtifactStoreEncryptionKeyOutput)
+}
+
+func (o PipelineArtifactStoreOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v PipelineArtifactStore) string {
+		return v.Location
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineArtifactStoreOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v PipelineArtifactStore) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineArtifactStoreOutput) ElementType() reflect.Type {
+	return pipelineArtifactStoreType
+}
+
+func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutput() PipelineArtifactStoreOutput {
+	return o
+}
+
+func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutputWithContext(ctx context.Context) PipelineArtifactStoreOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineArtifactStoreOutput{}) }
+
+type PipelineArtifactStoreEncryptionKey struct {
+	// The codepipeline ID.
+	Id string `pulumi:"id"`
+	Type string `pulumi:"type"`
+}
+var pipelineArtifactStoreEncryptionKeyType = reflect.TypeOf((*PipelineArtifactStoreEncryptionKey)(nil)).Elem()
+
+type PipelineArtifactStoreEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToPipelineArtifactStoreEncryptionKeyOutput() PipelineArtifactStoreEncryptionKeyOutput
+	ToPipelineArtifactStoreEncryptionKeyOutputWithContext(ctx context.Context) PipelineArtifactStoreEncryptionKeyOutput
+}
+
+type PipelineArtifactStoreEncryptionKeyArgs struct {
+	// The codepipeline ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PipelineArtifactStoreEncryptionKeyArgs) ElementType() reflect.Type {
+	return pipelineArtifactStoreEncryptionKeyType
+}
+
+func (a PipelineArtifactStoreEncryptionKeyArgs) ToPipelineArtifactStoreEncryptionKeyOutput() PipelineArtifactStoreEncryptionKeyOutput {
+	return pulumi.ToOutput(a).(PipelineArtifactStoreEncryptionKeyOutput)
+}
+
+func (a PipelineArtifactStoreEncryptionKeyArgs) ToPipelineArtifactStoreEncryptionKeyOutputWithContext(ctx context.Context) PipelineArtifactStoreEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineArtifactStoreEncryptionKeyOutput)
+}
+
+type PipelineArtifactStoreEncryptionKeyOutput struct { *pulumi.OutputState }
+
+// The codepipeline ID.
+func (o PipelineArtifactStoreEncryptionKeyOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v PipelineArtifactStoreEncryptionKey) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineArtifactStoreEncryptionKeyOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v PipelineArtifactStoreEncryptionKey) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineArtifactStoreEncryptionKeyOutput) ElementType() reflect.Type {
+	return pipelineArtifactStoreEncryptionKeyType
+}
+
+func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncryptionKeyOutput() PipelineArtifactStoreEncryptionKeyOutput {
+	return o
+}
+
+func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncryptionKeyOutputWithContext(ctx context.Context) PipelineArtifactStoreEncryptionKeyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineArtifactStoreEncryptionKeyOutput{}) }
+
+type PipelineStages struct {
+	Actions []PipelineStagesActions `pulumi:"actions"`
+	// The name of the pipeline.
+	Name string `pulumi:"name"`
+}
+var pipelineStagesType = reflect.TypeOf((*PipelineStages)(nil)).Elem()
+
+type PipelineStagesInput interface {
+	pulumi.Input
+
+	ToPipelineStagesOutput() PipelineStagesOutput
+	ToPipelineStagesOutputWithContext(ctx context.Context) PipelineStagesOutput
+}
+
+type PipelineStagesArgs struct {
+	Actions PipelineStagesActionsArrayInput `pulumi:"actions"`
+	// The name of the pipeline.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PipelineStagesArgs) ElementType() reflect.Type {
+	return pipelineStagesType
+}
+
+func (a PipelineStagesArgs) ToPipelineStagesOutput() PipelineStagesOutput {
+	return pulumi.ToOutput(a).(PipelineStagesOutput)
+}
+
+func (a PipelineStagesArgs) ToPipelineStagesOutputWithContext(ctx context.Context) PipelineStagesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineStagesOutput)
+}
+
+type PipelineStagesOutput struct { *pulumi.OutputState }
+
+func (o PipelineStagesOutput) Actions() PipelineStagesActionsArrayOutput {
+	return o.Apply(func(v PipelineStages) []PipelineStagesActions {
+		return v.Actions
+	}).(PipelineStagesActionsArrayOutput)
+}
+
+// The name of the pipeline.
+func (o PipelineStagesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStages) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineStagesOutput) ElementType() reflect.Type {
+	return pipelineStagesType
+}
+
+func (o PipelineStagesOutput) ToPipelineStagesOutput() PipelineStagesOutput {
+	return o
+}
+
+func (o PipelineStagesOutput) ToPipelineStagesOutputWithContext(ctx context.Context) PipelineStagesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineStagesOutput{}) }
+
+type PipelineStagesActions struct {
+	Category string `pulumi:"category"`
+	Configuration *map[string]string `pulumi:"configuration"`
+	InputArtifacts *[]string `pulumi:"inputArtifacts"`
+	// The name of the pipeline.
+	Name string `pulumi:"name"`
+	OutputArtifacts *[]string `pulumi:"outputArtifacts"`
+	Owner string `pulumi:"owner"`
+	Provider string `pulumi:"provider"`
+	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	RoleArn *string `pulumi:"roleArn"`
+	RunOrder *int `pulumi:"runOrder"`
+	Version string `pulumi:"version"`
+}
+var pipelineStagesActionsType = reflect.TypeOf((*PipelineStagesActions)(nil)).Elem()
+
+type PipelineStagesActionsInput interface {
+	pulumi.Input
+
+	ToPipelineStagesActionsOutput() PipelineStagesActionsOutput
+	ToPipelineStagesActionsOutputWithContext(ctx context.Context) PipelineStagesActionsOutput
+}
+
+type PipelineStagesActionsArgs struct {
+	Category pulumi.StringInput `pulumi:"category"`
+	Configuration pulumi.MapInput `pulumi:"configuration"`
+	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
+	// The name of the pipeline.
+	Name pulumi.StringInput `pulumi:"name"`
+	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
+	Owner pulumi.StringInput `pulumi:"owner"`
+	Provider pulumi.StringInput `pulumi:"provider"`
+	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RunOrder pulumi.IntInput `pulumi:"runOrder"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PipelineStagesActionsArgs) ElementType() reflect.Type {
+	return pipelineStagesActionsType
+}
+
+func (a PipelineStagesActionsArgs) ToPipelineStagesActionsOutput() PipelineStagesActionsOutput {
+	return pulumi.ToOutput(a).(PipelineStagesActionsOutput)
+}
+
+func (a PipelineStagesActionsArgs) ToPipelineStagesActionsOutputWithContext(ctx context.Context) PipelineStagesActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineStagesActionsOutput)
+}
+
+type PipelineStagesActionsOutput struct { *pulumi.OutputState }
+
+func (o PipelineStagesActionsOutput) Category() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStagesActions) string {
+		return v.Category
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineStagesActionsOutput) Configuration() pulumi.MapOutput {
+	return o.Apply(func(v PipelineStagesActions) map[string]string {
+		if v.Configuration == nil { return *new(map[string]string) } else { return *v.Configuration }
+	}).(pulumi.MapOutput)
+}
+
+func (o PipelineStagesActionsOutput) InputArtifacts() pulumi.StringArrayOutput {
+	return o.Apply(func(v PipelineStagesActions) []string {
+		if v.InputArtifacts == nil { return *new([]string) } else { return *v.InputArtifacts }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the pipeline.
+func (o PipelineStagesActionsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStagesActions) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineStagesActionsOutput) OutputArtifacts() pulumi.StringArrayOutput {
+	return o.Apply(func(v PipelineStagesActions) []string {
+		if v.OutputArtifacts == nil { return *new([]string) } else { return *v.OutputArtifacts }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineStagesActionsOutput) Owner() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStagesActions) string {
+		return v.Owner
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineStagesActionsOutput) Provider() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStagesActions) string {
+		return v.Provider
+	}).(pulumi.StringOutput)
+}
+
+// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+func (o PipelineStagesActionsOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStagesActions) string {
+		if v.RoleArn == nil { return *new(string) } else { return *v.RoleArn }
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineStagesActionsOutput) RunOrder() pulumi.IntOutput {
+	return o.Apply(func(v PipelineStagesActions) int {
+		if v.RunOrder == nil { return *new(int) } else { return *v.RunOrder }
+	}).(pulumi.IntOutput)
+}
+
+func (o PipelineStagesActionsOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v PipelineStagesActions) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineStagesActionsOutput) ElementType() reflect.Type {
+	return pipelineStagesActionsType
+}
+
+func (o PipelineStagesActionsOutput) ToPipelineStagesActionsOutput() PipelineStagesActionsOutput {
+	return o
+}
+
+func (o PipelineStagesActionsOutput) ToPipelineStagesActionsOutputWithContext(ctx context.Context) PipelineStagesActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineStagesActionsOutput{}) }
+
+var pipelineStagesActionsArrayType = reflect.TypeOf((*[]PipelineStagesActions)(nil)).Elem()
+
+type PipelineStagesActionsArrayInput interface {
+	pulumi.Input
+
+	ToPipelineStagesActionsArrayOutput() PipelineStagesActionsArrayOutput
+	ToPipelineStagesActionsArrayOutputWithContext(ctx context.Context) PipelineStagesActionsArrayOutput
+}
+
+type PipelineStagesActionsArrayArgs []PipelineStagesActionsInput
+
+func (PipelineStagesActionsArrayArgs) ElementType() reflect.Type {
+	return pipelineStagesActionsArrayType
+}
+
+func (a PipelineStagesActionsArrayArgs) ToPipelineStagesActionsArrayOutput() PipelineStagesActionsArrayOutput {
+	return pulumi.ToOutput(a).(PipelineStagesActionsArrayOutput)
+}
+
+func (a PipelineStagesActionsArrayArgs) ToPipelineStagesActionsArrayOutputWithContext(ctx context.Context) PipelineStagesActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineStagesActionsArrayOutput)
+}
+
+type PipelineStagesActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o PipelineStagesActionsArrayOutput) Index(i pulumi.IntInput) PipelineStagesActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PipelineStagesActions {
+		return vs[0].([]PipelineStagesActions)[vs[1].(int)]
+	}).(PipelineStagesActionsOutput)
+}
+
+func (PipelineStagesActionsArrayOutput) ElementType() reflect.Type {
+	return pipelineStagesActionsArrayType
+}
+
+func (o PipelineStagesActionsArrayOutput) ToPipelineStagesActionsArrayOutput() PipelineStagesActionsArrayOutput {
+	return o
+}
+
+func (o PipelineStagesActionsArrayOutput) ToPipelineStagesActionsArrayOutputWithContext(ctx context.Context) PipelineStagesActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineStagesActionsArrayOutput{}) }
+
+var pipelineStagesArrayType = reflect.TypeOf((*[]PipelineStages)(nil)).Elem()
+
+type PipelineStagesArrayInput interface {
+	pulumi.Input
+
+	ToPipelineStagesArrayOutput() PipelineStagesArrayOutput
+	ToPipelineStagesArrayOutputWithContext(ctx context.Context) PipelineStagesArrayOutput
+}
+
+type PipelineStagesArrayArgs []PipelineStagesInput
+
+func (PipelineStagesArrayArgs) ElementType() reflect.Type {
+	return pipelineStagesArrayType
+}
+
+func (a PipelineStagesArrayArgs) ToPipelineStagesArrayOutput() PipelineStagesArrayOutput {
+	return pulumi.ToOutput(a).(PipelineStagesArrayOutput)
+}
+
+func (a PipelineStagesArrayArgs) ToPipelineStagesArrayOutputWithContext(ctx context.Context) PipelineStagesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineStagesArrayOutput)
+}
+
+type PipelineStagesArrayOutput struct { *pulumi.OutputState }
+
+func (o PipelineStagesArrayOutput) Index(i pulumi.IntInput) PipelineStagesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PipelineStages {
+		return vs[0].([]PipelineStages)[vs[1].(int)]
+	}).(PipelineStagesOutput)
+}
+
+func (PipelineStagesArrayOutput) ElementType() reflect.Type {
+	return pipelineStagesArrayType
+}
+
+func (o PipelineStagesArrayOutput) ToPipelineStagesArrayOutput() PipelineStagesArrayOutput {
+	return o
+}
+
+func (o PipelineStagesArrayOutput) ToPipelineStagesArrayOutputWithContext(ctx context.Context) PipelineStagesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineStagesArrayOutput{}) }
+

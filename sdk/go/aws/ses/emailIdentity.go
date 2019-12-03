@@ -12,75 +12,60 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_email_identity.html.markdown.
 type EmailIdentity struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the email identity.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The email address to assign to SES
+	Email pulumi.StringOutput `pulumi:"email"`
 }
 
 // NewEmailIdentity registers a new resource with the given unique name, arguments, and options.
 func NewEmailIdentity(ctx *pulumi.Context,
-	name string, args *EmailIdentityArgs, opts ...pulumi.ResourceOpt) (*EmailIdentity, error) {
+	name string, args *EmailIdentityArgs, opts ...pulumi.ResourceOption) (*EmailIdentity, error) {
 	if args == nil || args.Email == nil {
 		return nil, errors.New("missing required argument 'Email'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["email"] = nil
-	} else {
-		inputs["email"] = args.Email
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Email; i != nil { inputs["email"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:ses/emailIdentity:EmailIdentity", name, true, inputs, opts...)
+	var resource EmailIdentity
+	err := ctx.RegisterResource("aws:ses/emailIdentity:EmailIdentity", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EmailIdentity{s: s}, nil
+	return &resource, nil
 }
 
 // GetEmailIdentity gets an existing EmailIdentity resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEmailIdentity(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EmailIdentityState, opts ...pulumi.ResourceOpt) (*EmailIdentity, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EmailIdentityState, opts ...pulumi.ResourceOption) (*EmailIdentity, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["email"] = state.Email
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Email; i != nil { inputs["email"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/emailIdentity:EmailIdentity", name, id, inputs, opts...)
+	var resource EmailIdentity
+	err := ctx.ReadResource("aws:ses/emailIdentity:EmailIdentity", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EmailIdentity{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EmailIdentity) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EmailIdentity) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the email identity.
-func (r *EmailIdentity) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The email address to assign to SES
-func (r *EmailIdentity) Email() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["email"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EmailIdentity resources.
 type EmailIdentityState struct {
 	// The ARN of the email identity.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The email address to assign to SES
-	Email interface{}
+	Email pulumi.StringInput `pulumi:"email"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
 type EmailIdentityArgs struct {
 	// The email address to assign to SES
-	Email interface{}
+	Email pulumi.StringInput `pulumi:"email"`
 }

@@ -12,87 +12,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
 type LogStream struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) specifying the log stream.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name of the log group under which the log stream is to be created.
+	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+
+	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewLogStream registers a new resource with the given unique name, arguments, and options.
 func NewLogStream(ctx *pulumi.Context,
-	name string, args *LogStreamArgs, opts ...pulumi.ResourceOpt) (*LogStream, error) {
+	name string, args *LogStreamArgs, opts ...pulumi.ResourceOption) (*LogStream, error) {
 	if args == nil || args.LogGroupName == nil {
 		return nil, errors.New("missing required argument 'LogGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["logGroupName"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["logGroupName"] = args.LogGroupName
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.LogGroupName; i != nil { inputs["logGroupName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:cloudwatch/logStream:LogStream", name, true, inputs, opts...)
+	var resource LogStream
+	err := ctx.RegisterResource("aws:cloudwatch/logStream:LogStream", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogStream{s: s}, nil
+	return &resource, nil
 }
 
 // GetLogStream gets an existing LogStream resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLogStream(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LogStreamState, opts ...pulumi.ResourceOpt) (*LogStream, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LogStreamState, opts ...pulumi.ResourceOption) (*LogStream, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["logGroupName"] = state.LogGroupName
-		inputs["name"] = state.Name
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.LogGroupName; i != nil { inputs["logGroupName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/logStream:LogStream", name, id, inputs, opts...)
+	var resource LogStream
+	err := ctx.ReadResource("aws:cloudwatch/logStream:LogStream", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogStream{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LogStream) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LogStream) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) specifying the log stream.
-func (r *LogStream) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name of the log group under which the log stream is to be created.
-func (r *LogStream) LogGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logGroupName"])
-}
-
-// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-func (r *LogStream) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LogStream resources.
 type LogStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the log stream.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name of the log group under which the log stream is to be created.
-	LogGroupName interface{}
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LogStream resource.
 type LogStreamArgs struct {
 	// The name of the log group under which the log stream is to be created.
-	LogGroupName interface{}
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

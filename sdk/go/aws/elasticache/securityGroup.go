@@ -17,93 +17,76 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
 type SecurityGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// description for the cache security group. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Name for the cache security group. This value is stored as a lowercase string.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// List of EC2 security group names to be
+	// authorized for ingress to the cache security group
+	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 }
 
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewSecurityGroup(ctx *pulumi.Context,
-	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
+	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
 	if args == nil || args.SecurityGroupNames == nil {
 		return nil, errors.New("missing required argument 'SecurityGroupNames'")
 	}
-	inputs := make(map[string]interface{})
-	inputs["description"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["name"] = nil
-		inputs["securityGroupNames"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["securityGroupNames"] = args.SecurityGroupNames
+	inputs := map[string]pulumi.Input{}
+	inputs["description"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.SecurityGroupNames; i != nil { inputs["securityGroupNames"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:elasticache/securityGroup:SecurityGroup", name, true, inputs, opts...)
+	var resource SecurityGroup
+	err := ctx.RegisterResource("aws:elasticache/securityGroup:SecurityGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SecurityGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetSecurityGroup gets an existing SecurityGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSecurityGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SecurityGroupState, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SecurityGroupState, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["securityGroupNames"] = state.SecurityGroupNames
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.SecurityGroupNames; i != nil { inputs["securityGroupNames"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticache/securityGroup:SecurityGroup", name, id, inputs, opts...)
+	var resource SecurityGroup
+	err := ctx.ReadResource("aws:elasticache/securityGroup:SecurityGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SecurityGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// description for the cache security group. Defaults to "Managed by Pulumi".
-func (r *SecurityGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Name for the cache security group. This value is stored as a lowercase string.
-func (r *SecurityGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// List of EC2 security group names to be
-// authorized for ingress to the cache security group
-func (r *SecurityGroup) SecurityGroupNames() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroupNames"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type SecurityGroupState struct {
 	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name for the cache security group. This value is stored as a lowercase string.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// List of EC2 security group names to be
 	// authorized for ingress to the cache security group
-	SecurityGroupNames interface{}
+	SecurityGroupNames pulumi.StringArrayInput `pulumi:"securityGroupNames"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
 	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name for the cache security group. This value is stored as a lowercase string.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// List of EC2 security group names to be
 	// authorized for ingress to the cache security group
-	SecurityGroupNames interface{}
+	SecurityGroupNames pulumi.StringArrayInput `pulumi:"securityGroupNames"`
 }

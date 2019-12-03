@@ -11,84 +11,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/internet_gateway.html.markdown.
 type InternetGateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the AWS account that owns the internet gateway.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The VPC ID to create in.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewInternetGateway registers a new resource with the given unique name, arguments, and options.
 func NewInternetGateway(ctx *pulumi.Context,
-	name string, args *InternetGatewayArgs, opts ...pulumi.ResourceOpt) (*InternetGateway, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["tags"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
+	name string, args *InternetGatewayArgs, opts ...pulumi.ResourceOption) (*InternetGateway, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	inputs["ownerId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/internetGateway:InternetGateway", name, true, inputs, opts...)
+	var resource InternetGateway
+	err := ctx.RegisterResource("aws:ec2/internetGateway:InternetGateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &InternetGateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetInternetGateway gets an existing InternetGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInternetGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InternetGatewayState, opts ...pulumi.ResourceOpt) (*InternetGateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InternetGatewayState, opts ...pulumi.ResourceOption) (*InternetGateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["ownerId"] = state.OwnerId
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/internetGateway:InternetGateway", name, id, inputs, opts...)
+	var resource InternetGateway
+	err := ctx.ReadResource("aws:ec2/internetGateway:InternetGateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &InternetGateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *InternetGateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *InternetGateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the AWS account that owns the internet gateway.
-func (r *InternetGateway) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *InternetGateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The VPC ID to create in.
-func (r *InternetGateway) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering InternetGateway resources.
 type InternetGatewayState struct {
 	// The ID of the AWS account that owns the internet gateway.
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID to create in.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID to create in.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

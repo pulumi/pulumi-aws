@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -68,309 +70,579 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
 type LaunchConfiguration struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Associate a public ip address with an instance in a VPC.
+	AssociatePublicIpAddress pulumi.BoolOutput `pulumi:"associatePublicIpAddress"`
+
+	// Additional EBS block devices to attach to the
+	// instance.  See Block Devices below for details.
+	EbsBlockDevices LaunchConfigurationEbsBlockDevicesArrayOutput `pulumi:"ebsBlockDevices"`
+
+	// If true, the launched EC2 instance will be EBS-optimized.
+	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
+
+	// Enables/disables detailed monitoring. This is enabled by default.
+	EnableMonitoring pulumi.BoolOutput `pulumi:"enableMonitoring"`
+
+	// Customize Ephemeral (also known as
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	EphemeralBlockDevices LaunchConfigurationEphemeralBlockDevicesArrayOutput `pulumi:"ephemeralBlockDevices"`
+
+	// The name attribute of the IAM instance profile to associate
+	// with launched instances.
+	IamInstanceProfile pulumi.StringOutput `pulumi:"iamInstanceProfile"`
+
+	// The EC2 image ID to launch.
+	ImageId pulumi.StringOutput `pulumi:"imageId"`
+
+	// The size of instance to launch.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+
+	// The key name that should be used for the instance.
+	KeyName pulumi.StringOutput `pulumi:"keyName"`
+
+	// The name of the launch configuration. If you leave
+	// this blank, this provider will auto-generate a unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified
+	// prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// The tenancy of the instance. Valid values are
+	// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
+	// for more details
+	PlacementTenancy pulumi.StringOutput `pulumi:"placementTenancy"`
+
+	// Customize details about the root block
+	// device of the instance. See Block Devices below for details.
+	RootBlockDevice LaunchConfigurationRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
+
+	// A list of associated security group IDS.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
+
+	// The maximum price to use for reserving spot instances.
+	SpotPrice pulumi.StringOutput `pulumi:"spotPrice"`
+
+	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
+	UserData pulumi.StringOutput `pulumi:"userData"`
+
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
+
+	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+	VpcClassicLinkId pulumi.StringOutput `pulumi:"vpcClassicLinkId"`
+
+	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+	VpcClassicLinkSecurityGroups pulumi.StringArrayOutput `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 // NewLaunchConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewLaunchConfiguration(ctx *pulumi.Context,
-	name string, args *LaunchConfigurationArgs, opts ...pulumi.ResourceOpt) (*LaunchConfiguration, error) {
+	name string, args *LaunchConfigurationArgs, opts ...pulumi.ResourceOption) (*LaunchConfiguration, error) {
 	if args == nil || args.ImageId == nil {
 		return nil, errors.New("missing required argument 'ImageId'")
 	}
 	if args == nil || args.InstanceType == nil {
 		return nil, errors.New("missing required argument 'InstanceType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["associatePublicIpAddress"] = nil
-		inputs["ebsBlockDevices"] = nil
-		inputs["ebsOptimized"] = nil
-		inputs["enableMonitoring"] = nil
-		inputs["ephemeralBlockDevices"] = nil
-		inputs["iamInstanceProfile"] = nil
-		inputs["imageId"] = nil
-		inputs["instanceType"] = nil
-		inputs["keyName"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["placementTenancy"] = nil
-		inputs["rootBlockDevice"] = nil
-		inputs["securityGroups"] = nil
-		inputs["spotPrice"] = nil
-		inputs["userData"] = nil
-		inputs["userDataBase64"] = nil
-		inputs["vpcClassicLinkId"] = nil
-		inputs["vpcClassicLinkSecurityGroups"] = nil
-	} else {
-		inputs["associatePublicIpAddress"] = args.AssociatePublicIpAddress
-		inputs["ebsBlockDevices"] = args.EbsBlockDevices
-		inputs["ebsOptimized"] = args.EbsOptimized
-		inputs["enableMonitoring"] = args.EnableMonitoring
-		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
-		inputs["iamInstanceProfile"] = args.IamInstanceProfile
-		inputs["imageId"] = args.ImageId
-		inputs["instanceType"] = args.InstanceType
-		inputs["keyName"] = args.KeyName
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["placementTenancy"] = args.PlacementTenancy
-		inputs["rootBlockDevice"] = args.RootBlockDevice
-		inputs["securityGroups"] = args.SecurityGroups
-		inputs["spotPrice"] = args.SpotPrice
-		inputs["userData"] = args.UserData
-		inputs["userDataBase64"] = args.UserDataBase64
-		inputs["vpcClassicLinkId"] = args.VpcClassicLinkId
-		inputs["vpcClassicLinkSecurityGroups"] = args.VpcClassicLinkSecurityGroups
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AssociatePublicIpAddress; i != nil { inputs["associatePublicIpAddress"] = i.ToBoolOutput() }
+		if i := args.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToLaunchConfigurationEbsBlockDevicesArrayOutput() }
+		if i := args.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToBoolOutput() }
+		if i := args.EnableMonitoring; i != nil { inputs["enableMonitoring"] = i.ToBoolOutput() }
+		if i := args.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToLaunchConfigurationEphemeralBlockDevicesArrayOutput() }
+		if i := args.IamInstanceProfile; i != nil { inputs["iamInstanceProfile"] = i.ToStringOutput() }
+		if i := args.ImageId; i != nil { inputs["imageId"] = i.ToStringOutput() }
+		if i := args.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := args.KeyName; i != nil { inputs["keyName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.PlacementTenancy; i != nil { inputs["placementTenancy"] = i.ToStringOutput() }
+		if i := args.RootBlockDevice; i != nil { inputs["rootBlockDevice"] = i.ToLaunchConfigurationRootBlockDeviceOutput() }
+		if i := args.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := args.SpotPrice; i != nil { inputs["spotPrice"] = i.ToStringOutput() }
+		if i := args.UserData; i != nil { inputs["userData"] = i.ToStringOutput() }
+		if i := args.UserDataBase64; i != nil { inputs["userDataBase64"] = i.ToStringOutput() }
+		if i := args.VpcClassicLinkId; i != nil { inputs["vpcClassicLinkId"] = i.ToStringOutput() }
+		if i := args.VpcClassicLinkSecurityGroups; i != nil { inputs["vpcClassicLinkSecurityGroups"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, true, inputs, opts...)
+	var resource LaunchConfiguration
+	err := ctx.RegisterResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LaunchConfiguration{s: s}, nil
+	return &resource, nil
 }
 
 // GetLaunchConfiguration gets an existing LaunchConfiguration resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLaunchConfiguration(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LaunchConfigurationState, opts ...pulumi.ResourceOpt) (*LaunchConfiguration, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LaunchConfigurationState, opts ...pulumi.ResourceOption) (*LaunchConfiguration, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["associatePublicIpAddress"] = state.AssociatePublicIpAddress
-		inputs["ebsBlockDevices"] = state.EbsBlockDevices
-		inputs["ebsOptimized"] = state.EbsOptimized
-		inputs["enableMonitoring"] = state.EnableMonitoring
-		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
-		inputs["iamInstanceProfile"] = state.IamInstanceProfile
-		inputs["imageId"] = state.ImageId
-		inputs["instanceType"] = state.InstanceType
-		inputs["keyName"] = state.KeyName
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["placementTenancy"] = state.PlacementTenancy
-		inputs["rootBlockDevice"] = state.RootBlockDevice
-		inputs["securityGroups"] = state.SecurityGroups
-		inputs["spotPrice"] = state.SpotPrice
-		inputs["userData"] = state.UserData
-		inputs["userDataBase64"] = state.UserDataBase64
-		inputs["vpcClassicLinkId"] = state.VpcClassicLinkId
-		inputs["vpcClassicLinkSecurityGroups"] = state.VpcClassicLinkSecurityGroups
+		if i := state.AssociatePublicIpAddress; i != nil { inputs["associatePublicIpAddress"] = i.ToBoolOutput() }
+		if i := state.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToLaunchConfigurationEbsBlockDevicesArrayOutput() }
+		if i := state.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToBoolOutput() }
+		if i := state.EnableMonitoring; i != nil { inputs["enableMonitoring"] = i.ToBoolOutput() }
+		if i := state.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToLaunchConfigurationEphemeralBlockDevicesArrayOutput() }
+		if i := state.IamInstanceProfile; i != nil { inputs["iamInstanceProfile"] = i.ToStringOutput() }
+		if i := state.ImageId; i != nil { inputs["imageId"] = i.ToStringOutput() }
+		if i := state.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := state.KeyName; i != nil { inputs["keyName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.PlacementTenancy; i != nil { inputs["placementTenancy"] = i.ToStringOutput() }
+		if i := state.RootBlockDevice; i != nil { inputs["rootBlockDevice"] = i.ToLaunchConfigurationRootBlockDeviceOutput() }
+		if i := state.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := state.SpotPrice; i != nil { inputs["spotPrice"] = i.ToStringOutput() }
+		if i := state.UserData; i != nil { inputs["userData"] = i.ToStringOutput() }
+		if i := state.UserDataBase64; i != nil { inputs["userDataBase64"] = i.ToStringOutput() }
+		if i := state.VpcClassicLinkId; i != nil { inputs["vpcClassicLinkId"] = i.ToStringOutput() }
+		if i := state.VpcClassicLinkSecurityGroups; i != nil { inputs["vpcClassicLinkSecurityGroups"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, id, inputs, opts...)
+	var resource LaunchConfiguration
+	err := ctx.ReadResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LaunchConfiguration{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LaunchConfiguration) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LaunchConfiguration) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Associate a public ip address with an instance in a VPC.
-func (r *LaunchConfiguration) AssociatePublicIpAddress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["associatePublicIpAddress"])
-}
-
-// Additional EBS block devices to attach to the
-// instance.  See Block Devices below for details.
-func (r *LaunchConfiguration) EbsBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
-}
-
-// If true, the launched EC2 instance will be EBS-optimized.
-func (r *LaunchConfiguration) EbsOptimized() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
-}
-
-// Enables/disables detailed monitoring. This is enabled by default.
-func (r *LaunchConfiguration) EnableMonitoring() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableMonitoring"])
-}
-
-// Customize Ephemeral (also known as
-// "Instance Store") volumes on the instance. See Block Devices below for details.
-func (r *LaunchConfiguration) EphemeralBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
-}
-
-// The name attribute of the IAM instance profile to associate
-// with launched instances.
-func (r *LaunchConfiguration) IamInstanceProfile() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamInstanceProfile"])
-}
-
-// The EC2 image ID to launch.
-func (r *LaunchConfiguration) ImageId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageId"])
-}
-
-// The size of instance to launch.
-func (r *LaunchConfiguration) InstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceType"])
-}
-
-// The key name that should be used for the instance.
-func (r *LaunchConfiguration) KeyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyName"])
-}
-
-// The name of the launch configuration. If you leave
-// this blank, this provider will auto-generate a unique name.
-func (r *LaunchConfiguration) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified
-// prefix. Conflicts with `name`.
-func (r *LaunchConfiguration) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// The tenancy of the instance. Valid values are
-// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-// for more details
-func (r *LaunchConfiguration) PlacementTenancy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["placementTenancy"])
-}
-
-// Customize details about the root block
-// device of the instance. See Block Devices below for details.
-func (r *LaunchConfiguration) RootBlockDevice() pulumi.Output {
-	return r.s.State["rootBlockDevice"]
-}
-
-// A list of associated security group IDS.
-func (r *LaunchConfiguration) SecurityGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
-}
-
-// The maximum price to use for reserving spot instances.
-func (r *LaunchConfiguration) SpotPrice() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["spotPrice"])
-}
-
-// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-func (r *LaunchConfiguration) UserData() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userData"])
-}
-
-// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-func (r *LaunchConfiguration) UserDataBase64() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userDataBase64"])
-}
-
-// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-func (r *LaunchConfiguration) VpcClassicLinkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcClassicLinkId"])
-}
-
-// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-func (r *LaunchConfiguration) VpcClassicLinkSecurityGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["vpcClassicLinkSecurityGroups"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LaunchConfiguration resources.
 type LaunchConfigurationState struct {
 	// Associate a public ip address with an instance in a VPC.
-	AssociatePublicIpAddress interface{}
+	AssociatePublicIpAddress pulumi.BoolInput `pulumi:"associatePublicIpAddress"`
 	// Additional EBS block devices to attach to the
 	// instance.  See Block Devices below for details.
-	EbsBlockDevices interface{}
+	EbsBlockDevices LaunchConfigurationEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
 	// Enables/disables detailed monitoring. This is enabled by default.
-	EnableMonitoring interface{}
+	EnableMonitoring pulumi.BoolInput `pulumi:"enableMonitoring"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices LaunchConfigurationEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// The name attribute of the IAM instance profile to associate
 	// with launched instances.
-	IamInstanceProfile interface{}
+	IamInstanceProfile pulumi.StringInput `pulumi:"iamInstanceProfile"`
 	// The EC2 image ID to launch.
-	ImageId interface{}
+	ImageId pulumi.StringInput `pulumi:"imageId"`
 	// The size of instance to launch.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
-	KeyName interface{}
+	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are
 	// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
 	// for more details
-	PlacementTenancy interface{}
+	PlacementTenancy pulumi.StringInput `pulumi:"placementTenancy"`
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
-	RootBlockDevice interface{}
+	RootBlockDevice LaunchConfigurationRootBlockDeviceInput `pulumi:"rootBlockDevice"`
 	// A list of associated security group IDS.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
-	SpotPrice interface{}
+	SpotPrice pulumi.StringInput `pulumi:"spotPrice"`
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-	UserData interface{}
+	UserData pulumi.StringInput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-	UserDataBase64 interface{}
+	UserDataBase64 pulumi.StringInput `pulumi:"userDataBase64"`
 	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	VpcClassicLinkId interface{}
+	VpcClassicLinkId pulumi.StringInput `pulumi:"vpcClassicLinkId"`
 	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	VpcClassicLinkSecurityGroups interface{}
+	VpcClassicLinkSecurityGroups pulumi.StringArrayInput `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 // The set of arguments for constructing a LaunchConfiguration resource.
 type LaunchConfigurationArgs struct {
 	// Associate a public ip address with an instance in a VPC.
-	AssociatePublicIpAddress interface{}
+	AssociatePublicIpAddress pulumi.BoolInput `pulumi:"associatePublicIpAddress"`
 	// Additional EBS block devices to attach to the
 	// instance.  See Block Devices below for details.
-	EbsBlockDevices interface{}
+	EbsBlockDevices LaunchConfigurationEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
 	// Enables/disables detailed monitoring. This is enabled by default.
-	EnableMonitoring interface{}
+	EnableMonitoring pulumi.BoolInput `pulumi:"enableMonitoring"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices LaunchConfigurationEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// The name attribute of the IAM instance profile to associate
 	// with launched instances.
-	IamInstanceProfile interface{}
+	IamInstanceProfile pulumi.StringInput `pulumi:"iamInstanceProfile"`
 	// The EC2 image ID to launch.
-	ImageId interface{}
+	ImageId pulumi.StringInput `pulumi:"imageId"`
 	// The size of instance to launch.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// The key name that should be used for the instance.
-	KeyName interface{}
+	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// The name of the launch configuration. If you leave
 	// this blank, this provider will auto-generate a unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are
 	// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
 	// for more details
-	PlacementTenancy interface{}
+	PlacementTenancy pulumi.StringInput `pulumi:"placementTenancy"`
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
-	RootBlockDevice interface{}
+	RootBlockDevice LaunchConfigurationRootBlockDeviceInput `pulumi:"rootBlockDevice"`
 	// A list of associated security group IDS.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
-	SpotPrice interface{}
+	SpotPrice pulumi.StringInput `pulumi:"spotPrice"`
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-	UserData interface{}
+	UserData pulumi.StringInput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-	UserDataBase64 interface{}
+	UserDataBase64 pulumi.StringInput `pulumi:"userDataBase64"`
 	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	VpcClassicLinkId interface{}
+	VpcClassicLinkId pulumi.StringInput `pulumi:"vpcClassicLinkId"`
 	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	VpcClassicLinkSecurityGroups interface{}
+	VpcClassicLinkSecurityGroups pulumi.StringArrayInput `pulumi:"vpcClassicLinkSecurityGroups"`
 }
+type LaunchConfigurationEbsBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeviceName string `pulumi:"deviceName"`
+	Encrypted *bool `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	NoDevice *bool `pulumi:"noDevice"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var launchConfigurationEbsBlockDevicesType = reflect.TypeOf((*LaunchConfigurationEbsBlockDevices)(nil)).Elem()
+
+type LaunchConfigurationEbsBlockDevicesInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationEbsBlockDevicesOutput() LaunchConfigurationEbsBlockDevicesOutput
+	ToLaunchConfigurationEbsBlockDevicesOutputWithContext(ctx context.Context) LaunchConfigurationEbsBlockDevicesOutput
+}
+
+type LaunchConfigurationEbsBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	NoDevice pulumi.BoolInput `pulumi:"noDevice"`
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (LaunchConfigurationEbsBlockDevicesArgs) ElementType() reflect.Type {
+	return launchConfigurationEbsBlockDevicesType
+}
+
+func (a LaunchConfigurationEbsBlockDevicesArgs) ToLaunchConfigurationEbsBlockDevicesOutput() LaunchConfigurationEbsBlockDevicesOutput {
+	return pulumi.ToOutput(a).(LaunchConfigurationEbsBlockDevicesOutput)
+}
+
+func (a LaunchConfigurationEbsBlockDevicesArgs) ToLaunchConfigurationEbsBlockDevicesOutputWithContext(ctx context.Context) LaunchConfigurationEbsBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchConfigurationEbsBlockDevicesOutput)
+}
+
+type LaunchConfigurationEbsBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) Encrypted() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) bool {
+		if v.Encrypted == nil { return *new(bool) } else { return *v.Encrypted }
+	}).(pulumi.BoolOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) NoDevice() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) bool {
+		if v.NoDevice == nil { return *new(bool) } else { return *v.NoDevice }
+	}).(pulumi.BoolOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) SnapshotId() pulumi.StringOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) string {
+		if v.SnapshotId == nil { return *new(string) } else { return *v.SnapshotId }
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v LaunchConfigurationEbsBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchConfigurationEbsBlockDevicesOutput) ElementType() reflect.Type {
+	return launchConfigurationEbsBlockDevicesType
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) ToLaunchConfigurationEbsBlockDevicesOutput() LaunchConfigurationEbsBlockDevicesOutput {
+	return o
+}
+
+func (o LaunchConfigurationEbsBlockDevicesOutput) ToLaunchConfigurationEbsBlockDevicesOutputWithContext(ctx context.Context) LaunchConfigurationEbsBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchConfigurationEbsBlockDevicesOutput{}) }
+
+var launchConfigurationEbsBlockDevicesArrayType = reflect.TypeOf((*[]LaunchConfigurationEbsBlockDevices)(nil)).Elem()
+
+type LaunchConfigurationEbsBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationEbsBlockDevicesArrayOutput() LaunchConfigurationEbsBlockDevicesArrayOutput
+	ToLaunchConfigurationEbsBlockDevicesArrayOutputWithContext(ctx context.Context) LaunchConfigurationEbsBlockDevicesArrayOutput
+}
+
+type LaunchConfigurationEbsBlockDevicesArrayArgs []LaunchConfigurationEbsBlockDevicesInput
+
+func (LaunchConfigurationEbsBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return launchConfigurationEbsBlockDevicesArrayType
+}
+
+func (a LaunchConfigurationEbsBlockDevicesArrayArgs) ToLaunchConfigurationEbsBlockDevicesArrayOutput() LaunchConfigurationEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(LaunchConfigurationEbsBlockDevicesArrayOutput)
+}
+
+func (a LaunchConfigurationEbsBlockDevicesArrayArgs) ToLaunchConfigurationEbsBlockDevicesArrayOutputWithContext(ctx context.Context) LaunchConfigurationEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchConfigurationEbsBlockDevicesArrayOutput)
+}
+
+type LaunchConfigurationEbsBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchConfigurationEbsBlockDevicesArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationEbsBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchConfigurationEbsBlockDevices {
+		return vs[0].([]LaunchConfigurationEbsBlockDevices)[vs[1].(int)]
+	}).(LaunchConfigurationEbsBlockDevicesOutput)
+}
+
+func (LaunchConfigurationEbsBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return launchConfigurationEbsBlockDevicesArrayType
+}
+
+func (o LaunchConfigurationEbsBlockDevicesArrayOutput) ToLaunchConfigurationEbsBlockDevicesArrayOutput() LaunchConfigurationEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func (o LaunchConfigurationEbsBlockDevicesArrayOutput) ToLaunchConfigurationEbsBlockDevicesArrayOutputWithContext(ctx context.Context) LaunchConfigurationEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchConfigurationEbsBlockDevicesArrayOutput{}) }
+
+type LaunchConfigurationEphemeralBlockDevices struct {
+	DeviceName string `pulumi:"deviceName"`
+	VirtualName string `pulumi:"virtualName"`
+}
+var launchConfigurationEphemeralBlockDevicesType = reflect.TypeOf((*LaunchConfigurationEphemeralBlockDevices)(nil)).Elem()
+
+type LaunchConfigurationEphemeralBlockDevicesInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationEphemeralBlockDevicesOutput() LaunchConfigurationEphemeralBlockDevicesOutput
+	ToLaunchConfigurationEphemeralBlockDevicesOutputWithContext(ctx context.Context) LaunchConfigurationEphemeralBlockDevicesOutput
+}
+
+type LaunchConfigurationEphemeralBlockDevicesArgs struct {
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (LaunchConfigurationEphemeralBlockDevicesArgs) ElementType() reflect.Type {
+	return launchConfigurationEphemeralBlockDevicesType
+}
+
+func (a LaunchConfigurationEphemeralBlockDevicesArgs) ToLaunchConfigurationEphemeralBlockDevicesOutput() LaunchConfigurationEphemeralBlockDevicesOutput {
+	return pulumi.ToOutput(a).(LaunchConfigurationEphemeralBlockDevicesOutput)
+}
+
+func (a LaunchConfigurationEphemeralBlockDevicesArgs) ToLaunchConfigurationEphemeralBlockDevicesOutputWithContext(ctx context.Context) LaunchConfigurationEphemeralBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchConfigurationEphemeralBlockDevicesOutput)
+}
+
+type LaunchConfigurationEphemeralBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o LaunchConfigurationEphemeralBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v LaunchConfigurationEphemeralBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationEphemeralBlockDevicesOutput) VirtualName() pulumi.StringOutput {
+	return o.Apply(func(v LaunchConfigurationEphemeralBlockDevices) string {
+		return v.VirtualName
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchConfigurationEphemeralBlockDevicesOutput) ElementType() reflect.Type {
+	return launchConfigurationEphemeralBlockDevicesType
+}
+
+func (o LaunchConfigurationEphemeralBlockDevicesOutput) ToLaunchConfigurationEphemeralBlockDevicesOutput() LaunchConfigurationEphemeralBlockDevicesOutput {
+	return o
+}
+
+func (o LaunchConfigurationEphemeralBlockDevicesOutput) ToLaunchConfigurationEphemeralBlockDevicesOutputWithContext(ctx context.Context) LaunchConfigurationEphemeralBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchConfigurationEphemeralBlockDevicesOutput{}) }
+
+var launchConfigurationEphemeralBlockDevicesArrayType = reflect.TypeOf((*[]LaunchConfigurationEphemeralBlockDevices)(nil)).Elem()
+
+type LaunchConfigurationEphemeralBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationEphemeralBlockDevicesArrayOutput() LaunchConfigurationEphemeralBlockDevicesArrayOutput
+	ToLaunchConfigurationEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) LaunchConfigurationEphemeralBlockDevicesArrayOutput
+}
+
+type LaunchConfigurationEphemeralBlockDevicesArrayArgs []LaunchConfigurationEphemeralBlockDevicesInput
+
+func (LaunchConfigurationEphemeralBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return launchConfigurationEphemeralBlockDevicesArrayType
+}
+
+func (a LaunchConfigurationEphemeralBlockDevicesArrayArgs) ToLaunchConfigurationEphemeralBlockDevicesArrayOutput() LaunchConfigurationEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(LaunchConfigurationEphemeralBlockDevicesArrayOutput)
+}
+
+func (a LaunchConfigurationEphemeralBlockDevicesArrayArgs) ToLaunchConfigurationEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) LaunchConfigurationEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchConfigurationEphemeralBlockDevicesArrayOutput)
+}
+
+type LaunchConfigurationEphemeralBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o LaunchConfigurationEphemeralBlockDevicesArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationEphemeralBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LaunchConfigurationEphemeralBlockDevices {
+		return vs[0].([]LaunchConfigurationEphemeralBlockDevices)[vs[1].(int)]
+	}).(LaunchConfigurationEphemeralBlockDevicesOutput)
+}
+
+func (LaunchConfigurationEphemeralBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return launchConfigurationEphemeralBlockDevicesArrayType
+}
+
+func (o LaunchConfigurationEphemeralBlockDevicesArrayOutput) ToLaunchConfigurationEphemeralBlockDevicesArrayOutput() LaunchConfigurationEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func (o LaunchConfigurationEphemeralBlockDevicesArrayOutput) ToLaunchConfigurationEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) LaunchConfigurationEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchConfigurationEphemeralBlockDevicesArrayOutput{}) }
+
+type LaunchConfigurationRootBlockDevice struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	Encrypted *bool `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var launchConfigurationRootBlockDeviceType = reflect.TypeOf((*LaunchConfigurationRootBlockDevice)(nil)).Elem()
+
+type LaunchConfigurationRootBlockDeviceInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationRootBlockDeviceOutput() LaunchConfigurationRootBlockDeviceOutput
+	ToLaunchConfigurationRootBlockDeviceOutputWithContext(ctx context.Context) LaunchConfigurationRootBlockDeviceOutput
+}
+
+type LaunchConfigurationRootBlockDeviceArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (LaunchConfigurationRootBlockDeviceArgs) ElementType() reflect.Type {
+	return launchConfigurationRootBlockDeviceType
+}
+
+func (a LaunchConfigurationRootBlockDeviceArgs) ToLaunchConfigurationRootBlockDeviceOutput() LaunchConfigurationRootBlockDeviceOutput {
+	return pulumi.ToOutput(a).(LaunchConfigurationRootBlockDeviceOutput)
+}
+
+func (a LaunchConfigurationRootBlockDeviceArgs) ToLaunchConfigurationRootBlockDeviceOutputWithContext(ctx context.Context) LaunchConfigurationRootBlockDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LaunchConfigurationRootBlockDeviceOutput)
+}
+
+type LaunchConfigurationRootBlockDeviceOutput struct { *pulumi.OutputState }
+
+func (o LaunchConfigurationRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchConfigurationRootBlockDevice) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o LaunchConfigurationRootBlockDeviceOutput) Encrypted() pulumi.BoolOutput {
+	return o.Apply(func(v LaunchConfigurationRootBlockDevice) bool {
+		if v.Encrypted == nil { return *new(bool) } else { return *v.Encrypted }
+	}).(pulumi.BoolOutput)
+}
+
+func (o LaunchConfigurationRootBlockDeviceOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v LaunchConfigurationRootBlockDevice) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchConfigurationRootBlockDeviceOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v LaunchConfigurationRootBlockDevice) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o LaunchConfigurationRootBlockDeviceOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v LaunchConfigurationRootBlockDevice) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (LaunchConfigurationRootBlockDeviceOutput) ElementType() reflect.Type {
+	return launchConfigurationRootBlockDeviceType
+}
+
+func (o LaunchConfigurationRootBlockDeviceOutput) ToLaunchConfigurationRootBlockDeviceOutput() LaunchConfigurationRootBlockDeviceOutput {
+	return o
+}
+
+func (o LaunchConfigurationRootBlockDeviceOutput) ToLaunchConfigurationRootBlockDeviceOutputWithContext(ctx context.Context) LaunchConfigurationRootBlockDeviceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LaunchConfigurationRootBlockDeviceOutput{}) }
+

@@ -15,147 +15,114 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_deployment.html.markdown.
 type Deployment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The creation date of the deployment
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The description of the deployment
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// when allowing API Gateway to invoke a Lambda function,
+	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+
+	// The URL to invoke the API pointing to the stage,
+	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+
+	// The ID of the associated REST API
+	RestApi pulumi.StringOutput `pulumi:"restApi"`
+
+	// The description of the stage
+	StageDescription pulumi.StringOutput `pulumi:"stageDescription"`
+
+	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
+	StageName pulumi.StringOutput `pulumi:"stageName"`
+
+	// A map that defines variables for the stage
+	Variables pulumi.StringMapOutput `pulumi:"variables"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
 func NewDeployment(ctx *pulumi.Context,
-	name string, args *DeploymentArgs, opts ...pulumi.ResourceOpt) (*Deployment, error) {
+	name string, args *DeploymentArgs, opts ...pulumi.ResourceOption) (*Deployment, error) {
 	if args == nil || args.RestApi == nil {
 		return nil, errors.New("missing required argument 'RestApi'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["restApi"] = nil
-		inputs["stageDescription"] = nil
-		inputs["stageName"] = nil
-		inputs["variables"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["restApi"] = args.RestApi
-		inputs["stageDescription"] = args.StageDescription
-		inputs["stageName"] = args.StageName
-		inputs["variables"] = args.Variables
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
+		if i := args.StageDescription; i != nil { inputs["stageDescription"] = i.ToStringOutput() }
+		if i := args.StageName; i != nil { inputs["stageName"] = i.ToStringOutput() }
+		if i := args.Variables; i != nil { inputs["variables"] = i.ToStringMapOutput() }
 	}
-	inputs["createdDate"] = nil
-	inputs["executionArn"] = nil
-	inputs["invokeUrl"] = nil
-	s, err := ctx.RegisterResource("aws:apigateway/deployment:Deployment", name, true, inputs, opts...)
+	var resource Deployment
+	err := ctx.RegisterResource("aws:apigateway/deployment:Deployment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Deployment{s: s}, nil
+	return &resource, nil
 }
 
 // GetDeployment gets an existing Deployment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDeployment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DeploymentState, opts ...pulumi.ResourceOpt) (*Deployment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DeploymentState, opts ...pulumi.ResourceOption) (*Deployment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["createdDate"] = state.CreatedDate
-		inputs["description"] = state.Description
-		inputs["executionArn"] = state.ExecutionArn
-		inputs["invokeUrl"] = state.InvokeUrl
-		inputs["restApi"] = state.RestApi
-		inputs["stageDescription"] = state.StageDescription
-		inputs["stageName"] = state.StageName
-		inputs["variables"] = state.Variables
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ExecutionArn; i != nil { inputs["executionArn"] = i.ToStringOutput() }
+		if i := state.InvokeUrl; i != nil { inputs["invokeUrl"] = i.ToStringOutput() }
+		if i := state.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
+		if i := state.StageDescription; i != nil { inputs["stageDescription"] = i.ToStringOutput() }
+		if i := state.StageName; i != nil { inputs["stageName"] = i.ToStringOutput() }
+		if i := state.Variables; i != nil { inputs["variables"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/deployment:Deployment", name, id, inputs, opts...)
+	var resource Deployment
+	err := ctx.ReadResource("aws:apigateway/deployment:Deployment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Deployment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Deployment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Deployment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The creation date of the deployment
-func (r *Deployment) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The description of the deployment
-func (r *Deployment) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
-// when allowing API Gateway to invoke a Lambda function,
-// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-func (r *Deployment) ExecutionArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["executionArn"])
-}
-
-// The URL to invoke the API pointing to the stage,
-// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-func (r *Deployment) InvokeUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["invokeUrl"])
-}
-
-// The ID of the associated REST API
-func (r *Deployment) RestApi() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restApi"])
-}
-
-// The description of the stage
-func (r *Deployment) StageDescription() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stageDescription"])
-}
-
-// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
-func (r *Deployment) StageName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stageName"])
-}
-
-// A map that defines variables for the stage
-func (r *Deployment) Variables() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["variables"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Deployment resources.
 type DeploymentState struct {
 	// The creation date of the deployment
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The description of the deployment
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-	ExecutionArn interface{}
+	ExecutionArn pulumi.StringInput `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
 	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-	InvokeUrl interface{}
+	InvokeUrl pulumi.StringInput `pulumi:"invokeUrl"`
 	// The ID of the associated REST API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 	// The description of the stage
-	StageDescription interface{}
+	StageDescription pulumi.StringInput `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
-	StageName interface{}
+	StageName pulumi.StringInput `pulumi:"stageName"`
 	// A map that defines variables for the stage
-	Variables interface{}
+	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
 	// The description of the deployment
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The ID of the associated REST API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 	// The description of the stage
-	StageDescription interface{}
+	StageDescription pulumi.StringInput `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
-	StageName interface{}
+	StageName pulumi.StringInput `pulumi:"stageName"`
 	// A map that defines variables for the stage
-	Variables interface{}
+	Variables pulumi.StringMapInput `pulumi:"variables"`
 }

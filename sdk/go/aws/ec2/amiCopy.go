@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -22,275 +24,458 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.
 type AmiCopy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Machine architecture for created instances. Defaults to "x8664".
+	Architecture pulumi.StringOutput `pulumi:"architecture"`
+
+	// A longer, human-readable description for the AMI.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Nested block describing an EBS block device that should be
+	// attached to created instances. The structure of this block is described below.
+	EbsBlockDevices AmiCopyEbsBlockDevicesArrayOutput `pulumi:"ebsBlockDevices"`
+
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport pulumi.BoolOutput `pulumi:"enaSupport"`
+
+	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+
+	// Nested block describing an ephemeral block device that
+	// should be attached to created instances. The structure of this block is described below.
+	EphemeralBlockDevices AmiCopyEphemeralBlockDevicesArrayOutput `pulumi:"ephemeralBlockDevices"`
+
+	// Path to an S3 object containing an image manifest, e.g. created
+	// by the `ec2-upload-bundle` command in the EC2 command line tools.
+	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
+
+	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// kernel in created instances.
+	KernelId pulumi.StringOutput `pulumi:"kernelId"`
+
+	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	ManageEbsSnapshots pulumi.BoolOutput `pulumi:"manageEbsSnapshots"`
+
+	// A region-unique name for the AMI.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The id of an initrd image (ARI) that will be used when booting the
+	// created instances.
+	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
+
+	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
+
+	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
+
+	// The id of the AMI to copy. This id must be valid in the region
+	// given by `sourceAmiRegion`.
+	SourceAmiId pulumi.StringOutput `pulumi:"sourceAmiId"`
+
+	// The region from which the AMI will be copied. This may be the
+	// same as the AWS provider region in order to create a copy within the same region.
+	SourceAmiRegion pulumi.StringOutput `pulumi:"sourceAmiRegion"`
+
+	// When set to "simple" (the default), enables enhanced networking
+	// for created instances. No other value is supported at this time.
+	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Keyword to choose what virtualization mode created instances
+	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+	// changes the set of further arguments that are required, as described below.
+	VirtualizationType pulumi.StringOutput `pulumi:"virtualizationType"`
 }
 
 // NewAmiCopy registers a new resource with the given unique name, arguments, and options.
 func NewAmiCopy(ctx *pulumi.Context,
-	name string, args *AmiCopyArgs, opts ...pulumi.ResourceOpt) (*AmiCopy, error) {
+	name string, args *AmiCopyArgs, opts ...pulumi.ResourceOption) (*AmiCopy, error) {
 	if args == nil || args.SourceAmiId == nil {
 		return nil, errors.New("missing required argument 'SourceAmiId'")
 	}
 	if args == nil || args.SourceAmiRegion == nil {
 		return nil, errors.New("missing required argument 'SourceAmiRegion'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["ebsBlockDevices"] = nil
-		inputs["encrypted"] = nil
-		inputs["ephemeralBlockDevices"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["name"] = nil
-		inputs["sourceAmiId"] = nil
-		inputs["sourceAmiRegion"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["ebsBlockDevices"] = args.EbsBlockDevices
-		inputs["encrypted"] = args.Encrypted
-		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["name"] = args.Name
-		inputs["sourceAmiId"] = args.SourceAmiId
-		inputs["sourceAmiRegion"] = args.SourceAmiRegion
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToAmiCopyEbsBlockDevicesArrayOutput() }
+		if i := args.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := args.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToAmiCopyEphemeralBlockDevicesArrayOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.SourceAmiId; i != nil { inputs["sourceAmiId"] = i.ToStringOutput() }
+		if i := args.SourceAmiRegion; i != nil { inputs["sourceAmiRegion"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["architecture"] = nil
-	inputs["enaSupport"] = nil
-	inputs["imageLocation"] = nil
-	inputs["kernelId"] = nil
-	inputs["manageEbsSnapshots"] = nil
-	inputs["ramdiskId"] = nil
-	inputs["rootDeviceName"] = nil
-	inputs["rootSnapshotId"] = nil
-	inputs["sriovNetSupport"] = nil
-	inputs["virtualizationType"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/amiCopy:AmiCopy", name, true, inputs, opts...)
+	var resource AmiCopy
+	err := ctx.RegisterResource("aws:ec2/amiCopy:AmiCopy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AmiCopy{s: s}, nil
+	return &resource, nil
 }
 
 // GetAmiCopy gets an existing AmiCopy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAmiCopy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AmiCopyState, opts ...pulumi.ResourceOpt) (*AmiCopy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AmiCopyState, opts ...pulumi.ResourceOption) (*AmiCopy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["architecture"] = state.Architecture
-		inputs["description"] = state.Description
-		inputs["ebsBlockDevices"] = state.EbsBlockDevices
-		inputs["enaSupport"] = state.EnaSupport
-		inputs["encrypted"] = state.Encrypted
-		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
-		inputs["imageLocation"] = state.ImageLocation
-		inputs["kernelId"] = state.KernelId
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["manageEbsSnapshots"] = state.ManageEbsSnapshots
-		inputs["name"] = state.Name
-		inputs["ramdiskId"] = state.RamdiskId
-		inputs["rootDeviceName"] = state.RootDeviceName
-		inputs["rootSnapshotId"] = state.RootSnapshotId
-		inputs["sourceAmiId"] = state.SourceAmiId
-		inputs["sourceAmiRegion"] = state.SourceAmiRegion
-		inputs["sriovNetSupport"] = state.SriovNetSupport
-		inputs["tags"] = state.Tags
-		inputs["virtualizationType"] = state.VirtualizationType
+		if i := state.Architecture; i != nil { inputs["architecture"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToAmiCopyEbsBlockDevicesArrayOutput() }
+		if i := state.EnaSupport; i != nil { inputs["enaSupport"] = i.ToBoolOutput() }
+		if i := state.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := state.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToAmiCopyEphemeralBlockDevicesArrayOutput() }
+		if i := state.ImageLocation; i != nil { inputs["imageLocation"] = i.ToStringOutput() }
+		if i := state.KernelId; i != nil { inputs["kernelId"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.ManageEbsSnapshots; i != nil { inputs["manageEbsSnapshots"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RamdiskId; i != nil { inputs["ramdiskId"] = i.ToStringOutput() }
+		if i := state.RootDeviceName; i != nil { inputs["rootDeviceName"] = i.ToStringOutput() }
+		if i := state.RootSnapshotId; i != nil { inputs["rootSnapshotId"] = i.ToStringOutput() }
+		if i := state.SourceAmiId; i != nil { inputs["sourceAmiId"] = i.ToStringOutput() }
+		if i := state.SourceAmiRegion; i != nil { inputs["sourceAmiRegion"] = i.ToStringOutput() }
+		if i := state.SriovNetSupport; i != nil { inputs["sriovNetSupport"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualizationType; i != nil { inputs["virtualizationType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/amiCopy:AmiCopy", name, id, inputs, opts...)
+	var resource AmiCopy
+	err := ctx.ReadResource("aws:ec2/amiCopy:AmiCopy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AmiCopy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AmiCopy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AmiCopy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Machine architecture for created instances. Defaults to "x8664".
-func (r *AmiCopy) Architecture() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["architecture"])
-}
-
-// A longer, human-readable description for the AMI.
-func (r *AmiCopy) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Nested block describing an EBS block device that should be
-// attached to created instances. The structure of this block is described below.
-func (r *AmiCopy) EbsBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
-}
-
-// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-func (r *AmiCopy) EnaSupport() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enaSupport"])
-}
-
-// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-func (r *AmiCopy) Encrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["encrypted"])
-}
-
-// Nested block describing an ephemeral block device that
-// should be attached to created instances. The structure of this block is described below.
-func (r *AmiCopy) EphemeralBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
-}
-
-// Path to an S3 object containing an image manifest, e.g. created
-// by the `ec2-upload-bundle` command in the EC2 command line tools.
-func (r *AmiCopy) ImageLocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageLocation"])
-}
-
-// The id of the kernel image (AKI) that will be used as the paravirtual
-// kernel in created instances.
-func (r *AmiCopy) KernelId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kernelId"])
-}
-
-// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-func (r *AmiCopy) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-func (r *AmiCopy) ManageEbsSnapshots() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["manageEbsSnapshots"])
-}
-
-// A region-unique name for the AMI.
-func (r *AmiCopy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The id of an initrd image (ARI) that will be used when booting the
-// created instances.
-func (r *AmiCopy) RamdiskId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ramdiskId"])
-}
-
-// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-func (r *AmiCopy) RootDeviceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootDeviceName"])
-}
-
-func (r *AmiCopy) RootSnapshotId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootSnapshotId"])
-}
-
-// The id of the AMI to copy. This id must be valid in the region
-// given by `sourceAmiRegion`.
-func (r *AmiCopy) SourceAmiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceAmiId"])
-}
-
-// The region from which the AMI will be copied. This may be the
-// same as the AWS provider region in order to create a copy within the same region.
-func (r *AmiCopy) SourceAmiRegion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceAmiRegion"])
-}
-
-// When set to "simple" (the default), enables enhanced networking
-// for created instances. No other value is supported at this time.
-func (r *AmiCopy) SriovNetSupport() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sriovNetSupport"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *AmiCopy) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Keyword to choose what virtualization mode created instances
-// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-// changes the set of further arguments that are required, as described below.
-func (r *AmiCopy) VirtualizationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualizationType"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AmiCopy resources.
 type AmiCopyState struct {
 	// Machine architecture for created instances. Defaults to "x8664".
-	Architecture interface{}
+	Architecture pulumi.StringInput `pulumi:"architecture"`
 	// A longer, human-readable description for the AMI.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices interface{}
+	EbsBlockDevices AmiCopyEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport interface{}
+	EnaSupport pulumi.BoolInput `pulumi:"enaSupport"`
 	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices AmiCopyEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation interface{}
+	ImageLocation pulumi.StringInput `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId interface{}
+	KernelId pulumi.StringInput `pulumi:"kernelId"`
 	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId interface{}
-	ManageEbsSnapshots interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	ManageEbsSnapshots pulumi.BoolInput `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
-	RamdiskId interface{}
+	RamdiskId pulumi.StringInput `pulumi:"ramdiskId"`
 	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName interface{}
-	RootSnapshotId interface{}
+	RootDeviceName pulumi.StringInput `pulumi:"rootDeviceName"`
+	RootSnapshotId pulumi.StringInput `pulumi:"rootSnapshotId"`
 	// The id of the AMI to copy. This id must be valid in the region
 	// given by `sourceAmiRegion`.
-	SourceAmiId interface{}
+	SourceAmiId pulumi.StringInput `pulumi:"sourceAmiId"`
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.
-	SourceAmiRegion interface{}
+	SourceAmiRegion pulumi.StringInput `pulumi:"sourceAmiRegion"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
-	SriovNetSupport interface{}
+	SriovNetSupport pulumi.StringInput `pulumi:"sriovNetSupport"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
-	VirtualizationType interface{}
+	VirtualizationType pulumi.StringInput `pulumi:"virtualizationType"`
 }
 
 // The set of arguments for constructing a AmiCopy resource.
 type AmiCopyArgs struct {
 	// A longer, human-readable description for the AMI.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices interface{}
+	EbsBlockDevices AmiCopyEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices AmiCopyEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// The full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// A region-unique name for the AMI.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the AMI to copy. This id must be valid in the region
 	// given by `sourceAmiRegion`.
-	SourceAmiId interface{}
+	SourceAmiId pulumi.StringInput `pulumi:"sourceAmiId"`
 	// The region from which the AMI will be copied. This may be the
 	// same as the AWS provider region in order to create a copy within the same region.
-	SourceAmiRegion interface{}
+	SourceAmiRegion pulumi.StringInput `pulumi:"sourceAmiRegion"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type AmiCopyEbsBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeviceName *string `pulumi:"deviceName"`
+	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	Encrypted *bool `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var amiCopyEbsBlockDevicesType = reflect.TypeOf((*AmiCopyEbsBlockDevices)(nil)).Elem()
+
+type AmiCopyEbsBlockDevicesInput interface {
+	pulumi.Input
+
+	ToAmiCopyEbsBlockDevicesOutput() AmiCopyEbsBlockDevicesOutput
+	ToAmiCopyEbsBlockDevicesOutputWithContext(ctx context.Context) AmiCopyEbsBlockDevicesOutput
+}
+
+type AmiCopyEbsBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (AmiCopyEbsBlockDevicesArgs) ElementType() reflect.Type {
+	return amiCopyEbsBlockDevicesType
+}
+
+func (a AmiCopyEbsBlockDevicesArgs) ToAmiCopyEbsBlockDevicesOutput() AmiCopyEbsBlockDevicesOutput {
+	return pulumi.ToOutput(a).(AmiCopyEbsBlockDevicesOutput)
+}
+
+func (a AmiCopyEbsBlockDevicesArgs) ToAmiCopyEbsBlockDevicesOutputWithContext(ctx context.Context) AmiCopyEbsBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiCopyEbsBlockDevicesOutput)
+}
+
+type AmiCopyEbsBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o AmiCopyEbsBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) string {
+		if v.DeviceName == nil { return *new(string) } else { return *v.DeviceName }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
+func (o AmiCopyEbsBlockDevicesOutput) Encrypted() pulumi.BoolOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) bool {
+		if v.Encrypted == nil { return *new(bool) } else { return *v.Encrypted }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) SnapshotId() pulumi.StringOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) string {
+		if v.SnapshotId == nil { return *new(string) } else { return *v.SnapshotId }
+	}).(pulumi.StringOutput)
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v AmiCopyEbsBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (AmiCopyEbsBlockDevicesOutput) ElementType() reflect.Type {
+	return amiCopyEbsBlockDevicesType
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) ToAmiCopyEbsBlockDevicesOutput() AmiCopyEbsBlockDevicesOutput {
+	return o
+}
+
+func (o AmiCopyEbsBlockDevicesOutput) ToAmiCopyEbsBlockDevicesOutputWithContext(ctx context.Context) AmiCopyEbsBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiCopyEbsBlockDevicesOutput{}) }
+
+var amiCopyEbsBlockDevicesArrayType = reflect.TypeOf((*[]AmiCopyEbsBlockDevices)(nil)).Elem()
+
+type AmiCopyEbsBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToAmiCopyEbsBlockDevicesArrayOutput() AmiCopyEbsBlockDevicesArrayOutput
+	ToAmiCopyEbsBlockDevicesArrayOutputWithContext(ctx context.Context) AmiCopyEbsBlockDevicesArrayOutput
+}
+
+type AmiCopyEbsBlockDevicesArrayArgs []AmiCopyEbsBlockDevicesInput
+
+func (AmiCopyEbsBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return amiCopyEbsBlockDevicesArrayType
+}
+
+func (a AmiCopyEbsBlockDevicesArrayArgs) ToAmiCopyEbsBlockDevicesArrayOutput() AmiCopyEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(AmiCopyEbsBlockDevicesArrayOutput)
+}
+
+func (a AmiCopyEbsBlockDevicesArrayArgs) ToAmiCopyEbsBlockDevicesArrayOutputWithContext(ctx context.Context) AmiCopyEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiCopyEbsBlockDevicesArrayOutput)
+}
+
+type AmiCopyEbsBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o AmiCopyEbsBlockDevicesArrayOutput) Index(i pulumi.IntInput) AmiCopyEbsBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AmiCopyEbsBlockDevices {
+		return vs[0].([]AmiCopyEbsBlockDevices)[vs[1].(int)]
+	}).(AmiCopyEbsBlockDevicesOutput)
+}
+
+func (AmiCopyEbsBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return amiCopyEbsBlockDevicesArrayType
+}
+
+func (o AmiCopyEbsBlockDevicesArrayOutput) ToAmiCopyEbsBlockDevicesArrayOutput() AmiCopyEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func (o AmiCopyEbsBlockDevicesArrayOutput) ToAmiCopyEbsBlockDevicesArrayOutputWithContext(ctx context.Context) AmiCopyEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiCopyEbsBlockDevicesArrayOutput{}) }
+
+type AmiCopyEphemeralBlockDevices struct {
+	DeviceName *string `pulumi:"deviceName"`
+	VirtualName *string `pulumi:"virtualName"`
+}
+var amiCopyEphemeralBlockDevicesType = reflect.TypeOf((*AmiCopyEphemeralBlockDevices)(nil)).Elem()
+
+type AmiCopyEphemeralBlockDevicesInput interface {
+	pulumi.Input
+
+	ToAmiCopyEphemeralBlockDevicesOutput() AmiCopyEphemeralBlockDevicesOutput
+	ToAmiCopyEphemeralBlockDevicesOutputWithContext(ctx context.Context) AmiCopyEphemeralBlockDevicesOutput
+}
+
+type AmiCopyEphemeralBlockDevicesArgs struct {
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (AmiCopyEphemeralBlockDevicesArgs) ElementType() reflect.Type {
+	return amiCopyEphemeralBlockDevicesType
+}
+
+func (a AmiCopyEphemeralBlockDevicesArgs) ToAmiCopyEphemeralBlockDevicesOutput() AmiCopyEphemeralBlockDevicesOutput {
+	return pulumi.ToOutput(a).(AmiCopyEphemeralBlockDevicesOutput)
+}
+
+func (a AmiCopyEphemeralBlockDevicesArgs) ToAmiCopyEphemeralBlockDevicesOutputWithContext(ctx context.Context) AmiCopyEphemeralBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiCopyEphemeralBlockDevicesOutput)
+}
+
+type AmiCopyEphemeralBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o AmiCopyEphemeralBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v AmiCopyEphemeralBlockDevices) string {
+		if v.DeviceName == nil { return *new(string) } else { return *v.DeviceName }
+	}).(pulumi.StringOutput)
+}
+
+func (o AmiCopyEphemeralBlockDevicesOutput) VirtualName() pulumi.StringOutput {
+	return o.Apply(func(v AmiCopyEphemeralBlockDevices) string {
+		if v.VirtualName == nil { return *new(string) } else { return *v.VirtualName }
+	}).(pulumi.StringOutput)
+}
+
+func (AmiCopyEphemeralBlockDevicesOutput) ElementType() reflect.Type {
+	return amiCopyEphemeralBlockDevicesType
+}
+
+func (o AmiCopyEphemeralBlockDevicesOutput) ToAmiCopyEphemeralBlockDevicesOutput() AmiCopyEphemeralBlockDevicesOutput {
+	return o
+}
+
+func (o AmiCopyEphemeralBlockDevicesOutput) ToAmiCopyEphemeralBlockDevicesOutputWithContext(ctx context.Context) AmiCopyEphemeralBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiCopyEphemeralBlockDevicesOutput{}) }
+
+var amiCopyEphemeralBlockDevicesArrayType = reflect.TypeOf((*[]AmiCopyEphemeralBlockDevices)(nil)).Elem()
+
+type AmiCopyEphemeralBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToAmiCopyEphemeralBlockDevicesArrayOutput() AmiCopyEphemeralBlockDevicesArrayOutput
+	ToAmiCopyEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) AmiCopyEphemeralBlockDevicesArrayOutput
+}
+
+type AmiCopyEphemeralBlockDevicesArrayArgs []AmiCopyEphemeralBlockDevicesInput
+
+func (AmiCopyEphemeralBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return amiCopyEphemeralBlockDevicesArrayType
+}
+
+func (a AmiCopyEphemeralBlockDevicesArrayArgs) ToAmiCopyEphemeralBlockDevicesArrayOutput() AmiCopyEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(AmiCopyEphemeralBlockDevicesArrayOutput)
+}
+
+func (a AmiCopyEphemeralBlockDevicesArrayArgs) ToAmiCopyEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) AmiCopyEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiCopyEphemeralBlockDevicesArrayOutput)
+}
+
+type AmiCopyEphemeralBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o AmiCopyEphemeralBlockDevicesArrayOutput) Index(i pulumi.IntInput) AmiCopyEphemeralBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AmiCopyEphemeralBlockDevices {
+		return vs[0].([]AmiCopyEphemeralBlockDevices)[vs[1].(int)]
+	}).(AmiCopyEphemeralBlockDevicesOutput)
+}
+
+func (AmiCopyEphemeralBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return amiCopyEphemeralBlockDevicesArrayType
+}
+
+func (o AmiCopyEphemeralBlockDevicesArrayOutput) ToAmiCopyEphemeralBlockDevicesArrayOutput() AmiCopyEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func (o AmiCopyEphemeralBlockDevicesArrayOutput) ToAmiCopyEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) AmiCopyEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiCopyEphemeralBlockDevicesArrayOutput{}) }
+

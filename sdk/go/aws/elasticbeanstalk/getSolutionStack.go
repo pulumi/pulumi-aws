@@ -10,41 +10,32 @@ import (
 // Use this data source to get the name of a elastic beanstalk solution stack.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
-func LookupSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs) (*GetSolutionStackResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["mostRecent"] = args.MostRecent
-		inputs["nameRegex"] = args.NameRegex
-	}
-	outputs, err := ctx.Invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", inputs)
+func LookupSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
+	var rv GetSolutionStackResult
+	err := ctx.Invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSolutionStackResult{
-		MostRecent: outputs["mostRecent"],
-		Name: outputs["name"],
-		NameRegex: outputs["nameRegex"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSolutionStack.
 type GetSolutionStackArgs struct {
 	// If more than one result is returned, use the most
 	// recent solution stack.
-	MostRecent interface{}
+	MostRecent *bool `pulumi:"mostRecent"`
 	// A regex string to apply to the solution stack list returned
 	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
 	// AWS documentation for reference solution stack names.
-	NameRegex interface{}
+	NameRegex string `pulumi:"nameRegex"`
 }
 
 // A collection of values returned by getSolutionStack.
 type GetSolutionStackResult struct {
-	MostRecent interface{}
+	MostRecent *bool `pulumi:"mostRecent"`
 	// The name of the solution stack.
-	Name interface{}
-	NameRegex interface{}
+	Name string `pulumi:"name"`
+	NameRegex string `pulumi:"nameRegex"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -11,105 +11,81 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
 type Vault struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the vault.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The server-side encryption key that is used to protect your backups.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+
+	// Name of the backup vault to create.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The number of recovery points that are stored in a backup vault.
+	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
+
+	// Metadata that you can assign to help organize the resources that you create.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
 func NewVault(ctx *pulumi.Context,
-	name string, args *VaultArgs, opts ...pulumi.ResourceOpt) (*Vault, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["kmsKeyArn"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["kmsKeyArn"] = args.KmsKeyArn
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *VaultArgs, opts ...pulumi.ResourceOption) (*Vault, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["recoveryPoints"] = nil
-	s, err := ctx.RegisterResource("aws:backup/vault:Vault", name, true, inputs, opts...)
+	var resource Vault
+	err := ctx.RegisterResource("aws:backup/vault:Vault", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Vault{s: s}, nil
+	return &resource, nil
 }
 
 // GetVault gets an existing Vault resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVault(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VaultState, opts ...pulumi.ResourceOpt) (*Vault, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VaultState, opts ...pulumi.ResourceOption) (*Vault, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["kmsKeyArn"] = state.KmsKeyArn
-		inputs["name"] = state.Name
-		inputs["recoveryPoints"] = state.RecoveryPoints
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryPoints; i != nil { inputs["recoveryPoints"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:backup/vault:Vault", name, id, inputs, opts...)
+	var resource Vault
+	err := ctx.ReadResource("aws:backup/vault:Vault", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Vault{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Vault) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Vault) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the vault.
-func (r *Vault) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The server-side encryption key that is used to protect your backups.
-func (r *Vault) KmsKeyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
-}
-
-// Name of the backup vault to create.
-func (r *Vault) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The number of recovery points that are stored in a backup vault.
-func (r *Vault) RecoveryPoints() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["recoveryPoints"])
-}
-
-// Metadata that you can assign to help organize the resources that you create.
-func (r *Vault) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Vault resources.
 type VaultState struct {
 	// The ARN of the vault.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The server-side encryption key that is used to protect your backups.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The number of recovery points that are stored in a backup vault.
-	RecoveryPoints interface{}
+	RecoveryPoints pulumi.IntInput `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
 	// The server-side encryption key that is used to protect your backups.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Name of the backup vault to create.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

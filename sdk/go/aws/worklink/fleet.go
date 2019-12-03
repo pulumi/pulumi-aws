@@ -4,175 +4,274 @@
 package worklink
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
 type Fleet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the created WorkLink Fleet.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The ARN of the Amazon Kinesis data stream that receives the audit events.
+	AuditStreamArn pulumi.StringOutput `pulumi:"auditStreamArn"`
+
+	// The identifier used by users to sign in to the Amazon WorkLink app.
+	CompanyCode pulumi.StringOutput `pulumi:"companyCode"`
+
+	// The time that the fleet was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+
+	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
+	DeviceCaCertificate pulumi.StringOutput `pulumi:"deviceCaCertificate"`
+
+	// The name of the fleet.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
+	IdentityProvider FleetIdentityProviderOutput `pulumi:"identityProvider"`
+
+	// The time that the fleet was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+
+	// A region-unique name for the AMI.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
+	Network FleetNetworkOutput `pulumi:"network"`
+
+	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	OptimizeForEndUserLocation pulumi.BoolOutput `pulumi:"optimizeForEndUserLocation"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
 func NewFleet(ctx *pulumi.Context,
-	name string, args *FleetArgs, opts ...pulumi.ResourceOpt) (*Fleet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["auditStreamArn"] = nil
-		inputs["deviceCaCertificate"] = nil
-		inputs["displayName"] = nil
-		inputs["identityProvider"] = nil
-		inputs["name"] = nil
-		inputs["network"] = nil
-		inputs["optimizeForEndUserLocation"] = nil
-	} else {
-		inputs["auditStreamArn"] = args.AuditStreamArn
-		inputs["deviceCaCertificate"] = args.DeviceCaCertificate
-		inputs["displayName"] = args.DisplayName
-		inputs["identityProvider"] = args.IdentityProvider
-		inputs["name"] = args.Name
-		inputs["network"] = args.Network
-		inputs["optimizeForEndUserLocation"] = args.OptimizeForEndUserLocation
+	name string, args *FleetArgs, opts ...pulumi.ResourceOption) (*Fleet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AuditStreamArn; i != nil { inputs["auditStreamArn"] = i.ToStringOutput() }
+		if i := args.DeviceCaCertificate; i != nil { inputs["deviceCaCertificate"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.IdentityProvider; i != nil { inputs["identityProvider"] = i.ToFleetIdentityProviderOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Network; i != nil { inputs["network"] = i.ToFleetNetworkOutput() }
+		if i := args.OptimizeForEndUserLocation; i != nil { inputs["optimizeForEndUserLocation"] = i.ToBoolOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["companyCode"] = nil
-	inputs["createdTime"] = nil
-	inputs["lastUpdatedTime"] = nil
-	s, err := ctx.RegisterResource("aws:worklink/fleet:Fleet", name, true, inputs, opts...)
+	var resource Fleet
+	err := ctx.RegisterResource("aws:worklink/fleet:Fleet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Fleet{s: s}, nil
+	return &resource, nil
 }
 
 // GetFleet gets an existing Fleet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFleet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FleetState, opts ...pulumi.ResourceOpt) (*Fleet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FleetState, opts ...pulumi.ResourceOption) (*Fleet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["auditStreamArn"] = state.AuditStreamArn
-		inputs["companyCode"] = state.CompanyCode
-		inputs["createdTime"] = state.CreatedTime
-		inputs["deviceCaCertificate"] = state.DeviceCaCertificate
-		inputs["displayName"] = state.DisplayName
-		inputs["identityProvider"] = state.IdentityProvider
-		inputs["lastUpdatedTime"] = state.LastUpdatedTime
-		inputs["name"] = state.Name
-		inputs["network"] = state.Network
-		inputs["optimizeForEndUserLocation"] = state.OptimizeForEndUserLocation
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AuditStreamArn; i != nil { inputs["auditStreamArn"] = i.ToStringOutput() }
+		if i := state.CompanyCode; i != nil { inputs["companyCode"] = i.ToStringOutput() }
+		if i := state.CreatedTime; i != nil { inputs["createdTime"] = i.ToStringOutput() }
+		if i := state.DeviceCaCertificate; i != nil { inputs["deviceCaCertificate"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.IdentityProvider; i != nil { inputs["identityProvider"] = i.ToFleetIdentityProviderOutput() }
+		if i := state.LastUpdatedTime; i != nil { inputs["lastUpdatedTime"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Network; i != nil { inputs["network"] = i.ToFleetNetworkOutput() }
+		if i := state.OptimizeForEndUserLocation; i != nil { inputs["optimizeForEndUserLocation"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:worklink/fleet:Fleet", name, id, inputs, opts...)
+	var resource Fleet
+	err := ctx.ReadResource("aws:worklink/fleet:Fleet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Fleet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Fleet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Fleet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the created WorkLink Fleet.
-func (r *Fleet) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The ARN of the Amazon Kinesis data stream that receives the audit events.
-func (r *Fleet) AuditStreamArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["auditStreamArn"])
-}
-
-// The identifier used by users to sign in to the Amazon WorkLink app.
-func (r *Fleet) CompanyCode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["companyCode"])
-}
-
-// The time that the fleet was created.
-func (r *Fleet) CreatedTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdTime"])
-}
-
-// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-func (r *Fleet) DeviceCaCertificate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deviceCaCertificate"])
-}
-
-// The name of the fleet.
-func (r *Fleet) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-func (r *Fleet) IdentityProvider() pulumi.Output {
-	return r.s.State["identityProvider"]
-}
-
-// The time that the fleet was last updated.
-func (r *Fleet) LastUpdatedTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastUpdatedTime"])
-}
-
-// A region-unique name for the AMI.
-func (r *Fleet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-func (r *Fleet) Network() pulumi.Output {
-	return r.s.State["network"]
-}
-
-// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-func (r *Fleet) OptimizeForEndUserLocation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["optimizeForEndUserLocation"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Fleet resources.
 type FleetState struct {
 	// The ARN of the created WorkLink Fleet.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The ARN of the Amazon Kinesis data stream that receives the audit events.
-	AuditStreamArn interface{}
+	AuditStreamArn pulumi.StringInput `pulumi:"auditStreamArn"`
 	// The identifier used by users to sign in to the Amazon WorkLink app.
-	CompanyCode interface{}
+	CompanyCode pulumi.StringInput `pulumi:"companyCode"`
 	// The time that the fleet was created.
-	CreatedTime interface{}
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate interface{}
+	DeviceCaCertificate pulumi.StringInput `pulumi:"deviceCaCertificate"`
 	// The name of the fleet.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider interface{}
+	IdentityProvider FleetIdentityProviderInput `pulumi:"identityProvider"`
 	// The time that the fleet was last updated.
-	LastUpdatedTime interface{}
+	LastUpdatedTime pulumi.StringInput `pulumi:"lastUpdatedTime"`
 	// A region-unique name for the AMI.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network interface{}
+	Network FleetNetworkInput `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-	OptimizeForEndUserLocation interface{}
+	OptimizeForEndUserLocation pulumi.BoolInput `pulumi:"optimizeForEndUserLocation"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
 	// The ARN of the Amazon Kinesis data stream that receives the audit events.
-	AuditStreamArn interface{}
+	AuditStreamArn pulumi.StringInput `pulumi:"auditStreamArn"`
 	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate interface{}
+	DeviceCaCertificate pulumi.StringInput `pulumi:"deviceCaCertificate"`
 	// The name of the fleet.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider interface{}
+	IdentityProvider FleetIdentityProviderInput `pulumi:"identityProvider"`
 	// A region-unique name for the AMI.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network interface{}
+	Network FleetNetworkInput `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-	OptimizeForEndUserLocation interface{}
+	OptimizeForEndUserLocation pulumi.BoolInput `pulumi:"optimizeForEndUserLocation"`
 }
+type FleetIdentityProvider struct {
+	// The SAML metadata document provided by the customer’s identity provider.
+	SamlMetadata string `pulumi:"samlMetadata"`
+	// The type of identity provider.
+	Type string `pulumi:"type"`
+}
+var fleetIdentityProviderType = reflect.TypeOf((*FleetIdentityProvider)(nil)).Elem()
+
+type FleetIdentityProviderInput interface {
+	pulumi.Input
+
+	ToFleetIdentityProviderOutput() FleetIdentityProviderOutput
+	ToFleetIdentityProviderOutputWithContext(ctx context.Context) FleetIdentityProviderOutput
+}
+
+type FleetIdentityProviderArgs struct {
+	// The SAML metadata document provided by the customer’s identity provider.
+	SamlMetadata pulumi.StringInput `pulumi:"samlMetadata"`
+	// The type of identity provider.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FleetIdentityProviderArgs) ElementType() reflect.Type {
+	return fleetIdentityProviderType
+}
+
+func (a FleetIdentityProviderArgs) ToFleetIdentityProviderOutput() FleetIdentityProviderOutput {
+	return pulumi.ToOutput(a).(FleetIdentityProviderOutput)
+}
+
+func (a FleetIdentityProviderArgs) ToFleetIdentityProviderOutputWithContext(ctx context.Context) FleetIdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetIdentityProviderOutput)
+}
+
+type FleetIdentityProviderOutput struct { *pulumi.OutputState }
+
+// The SAML metadata document provided by the customer’s identity provider.
+func (o FleetIdentityProviderOutput) SamlMetadata() pulumi.StringOutput {
+	return o.Apply(func(v FleetIdentityProvider) string {
+		return v.SamlMetadata
+	}).(pulumi.StringOutput)
+}
+
+// The type of identity provider.
+func (o FleetIdentityProviderOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FleetIdentityProvider) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (FleetIdentityProviderOutput) ElementType() reflect.Type {
+	return fleetIdentityProviderType
+}
+
+func (o FleetIdentityProviderOutput) ToFleetIdentityProviderOutput() FleetIdentityProviderOutput {
+	return o
+}
+
+func (o FleetIdentityProviderOutput) ToFleetIdentityProviderOutputWithContext(ctx context.Context) FleetIdentityProviderOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetIdentityProviderOutput{}) }
+
+type FleetNetwork struct {
+	// A list of security group IDs associated with access to the provided subnets.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The VPC ID with connectivity to associated websites.
+	VpcId string `pulumi:"vpcId"`
+}
+var fleetNetworkType = reflect.TypeOf((*FleetNetwork)(nil)).Elem()
+
+type FleetNetworkInput interface {
+	pulumi.Input
+
+	ToFleetNetworkOutput() FleetNetworkOutput
+	ToFleetNetworkOutputWithContext(ctx context.Context) FleetNetworkOutput
+}
+
+type FleetNetworkArgs struct {
+	// A list of security group IDs associated with access to the provided subnets.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The VPC ID with connectivity to associated websites.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (FleetNetworkArgs) ElementType() reflect.Type {
+	return fleetNetworkType
+}
+
+func (a FleetNetworkArgs) ToFleetNetworkOutput() FleetNetworkOutput {
+	return pulumi.ToOutput(a).(FleetNetworkOutput)
+}
+
+func (a FleetNetworkArgs) ToFleetNetworkOutputWithContext(ctx context.Context) FleetNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetNetworkOutput)
+}
+
+type FleetNetworkOutput struct { *pulumi.OutputState }
+
+// A list of security group IDs associated with access to the provided subnets.
+func (o FleetNetworkOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v FleetNetwork) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+func (o FleetNetworkOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v FleetNetwork) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The VPC ID with connectivity to associated websites.
+func (o FleetNetworkOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v FleetNetwork) string {
+		return v.VpcId
+	}).(pulumi.StringOutput)
+}
+
+func (FleetNetworkOutput) ElementType() reflect.Type {
+	return fleetNetworkType
+}
+
+func (o FleetNetworkOutput) ToFleetNetworkOutput() FleetNetworkOutput {
+	return o
+}
+
+func (o FleetNetworkOutput) ToFleetNetworkOutputWithContext(ctx context.Context) FleetNetworkOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetNetworkOutput{}) }
+

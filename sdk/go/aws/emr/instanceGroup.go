@@ -4,6 +4,8 @@
 package emr
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -17,179 +19,268 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_instance_group.html.markdown.
 type InstanceGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	AutoscalingPolicy pulumi.StringOutput `pulumi:"autoscalingPolicy"`
+
+	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+	BidPrice pulumi.StringOutput `pulumi:"bidPrice"`
+
+	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+
+	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	ConfigurationsJson pulumi.StringOutput `pulumi:"configurationsJson"`
+
+	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
+	EbsConfigs InstanceGroupEbsConfigsArrayOutput `pulumi:"ebsConfigs"`
+
+	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
+	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
+
+	// target number of instances for the instance group. defaults to 0.
+	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
+
+	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+
+	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	RunningInstanceCount pulumi.IntOutput `pulumi:"runningInstanceCount"`
+
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewInstanceGroup registers a new resource with the given unique name, arguments, and options.
 func NewInstanceGroup(ctx *pulumi.Context,
-	name string, args *InstanceGroupArgs, opts ...pulumi.ResourceOpt) (*InstanceGroup, error) {
+	name string, args *InstanceGroupArgs, opts ...pulumi.ResourceOption) (*InstanceGroup, error) {
 	if args == nil || args.ClusterId == nil {
 		return nil, errors.New("missing required argument 'ClusterId'")
 	}
 	if args == nil || args.InstanceType == nil {
 		return nil, errors.New("missing required argument 'InstanceType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoscalingPolicy"] = nil
-		inputs["bidPrice"] = nil
-		inputs["clusterId"] = nil
-		inputs["configurationsJson"] = nil
-		inputs["ebsConfigs"] = nil
-		inputs["ebsOptimized"] = nil
-		inputs["instanceCount"] = nil
-		inputs["instanceType"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["autoscalingPolicy"] = args.AutoscalingPolicy
-		inputs["bidPrice"] = args.BidPrice
-		inputs["clusterId"] = args.ClusterId
-		inputs["configurationsJson"] = args.ConfigurationsJson
-		inputs["ebsConfigs"] = args.EbsConfigs
-		inputs["ebsOptimized"] = args.EbsOptimized
-		inputs["instanceCount"] = args.InstanceCount
-		inputs["instanceType"] = args.InstanceType
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoscalingPolicy; i != nil { inputs["autoscalingPolicy"] = i.ToStringOutput() }
+		if i := args.BidPrice; i != nil { inputs["bidPrice"] = i.ToStringOutput() }
+		if i := args.ClusterId; i != nil { inputs["clusterId"] = i.ToStringOutput() }
+		if i := args.ConfigurationsJson; i != nil { inputs["configurationsJson"] = i.ToStringOutput() }
+		if i := args.EbsConfigs; i != nil { inputs["ebsConfigs"] = i.ToInstanceGroupEbsConfigsArrayOutput() }
+		if i := args.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToBoolOutput() }
+		if i := args.InstanceCount; i != nil { inputs["instanceCount"] = i.ToIntOutput() }
+		if i := args.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["runningInstanceCount"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("aws:emr/instanceGroup:InstanceGroup", name, true, inputs, opts...)
+	var resource InstanceGroup
+	err := ctx.RegisterResource("aws:emr/instanceGroup:InstanceGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &InstanceGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetInstanceGroup gets an existing InstanceGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInstanceGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InstanceGroupState, opts ...pulumi.ResourceOpt) (*InstanceGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InstanceGroupState, opts ...pulumi.ResourceOption) (*InstanceGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoscalingPolicy"] = state.AutoscalingPolicy
-		inputs["bidPrice"] = state.BidPrice
-		inputs["clusterId"] = state.ClusterId
-		inputs["configurationsJson"] = state.ConfigurationsJson
-		inputs["ebsConfigs"] = state.EbsConfigs
-		inputs["ebsOptimized"] = state.EbsOptimized
-		inputs["instanceCount"] = state.InstanceCount
-		inputs["instanceType"] = state.InstanceType
-		inputs["name"] = state.Name
-		inputs["runningInstanceCount"] = state.RunningInstanceCount
-		inputs["status"] = state.Status
+		if i := state.AutoscalingPolicy; i != nil { inputs["autoscalingPolicy"] = i.ToStringOutput() }
+		if i := state.BidPrice; i != nil { inputs["bidPrice"] = i.ToStringOutput() }
+		if i := state.ClusterId; i != nil { inputs["clusterId"] = i.ToStringOutput() }
+		if i := state.ConfigurationsJson; i != nil { inputs["configurationsJson"] = i.ToStringOutput() }
+		if i := state.EbsConfigs; i != nil { inputs["ebsConfigs"] = i.ToInstanceGroupEbsConfigsArrayOutput() }
+		if i := state.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToBoolOutput() }
+		if i := state.InstanceCount; i != nil { inputs["instanceCount"] = i.ToIntOutput() }
+		if i := state.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RunningInstanceCount; i != nil { inputs["runningInstanceCount"] = i.ToIntOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:emr/instanceGroup:InstanceGroup", name, id, inputs, opts...)
+	var resource InstanceGroup
+	err := ctx.ReadResource("aws:emr/instanceGroup:InstanceGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &InstanceGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *InstanceGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *InstanceGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-func (r *InstanceGroup) AutoscalingPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoscalingPolicy"])
-}
-
-// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-func (r *InstanceGroup) BidPrice() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bidPrice"])
-}
-
-// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-func (r *InstanceGroup) ClusterId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterId"])
-}
-
-// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-func (r *InstanceGroup) ConfigurationsJson() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configurationsJson"])
-}
-
-// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
-func (r *InstanceGroup) EbsConfigs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsConfigs"])
-}
-
-// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-func (r *InstanceGroup) EbsOptimized() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
-}
-
-// target number of instances for the instance group. defaults to 0.
-func (r *InstanceGroup) InstanceCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["instanceCount"])
-}
-
-// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-func (r *InstanceGroup) InstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceType"])
-}
-
-// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-func (r *InstanceGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *InstanceGroup) RunningInstanceCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["runningInstanceCount"])
-}
-
-func (r *InstanceGroup) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering InstanceGroup resources.
 type InstanceGroupState struct {
 	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-	AutoscalingPolicy interface{}
+	AutoscalingPolicy pulumi.StringInput `pulumi:"autoscalingPolicy"`
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-	BidPrice interface{}
+	BidPrice pulumi.StringInput `pulumi:"bidPrice"`
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId interface{}
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-	ConfigurationsJson interface{}
+	ConfigurationsJson pulumi.StringInput `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
-	EbsConfigs interface{}
+	EbsConfigs InstanceGroupEbsConfigsArrayInput `pulumi:"ebsConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
 	// target number of instances for the instance group. defaults to 0.
-	InstanceCount interface{}
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name interface{}
-	RunningInstanceCount interface{}
-	Status interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	RunningInstanceCount pulumi.IntInput `pulumi:"runningInstanceCount"`
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 // The set of arguments for constructing a InstanceGroup resource.
 type InstanceGroupArgs struct {
 	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-	AutoscalingPolicy interface{}
+	AutoscalingPolicy pulumi.StringInput `pulumi:"autoscalingPolicy"`
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-	BidPrice interface{}
+	BidPrice pulumi.StringInput `pulumi:"bidPrice"`
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-	ClusterId interface{}
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-	ConfigurationsJson interface{}
+	ConfigurationsJson pulumi.StringInput `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
-	EbsConfigs interface{}
+	EbsConfigs InstanceGroupEbsConfigsArrayInput `pulumi:"ebsConfigs"`
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
 	// target number of instances for the instance group. defaults to 0.
-	InstanceCount interface{}
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-	InstanceType interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type InstanceGroupEbsConfigs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	Size int `pulumi:"size"`
+	// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
+	Type string `pulumi:"type"`
+	// The number of EBS Volumes to attach per instance.
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+var instanceGroupEbsConfigsType = reflect.TypeOf((*InstanceGroupEbsConfigs)(nil)).Elem()
+
+type InstanceGroupEbsConfigsInput interface {
+	pulumi.Input
+
+	ToInstanceGroupEbsConfigsOutput() InstanceGroupEbsConfigsOutput
+	ToInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) InstanceGroupEbsConfigsOutput
+}
+
+type InstanceGroupEbsConfigsArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	Size pulumi.IntInput `pulumi:"size"`
+	// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of EBS Volumes to attach per instance.
+	VolumesPerInstance pulumi.IntInput `pulumi:"volumesPerInstance"`
+}
+
+func (InstanceGroupEbsConfigsArgs) ElementType() reflect.Type {
+	return instanceGroupEbsConfigsType
+}
+
+func (a InstanceGroupEbsConfigsArgs) ToInstanceGroupEbsConfigsOutput() InstanceGroupEbsConfigsOutput {
+	return pulumi.ToOutput(a).(InstanceGroupEbsConfigsOutput)
+}
+
+func (a InstanceGroupEbsConfigsArgs) ToInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) InstanceGroupEbsConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceGroupEbsConfigsOutput)
+}
+
+type InstanceGroupEbsConfigsOutput struct { *pulumi.OutputState }
+
+// The number of I/O operations per second (IOPS) that the volume supports.
+func (o InstanceGroupEbsConfigsOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v InstanceGroupEbsConfigs) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+func (o InstanceGroupEbsConfigsOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v InstanceGroupEbsConfigs) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
+func (o InstanceGroupEbsConfigsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v InstanceGroupEbsConfigs) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The number of EBS Volumes to attach per instance.
+func (o InstanceGroupEbsConfigsOutput) VolumesPerInstance() pulumi.IntOutput {
+	return o.Apply(func(v InstanceGroupEbsConfigs) int {
+		if v.VolumesPerInstance == nil { return *new(int) } else { return *v.VolumesPerInstance }
+	}).(pulumi.IntOutput)
+}
+
+func (InstanceGroupEbsConfigsOutput) ElementType() reflect.Type {
+	return instanceGroupEbsConfigsType
+}
+
+func (o InstanceGroupEbsConfigsOutput) ToInstanceGroupEbsConfigsOutput() InstanceGroupEbsConfigsOutput {
+	return o
+}
+
+func (o InstanceGroupEbsConfigsOutput) ToInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) InstanceGroupEbsConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceGroupEbsConfigsOutput{}) }
+
+var instanceGroupEbsConfigsArrayType = reflect.TypeOf((*[]InstanceGroupEbsConfigs)(nil)).Elem()
+
+type InstanceGroupEbsConfigsArrayInput interface {
+	pulumi.Input
+
+	ToInstanceGroupEbsConfigsArrayOutput() InstanceGroupEbsConfigsArrayOutput
+	ToInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) InstanceGroupEbsConfigsArrayOutput
+}
+
+type InstanceGroupEbsConfigsArrayArgs []InstanceGroupEbsConfigsInput
+
+func (InstanceGroupEbsConfigsArrayArgs) ElementType() reflect.Type {
+	return instanceGroupEbsConfigsArrayType
+}
+
+func (a InstanceGroupEbsConfigsArrayArgs) ToInstanceGroupEbsConfigsArrayOutput() InstanceGroupEbsConfigsArrayOutput {
+	return pulumi.ToOutput(a).(InstanceGroupEbsConfigsArrayOutput)
+}
+
+func (a InstanceGroupEbsConfigsArrayArgs) ToInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) InstanceGroupEbsConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceGroupEbsConfigsArrayOutput)
+}
+
+type InstanceGroupEbsConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o InstanceGroupEbsConfigsArrayOutput) Index(i pulumi.IntInput) InstanceGroupEbsConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) InstanceGroupEbsConfigs {
+		return vs[0].([]InstanceGroupEbsConfigs)[vs[1].(int)]
+	}).(InstanceGroupEbsConfigsOutput)
+}
+
+func (InstanceGroupEbsConfigsArrayOutput) ElementType() reflect.Type {
+	return instanceGroupEbsConfigsArrayType
+}
+
+func (o InstanceGroupEbsConfigsArrayOutput) ToInstanceGroupEbsConfigsArrayOutput() InstanceGroupEbsConfigsArrayOutput {
+	return o
+}
+
+func (o InstanceGroupEbsConfigsArrayOutput) ToInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) InstanceGroupEbsConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceGroupEbsConfigsArrayOutput{}) }
+

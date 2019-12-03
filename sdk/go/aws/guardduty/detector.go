@@ -13,84 +13,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_detector.html.markdown.
 type Detector struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The AWS account ID of the GuardDuty detector
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	Enable pulumi.BoolOutput `pulumi:"enable"`
+
+	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+	FindingPublishingFrequency pulumi.StringOutput `pulumi:"findingPublishingFrequency"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
 func NewDetector(ctx *pulumi.Context,
-	name string, args *DetectorArgs, opts ...pulumi.ResourceOpt) (*Detector, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["enable"] = nil
-		inputs["findingPublishingFrequency"] = nil
-	} else {
-		inputs["enable"] = args.Enable
-		inputs["findingPublishingFrequency"] = args.FindingPublishingFrequency
+	name string, args *DetectorArgs, opts ...pulumi.ResourceOption) (*Detector, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Enable; i != nil { inputs["enable"] = i.ToBoolOutput() }
+		if i := args.FindingPublishingFrequency; i != nil { inputs["findingPublishingFrequency"] = i.ToStringOutput() }
 	}
-	inputs["accountId"] = nil
-	s, err := ctx.RegisterResource("aws:guardduty/detector:Detector", name, true, inputs, opts...)
+	var resource Detector
+	err := ctx.RegisterResource("aws:guardduty/detector:Detector", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Detector{s: s}, nil
+	return &resource, nil
 }
 
 // GetDetector gets an existing Detector resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDetector(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DetectorState, opts ...pulumi.ResourceOpt) (*Detector, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DetectorState, opts ...pulumi.ResourceOption) (*Detector, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountId"] = state.AccountId
-		inputs["enable"] = state.Enable
-		inputs["findingPublishingFrequency"] = state.FindingPublishingFrequency
+		if i := state.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := state.Enable; i != nil { inputs["enable"] = i.ToBoolOutput() }
+		if i := state.FindingPublishingFrequency; i != nil { inputs["findingPublishingFrequency"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:guardduty/detector:Detector", name, id, inputs, opts...)
+	var resource Detector
+	err := ctx.ReadResource("aws:guardduty/detector:Detector", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Detector{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Detector) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Detector) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The AWS account ID of the GuardDuty detector
-func (r *Detector) AccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountId"])
-}
-
-// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-func (r *Detector) Enable() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enable"])
-}
-
-// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-func (r *Detector) FindingPublishingFrequency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["findingPublishingFrequency"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Detector resources.
 type DetectorState struct {
 	// The AWS account ID of the GuardDuty detector
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-	Enable interface{}
+	Enable pulumi.BoolInput `pulumi:"enable"`
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-	FindingPublishingFrequency interface{}
+	FindingPublishingFrequency pulumi.StringInput `pulumi:"findingPublishingFrequency"`
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
-	Enable interface{}
+	Enable pulumi.BoolInput `pulumi:"enable"`
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-	FindingPublishingFrequency interface{}
+	FindingPublishingFrequency pulumi.StringInput `pulumi:"findingPublishingFrequency"`
 }

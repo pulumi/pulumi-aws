@@ -12,102 +12,81 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_request_validator.html.markdown.
 type RequestValidator struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the request validator
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ID of the associated Rest API
+	RestApi pulumi.StringOutput `pulumi:"restApi"`
+
+	// Boolean whether to validate request body. Defaults to `false`.
+	ValidateRequestBody pulumi.BoolOutput `pulumi:"validateRequestBody"`
+
+	// Boolean whether to validate request parameters. Defaults to `false`.
+	ValidateRequestParameters pulumi.BoolOutput `pulumi:"validateRequestParameters"`
 }
 
 // NewRequestValidator registers a new resource with the given unique name, arguments, and options.
 func NewRequestValidator(ctx *pulumi.Context,
-	name string, args *RequestValidatorArgs, opts ...pulumi.ResourceOpt) (*RequestValidator, error) {
+	name string, args *RequestValidatorArgs, opts ...pulumi.ResourceOption) (*RequestValidator, error) {
 	if args == nil || args.RestApi == nil {
 		return nil, errors.New("missing required argument 'RestApi'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["restApi"] = nil
-		inputs["validateRequestBody"] = nil
-		inputs["validateRequestParameters"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["restApi"] = args.RestApi
-		inputs["validateRequestBody"] = args.ValidateRequestBody
-		inputs["validateRequestParameters"] = args.ValidateRequestParameters
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
+		if i := args.ValidateRequestBody; i != nil { inputs["validateRequestBody"] = i.ToBoolOutput() }
+		if i := args.ValidateRequestParameters; i != nil { inputs["validateRequestParameters"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:apigateway/requestValidator:RequestValidator", name, true, inputs, opts...)
+	var resource RequestValidator
+	err := ctx.RegisterResource("aws:apigateway/requestValidator:RequestValidator", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RequestValidator{s: s}, nil
+	return &resource, nil
 }
 
 // GetRequestValidator gets an existing RequestValidator resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRequestValidator(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RequestValidatorState, opts ...pulumi.ResourceOpt) (*RequestValidator, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RequestValidatorState, opts ...pulumi.ResourceOption) (*RequestValidator, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["restApi"] = state.RestApi
-		inputs["validateRequestBody"] = state.ValidateRequestBody
-		inputs["validateRequestParameters"] = state.ValidateRequestParameters
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
+		if i := state.ValidateRequestBody; i != nil { inputs["validateRequestBody"] = i.ToBoolOutput() }
+		if i := state.ValidateRequestParameters; i != nil { inputs["validateRequestParameters"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/requestValidator:RequestValidator", name, id, inputs, opts...)
+	var resource RequestValidator
+	err := ctx.ReadResource("aws:apigateway/requestValidator:RequestValidator", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RequestValidator{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RequestValidator) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RequestValidator) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the request validator
-func (r *RequestValidator) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ID of the associated Rest API
-func (r *RequestValidator) RestApi() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restApi"])
-}
-
-// Boolean whether to validate request body. Defaults to `false`.
-func (r *RequestValidator) ValidateRequestBody() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["validateRequestBody"])
-}
-
-// Boolean whether to validate request parameters. Defaults to `false`.
-func (r *RequestValidator) ValidateRequestParameters() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["validateRequestParameters"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RequestValidator resources.
 type RequestValidatorState struct {
 	// The name of the request validator
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the associated Rest API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody interface{}
+	ValidateRequestBody pulumi.BoolInput `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
-	ValidateRequestParameters interface{}
+	ValidateRequestParameters pulumi.BoolInput `pulumi:"validateRequestParameters"`
 }
 
 // The set of arguments for constructing a RequestValidator resource.
 type RequestValidatorArgs struct {
 	// The name of the request validator
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the associated Rest API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
-	ValidateRequestBody interface{}
+	ValidateRequestBody pulumi.BoolInput `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
-	ValidateRequestParameters interface{}
+	ValidateRequestParameters pulumi.BoolInput `pulumi:"validateRequestParameters"`
 }

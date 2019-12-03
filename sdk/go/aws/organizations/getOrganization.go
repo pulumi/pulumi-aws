@@ -10,48 +10,72 @@ import (
 // Get information about the organization that the user's account belongs to
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
-func LookupOrganization(ctx *pulumi.Context) (*GetOrganizationResult, error) {
-	outputs, err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", nil)
+func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationResult, error) {
+	var rv GetOrganizationResult
+	err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetOrganizationResult{
-		Accounts: outputs["accounts"],
-		Arn: outputs["arn"],
-		AwsServiceAccessPrincipals: outputs["awsServiceAccessPrincipals"],
-		EnabledPolicyTypes: outputs["enabledPolicyTypes"],
-		FeatureSet: outputs["featureSet"],
-		MasterAccountArn: outputs["masterAccountArn"],
-		MasterAccountEmail: outputs["masterAccountEmail"],
-		MasterAccountId: outputs["masterAccountId"],
-		NonMasterAccounts: outputs["nonMasterAccounts"],
-		Roots: outputs["roots"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of values returned by getOrganization.
 type GetOrganizationResult struct {
 	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
-	Accounts interface{}
+	Accounts []GetOrganizationAccountsResult `pulumi:"accounts"`
 	// ARN of the root
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
-	AwsServiceAccessPrincipals interface{}
+	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`
 	// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-	EnabledPolicyTypes interface{}
+	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// The FeatureSet of the organization.
-	FeatureSet interface{}
+	FeatureSet string `pulumi:"featureSet"`
 	// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
-	MasterAccountArn interface{}
+	MasterAccountArn string `pulumi:"masterAccountArn"`
 	// The email address that is associated with the AWS account that is designated as the master account for the organization.
-	MasterAccountEmail interface{}
+	MasterAccountEmail string `pulumi:"masterAccountEmail"`
 	// The unique identifier (ID) of the master account of an organization.
-	MasterAccountId interface{}
+	MasterAccountId string `pulumi:"masterAccountId"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts interface{}
+	NonMasterAccounts []GetOrganizationNonMasterAccountsResult `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
-	Roots interface{}
+	Roots []GetOrganizationRootsResult `pulumi:"roots"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetOrganizationAccountsResult struct {
+	// ARN of the root
+	Arn string `pulumi:"arn"`
+	// Email of the account
+	Email string `pulumi:"email"`
+	// Identifier of the root
+	Id string `pulumi:"id"`
+	// The name of the policy type
+	Name string `pulumi:"name"`
+}
+type GetOrganizationNonMasterAccountsResult struct {
+	// ARN of the root
+	Arn string `pulumi:"arn"`
+	// Email of the account
+	Email string `pulumi:"email"`
+	// Identifier of the root
+	Id string `pulumi:"id"`
+	// The name of the policy type
+	Name string `pulumi:"name"`
+}
+type GetOrganizationRootsPolicyTypesResult struct {
+	// The status of the policy type as it relates to the associated root
+	Status string `pulumi:"status"`
+	Type string `pulumi:"type"`
+}
+type GetOrganizationRootsResult struct {
+	// ARN of the root
+	Arn string `pulumi:"arn"`
+	// Identifier of the root
+	Id string `pulumi:"id"`
+	// The name of the policy type
+	Name string `pulumi:"name"`
+	// List of policy types enabled for this root. All elements have these attributes:
+	PolicyTypes []GetOrganizationRootsPolicyTypesResult `pulumi:"policyTypes"`
 }

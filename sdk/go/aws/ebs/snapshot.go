@@ -12,144 +12,108 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot.html.markdown.
 type Snapshot struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The data encryption key identifier for the snapshot.
+	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
+
+	// A description of what the snapshot is.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Whether the snapshot is encrypted.
+	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+
+	// The ARN for the KMS encryption key.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
+
+	// The AWS account ID of the EBS snapshot owner.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// A mapping of tags to assign to the snapshot
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Volume ID of which to make a snapshot.
+	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
+
+	// The size of the drive in GiBs.
+	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewSnapshot(ctx *pulumi.Context,
-	name string, args *SnapshotArgs, opts ...pulumi.ResourceOpt) (*Snapshot, error) {
+	name string, args *SnapshotArgs, opts ...pulumi.ResourceOption) (*Snapshot, error) {
 	if args == nil || args.VolumeId == nil {
 		return nil, errors.New("missing required argument 'VolumeId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["tags"] = nil
-		inputs["volumeId"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["tags"] = args.Tags
-		inputs["volumeId"] = args.VolumeId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VolumeId; i != nil { inputs["volumeId"] = i.ToStringOutput() }
 	}
-	inputs["dataEncryptionKeyId"] = nil
-	inputs["encrypted"] = nil
-	inputs["kmsKeyId"] = nil
-	inputs["ownerAlias"] = nil
-	inputs["ownerId"] = nil
-	inputs["volumeSize"] = nil
-	s, err := ctx.RegisterResource("aws:ebs/snapshot:Snapshot", name, true, inputs, opts...)
+	var resource Snapshot
+	err := ctx.RegisterResource("aws:ebs/snapshot:Snapshot", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Snapshot{s: s}, nil
+	return &resource, nil
 }
 
 // GetSnapshot gets an existing Snapshot resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSnapshot(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SnapshotState, opts ...pulumi.ResourceOpt) (*Snapshot, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SnapshotState, opts ...pulumi.ResourceOption) (*Snapshot, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dataEncryptionKeyId"] = state.DataEncryptionKeyId
-		inputs["description"] = state.Description
-		inputs["encrypted"] = state.Encrypted
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["ownerAlias"] = state.OwnerAlias
-		inputs["ownerId"] = state.OwnerId
-		inputs["tags"] = state.Tags
-		inputs["volumeId"] = state.VolumeId
-		inputs["volumeSize"] = state.VolumeSize
+		if i := state.DataEncryptionKeyId; i != nil { inputs["dataEncryptionKeyId"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.OwnerAlias; i != nil { inputs["ownerAlias"] = i.ToStringOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VolumeId; i != nil { inputs["volumeId"] = i.ToStringOutput() }
+		if i := state.VolumeSize; i != nil { inputs["volumeSize"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ebs/snapshot:Snapshot", name, id, inputs, opts...)
+	var resource Snapshot
+	err := ctx.ReadResource("aws:ebs/snapshot:Snapshot", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Snapshot{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Snapshot) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Snapshot) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The data encryption key identifier for the snapshot.
-func (r *Snapshot) DataEncryptionKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataEncryptionKeyId"])
-}
-
-// A description of what the snapshot is.
-func (r *Snapshot) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Whether the snapshot is encrypted.
-func (r *Snapshot) Encrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["encrypted"])
-}
-
-// The ARN for the KMS encryption key.
-func (r *Snapshot) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-func (r *Snapshot) OwnerAlias() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerAlias"])
-}
-
-// The AWS account ID of the EBS snapshot owner.
-func (r *Snapshot) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// A mapping of tags to assign to the snapshot
-func (r *Snapshot) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Volume ID of which to make a snapshot.
-func (r *Snapshot) VolumeId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["volumeId"])
-}
-
-// The size of the drive in GiBs.
-func (r *Snapshot) VolumeSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["volumeSize"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Snapshot resources.
 type SnapshotState struct {
 	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId interface{}
+	DataEncryptionKeyId pulumi.StringInput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Whether the snapshot is encrypted.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias interface{}
+	OwnerAlias pulumi.StringInput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// A mapping of tags to assign to the snapshot
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
-	VolumeId interface{}
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
-	VolumeSize interface{}
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A mapping of tags to assign to the snapshot
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
-	VolumeId interface{}
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }

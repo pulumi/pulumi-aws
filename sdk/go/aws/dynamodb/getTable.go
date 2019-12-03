@@ -10,68 +10,78 @@ import (
 // Provides information about a DynamoDB table.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
-func LookupTable(ctx *pulumi.Context, args *GetTableArgs) (*GetTableResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["serverSideEncryption"] = args.ServerSideEncryption
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:dynamodb/getTable:getTable", inputs)
+func LookupTable(ctx *pulumi.Context, args *GetTableArgs, opts ...pulumi.InvokeOption) (*GetTableResult, error) {
+	var rv GetTableResult
+	err := ctx.Invoke("aws:dynamodb/getTable:getTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetTableResult{
-		Arn: outputs["arn"],
-		Attributes: outputs["attributes"],
-		BillingMode: outputs["billingMode"],
-		GlobalSecondaryIndexes: outputs["globalSecondaryIndexes"],
-		HashKey: outputs["hashKey"],
-		LocalSecondaryIndexes: outputs["localSecondaryIndexes"],
-		Name: outputs["name"],
-		PointInTimeRecovery: outputs["pointInTimeRecovery"],
-		RangeKey: outputs["rangeKey"],
-		ReadCapacity: outputs["readCapacity"],
-		ServerSideEncryption: outputs["serverSideEncryption"],
-		StreamArn: outputs["streamArn"],
-		StreamEnabled: outputs["streamEnabled"],
-		StreamLabel: outputs["streamLabel"],
-		StreamViewType: outputs["streamViewType"],
-		Tags: outputs["tags"],
-		Ttl: outputs["ttl"],
-		WriteCapacity: outputs["writeCapacity"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getTable.
 type GetTableArgs struct {
 	// The name of the DynamoDB table.
-	Name interface{}
-	ServerSideEncryption interface{}
-	Tags interface{}
+	Name string `pulumi:"name"`
+	ServerSideEncryption *GetTableServerSideEncryptionArgs `pulumi:"serverSideEncryption"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTable.
 type GetTableResult struct {
-	Arn interface{}
-	Attributes interface{}
-	BillingMode interface{}
-	GlobalSecondaryIndexes interface{}
-	HashKey interface{}
-	LocalSecondaryIndexes interface{}
-	Name interface{}
-	PointInTimeRecovery interface{}
-	RangeKey interface{}
-	ReadCapacity interface{}
-	ServerSideEncryption interface{}
-	StreamArn interface{}
-	StreamEnabled interface{}
-	StreamLabel interface{}
-	StreamViewType interface{}
-	Tags interface{}
-	Ttl interface{}
-	WriteCapacity interface{}
+	Arn string `pulumi:"arn"`
+	Attributes []GetTableAttributesResult `pulumi:"attributes"`
+	BillingMode string `pulumi:"billingMode"`
+	GlobalSecondaryIndexes []GetTableGlobalSecondaryIndexesResult `pulumi:"globalSecondaryIndexes"`
+	HashKey string `pulumi:"hashKey"`
+	LocalSecondaryIndexes []GetTableLocalSecondaryIndexesResult `pulumi:"localSecondaryIndexes"`
+	Name string `pulumi:"name"`
+	PointInTimeRecovery GetTablePointInTimeRecoveryResult `pulumi:"pointInTimeRecovery"`
+	RangeKey string `pulumi:"rangeKey"`
+	ReadCapacity int `pulumi:"readCapacity"`
+	ServerSideEncryption GetTableServerSideEncryptionResult `pulumi:"serverSideEncryption"`
+	StreamArn string `pulumi:"streamArn"`
+	StreamEnabled bool `pulumi:"streamEnabled"`
+	StreamLabel string `pulumi:"streamLabel"`
+	StreamViewType string `pulumi:"streamViewType"`
+	Tags map[string]string `pulumi:"tags"`
+	Ttl GetTableTtlResult `pulumi:"ttl"`
+	WriteCapacity int `pulumi:"writeCapacity"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetTableAttributesResult struct {
+	// The name of the DynamoDB table.
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+}
+type GetTableGlobalSecondaryIndexesResult struct {
+	HashKey string `pulumi:"hashKey"`
+	// The name of the DynamoDB table.
+	Name string `pulumi:"name"`
+	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
+	ProjectionType string `pulumi:"projectionType"`
+	RangeKey string `pulumi:"rangeKey"`
+	ReadCapacity int `pulumi:"readCapacity"`
+	WriteCapacity int `pulumi:"writeCapacity"`
+}
+type GetTableLocalSecondaryIndexesResult struct {
+	// The name of the DynamoDB table.
+	Name string `pulumi:"name"`
+	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
+	ProjectionType string `pulumi:"projectionType"`
+	RangeKey string `pulumi:"rangeKey"`
+}
+type GetTablePointInTimeRecoveryResult struct {
+	Enabled bool `pulumi:"enabled"`
+}
+type GetTableServerSideEncryptionArgs struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+type GetTableServerSideEncryptionResult struct {
+	Enabled bool `pulumi:"enabled"`
+}
+type GetTableTtlResult struct {
+	AttributeName string `pulumi:"attributeName"`
+	Enabled bool `pulumi:"enabled"`
 }

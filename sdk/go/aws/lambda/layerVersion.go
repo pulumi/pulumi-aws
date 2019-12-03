@@ -26,207 +26,156 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_layer_version.html.markdown.
 type LayerVersion struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
+	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
+
+	// The date this resource was created.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// Description of what your Lambda Layer does.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+	Code pulumi.ArchiveOutput `pulumi:"code"`
+
+	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
+	LayerArn pulumi.StringOutput `pulumi:"layerArn"`
+
+	// A unique name for your Lambda Layer
+	LayerName pulumi.StringOutput `pulumi:"layerName"`
+
+	// License info for your Lambda Layer. See [License Info][3].
+	LicenseInfo pulumi.StringOutput `pulumi:"licenseInfo"`
+
+	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
+
+	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+	S3Key pulumi.StringOutput `pulumi:"s3Key"`
+
+	// The object version containing the function's deployment package. Conflicts with `filename`.
+	S3ObjectVersion pulumi.StringOutput `pulumi:"s3ObjectVersion"`
+
+	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
+	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
+
+	// The size in bytes of the function .zip file.
+	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
+
+	// This Lamba Layer version.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewLayerVersion registers a new resource with the given unique name, arguments, and options.
 func NewLayerVersion(ctx *pulumi.Context,
-	name string, args *LayerVersionArgs, opts ...pulumi.ResourceOpt) (*LayerVersion, error) {
+	name string, args *LayerVersionArgs, opts ...pulumi.ResourceOption) (*LayerVersion, error) {
 	if args == nil || args.LayerName == nil {
 		return nil, errors.New("missing required argument 'LayerName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["compatibleRuntimes"] = nil
-		inputs["description"] = nil
-		inputs["code"] = nil
-		inputs["layerName"] = nil
-		inputs["licenseInfo"] = nil
-		inputs["s3Bucket"] = nil
-		inputs["s3Key"] = nil
-		inputs["s3ObjectVersion"] = nil
-		inputs["sourceCodeHash"] = nil
-	} else {
-		inputs["compatibleRuntimes"] = args.CompatibleRuntimes
-		inputs["description"] = args.Description
-		inputs["code"] = args.Code
-		inputs["layerName"] = args.LayerName
-		inputs["licenseInfo"] = args.LicenseInfo
-		inputs["s3Bucket"] = args.S3Bucket
-		inputs["s3Key"] = args.S3Key
-		inputs["s3ObjectVersion"] = args.S3ObjectVersion
-		inputs["sourceCodeHash"] = args.SourceCodeHash
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CompatibleRuntimes; i != nil { inputs["compatibleRuntimes"] = i.ToStringArrayOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Code; i != nil { inputs["code"] = i.ToArchiveOutput() }
+		if i := args.LayerName; i != nil { inputs["layerName"] = i.ToStringOutput() }
+		if i := args.LicenseInfo; i != nil { inputs["licenseInfo"] = i.ToStringOutput() }
+		if i := args.S3Bucket; i != nil { inputs["s3Bucket"] = i.ToStringOutput() }
+		if i := args.S3Key; i != nil { inputs["s3Key"] = i.ToStringOutput() }
+		if i := args.S3ObjectVersion; i != nil { inputs["s3ObjectVersion"] = i.ToStringOutput() }
+		if i := args.SourceCodeHash; i != nil { inputs["sourceCodeHash"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["layerArn"] = nil
-	inputs["sourceCodeSize"] = nil
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("aws:lambda/layerVersion:LayerVersion", name, true, inputs, opts...)
+	var resource LayerVersion
+	err := ctx.RegisterResource("aws:lambda/layerVersion:LayerVersion", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LayerVersion{s: s}, nil
+	return &resource, nil
 }
 
 // GetLayerVersion gets an existing LayerVersion resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLayerVersion(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LayerVersionState, opts ...pulumi.ResourceOpt) (*LayerVersion, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LayerVersionState, opts ...pulumi.ResourceOption) (*LayerVersion, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["compatibleRuntimes"] = state.CompatibleRuntimes
-		inputs["createdDate"] = state.CreatedDate
-		inputs["description"] = state.Description
-		inputs["code"] = state.Code
-		inputs["layerArn"] = state.LayerArn
-		inputs["layerName"] = state.LayerName
-		inputs["licenseInfo"] = state.LicenseInfo
-		inputs["s3Bucket"] = state.S3Bucket
-		inputs["s3Key"] = state.S3Key
-		inputs["s3ObjectVersion"] = state.S3ObjectVersion
-		inputs["sourceCodeHash"] = state.SourceCodeHash
-		inputs["sourceCodeSize"] = state.SourceCodeSize
-		inputs["version"] = state.Version
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CompatibleRuntimes; i != nil { inputs["compatibleRuntimes"] = i.ToStringArrayOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Code; i != nil { inputs["code"] = i.ToArchiveOutput() }
+		if i := state.LayerArn; i != nil { inputs["layerArn"] = i.ToStringOutput() }
+		if i := state.LayerName; i != nil { inputs["layerName"] = i.ToStringOutput() }
+		if i := state.LicenseInfo; i != nil { inputs["licenseInfo"] = i.ToStringOutput() }
+		if i := state.S3Bucket; i != nil { inputs["s3Bucket"] = i.ToStringOutput() }
+		if i := state.S3Key; i != nil { inputs["s3Key"] = i.ToStringOutput() }
+		if i := state.S3ObjectVersion; i != nil { inputs["s3ObjectVersion"] = i.ToStringOutput() }
+		if i := state.SourceCodeHash; i != nil { inputs["sourceCodeHash"] = i.ToStringOutput() }
+		if i := state.SourceCodeSize; i != nil { inputs["sourceCodeSize"] = i.ToIntOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:lambda/layerVersion:LayerVersion", name, id, inputs, opts...)
+	var resource LayerVersion
+	err := ctx.ReadResource("aws:lambda/layerVersion:LayerVersion", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LayerVersion{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LayerVersion) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LayerVersion) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the Lambda Layer with version.
-func (r *LayerVersion) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
-func (r *LayerVersion) CompatibleRuntimes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["compatibleRuntimes"])
-}
-
-// The date this resource was created.
-func (r *LayerVersion) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// Description of what your Lambda Layer does.
-func (r *LayerVersion) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-func (r *LayerVersion) Code() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["code"])
-}
-
-// The Amazon Resource Name (ARN) of the Lambda Layer without version.
-func (r *LayerVersion) LayerArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["layerArn"])
-}
-
-// A unique name for your Lambda Layer
-func (r *LayerVersion) LayerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["layerName"])
-}
-
-// License info for your Lambda Layer. See [License Info][3].
-func (r *LayerVersion) LicenseInfo() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["licenseInfo"])
-}
-
-// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-func (r *LayerVersion) S3Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Bucket"])
-}
-
-// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-func (r *LayerVersion) S3Key() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Key"])
-}
-
-// The object version containing the function's deployment package. Conflicts with `filename`.
-func (r *LayerVersion) S3ObjectVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3ObjectVersion"])
-}
-
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
-func (r *LayerVersion) SourceCodeHash() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceCodeHash"])
-}
-
-// The size in bytes of the function .zip file.
-func (r *LayerVersion) SourceCodeSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["sourceCodeSize"])
-}
-
-// This Lamba Layer version.
-func (r *LayerVersion) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LayerVersion resources.
 type LayerVersionState struct {
 	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
-	CompatibleRuntimes interface{}
+	CompatibleRuntimes pulumi.StringArrayInput `pulumi:"compatibleRuntimes"`
 	// The date this resource was created.
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// Description of what your Lambda Layer does.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-	Code interface{}
+	Code pulumi.ArchiveInput `pulumi:"code"`
 	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
-	LayerArn interface{}
+	LayerArn pulumi.StringInput `pulumi:"layerArn"`
 	// A unique name for your Lambda Layer
-	LayerName interface{}
+	LayerName pulumi.StringInput `pulumi:"layerName"`
 	// License info for your Lambda Layer. See [License Info][3].
-	LicenseInfo interface{}
+	LicenseInfo pulumi.StringInput `pulumi:"licenseInfo"`
 	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket interface{}
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-	S3Key interface{}
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 	// The object version containing the function's deployment package. Conflicts with `filename`.
-	S3ObjectVersion interface{}
+	S3ObjectVersion pulumi.StringInput `pulumi:"s3ObjectVersion"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
-	SourceCodeHash interface{}
+	SourceCodeHash pulumi.StringInput `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
-	SourceCodeSize interface{}
+	SourceCodeSize pulumi.IntInput `pulumi:"sourceCodeSize"`
 	// This Lamba Layer version.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a LayerVersion resource.
 type LayerVersionArgs struct {
 	// A list of [Runtimes][2] this layer is compatible with. Up to 5 runtimes can be specified.
-	CompatibleRuntimes interface{}
+	CompatibleRuntimes pulumi.StringArrayInput `pulumi:"compatibleRuntimes"`
 	// Description of what your Lambda Layer does.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-	Code interface{}
+	Code pulumi.ArchiveInput `pulumi:"code"`
 	// A unique name for your Lambda Layer
-	LayerName interface{}
+	LayerName pulumi.StringInput `pulumi:"layerName"`
 	// License info for your Lambda Layer. See [License Info][3].
-	LicenseInfo interface{}
+	LicenseInfo pulumi.StringInput `pulumi:"licenseInfo"`
 	// The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket interface{}
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-	S3Key interface{}
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 	// The object version containing the function's deployment package. Conflicts with `filename`.
-	S3ObjectVersion interface{}
+	S3ObjectVersion pulumi.StringInput `pulumi:"s3ObjectVersion"`
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
-	SourceCodeHash interface{}
+	SourceCodeHash pulumi.StringInput `pulumi:"sourceCodeHash"`
 }

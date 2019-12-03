@@ -14,81 +14,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_working_storage.html.markdown.
 type WorkingStorage struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId pulumi.StringOutput `pulumi:"diskId"`
+
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 }
 
 // NewWorkingStorage registers a new resource with the given unique name, arguments, and options.
 func NewWorkingStorage(ctx *pulumi.Context,
-	name string, args *WorkingStorageArgs, opts ...pulumi.ResourceOpt) (*WorkingStorage, error) {
+	name string, args *WorkingStorageArgs, opts ...pulumi.ResourceOption) (*WorkingStorage, error) {
 	if args == nil || args.DiskId == nil {
 		return nil, errors.New("missing required argument 'DiskId'")
 	}
 	if args == nil || args.GatewayArn == nil {
 		return nil, errors.New("missing required argument 'GatewayArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["diskId"] = nil
-		inputs["gatewayArn"] = nil
-	} else {
-		inputs["diskId"] = args.DiskId
-		inputs["gatewayArn"] = args.GatewayArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DiskId; i != nil { inputs["diskId"] = i.ToStringOutput() }
+		if i := args.GatewayArn; i != nil { inputs["gatewayArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:storagegateway/workingStorage:WorkingStorage", name, true, inputs, opts...)
+	var resource WorkingStorage
+	err := ctx.RegisterResource("aws:storagegateway/workingStorage:WorkingStorage", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WorkingStorage{s: s}, nil
+	return &resource, nil
 }
 
 // GetWorkingStorage gets an existing WorkingStorage resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWorkingStorage(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WorkingStorageState, opts ...pulumi.ResourceOpt) (*WorkingStorage, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WorkingStorageState, opts ...pulumi.ResourceOption) (*WorkingStorage, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["diskId"] = state.DiskId
-		inputs["gatewayArn"] = state.GatewayArn
+		if i := state.DiskId; i != nil { inputs["diskId"] = i.ToStringOutput() }
+		if i := state.GatewayArn; i != nil { inputs["gatewayArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:storagegateway/workingStorage:WorkingStorage", name, id, inputs, opts...)
+	var resource WorkingStorage
+	err := ctx.ReadResource("aws:storagegateway/workingStorage:WorkingStorage", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WorkingStorage{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *WorkingStorage) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *WorkingStorage) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-func (r *WorkingStorage) DiskId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["diskId"])
-}
-
-// The Amazon Resource Name (ARN) of the gateway.
-func (r *WorkingStorage) GatewayArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering WorkingStorage resources.
 type WorkingStorageState struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId interface{}
+	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn interface{}
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 }
 
 // The set of arguments for constructing a WorkingStorage resource.
 type WorkingStorageArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId interface{}
+	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn interface{}
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 }

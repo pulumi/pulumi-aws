@@ -16,122 +16,95 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
 type OriginAccessIdentity struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Internal value used by CloudFront to allow future
+	// updates to the origin access identity.
+	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
+
+	// A shortcut to the full path for the
+	// origin access identity to use in CloudFront, see below.
+	CloudfrontAccessIdentityPath pulumi.StringOutput `pulumi:"cloudfrontAccessIdentityPath"`
+
+	// An optional comment for the origin access identity.
+	Comment pulumi.StringOutput `pulumi:"comment"`
+
+	// The current version of the origin access identity's information.
+	// For example: `E2QWRUHAPOMQZL`.
+	Etag pulumi.StringOutput `pulumi:"etag"`
+
+	// A pre-generated ARN for use in S3 bucket policies (see below).
+	// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
+	// E2QWRUHAPOMQZL`.
+	IamArn pulumi.StringOutput `pulumi:"iamArn"`
+
+	// The Amazon S3 canonical user ID for the origin
+	// access identity, which you use when giving the origin access identity read
+	// permission to an object in Amazon S3.
+	S3CanonicalUserId pulumi.StringOutput `pulumi:"s3CanonicalUserId"`
 }
 
 // NewOriginAccessIdentity registers a new resource with the given unique name, arguments, and options.
 func NewOriginAccessIdentity(ctx *pulumi.Context,
-	name string, args *OriginAccessIdentityArgs, opts ...pulumi.ResourceOpt) (*OriginAccessIdentity, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["comment"] = nil
-	} else {
-		inputs["comment"] = args.Comment
+	name string, args *OriginAccessIdentityArgs, opts ...pulumi.ResourceOption) (*OriginAccessIdentity, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Comment; i != nil { inputs["comment"] = i.ToStringOutput() }
 	}
-	inputs["callerReference"] = nil
-	inputs["cloudfrontAccessIdentityPath"] = nil
-	inputs["etag"] = nil
-	inputs["iamArn"] = nil
-	inputs["s3CanonicalUserId"] = nil
-	s, err := ctx.RegisterResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, true, inputs, opts...)
+	var resource OriginAccessIdentity
+	err := ctx.RegisterResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OriginAccessIdentity{s: s}, nil
+	return &resource, nil
 }
 
 // GetOriginAccessIdentity gets an existing OriginAccessIdentity resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOriginAccessIdentity(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OriginAccessIdentityState, opts ...pulumi.ResourceOpt) (*OriginAccessIdentity, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OriginAccessIdentityState, opts ...pulumi.ResourceOption) (*OriginAccessIdentity, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["callerReference"] = state.CallerReference
-		inputs["cloudfrontAccessIdentityPath"] = state.CloudfrontAccessIdentityPath
-		inputs["comment"] = state.Comment
-		inputs["etag"] = state.Etag
-		inputs["iamArn"] = state.IamArn
-		inputs["s3CanonicalUserId"] = state.S3CanonicalUserId
+		if i := state.CallerReference; i != nil { inputs["callerReference"] = i.ToStringOutput() }
+		if i := state.CloudfrontAccessIdentityPath; i != nil { inputs["cloudfrontAccessIdentityPath"] = i.ToStringOutput() }
+		if i := state.Comment; i != nil { inputs["comment"] = i.ToStringOutput() }
+		if i := state.Etag; i != nil { inputs["etag"] = i.ToStringOutput() }
+		if i := state.IamArn; i != nil { inputs["iamArn"] = i.ToStringOutput() }
+		if i := state.S3CanonicalUserId; i != nil { inputs["s3CanonicalUserId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, id, inputs, opts...)
+	var resource OriginAccessIdentity
+	err := ctx.ReadResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OriginAccessIdentity{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OriginAccessIdentity) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OriginAccessIdentity) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Internal value used by CloudFront to allow future
-// updates to the origin access identity.
-func (r *OriginAccessIdentity) CallerReference() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["callerReference"])
-}
-
-// A shortcut to the full path for the
-// origin access identity to use in CloudFront, see below.
-func (r *OriginAccessIdentity) CloudfrontAccessIdentityPath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudfrontAccessIdentityPath"])
-}
-
-// An optional comment for the origin access identity.
-func (r *OriginAccessIdentity) Comment() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["comment"])
-}
-
-// The current version of the origin access identity's information.
-// For example: `E2QWRUHAPOMQZL`.
-func (r *OriginAccessIdentity) Etag() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["etag"])
-}
-
-// A pre-generated ARN for use in S3 bucket policies (see below).
-// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
-// E2QWRUHAPOMQZL`.
-func (r *OriginAccessIdentity) IamArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamArn"])
-}
-
-// The Amazon S3 canonical user ID for the origin
-// access identity, which you use when giving the origin access identity read
-// permission to an object in Amazon S3.
-func (r *OriginAccessIdentity) S3CanonicalUserId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3CanonicalUserId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OriginAccessIdentity resources.
 type OriginAccessIdentityState struct {
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
-	CallerReference interface{}
+	CallerReference pulumi.StringInput `pulumi:"callerReference"`
 	// A shortcut to the full path for the
 	// origin access identity to use in CloudFront, see below.
-	CloudfrontAccessIdentityPath interface{}
+	CloudfrontAccessIdentityPath pulumi.StringInput `pulumi:"cloudfrontAccessIdentityPath"`
 	// An optional comment for the origin access identity.
-	Comment interface{}
+	Comment pulumi.StringInput `pulumi:"comment"`
 	// The current version of the origin access identity's information.
 	// For example: `E2QWRUHAPOMQZL`.
-	Etag interface{}
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// A pre-generated ARN for use in S3 bucket policies (see below).
 	// Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
 	// E2QWRUHAPOMQZL`.
-	IamArn interface{}
+	IamArn pulumi.StringInput `pulumi:"iamArn"`
 	// The Amazon S3 canonical user ID for the origin
 	// access identity, which you use when giving the origin access identity read
 	// permission to an object in Amazon S3.
-	S3CanonicalUserId interface{}
+	S3CanonicalUserId pulumi.StringInput `pulumi:"s3CanonicalUserId"`
 }
 
 // The set of arguments for constructing a OriginAccessIdentity resource.
 type OriginAccessIdentityArgs struct {
 	// An optional comment for the origin access identity.
-	Comment interface{}
+	Comment pulumi.StringInput `pulumi:"comment"`
 }

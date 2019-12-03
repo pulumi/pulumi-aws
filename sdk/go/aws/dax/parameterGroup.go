@@ -4,6 +4,8 @@
 package dax
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -18,87 +20,175 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
 type ParameterGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A description of the parameter group.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the parameter group.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The parameters of the parameter group.
+	Parameters ParameterGroupParametersArrayOutput `pulumi:"parameters"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewParameterGroup(ctx *pulumi.Context,
-	name string, args *ParameterGroupArgs, opts ...pulumi.ResourceOpt) (*ParameterGroup, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
+	name string, args *ParameterGroupArgs, opts ...pulumi.ResourceOption) (*ParameterGroup, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToParameterGroupParametersArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:dax/parameterGroup:ParameterGroup", name, true, inputs, opts...)
+	var resource ParameterGroup
+	err := ctx.RegisterResource("aws:dax/parameterGroup:ParameterGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ParameterGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetParameterGroup gets an existing ParameterGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetParameterGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ParameterGroupState, opts ...pulumi.ResourceOpt) (*ParameterGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ParameterGroupState, opts ...pulumi.ResourceOption) (*ParameterGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["parameters"] = state.Parameters
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToParameterGroupParametersArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:dax/parameterGroup:ParameterGroup", name, id, inputs, opts...)
+	var resource ParameterGroup
+	err := ctx.ReadResource("aws:dax/parameterGroup:ParameterGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ParameterGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ParameterGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ParameterGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A description of the parameter group.
-func (r *ParameterGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the parameter group.
-func (r *ParameterGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The parameters of the parameter group.
-func (r *ParameterGroup) Parameters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["parameters"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type ParameterGroupState struct {
 	// A description of the parameter group.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the parameter group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters of the parameter group.
-	Parameters interface{}
+	Parameters ParameterGroupParametersArrayInput `pulumi:"parameters"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
 	// A description of the parameter group.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the parameter group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters of the parameter group.
-	Parameters interface{}
+	Parameters ParameterGroupParametersArrayInput `pulumi:"parameters"`
 }
+type ParameterGroupParameters struct {
+	// The name of the parameter group.
+	Name string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+var parameterGroupParametersType = reflect.TypeOf((*ParameterGroupParameters)(nil)).Elem()
+
+type ParameterGroupParametersInput interface {
+	pulumi.Input
+
+	ToParameterGroupParametersOutput() ParameterGroupParametersOutput
+	ToParameterGroupParametersOutputWithContext(ctx context.Context) ParameterGroupParametersOutput
+}
+
+type ParameterGroupParametersArgs struct {
+	// The name of the parameter group.
+	Name pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ParameterGroupParametersArgs) ElementType() reflect.Type {
+	return parameterGroupParametersType
+}
+
+func (a ParameterGroupParametersArgs) ToParameterGroupParametersOutput() ParameterGroupParametersOutput {
+	return pulumi.ToOutput(a).(ParameterGroupParametersOutput)
+}
+
+func (a ParameterGroupParametersArgs) ToParameterGroupParametersOutputWithContext(ctx context.Context) ParameterGroupParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ParameterGroupParametersOutput)
+}
+
+type ParameterGroupParametersOutput struct { *pulumi.OutputState }
+
+// The name of the parameter group.
+func (o ParameterGroupParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ParameterGroupParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ParameterGroupParametersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ParameterGroupParameters) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ParameterGroupParametersOutput) ElementType() reflect.Type {
+	return parameterGroupParametersType
+}
+
+func (o ParameterGroupParametersOutput) ToParameterGroupParametersOutput() ParameterGroupParametersOutput {
+	return o
+}
+
+func (o ParameterGroupParametersOutput) ToParameterGroupParametersOutputWithContext(ctx context.Context) ParameterGroupParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ParameterGroupParametersOutput{}) }
+
+var parameterGroupParametersArrayType = reflect.TypeOf((*[]ParameterGroupParameters)(nil)).Elem()
+
+type ParameterGroupParametersArrayInput interface {
+	pulumi.Input
+
+	ToParameterGroupParametersArrayOutput() ParameterGroupParametersArrayOutput
+	ToParameterGroupParametersArrayOutputWithContext(ctx context.Context) ParameterGroupParametersArrayOutput
+}
+
+type ParameterGroupParametersArrayArgs []ParameterGroupParametersInput
+
+func (ParameterGroupParametersArrayArgs) ElementType() reflect.Type {
+	return parameterGroupParametersArrayType
+}
+
+func (a ParameterGroupParametersArrayArgs) ToParameterGroupParametersArrayOutput() ParameterGroupParametersArrayOutput {
+	return pulumi.ToOutput(a).(ParameterGroupParametersArrayOutput)
+}
+
+func (a ParameterGroupParametersArrayArgs) ToParameterGroupParametersArrayOutputWithContext(ctx context.Context) ParameterGroupParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ParameterGroupParametersArrayOutput)
+}
+
+type ParameterGroupParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ParameterGroupParametersArrayOutput) Index(i pulumi.IntInput) ParameterGroupParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ParameterGroupParameters {
+		return vs[0].([]ParameterGroupParameters)[vs[1].(int)]
+	}).(ParameterGroupParametersOutput)
+}
+
+func (ParameterGroupParametersArrayOutput) ElementType() reflect.Type {
+	return parameterGroupParametersArrayType
+}
+
+func (o ParameterGroupParametersArrayOutput) ToParameterGroupParametersArrayOutput() ParameterGroupParametersArrayOutput {
+	return o
+}
+
+func (o ParameterGroupParametersArrayOutput) ToParameterGroupParametersArrayOutputWithContext(ctx context.Context) ParameterGroupParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ParameterGroupParametersArrayOutput{}) }
+

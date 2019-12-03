@@ -22,81 +22,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_principal_association.html.markdown.
 type PrincipalAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+
+	// The Amazon Resource Name (ARN) of the resource share.
+	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 }
 
 // NewPrincipalAssociation registers a new resource with the given unique name, arguments, and options.
 func NewPrincipalAssociation(ctx *pulumi.Context,
-	name string, args *PrincipalAssociationArgs, opts ...pulumi.ResourceOpt) (*PrincipalAssociation, error) {
+	name string, args *PrincipalAssociationArgs, opts ...pulumi.ResourceOption) (*PrincipalAssociation, error) {
 	if args == nil || args.Principal == nil {
 		return nil, errors.New("missing required argument 'Principal'")
 	}
 	if args == nil || args.ResourceShareArn == nil {
 		return nil, errors.New("missing required argument 'ResourceShareArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["principal"] = nil
-		inputs["resourceShareArn"] = nil
-	} else {
-		inputs["principal"] = args.Principal
-		inputs["resourceShareArn"] = args.ResourceShareArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Principal; i != nil { inputs["principal"] = i.ToStringOutput() }
+		if i := args.ResourceShareArn; i != nil { inputs["resourceShareArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ram/principalAssociation:PrincipalAssociation", name, true, inputs, opts...)
+	var resource PrincipalAssociation
+	err := ctx.RegisterResource("aws:ram/principalAssociation:PrincipalAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PrincipalAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetPrincipalAssociation gets an existing PrincipalAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPrincipalAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PrincipalAssociationState, opts ...pulumi.ResourceOpt) (*PrincipalAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PrincipalAssociationState, opts ...pulumi.ResourceOption) (*PrincipalAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["principal"] = state.Principal
-		inputs["resourceShareArn"] = state.ResourceShareArn
+		if i := state.Principal; i != nil { inputs["principal"] = i.ToStringOutput() }
+		if i := state.ResourceShareArn; i != nil { inputs["resourceShareArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ram/principalAssociation:PrincipalAssociation", name, id, inputs, opts...)
+	var resource PrincipalAssociation
+	err := ctx.ReadResource("aws:ram/principalAssociation:PrincipalAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PrincipalAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PrincipalAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PrincipalAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-func (r *PrincipalAssociation) Principal() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["principal"])
-}
-
-// The Amazon Resource Name (ARN) of the resource share.
-func (r *PrincipalAssociation) ResourceShareArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceShareArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PrincipalAssociation resources.
 type PrincipalAssociationState struct {
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-	Principal interface{}
+	Principal pulumi.StringInput `pulumi:"principal"`
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn interface{}
+	ResourceShareArn pulumi.StringInput `pulumi:"resourceShareArn"`
 }
 
 // The set of arguments for constructing a PrincipalAssociation resource.
 type PrincipalAssociationArgs struct {
 	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-	Principal interface{}
+	Principal pulumi.StringInput `pulumi:"principal"`
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn interface{}
+	ResourceShareArn pulumi.StringInput `pulumi:"resourceShareArn"`
 }

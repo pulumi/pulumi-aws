@@ -4,6 +4,8 @@
 package cloudhsmv2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -21,123 +23,87 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The list of cluster certificates.
+	// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+	// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
+	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
+	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
+	ClusterCertificates ClusterClusterCertificatesOutput `pulumi:"clusterCertificates"`
+
+	// The id of the CloudHSM cluster.
+	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+
+	// The state of the cluster.
+	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
+
+	// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+	HsmType pulumi.StringOutput `pulumi:"hsmType"`
+
+	// The ID of the security group associated with the CloudHSM cluster.
+	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+
+	// The id of Cloud HSM v2 cluster backup to be restored.
+	SourceBackupIdentifier pulumi.StringOutput `pulumi:"sourceBackupIdentifier"`
+
+	// The IDs of subnets in which cluster will operate.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The id of the VPC that the CloudHSM cluster resides in.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.HsmType == nil {
 		return nil, errors.New("missing required argument 'HsmType'")
 	}
 	if args == nil || args.SubnetIds == nil {
 		return nil, errors.New("missing required argument 'SubnetIds'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["hsmType"] = nil
-		inputs["sourceBackupIdentifier"] = nil
-		inputs["subnetIds"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["hsmType"] = args.HsmType
-		inputs["sourceBackupIdentifier"] = args.SourceBackupIdentifier
-		inputs["subnetIds"] = args.SubnetIds
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.HsmType; i != nil { inputs["hsmType"] = i.ToStringOutput() }
+		if i := args.SourceBackupIdentifier; i != nil { inputs["sourceBackupIdentifier"] = i.ToStringOutput() }
+		if i := args.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["clusterCertificates"] = nil
-	inputs["clusterId"] = nil
-	inputs["clusterState"] = nil
-	inputs["securityGroupId"] = nil
-	inputs["vpcId"] = nil
-	s, err := ctx.RegisterResource("aws:cloudhsmv2/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:cloudhsmv2/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterCertificates"] = state.ClusterCertificates
-		inputs["clusterId"] = state.ClusterId
-		inputs["clusterState"] = state.ClusterState
-		inputs["hsmType"] = state.HsmType
-		inputs["securityGroupId"] = state.SecurityGroupId
-		inputs["sourceBackupIdentifier"] = state.SourceBackupIdentifier
-		inputs["subnetIds"] = state.SubnetIds
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.ClusterCertificates; i != nil { inputs["clusterCertificates"] = i.ToClusterClusterCertificatesOutput() }
+		if i := state.ClusterId; i != nil { inputs["clusterId"] = i.ToStringOutput() }
+		if i := state.ClusterState; i != nil { inputs["clusterState"] = i.ToStringOutput() }
+		if i := state.HsmType; i != nil { inputs["hsmType"] = i.ToStringOutput() }
+		if i := state.SecurityGroupId; i != nil { inputs["securityGroupId"] = i.ToStringOutput() }
+		if i := state.SourceBackupIdentifier; i != nil { inputs["sourceBackupIdentifier"] = i.ToStringOutput() }
+		if i := state.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudhsmv2/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:cloudhsmv2/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The list of cluster certificates.
-// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
-// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
-// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
-// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-func (r *Cluster) ClusterCertificates() pulumi.Output {
-	return r.s.State["clusterCertificates"]
-}
-
-// The id of the CloudHSM cluster.
-func (r *Cluster) ClusterId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterId"])
-}
-
-// The state of the cluster.
-func (r *Cluster) ClusterState() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterState"])
-}
-
-// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
-func (r *Cluster) HsmType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hsmType"])
-}
-
-// The ID of the security group associated with the CloudHSM cluster.
-func (r *Cluster) SecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
-}
-
-// The id of Cloud HSM v2 cluster backup to be restored.
-func (r *Cluster) SourceBackupIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceBackupIdentifier"])
-}
-
-// The IDs of subnets in which cluster will operate.
-func (r *Cluster) SubnetIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The id of the VPC that the CloudHSM cluster resides in.
-func (r *Cluster) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
@@ -148,33 +114,115 @@ type ClusterState struct {
 	// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-	ClusterCertificates interface{}
+	ClusterCertificates ClusterClusterCertificatesInput `pulumi:"clusterCertificates"`
 	// The id of the CloudHSM cluster.
-	ClusterId interface{}
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// The state of the cluster.
-	ClusterState interface{}
+	ClusterState pulumi.StringInput `pulumi:"clusterState"`
 	// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
-	HsmType interface{}
+	HsmType pulumi.StringInput `pulumi:"hsmType"`
 	// The ID of the security group associated with the CloudHSM cluster.
-	SecurityGroupId interface{}
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
 	// The id of Cloud HSM v2 cluster backup to be restored.
-	SourceBackupIdentifier interface{}
+	SourceBackupIdentifier pulumi.StringInput `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The id of the VPC that the CloudHSM cluster resides in.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
-	HsmType interface{}
+	HsmType pulumi.StringInput `pulumi:"hsmType"`
 	// The id of Cloud HSM v2 cluster backup to be restored.
-	SourceBackupIdentifier interface{}
+	SourceBackupIdentifier pulumi.StringInput `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ClusterClusterCertificates struct {
+	AwsHardwareCertificate string `pulumi:"awsHardwareCertificate"`
+	ClusterCertificate string `pulumi:"clusterCertificate"`
+	ClusterCsr string `pulumi:"clusterCsr"`
+	HsmCertificate string `pulumi:"hsmCertificate"`
+	ManufacturerHardwareCertificate string `pulumi:"manufacturerHardwareCertificate"`
+}
+var clusterClusterCertificatesType = reflect.TypeOf((*ClusterClusterCertificates)(nil)).Elem()
+
+type ClusterClusterCertificatesInput interface {
+	pulumi.Input
+
+	ToClusterClusterCertificatesOutput() ClusterClusterCertificatesOutput
+	ToClusterClusterCertificatesOutputWithContext(ctx context.Context) ClusterClusterCertificatesOutput
+}
+
+type ClusterClusterCertificatesArgs struct {
+	AwsHardwareCertificate pulumi.StringInput `pulumi:"awsHardwareCertificate"`
+	ClusterCertificate pulumi.StringInput `pulumi:"clusterCertificate"`
+	ClusterCsr pulumi.StringInput `pulumi:"clusterCsr"`
+	HsmCertificate pulumi.StringInput `pulumi:"hsmCertificate"`
+	ManufacturerHardwareCertificate pulumi.StringInput `pulumi:"manufacturerHardwareCertificate"`
+}
+
+func (ClusterClusterCertificatesArgs) ElementType() reflect.Type {
+	return clusterClusterCertificatesType
+}
+
+func (a ClusterClusterCertificatesArgs) ToClusterClusterCertificatesOutput() ClusterClusterCertificatesOutput {
+	return pulumi.ToOutput(a).(ClusterClusterCertificatesOutput)
+}
+
+func (a ClusterClusterCertificatesArgs) ToClusterClusterCertificatesOutputWithContext(ctx context.Context) ClusterClusterCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterClusterCertificatesOutput)
+}
+
+type ClusterClusterCertificatesOutput struct { *pulumi.OutputState }
+
+func (o ClusterClusterCertificatesOutput) AwsHardwareCertificate() pulumi.StringOutput {
+	return o.Apply(func(v ClusterClusterCertificates) string {
+		return v.AwsHardwareCertificate
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterClusterCertificatesOutput) ClusterCertificate() pulumi.StringOutput {
+	return o.Apply(func(v ClusterClusterCertificates) string {
+		return v.ClusterCertificate
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterClusterCertificatesOutput) ClusterCsr() pulumi.StringOutput {
+	return o.Apply(func(v ClusterClusterCertificates) string {
+		return v.ClusterCsr
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterClusterCertificatesOutput) HsmCertificate() pulumi.StringOutput {
+	return o.Apply(func(v ClusterClusterCertificates) string {
+		return v.HsmCertificate
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterClusterCertificatesOutput) ManufacturerHardwareCertificate() pulumi.StringOutput {
+	return o.Apply(func(v ClusterClusterCertificates) string {
+		return v.ManufacturerHardwareCertificate
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterClusterCertificatesOutput) ElementType() reflect.Type {
+	return clusterClusterCertificatesType
+}
+
+func (o ClusterClusterCertificatesOutput) ToClusterClusterCertificatesOutput() ClusterClusterCertificatesOutput {
+	return o
+}
+
+func (o ClusterClusterCertificatesOutput) ToClusterClusterCertificatesOutputWithContext(ctx context.Context) ClusterClusterCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterClusterCertificatesOutput{}) }
+

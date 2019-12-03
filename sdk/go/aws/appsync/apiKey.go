@@ -12,99 +12,79 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
 type ApiKey struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the associated AppSync API
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+
+	// The API key description. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+	Expires pulumi.StringOutput `pulumi:"expires"`
+
+	// The API key
+	Key pulumi.StringOutput `pulumi:"key"`
 }
 
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
 func NewApiKey(ctx *pulumi.Context,
-	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOpt) (*ApiKey, error) {
+	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOption) (*ApiKey, error) {
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
-	inputs := make(map[string]interface{})
-	inputs["description"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["apiId"] = nil
-		inputs["expires"] = nil
-	} else {
-		inputs["apiId"] = args.ApiId
-		inputs["description"] = args.Description
-		inputs["expires"] = args.Expires
+	inputs := map[string]pulumi.Input{}
+	inputs["description"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Expires; i != nil { inputs["expires"] = i.ToStringOutput() }
 	}
-	inputs["key"] = nil
-	s, err := ctx.RegisterResource("aws:appsync/apiKey:ApiKey", name, true, inputs, opts...)
+	var resource ApiKey
+	err := ctx.RegisterResource("aws:appsync/apiKey:ApiKey", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiKey{s: s}, nil
+	return &resource, nil
 }
 
 // GetApiKey gets an existing ApiKey resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApiKey(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApiKeyState, opts ...pulumi.ResourceOpt) (*ApiKey, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApiKeyState, opts ...pulumi.ResourceOption) (*ApiKey, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiId"] = state.ApiId
-		inputs["description"] = state.Description
-		inputs["expires"] = state.Expires
-		inputs["key"] = state.Key
+		if i := state.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Expires; i != nil { inputs["expires"] = i.ToStringOutput() }
+		if i := state.Key; i != nil { inputs["key"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appsync/apiKey:ApiKey", name, id, inputs, opts...)
+	var resource ApiKey
+	err := ctx.ReadResource("aws:appsync/apiKey:ApiKey", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiKey{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApiKey) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApiKey) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the associated AppSync API
-func (r *ApiKey) ApiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiId"])
-}
-
-// The API key description. Defaults to "Managed by Pulumi".
-func (r *ApiKey) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-func (r *ApiKey) Expires() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expires"])
-}
-
-// The API key
-func (r *ApiKey) Key() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["key"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApiKey resources.
 type ApiKeyState struct {
 	// The ID of the associated AppSync API
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The API key description. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires interface{}
+	Expires pulumi.StringInput `pulumi:"expires"`
 	// The API key
-	Key interface{}
+	Key pulumi.StringInput `pulumi:"key"`
 }
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
 	// The ID of the associated AppSync API
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The API key description. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-	Expires interface{}
+	Expires pulumi.StringInput `pulumi:"expires"`
 }

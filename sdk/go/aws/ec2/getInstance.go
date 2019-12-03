@@ -11,59 +11,13 @@ import (
 // resources.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
-func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs) (*GetInstanceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["getPasswordData"] = args.GetPasswordData
-		inputs["getUserData"] = args.GetUserData
-		inputs["instanceId"] = args.InstanceId
-		inputs["instanceTags"] = args.InstanceTags
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getInstance:getInstance", inputs)
+func LookupInstance(ctx *pulumi.Context, args *GetInstanceArgs, opts ...pulumi.InvokeOption) (*GetInstanceResult, error) {
+	var rv GetInstanceResult
+	err := ctx.Invoke("aws:ec2/getInstance:getInstance", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetInstanceResult{
-		Ami: outputs["ami"],
-		Arn: outputs["arn"],
-		AssociatePublicIpAddress: outputs["associatePublicIpAddress"],
-		AvailabilityZone: outputs["availabilityZone"],
-		CreditSpecifications: outputs["creditSpecifications"],
-		DisableApiTermination: outputs["disableApiTermination"],
-		EbsBlockDevices: outputs["ebsBlockDevices"],
-		EbsOptimized: outputs["ebsOptimized"],
-		EphemeralBlockDevices: outputs["ephemeralBlockDevices"],
-		Filters: outputs["filters"],
-		GetPasswordData: outputs["getPasswordData"],
-		GetUserData: outputs["getUserData"],
-		HostId: outputs["hostId"],
-		IamInstanceProfile: outputs["iamInstanceProfile"],
-		InstanceId: outputs["instanceId"],
-		InstanceState: outputs["instanceState"],
-		InstanceTags: outputs["instanceTags"],
-		InstanceType: outputs["instanceType"],
-		KeyName: outputs["keyName"],
-		Monitoring: outputs["monitoring"],
-		NetworkInterfaceId: outputs["networkInterfaceId"],
-		PasswordData: outputs["passwordData"],
-		PlacementGroup: outputs["placementGroup"],
-		PrivateDns: outputs["privateDns"],
-		PrivateIp: outputs["privateIp"],
-		PublicDns: outputs["publicDns"],
-		PublicIp: outputs["publicIp"],
-		RootBlockDevices: outputs["rootBlockDevices"],
-		SecurityGroups: outputs["securityGroups"],
-		SourceDestCheck: outputs["sourceDestCheck"],
-		SubnetId: outputs["subnetId"],
-		Tags: outputs["tags"],
-		Tenancy: outputs["tenancy"],
-		UserData: outputs["userData"],
-		UserDataBase64: outputs["userDataBase64"],
-		VpcSecurityGroupIds: outputs["vpcSecurityGroupIds"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getInstance.
@@ -71,93 +25,144 @@ type GetInstanceArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [describe-instances in the AWS CLI reference][1].
-	Filters interface{}
+	Filters *[]GetInstanceFiltersArgs `pulumi:"filters"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-	GetPasswordData interface{}
+	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
-	GetUserData interface{}
+	GetUserData *bool `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
-	InstanceId interface{}
+	InstanceId *string `pulumi:"instanceId"`
 	// A mapping of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
-	InstanceTags interface{}
-	Tags interface{}
+	InstanceTags *map[string]string `pulumi:"instanceTags"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
 type GetInstanceResult struct {
 	// The ID of the AMI used to launch the instance.
-	Ami interface{}
+	Ami string `pulumi:"ami"`
 	// The ARN of the instance.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Whether or not the Instance is associated with a public IP address or not (Boolean).
-	AssociatePublicIpAddress interface{}
+	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
 	// The availability zone of the Instance.
-	AvailabilityZone interface{}
+	AvailabilityZone string `pulumi:"availabilityZone"`
 	// The credit specification of the Instance.
-	CreditSpecifications interface{}
-	DisableApiTermination interface{}
+	CreditSpecifications []GetInstanceCreditSpecificationsResult `pulumi:"creditSpecifications"`
+	DisableApiTermination bool `pulumi:"disableApiTermination"`
 	// The EBS block device mappings of the Instance.
-	EbsBlockDevices interface{}
+	EbsBlockDevices []GetInstanceEbsBlockDevicesResult `pulumi:"ebsBlockDevices"`
 	// Whether the Instance is EBS optimized or not (Boolean).
-	EbsOptimized interface{}
+	EbsOptimized bool `pulumi:"ebsOptimized"`
 	// The ephemeral block device mappings of the Instance.
-	EphemeralBlockDevices interface{}
-	Filters interface{}
-	GetPasswordData interface{}
-	GetUserData interface{}
+	EphemeralBlockDevices []GetInstanceEphemeralBlockDevicesResult `pulumi:"ephemeralBlockDevices"`
+	Filters *[]GetInstanceFiltersResult `pulumi:"filters"`
+	GetPasswordData *bool `pulumi:"getPasswordData"`
+	GetUserData *bool `pulumi:"getUserData"`
 	// The Id of the dedicated host the instance will be assigned to.
-	HostId interface{}
+	HostId string `pulumi:"hostId"`
 	// The name of the instance profile associated with the Instance.
-	IamInstanceProfile interface{}
-	InstanceId interface{}
+	IamInstanceProfile string `pulumi:"iamInstanceProfile"`
+	InstanceId *string `pulumi:"instanceId"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-	InstanceState interface{}
-	InstanceTags interface{}
+	InstanceState string `pulumi:"instanceState"`
+	InstanceTags map[string]string `pulumi:"instanceTags"`
 	// The type of the Instance.
-	InstanceType interface{}
+	InstanceType string `pulumi:"instanceType"`
 	// The key name of the Instance.
-	KeyName interface{}
+	KeyName string `pulumi:"keyName"`
 	// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
-	Monitoring interface{}
+	Monitoring bool `pulumi:"monitoring"`
 	// The ID of the network interface that was created with the Instance.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// Base-64 encoded encrypted password data for the instance.
 	// Useful for getting the administrator password for instances running Microsoft Windows.
 	// This attribute is only exported if `getPasswordData` is true.
 	// See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-	PasswordData interface{}
+	PasswordData string `pulumi:"passwordData"`
 	// The placement group of the Instance.
-	PlacementGroup interface{}
+	PlacementGroup string `pulumi:"placementGroup"`
 	// The private DNS name assigned to the Instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC.
-	PrivateDns interface{}
+	PrivateDns string `pulumi:"privateDns"`
 	// The private IP address assigned to the Instance.
-	PrivateIp interface{}
+	PrivateIp string `pulumi:"privateIp"`
 	// The public DNS name assigned to the Instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC.
-	PublicDns interface{}
+	PublicDns string `pulumi:"publicDns"`
 	// The public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
-	PublicIp interface{}
+	PublicIp string `pulumi:"publicIp"`
 	// The root block device mappings of the Instance
-	RootBlockDevices interface{}
+	RootBlockDevices []GetInstanceRootBlockDevicesResult `pulumi:"rootBlockDevices"`
 	// The associated security groups.
-	SecurityGroups interface{}
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the network interface performs source/destination checking (Boolean).
-	SourceDestCheck interface{}
+	SourceDestCheck bool `pulumi:"sourceDestCheck"`
 	// The VPC subnet ID.
-	SubnetId interface{}
+	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags assigned to the Instance.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The tenancy of the instance: `dedicated`, `default`, `host`.
-	Tenancy interface{}
+	Tenancy string `pulumi:"tenancy"`
 	// SHA-1 hash of User Data supplied to the Instance.
-	UserData interface{}
+	UserData string `pulumi:"userData"`
 	// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `getUserData` is true.
-	UserDataBase64 interface{}
+	UserDataBase64 string `pulumi:"userDataBase64"`
 	// The associated security groups in a non-default VPC.
-	VpcSecurityGroupIds interface{}
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetInstanceCreditSpecificationsResult struct {
+	CpuCredits string `pulumi:"cpuCredits"`
+}
+type GetInstanceEbsBlockDevicesResult struct {
+	// If the root block device will be deleted on termination.
+	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// The physical name of the device.
+	DeviceName string `pulumi:"deviceName"`
+	// If the EBS volume is encrypted.
+	Encrypted bool `pulumi:"encrypted"`
+	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
+	Iops int `pulumi:"iops"`
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId string `pulumi:"snapshotId"`
+	VolumeId string `pulumi:"volumeId"`
+	// The size of the volume, in GiB.
+	VolumeSize int `pulumi:"volumeSize"`
+	// The type of the volume.
+	VolumeType string `pulumi:"volumeType"`
+}
+type GetInstanceEphemeralBlockDevicesResult struct {
+	// The physical name of the device.
+	DeviceName string `pulumi:"deviceName"`
+	// Whether the specified device included in the device mapping was suppressed or not (Boolean).
+	NoDevice *bool `pulumi:"noDevice"`
+	// The virtual device name.
+	VirtualName *string `pulumi:"virtualName"`
+}
+type GetInstanceFiltersArgs struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetInstanceFiltersResult struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetInstanceRootBlockDevicesResult struct {
+	// If the root block device will be deleted on termination.
+	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	// If the EBS volume is encrypted.
+	Encrypted bool `pulumi:"encrypted"`
+	// `0` If the volume is not a provisioned IOPS image, otherwise the supported IOPS count.
+	Iops int `pulumi:"iops"`
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	VolumeId string `pulumi:"volumeId"`
+	// The size of the volume, in GiB.
+	VolumeSize int `pulumi:"volumeSize"`
+	// The type of the volume.
+	VolumeType string `pulumi:"volumeType"`
 }

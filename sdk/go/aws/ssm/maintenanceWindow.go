@@ -12,12 +12,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
 type MaintenanceWindow struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+	AllowUnassociatedTargets pulumi.BoolOutput `pulumi:"allowUnassociatedTargets"`
+
+	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+	Cutoff pulumi.IntOutput `pulumi:"cutoff"`
+
+	// The duration of the Maintenance Window in hours.
+	Duration pulumi.IntOutput `pulumi:"duration"`
+
+	// Whether the maintenance window is enabled. Default: `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+	EndDate pulumi.StringOutput `pulumi:"endDate"`
+
+	// The name of the maintenance window.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+	Schedule pulumi.StringOutput `pulumi:"schedule"`
+
+	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+	ScheduleTimezone pulumi.StringOutput `pulumi:"scheduleTimezone"`
+
+	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+	StartDate pulumi.StringOutput `pulumi:"startDate"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewMaintenanceWindow registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindow(ctx *pulumi.Context,
-	name string, args *MaintenanceWindowArgs, opts ...pulumi.ResourceOpt) (*MaintenanceWindow, error) {
+	name string, args *MaintenanceWindowArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindow, error) {
 	if args == nil || args.Cutoff == nil {
 		return nil, errors.New("missing required argument 'Cutoff'")
 	}
@@ -27,165 +57,96 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 	if args == nil || args.Schedule == nil {
 		return nil, errors.New("missing required argument 'Schedule'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowUnassociatedTargets"] = nil
-		inputs["cutoff"] = nil
-		inputs["duration"] = nil
-		inputs["enabled"] = nil
-		inputs["endDate"] = nil
-		inputs["name"] = nil
-		inputs["schedule"] = nil
-		inputs["scheduleTimezone"] = nil
-		inputs["startDate"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["allowUnassociatedTargets"] = args.AllowUnassociatedTargets
-		inputs["cutoff"] = args.Cutoff
-		inputs["duration"] = args.Duration
-		inputs["enabled"] = args.Enabled
-		inputs["endDate"] = args.EndDate
-		inputs["name"] = args.Name
-		inputs["schedule"] = args.Schedule
-		inputs["scheduleTimezone"] = args.ScheduleTimezone
-		inputs["startDate"] = args.StartDate
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowUnassociatedTargets; i != nil { inputs["allowUnassociatedTargets"] = i.ToBoolOutput() }
+		if i := args.Cutoff; i != nil { inputs["cutoff"] = i.ToIntOutput() }
+		if i := args.Duration; i != nil { inputs["duration"] = i.ToIntOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.EndDate; i != nil { inputs["endDate"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := args.ScheduleTimezone; i != nil { inputs["scheduleTimezone"] = i.ToStringOutput() }
+		if i := args.StartDate; i != nil { inputs["startDate"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, true, inputs, opts...)
+	var resource MaintenanceWindow
+	err := ctx.RegisterResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MaintenanceWindow{s: s}, nil
+	return &resource, nil
 }
 
 // GetMaintenanceWindow gets an existing MaintenanceWindow resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMaintenanceWindow(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MaintenanceWindowState, opts ...pulumi.ResourceOpt) (*MaintenanceWindow, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MaintenanceWindowState, opts ...pulumi.ResourceOption) (*MaintenanceWindow, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowUnassociatedTargets"] = state.AllowUnassociatedTargets
-		inputs["cutoff"] = state.Cutoff
-		inputs["duration"] = state.Duration
-		inputs["enabled"] = state.Enabled
-		inputs["endDate"] = state.EndDate
-		inputs["name"] = state.Name
-		inputs["schedule"] = state.Schedule
-		inputs["scheduleTimezone"] = state.ScheduleTimezone
-		inputs["startDate"] = state.StartDate
-		inputs["tags"] = state.Tags
+		if i := state.AllowUnassociatedTargets; i != nil { inputs["allowUnassociatedTargets"] = i.ToBoolOutput() }
+		if i := state.Cutoff; i != nil { inputs["cutoff"] = i.ToIntOutput() }
+		if i := state.Duration; i != nil { inputs["duration"] = i.ToIntOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.EndDate; i != nil { inputs["endDate"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := state.ScheduleTimezone; i != nil { inputs["scheduleTimezone"] = i.ToStringOutput() }
+		if i := state.StartDate; i != nil { inputs["startDate"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, id, inputs, opts...)
+	var resource MaintenanceWindow
+	err := ctx.ReadResource("aws:ssm/maintenanceWindow:MaintenanceWindow", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MaintenanceWindow{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MaintenanceWindow) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MaintenanceWindow) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-func (r *MaintenanceWindow) AllowUnassociatedTargets() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowUnassociatedTargets"])
-}
-
-// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-func (r *MaintenanceWindow) Cutoff() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["cutoff"])
-}
-
-// The duration of the Maintenance Window in hours.
-func (r *MaintenanceWindow) Duration() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["duration"])
-}
-
-// Whether the maintenance window is enabled. Default: `true`.
-func (r *MaintenanceWindow) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-func (r *MaintenanceWindow) EndDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endDate"])
-}
-
-// The name of the maintenance window.
-func (r *MaintenanceWindow) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
-func (r *MaintenanceWindow) Schedule() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["schedule"])
-}
-
-// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-func (r *MaintenanceWindow) ScheduleTimezone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scheduleTimezone"])
-}
-
-// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-func (r *MaintenanceWindow) StartDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startDate"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *MaintenanceWindow) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MaintenanceWindow resources.
 type MaintenanceWindowState struct {
 	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-	AllowUnassociatedTargets interface{}
+	AllowUnassociatedTargets pulumi.BoolInput `pulumi:"allowUnassociatedTargets"`
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff interface{}
+	Cutoff pulumi.IntInput `pulumi:"cutoff"`
 	// The duration of the Maintenance Window in hours.
-	Duration interface{}
+	Duration pulumi.IntInput `pulumi:"duration"`
 	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate interface{}
+	EndDate pulumi.StringInput `pulumi:"endDate"`
 	// The name of the maintenance window.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone interface{}
+	ScheduleTimezone pulumi.StringInput `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate interface{}
+	StartDate pulumi.StringInput `pulumi:"startDate"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
 type MaintenanceWindowArgs struct {
 	// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-	AllowUnassociatedTargets interface{}
+	AllowUnassociatedTargets pulumi.BoolInput `pulumi:"allowUnassociatedTargets"`
 	// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-	Cutoff interface{}
+	Cutoff pulumi.IntInput `pulumi:"cutoff"`
 	// The duration of the Maintenance Window in hours.
-	Duration interface{}
+	Duration pulumi.IntInput `pulumi:"duration"`
 	// Whether the maintenance window is enabled. Default: `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-	EndDate interface{}
+	EndDate pulumi.StringInput `pulumi:"endDate"`
 	// The name of the maintenance window.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-	ScheduleTimezone interface{}
+	ScheduleTimezone pulumi.StringInput `pulumi:"scheduleTimezone"`
 	// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-	StartDate interface{}
+	StartDate pulumi.StringInput `pulumi:"startDate"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

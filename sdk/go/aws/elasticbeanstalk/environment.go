@@ -4,6 +4,8 @@
 package elasticbeanstalk
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -29,239 +31,161 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
 type Environment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// List of all option settings configured in this Environment. These
+	// are a combination of default settings and their overrides from `setting` in
+	// the configuration.
+	AllSettings EnvironmentAllSettingsArrayOutput `pulumi:"allSettings"`
+
+	// Name of the application that contains the version
+	// to be deployed
+	Application pulumi.StringOutput `pulumi:"application"`
+
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The autoscaling groups used by this Environment.
+	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
+
+	// Fully qualified DNS name for this Environment.
+	Cname pulumi.StringOutput `pulumi:"cname"`
+
+	// Prefix to use for the fully qualified DNS name of
+	// the Environment.
+	CnamePrefix pulumi.StringOutput `pulumi:"cnamePrefix"`
+
+	// Short description of the Environment
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The URL to the Load Balancer for this Environment
+	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
+
+	// Instances used by this Environment.
+	Instances pulumi.StringArrayOutput `pulumi:"instances"`
+
+	// Launch configurations in use by this Environment.
+	LaunchConfigurations pulumi.StringArrayOutput `pulumi:"launchConfigurations"`
+
+	// Elastic load balancers in use by this Environment.
+	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
+
+	// A unique name for this Environment. This name is used
+	// in the application URL
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
+	// to use in deployment
+	PlatformArn pulumi.StringOutput `pulumi:"platformArn"`
+
+	// The time between polling the AWS API to
+	// check if changes have been applied. Use this to adjust the rate of API calls
+	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+	// use the default behavior, which is an exponential backoff
+	PollInterval pulumi.StringOutput `pulumi:"pollInterval"`
+
+	// SQS queues in use by this Environment.
+	Queues pulumi.StringArrayOutput `pulumi:"queues"`
+
+	// Option settings to configure the new Environment. These
+	// override specific values that are set as defaults. The format is detailed
+	// below in Option Settings
+	Settings EnvironmentSettingsArrayOutput `pulumi:"settings"`
+
+	// A solution stack to base your environment
+	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	SolutionStackName pulumi.StringOutput `pulumi:"solutionStackName"`
+
+	// A set of tags to apply to the Environment.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The name of the Elastic Beanstalk Configuration
+	// template to use in deployment
+	TemplateName pulumi.StringOutput `pulumi:"templateName"`
+
+	// Elastic Beanstalk Environment tier. Valid values are `Worker`
+	// or `WebServer`. If tier is left blank `WebServer` will be used.
+	Tier pulumi.StringOutput `pulumi:"tier"`
+
+	// Autoscaling triggers in use by this Environment.
+	Triggers pulumi.StringArrayOutput `pulumi:"triggers"`
+
+	// The name of the Elastic Beanstalk Application Version
+	// to use in deployment.
+	Version pulumi.StringOutput `pulumi:"version"`
+
+	// The maximum
+	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
+	// out.
+	WaitForReadyTimeout pulumi.StringOutput `pulumi:"waitForReadyTimeout"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewEnvironment(ctx *pulumi.Context,
-	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOpt) (*Environment, error) {
+	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil || args.Application == nil {
 		return nil, errors.New("missing required argument 'Application'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["application"] = nil
-		inputs["cnamePrefix"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["platformArn"] = nil
-		inputs["pollInterval"] = nil
-		inputs["settings"] = nil
-		inputs["solutionStackName"] = nil
-		inputs["tags"] = nil
-		inputs["templateName"] = nil
-		inputs["tier"] = nil
-		inputs["version"] = nil
-		inputs["waitForReadyTimeout"] = nil
-	} else {
-		inputs["application"] = args.Application
-		inputs["cnamePrefix"] = args.CnamePrefix
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["platformArn"] = args.PlatformArn
-		inputs["pollInterval"] = args.PollInterval
-		inputs["settings"] = args.Settings
-		inputs["solutionStackName"] = args.SolutionStackName
-		inputs["tags"] = args.Tags
-		inputs["templateName"] = args.TemplateName
-		inputs["tier"] = args.Tier
-		inputs["version"] = args.Version
-		inputs["waitForReadyTimeout"] = args.WaitForReadyTimeout
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Application; i != nil { inputs["application"] = i.ToStringOutput() }
+		if i := args.CnamePrefix; i != nil { inputs["cnamePrefix"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PlatformArn; i != nil { inputs["platformArn"] = i.ToStringOutput() }
+		if i := args.PollInterval; i != nil { inputs["pollInterval"] = i.ToStringOutput() }
+		if i := args.Settings; i != nil { inputs["settings"] = i.ToEnvironmentSettingsArrayOutput() }
+		if i := args.SolutionStackName; i != nil { inputs["solutionStackName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TemplateName; i != nil { inputs["templateName"] = i.ToStringOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := args.WaitForReadyTimeout; i != nil { inputs["waitForReadyTimeout"] = i.ToStringOutput() }
 	}
-	inputs["allSettings"] = nil
-	inputs["arn"] = nil
-	inputs["autoscalingGroups"] = nil
-	inputs["cname"] = nil
-	inputs["endpointUrl"] = nil
-	inputs["instances"] = nil
-	inputs["launchConfigurations"] = nil
-	inputs["loadBalancers"] = nil
-	inputs["queues"] = nil
-	inputs["triggers"] = nil
-	s, err := ctx.RegisterResource("aws:elasticbeanstalk/environment:Environment", name, true, inputs, opts...)
+	var resource Environment
+	err := ctx.RegisterResource("aws:elasticbeanstalk/environment:Environment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Environment{s: s}, nil
+	return &resource, nil
 }
 
 // GetEnvironment gets an existing Environment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEnvironment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EnvironmentState, opts ...pulumi.ResourceOpt) (*Environment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EnvironmentState, opts ...pulumi.ResourceOption) (*Environment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allSettings"] = state.AllSettings
-		inputs["application"] = state.Application
-		inputs["arn"] = state.Arn
-		inputs["autoscalingGroups"] = state.AutoscalingGroups
-		inputs["cname"] = state.Cname
-		inputs["cnamePrefix"] = state.CnamePrefix
-		inputs["description"] = state.Description
-		inputs["endpointUrl"] = state.EndpointUrl
-		inputs["instances"] = state.Instances
-		inputs["launchConfigurations"] = state.LaunchConfigurations
-		inputs["loadBalancers"] = state.LoadBalancers
-		inputs["name"] = state.Name
-		inputs["platformArn"] = state.PlatformArn
-		inputs["pollInterval"] = state.PollInterval
-		inputs["queues"] = state.Queues
-		inputs["settings"] = state.Settings
-		inputs["solutionStackName"] = state.SolutionStackName
-		inputs["tags"] = state.Tags
-		inputs["templateName"] = state.TemplateName
-		inputs["tier"] = state.Tier
-		inputs["triggers"] = state.Triggers
-		inputs["version"] = state.Version
-		inputs["waitForReadyTimeout"] = state.WaitForReadyTimeout
+		if i := state.AllSettings; i != nil { inputs["allSettings"] = i.ToEnvironmentAllSettingsArrayOutput() }
+		if i := state.Application; i != nil { inputs["application"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AutoscalingGroups; i != nil { inputs["autoscalingGroups"] = i.ToStringArrayOutput() }
+		if i := state.Cname; i != nil { inputs["cname"] = i.ToStringOutput() }
+		if i := state.CnamePrefix; i != nil { inputs["cnamePrefix"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EndpointUrl; i != nil { inputs["endpointUrl"] = i.ToStringOutput() }
+		if i := state.Instances; i != nil { inputs["instances"] = i.ToStringArrayOutput() }
+		if i := state.LaunchConfigurations; i != nil { inputs["launchConfigurations"] = i.ToStringArrayOutput() }
+		if i := state.LoadBalancers; i != nil { inputs["loadBalancers"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PlatformArn; i != nil { inputs["platformArn"] = i.ToStringOutput() }
+		if i := state.PollInterval; i != nil { inputs["pollInterval"] = i.ToStringOutput() }
+		if i := state.Queues; i != nil { inputs["queues"] = i.ToStringArrayOutput() }
+		if i := state.Settings; i != nil { inputs["settings"] = i.ToEnvironmentSettingsArrayOutput() }
+		if i := state.SolutionStackName; i != nil { inputs["solutionStackName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TemplateName; i != nil { inputs["templateName"] = i.ToStringOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
+		if i := state.Triggers; i != nil { inputs["triggers"] = i.ToStringArrayOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := state.WaitForReadyTimeout; i != nil { inputs["waitForReadyTimeout"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticbeanstalk/environment:Environment", name, id, inputs, opts...)
+	var resource Environment
+	err := ctx.ReadResource("aws:elasticbeanstalk/environment:Environment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Environment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Environment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Environment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// List of all option settings configured in this Environment. These
-// are a combination of default settings and their overrides from `setting` in
-// the configuration.
-func (r *Environment) AllSettings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["allSettings"])
-}
-
-// Name of the application that contains the version
-// to be deployed
-func (r *Environment) Application() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["application"])
-}
-
-func (r *Environment) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The autoscaling groups used by this Environment.
-func (r *Environment) AutoscalingGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["autoscalingGroups"])
-}
-
-// Fully qualified DNS name for this Environment.
-func (r *Environment) Cname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cname"])
-}
-
-// Prefix to use for the fully qualified DNS name of
-// the Environment.
-func (r *Environment) CnamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cnamePrefix"])
-}
-
-// Short description of the Environment
-func (r *Environment) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The URL to the Load Balancer for this Environment
-func (r *Environment) EndpointUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpointUrl"])
-}
-
-// Instances used by this Environment.
-func (r *Environment) Instances() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["instances"])
-}
-
-// Launch configurations in use by this Environment.
-func (r *Environment) LaunchConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["launchConfigurations"])
-}
-
-// Elastic load balancers in use by this Environment.
-func (r *Environment) LoadBalancers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
-}
-
-// A unique name for this Environment. This name is used
-// in the application URL
-func (r *Environment) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The [ARN][2] of the Elastic Beanstalk [Platform][3]
-// to use in deployment
-func (r *Environment) PlatformArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["platformArn"])
-}
-
-// The time between polling the AWS API to
-// check if changes have been applied. Use this to adjust the rate of API calls
-// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
-// use the default behavior, which is an exponential backoff
-func (r *Environment) PollInterval() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["pollInterval"])
-}
-
-// SQS queues in use by this Environment.
-func (r *Environment) Queues() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["queues"])
-}
-
-// Option settings to configure the new Environment. These
-// override specific values that are set as defaults. The format is detailed
-// below in Option Settings
-func (r *Environment) Settings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["settings"])
-}
-
-// A solution stack to base your environment
-// off of. Example stacks can be found in the [Amazon API documentation][1]
-func (r *Environment) SolutionStackName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["solutionStackName"])
-}
-
-// A set of tags to apply to the Environment.
-func (r *Environment) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The name of the Elastic Beanstalk Configuration
-// template to use in deployment
-func (r *Environment) TemplateName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["templateName"])
-}
-
-// Elastic Beanstalk Environment tier. Valid values are `Worker`
-// or `WebServer`. If tier is left blank `WebServer` will be used.
-func (r *Environment) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
-}
-
-// Autoscaling triggers in use by this Environment.
-func (r *Environment) Triggers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["triggers"])
-}
-
-// The name of the Elastic Beanstalk Application Version
-// to use in deployment.
-func (r *Environment) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
-}
-
-// The maximum
-// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
-// wait for an Elastic Beanstalk Environment to be in a ready state before timing
-// out.
-func (r *Environment) WaitForReadyTimeout() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["waitForReadyTimeout"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Environment resources.
@@ -269,110 +193,360 @@ type EnvironmentState struct {
 	// List of all option settings configured in this Environment. These
 	// are a combination of default settings and their overrides from `setting` in
 	// the configuration.
-	AllSettings interface{}
+	AllSettings EnvironmentAllSettingsArrayInput `pulumi:"allSettings"`
 	// Name of the application that contains the version
 	// to be deployed
-	Application interface{}
-	Arn interface{}
+	Application pulumi.StringInput `pulumi:"application"`
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The autoscaling groups used by this Environment.
-	AutoscalingGroups interface{}
+	AutoscalingGroups pulumi.StringArrayInput `pulumi:"autoscalingGroups"`
 	// Fully qualified DNS name for this Environment.
-	Cname interface{}
+	Cname pulumi.StringInput `pulumi:"cname"`
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
-	CnamePrefix interface{}
+	CnamePrefix pulumi.StringInput `pulumi:"cnamePrefix"`
 	// Short description of the Environment
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The URL to the Load Balancer for this Environment
-	EndpointUrl interface{}
+	EndpointUrl pulumi.StringInput `pulumi:"endpointUrl"`
 	// Instances used by this Environment.
-	Instances interface{}
+	Instances pulumi.StringArrayInput `pulumi:"instances"`
 	// Launch configurations in use by this Environment.
-	LaunchConfigurations interface{}
+	LaunchConfigurations pulumi.StringArrayInput `pulumi:"launchConfigurations"`
 	// Elastic load balancers in use by this Environment.
-	LoadBalancers interface{}
+	LoadBalancers pulumi.StringArrayInput `pulumi:"loadBalancers"`
 	// A unique name for this Environment. This name is used
 	// in the application URL
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
 	// to use in deployment
-	PlatformArn interface{}
+	PlatformArn pulumi.StringInput `pulumi:"platformArn"`
 	// The time between polling the AWS API to
 	// check if changes have been applied. Use this to adjust the rate of API calls
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
-	PollInterval interface{}
+	PollInterval pulumi.StringInput `pulumi:"pollInterval"`
 	// SQS queues in use by this Environment.
-	Queues interface{}
+	Queues pulumi.StringArrayInput `pulumi:"queues"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
-	Settings interface{}
+	Settings EnvironmentSettingsArrayInput `pulumi:"settings"`
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName interface{}
+	SolutionStackName pulumi.StringInput `pulumi:"solutionStackName"`
 	// A set of tags to apply to the Environment.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
-	TemplateName interface{}
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
 	// Elastic Beanstalk Environment tier. Valid values are `Worker`
 	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 	// Autoscaling triggers in use by this Environment.
-	Triggers interface{}
+	Triggers pulumi.StringArrayInput `pulumi:"triggers"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
-	WaitForReadyTimeout interface{}
+	WaitForReadyTimeout pulumi.StringInput `pulumi:"waitForReadyTimeout"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application interface{}
+	Application pulumi.StringInput `pulumi:"application"`
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
-	CnamePrefix interface{}
+	CnamePrefix pulumi.StringInput `pulumi:"cnamePrefix"`
 	// Short description of the Environment
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A unique name for this Environment. This name is used
 	// in the application URL
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The [ARN][2] of the Elastic Beanstalk [Platform][3]
 	// to use in deployment
-	PlatformArn interface{}
+	PlatformArn pulumi.StringInput `pulumi:"platformArn"`
 	// The time between polling the AWS API to
 	// check if changes have been applied. Use this to adjust the rate of API calls
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
-	PollInterval interface{}
+	PollInterval pulumi.StringInput `pulumi:"pollInterval"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
-	Settings interface{}
+	Settings EnvironmentSettingsArrayInput `pulumi:"settings"`
 	// A solution stack to base your environment
 	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName interface{}
+	SolutionStackName pulumi.StringInput `pulumi:"solutionStackName"`
 	// A set of tags to apply to the Environment.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
-	TemplateName interface{}
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
 	// Elastic Beanstalk Environment tier. Valid values are `Worker`
 	// or `WebServer`. If tier is left blank `WebServer` will be used.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
 	// out.
-	WaitForReadyTimeout interface{}
+	WaitForReadyTimeout pulumi.StringInput `pulumi:"waitForReadyTimeout"`
 }
+type EnvironmentAllSettings struct {
+	// A unique name for this Environment. This name is used
+	// in the application URL
+	Name string `pulumi:"name"`
+	Namespace string `pulumi:"namespace"`
+	Resource *string `pulumi:"resource"`
+	Value string `pulumi:"value"`
+}
+var environmentAllSettingsType = reflect.TypeOf((*EnvironmentAllSettings)(nil)).Elem()
+
+type EnvironmentAllSettingsInput interface {
+	pulumi.Input
+
+	ToEnvironmentAllSettingsOutput() EnvironmentAllSettingsOutput
+	ToEnvironmentAllSettingsOutputWithContext(ctx context.Context) EnvironmentAllSettingsOutput
+}
+
+type EnvironmentAllSettingsArgs struct {
+	// A unique name for this Environment. This name is used
+	// in the application URL
+	Name pulumi.StringInput `pulumi:"name"`
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Resource pulumi.StringInput `pulumi:"resource"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentAllSettingsArgs) ElementType() reflect.Type {
+	return environmentAllSettingsType
+}
+
+func (a EnvironmentAllSettingsArgs) ToEnvironmentAllSettingsOutput() EnvironmentAllSettingsOutput {
+	return pulumi.ToOutput(a).(EnvironmentAllSettingsOutput)
+}
+
+func (a EnvironmentAllSettingsArgs) ToEnvironmentAllSettingsOutputWithContext(ctx context.Context) EnvironmentAllSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EnvironmentAllSettingsOutput)
+}
+
+type EnvironmentAllSettingsOutput struct { *pulumi.OutputState }
+
+// A unique name for this Environment. This name is used
+// in the application URL
+func (o EnvironmentAllSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentAllSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentAllSettingsOutput) Namespace() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentAllSettings) string {
+		return v.Namespace
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentAllSettingsOutput) Resource() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentAllSettings) string {
+		if v.Resource == nil { return *new(string) } else { return *v.Resource }
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentAllSettingsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentAllSettings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (EnvironmentAllSettingsOutput) ElementType() reflect.Type {
+	return environmentAllSettingsType
+}
+
+func (o EnvironmentAllSettingsOutput) ToEnvironmentAllSettingsOutput() EnvironmentAllSettingsOutput {
+	return o
+}
+
+func (o EnvironmentAllSettingsOutput) ToEnvironmentAllSettingsOutputWithContext(ctx context.Context) EnvironmentAllSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EnvironmentAllSettingsOutput{}) }
+
+var environmentAllSettingsArrayType = reflect.TypeOf((*[]EnvironmentAllSettings)(nil)).Elem()
+
+type EnvironmentAllSettingsArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentAllSettingsArrayOutput() EnvironmentAllSettingsArrayOutput
+	ToEnvironmentAllSettingsArrayOutputWithContext(ctx context.Context) EnvironmentAllSettingsArrayOutput
+}
+
+type EnvironmentAllSettingsArrayArgs []EnvironmentAllSettingsInput
+
+func (EnvironmentAllSettingsArrayArgs) ElementType() reflect.Type {
+	return environmentAllSettingsArrayType
+}
+
+func (a EnvironmentAllSettingsArrayArgs) ToEnvironmentAllSettingsArrayOutput() EnvironmentAllSettingsArrayOutput {
+	return pulumi.ToOutput(a).(EnvironmentAllSettingsArrayOutput)
+}
+
+func (a EnvironmentAllSettingsArrayArgs) ToEnvironmentAllSettingsArrayOutputWithContext(ctx context.Context) EnvironmentAllSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EnvironmentAllSettingsArrayOutput)
+}
+
+type EnvironmentAllSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o EnvironmentAllSettingsArrayOutput) Index(i pulumi.IntInput) EnvironmentAllSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) EnvironmentAllSettings {
+		return vs[0].([]EnvironmentAllSettings)[vs[1].(int)]
+	}).(EnvironmentAllSettingsOutput)
+}
+
+func (EnvironmentAllSettingsArrayOutput) ElementType() reflect.Type {
+	return environmentAllSettingsArrayType
+}
+
+func (o EnvironmentAllSettingsArrayOutput) ToEnvironmentAllSettingsArrayOutput() EnvironmentAllSettingsArrayOutput {
+	return o
+}
+
+func (o EnvironmentAllSettingsArrayOutput) ToEnvironmentAllSettingsArrayOutputWithContext(ctx context.Context) EnvironmentAllSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EnvironmentAllSettingsArrayOutput{}) }
+
+type EnvironmentSettings struct {
+	// A unique name for this Environment. This name is used
+	// in the application URL
+	Name string `pulumi:"name"`
+	Namespace string `pulumi:"namespace"`
+	Resource *string `pulumi:"resource"`
+	Value string `pulumi:"value"`
+}
+var environmentSettingsType = reflect.TypeOf((*EnvironmentSettings)(nil)).Elem()
+
+type EnvironmentSettingsInput interface {
+	pulumi.Input
+
+	ToEnvironmentSettingsOutput() EnvironmentSettingsOutput
+	ToEnvironmentSettingsOutputWithContext(ctx context.Context) EnvironmentSettingsOutput
+}
+
+type EnvironmentSettingsArgs struct {
+	// A unique name for this Environment. This name is used
+	// in the application URL
+	Name pulumi.StringInput `pulumi:"name"`
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Resource pulumi.StringInput `pulumi:"resource"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentSettingsArgs) ElementType() reflect.Type {
+	return environmentSettingsType
+}
+
+func (a EnvironmentSettingsArgs) ToEnvironmentSettingsOutput() EnvironmentSettingsOutput {
+	return pulumi.ToOutput(a).(EnvironmentSettingsOutput)
+}
+
+func (a EnvironmentSettingsArgs) ToEnvironmentSettingsOutputWithContext(ctx context.Context) EnvironmentSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EnvironmentSettingsOutput)
+}
+
+type EnvironmentSettingsOutput struct { *pulumi.OutputState }
+
+// A unique name for this Environment. This name is used
+// in the application URL
+func (o EnvironmentSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentSettingsOutput) Namespace() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentSettings) string {
+		return v.Namespace
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentSettingsOutput) Resource() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentSettings) string {
+		if v.Resource == nil { return *new(string) } else { return *v.Resource }
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentSettingsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v EnvironmentSettings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (EnvironmentSettingsOutput) ElementType() reflect.Type {
+	return environmentSettingsType
+}
+
+func (o EnvironmentSettingsOutput) ToEnvironmentSettingsOutput() EnvironmentSettingsOutput {
+	return o
+}
+
+func (o EnvironmentSettingsOutput) ToEnvironmentSettingsOutputWithContext(ctx context.Context) EnvironmentSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EnvironmentSettingsOutput{}) }
+
+var environmentSettingsArrayType = reflect.TypeOf((*[]EnvironmentSettings)(nil)).Elem()
+
+type EnvironmentSettingsArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentSettingsArrayOutput() EnvironmentSettingsArrayOutput
+	ToEnvironmentSettingsArrayOutputWithContext(ctx context.Context) EnvironmentSettingsArrayOutput
+}
+
+type EnvironmentSettingsArrayArgs []EnvironmentSettingsInput
+
+func (EnvironmentSettingsArrayArgs) ElementType() reflect.Type {
+	return environmentSettingsArrayType
+}
+
+func (a EnvironmentSettingsArrayArgs) ToEnvironmentSettingsArrayOutput() EnvironmentSettingsArrayOutput {
+	return pulumi.ToOutput(a).(EnvironmentSettingsArrayOutput)
+}
+
+func (a EnvironmentSettingsArrayArgs) ToEnvironmentSettingsArrayOutputWithContext(ctx context.Context) EnvironmentSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EnvironmentSettingsArrayOutput)
+}
+
+type EnvironmentSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o EnvironmentSettingsArrayOutput) Index(i pulumi.IntInput) EnvironmentSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) EnvironmentSettings {
+		return vs[0].([]EnvironmentSettings)[vs[1].(int)]
+	}).(EnvironmentSettingsOutput)
+}
+
+func (EnvironmentSettingsArrayOutput) ElementType() reflect.Type {
+	return environmentSettingsArrayType
+}
+
+func (o EnvironmentSettingsArrayOutput) ToEnvironmentSettingsArrayOutput() EnvironmentSettingsArrayOutput {
+	return o
+}
+
+func (o EnvironmentSettingsArrayOutput) ToEnvironmentSettingsArrayOutputWithContext(ctx context.Context) EnvironmentSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EnvironmentSettingsArrayOutput{}) }
+

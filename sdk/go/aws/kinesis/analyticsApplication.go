@@ -4,6 +4,8 @@
 package kinesis
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -14,198 +16,2021 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_analytics_application.html.markdown.
 type AnalyticsApplication struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the Kinesis Analytics Appliation.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The CloudWatch log stream options to monitor application errors.
+	// See CloudWatch Logging Options below for more details.
+	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsOutput `pulumi:"cloudwatchLoggingOptions"`
+
+	// SQL Code to transform input data, and generate output.
+	Code pulumi.StringOutput `pulumi:"code"`
+
+	// The Timestamp when the application version was created.
+	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
+
+	// Description of the application.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Input configuration of the application. See Inputs below for more details.
+	Inputs AnalyticsApplicationInputsOutput `pulumi:"inputs"`
+
+	// The Timestamp when the application was last updated.
+	LastUpdateTimestamp pulumi.StringOutput `pulumi:"lastUpdateTimestamp"`
+
+	// Name of the Kinesis Analytics Application.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Output destination configuration of the application. See Outputs below for more details.
+	Outputs AnalyticsApplicationOutputsArrayOutput `pulumi:"outputs"`
+
+	// An S3 Reference Data Source for the application.
+	// See Reference Data Sources below for more details.
+	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesOutput `pulumi:"referenceDataSources"`
+
+	// The Status of the application.
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Key-value mapping of tags for the Kinesis Analytics Application.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Version of the application.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewAnalyticsApplication registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsApplication(ctx *pulumi.Context,
-	name string, args *AnalyticsApplicationArgs, opts ...pulumi.ResourceOpt) (*AnalyticsApplication, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cloudwatchLoggingOptions"] = nil
-		inputs["code"] = nil
-		inputs["description"] = nil
-		inputs["inputs"] = nil
-		inputs["name"] = nil
-		inputs["outputs"] = nil
-		inputs["referenceDataSources"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["cloudwatchLoggingOptions"] = args.CloudwatchLoggingOptions
-		inputs["code"] = args.Code
-		inputs["description"] = args.Description
-		inputs["inputs"] = args.Inputs
-		inputs["name"] = args.Name
-		inputs["outputs"] = args.Outputs
-		inputs["referenceDataSources"] = args.ReferenceDataSources
-		inputs["tags"] = args.Tags
+	name string, args *AnalyticsApplicationArgs, opts ...pulumi.ResourceOption) (*AnalyticsApplication, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CloudwatchLoggingOptions; i != nil { inputs["cloudwatchLoggingOptions"] = i.ToAnalyticsApplicationCloudwatchLoggingOptionsOutput() }
+		if i := args.Code; i != nil { inputs["code"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Inputs; i != nil { inputs["inputs"] = i.ToAnalyticsApplicationInputsOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Outputs; i != nil { inputs["outputs"] = i.ToAnalyticsApplicationOutputsArrayOutput() }
+		if i := args.ReferenceDataSources; i != nil { inputs["referenceDataSources"] = i.ToAnalyticsApplicationReferenceDataSourcesOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createTimestamp"] = nil
-	inputs["lastUpdateTimestamp"] = nil
-	inputs["status"] = nil
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, true, inputs, opts...)
+	var resource AnalyticsApplication
+	err := ctx.RegisterResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AnalyticsApplication{s: s}, nil
+	return &resource, nil
 }
 
 // GetAnalyticsApplication gets an existing AnalyticsApplication resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAnalyticsApplication(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AnalyticsApplicationState, opts ...pulumi.ResourceOpt) (*AnalyticsApplication, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AnalyticsApplicationState, opts ...pulumi.ResourceOption) (*AnalyticsApplication, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["cloudwatchLoggingOptions"] = state.CloudwatchLoggingOptions
-		inputs["code"] = state.Code
-		inputs["createTimestamp"] = state.CreateTimestamp
-		inputs["description"] = state.Description
-		inputs["inputs"] = state.Inputs
-		inputs["lastUpdateTimestamp"] = state.LastUpdateTimestamp
-		inputs["name"] = state.Name
-		inputs["outputs"] = state.Outputs
-		inputs["referenceDataSources"] = state.ReferenceDataSources
-		inputs["status"] = state.Status
-		inputs["tags"] = state.Tags
-		inputs["version"] = state.Version
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CloudwatchLoggingOptions; i != nil { inputs["cloudwatchLoggingOptions"] = i.ToAnalyticsApplicationCloudwatchLoggingOptionsOutput() }
+		if i := state.Code; i != nil { inputs["code"] = i.ToStringOutput() }
+		if i := state.CreateTimestamp; i != nil { inputs["createTimestamp"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Inputs; i != nil { inputs["inputs"] = i.ToAnalyticsApplicationInputsOutput() }
+		if i := state.LastUpdateTimestamp; i != nil { inputs["lastUpdateTimestamp"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Outputs; i != nil { inputs["outputs"] = i.ToAnalyticsApplicationOutputsArrayOutput() }
+		if i := state.ReferenceDataSources; i != nil { inputs["referenceDataSources"] = i.ToAnalyticsApplicationReferenceDataSourcesOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, id, inputs, opts...)
+	var resource AnalyticsApplication
+	err := ctx.ReadResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AnalyticsApplication{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsApplication) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsApplication) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the Kinesis Analytics Appliation.
-func (r *AnalyticsApplication) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The CloudWatch log stream options to monitor application errors.
-// See CloudWatch Logging Options below for more details.
-func (r *AnalyticsApplication) CloudwatchLoggingOptions() pulumi.Output {
-	return r.s.State["cloudwatchLoggingOptions"]
-}
-
-// SQL Code to transform input data, and generate output.
-func (r *AnalyticsApplication) Code() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["code"])
-}
-
-// The Timestamp when the application version was created.
-func (r *AnalyticsApplication) CreateTimestamp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createTimestamp"])
-}
-
-// Description of the application.
-func (r *AnalyticsApplication) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Input configuration of the application. See Inputs below for more details.
-func (r *AnalyticsApplication) Inputs() pulumi.Output {
-	return r.s.State["inputs"]
-}
-
-// The Timestamp when the application was last updated.
-func (r *AnalyticsApplication) LastUpdateTimestamp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastUpdateTimestamp"])
-}
-
-// Name of the Kinesis Analytics Application.
-func (r *AnalyticsApplication) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Output destination configuration of the application. See Outputs below for more details.
-func (r *AnalyticsApplication) Outputs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["outputs"])
-}
-
-// An S3 Reference Data Source for the application.
-// See Reference Data Sources below for more details.
-func (r *AnalyticsApplication) ReferenceDataSources() pulumi.Output {
-	return r.s.State["referenceDataSources"]
-}
-
-// The Status of the application.
-func (r *AnalyticsApplication) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Key-value mapping of tags for the Kinesis Analytics Application.
-func (r *AnalyticsApplication) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Version of the application.
-func (r *AnalyticsApplication) Version() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AnalyticsApplication resources.
 type AnalyticsApplicationState struct {
 	// The ARN of the Kinesis Analytics Appliation.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
-	CloudwatchLoggingOptions interface{}
+	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsInput `pulumi:"cloudwatchLoggingOptions"`
 	// SQL Code to transform input data, and generate output.
-	Code interface{}
+	Code pulumi.StringInput `pulumi:"code"`
 	// The Timestamp when the application version was created.
-	CreateTimestamp interface{}
+	CreateTimestamp pulumi.StringInput `pulumi:"createTimestamp"`
 	// Description of the application.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Input configuration of the application. See Inputs below for more details.
-	Inputs interface{}
+	Inputs AnalyticsApplicationInputsInput `pulumi:"inputs"`
 	// The Timestamp when the application was last updated.
-	LastUpdateTimestamp interface{}
+	LastUpdateTimestamp pulumi.StringInput `pulumi:"lastUpdateTimestamp"`
 	// Name of the Kinesis Analytics Application.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs interface{}
+	Outputs AnalyticsApplicationOutputsArrayInput `pulumi:"outputs"`
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
-	ReferenceDataSources interface{}
+	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesInput `pulumi:"referenceDataSources"`
 	// The Status of the application.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Version of the application.
-	Version interface{}
+	Version pulumi.IntInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
 type AnalyticsApplicationArgs struct {
 	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
-	CloudwatchLoggingOptions interface{}
+	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsInput `pulumi:"cloudwatchLoggingOptions"`
 	// SQL Code to transform input data, and generate output.
-	Code interface{}
+	Code pulumi.StringInput `pulumi:"code"`
 	// Description of the application.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Input configuration of the application. See Inputs below for more details.
-	Inputs interface{}
+	Inputs AnalyticsApplicationInputsInput `pulumi:"inputs"`
 	// Name of the Kinesis Analytics Application.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Output destination configuration of the application. See Outputs below for more details.
-	Outputs interface{}
+	Outputs AnalyticsApplicationOutputsArrayInput `pulumi:"outputs"`
 	// An S3 Reference Data Source for the application.
 	// See Reference Data Sources below for more details.
-	ReferenceDataSources interface{}
+	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesInput `pulumi:"referenceDataSources"`
 	// Key-value mapping of tags for the Kinesis Analytics Application.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type AnalyticsApplicationCloudwatchLoggingOptions struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id *string `pulumi:"id"`
+	LogStreamArn string `pulumi:"logStreamArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationCloudwatchLoggingOptionsType = reflect.TypeOf((*AnalyticsApplicationCloudwatchLoggingOptions)(nil)).Elem()
+
+type AnalyticsApplicationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationCloudwatchLoggingOptionsOutput() AnalyticsApplicationCloudwatchLoggingOptionsOutput
+	ToAnalyticsApplicationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) AnalyticsApplicationCloudwatchLoggingOptionsOutput
+}
+
+type AnalyticsApplicationCloudwatchLoggingOptionsArgs struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id pulumi.StringInput `pulumi:"id"`
+	LogStreamArn pulumi.StringInput `pulumi:"logStreamArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return analyticsApplicationCloudwatchLoggingOptionsType
+}
+
+func (a AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToAnalyticsApplicationCloudwatchLoggingOptionsOutput() AnalyticsApplicationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationCloudwatchLoggingOptionsOutput)
+}
+
+func (a AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToAnalyticsApplicationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) AnalyticsApplicationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationCloudwatchLoggingOptionsOutput)
+}
+
+type AnalyticsApplicationCloudwatchLoggingOptionsOutput struct { *pulumi.OutputState }
+
+// The ARN of the Kinesis Analytics Application.
+func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationCloudwatchLoggingOptions) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) LogStreamArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationCloudwatchLoggingOptions) string {
+		return v.LogStreamArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationCloudwatchLoggingOptions) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return analyticsApplicationCloudwatchLoggingOptionsType
+}
+
+func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToAnalyticsApplicationCloudwatchLoggingOptionsOutput() AnalyticsApplicationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToAnalyticsApplicationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) AnalyticsApplicationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationCloudwatchLoggingOptionsOutput{}) }
+
+type AnalyticsApplicationInputs struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id *string `pulumi:"id"`
+	KinesisFirehose *AnalyticsApplicationInputsKinesisFirehose `pulumi:"kinesisFirehose"`
+	KinesisStream *AnalyticsApplicationInputsKinesisStream `pulumi:"kinesisStream"`
+	NamePrefix string `pulumi:"namePrefix"`
+	Parallelism *AnalyticsApplicationInputsParallelism `pulumi:"parallelism"`
+	ProcessingConfiguration *AnalyticsApplicationInputsProcessingConfiguration `pulumi:"processingConfiguration"`
+	Schema AnalyticsApplicationInputsSchema `pulumi:"schema"`
+	StartingPositionConfigurations *[]AnalyticsApplicationInputsStartingPositionConfigurations `pulumi:"startingPositionConfigurations"`
+	StreamNames *[]string `pulumi:"streamNames"`
+}
+var analyticsApplicationInputsType = reflect.TypeOf((*AnalyticsApplicationInputs)(nil)).Elem()
+
+type AnalyticsApplicationInputsInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsOutput() AnalyticsApplicationInputsOutput
+	ToAnalyticsApplicationInputsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsOutput
+}
+
+type AnalyticsApplicationInputsArgs struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id pulumi.StringInput `pulumi:"id"`
+	KinesisFirehose AnalyticsApplicationInputsKinesisFirehoseInput `pulumi:"kinesisFirehose"`
+	KinesisStream AnalyticsApplicationInputsKinesisStreamInput `pulumi:"kinesisStream"`
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
+	Parallelism AnalyticsApplicationInputsParallelismInput `pulumi:"parallelism"`
+	ProcessingConfiguration AnalyticsApplicationInputsProcessingConfigurationInput `pulumi:"processingConfiguration"`
+	Schema AnalyticsApplicationInputsSchemaInput `pulumi:"schema"`
+	StartingPositionConfigurations AnalyticsApplicationInputsStartingPositionConfigurationsArrayInput `pulumi:"startingPositionConfigurations"`
+	StreamNames pulumi.StringArrayInput `pulumi:"streamNames"`
+}
+
+func (AnalyticsApplicationInputsArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsType
+}
+
+func (a AnalyticsApplicationInputsArgs) ToAnalyticsApplicationInputsOutput() AnalyticsApplicationInputsOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsOutput)
+}
+
+func (a AnalyticsApplicationInputsArgs) ToAnalyticsApplicationInputsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsOutput)
+}
+
+type AnalyticsApplicationInputsOutput struct { *pulumi.OutputState }
+
+// The ARN of the Kinesis Analytics Application.
+func (o AnalyticsApplicationInputsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) KinesisFirehose() AnalyticsApplicationInputsKinesisFirehoseOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsKinesisFirehose {
+		if v.KinesisFirehose == nil { return *new(AnalyticsApplicationInputsKinesisFirehose) } else { return *v.KinesisFirehose }
+	}).(AnalyticsApplicationInputsKinesisFirehoseOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) KinesisStream() AnalyticsApplicationInputsKinesisStreamOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsKinesisStream {
+		if v.KinesisStream == nil { return *new(AnalyticsApplicationInputsKinesisStream) } else { return *v.KinesisStream }
+	}).(AnalyticsApplicationInputsKinesisStreamOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) NamePrefix() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) string {
+		return v.NamePrefix
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) Parallelism() AnalyticsApplicationInputsParallelismOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsParallelism {
+		if v.Parallelism == nil { return *new(AnalyticsApplicationInputsParallelism) } else { return *v.Parallelism }
+	}).(AnalyticsApplicationInputsParallelismOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) ProcessingConfiguration() AnalyticsApplicationInputsProcessingConfigurationOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsProcessingConfiguration {
+		if v.ProcessingConfiguration == nil { return *new(AnalyticsApplicationInputsProcessingConfiguration) } else { return *v.ProcessingConfiguration }
+	}).(AnalyticsApplicationInputsProcessingConfigurationOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) Schema() AnalyticsApplicationInputsSchemaOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) AnalyticsApplicationInputsSchema {
+		return v.Schema
+	}).(AnalyticsApplicationInputsSchemaOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) StartingPositionConfigurations() AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) []AnalyticsApplicationInputsStartingPositionConfigurations {
+		if v.StartingPositionConfigurations == nil { return *new([]AnalyticsApplicationInputsStartingPositionConfigurations) } else { return *v.StartingPositionConfigurations }
+	}).(AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) StreamNames() pulumi.StringArrayOutput {
+	return o.Apply(func(v AnalyticsApplicationInputs) []string {
+		if v.StreamNames == nil { return *new([]string) } else { return *v.StreamNames }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (AnalyticsApplicationInputsOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsType
+}
+
+func (o AnalyticsApplicationInputsOutput) ToAnalyticsApplicationInputsOutput() AnalyticsApplicationInputsOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsOutput) ToAnalyticsApplicationInputsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsOutput{}) }
+
+type AnalyticsApplicationInputsKinesisFirehose struct {
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationInputsKinesisFirehoseType = reflect.TypeOf((*AnalyticsApplicationInputsKinesisFirehose)(nil)).Elem()
+
+type AnalyticsApplicationInputsKinesisFirehoseInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsKinesisFirehoseOutput() AnalyticsApplicationInputsKinesisFirehoseOutput
+	ToAnalyticsApplicationInputsKinesisFirehoseOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisFirehoseOutput
+}
+
+type AnalyticsApplicationInputsKinesisFirehoseArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationInputsKinesisFirehoseArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsKinesisFirehoseType
+}
+
+func (a AnalyticsApplicationInputsKinesisFirehoseArgs) ToAnalyticsApplicationInputsKinesisFirehoseOutput() AnalyticsApplicationInputsKinesisFirehoseOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsKinesisFirehoseOutput)
+}
+
+func (a AnalyticsApplicationInputsKinesisFirehoseArgs) ToAnalyticsApplicationInputsKinesisFirehoseOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsKinesisFirehoseOutput)
+}
+
+type AnalyticsApplicationInputsKinesisFirehoseOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ResourceArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsKinesisFirehose) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsKinesisFirehoseOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsKinesisFirehose) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsKinesisFirehoseOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsKinesisFirehoseType
+}
+
+func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToAnalyticsApplicationInputsKinesisFirehoseOutput() AnalyticsApplicationInputsKinesisFirehoseOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToAnalyticsApplicationInputsKinesisFirehoseOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisFirehoseOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsKinesisFirehoseOutput{}) }
+
+type AnalyticsApplicationInputsKinesisStream struct {
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationInputsKinesisStreamType = reflect.TypeOf((*AnalyticsApplicationInputsKinesisStream)(nil)).Elem()
+
+type AnalyticsApplicationInputsKinesisStreamInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsKinesisStreamOutput() AnalyticsApplicationInputsKinesisStreamOutput
+	ToAnalyticsApplicationInputsKinesisStreamOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisStreamOutput
+}
+
+type AnalyticsApplicationInputsKinesisStreamArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationInputsKinesisStreamArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsKinesisStreamType
+}
+
+func (a AnalyticsApplicationInputsKinesisStreamArgs) ToAnalyticsApplicationInputsKinesisStreamOutput() AnalyticsApplicationInputsKinesisStreamOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsKinesisStreamOutput)
+}
+
+func (a AnalyticsApplicationInputsKinesisStreamArgs) ToAnalyticsApplicationInputsKinesisStreamOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsKinesisStreamOutput)
+}
+
+type AnalyticsApplicationInputsKinesisStreamOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsKinesisStreamOutput) ResourceArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsKinesisStream) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsKinesisStreamOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsKinesisStream) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsKinesisStreamOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsKinesisStreamType
+}
+
+func (o AnalyticsApplicationInputsKinesisStreamOutput) ToAnalyticsApplicationInputsKinesisStreamOutput() AnalyticsApplicationInputsKinesisStreamOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsKinesisStreamOutput) ToAnalyticsApplicationInputsKinesisStreamOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisStreamOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsKinesisStreamOutput{}) }
+
+type AnalyticsApplicationInputsParallelism struct {
+	Count int `pulumi:"count"`
+}
+var analyticsApplicationInputsParallelismType = reflect.TypeOf((*AnalyticsApplicationInputsParallelism)(nil)).Elem()
+
+type AnalyticsApplicationInputsParallelismInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsParallelismOutput() AnalyticsApplicationInputsParallelismOutput
+	ToAnalyticsApplicationInputsParallelismOutputWithContext(ctx context.Context) AnalyticsApplicationInputsParallelismOutput
+}
+
+type AnalyticsApplicationInputsParallelismArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+}
+
+func (AnalyticsApplicationInputsParallelismArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsParallelismType
+}
+
+func (a AnalyticsApplicationInputsParallelismArgs) ToAnalyticsApplicationInputsParallelismOutput() AnalyticsApplicationInputsParallelismOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsParallelismOutput)
+}
+
+func (a AnalyticsApplicationInputsParallelismArgs) ToAnalyticsApplicationInputsParallelismOutputWithContext(ctx context.Context) AnalyticsApplicationInputsParallelismOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsParallelismOutput)
+}
+
+type AnalyticsApplicationInputsParallelismOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsParallelismOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsParallelism) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+func (AnalyticsApplicationInputsParallelismOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsParallelismType
+}
+
+func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInputsParallelismOutput() AnalyticsApplicationInputsParallelismOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInputsParallelismOutputWithContext(ctx context.Context) AnalyticsApplicationInputsParallelismOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsParallelismOutput{}) }
+
+type AnalyticsApplicationInputsProcessingConfiguration struct {
+	Lambda AnalyticsApplicationInputsProcessingConfigurationLambda `pulumi:"lambda"`
+}
+var analyticsApplicationInputsProcessingConfigurationType = reflect.TypeOf((*AnalyticsApplicationInputsProcessingConfiguration)(nil)).Elem()
+
+type AnalyticsApplicationInputsProcessingConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsProcessingConfigurationOutput() AnalyticsApplicationInputsProcessingConfigurationOutput
+	ToAnalyticsApplicationInputsProcessingConfigurationOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationOutput
+}
+
+type AnalyticsApplicationInputsProcessingConfigurationArgs struct {
+	Lambda AnalyticsApplicationInputsProcessingConfigurationLambdaInput `pulumi:"lambda"`
+}
+
+func (AnalyticsApplicationInputsProcessingConfigurationArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsProcessingConfigurationType
+}
+
+func (a AnalyticsApplicationInputsProcessingConfigurationArgs) ToAnalyticsApplicationInputsProcessingConfigurationOutput() AnalyticsApplicationInputsProcessingConfigurationOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsProcessingConfigurationOutput)
+}
+
+func (a AnalyticsApplicationInputsProcessingConfigurationArgs) ToAnalyticsApplicationInputsProcessingConfigurationOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsProcessingConfigurationOutput)
+}
+
+type AnalyticsApplicationInputsProcessingConfigurationOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsProcessingConfigurationOutput) Lambda() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsProcessingConfiguration) AnalyticsApplicationInputsProcessingConfigurationLambda {
+		return v.Lambda
+	}).(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput)
+}
+
+func (AnalyticsApplicationInputsProcessingConfigurationOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsProcessingConfigurationType
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToAnalyticsApplicationInputsProcessingConfigurationOutput() AnalyticsApplicationInputsProcessingConfigurationOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToAnalyticsApplicationInputsProcessingConfigurationOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsProcessingConfigurationOutput{}) }
+
+type AnalyticsApplicationInputsProcessingConfigurationLambda struct {
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationInputsProcessingConfigurationLambdaType = reflect.TypeOf((*AnalyticsApplicationInputsProcessingConfigurationLambda)(nil)).Elem()
+
+type AnalyticsApplicationInputsProcessingConfigurationLambdaInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutput() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput
+	ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationLambdaOutput
+}
+
+type AnalyticsApplicationInputsProcessingConfigurationLambdaArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsProcessingConfigurationLambdaType
+}
+
+func (a AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutput() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput)
+}
+
+func (a AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput)
+}
+
+type AnalyticsApplicationInputsProcessingConfigurationLambdaOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ResourceArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsProcessingConfigurationLambda) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsProcessingConfigurationLambda) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsProcessingConfigurationLambdaType
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutput() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput{}) }
+
+type AnalyticsApplicationInputsSchema struct {
+	RecordColumns []AnalyticsApplicationInputsSchemaRecordColumns `pulumi:"recordColumns"`
+	RecordEncoding *string `pulumi:"recordEncoding"`
+	RecordFormat AnalyticsApplicationInputsSchemaRecordFormat `pulumi:"recordFormat"`
+}
+var analyticsApplicationInputsSchemaType = reflect.TypeOf((*AnalyticsApplicationInputsSchema)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaOutput() AnalyticsApplicationInputsSchemaOutput
+	ToAnalyticsApplicationInputsSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaOutput
+}
+
+type AnalyticsApplicationInputsSchemaArgs struct {
+	RecordColumns AnalyticsApplicationInputsSchemaRecordColumnsArrayInput `pulumi:"recordColumns"`
+	RecordEncoding pulumi.StringInput `pulumi:"recordEncoding"`
+	RecordFormat AnalyticsApplicationInputsSchemaRecordFormatInput `pulumi:"recordFormat"`
+}
+
+func (AnalyticsApplicationInputsSchemaArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaType
+}
+
+func (a AnalyticsApplicationInputsSchemaArgs) ToAnalyticsApplicationInputsSchemaOutput() AnalyticsApplicationInputsSchemaOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaArgs) ToAnalyticsApplicationInputsSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaOutput)
+}
+
+type AnalyticsApplicationInputsSchemaOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaOutput) RecordColumns() AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchema) []AnalyticsApplicationInputsSchemaRecordColumns {
+		return v.RecordColumns
+	}).(AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaOutput) RecordEncoding() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchema) string {
+		if v.RecordEncoding == nil { return *new(string) } else { return *v.RecordEncoding }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaOutput) RecordFormat() AnalyticsApplicationInputsSchemaRecordFormatOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchema) AnalyticsApplicationInputsSchemaRecordFormat {
+		return v.RecordFormat
+	}).(AnalyticsApplicationInputsSchemaRecordFormatOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaType
+}
+
+func (o AnalyticsApplicationInputsSchemaOutput) ToAnalyticsApplicationInputsSchemaOutput() AnalyticsApplicationInputsSchemaOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaOutput) ToAnalyticsApplicationInputsSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaOutput{}) }
+
+type AnalyticsApplicationInputsSchemaRecordColumns struct {
+	Mapping *string `pulumi:"mapping"`
+	// Name of the Kinesis Analytics Application.
+	Name string `pulumi:"name"`
+	SqlType string `pulumi:"sqlType"`
+}
+var analyticsApplicationInputsSchemaRecordColumnsType = reflect.TypeOf((*AnalyticsApplicationInputsSchemaRecordColumns)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaRecordColumnsInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaRecordColumnsOutput() AnalyticsApplicationInputsSchemaRecordColumnsOutput
+	ToAnalyticsApplicationInputsSchemaRecordColumnsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnsOutput
+}
+
+type AnalyticsApplicationInputsSchemaRecordColumnsArgs struct {
+	Mapping pulumi.StringInput `pulumi:"mapping"`
+	// Name of the Kinesis Analytics Application.
+	Name pulumi.StringInput `pulumi:"name"`
+	SqlType pulumi.StringInput `pulumi:"sqlType"`
+}
+
+func (AnalyticsApplicationInputsSchemaRecordColumnsArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordColumnsType
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordColumnsArgs) ToAnalyticsApplicationInputsSchemaRecordColumnsOutput() AnalyticsApplicationInputsSchemaRecordColumnsOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaRecordColumnsOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordColumnsArgs) ToAnalyticsApplicationInputsSchemaRecordColumnsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaRecordColumnsOutput)
+}
+
+type AnalyticsApplicationInputsSchemaRecordColumnsOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsOutput) Mapping() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordColumns) string {
+		if v.Mapping == nil { return *new(string) } else { return *v.Mapping }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the Kinesis Analytics Application.
+func (o AnalyticsApplicationInputsSchemaRecordColumnsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordColumns) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsOutput) SqlType() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordColumns) string {
+		return v.SqlType
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaRecordColumnsOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordColumnsType
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsOutput) ToAnalyticsApplicationInputsSchemaRecordColumnsOutput() AnalyticsApplicationInputsSchemaRecordColumnsOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsOutput) ToAnalyticsApplicationInputsSchemaRecordColumnsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordColumnsOutput{}) }
+
+var analyticsApplicationInputsSchemaRecordColumnsArrayType = reflect.TypeOf((*[]AnalyticsApplicationInputsSchemaRecordColumns)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaRecordColumnsArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaRecordColumnsArrayOutput() AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput
+	ToAnalyticsApplicationInputsSchemaRecordColumnsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput
+}
+
+type AnalyticsApplicationInputsSchemaRecordColumnsArrayArgs []AnalyticsApplicationInputsSchemaRecordColumnsInput
+
+func (AnalyticsApplicationInputsSchemaRecordColumnsArrayArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordColumnsArrayType
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordColumnsArrayArgs) ToAnalyticsApplicationInputsSchemaRecordColumnsArrayOutput() AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordColumnsArrayArgs) ToAnalyticsApplicationInputsSchemaRecordColumnsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput)
+}
+
+type AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationInputsSchemaRecordColumnsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AnalyticsApplicationInputsSchemaRecordColumns {
+		return vs[0].([]AnalyticsApplicationInputsSchemaRecordColumns)[vs[1].(int)]
+	}).(AnalyticsApplicationInputsSchemaRecordColumnsOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordColumnsArrayType
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput) ToAnalyticsApplicationInputsSchemaRecordColumnsArrayOutput() AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput) ToAnalyticsApplicationInputsSchemaRecordColumnsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordColumnsArrayOutput{}) }
+
+type AnalyticsApplicationInputsSchemaRecordFormat struct {
+	MappingParameters *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters `pulumi:"mappingParameters"`
+	RecordFormatType *string `pulumi:"recordFormatType"`
+}
+var analyticsApplicationInputsSchemaRecordFormatType = reflect.TypeOf((*AnalyticsApplicationInputsSchemaRecordFormat)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaRecordFormatInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaRecordFormatOutput() AnalyticsApplicationInputsSchemaRecordFormatOutput
+	ToAnalyticsApplicationInputsSchemaRecordFormatOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatOutput
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatArgs struct {
+	MappingParameters AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput `pulumi:"mappingParameters"`
+	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatType
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatArgs) ToAnalyticsApplicationInputsSchemaRecordFormatOutput() AnalyticsApplicationInputsSchemaRecordFormatOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaRecordFormatOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatArgs) ToAnalyticsApplicationInputsSchemaRecordFormatOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaRecordFormatOutput)
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) MappingParameters() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormat) AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
+		if v.MappingParameters == nil { return *new(AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) } else { return *v.MappingParameters }
+	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormat) string {
+		if v.RecordFormatType == nil { return *new(string) } else { return *v.RecordFormatType }
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatType
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToAnalyticsApplicationInputsSchemaRecordFormatOutput() AnalyticsApplicationInputsSchemaRecordFormatOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToAnalyticsApplicationInputsSchemaRecordFormatOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordFormatOutput{}) }
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParameters struct {
+	Csv *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv `pulumi:"csv"`
+	Json *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson `pulumi:"json"`
+}
+var analyticsApplicationInputsSchemaRecordFormatMappingParametersType = reflect.TypeOf((*AnalyticsApplicationInputsSchemaRecordFormatMappingParameters)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput
+	ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs struct {
+	Csv AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput `pulumi:"csv"`
+	Json AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput `pulumi:"json"`
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatMappingParametersType
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput)
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) Csv() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
+		if v.Csv == nil { return *new(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) } else { return *v.Csv }
+	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) Json() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
+		if v.Json == nil { return *new(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) } else { return *v.Json }
+	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatMappingParametersType
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput{}) }
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv struct {
+	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
+	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
+}
+var analyticsApplicationInputsSchemaRecordFormatMappingParametersCsvType = reflect.TypeOf((*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput
+	ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs struct {
+	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
+	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatMappingParametersCsvType
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput)
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) RecordColumnDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) string {
+		return v.RecordColumnDelimiter
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) RecordRowDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) string {
+		return v.RecordRowDelimiter
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatMappingParametersCsvType
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput{}) }
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson struct {
+	RecordRowPath string `pulumi:"recordRowPath"`
+}
+var analyticsApplicationInputsSchemaRecordFormatMappingParametersJsonType = reflect.TypeOf((*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson)(nil)).Elem()
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput
+	ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs struct {
+	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatMappingParametersJsonType
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
+}
+
+func (a AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
+}
+
+type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) RecordRowPath() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) string {
+		return v.RecordRowPath
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsSchemaRecordFormatMappingParametersJsonType
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput{}) }
+
+type AnalyticsApplicationInputsStartingPositionConfigurations struct {
+	StartingPosition *string `pulumi:"startingPosition"`
+}
+var analyticsApplicationInputsStartingPositionConfigurationsType = reflect.TypeOf((*AnalyticsApplicationInputsStartingPositionConfigurations)(nil)).Elem()
+
+type AnalyticsApplicationInputsStartingPositionConfigurationsInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsStartingPositionConfigurationsOutput() AnalyticsApplicationInputsStartingPositionConfigurationsOutput
+	ToAnalyticsApplicationInputsStartingPositionConfigurationsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationsOutput
+}
+
+type AnalyticsApplicationInputsStartingPositionConfigurationsArgs struct {
+	StartingPosition pulumi.StringInput `pulumi:"startingPosition"`
+}
+
+func (AnalyticsApplicationInputsStartingPositionConfigurationsArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsStartingPositionConfigurationsType
+}
+
+func (a AnalyticsApplicationInputsStartingPositionConfigurationsArgs) ToAnalyticsApplicationInputsStartingPositionConfigurationsOutput() AnalyticsApplicationInputsStartingPositionConfigurationsOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsStartingPositionConfigurationsOutput)
+}
+
+func (a AnalyticsApplicationInputsStartingPositionConfigurationsArgs) ToAnalyticsApplicationInputsStartingPositionConfigurationsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsStartingPositionConfigurationsOutput)
+}
+
+type AnalyticsApplicationInputsStartingPositionConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationsOutput) StartingPosition() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationInputsStartingPositionConfigurations) string {
+		if v.StartingPosition == nil { return *new(string) } else { return *v.StartingPosition }
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationInputsStartingPositionConfigurationsOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsStartingPositionConfigurationsType
+}
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationsOutput) ToAnalyticsApplicationInputsStartingPositionConfigurationsOutput() AnalyticsApplicationInputsStartingPositionConfigurationsOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationsOutput) ToAnalyticsApplicationInputsStartingPositionConfigurationsOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsStartingPositionConfigurationsOutput{}) }
+
+var analyticsApplicationInputsStartingPositionConfigurationsArrayType = reflect.TypeOf((*[]AnalyticsApplicationInputsStartingPositionConfigurations)(nil)).Elem()
+
+type AnalyticsApplicationInputsStartingPositionConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput() AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput
+	ToAnalyticsApplicationInputsStartingPositionConfigurationsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput
+}
+
+type AnalyticsApplicationInputsStartingPositionConfigurationsArrayArgs []AnalyticsApplicationInputsStartingPositionConfigurationsInput
+
+func (AnalyticsApplicationInputsStartingPositionConfigurationsArrayArgs) ElementType() reflect.Type {
+	return analyticsApplicationInputsStartingPositionConfigurationsArrayType
+}
+
+func (a AnalyticsApplicationInputsStartingPositionConfigurationsArrayArgs) ToAnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput() AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput)
+}
+
+func (a AnalyticsApplicationInputsStartingPositionConfigurationsArrayArgs) ToAnalyticsApplicationInputsStartingPositionConfigurationsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput)
+}
+
+type AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationInputsStartingPositionConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AnalyticsApplicationInputsStartingPositionConfigurations {
+		return vs[0].([]AnalyticsApplicationInputsStartingPositionConfigurations)[vs[1].(int)]
+	}).(AnalyticsApplicationInputsStartingPositionConfigurationsOutput)
+}
+
+func (AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput) ElementType() reflect.Type {
+	return analyticsApplicationInputsStartingPositionConfigurationsArrayType
+}
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput) ToAnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput() AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput {
+	return o
+}
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput) ToAnalyticsApplicationInputsStartingPositionConfigurationsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationInputsStartingPositionConfigurationsArrayOutput{}) }
+
+type AnalyticsApplicationOutputs struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id *string `pulumi:"id"`
+	KinesisFirehose *AnalyticsApplicationOutputsKinesisFirehose `pulumi:"kinesisFirehose"`
+	KinesisStream *AnalyticsApplicationOutputsKinesisStream `pulumi:"kinesisStream"`
+	Lambda *AnalyticsApplicationOutputsLambda `pulumi:"lambda"`
+	// Name of the Kinesis Analytics Application.
+	Name string `pulumi:"name"`
+	Schema AnalyticsApplicationOutputsSchema `pulumi:"schema"`
+}
+var analyticsApplicationOutputsType = reflect.TypeOf((*AnalyticsApplicationOutputs)(nil)).Elem()
+
+type AnalyticsApplicationOutputsInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationOutputsOutput() AnalyticsApplicationOutputsOutput
+	ToAnalyticsApplicationOutputsOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsOutput
+}
+
+type AnalyticsApplicationOutputsArgs struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id pulumi.StringInput `pulumi:"id"`
+	KinesisFirehose AnalyticsApplicationOutputsKinesisFirehoseInput `pulumi:"kinesisFirehose"`
+	KinesisStream AnalyticsApplicationOutputsKinesisStreamInput `pulumi:"kinesisStream"`
+	Lambda AnalyticsApplicationOutputsLambdaInput `pulumi:"lambda"`
+	// Name of the Kinesis Analytics Application.
+	Name pulumi.StringInput `pulumi:"name"`
+	Schema AnalyticsApplicationOutputsSchemaInput `pulumi:"schema"`
+}
+
+func (AnalyticsApplicationOutputsArgs) ElementType() reflect.Type {
+	return analyticsApplicationOutputsType
+}
+
+func (a AnalyticsApplicationOutputsArgs) ToAnalyticsApplicationOutputsOutput() AnalyticsApplicationOutputsOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationOutputsOutput)
+}
+
+func (a AnalyticsApplicationOutputsArgs) ToAnalyticsApplicationOutputsOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationOutputsOutput)
+}
+
+type AnalyticsApplicationOutputsOutput struct { *pulumi.OutputState }
+
+// The ARN of the Kinesis Analytics Application.
+func (o AnalyticsApplicationOutputsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputs) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationOutputsOutput) KinesisFirehose() AnalyticsApplicationOutputsKinesisFirehoseOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputs) AnalyticsApplicationOutputsKinesisFirehose {
+		if v.KinesisFirehose == nil { return *new(AnalyticsApplicationOutputsKinesisFirehose) } else { return *v.KinesisFirehose }
+	}).(AnalyticsApplicationOutputsKinesisFirehoseOutput)
+}
+
+func (o AnalyticsApplicationOutputsOutput) KinesisStream() AnalyticsApplicationOutputsKinesisStreamOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputs) AnalyticsApplicationOutputsKinesisStream {
+		if v.KinesisStream == nil { return *new(AnalyticsApplicationOutputsKinesisStream) } else { return *v.KinesisStream }
+	}).(AnalyticsApplicationOutputsKinesisStreamOutput)
+}
+
+func (o AnalyticsApplicationOutputsOutput) Lambda() AnalyticsApplicationOutputsLambdaOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputs) AnalyticsApplicationOutputsLambda {
+		if v.Lambda == nil { return *new(AnalyticsApplicationOutputsLambda) } else { return *v.Lambda }
+	}).(AnalyticsApplicationOutputsLambdaOutput)
+}
+
+// Name of the Kinesis Analytics Application.
+func (o AnalyticsApplicationOutputsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputs) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationOutputsOutput) Schema() AnalyticsApplicationOutputsSchemaOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputs) AnalyticsApplicationOutputsSchema {
+		return v.Schema
+	}).(AnalyticsApplicationOutputsSchemaOutput)
+}
+
+func (AnalyticsApplicationOutputsOutput) ElementType() reflect.Type {
+	return analyticsApplicationOutputsType
+}
+
+func (o AnalyticsApplicationOutputsOutput) ToAnalyticsApplicationOutputsOutput() AnalyticsApplicationOutputsOutput {
+	return o
+}
+
+func (o AnalyticsApplicationOutputsOutput) ToAnalyticsApplicationOutputsOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationOutputsOutput{}) }
+
+var analyticsApplicationOutputsArrayType = reflect.TypeOf((*[]AnalyticsApplicationOutputs)(nil)).Elem()
+
+type AnalyticsApplicationOutputsArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationOutputsArrayOutput() AnalyticsApplicationOutputsArrayOutput
+	ToAnalyticsApplicationOutputsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsArrayOutput
+}
+
+type AnalyticsApplicationOutputsArrayArgs []AnalyticsApplicationOutputsInput
+
+func (AnalyticsApplicationOutputsArrayArgs) ElementType() reflect.Type {
+	return analyticsApplicationOutputsArrayType
+}
+
+func (a AnalyticsApplicationOutputsArrayArgs) ToAnalyticsApplicationOutputsArrayOutput() AnalyticsApplicationOutputsArrayOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationOutputsArrayOutput)
+}
+
+func (a AnalyticsApplicationOutputsArrayArgs) ToAnalyticsApplicationOutputsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationOutputsArrayOutput)
+}
+
+type AnalyticsApplicationOutputsArrayOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationOutputsArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationOutputsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AnalyticsApplicationOutputs {
+		return vs[0].([]AnalyticsApplicationOutputs)[vs[1].(int)]
+	}).(AnalyticsApplicationOutputsOutput)
+}
+
+func (AnalyticsApplicationOutputsArrayOutput) ElementType() reflect.Type {
+	return analyticsApplicationOutputsArrayType
+}
+
+func (o AnalyticsApplicationOutputsArrayOutput) ToAnalyticsApplicationOutputsArrayOutput() AnalyticsApplicationOutputsArrayOutput {
+	return o
+}
+
+func (o AnalyticsApplicationOutputsArrayOutput) ToAnalyticsApplicationOutputsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationOutputsArrayOutput{}) }
+
+type AnalyticsApplicationOutputsKinesisFirehose struct {
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationOutputsKinesisFirehoseType = reflect.TypeOf((*AnalyticsApplicationOutputsKinesisFirehose)(nil)).Elem()
+
+type AnalyticsApplicationOutputsKinesisFirehoseInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationOutputsKinesisFirehoseOutput() AnalyticsApplicationOutputsKinesisFirehoseOutput
+	ToAnalyticsApplicationOutputsKinesisFirehoseOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsKinesisFirehoseOutput
+}
+
+type AnalyticsApplicationOutputsKinesisFirehoseArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationOutputsKinesisFirehoseArgs) ElementType() reflect.Type {
+	return analyticsApplicationOutputsKinesisFirehoseType
+}
+
+func (a AnalyticsApplicationOutputsKinesisFirehoseArgs) ToAnalyticsApplicationOutputsKinesisFirehoseOutput() AnalyticsApplicationOutputsKinesisFirehoseOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationOutputsKinesisFirehoseOutput)
+}
+
+func (a AnalyticsApplicationOutputsKinesisFirehoseArgs) ToAnalyticsApplicationOutputsKinesisFirehoseOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsKinesisFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationOutputsKinesisFirehoseOutput)
+}
+
+type AnalyticsApplicationOutputsKinesisFirehoseOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationOutputsKinesisFirehoseOutput) ResourceArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsKinesisFirehose) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationOutputsKinesisFirehoseOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsKinesisFirehose) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationOutputsKinesisFirehoseOutput) ElementType() reflect.Type {
+	return analyticsApplicationOutputsKinesisFirehoseType
+}
+
+func (o AnalyticsApplicationOutputsKinesisFirehoseOutput) ToAnalyticsApplicationOutputsKinesisFirehoseOutput() AnalyticsApplicationOutputsKinesisFirehoseOutput {
+	return o
+}
+
+func (o AnalyticsApplicationOutputsKinesisFirehoseOutput) ToAnalyticsApplicationOutputsKinesisFirehoseOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsKinesisFirehoseOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationOutputsKinesisFirehoseOutput{}) }
+
+type AnalyticsApplicationOutputsKinesisStream struct {
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationOutputsKinesisStreamType = reflect.TypeOf((*AnalyticsApplicationOutputsKinesisStream)(nil)).Elem()
+
+type AnalyticsApplicationOutputsKinesisStreamInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationOutputsKinesisStreamOutput() AnalyticsApplicationOutputsKinesisStreamOutput
+	ToAnalyticsApplicationOutputsKinesisStreamOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsKinesisStreamOutput
+}
+
+type AnalyticsApplicationOutputsKinesisStreamArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationOutputsKinesisStreamArgs) ElementType() reflect.Type {
+	return analyticsApplicationOutputsKinesisStreamType
+}
+
+func (a AnalyticsApplicationOutputsKinesisStreamArgs) ToAnalyticsApplicationOutputsKinesisStreamOutput() AnalyticsApplicationOutputsKinesisStreamOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationOutputsKinesisStreamOutput)
+}
+
+func (a AnalyticsApplicationOutputsKinesisStreamArgs) ToAnalyticsApplicationOutputsKinesisStreamOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsKinesisStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationOutputsKinesisStreamOutput)
+}
+
+type AnalyticsApplicationOutputsKinesisStreamOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationOutputsKinesisStreamOutput) ResourceArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsKinesisStream) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationOutputsKinesisStreamOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsKinesisStream) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationOutputsKinesisStreamOutput) ElementType() reflect.Type {
+	return analyticsApplicationOutputsKinesisStreamType
+}
+
+func (o AnalyticsApplicationOutputsKinesisStreamOutput) ToAnalyticsApplicationOutputsKinesisStreamOutput() AnalyticsApplicationOutputsKinesisStreamOutput {
+	return o
+}
+
+func (o AnalyticsApplicationOutputsKinesisStreamOutput) ToAnalyticsApplicationOutputsKinesisStreamOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsKinesisStreamOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationOutputsKinesisStreamOutput{}) }
+
+type AnalyticsApplicationOutputsLambda struct {
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationOutputsLambdaType = reflect.TypeOf((*AnalyticsApplicationOutputsLambda)(nil)).Elem()
+
+type AnalyticsApplicationOutputsLambdaInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationOutputsLambdaOutput() AnalyticsApplicationOutputsLambdaOutput
+	ToAnalyticsApplicationOutputsLambdaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsLambdaOutput
+}
+
+type AnalyticsApplicationOutputsLambdaArgs struct {
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationOutputsLambdaArgs) ElementType() reflect.Type {
+	return analyticsApplicationOutputsLambdaType
+}
+
+func (a AnalyticsApplicationOutputsLambdaArgs) ToAnalyticsApplicationOutputsLambdaOutput() AnalyticsApplicationOutputsLambdaOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationOutputsLambdaOutput)
+}
+
+func (a AnalyticsApplicationOutputsLambdaArgs) ToAnalyticsApplicationOutputsLambdaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationOutputsLambdaOutput)
+}
+
+type AnalyticsApplicationOutputsLambdaOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationOutputsLambdaOutput) ResourceArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsLambda) string {
+		return v.ResourceArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationOutputsLambdaOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsLambda) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationOutputsLambdaOutput) ElementType() reflect.Type {
+	return analyticsApplicationOutputsLambdaType
+}
+
+func (o AnalyticsApplicationOutputsLambdaOutput) ToAnalyticsApplicationOutputsLambdaOutput() AnalyticsApplicationOutputsLambdaOutput {
+	return o
+}
+
+func (o AnalyticsApplicationOutputsLambdaOutput) ToAnalyticsApplicationOutputsLambdaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsLambdaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationOutputsLambdaOutput{}) }
+
+type AnalyticsApplicationOutputsSchema struct {
+	RecordFormatType *string `pulumi:"recordFormatType"`
+}
+var analyticsApplicationOutputsSchemaType = reflect.TypeOf((*AnalyticsApplicationOutputsSchema)(nil)).Elem()
+
+type AnalyticsApplicationOutputsSchemaInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationOutputsSchemaOutput() AnalyticsApplicationOutputsSchemaOutput
+	ToAnalyticsApplicationOutputsSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsSchemaOutput
+}
+
+type AnalyticsApplicationOutputsSchemaArgs struct {
+	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
+}
+
+func (AnalyticsApplicationOutputsSchemaArgs) ElementType() reflect.Type {
+	return analyticsApplicationOutputsSchemaType
+}
+
+func (a AnalyticsApplicationOutputsSchemaArgs) ToAnalyticsApplicationOutputsSchemaOutput() AnalyticsApplicationOutputsSchemaOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationOutputsSchemaOutput)
+}
+
+func (a AnalyticsApplicationOutputsSchemaArgs) ToAnalyticsApplicationOutputsSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationOutputsSchemaOutput)
+}
+
+type AnalyticsApplicationOutputsSchemaOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationOutputsSchemaOutput) RecordFormatType() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationOutputsSchema) string {
+		if v.RecordFormatType == nil { return *new(string) } else { return *v.RecordFormatType }
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationOutputsSchemaOutput) ElementType() reflect.Type {
+	return analyticsApplicationOutputsSchemaType
+}
+
+func (o AnalyticsApplicationOutputsSchemaOutput) ToAnalyticsApplicationOutputsSchemaOutput() AnalyticsApplicationOutputsSchemaOutput {
+	return o
+}
+
+func (o AnalyticsApplicationOutputsSchemaOutput) ToAnalyticsApplicationOutputsSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputsSchemaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationOutputsSchemaOutput{}) }
+
+type AnalyticsApplicationReferenceDataSources struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id *string `pulumi:"id"`
+	S3 AnalyticsApplicationReferenceDataSourcesS3 `pulumi:"s3"`
+	Schema AnalyticsApplicationReferenceDataSourcesSchema `pulumi:"schema"`
+	TableName string `pulumi:"tableName"`
+}
+var analyticsApplicationReferenceDataSourcesType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSources)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesOutput() AnalyticsApplicationReferenceDataSourcesOutput
+	ToAnalyticsApplicationReferenceDataSourcesOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesArgs struct {
+	// The ARN of the Kinesis Analytics Application.
+	Id pulumi.StringInput `pulumi:"id"`
+	S3 AnalyticsApplicationReferenceDataSourcesS3Input `pulumi:"s3"`
+	Schema AnalyticsApplicationReferenceDataSourcesSchemaInput `pulumi:"schema"`
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesArgs) ToAnalyticsApplicationReferenceDataSourcesOutput() AnalyticsApplicationReferenceDataSourcesOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesArgs) ToAnalyticsApplicationReferenceDataSourcesOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesOutput struct { *pulumi.OutputState }
+
+// The ARN of the Kinesis Analytics Application.
+func (o AnalyticsApplicationReferenceDataSourcesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSources) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesOutput) S3() AnalyticsApplicationReferenceDataSourcesS3Output {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSources) AnalyticsApplicationReferenceDataSourcesS3 {
+		return v.S3
+	}).(AnalyticsApplicationReferenceDataSourcesS3Output)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesOutput) Schema() AnalyticsApplicationReferenceDataSourcesSchemaOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSources) AnalyticsApplicationReferenceDataSourcesSchema {
+		return v.Schema
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesOutput) TableName() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSources) string {
+		return v.TableName
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesOutput) ToAnalyticsApplicationReferenceDataSourcesOutput() AnalyticsApplicationReferenceDataSourcesOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesOutput) ToAnalyticsApplicationReferenceDataSourcesOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesOutput{}) }
+
+type AnalyticsApplicationReferenceDataSourcesS3 struct {
+	BucketArn string `pulumi:"bucketArn"`
+	FileKey string `pulumi:"fileKey"`
+	RoleArn string `pulumi:"roleArn"`
+}
+var analyticsApplicationReferenceDataSourcesS3Type = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesS3)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesS3Input interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesS3Output() AnalyticsApplicationReferenceDataSourcesS3Output
+	ToAnalyticsApplicationReferenceDataSourcesS3OutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesS3Output
+}
+
+type AnalyticsApplicationReferenceDataSourcesS3Args struct {
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	FileKey pulumi.StringInput `pulumi:"fileKey"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesS3Args) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesS3Type
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesS3Args) ToAnalyticsApplicationReferenceDataSourcesS3Output() AnalyticsApplicationReferenceDataSourcesS3Output {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesS3Output)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesS3Args) ToAnalyticsApplicationReferenceDataSourcesS3OutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesS3Output {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesS3Output)
+}
+
+type AnalyticsApplicationReferenceDataSourcesS3Output struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesS3Output) BucketArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesS3) string {
+		return v.BucketArn
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesS3Output) FileKey() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesS3) string {
+		return v.FileKey
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesS3Output) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesS3) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesS3Output) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesS3Type
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToAnalyticsApplicationReferenceDataSourcesS3Output() AnalyticsApplicationReferenceDataSourcesS3Output {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToAnalyticsApplicationReferenceDataSourcesS3OutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesS3Output {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesS3Output{}) }
+
+type AnalyticsApplicationReferenceDataSourcesSchema struct {
+	RecordColumns []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns `pulumi:"recordColumns"`
+	RecordEncoding *string `pulumi:"recordEncoding"`
+	RecordFormat AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat `pulumi:"recordFormat"`
+}
+var analyticsApplicationReferenceDataSourcesSchemaType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesSchema)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaOutput() AnalyticsApplicationReferenceDataSourcesSchemaOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaArgs struct {
+	RecordColumns AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayInput `pulumi:"recordColumns"`
+	RecordEncoding pulumi.StringInput `pulumi:"recordEncoding"`
+	RecordFormat AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput `pulumi:"recordFormat"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaOutput() AnalyticsApplicationReferenceDataSourcesSchemaOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) RecordColumns() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchema) []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns {
+		return v.RecordColumns
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) RecordEncoding() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchema) string {
+		if v.RecordEncoding == nil { return *new(string) } else { return *v.RecordEncoding }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) RecordFormat() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchema) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
+		return v.RecordFormat
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaOutput() AnalyticsApplicationReferenceDataSourcesSchemaOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaOutput{}) }
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns struct {
+	Mapping *string `pulumi:"mapping"`
+	// Name of the Kinesis Analytics Application.
+	Name string `pulumi:"name"`
+	SqlType string `pulumi:"sqlType"`
+}
+var analyticsApplicationReferenceDataSourcesSchemaRecordColumnsType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs struct {
+	Mapping pulumi.StringInput `pulumi:"mapping"`
+	// Name of the Kinesis Analytics Application.
+	Name pulumi.StringInput `pulumi:"name"`
+	SqlType pulumi.StringInput `pulumi:"sqlType"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordColumnsType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput) Mapping() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns) string {
+		if v.Mapping == nil { return *new(string) } else { return *v.Mapping }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the Kinesis Analytics Application.
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput) SqlType() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns) string {
+		return v.SqlType
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordColumnsType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput{}) }
+
+var analyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayType = reflect.TypeOf((*[]AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayArgs []AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsInput
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns {
+		return vs[0].([]AnalyticsApplicationReferenceDataSourcesSchemaRecordColumns)[vs[1].(int)]
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnsArrayOutput{}) }
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat struct {
+	MappingParameters *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters `pulumi:"mappingParameters"`
+	RecordFormatType *string `pulumi:"recordFormatType"`
+}
+var analyticsApplicationReferenceDataSourcesSchemaRecordFormatType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs struct {
+	MappingParameters AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersInput `pulumi:"mappingParameters"`
+	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) MappingParameters() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
+		if v.MappingParameters == nil { return *new(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) } else { return *v.MappingParameters }
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) string {
+		if v.RecordFormatType == nil { return *new(string) } else { return *v.RecordFormatType }
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput{}) }
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters struct {
+	Csv *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv `pulumi:"csv"`
+	Json *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson `pulumi:"json"`
+}
+var analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs struct {
+	Csv AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput `pulumi:"csv"`
+	Json AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonInput `pulumi:"json"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) Csv() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
+		if v.Csv == nil { return *new(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) } else { return *v.Csv }
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) Json() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
+		if v.Json == nil { return *new(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) } else { return *v.Json }
+	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput{}) }
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv struct {
+	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
+	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
+}
+var analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs struct {
+	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
+	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) RecordColumnDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) string {
+		return v.RecordColumnDelimiter
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) RecordRowDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) string {
+		return v.RecordRowDelimiter
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput{}) }
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson struct {
+	RecordRowPath string `pulumi:"recordRowPath"`
+}
+var analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonType = reflect.TypeOf((*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson)(nil)).Elem()
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonInput interface {
+	pulumi.Input
+
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput
+	ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs struct {
+	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonType
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
+	return pulumi.ToOutput(a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput)
+}
+
+func (a AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput)
+}
+
+type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) RecordRowPath() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) string {
+		return v.RecordRowPath
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) ElementType() reflect.Type {
+	return analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonType
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
+	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput{}) }
+

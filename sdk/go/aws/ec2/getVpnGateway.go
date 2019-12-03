@@ -11,58 +11,57 @@ import (
 // a specific VPN gateway.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
-func LookupVpnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs) (*GetVpnGatewayResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["amazonSideAsn"] = args.AmazonSideAsn
-		inputs["attachedVpcId"] = args.AttachedVpcId
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["filters"] = args.Filters
-		inputs["id"] = args.Id
-		inputs["state"] = args.State
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getVpnGateway:getVpnGateway", inputs)
+func LookupVpnGateway(ctx *pulumi.Context, args *GetVpnGatewayArgs, opts ...pulumi.InvokeOption) (*GetVpnGatewayResult, error) {
+	var rv GetVpnGatewayResult
+	err := ctx.Invoke("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpnGatewayResult{
-		AmazonSideAsn: outputs["amazonSideAsn"],
-		AttachedVpcId: outputs["attachedVpcId"],
-		AvailabilityZone: outputs["availabilityZone"],
-		Filters: outputs["filters"],
-		Id: outputs["id"],
-		State: outputs["state"],
-		Tags: outputs["tags"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpnGateway.
 type GetVpnGatewayArgs struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-	AmazonSideAsn interface{}
+	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// The ID of a VPC attached to the specific VPN Gateway to retrieve.
-	AttachedVpcId interface{}
+	AttachedVpcId *string `pulumi:"attachedVpcId"`
 	// The Availability Zone of the specific VPN Gateway to retrieve.
-	AvailabilityZone interface{}
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetVpnGatewayFiltersArgs `pulumi:"filters"`
 	// The ID of the specific VPN Gateway to retrieve.
-	Id interface{}
+	Id *string `pulumi:"id"`
 	// The state of the specific VPN Gateway to retrieve.
-	State interface{}
+	State *string `pulumi:"state"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPN Gateway.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpnGateway.
 type GetVpnGatewayResult struct {
-	AmazonSideAsn interface{}
-	AttachedVpcId interface{}
-	AvailabilityZone interface{}
-	Filters interface{}
-	Id interface{}
-	State interface{}
-	Tags interface{}
+	AmazonSideAsn string `pulumi:"amazonSideAsn"`
+	AttachedVpcId string `pulumi:"attachedVpcId"`
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	Filters *[]GetVpnGatewayFiltersResult `pulumi:"filters"`
+	Id string `pulumi:"id"`
+	State string `pulumi:"state"`
+	Tags map[string]string `pulumi:"tags"`
+}
+type GetVpnGatewayFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPN Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetVpnGatewayFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPN Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

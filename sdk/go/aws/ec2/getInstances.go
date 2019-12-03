@@ -8,26 +8,13 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
-func LookupInstances(ctx *pulumi.Context, args *GetInstancesArgs) (*GetInstancesResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["instanceStateNames"] = args.InstanceStateNames
-		inputs["instanceTags"] = args.InstanceTags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getInstances:getInstances", inputs)
+func LookupInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
+	var rv GetInstancesResult
+	err := ctx.Invoke("aws:ec2/getInstances:getInstances", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetInstancesResult{
-		Filters: outputs["filters"],
-		Ids: outputs["ids"],
-		InstanceStateNames: outputs["instanceStateNames"],
-		InstanceTags: outputs["instanceTags"],
-		PrivateIps: outputs["privateIps"],
-		PublicIps: outputs["publicIps"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getInstances.
@@ -35,25 +22,33 @@ type GetInstancesArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [describe-instances in the AWS CLI reference][1].
-	Filters interface{}
+	Filters *[]GetInstancesFiltersArgs `pulumi:"filters"`
 	// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-	InstanceStateNames interface{}
+	InstanceStateNames *[]string `pulumi:"instanceStateNames"`
 	// A mapping of tags, each pair of which must
 	// exactly match a pair on desired instances.
-	InstanceTags interface{}
+	InstanceTags *map[string]string `pulumi:"instanceTags"`
 }
 
 // A collection of values returned by getInstances.
 type GetInstancesResult struct {
-	Filters interface{}
+	Filters *[]GetInstancesFiltersResult `pulumi:"filters"`
 	// IDs of instances found through the filter
-	Ids interface{}
-	InstanceStateNames interface{}
-	InstanceTags interface{}
+	Ids []string `pulumi:"ids"`
+	InstanceStateNames *[]string `pulumi:"instanceStateNames"`
+	InstanceTags map[string]string `pulumi:"instanceTags"`
 	// Private IP addresses of instances found through the filter
-	PrivateIps interface{}
+	PrivateIps []string `pulumi:"privateIps"`
 	// Public IP addresses of instances found through the filter
-	PublicIps interface{}
+	PublicIps []string `pulumi:"publicIps"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetInstancesFiltersArgs struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetInstancesFiltersResult struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
 }

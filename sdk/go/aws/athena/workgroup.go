@@ -4,6 +4,8 @@
 package athena
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,120 +13,307 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_workgroup.html.markdown.
 type Workgroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the workgroup
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Configuration block with various settings for the workgroup. Documented below.
+	Configuration WorkgroupConfigurationOutput `pulumi:"configuration"`
+
+	// Description of the workgroup.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Name of the workgroup.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
+	State pulumi.StringOutput `pulumi:"state"`
+
+	// Key-value mapping of resource tags for the workgroup.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewWorkgroup registers a new resource with the given unique name, arguments, and options.
 func NewWorkgroup(ctx *pulumi.Context,
-	name string, args *WorkgroupArgs, opts ...pulumi.ResourceOpt) (*Workgroup, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["configuration"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["state"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["configuration"] = args.Configuration
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["state"] = args.State
-		inputs["tags"] = args.Tags
+	name string, args *WorkgroupArgs, opts ...pulumi.ResourceOption) (*Workgroup, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Configuration; i != nil { inputs["configuration"] = i.ToWorkgroupConfigurationOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:athena/workgroup:Workgroup", name, true, inputs, opts...)
+	var resource Workgroup
+	err := ctx.RegisterResource("aws:athena/workgroup:Workgroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Workgroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetWorkgroup gets an existing Workgroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWorkgroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WorkgroupState, opts ...pulumi.ResourceOpt) (*Workgroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WorkgroupState, opts ...pulumi.ResourceOption) (*Workgroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["configuration"] = state.Configuration
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["state"] = state.State
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Configuration; i != nil { inputs["configuration"] = i.ToWorkgroupConfigurationOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:athena/workgroup:Workgroup", name, id, inputs, opts...)
+	var resource Workgroup
+	err := ctx.ReadResource("aws:athena/workgroup:Workgroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Workgroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Workgroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Workgroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the workgroup
-func (r *Workgroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Configuration block with various settings for the workgroup. Documented below.
-func (r *Workgroup) Configuration() pulumi.Output {
-	return r.s.State["configuration"]
-}
-
-// Description of the workgroup.
-func (r *Workgroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Name of the workgroup.
-func (r *Workgroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-func (r *Workgroup) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
-}
-
-// Key-value mapping of resource tags for the workgroup.
-func (r *Workgroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Workgroup resources.
 type WorkgroupState struct {
 	// Amazon Resource Name (ARN) of the workgroup
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Configuration block with various settings for the workgroup. Documented below.
-	Configuration interface{}
+	Configuration WorkgroupConfigurationInput `pulumi:"configuration"`
 	// Description of the workgroup.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name of the workgroup.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// Key-value mapping of resource tags for the workgroup.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workgroup resource.
 type WorkgroupArgs struct {
 	// Configuration block with various settings for the workgroup. Documented below.
-	Configuration interface{}
+	Configuration WorkgroupConfigurationInput `pulumi:"configuration"`
 	// Description of the workgroup.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name of the workgroup.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// Key-value mapping of resource tags for the workgroup.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type WorkgroupConfiguration struct {
+	// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
+	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
+	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
+	// Configuration block with result settings. Documented below.
+	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
+}
+var workgroupConfigurationType = reflect.TypeOf((*WorkgroupConfiguration)(nil)).Elem()
+
+type WorkgroupConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationOutput() WorkgroupConfigurationOutput
+	ToWorkgroupConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationOutput
+}
+
+type WorkgroupConfigurationArgs struct {
+	// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+	BytesScannedCutoffPerQuery pulumi.IntInput `pulumi:"bytesScannedCutoffPerQuery"`
+	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+	EnforceWorkgroupConfiguration pulumi.BoolInput `pulumi:"enforceWorkgroupConfiguration"`
+	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+	PublishCloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"publishCloudwatchMetricsEnabled"`
+	// Configuration block with result settings. Documented below.
+	ResultConfiguration WorkgroupConfigurationResultConfigurationInput `pulumi:"resultConfiguration"`
+}
+
+func (WorkgroupConfigurationArgs) ElementType() reflect.Type {
+	return workgroupConfigurationType
+}
+
+func (a WorkgroupConfigurationArgs) ToWorkgroupConfigurationOutput() WorkgroupConfigurationOutput {
+	return pulumi.ToOutput(a).(WorkgroupConfigurationOutput)
+}
+
+func (a WorkgroupConfigurationArgs) ToWorkgroupConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WorkgroupConfigurationOutput)
+}
+
+type WorkgroupConfigurationOutput struct { *pulumi.OutputState }
+
+// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+func (o WorkgroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntOutput {
+	return o.Apply(func(v WorkgroupConfiguration) int {
+		if v.BytesScannedCutoffPerQuery == nil { return *new(int) } else { return *v.BytesScannedCutoffPerQuery }
+	}).(pulumi.IntOutput)
+}
+
+// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+func (o WorkgroupConfigurationOutput) EnforceWorkgroupConfiguration() pulumi.BoolOutput {
+	return o.Apply(func(v WorkgroupConfiguration) bool {
+		if v.EnforceWorkgroupConfiguration == nil { return *new(bool) } else { return *v.EnforceWorkgroupConfiguration }
+	}).(pulumi.BoolOutput)
+}
+
+// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v WorkgroupConfiguration) bool {
+		if v.PublishCloudwatchMetricsEnabled == nil { return *new(bool) } else { return *v.PublishCloudwatchMetricsEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Configuration block with result settings. Documented below.
+func (o WorkgroupConfigurationOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationOutput {
+	return o.Apply(func(v WorkgroupConfiguration) WorkgroupConfigurationResultConfiguration {
+		if v.ResultConfiguration == nil { return *new(WorkgroupConfigurationResultConfiguration) } else { return *v.ResultConfiguration }
+	}).(WorkgroupConfigurationResultConfigurationOutput)
+}
+
+func (WorkgroupConfigurationOutput) ElementType() reflect.Type {
+	return workgroupConfigurationType
+}
+
+func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationOutput() WorkgroupConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WorkgroupConfigurationOutput{}) }
+
+type WorkgroupConfigurationResultConfiguration struct {
+	// Configuration block with encryption settings. Documented below.
+	EncryptionConfiguration *WorkgroupConfigurationResultConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+	OutputLocation *string `pulumi:"outputLocation"`
+}
+var workgroupConfigurationResultConfigurationType = reflect.TypeOf((*WorkgroupConfigurationResultConfiguration)(nil)).Elem()
+
+type WorkgroupConfigurationResultConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationResultConfigurationOutput() WorkgroupConfigurationResultConfigurationOutput
+	ToWorkgroupConfigurationResultConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationOutput
+}
+
+type WorkgroupConfigurationResultConfigurationArgs struct {
+	// Configuration block with encryption settings. Documented below.
+	EncryptionConfiguration WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput `pulumi:"encryptionConfiguration"`
+	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+	OutputLocation pulumi.StringInput `pulumi:"outputLocation"`
+}
+
+func (WorkgroupConfigurationResultConfigurationArgs) ElementType() reflect.Type {
+	return workgroupConfigurationResultConfigurationType
+}
+
+func (a WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationResultConfigurationOutput() WorkgroupConfigurationResultConfigurationOutput {
+	return pulumi.ToOutput(a).(WorkgroupConfigurationResultConfigurationOutput)
+}
+
+func (a WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationResultConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WorkgroupConfigurationResultConfigurationOutput)
+}
+
+type WorkgroupConfigurationResultConfigurationOutput struct { *pulumi.OutputState }
+
+// Configuration block with encryption settings. Documented below.
+func (o WorkgroupConfigurationResultConfigurationOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
+	return o.Apply(func(v WorkgroupConfigurationResultConfiguration) WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+		if v.EncryptionConfiguration == nil { return *new(WorkgroupConfigurationResultConfigurationEncryptionConfiguration) } else { return *v.EncryptionConfiguration }
+	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
+}
+
+// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+func (o WorkgroupConfigurationResultConfigurationOutput) OutputLocation() pulumi.StringOutput {
+	return o.Apply(func(v WorkgroupConfigurationResultConfiguration) string {
+		if v.OutputLocation == nil { return *new(string) } else { return *v.OutputLocation }
+	}).(pulumi.StringOutput)
+}
+
+func (WorkgroupConfigurationResultConfigurationOutput) ElementType() reflect.Type {
+	return workgroupConfigurationResultConfigurationType
+}
+
+func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfigurationResultConfigurationOutput() WorkgroupConfigurationResultConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfigurationResultConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationOutput{}) }
+
+type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
+	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+	EncryptionOption *string `pulumi:"encryptionOption"`
+	// For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+var workgroupConfigurationResultConfigurationEncryptionConfigurationType = reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfiguration)(nil)).Elem()
+
+type WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput
+	ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput
+}
+
+type WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs struct {
+	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
+	// For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return workgroupConfigurationResultConfigurationEncryptionConfigurationType
+}
+
+func (a WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutput(a).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
+}
+
+func (a WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
+}
+
+type WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput struct { *pulumi.OutputState }
+
+// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) EncryptionOption() pulumi.StringOutput {
+	return o.Apply(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) string {
+		if v.EncryptionOption == nil { return *new(string) } else { return *v.EncryptionOption }
+	}).(pulumi.StringOutput)
+}
+
+// For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
+func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) string {
+		if v.KmsKeyArn == nil { return *new(string) } else { return *v.KmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+func (WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return workgroupConfigurationResultConfigurationEncryptionConfigurationType
+}
+
+func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput{}) }
+

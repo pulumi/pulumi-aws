@@ -10,33 +10,46 @@ import (
 // Decrypt multiple secrets from data encrypted with the AWS KMS service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
-func LookupSecrets(ctx *pulumi.Context, args *GetSecretsArgs) (*GetSecretsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["secrets"] = args.Secrets
-	}
-	outputs, err := ctx.Invoke("aws:kms/getSecrets:getSecrets", inputs)
+func LookupSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
+	var rv GetSecretsResult
+	err := ctx.Invoke("aws:kms/getSecrets:getSecrets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSecretsResult{
-		Plaintext: outputs["plaintext"],
-		Secrets: outputs["secrets"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsArgs struct {
 	// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-	Secrets interface{}
+	Secrets []GetSecretsSecretsArgs `pulumi:"secrets"`
 }
 
 // A collection of values returned by getSecrets.
 type GetSecretsResult struct {
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
-	Plaintext interface{}
-	Secrets interface{}
+	Plaintext map[string]string `pulumi:"plaintext"`
+	Secrets []GetSecretsSecretsResult `pulumi:"secrets"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSecretsSecretsArgs struct {
+	// An optional mapping that makes up the Encryption Context for the secret.
+	Context *map[string]string `pulumi:"context"`
+	// An optional list of Grant Tokens for the secret.
+	GrantTokens *[]string `pulumi:"grantTokens"`
+	// The name to export this secret under in the attributes.
+	Name string `pulumi:"name"`
+	// Base64 encoded payload, as returned from a KMS encrypt operation.
+	Payload string `pulumi:"payload"`
+}
+type GetSecretsSecretsResult struct {
+	// An optional mapping that makes up the Encryption Context for the secret.
+	Context *map[string]string `pulumi:"context"`
+	// An optional list of Grant Tokens for the secret.
+	GrantTokens *[]string `pulumi:"grantTokens"`
+	// The name to export this secret under in the attributes.
+	Name string `pulumi:"name"`
+	// Base64 encoded payload, as returned from a KMS encrypt operation.
+	Payload string `pulumi:"payload"`
 }

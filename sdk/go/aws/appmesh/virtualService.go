@@ -4,6 +4,8 @@
 package appmesh
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,132 +14,322 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_service.html.markdown.
 type VirtualService struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the virtual service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The creation date of the virtual service.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The last update date of the virtual service.
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+
+	// The name of the service mesh in which to create the virtual service.
+	MeshName pulumi.StringOutput `pulumi:"meshName"`
+
+	// The name to use for the virtual service.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The virtual service specification to apply.
+	Spec VirtualServiceSpecOutput `pulumi:"spec"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
 func NewVirtualService(ctx *pulumi.Context,
-	name string, args *VirtualServiceArgs, opts ...pulumi.ResourceOpt) (*VirtualService, error) {
+	name string, args *VirtualServiceArgs, opts ...pulumi.ResourceOption) (*VirtualService, error) {
 	if args == nil || args.MeshName == nil {
 		return nil, errors.New("missing required argument 'MeshName'")
 	}
 	if args == nil || args.Spec == nil {
 		return nil, errors.New("missing required argument 'Spec'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["meshName"] = nil
-		inputs["name"] = nil
-		inputs["spec"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["meshName"] = args.MeshName
-		inputs["name"] = args.Name
-		inputs["spec"] = args.Spec
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MeshName; i != nil { inputs["meshName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Spec; i != nil { inputs["spec"] = i.ToVirtualServiceSpecOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["lastUpdatedDate"] = nil
-	s, err := ctx.RegisterResource("aws:appmesh/virtualService:VirtualService", name, true, inputs, opts...)
+	var resource VirtualService
+	err := ctx.RegisterResource("aws:appmesh/virtualService:VirtualService", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualService{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualService gets an existing VirtualService resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualServiceState, opts ...pulumi.ResourceOpt) (*VirtualService, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualServiceState, opts ...pulumi.ResourceOption) (*VirtualService, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["createdDate"] = state.CreatedDate
-		inputs["lastUpdatedDate"] = state.LastUpdatedDate
-		inputs["meshName"] = state.MeshName
-		inputs["name"] = state.Name
-		inputs["spec"] = state.Spec
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.LastUpdatedDate; i != nil { inputs["lastUpdatedDate"] = i.ToStringOutput() }
+		if i := state.MeshName; i != nil { inputs["meshName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Spec; i != nil { inputs["spec"] = i.ToVirtualServiceSpecOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appmesh/virtualService:VirtualService", name, id, inputs, opts...)
+	var resource VirtualService
+	err := ctx.ReadResource("aws:appmesh/virtualService:VirtualService", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualService{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualService) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualService) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the virtual service.
-func (r *VirtualService) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The creation date of the virtual service.
-func (r *VirtualService) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The last update date of the virtual service.
-func (r *VirtualService) LastUpdatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
-}
-
-// The name of the service mesh in which to create the virtual service.
-func (r *VirtualService) MeshName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["meshName"])
-}
-
-// The name to use for the virtual service.
-func (r *VirtualService) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The virtual service specification to apply.
-func (r *VirtualService) Spec() pulumi.Output {
-	return r.s.State["spec"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VirtualService) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualService resources.
 type VirtualServiceState struct {
 	// The ARN of the virtual service.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The creation date of the virtual service.
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The last update date of the virtual service.
-	LastUpdatedDate interface{}
+	LastUpdatedDate pulumi.StringInput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the virtual service.
-	MeshName interface{}
+	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// The name to use for the virtual service.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The virtual service specification to apply.
-	Spec interface{}
+	Spec VirtualServiceSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualService resource.
 type VirtualServiceArgs struct {
 	// The name of the service mesh in which to create the virtual service.
-	MeshName interface{}
+	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// The name to use for the virtual service.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The virtual service specification to apply.
-	Spec interface{}
+	Spec VirtualServiceSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type VirtualServiceSpec struct {
+	Provider *VirtualServiceSpecProvider `pulumi:"provider"`
+}
+var virtualServiceSpecType = reflect.TypeOf((*VirtualServiceSpec)(nil)).Elem()
+
+type VirtualServiceSpecInput interface {
+	pulumi.Input
+
+	ToVirtualServiceSpecOutput() VirtualServiceSpecOutput
+	ToVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceSpecOutput
+}
+
+type VirtualServiceSpecArgs struct {
+	Provider VirtualServiceSpecProviderInput `pulumi:"provider"`
+}
+
+func (VirtualServiceSpecArgs) ElementType() reflect.Type {
+	return virtualServiceSpecType
+}
+
+func (a VirtualServiceSpecArgs) ToVirtualServiceSpecOutput() VirtualServiceSpecOutput {
+	return pulumi.ToOutput(a).(VirtualServiceSpecOutput)
+}
+
+func (a VirtualServiceSpecArgs) ToVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualServiceSpecOutput)
+}
+
+type VirtualServiceSpecOutput struct { *pulumi.OutputState }
+
+func (o VirtualServiceSpecOutput) Provider() VirtualServiceSpecProviderOutput {
+	return o.Apply(func(v VirtualServiceSpec) VirtualServiceSpecProvider {
+		if v.Provider == nil { return *new(VirtualServiceSpecProvider) } else { return *v.Provider }
+	}).(VirtualServiceSpecProviderOutput)
+}
+
+func (VirtualServiceSpecOutput) ElementType() reflect.Type {
+	return virtualServiceSpecType
+}
+
+func (o VirtualServiceSpecOutput) ToVirtualServiceSpecOutput() VirtualServiceSpecOutput {
+	return o
+}
+
+func (o VirtualServiceSpecOutput) ToVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceSpecOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualServiceSpecOutput{}) }
+
+type VirtualServiceSpecProvider struct {
+	// The virtual node associated with a virtual service.
+	VirtualNode *VirtualServiceSpecProviderVirtualNode `pulumi:"virtualNode"`
+	// The virtual router associated with a virtual service.
+	VirtualRouter *VirtualServiceSpecProviderVirtualRouter `pulumi:"virtualRouter"`
+}
+var virtualServiceSpecProviderType = reflect.TypeOf((*VirtualServiceSpecProvider)(nil)).Elem()
+
+type VirtualServiceSpecProviderInput interface {
+	pulumi.Input
+
+	ToVirtualServiceSpecProviderOutput() VirtualServiceSpecProviderOutput
+	ToVirtualServiceSpecProviderOutputWithContext(ctx context.Context) VirtualServiceSpecProviderOutput
+}
+
+type VirtualServiceSpecProviderArgs struct {
+	// The virtual node associated with a virtual service.
+	VirtualNode VirtualServiceSpecProviderVirtualNodeInput `pulumi:"virtualNode"`
+	// The virtual router associated with a virtual service.
+	VirtualRouter VirtualServiceSpecProviderVirtualRouterInput `pulumi:"virtualRouter"`
+}
+
+func (VirtualServiceSpecProviderArgs) ElementType() reflect.Type {
+	return virtualServiceSpecProviderType
+}
+
+func (a VirtualServiceSpecProviderArgs) ToVirtualServiceSpecProviderOutput() VirtualServiceSpecProviderOutput {
+	return pulumi.ToOutput(a).(VirtualServiceSpecProviderOutput)
+}
+
+func (a VirtualServiceSpecProviderArgs) ToVirtualServiceSpecProviderOutputWithContext(ctx context.Context) VirtualServiceSpecProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualServiceSpecProviderOutput)
+}
+
+type VirtualServiceSpecProviderOutput struct { *pulumi.OutputState }
+
+// The virtual node associated with a virtual service.
+func (o VirtualServiceSpecProviderOutput) VirtualNode() VirtualServiceSpecProviderVirtualNodeOutput {
+	return o.Apply(func(v VirtualServiceSpecProvider) VirtualServiceSpecProviderVirtualNode {
+		if v.VirtualNode == nil { return *new(VirtualServiceSpecProviderVirtualNode) } else { return *v.VirtualNode }
+	}).(VirtualServiceSpecProviderVirtualNodeOutput)
+}
+
+// The virtual router associated with a virtual service.
+func (o VirtualServiceSpecProviderOutput) VirtualRouter() VirtualServiceSpecProviderVirtualRouterOutput {
+	return o.Apply(func(v VirtualServiceSpecProvider) VirtualServiceSpecProviderVirtualRouter {
+		if v.VirtualRouter == nil { return *new(VirtualServiceSpecProviderVirtualRouter) } else { return *v.VirtualRouter }
+	}).(VirtualServiceSpecProviderVirtualRouterOutput)
+}
+
+func (VirtualServiceSpecProviderOutput) ElementType() reflect.Type {
+	return virtualServiceSpecProviderType
+}
+
+func (o VirtualServiceSpecProviderOutput) ToVirtualServiceSpecProviderOutput() VirtualServiceSpecProviderOutput {
+	return o
+}
+
+func (o VirtualServiceSpecProviderOutput) ToVirtualServiceSpecProviderOutputWithContext(ctx context.Context) VirtualServiceSpecProviderOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualServiceSpecProviderOutput{}) }
+
+type VirtualServiceSpecProviderVirtualNode struct {
+	// The name of the virtual node that is acting as a service provider.
+	VirtualNodeName string `pulumi:"virtualNodeName"`
+}
+var virtualServiceSpecProviderVirtualNodeType = reflect.TypeOf((*VirtualServiceSpecProviderVirtualNode)(nil)).Elem()
+
+type VirtualServiceSpecProviderVirtualNodeInput interface {
+	pulumi.Input
+
+	ToVirtualServiceSpecProviderVirtualNodeOutput() VirtualServiceSpecProviderVirtualNodeOutput
+	ToVirtualServiceSpecProviderVirtualNodeOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualNodeOutput
+}
+
+type VirtualServiceSpecProviderVirtualNodeArgs struct {
+	// The name of the virtual node that is acting as a service provider.
+	VirtualNodeName pulumi.StringInput `pulumi:"virtualNodeName"`
+}
+
+func (VirtualServiceSpecProviderVirtualNodeArgs) ElementType() reflect.Type {
+	return virtualServiceSpecProviderVirtualNodeType
+}
+
+func (a VirtualServiceSpecProviderVirtualNodeArgs) ToVirtualServiceSpecProviderVirtualNodeOutput() VirtualServiceSpecProviderVirtualNodeOutput {
+	return pulumi.ToOutput(a).(VirtualServiceSpecProviderVirtualNodeOutput)
+}
+
+func (a VirtualServiceSpecProviderVirtualNodeArgs) ToVirtualServiceSpecProviderVirtualNodeOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualServiceSpecProviderVirtualNodeOutput)
+}
+
+type VirtualServiceSpecProviderVirtualNodeOutput struct { *pulumi.OutputState }
+
+// The name of the virtual node that is acting as a service provider.
+func (o VirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualServiceSpecProviderVirtualNode) string {
+		return v.VirtualNodeName
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualServiceSpecProviderVirtualNodeOutput) ElementType() reflect.Type {
+	return virtualServiceSpecProviderVirtualNodeType
+}
+
+func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProviderVirtualNodeOutput() VirtualServiceSpecProviderVirtualNodeOutput {
+	return o
+}
+
+func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProviderVirtualNodeOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualServiceSpecProviderVirtualNodeOutput{}) }
+
+type VirtualServiceSpecProviderVirtualRouter struct {
+	// The name of the virtual router that is acting as a service provider.
+	VirtualRouterName string `pulumi:"virtualRouterName"`
+}
+var virtualServiceSpecProviderVirtualRouterType = reflect.TypeOf((*VirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
+
+type VirtualServiceSpecProviderVirtualRouterInput interface {
+	pulumi.Input
+
+	ToVirtualServiceSpecProviderVirtualRouterOutput() VirtualServiceSpecProviderVirtualRouterOutput
+	ToVirtualServiceSpecProviderVirtualRouterOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualRouterOutput
+}
+
+type VirtualServiceSpecProviderVirtualRouterArgs struct {
+	// The name of the virtual router that is acting as a service provider.
+	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
+}
+
+func (VirtualServiceSpecProviderVirtualRouterArgs) ElementType() reflect.Type {
+	return virtualServiceSpecProviderVirtualRouterType
+}
+
+func (a VirtualServiceSpecProviderVirtualRouterArgs) ToVirtualServiceSpecProviderVirtualRouterOutput() VirtualServiceSpecProviderVirtualRouterOutput {
+	return pulumi.ToOutput(a).(VirtualServiceSpecProviderVirtualRouterOutput)
+}
+
+func (a VirtualServiceSpecProviderVirtualRouterArgs) ToVirtualServiceSpecProviderVirtualRouterOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualRouterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualServiceSpecProviderVirtualRouterOutput)
+}
+
+type VirtualServiceSpecProviderVirtualRouterOutput struct { *pulumi.OutputState }
+
+// The name of the virtual router that is acting as a service provider.
+func (o VirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualServiceSpecProviderVirtualRouter) string {
+		return v.VirtualRouterName
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualServiceSpecProviderVirtualRouterOutput) ElementType() reflect.Type {
+	return virtualServiceSpecProviderVirtualRouterType
+}
+
+func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProviderVirtualRouterOutput() VirtualServiceSpecProviderVirtualRouterOutput {
+	return o
+}
+
+func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProviderVirtualRouterOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualRouterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualServiceSpecProviderVirtualRouterOutput{}) }
+

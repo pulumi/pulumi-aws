@@ -4,6 +4,8 @@
 package s3
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,102 +16,507 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_notification.html.markdown.
 type BucketNotification struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the bucket to put notification configuration.
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+
+	// Used to configure notifications to a Lambda Function (documented below).
+	LambdaFunctions BucketNotificationLambdaFunctionsArrayOutput `pulumi:"lambdaFunctions"`
+
+	// The notification configuration to SQS Queue (documented below).
+	Queues BucketNotificationQueuesArrayOutput `pulumi:"queues"`
+
+	// The notification configuration to SNS Topic (documented below).
+	Topics BucketNotificationTopicsArrayOutput `pulumi:"topics"`
 }
 
 // NewBucketNotification registers a new resource with the given unique name, arguments, and options.
 func NewBucketNotification(ctx *pulumi.Context,
-	name string, args *BucketNotificationArgs, opts ...pulumi.ResourceOpt) (*BucketNotification, error) {
+	name string, args *BucketNotificationArgs, opts ...pulumi.ResourceOption) (*BucketNotification, error) {
 	if args == nil || args.Bucket == nil {
 		return nil, errors.New("missing required argument 'Bucket'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["bucket"] = nil
-		inputs["lambdaFunctions"] = nil
-		inputs["queues"] = nil
-		inputs["topics"] = nil
-	} else {
-		inputs["bucket"] = args.Bucket
-		inputs["lambdaFunctions"] = args.LambdaFunctions
-		inputs["queues"] = args.Queues
-		inputs["topics"] = args.Topics
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Bucket; i != nil { inputs["bucket"] = i.ToStringOutput() }
+		if i := args.LambdaFunctions; i != nil { inputs["lambdaFunctions"] = i.ToBucketNotificationLambdaFunctionsArrayOutput() }
+		if i := args.Queues; i != nil { inputs["queues"] = i.ToBucketNotificationQueuesArrayOutput() }
+		if i := args.Topics; i != nil { inputs["topics"] = i.ToBucketNotificationTopicsArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:s3/bucketNotification:BucketNotification", name, true, inputs, opts...)
+	var resource BucketNotification
+	err := ctx.RegisterResource("aws:s3/bucketNotification:BucketNotification", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BucketNotification{s: s}, nil
+	return &resource, nil
 }
 
 // GetBucketNotification gets an existing BucketNotification resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBucketNotification(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BucketNotificationState, opts ...pulumi.ResourceOpt) (*BucketNotification, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BucketNotificationState, opts ...pulumi.ResourceOption) (*BucketNotification, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["bucket"] = state.Bucket
-		inputs["lambdaFunctions"] = state.LambdaFunctions
-		inputs["queues"] = state.Queues
-		inputs["topics"] = state.Topics
+		if i := state.Bucket; i != nil { inputs["bucket"] = i.ToStringOutput() }
+		if i := state.LambdaFunctions; i != nil { inputs["lambdaFunctions"] = i.ToBucketNotificationLambdaFunctionsArrayOutput() }
+		if i := state.Queues; i != nil { inputs["queues"] = i.ToBucketNotificationQueuesArrayOutput() }
+		if i := state.Topics; i != nil { inputs["topics"] = i.ToBucketNotificationTopicsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:s3/bucketNotification:BucketNotification", name, id, inputs, opts...)
+	var resource BucketNotification
+	err := ctx.ReadResource("aws:s3/bucketNotification:BucketNotification", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BucketNotification{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *BucketNotification) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *BucketNotification) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the bucket to put notification configuration.
-func (r *BucketNotification) Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bucket"])
-}
-
-// Used to configure notifications to a Lambda Function (documented below).
-func (r *BucketNotification) LambdaFunctions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["lambdaFunctions"])
-}
-
-// The notification configuration to SQS Queue (documented below).
-func (r *BucketNotification) Queues() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["queues"])
-}
-
-// The notification configuration to SNS Topic (documented below).
-func (r *BucketNotification) Topics() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["topics"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering BucketNotification resources.
 type BucketNotificationState struct {
 	// The name of the bucket to put notification configuration.
-	Bucket interface{}
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Used to configure notifications to a Lambda Function (documented below).
-	LambdaFunctions interface{}
+	LambdaFunctions BucketNotificationLambdaFunctionsArrayInput `pulumi:"lambdaFunctions"`
 	// The notification configuration to SQS Queue (documented below).
-	Queues interface{}
+	Queues BucketNotificationQueuesArrayInput `pulumi:"queues"`
 	// The notification configuration to SNS Topic (documented below).
-	Topics interface{}
+	Topics BucketNotificationTopicsArrayInput `pulumi:"topics"`
 }
 
 // The set of arguments for constructing a BucketNotification resource.
 type BucketNotificationArgs struct {
 	// The name of the bucket to put notification configuration.
-	Bucket interface{}
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Used to configure notifications to a Lambda Function (documented below).
-	LambdaFunctions interface{}
+	LambdaFunctions BucketNotificationLambdaFunctionsArrayInput `pulumi:"lambdaFunctions"`
 	// The notification configuration to SQS Queue (documented below).
-	Queues interface{}
+	Queues BucketNotificationQueuesArrayInput `pulumi:"queues"`
 	// The notification configuration to SNS Topic (documented below).
-	Topics interface{}
+	Topics BucketNotificationTopicsArrayInput `pulumi:"topics"`
 }
+type BucketNotificationLambdaFunctions struct {
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	Events []string `pulumi:"events"`
+	// Specifies object key name prefix.
+	FilterPrefix *string `pulumi:"filterPrefix"`
+	// Specifies object key name suffix.
+	FilterSuffix *string `pulumi:"filterSuffix"`
+	// Specifies unique identifier for each of the notification configurations.
+	Id *string `pulumi:"id"`
+	// Specifies Amazon Lambda function ARN.
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
+}
+var bucketNotificationLambdaFunctionsType = reflect.TypeOf((*BucketNotificationLambdaFunctions)(nil)).Elem()
+
+type BucketNotificationLambdaFunctionsInput interface {
+	pulumi.Input
+
+	ToBucketNotificationLambdaFunctionsOutput() BucketNotificationLambdaFunctionsOutput
+	ToBucketNotificationLambdaFunctionsOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionsOutput
+}
+
+type BucketNotificationLambdaFunctionsArgs struct {
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Specifies object key name prefix.
+	FilterPrefix pulumi.StringInput `pulumi:"filterPrefix"`
+	// Specifies object key name suffix.
+	FilterSuffix pulumi.StringInput `pulumi:"filterSuffix"`
+	// Specifies unique identifier for each of the notification configurations.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies Amazon Lambda function ARN.
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (BucketNotificationLambdaFunctionsArgs) ElementType() reflect.Type {
+	return bucketNotificationLambdaFunctionsType
+}
+
+func (a BucketNotificationLambdaFunctionsArgs) ToBucketNotificationLambdaFunctionsOutput() BucketNotificationLambdaFunctionsOutput {
+	return pulumi.ToOutput(a).(BucketNotificationLambdaFunctionsOutput)
+}
+
+func (a BucketNotificationLambdaFunctionsArgs) ToBucketNotificationLambdaFunctionsOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketNotificationLambdaFunctionsOutput)
+}
+
+type BucketNotificationLambdaFunctionsOutput struct { *pulumi.OutputState }
+
+// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+func (o BucketNotificationLambdaFunctionsOutput) Events() pulumi.StringArrayOutput {
+	return o.Apply(func(v BucketNotificationLambdaFunctions) []string {
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies object key name prefix.
+func (o BucketNotificationLambdaFunctionsOutput) FilterPrefix() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationLambdaFunctions) string {
+		if v.FilterPrefix == nil { return *new(string) } else { return *v.FilterPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies object key name suffix.
+func (o BucketNotificationLambdaFunctionsOutput) FilterSuffix() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationLambdaFunctions) string {
+		if v.FilterSuffix == nil { return *new(string) } else { return *v.FilterSuffix }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies unique identifier for each of the notification configurations.
+func (o BucketNotificationLambdaFunctionsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationLambdaFunctions) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies Amazon Lambda function ARN.
+func (o BucketNotificationLambdaFunctionsOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationLambdaFunctions) string {
+		if v.LambdaFunctionArn == nil { return *new(string) } else { return *v.LambdaFunctionArn }
+	}).(pulumi.StringOutput)
+}
+
+func (BucketNotificationLambdaFunctionsOutput) ElementType() reflect.Type {
+	return bucketNotificationLambdaFunctionsType
+}
+
+func (o BucketNotificationLambdaFunctionsOutput) ToBucketNotificationLambdaFunctionsOutput() BucketNotificationLambdaFunctionsOutput {
+	return o
+}
+
+func (o BucketNotificationLambdaFunctionsOutput) ToBucketNotificationLambdaFunctionsOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketNotificationLambdaFunctionsOutput{}) }
+
+var bucketNotificationLambdaFunctionsArrayType = reflect.TypeOf((*[]BucketNotificationLambdaFunctions)(nil)).Elem()
+
+type BucketNotificationLambdaFunctionsArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationLambdaFunctionsArrayOutput() BucketNotificationLambdaFunctionsArrayOutput
+	ToBucketNotificationLambdaFunctionsArrayOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionsArrayOutput
+}
+
+type BucketNotificationLambdaFunctionsArrayArgs []BucketNotificationLambdaFunctionsInput
+
+func (BucketNotificationLambdaFunctionsArrayArgs) ElementType() reflect.Type {
+	return bucketNotificationLambdaFunctionsArrayType
+}
+
+func (a BucketNotificationLambdaFunctionsArrayArgs) ToBucketNotificationLambdaFunctionsArrayOutput() BucketNotificationLambdaFunctionsArrayOutput {
+	return pulumi.ToOutput(a).(BucketNotificationLambdaFunctionsArrayOutput)
+}
+
+func (a BucketNotificationLambdaFunctionsArrayArgs) ToBucketNotificationLambdaFunctionsArrayOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketNotificationLambdaFunctionsArrayOutput)
+}
+
+type BucketNotificationLambdaFunctionsArrayOutput struct { *pulumi.OutputState }
+
+func (o BucketNotificationLambdaFunctionsArrayOutput) Index(i pulumi.IntInput) BucketNotificationLambdaFunctionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BucketNotificationLambdaFunctions {
+		return vs[0].([]BucketNotificationLambdaFunctions)[vs[1].(int)]
+	}).(BucketNotificationLambdaFunctionsOutput)
+}
+
+func (BucketNotificationLambdaFunctionsArrayOutput) ElementType() reflect.Type {
+	return bucketNotificationLambdaFunctionsArrayType
+}
+
+func (o BucketNotificationLambdaFunctionsArrayOutput) ToBucketNotificationLambdaFunctionsArrayOutput() BucketNotificationLambdaFunctionsArrayOutput {
+	return o
+}
+
+func (o BucketNotificationLambdaFunctionsArrayOutput) ToBucketNotificationLambdaFunctionsArrayOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketNotificationLambdaFunctionsArrayOutput{}) }
+
+type BucketNotificationQueues struct {
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	Events []string `pulumi:"events"`
+	// Specifies object key name prefix.
+	FilterPrefix *string `pulumi:"filterPrefix"`
+	// Specifies object key name suffix.
+	FilterSuffix *string `pulumi:"filterSuffix"`
+	// Specifies unique identifier for each of the notification configurations.
+	Id *string `pulumi:"id"`
+	// Specifies Amazon SQS queue ARN.
+	QueueArn string `pulumi:"queueArn"`
+}
+var bucketNotificationQueuesType = reflect.TypeOf((*BucketNotificationQueues)(nil)).Elem()
+
+type BucketNotificationQueuesInput interface {
+	pulumi.Input
+
+	ToBucketNotificationQueuesOutput() BucketNotificationQueuesOutput
+	ToBucketNotificationQueuesOutputWithContext(ctx context.Context) BucketNotificationQueuesOutput
+}
+
+type BucketNotificationQueuesArgs struct {
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Specifies object key name prefix.
+	FilterPrefix pulumi.StringInput `pulumi:"filterPrefix"`
+	// Specifies object key name suffix.
+	FilterSuffix pulumi.StringInput `pulumi:"filterSuffix"`
+	// Specifies unique identifier for each of the notification configurations.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies Amazon SQS queue ARN.
+	QueueArn pulumi.StringInput `pulumi:"queueArn"`
+}
+
+func (BucketNotificationQueuesArgs) ElementType() reflect.Type {
+	return bucketNotificationQueuesType
+}
+
+func (a BucketNotificationQueuesArgs) ToBucketNotificationQueuesOutput() BucketNotificationQueuesOutput {
+	return pulumi.ToOutput(a).(BucketNotificationQueuesOutput)
+}
+
+func (a BucketNotificationQueuesArgs) ToBucketNotificationQueuesOutputWithContext(ctx context.Context) BucketNotificationQueuesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketNotificationQueuesOutput)
+}
+
+type BucketNotificationQueuesOutput struct { *pulumi.OutputState }
+
+// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+func (o BucketNotificationQueuesOutput) Events() pulumi.StringArrayOutput {
+	return o.Apply(func(v BucketNotificationQueues) []string {
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies object key name prefix.
+func (o BucketNotificationQueuesOutput) FilterPrefix() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationQueues) string {
+		if v.FilterPrefix == nil { return *new(string) } else { return *v.FilterPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies object key name suffix.
+func (o BucketNotificationQueuesOutput) FilterSuffix() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationQueues) string {
+		if v.FilterSuffix == nil { return *new(string) } else { return *v.FilterSuffix }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies unique identifier for each of the notification configurations.
+func (o BucketNotificationQueuesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationQueues) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies Amazon SQS queue ARN.
+func (o BucketNotificationQueuesOutput) QueueArn() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationQueues) string {
+		return v.QueueArn
+	}).(pulumi.StringOutput)
+}
+
+func (BucketNotificationQueuesOutput) ElementType() reflect.Type {
+	return bucketNotificationQueuesType
+}
+
+func (o BucketNotificationQueuesOutput) ToBucketNotificationQueuesOutput() BucketNotificationQueuesOutput {
+	return o
+}
+
+func (o BucketNotificationQueuesOutput) ToBucketNotificationQueuesOutputWithContext(ctx context.Context) BucketNotificationQueuesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketNotificationQueuesOutput{}) }
+
+var bucketNotificationQueuesArrayType = reflect.TypeOf((*[]BucketNotificationQueues)(nil)).Elem()
+
+type BucketNotificationQueuesArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationQueuesArrayOutput() BucketNotificationQueuesArrayOutput
+	ToBucketNotificationQueuesArrayOutputWithContext(ctx context.Context) BucketNotificationQueuesArrayOutput
+}
+
+type BucketNotificationQueuesArrayArgs []BucketNotificationQueuesInput
+
+func (BucketNotificationQueuesArrayArgs) ElementType() reflect.Type {
+	return bucketNotificationQueuesArrayType
+}
+
+func (a BucketNotificationQueuesArrayArgs) ToBucketNotificationQueuesArrayOutput() BucketNotificationQueuesArrayOutput {
+	return pulumi.ToOutput(a).(BucketNotificationQueuesArrayOutput)
+}
+
+func (a BucketNotificationQueuesArrayArgs) ToBucketNotificationQueuesArrayOutputWithContext(ctx context.Context) BucketNotificationQueuesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketNotificationQueuesArrayOutput)
+}
+
+type BucketNotificationQueuesArrayOutput struct { *pulumi.OutputState }
+
+func (o BucketNotificationQueuesArrayOutput) Index(i pulumi.IntInput) BucketNotificationQueuesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BucketNotificationQueues {
+		return vs[0].([]BucketNotificationQueues)[vs[1].(int)]
+	}).(BucketNotificationQueuesOutput)
+}
+
+func (BucketNotificationQueuesArrayOutput) ElementType() reflect.Type {
+	return bucketNotificationQueuesArrayType
+}
+
+func (o BucketNotificationQueuesArrayOutput) ToBucketNotificationQueuesArrayOutput() BucketNotificationQueuesArrayOutput {
+	return o
+}
+
+func (o BucketNotificationQueuesArrayOutput) ToBucketNotificationQueuesArrayOutputWithContext(ctx context.Context) BucketNotificationQueuesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketNotificationQueuesArrayOutput{}) }
+
+type BucketNotificationTopics struct {
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	Events []string `pulumi:"events"`
+	// Specifies object key name prefix.
+	FilterPrefix *string `pulumi:"filterPrefix"`
+	// Specifies object key name suffix.
+	FilterSuffix *string `pulumi:"filterSuffix"`
+	// Specifies unique identifier for each of the notification configurations.
+	Id *string `pulumi:"id"`
+	// Specifies Amazon SNS topic ARN.
+	TopicArn string `pulumi:"topicArn"`
+}
+var bucketNotificationTopicsType = reflect.TypeOf((*BucketNotificationTopics)(nil)).Elem()
+
+type BucketNotificationTopicsInput interface {
+	pulumi.Input
+
+	ToBucketNotificationTopicsOutput() BucketNotificationTopicsOutput
+	ToBucketNotificationTopicsOutputWithContext(ctx context.Context) BucketNotificationTopicsOutput
+}
+
+type BucketNotificationTopicsArgs struct {
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Specifies object key name prefix.
+	FilterPrefix pulumi.StringInput `pulumi:"filterPrefix"`
+	// Specifies object key name suffix.
+	FilterSuffix pulumi.StringInput `pulumi:"filterSuffix"`
+	// Specifies unique identifier for each of the notification configurations.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies Amazon SNS topic ARN.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (BucketNotificationTopicsArgs) ElementType() reflect.Type {
+	return bucketNotificationTopicsType
+}
+
+func (a BucketNotificationTopicsArgs) ToBucketNotificationTopicsOutput() BucketNotificationTopicsOutput {
+	return pulumi.ToOutput(a).(BucketNotificationTopicsOutput)
+}
+
+func (a BucketNotificationTopicsArgs) ToBucketNotificationTopicsOutputWithContext(ctx context.Context) BucketNotificationTopicsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketNotificationTopicsOutput)
+}
+
+type BucketNotificationTopicsOutput struct { *pulumi.OutputState }
+
+// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+func (o BucketNotificationTopicsOutput) Events() pulumi.StringArrayOutput {
+	return o.Apply(func(v BucketNotificationTopics) []string {
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies object key name prefix.
+func (o BucketNotificationTopicsOutput) FilterPrefix() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationTopics) string {
+		if v.FilterPrefix == nil { return *new(string) } else { return *v.FilterPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies object key name suffix.
+func (o BucketNotificationTopicsOutput) FilterSuffix() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationTopics) string {
+		if v.FilterSuffix == nil { return *new(string) } else { return *v.FilterSuffix }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies unique identifier for each of the notification configurations.
+func (o BucketNotificationTopicsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationTopics) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies Amazon SNS topic ARN.
+func (o BucketNotificationTopicsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v BucketNotificationTopics) string {
+		return v.TopicArn
+	}).(pulumi.StringOutput)
+}
+
+func (BucketNotificationTopicsOutput) ElementType() reflect.Type {
+	return bucketNotificationTopicsType
+}
+
+func (o BucketNotificationTopicsOutput) ToBucketNotificationTopicsOutput() BucketNotificationTopicsOutput {
+	return o
+}
+
+func (o BucketNotificationTopicsOutput) ToBucketNotificationTopicsOutputWithContext(ctx context.Context) BucketNotificationTopicsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketNotificationTopicsOutput{}) }
+
+var bucketNotificationTopicsArrayType = reflect.TypeOf((*[]BucketNotificationTopics)(nil)).Elem()
+
+type BucketNotificationTopicsArrayInput interface {
+	pulumi.Input
+
+	ToBucketNotificationTopicsArrayOutput() BucketNotificationTopicsArrayOutput
+	ToBucketNotificationTopicsArrayOutputWithContext(ctx context.Context) BucketNotificationTopicsArrayOutput
+}
+
+type BucketNotificationTopicsArrayArgs []BucketNotificationTopicsInput
+
+func (BucketNotificationTopicsArrayArgs) ElementType() reflect.Type {
+	return bucketNotificationTopicsArrayType
+}
+
+func (a BucketNotificationTopicsArrayArgs) ToBucketNotificationTopicsArrayOutput() BucketNotificationTopicsArrayOutput {
+	return pulumi.ToOutput(a).(BucketNotificationTopicsArrayOutput)
+}
+
+func (a BucketNotificationTopicsArrayArgs) ToBucketNotificationTopicsArrayOutputWithContext(ctx context.Context) BucketNotificationTopicsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketNotificationTopicsArrayOutput)
+}
+
+type BucketNotificationTopicsArrayOutput struct { *pulumi.OutputState }
+
+func (o BucketNotificationTopicsArrayOutput) Index(i pulumi.IntInput) BucketNotificationTopicsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BucketNotificationTopics {
+		return vs[0].([]BucketNotificationTopics)[vs[1].(int)]
+	}).(BucketNotificationTopicsOutput)
+}
+
+func (BucketNotificationTopicsArrayOutput) ElementType() reflect.Type {
+	return bucketNotificationTopicsArrayType
+}
+
+func (o BucketNotificationTopicsArrayOutput) ToBucketNotificationTopicsArrayOutput() BucketNotificationTopicsArrayOutput {
+	return o
+}
+
+func (o BucketNotificationTopicsArrayOutput) ToBucketNotificationTopicsArrayOutputWithContext(ctx context.Context) BucketNotificationTopicsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketNotificationTopicsArrayOutput{}) }
+

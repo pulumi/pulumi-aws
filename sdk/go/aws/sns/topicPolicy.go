@@ -14,78 +14,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_policy.html.markdown.
 type TopicPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the SNS topic
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewTopicPolicy registers a new resource with the given unique name, arguments, and options.
 func NewTopicPolicy(ctx *pulumi.Context,
-	name string, args *TopicPolicyArgs, opts ...pulumi.ResourceOpt) (*TopicPolicy, error) {
+	name string, args *TopicPolicyArgs, opts ...pulumi.ResourceOption) (*TopicPolicy, error) {
 	if args == nil || args.Arn == nil {
 		return nil, errors.New("missing required argument 'Arn'")
 	}
 	if args == nil || args.Policy == nil {
 		return nil, errors.New("missing required argument 'Policy'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["arn"] = nil
-		inputs["policy"] = nil
-	} else {
-		inputs["arn"] = args.Arn
-		inputs["policy"] = args.Policy
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:sns/topicPolicy:TopicPolicy", name, true, inputs, opts...)
+	var resource TopicPolicy
+	err := ctx.RegisterResource("aws:sns/topicPolicy:TopicPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TopicPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetTopicPolicy gets an existing TopicPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTopicPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TopicPolicyState, opts ...pulumi.ResourceOpt) (*TopicPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TopicPolicyState, opts ...pulumi.ResourceOption) (*TopicPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["policy"] = state.Policy
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:sns/topicPolicy:TopicPolicy", name, id, inputs, opts...)
+	var resource TopicPolicy
+	err := ctx.ReadResource("aws:sns/topicPolicy:TopicPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TopicPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TopicPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TopicPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the SNS topic
-func (r *TopicPolicy) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *TopicPolicy) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TopicPolicy resources.
 type TopicPolicyState struct {
 	// The ARN of the SNS topic
-	Arn interface{}
-	Policy interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a TopicPolicy resource.
 type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
-	Arn interface{}
-	Policy interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 }

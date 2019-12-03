@@ -16,48 +16,80 @@ import (
 // information specific to the listener in question.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener.html.markdown.
-func LookupListener(ctx *pulumi.Context, args *GetListenerArgs) (*GetListenerResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["arn"] = args.Arn
-		inputs["loadBalancerArn"] = args.LoadBalancerArn
-		inputs["port"] = args.Port
-	}
-	outputs, err := ctx.Invoke("aws:alb/getListener:getListener", inputs)
+func LookupListener(ctx *pulumi.Context, args *GetListenerArgs, opts ...pulumi.InvokeOption) (*GetListenerResult, error) {
+	var rv GetListenerResult
+	err := ctx.Invoke("aws:alb/getListener:getListener", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetListenerResult{
-		Arn: outputs["arn"],
-		CertificateArn: outputs["certificateArn"],
-		DefaultActions: outputs["defaultActions"],
-		LoadBalancerArn: outputs["loadBalancerArn"],
-		Port: outputs["port"],
-		Protocol: outputs["protocol"],
-		SslPolicy: outputs["sslPolicy"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getListener.
 type GetListenerArgs struct {
 	// The arn of the listener. Required if `loadBalancerArn` and `port` is not set.
-	Arn interface{}
+	Arn *string `pulumi:"arn"`
 	// The arn of the load balancer. Required if `arn` is not set.
-	LoadBalancerArn interface{}
+	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// The port of the listener. Required if `arn` is not set.
-	Port interface{}
+	Port *int `pulumi:"port"`
 }
 
 // A collection of values returned by getListener.
 type GetListenerResult struct {
-	Arn interface{}
-	CertificateArn interface{}
-	DefaultActions interface{}
-	LoadBalancerArn interface{}
-	Port interface{}
-	Protocol interface{}
-	SslPolicy interface{}
+	Arn string `pulumi:"arn"`
+	CertificateArn string `pulumi:"certificateArn"`
+	DefaultActions []GetListenerDefaultActionsResult `pulumi:"defaultActions"`
+	LoadBalancerArn string `pulumi:"loadBalancerArn"`
+	Port int `pulumi:"port"`
+	Protocol string `pulumi:"protocol"`
+	SslPolicy string `pulumi:"sslPolicy"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetListenerDefaultActionsAuthenticateCognitosResult struct {
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	OnUnauthenticatedRequest string `pulumi:"onUnauthenticatedRequest"`
+	Scope string `pulumi:"scope"`
+	SessionCookieName string `pulumi:"sessionCookieName"`
+	SessionTimeout int `pulumi:"sessionTimeout"`
+	UserPoolArn string `pulumi:"userPoolArn"`
+	UserPoolClientId string `pulumi:"userPoolClientId"`
+	UserPoolDomain string `pulumi:"userPoolDomain"`
+}
+type GetListenerDefaultActionsAuthenticateOidcsResult struct {
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	Issuer string `pulumi:"issuer"`
+	OnUnauthenticatedRequest string `pulumi:"onUnauthenticatedRequest"`
+	Scope string `pulumi:"scope"`
+	SessionCookieName string `pulumi:"sessionCookieName"`
+	SessionTimeout int `pulumi:"sessionTimeout"`
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
+}
+type GetListenerDefaultActionsFixedResponsesResult struct {
+	ContentType string `pulumi:"contentType"`
+	MessageBody string `pulumi:"messageBody"`
+	StatusCode string `pulumi:"statusCode"`
+}
+type GetListenerDefaultActionsRedirectsResult struct {
+	Host string `pulumi:"host"`
+	Path string `pulumi:"path"`
+	// The port of the listener. Required if `arn` is not set.
+	Port string `pulumi:"port"`
+	Protocol string `pulumi:"protocol"`
+	Query string `pulumi:"query"`
+	StatusCode string `pulumi:"statusCode"`
+}
+type GetListenerDefaultActionsResult struct {
+	AuthenticateCognitos []GetListenerDefaultActionsAuthenticateCognitosResult `pulumi:"authenticateCognitos"`
+	AuthenticateOidcs []GetListenerDefaultActionsAuthenticateOidcsResult `pulumi:"authenticateOidcs"`
+	FixedResponses []GetListenerDefaultActionsFixedResponsesResult `pulumi:"fixedResponses"`
+	Order int `pulumi:"order"`
+	Redirects []GetListenerDefaultActionsRedirectsResult `pulumi:"redirects"`
+	TargetGroupArn string `pulumi:"targetGroupArn"`
+	Type string `pulumi:"type"`
 }

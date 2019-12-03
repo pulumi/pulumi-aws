@@ -4,6 +4,8 @@
 package emr
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -121,399 +123,1507 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
+	AdditionalInfo pulumi.StringOutput `pulumi:"additionalInfo"`
+
+	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
+	Applications pulumi.StringArrayOutput `pulumi:"applications"`
+
+	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+	AutoscalingRole pulumi.StringOutput `pulumi:"autoscalingRole"`
+
+	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
+	BootstrapActions ClusterBootstrapActionsArrayOutput `pulumi:"bootstrapActions"`
+
+	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
+
+	// List of configurations supplied for the EMR cluster you are creating
+	Configurations pulumi.StringOutput `pulumi:"configurations"`
+
+	// A JSON string for supplying list of configurations for the EMR cluster.
+	ConfigurationsJson pulumi.StringOutput `pulumi:"configurationsJson"`
+
+	// Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
+	CoreInstanceCount pulumi.IntOutput `pulumi:"coreInstanceCount"`
+
+	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
+	CoreInstanceGroup ClusterCoreInstanceGroupOutput `pulumi:"coreInstanceGroup"`
+
+	// Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
+	CoreInstanceType pulumi.StringOutput `pulumi:"coreInstanceType"`
+
+	// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+	CustomAmiId pulumi.StringOutput `pulumi:"customAmiId"`
+
+	// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+	EbsRootVolumeSize pulumi.IntOutput `pulumi:"ebsRootVolumeSize"`
+
+	// Attributes for the EC2 instances running the job flow. Defined below
+	Ec2Attributes ClusterEc2AttributesOutput `pulumi:"ec2Attributes"`
+
+	// Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
+	InstanceGroups ClusterInstanceGroupsArrayOutput `pulumi:"instanceGroups"`
+
+	// Switch on/off run cluster with no steps or when all steps are complete (default is on)
+	KeepJobFlowAliveWhenNoSteps pulumi.BoolOutput `pulumi:"keepJobFlowAliveWhenNoSteps"`
+
+	// Kerberos configuration for the cluster. Defined below
+	KerberosAttributes ClusterKerberosAttributesOutput `pulumi:"kerberosAttributes"`
+
+	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
+	LogUri pulumi.StringOutput `pulumi:"logUri"`
+
+	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
+	MasterInstanceGroup ClusterMasterInstanceGroupOutput `pulumi:"masterInstanceGroup"`
+
+	// Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
+	MasterInstanceType pulumi.StringOutput `pulumi:"masterInstanceType"`
+
+	// The public DNS name of the master EC2 instance.
+	// * `core_instance_group.0.id` - Core node type Instance Group ID, if using Instance Group for this node type.
+	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
+
+	// The name of the job flow
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The release label for the Amazon EMR release
+	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
+
+	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+	ScaleDownBehavior pulumi.StringOutput `pulumi:"scaleDownBehavior"`
+
+	// The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater
+	SecurityConfiguration pulumi.StringOutput `pulumi:"securityConfiguration"`
+
+	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
+	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+
+	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	Steps ClusterStepsArrayOutput `pulumi:"steps"`
+
+	// list of tags to apply to the EMR Cluster
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+	TerminationProtection pulumi.BoolOutput `pulumi:"terminationProtection"`
+
+	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
+	VisibleToAllUsers pulumi.BoolOutput `pulumi:"visibleToAllUsers"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.ReleaseLabel == nil {
 		return nil, errors.New("missing required argument 'ReleaseLabel'")
 	}
 	if args == nil || args.ServiceRole == nil {
 		return nil, errors.New("missing required argument 'ServiceRole'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["additionalInfo"] = nil
-		inputs["applications"] = nil
-		inputs["autoscalingRole"] = nil
-		inputs["bootstrapActions"] = nil
-		inputs["configurations"] = nil
-		inputs["configurationsJson"] = nil
-		inputs["coreInstanceCount"] = nil
-		inputs["coreInstanceGroup"] = nil
-		inputs["coreInstanceType"] = nil
-		inputs["customAmiId"] = nil
-		inputs["ebsRootVolumeSize"] = nil
-		inputs["ec2Attributes"] = nil
-		inputs["instanceGroups"] = nil
-		inputs["keepJobFlowAliveWhenNoSteps"] = nil
-		inputs["kerberosAttributes"] = nil
-		inputs["logUri"] = nil
-		inputs["masterInstanceGroup"] = nil
-		inputs["masterInstanceType"] = nil
-		inputs["name"] = nil
-		inputs["releaseLabel"] = nil
-		inputs["scaleDownBehavior"] = nil
-		inputs["securityConfiguration"] = nil
-		inputs["serviceRole"] = nil
-		inputs["steps"] = nil
-		inputs["tags"] = nil
-		inputs["terminationProtection"] = nil
-		inputs["visibleToAllUsers"] = nil
-	} else {
-		inputs["additionalInfo"] = args.AdditionalInfo
-		inputs["applications"] = args.Applications
-		inputs["autoscalingRole"] = args.AutoscalingRole
-		inputs["bootstrapActions"] = args.BootstrapActions
-		inputs["configurations"] = args.Configurations
-		inputs["configurationsJson"] = args.ConfigurationsJson
-		inputs["coreInstanceCount"] = args.CoreInstanceCount
-		inputs["coreInstanceGroup"] = args.CoreInstanceGroup
-		inputs["coreInstanceType"] = args.CoreInstanceType
-		inputs["customAmiId"] = args.CustomAmiId
-		inputs["ebsRootVolumeSize"] = args.EbsRootVolumeSize
-		inputs["ec2Attributes"] = args.Ec2Attributes
-		inputs["instanceGroups"] = args.InstanceGroups
-		inputs["keepJobFlowAliveWhenNoSteps"] = args.KeepJobFlowAliveWhenNoSteps
-		inputs["kerberosAttributes"] = args.KerberosAttributes
-		inputs["logUri"] = args.LogUri
-		inputs["masterInstanceGroup"] = args.MasterInstanceGroup
-		inputs["masterInstanceType"] = args.MasterInstanceType
-		inputs["name"] = args.Name
-		inputs["releaseLabel"] = args.ReleaseLabel
-		inputs["scaleDownBehavior"] = args.ScaleDownBehavior
-		inputs["securityConfiguration"] = args.SecurityConfiguration
-		inputs["serviceRole"] = args.ServiceRole
-		inputs["steps"] = args.Steps
-		inputs["tags"] = args.Tags
-		inputs["terminationProtection"] = args.TerminationProtection
-		inputs["visibleToAllUsers"] = args.VisibleToAllUsers
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdditionalInfo; i != nil { inputs["additionalInfo"] = i.ToStringOutput() }
+		if i := args.Applications; i != nil { inputs["applications"] = i.ToStringArrayOutput() }
+		if i := args.AutoscalingRole; i != nil { inputs["autoscalingRole"] = i.ToStringOutput() }
+		if i := args.BootstrapActions; i != nil { inputs["bootstrapActions"] = i.ToClusterBootstrapActionsArrayOutput() }
+		if i := args.Configurations; i != nil { inputs["configurations"] = i.ToStringOutput() }
+		if i := args.ConfigurationsJson; i != nil { inputs["configurationsJson"] = i.ToStringOutput() }
+		if i := args.CoreInstanceCount; i != nil { inputs["coreInstanceCount"] = i.ToIntOutput() }
+		if i := args.CoreInstanceGroup; i != nil { inputs["coreInstanceGroup"] = i.ToClusterCoreInstanceGroupOutput() }
+		if i := args.CoreInstanceType; i != nil { inputs["coreInstanceType"] = i.ToStringOutput() }
+		if i := args.CustomAmiId; i != nil { inputs["customAmiId"] = i.ToStringOutput() }
+		if i := args.EbsRootVolumeSize; i != nil { inputs["ebsRootVolumeSize"] = i.ToIntOutput() }
+		if i := args.Ec2Attributes; i != nil { inputs["ec2Attributes"] = i.ToClusterEc2AttributesOutput() }
+		if i := args.InstanceGroups; i != nil { inputs["instanceGroups"] = i.ToClusterInstanceGroupsArrayOutput() }
+		if i := args.KeepJobFlowAliveWhenNoSteps; i != nil { inputs["keepJobFlowAliveWhenNoSteps"] = i.ToBoolOutput() }
+		if i := args.KerberosAttributes; i != nil { inputs["kerberosAttributes"] = i.ToClusterKerberosAttributesOutput() }
+		if i := args.LogUri; i != nil { inputs["logUri"] = i.ToStringOutput() }
+		if i := args.MasterInstanceGroup; i != nil { inputs["masterInstanceGroup"] = i.ToClusterMasterInstanceGroupOutput() }
+		if i := args.MasterInstanceType; i != nil { inputs["masterInstanceType"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ReleaseLabel; i != nil { inputs["releaseLabel"] = i.ToStringOutput() }
+		if i := args.ScaleDownBehavior; i != nil { inputs["scaleDownBehavior"] = i.ToStringOutput() }
+		if i := args.SecurityConfiguration; i != nil { inputs["securityConfiguration"] = i.ToStringOutput() }
+		if i := args.ServiceRole; i != nil { inputs["serviceRole"] = i.ToStringOutput() }
+		if i := args.Steps; i != nil { inputs["steps"] = i.ToClusterStepsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TerminationProtection; i != nil { inputs["terminationProtection"] = i.ToBoolOutput() }
+		if i := args.VisibleToAllUsers; i != nil { inputs["visibleToAllUsers"] = i.ToBoolOutput() }
 	}
-	inputs["clusterState"] = nil
-	inputs["masterPublicDns"] = nil
-	s, err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["additionalInfo"] = state.AdditionalInfo
-		inputs["applications"] = state.Applications
-		inputs["autoscalingRole"] = state.AutoscalingRole
-		inputs["bootstrapActions"] = state.BootstrapActions
-		inputs["clusterState"] = state.ClusterState
-		inputs["configurations"] = state.Configurations
-		inputs["configurationsJson"] = state.ConfigurationsJson
-		inputs["coreInstanceCount"] = state.CoreInstanceCount
-		inputs["coreInstanceGroup"] = state.CoreInstanceGroup
-		inputs["coreInstanceType"] = state.CoreInstanceType
-		inputs["customAmiId"] = state.CustomAmiId
-		inputs["ebsRootVolumeSize"] = state.EbsRootVolumeSize
-		inputs["ec2Attributes"] = state.Ec2Attributes
-		inputs["instanceGroups"] = state.InstanceGroups
-		inputs["keepJobFlowAliveWhenNoSteps"] = state.KeepJobFlowAliveWhenNoSteps
-		inputs["kerberosAttributes"] = state.KerberosAttributes
-		inputs["logUri"] = state.LogUri
-		inputs["masterInstanceGroup"] = state.MasterInstanceGroup
-		inputs["masterInstanceType"] = state.MasterInstanceType
-		inputs["masterPublicDns"] = state.MasterPublicDns
-		inputs["name"] = state.Name
-		inputs["releaseLabel"] = state.ReleaseLabel
-		inputs["scaleDownBehavior"] = state.ScaleDownBehavior
-		inputs["securityConfiguration"] = state.SecurityConfiguration
-		inputs["serviceRole"] = state.ServiceRole
-		inputs["steps"] = state.Steps
-		inputs["tags"] = state.Tags
-		inputs["terminationProtection"] = state.TerminationProtection
-		inputs["visibleToAllUsers"] = state.VisibleToAllUsers
+		if i := state.AdditionalInfo; i != nil { inputs["additionalInfo"] = i.ToStringOutput() }
+		if i := state.Applications; i != nil { inputs["applications"] = i.ToStringArrayOutput() }
+		if i := state.AutoscalingRole; i != nil { inputs["autoscalingRole"] = i.ToStringOutput() }
+		if i := state.BootstrapActions; i != nil { inputs["bootstrapActions"] = i.ToClusterBootstrapActionsArrayOutput() }
+		if i := state.ClusterState; i != nil { inputs["clusterState"] = i.ToStringOutput() }
+		if i := state.Configurations; i != nil { inputs["configurations"] = i.ToStringOutput() }
+		if i := state.ConfigurationsJson; i != nil { inputs["configurationsJson"] = i.ToStringOutput() }
+		if i := state.CoreInstanceCount; i != nil { inputs["coreInstanceCount"] = i.ToIntOutput() }
+		if i := state.CoreInstanceGroup; i != nil { inputs["coreInstanceGroup"] = i.ToClusterCoreInstanceGroupOutput() }
+		if i := state.CoreInstanceType; i != nil { inputs["coreInstanceType"] = i.ToStringOutput() }
+		if i := state.CustomAmiId; i != nil { inputs["customAmiId"] = i.ToStringOutput() }
+		if i := state.EbsRootVolumeSize; i != nil { inputs["ebsRootVolumeSize"] = i.ToIntOutput() }
+		if i := state.Ec2Attributes; i != nil { inputs["ec2Attributes"] = i.ToClusterEc2AttributesOutput() }
+		if i := state.InstanceGroups; i != nil { inputs["instanceGroups"] = i.ToClusterInstanceGroupsArrayOutput() }
+		if i := state.KeepJobFlowAliveWhenNoSteps; i != nil { inputs["keepJobFlowAliveWhenNoSteps"] = i.ToBoolOutput() }
+		if i := state.KerberosAttributes; i != nil { inputs["kerberosAttributes"] = i.ToClusterKerberosAttributesOutput() }
+		if i := state.LogUri; i != nil { inputs["logUri"] = i.ToStringOutput() }
+		if i := state.MasterInstanceGroup; i != nil { inputs["masterInstanceGroup"] = i.ToClusterMasterInstanceGroupOutput() }
+		if i := state.MasterInstanceType; i != nil { inputs["masterInstanceType"] = i.ToStringOutput() }
+		if i := state.MasterPublicDns; i != nil { inputs["masterPublicDns"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ReleaseLabel; i != nil { inputs["releaseLabel"] = i.ToStringOutput() }
+		if i := state.ScaleDownBehavior; i != nil { inputs["scaleDownBehavior"] = i.ToStringOutput() }
+		if i := state.SecurityConfiguration; i != nil { inputs["securityConfiguration"] = i.ToStringOutput() }
+		if i := state.ServiceRole; i != nil { inputs["serviceRole"] = i.ToStringOutput() }
+		if i := state.Steps; i != nil { inputs["steps"] = i.ToClusterStepsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TerminationProtection; i != nil { inputs["terminationProtection"] = i.ToBoolOutput() }
+		if i := state.VisibleToAllUsers; i != nil { inputs["visibleToAllUsers"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:emr/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:emr/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
-func (r *Cluster) AdditionalInfo() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["additionalInfo"])
-}
-
-// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
-func (r *Cluster) Applications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["applications"])
-}
-
-// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-func (r *Cluster) AutoscalingRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoscalingRole"])
-}
-
-// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
-func (r *Cluster) BootstrapActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["bootstrapActions"])
-}
-
-func (r *Cluster) ClusterState() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterState"])
-}
-
-// List of configurations supplied for the EMR cluster you are creating
-func (r *Cluster) Configurations() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configurations"])
-}
-
-// A JSON string for supplying list of configurations for the EMR cluster.
-func (r *Cluster) ConfigurationsJson() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configurationsJson"])
-}
-
-// Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
-func (r *Cluster) CoreInstanceCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["coreInstanceCount"])
-}
-
-// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
-func (r *Cluster) CoreInstanceGroup() pulumi.Output {
-	return r.s.State["coreInstanceGroup"]
-}
-
-// Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
-func (r *Cluster) CoreInstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["coreInstanceType"])
-}
-
-// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-func (r *Cluster) CustomAmiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customAmiId"])
-}
-
-// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-func (r *Cluster) EbsRootVolumeSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ebsRootVolumeSize"])
-}
-
-// Attributes for the EC2 instances running the job flow. Defined below
-func (r *Cluster) Ec2Attributes() pulumi.Output {
-	return r.s.State["ec2Attributes"]
-}
-
-// Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
-func (r *Cluster) InstanceGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["instanceGroups"])
-}
-
-// Switch on/off run cluster with no steps or when all steps are complete (default is on)
-func (r *Cluster) KeepJobFlowAliveWhenNoSteps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["keepJobFlowAliveWhenNoSteps"])
-}
-
-// Kerberos configuration for the cluster. Defined below
-func (r *Cluster) KerberosAttributes() pulumi.Output {
-	return r.s.State["kerberosAttributes"]
-}
-
-// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
-func (r *Cluster) LogUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logUri"])
-}
-
-// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
-func (r *Cluster) MasterInstanceGroup() pulumi.Output {
-	return r.s.State["masterInstanceGroup"]
-}
-
-// Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
-func (r *Cluster) MasterInstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["masterInstanceType"])
-}
-
-// The public DNS name of the master EC2 instance.
-// * `core_instance_group.0.id` - Core node type Instance Group ID, if using Instance Group for this node type.
-func (r *Cluster) MasterPublicDns() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["masterPublicDns"])
-}
-
-// The name of the job flow
-func (r *Cluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The release label for the Amazon EMR release
-func (r *Cluster) ReleaseLabel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["releaseLabel"])
-}
-
-// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-func (r *Cluster) ScaleDownBehavior() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scaleDownBehavior"])
-}
-
-// The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater
-func (r *Cluster) SecurityConfiguration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["securityConfiguration"])
-}
-
-// IAM role that will be assumed by the Amazon EMR service to access AWS resources
-func (r *Cluster) ServiceRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceRole"])
-}
-
-// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *Cluster) Steps() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["steps"])
-}
-
-// list of tags to apply to the EMR Cluster
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-func (r *Cluster) TerminationProtection() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["terminationProtection"])
-}
-
-// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
-func (r *Cluster) VisibleToAllUsers() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["visibleToAllUsers"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
-	AdditionalInfo interface{}
+	AdditionalInfo pulumi.StringInput `pulumi:"additionalInfo"`
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
-	Applications interface{}
+	Applications pulumi.StringArrayInput `pulumi:"applications"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-	AutoscalingRole interface{}
+	AutoscalingRole pulumi.StringInput `pulumi:"autoscalingRole"`
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
-	BootstrapActions interface{}
-	ClusterState interface{}
+	BootstrapActions ClusterBootstrapActionsArrayInput `pulumi:"bootstrapActions"`
+	ClusterState pulumi.StringInput `pulumi:"clusterState"`
 	// List of configurations supplied for the EMR cluster you are creating
-	Configurations interface{}
+	Configurations pulumi.StringInput `pulumi:"configurations"`
 	// A JSON string for supplying list of configurations for the EMR cluster.
-	ConfigurationsJson interface{}
+	ConfigurationsJson pulumi.StringInput `pulumi:"configurationsJson"`
 	// Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
-	CoreInstanceCount interface{}
+	CoreInstanceCount pulumi.IntInput `pulumi:"coreInstanceCount"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
-	CoreInstanceGroup interface{}
+	CoreInstanceGroup ClusterCoreInstanceGroupInput `pulumi:"coreInstanceGroup"`
 	// Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
-	CoreInstanceType interface{}
+	CoreInstanceType pulumi.StringInput `pulumi:"coreInstanceType"`
 	// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-	CustomAmiId interface{}
+	CustomAmiId pulumi.StringInput `pulumi:"customAmiId"`
 	// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-	EbsRootVolumeSize interface{}
+	EbsRootVolumeSize pulumi.IntInput `pulumi:"ebsRootVolumeSize"`
 	// Attributes for the EC2 instances running the job flow. Defined below
-	Ec2Attributes interface{}
+	Ec2Attributes ClusterEc2AttributesInput `pulumi:"ec2Attributes"`
 	// Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
-	InstanceGroups interface{}
+	InstanceGroups ClusterInstanceGroupsArrayInput `pulumi:"instanceGroups"`
 	// Switch on/off run cluster with no steps or when all steps are complete (default is on)
-	KeepJobFlowAliveWhenNoSteps interface{}
+	KeepJobFlowAliveWhenNoSteps pulumi.BoolInput `pulumi:"keepJobFlowAliveWhenNoSteps"`
 	// Kerberos configuration for the cluster. Defined below
-	KerberosAttributes interface{}
+	KerberosAttributes ClusterKerberosAttributesInput `pulumi:"kerberosAttributes"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
-	LogUri interface{}
+	LogUri pulumi.StringInput `pulumi:"logUri"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
-	MasterInstanceGroup interface{}
+	MasterInstanceGroup ClusterMasterInstanceGroupInput `pulumi:"masterInstanceGroup"`
 	// Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
-	MasterInstanceType interface{}
+	MasterInstanceType pulumi.StringInput `pulumi:"masterInstanceType"`
 	// The public DNS name of the master EC2 instance.
 	// * `core_instance_group.0.id` - Core node type Instance Group ID, if using Instance Group for this node type.
-	MasterPublicDns interface{}
+	MasterPublicDns pulumi.StringInput `pulumi:"masterPublicDns"`
 	// The name of the job flow
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The release label for the Amazon EMR release
-	ReleaseLabel interface{}
+	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
 	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-	ScaleDownBehavior interface{}
+	ScaleDownBehavior pulumi.StringInput `pulumi:"scaleDownBehavior"`
 	// The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater
-	SecurityConfiguration interface{}
+	SecurityConfiguration pulumi.StringInput `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
-	ServiceRole interface{}
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Steps interface{}
+	Steps ClusterStepsArrayInput `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-	TerminationProtection interface{}
+	TerminationProtection pulumi.BoolInput `pulumi:"terminationProtection"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
-	VisibleToAllUsers interface{}
+	VisibleToAllUsers pulumi.BoolInput `pulumi:"visibleToAllUsers"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
-	AdditionalInfo interface{}
+	AdditionalInfo pulumi.StringInput `pulumi:"additionalInfo"`
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
-	Applications interface{}
+	Applications pulumi.StringArrayInput `pulumi:"applications"`
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-	AutoscalingRole interface{}
+	AutoscalingRole pulumi.StringInput `pulumi:"autoscalingRole"`
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
-	BootstrapActions interface{}
+	BootstrapActions ClusterBootstrapActionsArrayInput `pulumi:"bootstrapActions"`
 	// List of configurations supplied for the EMR cluster you are creating
-	Configurations interface{}
+	Configurations pulumi.StringInput `pulumi:"configurations"`
 	// A JSON string for supplying list of configurations for the EMR cluster.
-	ConfigurationsJson interface{}
+	ConfigurationsJson pulumi.StringInput `pulumi:"configurationsJson"`
 	// Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
-	CoreInstanceCount interface{}
+	CoreInstanceCount pulumi.IntInput `pulumi:"coreInstanceCount"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `coreInstanceCount` argument, `coreInstanceType` argument, or `instanceGroup` configuration blocks are set. Detailed below.
-	CoreInstanceGroup interface{}
+	CoreInstanceGroup ClusterCoreInstanceGroupInput `pulumi:"coreInstanceGroup"`
 	// Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
-	CoreInstanceType interface{}
+	CoreInstanceType pulumi.StringInput `pulumi:"coreInstanceType"`
 	// A custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-	CustomAmiId interface{}
+	CustomAmiId pulumi.StringInput `pulumi:"customAmiId"`
 	// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-	EbsRootVolumeSize interface{}
+	EbsRootVolumeSize pulumi.IntInput `pulumi:"ebsRootVolumeSize"`
 	// Attributes for the EC2 instances running the job flow. Defined below
-	Ec2Attributes interface{}
+	Ec2Attributes ClusterEc2AttributesInput `pulumi:"ec2Attributes"`
 	// Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
-	InstanceGroups interface{}
+	InstanceGroups ClusterInstanceGroupsArrayInput `pulumi:"instanceGroups"`
 	// Switch on/off run cluster with no steps or when all steps are complete (default is on)
-	KeepJobFlowAliveWhenNoSteps interface{}
+	KeepJobFlowAliveWhenNoSteps pulumi.BoolInput `pulumi:"keepJobFlowAliveWhenNoSteps"`
 	// Kerberos configuration for the cluster. Defined below
-	KerberosAttributes interface{}
+	KerberosAttributes ClusterKerberosAttributesInput `pulumi:"kerberosAttributes"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created
-	LogUri interface{}
+	LogUri pulumi.StringInput `pulumi:"logUri"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `masterInstanceType` argument or `instanceGroup` configuration blocks are set. Detailed below.
-	MasterInstanceGroup interface{}
+	MasterInstanceGroup ClusterMasterInstanceGroupInput `pulumi:"masterInstanceGroup"`
 	// Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
-	MasterInstanceType interface{}
+	MasterInstanceType pulumi.StringInput `pulumi:"masterInstanceType"`
 	// The name of the job flow
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The release label for the Amazon EMR release
-	ReleaseLabel interface{}
+	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
 	// The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-	ScaleDownBehavior interface{}
+	ScaleDownBehavior pulumi.StringInput `pulumi:"scaleDownBehavior"`
 	// The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater
-	SecurityConfiguration interface{}
+	SecurityConfiguration pulumi.StringInput `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources
-	ServiceRole interface{}
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
 	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Steps interface{}
+	Steps ClusterStepsArrayInput `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-	TerminationProtection interface{}
+	TerminationProtection pulumi.BoolInput `pulumi:"terminationProtection"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
-	VisibleToAllUsers interface{}
+	VisibleToAllUsers pulumi.BoolInput `pulumi:"visibleToAllUsers"`
 }
+type ClusterBootstrapActions struct {
+	Args *[]string `pulumi:"args"`
+	// The name of the job flow
+	Name string `pulumi:"name"`
+	Path string `pulumi:"path"`
+}
+var clusterBootstrapActionsType = reflect.TypeOf((*ClusterBootstrapActions)(nil)).Elem()
+
+type ClusterBootstrapActionsInput interface {
+	pulumi.Input
+
+	ToClusterBootstrapActionsOutput() ClusterBootstrapActionsOutput
+	ToClusterBootstrapActionsOutputWithContext(ctx context.Context) ClusterBootstrapActionsOutput
+}
+
+type ClusterBootstrapActionsArgs struct {
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// The name of the job flow
+	Name pulumi.StringInput `pulumi:"name"`
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (ClusterBootstrapActionsArgs) ElementType() reflect.Type {
+	return clusterBootstrapActionsType
+}
+
+func (a ClusterBootstrapActionsArgs) ToClusterBootstrapActionsOutput() ClusterBootstrapActionsOutput {
+	return pulumi.ToOutput(a).(ClusterBootstrapActionsOutput)
+}
+
+func (a ClusterBootstrapActionsArgs) ToClusterBootstrapActionsOutputWithContext(ctx context.Context) ClusterBootstrapActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterBootstrapActionsOutput)
+}
+
+type ClusterBootstrapActionsOutput struct { *pulumi.OutputState }
+
+func (o ClusterBootstrapActionsOutput) Args() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterBootstrapActions) []string {
+		if v.Args == nil { return *new([]string) } else { return *v.Args }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the job flow
+func (o ClusterBootstrapActionsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterBootstrapActions) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterBootstrapActionsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ClusterBootstrapActions) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterBootstrapActionsOutput) ElementType() reflect.Type {
+	return clusterBootstrapActionsType
+}
+
+func (o ClusterBootstrapActionsOutput) ToClusterBootstrapActionsOutput() ClusterBootstrapActionsOutput {
+	return o
+}
+
+func (o ClusterBootstrapActionsOutput) ToClusterBootstrapActionsOutputWithContext(ctx context.Context) ClusterBootstrapActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterBootstrapActionsOutput{}) }
+
+var clusterBootstrapActionsArrayType = reflect.TypeOf((*[]ClusterBootstrapActions)(nil)).Elem()
+
+type ClusterBootstrapActionsArrayInput interface {
+	pulumi.Input
+
+	ToClusterBootstrapActionsArrayOutput() ClusterBootstrapActionsArrayOutput
+	ToClusterBootstrapActionsArrayOutputWithContext(ctx context.Context) ClusterBootstrapActionsArrayOutput
+}
+
+type ClusterBootstrapActionsArrayArgs []ClusterBootstrapActionsInput
+
+func (ClusterBootstrapActionsArrayArgs) ElementType() reflect.Type {
+	return clusterBootstrapActionsArrayType
+}
+
+func (a ClusterBootstrapActionsArrayArgs) ToClusterBootstrapActionsArrayOutput() ClusterBootstrapActionsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterBootstrapActionsArrayOutput)
+}
+
+func (a ClusterBootstrapActionsArrayArgs) ToClusterBootstrapActionsArrayOutputWithContext(ctx context.Context) ClusterBootstrapActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterBootstrapActionsArrayOutput)
+}
+
+type ClusterBootstrapActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterBootstrapActionsArrayOutput) Index(i pulumi.IntInput) ClusterBootstrapActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterBootstrapActions {
+		return vs[0].([]ClusterBootstrapActions)[vs[1].(int)]
+	}).(ClusterBootstrapActionsOutput)
+}
+
+func (ClusterBootstrapActionsArrayOutput) ElementType() reflect.Type {
+	return clusterBootstrapActionsArrayType
+}
+
+func (o ClusterBootstrapActionsArrayOutput) ToClusterBootstrapActionsArrayOutput() ClusterBootstrapActionsArrayOutput {
+	return o
+}
+
+func (o ClusterBootstrapActionsArrayOutput) ToClusterBootstrapActionsArrayOutputWithContext(ctx context.Context) ClusterBootstrapActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterBootstrapActionsArrayOutput{}) }
+
+type ClusterCoreInstanceGroup struct {
+	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
+	BidPrice *string `pulumi:"bidPrice"`
+	EbsConfigs *[]ClusterCoreInstanceGroupEbsConfigs `pulumi:"ebsConfigs"`
+	// The ID of the EMR Cluster
+	Id *string `pulumi:"id"`
+	InstanceCount *int `pulumi:"instanceCount"`
+	InstanceType string `pulumi:"instanceType"`
+	// The name of the job flow
+	Name *string `pulumi:"name"`
+}
+var clusterCoreInstanceGroupType = reflect.TypeOf((*ClusterCoreInstanceGroup)(nil)).Elem()
+
+type ClusterCoreInstanceGroupInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceGroupOutput() ClusterCoreInstanceGroupOutput
+	ToClusterCoreInstanceGroupOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupOutput
+}
+
+type ClusterCoreInstanceGroupArgs struct {
+	AutoscalingPolicy pulumi.StringInput `pulumi:"autoscalingPolicy"`
+	BidPrice pulumi.StringInput `pulumi:"bidPrice"`
+	EbsConfigs ClusterCoreInstanceGroupEbsConfigsArrayInput `pulumi:"ebsConfigs"`
+	// The ID of the EMR Cluster
+	Id pulumi.StringInput `pulumi:"id"`
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The name of the job flow
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterCoreInstanceGroupArgs) ElementType() reflect.Type {
+	return clusterCoreInstanceGroupType
+}
+
+func (a ClusterCoreInstanceGroupArgs) ToClusterCoreInstanceGroupOutput() ClusterCoreInstanceGroupOutput {
+	return pulumi.ToOutput(a).(ClusterCoreInstanceGroupOutput)
+}
+
+func (a ClusterCoreInstanceGroupArgs) ToClusterCoreInstanceGroupOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCoreInstanceGroupOutput)
+}
+
+type ClusterCoreInstanceGroupOutput struct { *pulumi.OutputState }
+
+func (o ClusterCoreInstanceGroupOutput) AutoscalingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) string {
+		if v.AutoscalingPolicy == nil { return *new(string) } else { return *v.AutoscalingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCoreInstanceGroupOutput) BidPrice() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) string {
+		if v.BidPrice == nil { return *new(string) } else { return *v.BidPrice }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCoreInstanceGroupOutput) EbsConfigs() ClusterCoreInstanceGroupEbsConfigsArrayOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) []ClusterCoreInstanceGroupEbsConfigs {
+		if v.EbsConfigs == nil { return *new([]ClusterCoreInstanceGroupEbsConfigs) } else { return *v.EbsConfigs }
+	}).(ClusterCoreInstanceGroupEbsConfigsArrayOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterCoreInstanceGroupOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCoreInstanceGroupOutput) InstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) int {
+		if v.InstanceCount == nil { return *new(int) } else { return *v.InstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterCoreInstanceGroupOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+// The name of the job flow
+func (o ClusterCoreInstanceGroupOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroup) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterCoreInstanceGroupOutput) ElementType() reflect.Type {
+	return clusterCoreInstanceGroupType
+}
+
+func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupOutput() ClusterCoreInstanceGroupOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCoreInstanceGroupOutput{}) }
+
+type ClusterCoreInstanceGroupEbsConfigs struct {
+	Iops *int `pulumi:"iops"`
+	Size int `pulumi:"size"`
+	Type string `pulumi:"type"`
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+var clusterCoreInstanceGroupEbsConfigsType = reflect.TypeOf((*ClusterCoreInstanceGroupEbsConfigs)(nil)).Elem()
+
+type ClusterCoreInstanceGroupEbsConfigsInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceGroupEbsConfigsOutput() ClusterCoreInstanceGroupEbsConfigsOutput
+	ToClusterCoreInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigsOutput
+}
+
+type ClusterCoreInstanceGroupEbsConfigsArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+	VolumesPerInstance pulumi.IntInput `pulumi:"volumesPerInstance"`
+}
+
+func (ClusterCoreInstanceGroupEbsConfigsArgs) ElementType() reflect.Type {
+	return clusterCoreInstanceGroupEbsConfigsType
+}
+
+func (a ClusterCoreInstanceGroupEbsConfigsArgs) ToClusterCoreInstanceGroupEbsConfigsOutput() ClusterCoreInstanceGroupEbsConfigsOutput {
+	return pulumi.ToOutput(a).(ClusterCoreInstanceGroupEbsConfigsOutput)
+}
+
+func (a ClusterCoreInstanceGroupEbsConfigsArgs) ToClusterCoreInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCoreInstanceGroupEbsConfigsOutput)
+}
+
+type ClusterCoreInstanceGroupEbsConfigsOutput struct { *pulumi.OutputState }
+
+func (o ClusterCoreInstanceGroupEbsConfigsOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroupEbsConfigs) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroupEbsConfigs) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroupEbsConfigs) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsOutput) VolumesPerInstance() pulumi.IntOutput {
+	return o.Apply(func(v ClusterCoreInstanceGroupEbsConfigs) int {
+		if v.VolumesPerInstance == nil { return *new(int) } else { return *v.VolumesPerInstance }
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterCoreInstanceGroupEbsConfigsOutput) ElementType() reflect.Type {
+	return clusterCoreInstanceGroupEbsConfigsType
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsOutput) ToClusterCoreInstanceGroupEbsConfigsOutput() ClusterCoreInstanceGroupEbsConfigsOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsOutput) ToClusterCoreInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCoreInstanceGroupEbsConfigsOutput{}) }
+
+var clusterCoreInstanceGroupEbsConfigsArrayType = reflect.TypeOf((*[]ClusterCoreInstanceGroupEbsConfigs)(nil)).Elem()
+
+type ClusterCoreInstanceGroupEbsConfigsArrayInput interface {
+	pulumi.Input
+
+	ToClusterCoreInstanceGroupEbsConfigsArrayOutput() ClusterCoreInstanceGroupEbsConfigsArrayOutput
+	ToClusterCoreInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigsArrayOutput
+}
+
+type ClusterCoreInstanceGroupEbsConfigsArrayArgs []ClusterCoreInstanceGroupEbsConfigsInput
+
+func (ClusterCoreInstanceGroupEbsConfigsArrayArgs) ElementType() reflect.Type {
+	return clusterCoreInstanceGroupEbsConfigsArrayType
+}
+
+func (a ClusterCoreInstanceGroupEbsConfigsArrayArgs) ToClusterCoreInstanceGroupEbsConfigsArrayOutput() ClusterCoreInstanceGroupEbsConfigsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterCoreInstanceGroupEbsConfigsArrayOutput)
+}
+
+func (a ClusterCoreInstanceGroupEbsConfigsArrayArgs) ToClusterCoreInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCoreInstanceGroupEbsConfigsArrayOutput)
+}
+
+type ClusterCoreInstanceGroupEbsConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterCoreInstanceGroupEbsConfigsArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceGroupEbsConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterCoreInstanceGroupEbsConfigs {
+		return vs[0].([]ClusterCoreInstanceGroupEbsConfigs)[vs[1].(int)]
+	}).(ClusterCoreInstanceGroupEbsConfigsOutput)
+}
+
+func (ClusterCoreInstanceGroupEbsConfigsArrayOutput) ElementType() reflect.Type {
+	return clusterCoreInstanceGroupEbsConfigsArrayType
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsArrayOutput) ToClusterCoreInstanceGroupEbsConfigsArrayOutput() ClusterCoreInstanceGroupEbsConfigsArrayOutput {
+	return o
+}
+
+func (o ClusterCoreInstanceGroupEbsConfigsArrayOutput) ToClusterCoreInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCoreInstanceGroupEbsConfigsArrayOutput{}) }
+
+type ClusterEc2Attributes struct {
+	AdditionalMasterSecurityGroups *string `pulumi:"additionalMasterSecurityGroups"`
+	AdditionalSlaveSecurityGroups *string `pulumi:"additionalSlaveSecurityGroups"`
+	EmrManagedMasterSecurityGroup *string `pulumi:"emrManagedMasterSecurityGroup"`
+	EmrManagedSlaveSecurityGroup *string `pulumi:"emrManagedSlaveSecurityGroup"`
+	InstanceProfile string `pulumi:"instanceProfile"`
+	KeyName *string `pulumi:"keyName"`
+	ServiceAccessSecurityGroup *string `pulumi:"serviceAccessSecurityGroup"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+var clusterEc2AttributesType = reflect.TypeOf((*ClusterEc2Attributes)(nil)).Elem()
+
+type ClusterEc2AttributesInput interface {
+	pulumi.Input
+
+	ToClusterEc2AttributesOutput() ClusterEc2AttributesOutput
+	ToClusterEc2AttributesOutputWithContext(ctx context.Context) ClusterEc2AttributesOutput
+}
+
+type ClusterEc2AttributesArgs struct {
+	AdditionalMasterSecurityGroups pulumi.StringInput `pulumi:"additionalMasterSecurityGroups"`
+	AdditionalSlaveSecurityGroups pulumi.StringInput `pulumi:"additionalSlaveSecurityGroups"`
+	EmrManagedMasterSecurityGroup pulumi.StringInput `pulumi:"emrManagedMasterSecurityGroup"`
+	EmrManagedSlaveSecurityGroup pulumi.StringInput `pulumi:"emrManagedSlaveSecurityGroup"`
+	InstanceProfile pulumi.StringInput `pulumi:"instanceProfile"`
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	ServiceAccessSecurityGroup pulumi.StringInput `pulumi:"serviceAccessSecurityGroup"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ClusterEc2AttributesArgs) ElementType() reflect.Type {
+	return clusterEc2AttributesType
+}
+
+func (a ClusterEc2AttributesArgs) ToClusterEc2AttributesOutput() ClusterEc2AttributesOutput {
+	return pulumi.ToOutput(a).(ClusterEc2AttributesOutput)
+}
+
+func (a ClusterEc2AttributesArgs) ToClusterEc2AttributesOutputWithContext(ctx context.Context) ClusterEc2AttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterEc2AttributesOutput)
+}
+
+type ClusterEc2AttributesOutput struct { *pulumi.OutputState }
+
+func (o ClusterEc2AttributesOutput) AdditionalMasterSecurityGroups() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.AdditionalMasterSecurityGroups == nil { return *new(string) } else { return *v.AdditionalMasterSecurityGroups }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) AdditionalSlaveSecurityGroups() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.AdditionalSlaveSecurityGroups == nil { return *new(string) } else { return *v.AdditionalSlaveSecurityGroups }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) EmrManagedMasterSecurityGroup() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.EmrManagedMasterSecurityGroup == nil { return *new(string) } else { return *v.EmrManagedMasterSecurityGroup }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) EmrManagedSlaveSecurityGroup() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.EmrManagedSlaveSecurityGroup == nil { return *new(string) } else { return *v.EmrManagedSlaveSecurityGroup }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) InstanceProfile() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		return v.InstanceProfile
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) KeyName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.KeyName == nil { return *new(string) } else { return *v.KeyName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) ServiceAccessSecurityGroup() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.ServiceAccessSecurityGroup == nil { return *new(string) } else { return *v.ServiceAccessSecurityGroup }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterEc2AttributesOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEc2Attributes) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterEc2AttributesOutput) ElementType() reflect.Type {
+	return clusterEc2AttributesType
+}
+
+func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesOutput() ClusterEc2AttributesOutput {
+	return o
+}
+
+func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesOutputWithContext(ctx context.Context) ClusterEc2AttributesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterEc2AttributesOutput{}) }
+
+type ClusterInstanceGroups struct {
+	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
+	BidPrice *string `pulumi:"bidPrice"`
+	EbsConfigs *[]ClusterInstanceGroupsEbsConfigs `pulumi:"ebsConfigs"`
+	// The ID of the EMR Cluster
+	Id *string `pulumi:"id"`
+	InstanceCount *int `pulumi:"instanceCount"`
+	InstanceRole string `pulumi:"instanceRole"`
+	InstanceType string `pulumi:"instanceType"`
+	// The name of the job flow
+	Name *string `pulumi:"name"`
+}
+var clusterInstanceGroupsType = reflect.TypeOf((*ClusterInstanceGroups)(nil)).Elem()
+
+type ClusterInstanceGroupsInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupsOutput() ClusterInstanceGroupsOutput
+	ToClusterInstanceGroupsOutputWithContext(ctx context.Context) ClusterInstanceGroupsOutput
+}
+
+type ClusterInstanceGroupsArgs struct {
+	AutoscalingPolicy pulumi.StringInput `pulumi:"autoscalingPolicy"`
+	BidPrice pulumi.StringInput `pulumi:"bidPrice"`
+	EbsConfigs ClusterInstanceGroupsEbsConfigsArrayInput `pulumi:"ebsConfigs"`
+	// The ID of the EMR Cluster
+	Id pulumi.StringInput `pulumi:"id"`
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The name of the job flow
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterInstanceGroupsArgs) ElementType() reflect.Type {
+	return clusterInstanceGroupsType
+}
+
+func (a ClusterInstanceGroupsArgs) ToClusterInstanceGroupsOutput() ClusterInstanceGroupsOutput {
+	return pulumi.ToOutput(a).(ClusterInstanceGroupsOutput)
+}
+
+func (a ClusterInstanceGroupsArgs) ToClusterInstanceGroupsOutputWithContext(ctx context.Context) ClusterInstanceGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterInstanceGroupsOutput)
+}
+
+type ClusterInstanceGroupsOutput struct { *pulumi.OutputState }
+
+func (o ClusterInstanceGroupsOutput) AutoscalingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroups) string {
+		if v.AutoscalingPolicy == nil { return *new(string) } else { return *v.AutoscalingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupsOutput) BidPrice() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroups) string {
+		if v.BidPrice == nil { return *new(string) } else { return *v.BidPrice }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupsOutput) EbsConfigs() ClusterInstanceGroupsEbsConfigsArrayOutput {
+	return o.Apply(func(v ClusterInstanceGroups) []ClusterInstanceGroupsEbsConfigs {
+		if v.EbsConfigs == nil { return *new([]ClusterInstanceGroupsEbsConfigs) } else { return *v.EbsConfigs }
+	}).(ClusterInstanceGroupsEbsConfigsArrayOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterInstanceGroupsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroups) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupsOutput) InstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v ClusterInstanceGroups) int {
+		if v.InstanceCount == nil { return *new(int) } else { return *v.InstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterInstanceGroupsOutput) InstanceRole() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroups) string {
+		return v.InstanceRole
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupsOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroups) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+// The name of the job flow
+func (o ClusterInstanceGroupsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroups) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterInstanceGroupsOutput) ElementType() reflect.Type {
+	return clusterInstanceGroupsType
+}
+
+func (o ClusterInstanceGroupsOutput) ToClusterInstanceGroupsOutput() ClusterInstanceGroupsOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupsOutput) ToClusterInstanceGroupsOutputWithContext(ctx context.Context) ClusterInstanceGroupsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterInstanceGroupsOutput{}) }
+
+var clusterInstanceGroupsArrayType = reflect.TypeOf((*[]ClusterInstanceGroups)(nil)).Elem()
+
+type ClusterInstanceGroupsArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupsArrayOutput() ClusterInstanceGroupsArrayOutput
+	ToClusterInstanceGroupsArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupsArrayOutput
+}
+
+type ClusterInstanceGroupsArrayArgs []ClusterInstanceGroupsInput
+
+func (ClusterInstanceGroupsArrayArgs) ElementType() reflect.Type {
+	return clusterInstanceGroupsArrayType
+}
+
+func (a ClusterInstanceGroupsArrayArgs) ToClusterInstanceGroupsArrayOutput() ClusterInstanceGroupsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterInstanceGroupsArrayOutput)
+}
+
+func (a ClusterInstanceGroupsArrayArgs) ToClusterInstanceGroupsArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterInstanceGroupsArrayOutput)
+}
+
+type ClusterInstanceGroupsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterInstanceGroupsArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterInstanceGroups {
+		return vs[0].([]ClusterInstanceGroups)[vs[1].(int)]
+	}).(ClusterInstanceGroupsOutput)
+}
+
+func (ClusterInstanceGroupsArrayOutput) ElementType() reflect.Type {
+	return clusterInstanceGroupsArrayType
+}
+
+func (o ClusterInstanceGroupsArrayOutput) ToClusterInstanceGroupsArrayOutput() ClusterInstanceGroupsArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupsArrayOutput) ToClusterInstanceGroupsArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterInstanceGroupsArrayOutput{}) }
+
+type ClusterInstanceGroupsEbsConfigs struct {
+	Iops *int `pulumi:"iops"`
+	Size int `pulumi:"size"`
+	Type string `pulumi:"type"`
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+var clusterInstanceGroupsEbsConfigsType = reflect.TypeOf((*ClusterInstanceGroupsEbsConfigs)(nil)).Elem()
+
+type ClusterInstanceGroupsEbsConfigsInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupsEbsConfigsOutput() ClusterInstanceGroupsEbsConfigsOutput
+	ToClusterInstanceGroupsEbsConfigsOutputWithContext(ctx context.Context) ClusterInstanceGroupsEbsConfigsOutput
+}
+
+type ClusterInstanceGroupsEbsConfigsArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+	VolumesPerInstance pulumi.IntInput `pulumi:"volumesPerInstance"`
+}
+
+func (ClusterInstanceGroupsEbsConfigsArgs) ElementType() reflect.Type {
+	return clusterInstanceGroupsEbsConfigsType
+}
+
+func (a ClusterInstanceGroupsEbsConfigsArgs) ToClusterInstanceGroupsEbsConfigsOutput() ClusterInstanceGroupsEbsConfigsOutput {
+	return pulumi.ToOutput(a).(ClusterInstanceGroupsEbsConfigsOutput)
+}
+
+func (a ClusterInstanceGroupsEbsConfigsArgs) ToClusterInstanceGroupsEbsConfigsOutputWithContext(ctx context.Context) ClusterInstanceGroupsEbsConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterInstanceGroupsEbsConfigsOutput)
+}
+
+type ClusterInstanceGroupsEbsConfigsOutput struct { *pulumi.OutputState }
+
+func (o ClusterInstanceGroupsEbsConfigsOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v ClusterInstanceGroupsEbsConfigs) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterInstanceGroupsEbsConfigsOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v ClusterInstanceGroupsEbsConfigs) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterInstanceGroupsEbsConfigsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ClusterInstanceGroupsEbsConfigs) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupsEbsConfigsOutput) VolumesPerInstance() pulumi.IntOutput {
+	return o.Apply(func(v ClusterInstanceGroupsEbsConfigs) int {
+		if v.VolumesPerInstance == nil { return *new(int) } else { return *v.VolumesPerInstance }
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterInstanceGroupsEbsConfigsOutput) ElementType() reflect.Type {
+	return clusterInstanceGroupsEbsConfigsType
+}
+
+func (o ClusterInstanceGroupsEbsConfigsOutput) ToClusterInstanceGroupsEbsConfigsOutput() ClusterInstanceGroupsEbsConfigsOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupsEbsConfigsOutput) ToClusterInstanceGroupsEbsConfigsOutputWithContext(ctx context.Context) ClusterInstanceGroupsEbsConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterInstanceGroupsEbsConfigsOutput{}) }
+
+var clusterInstanceGroupsEbsConfigsArrayType = reflect.TypeOf((*[]ClusterInstanceGroupsEbsConfigs)(nil)).Elem()
+
+type ClusterInstanceGroupsEbsConfigsArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupsEbsConfigsArrayOutput() ClusterInstanceGroupsEbsConfigsArrayOutput
+	ToClusterInstanceGroupsEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupsEbsConfigsArrayOutput
+}
+
+type ClusterInstanceGroupsEbsConfigsArrayArgs []ClusterInstanceGroupsEbsConfigsInput
+
+func (ClusterInstanceGroupsEbsConfigsArrayArgs) ElementType() reflect.Type {
+	return clusterInstanceGroupsEbsConfigsArrayType
+}
+
+func (a ClusterInstanceGroupsEbsConfigsArrayArgs) ToClusterInstanceGroupsEbsConfigsArrayOutput() ClusterInstanceGroupsEbsConfigsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterInstanceGroupsEbsConfigsArrayOutput)
+}
+
+func (a ClusterInstanceGroupsEbsConfigsArrayArgs) ToClusterInstanceGroupsEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupsEbsConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterInstanceGroupsEbsConfigsArrayOutput)
+}
+
+type ClusterInstanceGroupsEbsConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterInstanceGroupsEbsConfigsArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupsEbsConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterInstanceGroupsEbsConfigs {
+		return vs[0].([]ClusterInstanceGroupsEbsConfigs)[vs[1].(int)]
+	}).(ClusterInstanceGroupsEbsConfigsOutput)
+}
+
+func (ClusterInstanceGroupsEbsConfigsArrayOutput) ElementType() reflect.Type {
+	return clusterInstanceGroupsEbsConfigsArrayType
+}
+
+func (o ClusterInstanceGroupsEbsConfigsArrayOutput) ToClusterInstanceGroupsEbsConfigsArrayOutput() ClusterInstanceGroupsEbsConfigsArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupsEbsConfigsArrayOutput) ToClusterInstanceGroupsEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupsEbsConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterInstanceGroupsEbsConfigsArrayOutput{}) }
+
+type ClusterKerberosAttributes struct {
+	AdDomainJoinPassword *string `pulumi:"adDomainJoinPassword"`
+	AdDomainJoinUser *string `pulumi:"adDomainJoinUser"`
+	CrossRealmTrustPrincipalPassword *string `pulumi:"crossRealmTrustPrincipalPassword"`
+	KdcAdminPassword string `pulumi:"kdcAdminPassword"`
+	Realm string `pulumi:"realm"`
+}
+var clusterKerberosAttributesType = reflect.TypeOf((*ClusterKerberosAttributes)(nil)).Elem()
+
+type ClusterKerberosAttributesInput interface {
+	pulumi.Input
+
+	ToClusterKerberosAttributesOutput() ClusterKerberosAttributesOutput
+	ToClusterKerberosAttributesOutputWithContext(ctx context.Context) ClusterKerberosAttributesOutput
+}
+
+type ClusterKerberosAttributesArgs struct {
+	AdDomainJoinPassword pulumi.StringInput `pulumi:"adDomainJoinPassword"`
+	AdDomainJoinUser pulumi.StringInput `pulumi:"adDomainJoinUser"`
+	CrossRealmTrustPrincipalPassword pulumi.StringInput `pulumi:"crossRealmTrustPrincipalPassword"`
+	KdcAdminPassword pulumi.StringInput `pulumi:"kdcAdminPassword"`
+	Realm pulumi.StringInput `pulumi:"realm"`
+}
+
+func (ClusterKerberosAttributesArgs) ElementType() reflect.Type {
+	return clusterKerberosAttributesType
+}
+
+func (a ClusterKerberosAttributesArgs) ToClusterKerberosAttributesOutput() ClusterKerberosAttributesOutput {
+	return pulumi.ToOutput(a).(ClusterKerberosAttributesOutput)
+}
+
+func (a ClusterKerberosAttributesArgs) ToClusterKerberosAttributesOutputWithContext(ctx context.Context) ClusterKerberosAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterKerberosAttributesOutput)
+}
+
+type ClusterKerberosAttributesOutput struct { *pulumi.OutputState }
+
+func (o ClusterKerberosAttributesOutput) AdDomainJoinPassword() pulumi.StringOutput {
+	return o.Apply(func(v ClusterKerberosAttributes) string {
+		if v.AdDomainJoinPassword == nil { return *new(string) } else { return *v.AdDomainJoinPassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterKerberosAttributesOutput) AdDomainJoinUser() pulumi.StringOutput {
+	return o.Apply(func(v ClusterKerberosAttributes) string {
+		if v.AdDomainJoinUser == nil { return *new(string) } else { return *v.AdDomainJoinUser }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterKerberosAttributesOutput) CrossRealmTrustPrincipalPassword() pulumi.StringOutput {
+	return o.Apply(func(v ClusterKerberosAttributes) string {
+		if v.CrossRealmTrustPrincipalPassword == nil { return *new(string) } else { return *v.CrossRealmTrustPrincipalPassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterKerberosAttributesOutput) KdcAdminPassword() pulumi.StringOutput {
+	return o.Apply(func(v ClusterKerberosAttributes) string {
+		return v.KdcAdminPassword
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterKerberosAttributesOutput) Realm() pulumi.StringOutput {
+	return o.Apply(func(v ClusterKerberosAttributes) string {
+		return v.Realm
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterKerberosAttributesOutput) ElementType() reflect.Type {
+	return clusterKerberosAttributesType
+}
+
+func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesOutput() ClusterKerberosAttributesOutput {
+	return o
+}
+
+func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesOutputWithContext(ctx context.Context) ClusterKerberosAttributesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{}) }
+
+type ClusterMasterInstanceGroup struct {
+	BidPrice *string `pulumi:"bidPrice"`
+	EbsConfigs *[]ClusterMasterInstanceGroupEbsConfigs `pulumi:"ebsConfigs"`
+	// The ID of the EMR Cluster
+	Id *string `pulumi:"id"`
+	InstanceCount *int `pulumi:"instanceCount"`
+	InstanceType string `pulumi:"instanceType"`
+	// The name of the job flow
+	Name *string `pulumi:"name"`
+}
+var clusterMasterInstanceGroupType = reflect.TypeOf((*ClusterMasterInstanceGroup)(nil)).Elem()
+
+type ClusterMasterInstanceGroupInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceGroupOutput() ClusterMasterInstanceGroupOutput
+	ToClusterMasterInstanceGroupOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupOutput
+}
+
+type ClusterMasterInstanceGroupArgs struct {
+	BidPrice pulumi.StringInput `pulumi:"bidPrice"`
+	EbsConfigs ClusterMasterInstanceGroupEbsConfigsArrayInput `pulumi:"ebsConfigs"`
+	// The ID of the EMR Cluster
+	Id pulumi.StringInput `pulumi:"id"`
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The name of the job flow
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterMasterInstanceGroupArgs) ElementType() reflect.Type {
+	return clusterMasterInstanceGroupType
+}
+
+func (a ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupOutput() ClusterMasterInstanceGroupOutput {
+	return pulumi.ToOutput(a).(ClusterMasterInstanceGroupOutput)
+}
+
+func (a ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterMasterInstanceGroupOutput)
+}
+
+type ClusterMasterInstanceGroupOutput struct { *pulumi.OutputState }
+
+func (o ClusterMasterInstanceGroupOutput) BidPrice() pulumi.StringOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroup) string {
+		if v.BidPrice == nil { return *new(string) } else { return *v.BidPrice }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterMasterInstanceGroupOutput) EbsConfigs() ClusterMasterInstanceGroupEbsConfigsArrayOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfigs {
+		if v.EbsConfigs == nil { return *new([]ClusterMasterInstanceGroupEbsConfigs) } else { return *v.EbsConfigs }
+	}).(ClusterMasterInstanceGroupEbsConfigsArrayOutput)
+}
+
+// The ID of the EMR Cluster
+func (o ClusterMasterInstanceGroupOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroup) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterMasterInstanceGroupOutput) InstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroup) int {
+		if v.InstanceCount == nil { return *new(int) } else { return *v.InstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterMasterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroup) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+// The name of the job flow
+func (o ClusterMasterInstanceGroupOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroup) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterMasterInstanceGroupOutput) ElementType() reflect.Type {
+	return clusterMasterInstanceGroupType
+}
+
+func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupOutput() ClusterMasterInstanceGroupOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterMasterInstanceGroupOutput{}) }
+
+type ClusterMasterInstanceGroupEbsConfigs struct {
+	Iops *int `pulumi:"iops"`
+	Size int `pulumi:"size"`
+	Type string `pulumi:"type"`
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+var clusterMasterInstanceGroupEbsConfigsType = reflect.TypeOf((*ClusterMasterInstanceGroupEbsConfigs)(nil)).Elem()
+
+type ClusterMasterInstanceGroupEbsConfigsInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceGroupEbsConfigsOutput() ClusterMasterInstanceGroupEbsConfigsOutput
+	ToClusterMasterInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigsOutput
+}
+
+type ClusterMasterInstanceGroupEbsConfigsArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+	VolumesPerInstance pulumi.IntInput `pulumi:"volumesPerInstance"`
+}
+
+func (ClusterMasterInstanceGroupEbsConfigsArgs) ElementType() reflect.Type {
+	return clusterMasterInstanceGroupEbsConfigsType
+}
+
+func (a ClusterMasterInstanceGroupEbsConfigsArgs) ToClusterMasterInstanceGroupEbsConfigsOutput() ClusterMasterInstanceGroupEbsConfigsOutput {
+	return pulumi.ToOutput(a).(ClusterMasterInstanceGroupEbsConfigsOutput)
+}
+
+func (a ClusterMasterInstanceGroupEbsConfigsArgs) ToClusterMasterInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterMasterInstanceGroupEbsConfigsOutput)
+}
+
+type ClusterMasterInstanceGroupEbsConfigsOutput struct { *pulumi.OutputState }
+
+func (o ClusterMasterInstanceGroupEbsConfigsOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroupEbsConfigs) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroupEbsConfigs) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroupEbsConfigs) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsOutput) VolumesPerInstance() pulumi.IntOutput {
+	return o.Apply(func(v ClusterMasterInstanceGroupEbsConfigs) int {
+		if v.VolumesPerInstance == nil { return *new(int) } else { return *v.VolumesPerInstance }
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterMasterInstanceGroupEbsConfigsOutput) ElementType() reflect.Type {
+	return clusterMasterInstanceGroupEbsConfigsType
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsOutput) ToClusterMasterInstanceGroupEbsConfigsOutput() ClusterMasterInstanceGroupEbsConfigsOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsOutput) ToClusterMasterInstanceGroupEbsConfigsOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigsOutput{}) }
+
+var clusterMasterInstanceGroupEbsConfigsArrayType = reflect.TypeOf((*[]ClusterMasterInstanceGroupEbsConfigs)(nil)).Elem()
+
+type ClusterMasterInstanceGroupEbsConfigsArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterInstanceGroupEbsConfigsArrayOutput() ClusterMasterInstanceGroupEbsConfigsArrayOutput
+	ToClusterMasterInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigsArrayOutput
+}
+
+type ClusterMasterInstanceGroupEbsConfigsArrayArgs []ClusterMasterInstanceGroupEbsConfigsInput
+
+func (ClusterMasterInstanceGroupEbsConfigsArrayArgs) ElementType() reflect.Type {
+	return clusterMasterInstanceGroupEbsConfigsArrayType
+}
+
+func (a ClusterMasterInstanceGroupEbsConfigsArrayArgs) ToClusterMasterInstanceGroupEbsConfigsArrayOutput() ClusterMasterInstanceGroupEbsConfigsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterMasterInstanceGroupEbsConfigsArrayOutput)
+}
+
+func (a ClusterMasterInstanceGroupEbsConfigsArrayArgs) ToClusterMasterInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterMasterInstanceGroupEbsConfigsArrayOutput)
+}
+
+type ClusterMasterInstanceGroupEbsConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterMasterInstanceGroupEbsConfigsArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceGroupEbsConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterMasterInstanceGroupEbsConfigs {
+		return vs[0].([]ClusterMasterInstanceGroupEbsConfigs)[vs[1].(int)]
+	}).(ClusterMasterInstanceGroupEbsConfigsOutput)
+}
+
+func (ClusterMasterInstanceGroupEbsConfigsArrayOutput) ElementType() reflect.Type {
+	return clusterMasterInstanceGroupEbsConfigsArrayType
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsArrayOutput) ToClusterMasterInstanceGroupEbsConfigsArrayOutput() ClusterMasterInstanceGroupEbsConfigsArrayOutput {
+	return o
+}
+
+func (o ClusterMasterInstanceGroupEbsConfigsArrayOutput) ToClusterMasterInstanceGroupEbsConfigsArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigsArrayOutput{}) }
+
+type ClusterSteps struct {
+	ActionOnFailure string `pulumi:"actionOnFailure"`
+	HadoopJarStep ClusterStepsHadoopJarStep `pulumi:"hadoopJarStep"`
+	// The name of the job flow
+	Name string `pulumi:"name"`
+}
+var clusterStepsType = reflect.TypeOf((*ClusterSteps)(nil)).Elem()
+
+type ClusterStepsInput interface {
+	pulumi.Input
+
+	ToClusterStepsOutput() ClusterStepsOutput
+	ToClusterStepsOutputWithContext(ctx context.Context) ClusterStepsOutput
+}
+
+type ClusterStepsArgs struct {
+	ActionOnFailure pulumi.StringInput `pulumi:"actionOnFailure"`
+	HadoopJarStep ClusterStepsHadoopJarStepInput `pulumi:"hadoopJarStep"`
+	// The name of the job flow
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterStepsArgs) ElementType() reflect.Type {
+	return clusterStepsType
+}
+
+func (a ClusterStepsArgs) ToClusterStepsOutput() ClusterStepsOutput {
+	return pulumi.ToOutput(a).(ClusterStepsOutput)
+}
+
+func (a ClusterStepsArgs) ToClusterStepsOutputWithContext(ctx context.Context) ClusterStepsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterStepsOutput)
+}
+
+type ClusterStepsOutput struct { *pulumi.OutputState }
+
+func (o ClusterStepsOutput) ActionOnFailure() pulumi.StringOutput {
+	return o.Apply(func(v ClusterSteps) string {
+		return v.ActionOnFailure
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterStepsOutput) HadoopJarStep() ClusterStepsHadoopJarStepOutput {
+	return o.Apply(func(v ClusterSteps) ClusterStepsHadoopJarStep {
+		return v.HadoopJarStep
+	}).(ClusterStepsHadoopJarStepOutput)
+}
+
+// The name of the job flow
+func (o ClusterStepsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterSteps) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterStepsOutput) ElementType() reflect.Type {
+	return clusterStepsType
+}
+
+func (o ClusterStepsOutput) ToClusterStepsOutput() ClusterStepsOutput {
+	return o
+}
+
+func (o ClusterStepsOutput) ToClusterStepsOutputWithContext(ctx context.Context) ClusterStepsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterStepsOutput{}) }
+
+var clusterStepsArrayType = reflect.TypeOf((*[]ClusterSteps)(nil)).Elem()
+
+type ClusterStepsArrayInput interface {
+	pulumi.Input
+
+	ToClusterStepsArrayOutput() ClusterStepsArrayOutput
+	ToClusterStepsArrayOutputWithContext(ctx context.Context) ClusterStepsArrayOutput
+}
+
+type ClusterStepsArrayArgs []ClusterStepsInput
+
+func (ClusterStepsArrayArgs) ElementType() reflect.Type {
+	return clusterStepsArrayType
+}
+
+func (a ClusterStepsArrayArgs) ToClusterStepsArrayOutput() ClusterStepsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterStepsArrayOutput)
+}
+
+func (a ClusterStepsArrayArgs) ToClusterStepsArrayOutputWithContext(ctx context.Context) ClusterStepsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterStepsArrayOutput)
+}
+
+type ClusterStepsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterStepsArrayOutput) Index(i pulumi.IntInput) ClusterStepsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterSteps {
+		return vs[0].([]ClusterSteps)[vs[1].(int)]
+	}).(ClusterStepsOutput)
+}
+
+func (ClusterStepsArrayOutput) ElementType() reflect.Type {
+	return clusterStepsArrayType
+}
+
+func (o ClusterStepsArrayOutput) ToClusterStepsArrayOutput() ClusterStepsArrayOutput {
+	return o
+}
+
+func (o ClusterStepsArrayOutput) ToClusterStepsArrayOutputWithContext(ctx context.Context) ClusterStepsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterStepsArrayOutput{}) }
+
+type ClusterStepsHadoopJarStep struct {
+	Args *[]string `pulumi:"args"`
+	Jar string `pulumi:"jar"`
+	MainClass *string `pulumi:"mainClass"`
+	Properties *map[string]string `pulumi:"properties"`
+}
+var clusterStepsHadoopJarStepType = reflect.TypeOf((*ClusterStepsHadoopJarStep)(nil)).Elem()
+
+type ClusterStepsHadoopJarStepInput interface {
+	pulumi.Input
+
+	ToClusterStepsHadoopJarStepOutput() ClusterStepsHadoopJarStepOutput
+	ToClusterStepsHadoopJarStepOutputWithContext(ctx context.Context) ClusterStepsHadoopJarStepOutput
+}
+
+type ClusterStepsHadoopJarStepArgs struct {
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	Jar pulumi.StringInput `pulumi:"jar"`
+	MainClass pulumi.StringInput `pulumi:"mainClass"`
+	Properties pulumi.MapInput `pulumi:"properties"`
+}
+
+func (ClusterStepsHadoopJarStepArgs) ElementType() reflect.Type {
+	return clusterStepsHadoopJarStepType
+}
+
+func (a ClusterStepsHadoopJarStepArgs) ToClusterStepsHadoopJarStepOutput() ClusterStepsHadoopJarStepOutput {
+	return pulumi.ToOutput(a).(ClusterStepsHadoopJarStepOutput)
+}
+
+func (a ClusterStepsHadoopJarStepArgs) ToClusterStepsHadoopJarStepOutputWithContext(ctx context.Context) ClusterStepsHadoopJarStepOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterStepsHadoopJarStepOutput)
+}
+
+type ClusterStepsHadoopJarStepOutput struct { *pulumi.OutputState }
+
+func (o ClusterStepsHadoopJarStepOutput) Args() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterStepsHadoopJarStep) []string {
+		if v.Args == nil { return *new([]string) } else { return *v.Args }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterStepsHadoopJarStepOutput) Jar() pulumi.StringOutput {
+	return o.Apply(func(v ClusterStepsHadoopJarStep) string {
+		return v.Jar
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterStepsHadoopJarStepOutput) MainClass() pulumi.StringOutput {
+	return o.Apply(func(v ClusterStepsHadoopJarStep) string {
+		if v.MainClass == nil { return *new(string) } else { return *v.MainClass }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterStepsHadoopJarStepOutput) Properties() pulumi.MapOutput {
+	return o.Apply(func(v ClusterStepsHadoopJarStep) map[string]string {
+		if v.Properties == nil { return *new(map[string]string) } else { return *v.Properties }
+	}).(pulumi.MapOutput)
+}
+
+func (ClusterStepsHadoopJarStepOutput) ElementType() reflect.Type {
+	return clusterStepsHadoopJarStepType
+}
+
+func (o ClusterStepsHadoopJarStepOutput) ToClusterStepsHadoopJarStepOutput() ClusterStepsHadoopJarStepOutput {
+	return o
+}
+
+func (o ClusterStepsHadoopJarStepOutput) ToClusterStepsHadoopJarStepOutputWithContext(ctx context.Context) ClusterStepsHadoopJarStepOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterStepsHadoopJarStepOutput{}) }
+

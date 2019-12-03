@@ -10,46 +10,86 @@ import (
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
-func LookupScript(ctx *pulumi.Context, args *GetScriptArgs) (*GetScriptResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["dagEdges"] = args.DagEdges
-		inputs["dagNodes"] = args.DagNodes
-		inputs["language"] = args.Language
-	}
-	outputs, err := ctx.Invoke("aws:glue/getScript:getScript", inputs)
+func LookupScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
+	var rv GetScriptResult
+	err := ctx.Invoke("aws:glue/getScript:getScript", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetScriptResult{
-		DagEdges: outputs["dagEdges"],
-		DagNodes: outputs["dagNodes"],
-		Language: outputs["language"],
-		PythonScript: outputs["pythonScript"],
-		ScalaCode: outputs["scalaCode"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getScript.
 type GetScriptArgs struct {
 	// A list of the edges in the DAG. Defined below.
-	DagEdges interface{}
+	DagEdges []GetScriptDagEdgesArgs `pulumi:"dagEdges"`
 	// A list of the nodes in the DAG. Defined below.
-	DagNodes interface{}
+	DagNodes []GetScriptDagNodesArgs `pulumi:"dagNodes"`
 	// The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
-	Language interface{}
+	Language *string `pulumi:"language"`
 }
 
 // A collection of values returned by getScript.
 type GetScriptResult struct {
-	DagEdges interface{}
-	DagNodes interface{}
-	Language interface{}
+	DagEdges []GetScriptDagEdgesResult `pulumi:"dagEdges"`
+	DagNodes []GetScriptDagNodesResult `pulumi:"dagNodes"`
+	Language *string `pulumi:"language"`
 	// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
-	PythonScript interface{}
+	PythonScript string `pulumi:"pythonScript"`
 	// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
-	ScalaCode interface{}
+	ScalaCode string `pulumi:"scalaCode"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetScriptDagEdgesArgs struct {
+	// The ID of the node at which the edge starts.
+	Source string `pulumi:"source"`
+	// The ID of the node at which the edge ends.
+	Target string `pulumi:"target"`
+	// The target of the edge.
+	TargetParameter *string `pulumi:"targetParameter"`
+}
+type GetScriptDagEdgesResult struct {
+	// The ID of the node at which the edge starts.
+	Source string `pulumi:"source"`
+	// The ID of the node at which the edge ends.
+	Target string `pulumi:"target"`
+	// The target of the edge.
+	TargetParameter *string `pulumi:"targetParameter"`
+}
+type GetScriptDagNodesArgs struct {
+	// Nested configuration an argument or property of a node. Defined below.
+	Args []GetScriptDagNodesArgsArgs `pulumi:"args"`
+	// A node identifier that is unique within the node's graph.
+	Id string `pulumi:"id"`
+	// The line number of the node.
+	LineNumber *int `pulumi:"lineNumber"`
+	// The type of node this is.
+	NodeType string `pulumi:"nodeType"`
+}
+type GetScriptDagNodesArgsArgs struct {
+	// The name of the argument or property.
+	Name string `pulumi:"name"`
+	// Boolean if the value is used as a parameter. Defaults to `false`.
+	Param *bool `pulumi:"param"`
+	// The value of the argument or property.
+	Value string `pulumi:"value"`
+}
+type GetScriptDagNodesArgsResult struct {
+	// The name of the argument or property.
+	Name string `pulumi:"name"`
+	// Boolean if the value is used as a parameter. Defaults to `false`.
+	Param *bool `pulumi:"param"`
+	// The value of the argument or property.
+	Value string `pulumi:"value"`
+}
+type GetScriptDagNodesResult struct {
+	// Nested configuration an argument or property of a node. Defined below.
+	Args []GetScriptDagNodesArgsResult `pulumi:"args"`
+	// A node identifier that is unique within the node's graph.
+	Id string `pulumi:"id"`
+	// The line number of the node.
+	LineNumber *int `pulumi:"lineNumber"`
+	// The type of node this is.
+	NodeType string `pulumi:"nodeType"`
 }

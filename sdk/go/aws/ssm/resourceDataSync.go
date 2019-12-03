@@ -4,6 +4,8 @@
 package ssm
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -22,78 +24,145 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
 type ResourceDataSync struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Name for the configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Amazon S3 configuration details for the sync.
+	S3Destination ResourceDataSyncS3DestinationOutput `pulumi:"s3Destination"`
 }
 
 // NewResourceDataSync registers a new resource with the given unique name, arguments, and options.
 func NewResourceDataSync(ctx *pulumi.Context,
-	name string, args *ResourceDataSyncArgs, opts ...pulumi.ResourceOpt) (*ResourceDataSync, error) {
+	name string, args *ResourceDataSyncArgs, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
 	if args == nil || args.S3Destination == nil {
 		return nil, errors.New("missing required argument 'S3Destination'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["s3Destination"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["s3Destination"] = args.S3Destination
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.S3Destination; i != nil { inputs["s3Destination"] = i.ToResourceDataSyncS3DestinationOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ssm/resourceDataSync:ResourceDataSync", name, true, inputs, opts...)
+	var resource ResourceDataSync
+	err := ctx.RegisterResource("aws:ssm/resourceDataSync:ResourceDataSync", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResourceDataSync{s: s}, nil
+	return &resource, nil
 }
 
 // GetResourceDataSync gets an existing ResourceDataSync resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetResourceDataSync(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ResourceDataSyncState, opts ...pulumi.ResourceOpt) (*ResourceDataSync, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ResourceDataSyncState, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["s3Destination"] = state.S3Destination
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.S3Destination; i != nil { inputs["s3Destination"] = i.ToResourceDataSyncS3DestinationOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/resourceDataSync:ResourceDataSync", name, id, inputs, opts...)
+	var resource ResourceDataSync
+	err := ctx.ReadResource("aws:ssm/resourceDataSync:ResourceDataSync", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResourceDataSync{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceDataSync) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceDataSync) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Name for the configuration.
-func (r *ResourceDataSync) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Amazon S3 configuration details for the sync.
-func (r *ResourceDataSync) S3Destination() pulumi.Output {
-	return r.s.State["s3Destination"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ResourceDataSync resources.
 type ResourceDataSyncState struct {
 	// Name for the configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Amazon S3 configuration details for the sync.
-	S3Destination interface{}
+	S3Destination ResourceDataSyncS3DestinationInput `pulumi:"s3Destination"`
 }
 
 // The set of arguments for constructing a ResourceDataSync resource.
 type ResourceDataSyncArgs struct {
 	// Name for the configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Amazon S3 configuration details for the sync.
-	S3Destination interface{}
+	S3Destination ResourceDataSyncS3DestinationInput `pulumi:"s3Destination"`
 }
+type ResourceDataSyncS3Destination struct {
+	BucketName string `pulumi:"bucketName"`
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	Prefix *string `pulumi:"prefix"`
+	Region string `pulumi:"region"`
+	SyncFormat *string `pulumi:"syncFormat"`
+}
+var resourceDataSyncS3DestinationType = reflect.TypeOf((*ResourceDataSyncS3Destination)(nil)).Elem()
+
+type ResourceDataSyncS3DestinationInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncS3DestinationOutput() ResourceDataSyncS3DestinationOutput
+	ToResourceDataSyncS3DestinationOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationOutput
+}
+
+type ResourceDataSyncS3DestinationArgs struct {
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	Region pulumi.StringInput `pulumi:"region"`
+	SyncFormat pulumi.StringInput `pulumi:"syncFormat"`
+}
+
+func (ResourceDataSyncS3DestinationArgs) ElementType() reflect.Type {
+	return resourceDataSyncS3DestinationType
+}
+
+func (a ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationOutput() ResourceDataSyncS3DestinationOutput {
+	return pulumi.ToOutput(a).(ResourceDataSyncS3DestinationOutput)
+}
+
+func (a ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ResourceDataSyncS3DestinationOutput)
+}
+
+type ResourceDataSyncS3DestinationOutput struct { *pulumi.OutputState }
+
+func (o ResourceDataSyncS3DestinationOutput) BucketName() pulumi.StringOutput {
+	return o.Apply(func(v ResourceDataSyncS3Destination) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceDataSyncS3DestinationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v ResourceDataSyncS3Destination) string {
+		if v.KmsKeyArn == nil { return *new(string) } else { return *v.KmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceDataSyncS3DestinationOutput) Prefix() pulumi.StringOutput {
+	return o.Apply(func(v ResourceDataSyncS3Destination) string {
+		if v.Prefix == nil { return *new(string) } else { return *v.Prefix }
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceDataSyncS3DestinationOutput) Region() pulumi.StringOutput {
+	return o.Apply(func(v ResourceDataSyncS3Destination) string {
+		return v.Region
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceDataSyncS3DestinationOutput) SyncFormat() pulumi.StringOutput {
+	return o.Apply(func(v ResourceDataSyncS3Destination) string {
+		if v.SyncFormat == nil { return *new(string) } else { return *v.SyncFormat }
+	}).(pulumi.StringOutput)
+}
+
+func (ResourceDataSyncS3DestinationOutput) ElementType() reflect.Type {
+	return resourceDataSyncS3DestinationType
+}
+
+func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationOutput() ResourceDataSyncS3DestinationOutput {
+	return o
+}
+
+func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{}) }
+

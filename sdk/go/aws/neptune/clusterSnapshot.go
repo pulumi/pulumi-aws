@@ -12,194 +12,140 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_snapshot.html.markdown.
 type ClusterSnapshot struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the allocated storage size in gigabytes (GB).
+	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
+
+	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+
+	// The DB Cluster Identifier from which to take the snapshot.
+	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
+
+	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
+
+	// The Identifier for the snapshot.
+	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
+
+	// Specifies the name of the database engine.
+	Engine pulumi.StringOutput `pulumi:"engine"`
+
+	// Version of the database engine for this DB cluster snapshot.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// License model information for the restored DB cluster.
+	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
+
+	// Port that the DB cluster was listening on at the time of the snapshot.
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	SnapshotType pulumi.StringOutput `pulumi:"snapshotType"`
+
+	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
+
+	// The status of this DB Cluster Snapshot.
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Specifies whether the DB cluster snapshot is encrypted.
+	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+
+	// The VPC ID associated with the DB cluster snapshot.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewClusterSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewClusterSnapshot(ctx *pulumi.Context,
-	name string, args *ClusterSnapshotArgs, opts ...pulumi.ResourceOpt) (*ClusterSnapshot, error) {
+	name string, args *ClusterSnapshotArgs, opts ...pulumi.ResourceOption) (*ClusterSnapshot, error) {
 	if args == nil || args.DbClusterIdentifier == nil {
 		return nil, errors.New("missing required argument 'DbClusterIdentifier'")
 	}
 	if args == nil || args.DbClusterSnapshotIdentifier == nil {
 		return nil, errors.New("missing required argument 'DbClusterSnapshotIdentifier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dbClusterIdentifier"] = nil
-		inputs["dbClusterSnapshotIdentifier"] = nil
-	} else {
-		inputs["dbClusterIdentifier"] = args.DbClusterIdentifier
-		inputs["dbClusterSnapshotIdentifier"] = args.DbClusterSnapshotIdentifier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DbClusterIdentifier; i != nil { inputs["dbClusterIdentifier"] = i.ToStringOutput() }
+		if i := args.DbClusterSnapshotIdentifier; i != nil { inputs["dbClusterSnapshotIdentifier"] = i.ToStringOutput() }
 	}
-	inputs["allocatedStorage"] = nil
-	inputs["availabilityZones"] = nil
-	inputs["dbClusterSnapshotArn"] = nil
-	inputs["engine"] = nil
-	inputs["engineVersion"] = nil
-	inputs["kmsKeyId"] = nil
-	inputs["licenseModel"] = nil
-	inputs["port"] = nil
-	inputs["snapshotType"] = nil
-	inputs["sourceDbClusterSnapshotArn"] = nil
-	inputs["status"] = nil
-	inputs["storageEncrypted"] = nil
-	inputs["vpcId"] = nil
-	s, err := ctx.RegisterResource("aws:neptune/clusterSnapshot:ClusterSnapshot", name, true, inputs, opts...)
+	var resource ClusterSnapshot
+	err := ctx.RegisterResource("aws:neptune/clusterSnapshot:ClusterSnapshot", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterSnapshot{s: s}, nil
+	return &resource, nil
 }
 
 // GetClusterSnapshot gets an existing ClusterSnapshot resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetClusterSnapshot(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterSnapshotState, opts ...pulumi.ResourceOpt) (*ClusterSnapshot, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterSnapshotState, opts ...pulumi.ResourceOption) (*ClusterSnapshot, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allocatedStorage"] = state.AllocatedStorage
-		inputs["availabilityZones"] = state.AvailabilityZones
-		inputs["dbClusterIdentifier"] = state.DbClusterIdentifier
-		inputs["dbClusterSnapshotArn"] = state.DbClusterSnapshotArn
-		inputs["dbClusterSnapshotIdentifier"] = state.DbClusterSnapshotIdentifier
-		inputs["engine"] = state.Engine
-		inputs["engineVersion"] = state.EngineVersion
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["licenseModel"] = state.LicenseModel
-		inputs["port"] = state.Port
-		inputs["snapshotType"] = state.SnapshotType
-		inputs["sourceDbClusterSnapshotArn"] = state.SourceDbClusterSnapshotArn
-		inputs["status"] = state.Status
-		inputs["storageEncrypted"] = state.StorageEncrypted
-		inputs["vpcId"] = state.VpcId
+		if i := state.AllocatedStorage; i != nil { inputs["allocatedStorage"] = i.ToIntOutput() }
+		if i := state.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := state.DbClusterIdentifier; i != nil { inputs["dbClusterIdentifier"] = i.ToStringOutput() }
+		if i := state.DbClusterSnapshotArn; i != nil { inputs["dbClusterSnapshotArn"] = i.ToStringOutput() }
+		if i := state.DbClusterSnapshotIdentifier; i != nil { inputs["dbClusterSnapshotIdentifier"] = i.ToStringOutput() }
+		if i := state.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := state.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.LicenseModel; i != nil { inputs["licenseModel"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.SnapshotType; i != nil { inputs["snapshotType"] = i.ToStringOutput() }
+		if i := state.SourceDbClusterSnapshotArn; i != nil { inputs["sourceDbClusterSnapshotArn"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.StorageEncrypted; i != nil { inputs["storageEncrypted"] = i.ToBoolOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:neptune/clusterSnapshot:ClusterSnapshot", name, id, inputs, opts...)
+	var resource ClusterSnapshot
+	err := ctx.ReadResource("aws:neptune/clusterSnapshot:ClusterSnapshot", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterSnapshot{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterSnapshot) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterSnapshot) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the allocated storage size in gigabytes (GB).
-func (r *ClusterSnapshot) AllocatedStorage() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["allocatedStorage"])
-}
-
-// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-func (r *ClusterSnapshot) AvailabilityZones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
-}
-
-// The DB Cluster Identifier from which to take the snapshot.
-func (r *ClusterSnapshot) DbClusterIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbClusterIdentifier"])
-}
-
-// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-func (r *ClusterSnapshot) DbClusterSnapshotArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbClusterSnapshotArn"])
-}
-
-// The Identifier for the snapshot.
-func (r *ClusterSnapshot) DbClusterSnapshotIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbClusterSnapshotIdentifier"])
-}
-
-// Specifies the name of the database engine.
-func (r *ClusterSnapshot) Engine() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engine"])
-}
-
-// Version of the database engine for this DB cluster snapshot.
-func (r *ClusterSnapshot) EngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineVersion"])
-}
-
-// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-func (r *ClusterSnapshot) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// License model information for the restored DB cluster.
-func (r *ClusterSnapshot) LicenseModel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["licenseModel"])
-}
-
-// Port that the DB cluster was listening on at the time of the snapshot.
-func (r *ClusterSnapshot) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-func (r *ClusterSnapshot) SnapshotType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snapshotType"])
-}
-
-func (r *ClusterSnapshot) SourceDbClusterSnapshotArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceDbClusterSnapshotArn"])
-}
-
-// The status of this DB Cluster Snapshot.
-func (r *ClusterSnapshot) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Specifies whether the DB cluster snapshot is encrypted.
-func (r *ClusterSnapshot) StorageEncrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
-}
-
-// The VPC ID associated with the DB cluster snapshot.
-func (r *ClusterSnapshot) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.
 type ClusterSnapshotState struct {
 	// Specifies the allocated storage size in gigabytes (GB).
-	AllocatedStorage interface{}
+	AllocatedStorage pulumi.IntInput `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The DB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier interface{}
+	DbClusterIdentifier pulumi.StringInput `pulumi:"dbClusterIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-	DbClusterSnapshotArn interface{}
+	DbClusterSnapshotArn pulumi.StringInput `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
-	DbClusterSnapshotIdentifier interface{}
+	DbClusterSnapshotIdentifier pulumi.StringInput `pulumi:"dbClusterSnapshotIdentifier"`
 	// Specifies the name of the database engine.
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// Version of the database engine for this DB cluster snapshot.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// License model information for the restored DB cluster.
-	LicenseModel interface{}
+	LicenseModel pulumi.StringInput `pulumi:"licenseModel"`
 	// Port that the DB cluster was listening on at the time of the snapshot.
-	Port interface{}
-	SnapshotType interface{}
-	SourceDbClusterSnapshotArn interface{}
+	Port pulumi.IntInput `pulumi:"port"`
+	SnapshotType pulumi.StringInput `pulumi:"snapshotType"`
+	SourceDbClusterSnapshotArn pulumi.StringInput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DB Cluster Snapshot.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Specifies whether the DB cluster snapshot is encrypted.
-	StorageEncrypted interface{}
+	StorageEncrypted pulumi.BoolInput `pulumi:"storageEncrypted"`
 	// The VPC ID associated with the DB cluster snapshot.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
 type ClusterSnapshotArgs struct {
 	// The DB Cluster Identifier from which to take the snapshot.
-	DbClusterIdentifier interface{}
+	DbClusterIdentifier pulumi.StringInput `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
-	DbClusterSnapshotIdentifier interface{}
+	DbClusterSnapshotIdentifier pulumi.StringInput `pulumi:"dbClusterSnapshotIdentifier"`
 }

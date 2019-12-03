@@ -10,47 +10,47 @@ import (
 // Get information on an EC2 Transit Gateway Route Table.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
-func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["id"] = args.Id
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", inputs)
+func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs, opts ...pulumi.InvokeOption) (*GetRouteTableResult, error) {
+	var rv GetRouteTableResult
+	err := ctx.Invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRouteTableResult{
-		DefaultAssociationRouteTable: outputs["defaultAssociationRouteTable"],
-		DefaultPropagationRouteTable: outputs["defaultPropagationRouteTable"],
-		Filters: outputs["filters"],
-		Id: outputs["id"],
-		Tags: outputs["tags"],
-		TransitGatewayId: outputs["transitGatewayId"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRouteTable.
 type GetRouteTableArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
-	Filters interface{}
+	Filters *[]GetRouteTableFiltersArgs `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Route Table.
-	Id interface{}
-	Tags interface{}
+	Id *string `pulumi:"id"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRouteTable.
 type GetRouteTableResult struct {
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway
-	DefaultAssociationRouteTable interface{}
+	DefaultAssociationRouteTable bool `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway
-	DefaultPropagationRouteTable interface{}
-	Filters interface{}
+	DefaultPropagationRouteTable bool `pulumi:"defaultPropagationRouteTable"`
+	Filters *[]GetRouteTableFiltersResult `pulumi:"filters"`
 	// EC2 Transit Gateway Route Table identifier
-	Id interface{}
+	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier
-	TransitGatewayId interface{}
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+}
+type GetRouteTableFiltersArgs struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+type GetRouteTableFiltersResult struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
 }

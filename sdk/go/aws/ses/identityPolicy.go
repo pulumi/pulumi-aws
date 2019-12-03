@@ -12,90 +12,72 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
 type IdentityPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Name or Amazon Resource Name (ARN) of the SES Identity.
+	Identity pulumi.StringOutput `pulumi:"identity"`
+
+	// Name of the policy.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewIdentityPolicy registers a new resource with the given unique name, arguments, and options.
 func NewIdentityPolicy(ctx *pulumi.Context,
-	name string, args *IdentityPolicyArgs, opts ...pulumi.ResourceOpt) (*IdentityPolicy, error) {
+	name string, args *IdentityPolicyArgs, opts ...pulumi.ResourceOption) (*IdentityPolicy, error) {
 	if args == nil || args.Identity == nil {
 		return nil, errors.New("missing required argument 'Identity'")
 	}
 	if args == nil || args.Policy == nil {
 		return nil, errors.New("missing required argument 'Policy'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["identity"] = nil
-		inputs["name"] = nil
-		inputs["policy"] = nil
-	} else {
-		inputs["identity"] = args.Identity
-		inputs["name"] = args.Name
-		inputs["policy"] = args.Policy
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ses/identityPolicy:IdentityPolicy", name, true, inputs, opts...)
+	var resource IdentityPolicy
+	err := ctx.RegisterResource("aws:ses/identityPolicy:IdentityPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IdentityPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetIdentityPolicy gets an existing IdentityPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIdentityPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IdentityPolicyState, opts ...pulumi.ResourceOpt) (*IdentityPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IdentityPolicyState, opts ...pulumi.ResourceOption) (*IdentityPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["identity"] = state.Identity
-		inputs["name"] = state.Name
-		inputs["policy"] = state.Policy
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/identityPolicy:IdentityPolicy", name, id, inputs, opts...)
+	var resource IdentityPolicy
+	err := ctx.ReadResource("aws:ses/identityPolicy:IdentityPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IdentityPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Name or Amazon Resource Name (ARN) of the SES Identity.
-func (r *IdentityPolicy) Identity() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["identity"])
-}
-
-// Name of the policy.
-func (r *IdentityPolicy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *IdentityPolicy) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IdentityPolicy resources.
 type IdentityPolicyState struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
-	Identity interface{}
+	Identity pulumi.StringInput `pulumi:"identity"`
 	// Name of the policy.
-	Name interface{}
-	Policy interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a IdentityPolicy resource.
 type IdentityPolicyArgs struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
-	Identity interface{}
+	Identity pulumi.StringInput `pulumi:"identity"`
 	// Name of the policy.
-	Name interface{}
-	Policy interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 }

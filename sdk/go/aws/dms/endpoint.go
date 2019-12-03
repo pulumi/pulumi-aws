@@ -4,6 +4,8 @@
 package dms
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -15,12 +17,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
 type Endpoint struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) for the certificate.
+	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+
+	// The name of the endpoint database.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+
+	// The Amazon Resource Name (ARN) for the endpoint.
+	EndpointArn pulumi.StringOutput `pulumi:"endpointArn"`
+
+	// The database endpoint identifier.
+	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
+
+	// The type of endpoint. Can be one of `source | target`.
+	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
+
+	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
+	EngineName pulumi.StringOutput `pulumi:"engineName"`
+
+	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
+
+	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+
+	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
+	MongodbSettings EndpointMongodbSettingsOutput `pulumi:"mongodbSettings"`
+
+	// The password to be used to login to the endpoint database.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The port used by the endpoint database.
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
+	S3Settings EndpointS3SettingsOutput `pulumi:"s3Settings"`
+
+	// The host name of the server.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
+	ServiceAccessRole pulumi.StringOutput `pulumi:"serviceAccessRole"`
+
+	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
+	SslMode pulumi.StringOutput `pulumi:"sslMode"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The user name to be used to login to the endpoint database.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
-	name string, args *EndpointArgs, opts ...pulumi.ResourceOpt) (*Endpoint, error) {
+	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
 	if args == nil || args.EndpointId == nil {
 		return nil, errors.New("missing required argument 'EndpointId'")
 	}
@@ -30,246 +83,323 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args == nil || args.EngineName == nil {
 		return nil, errors.New("missing required argument 'EngineName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificateArn"] = nil
-		inputs["databaseName"] = nil
-		inputs["endpointId"] = nil
-		inputs["endpointType"] = nil
-		inputs["engineName"] = nil
-		inputs["extraConnectionAttributes"] = nil
-		inputs["kmsKeyArn"] = nil
-		inputs["mongodbSettings"] = nil
-		inputs["password"] = nil
-		inputs["port"] = nil
-		inputs["s3Settings"] = nil
-		inputs["serverName"] = nil
-		inputs["serviceAccessRole"] = nil
-		inputs["sslMode"] = nil
-		inputs["tags"] = nil
-		inputs["username"] = nil
-	} else {
-		inputs["certificateArn"] = args.CertificateArn
-		inputs["databaseName"] = args.DatabaseName
-		inputs["endpointId"] = args.EndpointId
-		inputs["endpointType"] = args.EndpointType
-		inputs["engineName"] = args.EngineName
-		inputs["extraConnectionAttributes"] = args.ExtraConnectionAttributes
-		inputs["kmsKeyArn"] = args.KmsKeyArn
-		inputs["mongodbSettings"] = args.MongodbSettings
-		inputs["password"] = args.Password
-		inputs["port"] = args.Port
-		inputs["s3Settings"] = args.S3Settings
-		inputs["serverName"] = args.ServerName
-		inputs["serviceAccessRole"] = args.ServiceAccessRole
-		inputs["sslMode"] = args.SslMode
-		inputs["tags"] = args.Tags
-		inputs["username"] = args.Username
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := args.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := args.EndpointId; i != nil { inputs["endpointId"] = i.ToStringOutput() }
+		if i := args.EndpointType; i != nil { inputs["endpointType"] = i.ToStringOutput() }
+		if i := args.EngineName; i != nil { inputs["engineName"] = i.ToStringOutput() }
+		if i := args.ExtraConnectionAttributes; i != nil { inputs["extraConnectionAttributes"] = i.ToStringOutput() }
+		if i := args.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := args.MongodbSettings; i != nil { inputs["mongodbSettings"] = i.ToEndpointMongodbSettingsOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := args.S3Settings; i != nil { inputs["s3Settings"] = i.ToEndpointS3SettingsOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.ServiceAccessRole; i != nil { inputs["serviceAccessRole"] = i.ToStringOutput() }
+		if i := args.SslMode; i != nil { inputs["sslMode"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	inputs["endpointArn"] = nil
-	s, err := ctx.RegisterResource("aws:dms/endpoint:Endpoint", name, true, inputs, opts...)
+	var resource Endpoint
+	err := ctx.RegisterResource("aws:dms/endpoint:Endpoint", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Endpoint{s: s}, nil
+	return &resource, nil
 }
 
 // GetEndpoint gets an existing Endpoint resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEndpoint(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EndpointState, opts ...pulumi.ResourceOpt) (*Endpoint, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EndpointState, opts ...pulumi.ResourceOption) (*Endpoint, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["certificateArn"] = state.CertificateArn
-		inputs["databaseName"] = state.DatabaseName
-		inputs["endpointArn"] = state.EndpointArn
-		inputs["endpointId"] = state.EndpointId
-		inputs["endpointType"] = state.EndpointType
-		inputs["engineName"] = state.EngineName
-		inputs["extraConnectionAttributes"] = state.ExtraConnectionAttributes
-		inputs["kmsKeyArn"] = state.KmsKeyArn
-		inputs["mongodbSettings"] = state.MongodbSettings
-		inputs["password"] = state.Password
-		inputs["port"] = state.Port
-		inputs["s3Settings"] = state.S3Settings
-		inputs["serverName"] = state.ServerName
-		inputs["serviceAccessRole"] = state.ServiceAccessRole
-		inputs["sslMode"] = state.SslMode
-		inputs["tags"] = state.Tags
-		inputs["username"] = state.Username
+		if i := state.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := state.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := state.EndpointArn; i != nil { inputs["endpointArn"] = i.ToStringOutput() }
+		if i := state.EndpointId; i != nil { inputs["endpointId"] = i.ToStringOutput() }
+		if i := state.EndpointType; i != nil { inputs["endpointType"] = i.ToStringOutput() }
+		if i := state.EngineName; i != nil { inputs["engineName"] = i.ToStringOutput() }
+		if i := state.ExtraConnectionAttributes; i != nil { inputs["extraConnectionAttributes"] = i.ToStringOutput() }
+		if i := state.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := state.MongodbSettings; i != nil { inputs["mongodbSettings"] = i.ToEndpointMongodbSettingsOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.S3Settings; i != nil { inputs["s3Settings"] = i.ToEndpointS3SettingsOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.ServiceAccessRole; i != nil { inputs["serviceAccessRole"] = i.ToStringOutput() }
+		if i := state.SslMode; i != nil { inputs["sslMode"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:dms/endpoint:Endpoint", name, id, inputs, opts...)
+	var resource Endpoint
+	err := ctx.ReadResource("aws:dms/endpoint:Endpoint", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Endpoint{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Endpoint) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Endpoint) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) for the certificate.
-func (r *Endpoint) CertificateArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateArn"])
-}
-
-// The name of the endpoint database.
-func (r *Endpoint) DatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["databaseName"])
-}
-
-// The Amazon Resource Name (ARN) for the endpoint.
-func (r *Endpoint) EndpointArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpointArn"])
-}
-
-// The database endpoint identifier.
-func (r *Endpoint) EndpointId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpointId"])
-}
-
-// The type of endpoint. Can be one of `source | target`.
-func (r *Endpoint) EndpointType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpointType"])
-}
-
-// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
-func (r *Endpoint) EngineName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineName"])
-}
-
-// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
-func (r *Endpoint) ExtraConnectionAttributes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["extraConnectionAttributes"])
-}
-
-// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-func (r *Endpoint) KmsKeyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
-}
-
-// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
-func (r *Endpoint) MongodbSettings() pulumi.Output {
-	return r.s.State["mongodbSettings"]
-}
-
-// The password to be used to login to the endpoint database.
-func (r *Endpoint) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The port used by the endpoint database.
-func (r *Endpoint) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
-func (r *Endpoint) S3Settings() pulumi.Output {
-	return r.s.State["s3Settings"]
-}
-
-// The host name of the server.
-func (r *Endpoint) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
-func (r *Endpoint) ServiceAccessRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceAccessRole"])
-}
-
-// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
-func (r *Endpoint) SslMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sslMode"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Endpoint) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The user name to be used to login to the endpoint database.
-func (r *Endpoint) Username() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["username"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Endpoint resources.
 type EndpointState struct {
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The name of the endpoint database.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// The Amazon Resource Name (ARN) for the endpoint.
-	EndpointArn interface{}
+	EndpointArn pulumi.StringInput `pulumi:"endpointArn"`
 	// The database endpoint identifier.
-	EndpointId interface{}
+	EndpointId pulumi.StringInput `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
-	EndpointType interface{}
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
-	EngineName interface{}
+	EngineName pulumi.StringInput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
-	ExtraConnectionAttributes interface{}
+	ExtraConnectionAttributes pulumi.StringInput `pulumi:"extraConnectionAttributes"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
-	MongodbSettings interface{}
+	MongodbSettings EndpointMongodbSettingsInput `pulumi:"mongodbSettings"`
 	// The password to be used to login to the endpoint database.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The port used by the endpoint database.
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
-	S3Settings interface{}
+	S3Settings EndpointS3SettingsInput `pulumi:"s3Settings"`
 	// The host name of the server.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
-	ServiceAccessRole interface{}
+	ServiceAccessRole pulumi.StringInput `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
-	SslMode interface{}
+	SslMode pulumi.StringInput `pulumi:"sslMode"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The name of the endpoint database.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// The database endpoint identifier.
-	EndpointId interface{}
+	EndpointId pulumi.StringInput `pulumi:"endpointId"`
 	// The type of endpoint. Can be one of `source | target`.
-	EndpointType interface{}
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// The type of engine for the endpoint. Can be one of `aurora | azuredb | db2 | docdb | dynamodb | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
-	EngineName interface{}
+	EngineName pulumi.StringInput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
-	ExtraConnectionAttributes interface{}
+	ExtraConnectionAttributes pulumi.StringInput `pulumi:"extraConnectionAttributes"`
 	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Settings for the source MongoDB endpoint. Available settings are `authType` (default: `password`), `authMechanism` (default: `default`), `nestingLevel` (default: `none`), `extractDocId` (default: `false`), `docsToInvestigate` (default: `1000`) and `authSource` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
-	MongodbSettings interface{}
+	MongodbSettings EndpointMongodbSettingsInput `pulumi:"mongodbSettings"`
 	// The password to be used to login to the endpoint database.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The port used by the endpoint database.
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// Settings for the target S3 endpoint. Available settings are `serviceAccessRoleArn`, `externalTableDefinition`, `csvRowDelimiter` (default: `\\n`), `csvDelimiter` (default: `,`), `bucketFolder`, `bucketName` and `compressionType` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
-	S3Settings interface{}
+	S3Settings EndpointS3SettingsInput `pulumi:"s3Settings"`
 	// The host name of the server.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
-	ServiceAccessRole interface{}
+	ServiceAccessRole pulumi.StringInput `pulumi:"serviceAccessRole"`
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
-	SslMode interface{}
+	SslMode pulumi.StringInput `pulumi:"sslMode"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
+type EndpointMongodbSettings struct {
+	AuthMechanism *string `pulumi:"authMechanism"`
+	AuthSource *string `pulumi:"authSource"`
+	AuthType *string `pulumi:"authType"`
+	DocsToInvestigate *string `pulumi:"docsToInvestigate"`
+	ExtractDocId *string `pulumi:"extractDocId"`
+	NestingLevel *string `pulumi:"nestingLevel"`
+}
+var endpointMongodbSettingsType = reflect.TypeOf((*EndpointMongodbSettings)(nil)).Elem()
+
+type EndpointMongodbSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointMongodbSettingsOutput() EndpointMongodbSettingsOutput
+	ToEndpointMongodbSettingsOutputWithContext(ctx context.Context) EndpointMongodbSettingsOutput
+}
+
+type EndpointMongodbSettingsArgs struct {
+	AuthMechanism pulumi.StringInput `pulumi:"authMechanism"`
+	AuthSource pulumi.StringInput `pulumi:"authSource"`
+	AuthType pulumi.StringInput `pulumi:"authType"`
+	DocsToInvestigate pulumi.StringInput `pulumi:"docsToInvestigate"`
+	ExtractDocId pulumi.StringInput `pulumi:"extractDocId"`
+	NestingLevel pulumi.StringInput `pulumi:"nestingLevel"`
+}
+
+func (EndpointMongodbSettingsArgs) ElementType() reflect.Type {
+	return endpointMongodbSettingsType
+}
+
+func (a EndpointMongodbSettingsArgs) ToEndpointMongodbSettingsOutput() EndpointMongodbSettingsOutput {
+	return pulumi.ToOutput(a).(EndpointMongodbSettingsOutput)
+}
+
+func (a EndpointMongodbSettingsArgs) ToEndpointMongodbSettingsOutputWithContext(ctx context.Context) EndpointMongodbSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EndpointMongodbSettingsOutput)
+}
+
+type EndpointMongodbSettingsOutput struct { *pulumi.OutputState }
+
+func (o EndpointMongodbSettingsOutput) AuthMechanism() pulumi.StringOutput {
+	return o.Apply(func(v EndpointMongodbSettings) string {
+		if v.AuthMechanism == nil { return *new(string) } else { return *v.AuthMechanism }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointMongodbSettingsOutput) AuthSource() pulumi.StringOutput {
+	return o.Apply(func(v EndpointMongodbSettings) string {
+		if v.AuthSource == nil { return *new(string) } else { return *v.AuthSource }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointMongodbSettingsOutput) AuthType() pulumi.StringOutput {
+	return o.Apply(func(v EndpointMongodbSettings) string {
+		if v.AuthType == nil { return *new(string) } else { return *v.AuthType }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointMongodbSettingsOutput) DocsToInvestigate() pulumi.StringOutput {
+	return o.Apply(func(v EndpointMongodbSettings) string {
+		if v.DocsToInvestigate == nil { return *new(string) } else { return *v.DocsToInvestigate }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointMongodbSettingsOutput) ExtractDocId() pulumi.StringOutput {
+	return o.Apply(func(v EndpointMongodbSettings) string {
+		if v.ExtractDocId == nil { return *new(string) } else { return *v.ExtractDocId }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointMongodbSettingsOutput) NestingLevel() pulumi.StringOutput {
+	return o.Apply(func(v EndpointMongodbSettings) string {
+		if v.NestingLevel == nil { return *new(string) } else { return *v.NestingLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (EndpointMongodbSettingsOutput) ElementType() reflect.Type {
+	return endpointMongodbSettingsType
+}
+
+func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsOutput() EndpointMongodbSettingsOutput {
+	return o
+}
+
+func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsOutputWithContext(ctx context.Context) EndpointMongodbSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{}) }
+
+type EndpointS3Settings struct {
+	BucketFolder *string `pulumi:"bucketFolder"`
+	BucketName *string `pulumi:"bucketName"`
+	CompressionType *string `pulumi:"compressionType"`
+	CsvDelimiter *string `pulumi:"csvDelimiter"`
+	CsvRowDelimiter *string `pulumi:"csvRowDelimiter"`
+	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
+	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
+}
+var endpointS3SettingsType = reflect.TypeOf((*EndpointS3Settings)(nil)).Elem()
+
+type EndpointS3SettingsInput interface {
+	pulumi.Input
+
+	ToEndpointS3SettingsOutput() EndpointS3SettingsOutput
+	ToEndpointS3SettingsOutputWithContext(ctx context.Context) EndpointS3SettingsOutput
+}
+
+type EndpointS3SettingsArgs struct {
+	BucketFolder pulumi.StringInput `pulumi:"bucketFolder"`
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	CsvDelimiter pulumi.StringInput `pulumi:"csvDelimiter"`
+	CsvRowDelimiter pulumi.StringInput `pulumi:"csvRowDelimiter"`
+	ExternalTableDefinition pulumi.StringInput `pulumi:"externalTableDefinition"`
+	ServiceAccessRoleArn pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+}
+
+func (EndpointS3SettingsArgs) ElementType() reflect.Type {
+	return endpointS3SettingsType
+}
+
+func (a EndpointS3SettingsArgs) ToEndpointS3SettingsOutput() EndpointS3SettingsOutput {
+	return pulumi.ToOutput(a).(EndpointS3SettingsOutput)
+}
+
+func (a EndpointS3SettingsArgs) ToEndpointS3SettingsOutputWithContext(ctx context.Context) EndpointS3SettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EndpointS3SettingsOutput)
+}
+
+type EndpointS3SettingsOutput struct { *pulumi.OutputState }
+
+func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.BucketFolder == nil { return *new(string) } else { return *v.BucketFolder }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointS3SettingsOutput) BucketName() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.BucketName == nil { return *new(string) } else { return *v.BucketName }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointS3SettingsOutput) CompressionType() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.CompressionType == nil { return *new(string) } else { return *v.CompressionType }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointS3SettingsOutput) CsvDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.CsvDelimiter == nil { return *new(string) } else { return *v.CsvDelimiter }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointS3SettingsOutput) CsvRowDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.CsvRowDelimiter == nil { return *new(string) } else { return *v.CsvRowDelimiter }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.ExternalTableDefinition == nil { return *new(string) } else { return *v.ExternalTableDefinition }
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointS3SettingsOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.Apply(func(v EndpointS3Settings) string {
+		if v.ServiceAccessRoleArn == nil { return *new(string) } else { return *v.ServiceAccessRoleArn }
+	}).(pulumi.StringOutput)
+}
+
+func (EndpointS3SettingsOutput) ElementType() reflect.Type {
+	return endpointS3SettingsType
+}
+
+func (o EndpointS3SettingsOutput) ToEndpointS3SettingsOutput() EndpointS3SettingsOutput {
+	return o
+}
+
+func (o EndpointS3SettingsOutput) ToEndpointS3SettingsOutputWithContext(ctx context.Context) EndpointS3SettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EndpointS3SettingsOutput{}) }
+

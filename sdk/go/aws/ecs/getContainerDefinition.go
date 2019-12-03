@@ -11,59 +11,43 @@ import (
 // a specific container within an AWS ECS service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
-func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs) (*GetContainerDefinitionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["containerName"] = args.ContainerName
-		inputs["taskDefinition"] = args.TaskDefinition
-	}
-	outputs, err := ctx.Invoke("aws:ecs/getContainerDefinition:getContainerDefinition", inputs)
+func LookupContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs, opts ...pulumi.InvokeOption) (*GetContainerDefinitionResult, error) {
+	var rv GetContainerDefinitionResult
+	err := ctx.Invoke("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetContainerDefinitionResult{
-		ContainerName: outputs["containerName"],
-		Cpu: outputs["cpu"],
-		DisableNetworking: outputs["disableNetworking"],
-		DockerLabels: outputs["dockerLabels"],
-		Environment: outputs["environment"],
-		Image: outputs["image"],
-		ImageDigest: outputs["imageDigest"],
-		Memory: outputs["memory"],
-		MemoryReservation: outputs["memoryReservation"],
-		TaskDefinition: outputs["taskDefinition"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getContainerDefinition.
 type GetContainerDefinitionArgs struct {
 	// The name of the container definition
-	ContainerName interface{}
+	ContainerName string `pulumi:"containerName"`
 	// The ARN of the task definition which contains the container
-	TaskDefinition interface{}
+	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
 // A collection of values returned by getContainerDefinition.
 type GetContainerDefinitionResult struct {
-	ContainerName interface{}
+	ContainerName string `pulumi:"containerName"`
 	// The CPU limit for this container definition
-	Cpu interface{}
+	Cpu int `pulumi:"cpu"`
 	// Indicator if networking is disabled
-	DisableNetworking interface{}
+	DisableNetworking bool `pulumi:"disableNetworking"`
 	// Set docker labels
-	DockerLabels interface{}
+	DockerLabels map[string]string `pulumi:"dockerLabels"`
 	// The environment in use
-	Environment interface{}
+	Environment map[string]string `pulumi:"environment"`
 	// The docker image in use, including the digest
-	Image interface{}
+	Image string `pulumi:"image"`
 	// The digest of the docker image in use
-	ImageDigest interface{}
+	ImageDigest string `pulumi:"imageDigest"`
 	// The memory limit for this container definition
-	Memory interface{}
+	Memory int `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-	MemoryReservation interface{}
-	TaskDefinition interface{}
+	MemoryReservation int `pulumi:"memoryReservation"`
+	TaskDefinition string `pulumi:"taskDefinition"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -19,93 +19,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_membership.html.markdown.
 type GroupMembership struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The IAM Group name to attach the list of `users` to
+	Group pulumi.StringOutput `pulumi:"group"`
+
+	// The name to identify the Group Membership
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of IAM User names to associate with the Group
+	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
 func NewGroupMembership(ctx *pulumi.Context,
-	name string, args *GroupMembershipArgs, opts ...pulumi.ResourceOpt) (*GroupMembership, error) {
+	name string, args *GroupMembershipArgs, opts ...pulumi.ResourceOption) (*GroupMembership, error) {
 	if args == nil || args.Group == nil {
 		return nil, errors.New("missing required argument 'Group'")
 	}
 	if args == nil || args.Users == nil {
 		return nil, errors.New("missing required argument 'Users'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["group"] = nil
-		inputs["name"] = nil
-		inputs["users"] = nil
-	} else {
-		inputs["group"] = args.Group
-		inputs["name"] = args.Name
-		inputs["users"] = args.Users
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Group; i != nil { inputs["group"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Users; i != nil { inputs["users"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:iam/groupMembership:GroupMembership", name, true, inputs, opts...)
+	var resource GroupMembership
+	err := ctx.RegisterResource("aws:iam/groupMembership:GroupMembership", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GroupMembership{s: s}, nil
+	return &resource, nil
 }
 
 // GetGroupMembership gets an existing GroupMembership resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGroupMembership(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GroupMembershipState, opts ...pulumi.ResourceOpt) (*GroupMembership, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GroupMembershipState, opts ...pulumi.ResourceOption) (*GroupMembership, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["group"] = state.Group
-		inputs["name"] = state.Name
-		inputs["users"] = state.Users
+		if i := state.Group; i != nil { inputs["group"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Users; i != nil { inputs["users"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/groupMembership:GroupMembership", name, id, inputs, opts...)
+	var resource GroupMembership
+	err := ctx.ReadResource("aws:iam/groupMembership:GroupMembership", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GroupMembership{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *GroupMembership) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *GroupMembership) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The IAM Group name to attach the list of `users` to
-func (r *GroupMembership) Group() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["group"])
-}
-
-// The name to identify the Group Membership
-func (r *GroupMembership) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of IAM User names to associate with the Group
-func (r *GroupMembership) Users() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["users"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type GroupMembershipState struct {
 	// The IAM Group name to attach the list of `users` to
-	Group interface{}
+	Group pulumi.StringInput `pulumi:"group"`
 	// The name to identify the Group Membership
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of IAM User names to associate with the Group
-	Users interface{}
+	Users pulumi.StringArrayInput `pulumi:"users"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
 	// The IAM Group name to attach the list of `users` to
-	Group interface{}
+	Group pulumi.StringInput `pulumi:"group"`
 	// The name to identify the Group Membership
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of IAM User names to associate with the Group
-	Users interface{}
+	Users pulumi.StringArrayInput `pulumi:"users"`
 }

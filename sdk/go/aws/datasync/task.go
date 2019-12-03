@@ -4,6 +4,8 @@
 package datasync
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,138 +14,249 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_task.html.markdown.
 type Task struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the DataSync Task.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+	CloudwatchLogGroupArn pulumi.StringOutput `pulumi:"cloudwatchLogGroupArn"`
+
+	// Amazon Resource Name (ARN) of destination DataSync Location.
+	DestinationLocationArn pulumi.StringOutput `pulumi:"destinationLocationArn"`
+
+	// Name of the DataSync Task.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+	Options TaskOptionsOutput `pulumi:"options"`
+
+	// Amazon Resource Name (ARN) of source DataSync Location.
+	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
+
+	// Key-value pairs of resource tags to assign to the DataSync Task.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
 func NewTask(ctx *pulumi.Context,
-	name string, args *TaskArgs, opts ...pulumi.ResourceOpt) (*Task, error) {
+	name string, args *TaskArgs, opts ...pulumi.ResourceOption) (*Task, error) {
 	if args == nil || args.DestinationLocationArn == nil {
 		return nil, errors.New("missing required argument 'DestinationLocationArn'")
 	}
 	if args == nil || args.SourceLocationArn == nil {
 		return nil, errors.New("missing required argument 'SourceLocationArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cloudwatchLogGroupArn"] = nil
-		inputs["destinationLocationArn"] = nil
-		inputs["name"] = nil
-		inputs["options"] = nil
-		inputs["sourceLocationArn"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["cloudwatchLogGroupArn"] = args.CloudwatchLogGroupArn
-		inputs["destinationLocationArn"] = args.DestinationLocationArn
-		inputs["name"] = args.Name
-		inputs["options"] = args.Options
-		inputs["sourceLocationArn"] = args.SourceLocationArn
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CloudwatchLogGroupArn; i != nil { inputs["cloudwatchLogGroupArn"] = i.ToStringOutput() }
+		if i := args.DestinationLocationArn; i != nil { inputs["destinationLocationArn"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Options; i != nil { inputs["options"] = i.ToTaskOptionsOutput() }
+		if i := args.SourceLocationArn; i != nil { inputs["sourceLocationArn"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:datasync/task:Task", name, true, inputs, opts...)
+	var resource Task
+	err := ctx.RegisterResource("aws:datasync/task:Task", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Task{s: s}, nil
+	return &resource, nil
 }
 
 // GetTask gets an existing Task resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTask(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TaskState, opts ...pulumi.ResourceOpt) (*Task, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TaskState, opts ...pulumi.ResourceOption) (*Task, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["cloudwatchLogGroupArn"] = state.CloudwatchLogGroupArn
-		inputs["destinationLocationArn"] = state.DestinationLocationArn
-		inputs["name"] = state.Name
-		inputs["options"] = state.Options
-		inputs["sourceLocationArn"] = state.SourceLocationArn
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CloudwatchLogGroupArn; i != nil { inputs["cloudwatchLogGroupArn"] = i.ToStringOutput() }
+		if i := state.DestinationLocationArn; i != nil { inputs["destinationLocationArn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Options; i != nil { inputs["options"] = i.ToTaskOptionsOutput() }
+		if i := state.SourceLocationArn; i != nil { inputs["sourceLocationArn"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:datasync/task:Task", name, id, inputs, opts...)
+	var resource Task
+	err := ctx.ReadResource("aws:datasync/task:Task", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Task{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Task) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Task) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the DataSync Task.
-func (r *Task) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-func (r *Task) CloudwatchLogGroupArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudwatchLogGroupArn"])
-}
-
-// Amazon Resource Name (ARN) of destination DataSync Location.
-func (r *Task) DestinationLocationArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["destinationLocationArn"])
-}
-
-// Name of the DataSync Task.
-func (r *Task) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-func (r *Task) Options() pulumi.Output {
-	return r.s.State["options"]
-}
-
-// Amazon Resource Name (ARN) of source DataSync Location.
-func (r *Task) SourceLocationArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceLocationArn"])
-}
-
-// Key-value pairs of resource tags to assign to the DataSync Task.
-func (r *Task) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Task resources.
 type TaskState struct {
 	// Amazon Resource Name (ARN) of the DataSync Task.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn interface{}
+	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn interface{}
+	DestinationLocationArn pulumi.StringInput `pulumi:"destinationLocationArn"`
 	// Name of the DataSync Task.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options interface{}
+	Options TaskOptionsInput `pulumi:"options"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn interface{}
+	SourceLocationArn pulumi.StringInput `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn interface{}
+	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn interface{}
+	DestinationLocationArn pulumi.StringInput `pulumi:"destinationLocationArn"`
 	// Name of the DataSync Task.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-	Options interface{}
+	Options TaskOptionsInput `pulumi:"options"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn interface{}
+	SourceLocationArn pulumi.StringInput `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
+type TaskOptions struct {
+	// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
+	Atime *string `pulumi:"atime"`
+	// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
+	BytesPerSecond *int `pulumi:"bytesPerSecond"`
+	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+	Gid *string `pulumi:"gid"`
+	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+	Mtime *string `pulumi:"mtime"`
+	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+	PosixPermissions *string `pulumi:"posixPermissions"`
+	// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
+	PreserveDeletedFiles *string `pulumi:"preserveDeletedFiles"`
+	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
+	PreserveDevices *string `pulumi:"preserveDevices"`
+	// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+	Uid *string `pulumi:"uid"`
+	// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
+	VerifyMode *string `pulumi:"verifyMode"`
+}
+var taskOptionsType = reflect.TypeOf((*TaskOptions)(nil)).Elem()
+
+type TaskOptionsInput interface {
+	pulumi.Input
+
+	ToTaskOptionsOutput() TaskOptionsOutput
+	ToTaskOptionsOutputWithContext(ctx context.Context) TaskOptionsOutput
+}
+
+type TaskOptionsArgs struct {
+	// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
+	Atime pulumi.StringInput `pulumi:"atime"`
+	// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
+	BytesPerSecond pulumi.IntInput `pulumi:"bytesPerSecond"`
+	// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+	Gid pulumi.StringInput `pulumi:"gid"`
+	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+	Mtime pulumi.StringInput `pulumi:"mtime"`
+	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+	PosixPermissions pulumi.StringInput `pulumi:"posixPermissions"`
+	// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
+	PreserveDeletedFiles pulumi.StringInput `pulumi:"preserveDeletedFiles"`
+	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
+	PreserveDevices pulumi.StringInput `pulumi:"preserveDevices"`
+	// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+	Uid pulumi.StringInput `pulumi:"uid"`
+	// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
+	VerifyMode pulumi.StringInput `pulumi:"verifyMode"`
+}
+
+func (TaskOptionsArgs) ElementType() reflect.Type {
+	return taskOptionsType
+}
+
+func (a TaskOptionsArgs) ToTaskOptionsOutput() TaskOptionsOutput {
+	return pulumi.ToOutput(a).(TaskOptionsOutput)
+}
+
+func (a TaskOptionsArgs) ToTaskOptionsOutputWithContext(ctx context.Context) TaskOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TaskOptionsOutput)
+}
+
+type TaskOptionsOutput struct { *pulumi.OutputState }
+
+// A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
+func (o TaskOptionsOutput) Atime() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.Atime == nil { return *new(string) } else { return *v.Atime }
+	}).(pulumi.StringOutput)
+}
+
+// Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
+func (o TaskOptionsOutput) BytesPerSecond() pulumi.IntOutput {
+	return o.Apply(func(v TaskOptions) int {
+		if v.BytesPerSecond == nil { return *new(int) } else { return *v.BytesPerSecond }
+	}).(pulumi.IntOutput)
+}
+
+// Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+func (o TaskOptionsOutput) Gid() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.Gid == nil { return *new(string) } else { return *v.Gid }
+	}).(pulumi.StringOutput)
+}
+
+// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+func (o TaskOptionsOutput) Mtime() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.Mtime == nil { return *new(string) } else { return *v.Mtime }
+	}).(pulumi.StringOutput)
+}
+
+// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+func (o TaskOptionsOutput) PosixPermissions() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.PosixPermissions == nil { return *new(string) } else { return *v.PosixPermissions }
+	}).(pulumi.StringOutput)
+}
+
+// Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
+func (o TaskOptionsOutput) PreserveDeletedFiles() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.PreserveDeletedFiles == nil { return *new(string) } else { return *v.PreserveDeletedFiles }
+	}).(pulumi.StringOutput)
+}
+
+// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
+func (o TaskOptionsOutput) PreserveDevices() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.PreserveDevices == nil { return *new(string) } else { return *v.PreserveDevices }
+	}).(pulumi.StringOutput)
+}
+
+// User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
+func (o TaskOptionsOutput) Uid() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.Uid == nil { return *new(string) } else { return *v.Uid }
+	}).(pulumi.StringOutput)
+}
+
+// Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
+func (o TaskOptionsOutput) VerifyMode() pulumi.StringOutput {
+	return o.Apply(func(v TaskOptions) string {
+		if v.VerifyMode == nil { return *new(string) } else { return *v.VerifyMode }
+	}).(pulumi.StringOutput)
+}
+
+func (TaskOptionsOutput) ElementType() reflect.Type {
+	return taskOptionsType
+}
+
+func (o TaskOptionsOutput) ToTaskOptionsOutput() TaskOptionsOutput {
+	return o
+}
+
+func (o TaskOptionsOutput) ToTaskOptionsOutputWithContext(ctx context.Context) TaskOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TaskOptionsOutput{}) }
+

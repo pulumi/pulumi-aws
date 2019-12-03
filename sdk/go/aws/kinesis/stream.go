@@ -15,165 +15,129 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_stream.html.markdown.
 type Stream struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+	EncryptionType pulumi.StringOutput `pulumi:"encryptionType"`
+
+	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+	EnforceConsumerDeletion pulumi.BoolOutput `pulumi:"enforceConsumerDeletion"`
+
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
+	RetentionPeriod pulumi.IntOutput `pulumi:"retentionPeriod"`
+
+	// The number of shards that the stream will use.
+	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
+	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
+
+	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
 func NewStream(ctx *pulumi.Context,
-	name string, args *StreamArgs, opts ...pulumi.ResourceOpt) (*Stream, error) {
+	name string, args *StreamArgs, opts ...pulumi.ResourceOption) (*Stream, error) {
 	if args == nil || args.ShardCount == nil {
 		return nil, errors.New("missing required argument 'ShardCount'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["arn"] = nil
-		inputs["encryptionType"] = nil
-		inputs["enforceConsumerDeletion"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["name"] = nil
-		inputs["retentionPeriod"] = nil
-		inputs["shardCount"] = nil
-		inputs["shardLevelMetrics"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["arn"] = args.Arn
-		inputs["encryptionType"] = args.EncryptionType
-		inputs["enforceConsumerDeletion"] = args.EnforceConsumerDeletion
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["name"] = args.Name
-		inputs["retentionPeriod"] = args.RetentionPeriod
-		inputs["shardCount"] = args.ShardCount
-		inputs["shardLevelMetrics"] = args.ShardLevelMetrics
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := args.EncryptionType; i != nil { inputs["encryptionType"] = i.ToStringOutput() }
+		if i := args.EnforceConsumerDeletion; i != nil { inputs["enforceConsumerDeletion"] = i.ToBoolOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RetentionPeriod; i != nil { inputs["retentionPeriod"] = i.ToIntOutput() }
+		if i := args.ShardCount; i != nil { inputs["shardCount"] = i.ToIntOutput() }
+		if i := args.ShardLevelMetrics; i != nil { inputs["shardLevelMetrics"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, true, inputs, opts...)
+	var resource Stream
+	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Stream{s: s}, nil
+	return &resource, nil
 }
 
 // GetStream gets an existing Stream resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStream(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StreamState, opts ...pulumi.ResourceOpt) (*Stream, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StreamState, opts ...pulumi.ResourceOption) (*Stream, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["encryptionType"] = state.EncryptionType
-		inputs["enforceConsumerDeletion"] = state.EnforceConsumerDeletion
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["name"] = state.Name
-		inputs["retentionPeriod"] = state.RetentionPeriod
-		inputs["shardCount"] = state.ShardCount
-		inputs["shardLevelMetrics"] = state.ShardLevelMetrics
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.EncryptionType; i != nil { inputs["encryptionType"] = i.ToStringOutput() }
+		if i := state.EnforceConsumerDeletion; i != nil { inputs["enforceConsumerDeletion"] = i.ToBoolOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RetentionPeriod; i != nil { inputs["retentionPeriod"] = i.ToIntOutput() }
+		if i := state.ShardCount; i != nil { inputs["shardCount"] = i.ToIntOutput() }
+		if i := state.ShardLevelMetrics; i != nil { inputs["shardLevelMetrics"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:kinesis/stream:Stream", name, id, inputs, opts...)
+	var resource Stream
+	err := ctx.ReadResource("aws:kinesis/stream:Stream", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Stream{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Stream) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Stream) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-func (r *Stream) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-func (r *Stream) EncryptionType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["encryptionType"])
-}
-
-// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-func (r *Stream) EnforceConsumerDeletion() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enforceConsumerDeletion"])
-}
-
-// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
-func (r *Stream) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-func (r *Stream) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
-func (r *Stream) RetentionPeriod() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["retentionPeriod"])
-}
-
-// The number of shards that the stream will use.
-// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
-func (r *Stream) ShardCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["shardCount"])
-}
-
-// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-func (r *Stream) ShardLevelMetrics() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["shardLevelMetrics"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Stream) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Stream resources.
 type StreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-	EncryptionType interface{}
+	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-	EnforceConsumerDeletion interface{}
+	EnforceConsumerDeletion pulumi.BoolInput `pulumi:"enforceConsumerDeletion"`
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
-	RetentionPeriod interface{}
+	RetentionPeriod pulumi.IntInput `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
-	ShardCount interface{}
+	ShardCount pulumi.IntInput `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-	ShardLevelMetrics interface{}
+	ShardLevelMetrics pulumi.StringArrayInput `pulumi:"shardLevelMetrics"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
-	EncryptionType interface{}
+	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-	EnforceConsumerDeletion interface{}
+	EnforceConsumerDeletion pulumi.BoolInput `pulumi:"enforceConsumerDeletion"`
 	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 168 hours. Minimum value is 24. Default is 24.
-	RetentionPeriod interface{}
+	RetentionPeriod pulumi.IntInput `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams][2] for more.
-	ShardCount interface{}
+	ShardCount pulumi.IntInput `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch][3] for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-	ShardLevelMetrics interface{}
+	ShardLevelMetrics pulumi.StringArrayInput `pulumi:"shardLevelMetrics"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

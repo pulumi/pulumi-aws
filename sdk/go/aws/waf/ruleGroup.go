@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,111 +14,271 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule_group.html.markdown.
 type RuleGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A list of activated rules, see below
+	ActivatedRules RuleGroupActivatedRulesArrayOutput `pulumi:"activatedRules"`
+
+	// The ARN of the WAF rule group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A friendly name for the metrics from the rule group
+	MetricName pulumi.StringOutput `pulumi:"metricName"`
+
+	// A friendly name of the rule group
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
 func NewRuleGroup(ctx *pulumi.Context,
-	name string, args *RuleGroupArgs, opts ...pulumi.ResourceOpt) (*RuleGroup, error) {
+	name string, args *RuleGroupArgs, opts ...pulumi.ResourceOption) (*RuleGroup, error) {
 	if args == nil || args.MetricName == nil {
 		return nil, errors.New("missing required argument 'MetricName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["activatedRules"] = nil
-		inputs["metricName"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["activatedRules"] = args.ActivatedRules
-		inputs["metricName"] = args.MetricName
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActivatedRules; i != nil { inputs["activatedRules"] = i.ToRuleGroupActivatedRulesArrayOutput() }
+		if i := args.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:waf/ruleGroup:RuleGroup", name, true, inputs, opts...)
+	var resource RuleGroup
+	err := ctx.RegisterResource("aws:waf/ruleGroup:RuleGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RuleGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetRuleGroup gets an existing RuleGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRuleGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RuleGroupState, opts ...pulumi.ResourceOpt) (*RuleGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RuleGroupState, opts ...pulumi.ResourceOption) (*RuleGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activatedRules"] = state.ActivatedRules
-		inputs["arn"] = state.Arn
-		inputs["metricName"] = state.MetricName
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.ActivatedRules; i != nil { inputs["activatedRules"] = i.ToRuleGroupActivatedRulesArrayOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:waf/ruleGroup:RuleGroup", name, id, inputs, opts...)
+	var resource RuleGroup
+	err := ctx.ReadResource("aws:waf/ruleGroup:RuleGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RuleGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RuleGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RuleGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A list of activated rules, see below
-func (r *RuleGroup) ActivatedRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["activatedRules"])
-}
-
-// The ARN of the WAF rule group.
-func (r *RuleGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A friendly name for the metrics from the rule group
-func (r *RuleGroup) MetricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metricName"])
-}
-
-// A friendly name of the rule group
-func (r *RuleGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Key-value mapping of resource tags
-func (r *RuleGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type RuleGroupState struct {
 	// A list of activated rules, see below
-	ActivatedRules interface{}
+	ActivatedRules RuleGroupActivatedRulesArrayInput `pulumi:"activatedRules"`
 	// The ARN of the WAF rule group.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A friendly name for the metrics from the rule group
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// A friendly name of the rule group
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
 	// A list of activated rules, see below
-	ActivatedRules interface{}
+	ActivatedRules RuleGroupActivatedRulesArrayInput `pulumi:"activatedRules"`
 	// A friendly name for the metrics from the rule group
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// A friendly name of the rule group
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RuleGroupActivatedRules struct {
+	// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+	Action RuleGroupActivatedRulesAction `pulumi:"action"`
+	// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+	Priority int `pulumi:"priority"`
+	// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+	RuleId string `pulumi:"ruleId"`
+	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	Type *string `pulumi:"type"`
+}
+var ruleGroupActivatedRulesType = reflect.TypeOf((*RuleGroupActivatedRules)(nil)).Elem()
+
+type RuleGroupActivatedRulesInput interface {
+	pulumi.Input
+
+	ToRuleGroupActivatedRulesOutput() RuleGroupActivatedRulesOutput
+	ToRuleGroupActivatedRulesOutputWithContext(ctx context.Context) RuleGroupActivatedRulesOutput
+}
+
+type RuleGroupActivatedRulesArgs struct {
+	// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+	Action RuleGroupActivatedRulesActionInput `pulumi:"action"`
+	// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RuleGroupActivatedRulesArgs) ElementType() reflect.Type {
+	return ruleGroupActivatedRulesType
+}
+
+func (a RuleGroupActivatedRulesArgs) ToRuleGroupActivatedRulesOutput() RuleGroupActivatedRulesOutput {
+	return pulumi.ToOutput(a).(RuleGroupActivatedRulesOutput)
+}
+
+func (a RuleGroupActivatedRulesArgs) ToRuleGroupActivatedRulesOutputWithContext(ctx context.Context) RuleGroupActivatedRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RuleGroupActivatedRulesOutput)
+}
+
+type RuleGroupActivatedRulesOutput struct { *pulumi.OutputState }
+
+// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+func (o RuleGroupActivatedRulesOutput) Action() RuleGroupActivatedRulesActionOutput {
+	return o.Apply(func(v RuleGroupActivatedRules) RuleGroupActivatedRulesAction {
+		return v.Action
+	}).(RuleGroupActivatedRulesActionOutput)
+}
+
+// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+func (o RuleGroupActivatedRulesOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v RuleGroupActivatedRules) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+func (o RuleGroupActivatedRulesOutput) RuleId() pulumi.StringOutput {
+	return o.Apply(func(v RuleGroupActivatedRules) string {
+		return v.RuleId
+	}).(pulumi.StringOutput)
+}
+
+// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+func (o RuleGroupActivatedRulesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v RuleGroupActivatedRules) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (RuleGroupActivatedRulesOutput) ElementType() reflect.Type {
+	return ruleGroupActivatedRulesType
+}
+
+func (o RuleGroupActivatedRulesOutput) ToRuleGroupActivatedRulesOutput() RuleGroupActivatedRulesOutput {
+	return o
+}
+
+func (o RuleGroupActivatedRulesOutput) ToRuleGroupActivatedRulesOutputWithContext(ctx context.Context) RuleGroupActivatedRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RuleGroupActivatedRulesOutput{}) }
+
+type RuleGroupActivatedRulesAction struct {
+	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	Type string `pulumi:"type"`
+}
+var ruleGroupActivatedRulesActionType = reflect.TypeOf((*RuleGroupActivatedRulesAction)(nil)).Elem()
+
+type RuleGroupActivatedRulesActionInput interface {
+	pulumi.Input
+
+	ToRuleGroupActivatedRulesActionOutput() RuleGroupActivatedRulesActionOutput
+	ToRuleGroupActivatedRulesActionOutputWithContext(ctx context.Context) RuleGroupActivatedRulesActionOutput
+}
+
+type RuleGroupActivatedRulesActionArgs struct {
+	// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RuleGroupActivatedRulesActionArgs) ElementType() reflect.Type {
+	return ruleGroupActivatedRulesActionType
+}
+
+func (a RuleGroupActivatedRulesActionArgs) ToRuleGroupActivatedRulesActionOutput() RuleGroupActivatedRulesActionOutput {
+	return pulumi.ToOutput(a).(RuleGroupActivatedRulesActionOutput)
+}
+
+func (a RuleGroupActivatedRulesActionArgs) ToRuleGroupActivatedRulesActionOutputWithContext(ctx context.Context) RuleGroupActivatedRulesActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RuleGroupActivatedRulesActionOutput)
+}
+
+type RuleGroupActivatedRulesActionOutput struct { *pulumi.OutputState }
+
+// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+func (o RuleGroupActivatedRulesActionOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v RuleGroupActivatedRulesAction) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (RuleGroupActivatedRulesActionOutput) ElementType() reflect.Type {
+	return ruleGroupActivatedRulesActionType
+}
+
+func (o RuleGroupActivatedRulesActionOutput) ToRuleGroupActivatedRulesActionOutput() RuleGroupActivatedRulesActionOutput {
+	return o
+}
+
+func (o RuleGroupActivatedRulesActionOutput) ToRuleGroupActivatedRulesActionOutputWithContext(ctx context.Context) RuleGroupActivatedRulesActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RuleGroupActivatedRulesActionOutput{}) }
+
+var ruleGroupActivatedRulesArrayType = reflect.TypeOf((*[]RuleGroupActivatedRules)(nil)).Elem()
+
+type RuleGroupActivatedRulesArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupActivatedRulesArrayOutput() RuleGroupActivatedRulesArrayOutput
+	ToRuleGroupActivatedRulesArrayOutputWithContext(ctx context.Context) RuleGroupActivatedRulesArrayOutput
+}
+
+type RuleGroupActivatedRulesArrayArgs []RuleGroupActivatedRulesInput
+
+func (RuleGroupActivatedRulesArrayArgs) ElementType() reflect.Type {
+	return ruleGroupActivatedRulesArrayType
+}
+
+func (a RuleGroupActivatedRulesArrayArgs) ToRuleGroupActivatedRulesArrayOutput() RuleGroupActivatedRulesArrayOutput {
+	return pulumi.ToOutput(a).(RuleGroupActivatedRulesArrayOutput)
+}
+
+func (a RuleGroupActivatedRulesArrayArgs) ToRuleGroupActivatedRulesArrayOutputWithContext(ctx context.Context) RuleGroupActivatedRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RuleGroupActivatedRulesArrayOutput)
+}
+
+type RuleGroupActivatedRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o RuleGroupActivatedRulesArrayOutput) Index(i pulumi.IntInput) RuleGroupActivatedRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RuleGroupActivatedRules {
+		return vs[0].([]RuleGroupActivatedRules)[vs[1].(int)]
+	}).(RuleGroupActivatedRulesOutput)
+}
+
+func (RuleGroupActivatedRulesArrayOutput) ElementType() reflect.Type {
+	return ruleGroupActivatedRulesArrayType
+}
+
+func (o RuleGroupActivatedRulesArrayOutput) ToRuleGroupActivatedRulesArrayOutput() RuleGroupActivatedRulesArrayOutput {
+	return o
+}
+
+func (o RuleGroupActivatedRulesArrayOutput) ToRuleGroupActivatedRulesArrayOutputWithContext(ctx context.Context) RuleGroupActivatedRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RuleGroupActivatedRulesArrayOutput{}) }
+

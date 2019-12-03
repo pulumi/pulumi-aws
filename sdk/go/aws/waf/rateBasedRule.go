@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.
 type RateBasedRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name or description for the Amazon CloudWatch metric of this rule.
+	MetricName pulumi.StringOutput `pulumi:"metricName"`
+
+	// The name or description of the rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The objects to include in a rule (documented below).
+	Predicates RateBasedRulePredicatesArrayOutput `pulumi:"predicates"`
+
+	// Valid value is IP.
+	RateKey pulumi.StringOutput `pulumi:"rateKey"`
+
+	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
+	RateLimit pulumi.IntOutput `pulumi:"rateLimit"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRateBasedRule registers a new resource with the given unique name, arguments, and options.
 func NewRateBasedRule(ctx *pulumi.Context,
-	name string, args *RateBasedRuleArgs, opts ...pulumi.ResourceOpt) (*RateBasedRule, error) {
+	name string, args *RateBasedRuleArgs, opts ...pulumi.ResourceOption) (*RateBasedRule, error) {
 	if args == nil || args.MetricName == nil {
 		return nil, errors.New("missing required argument 'MetricName'")
 	}
@@ -27,126 +50,204 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args == nil || args.RateLimit == nil {
 		return nil, errors.New("missing required argument 'RateLimit'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["metricName"] = nil
-		inputs["name"] = nil
-		inputs["predicates"] = nil
-		inputs["rateKey"] = nil
-		inputs["rateLimit"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["metricName"] = args.MetricName
-		inputs["name"] = args.Name
-		inputs["predicates"] = args.Predicates
-		inputs["rateKey"] = args.RateKey
-		inputs["rateLimit"] = args.RateLimit
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Predicates; i != nil { inputs["predicates"] = i.ToRateBasedRulePredicatesArrayOutput() }
+		if i := args.RateKey; i != nil { inputs["rateKey"] = i.ToStringOutput() }
+		if i := args.RateLimit; i != nil { inputs["rateLimit"] = i.ToIntOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:waf/rateBasedRule:RateBasedRule", name, true, inputs, opts...)
+	var resource RateBasedRule
+	err := ctx.RegisterResource("aws:waf/rateBasedRule:RateBasedRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RateBasedRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetRateBasedRule gets an existing RateBasedRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRateBasedRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RateBasedRuleState, opts ...pulumi.ResourceOpt) (*RateBasedRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RateBasedRuleState, opts ...pulumi.ResourceOption) (*RateBasedRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["metricName"] = state.MetricName
-		inputs["name"] = state.Name
-		inputs["predicates"] = state.Predicates
-		inputs["rateKey"] = state.RateKey
-		inputs["rateLimit"] = state.RateLimit
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Predicates; i != nil { inputs["predicates"] = i.ToRateBasedRulePredicatesArrayOutput() }
+		if i := state.RateKey; i != nil { inputs["rateKey"] = i.ToStringOutput() }
+		if i := state.RateLimit; i != nil { inputs["rateLimit"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:waf/rateBasedRule:RateBasedRule", name, id, inputs, opts...)
+	var resource RateBasedRule
+	err := ctx.ReadResource("aws:waf/rateBasedRule:RateBasedRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RateBasedRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RateBasedRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RateBasedRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN)
-func (r *RateBasedRule) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name or description for the Amazon CloudWatch metric of this rule.
-func (r *RateBasedRule) MetricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metricName"])
-}
-
-// The name or description of the rule.
-func (r *RateBasedRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The objects to include in a rule (documented below).
-func (r *RateBasedRule) Predicates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["predicates"])
-}
-
-// Valid value is IP.
-func (r *RateBasedRule) RateKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rateKey"])
-}
-
-// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-func (r *RateBasedRule) RateLimit() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["rateLimit"])
-}
-
-// Key-value mapping of resource tags
-func (r *RateBasedRule) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RateBasedRule resources.
 type RateBasedRuleState struct {
 	// Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name or description for the Amazon CloudWatch metric of this rule.
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The name or description of the rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
-	Predicates interface{}
+	Predicates RateBasedRulePredicatesArrayInput `pulumi:"predicates"`
 	// Valid value is IP.
-	RateKey interface{}
+	RateKey pulumi.StringInput `pulumi:"rateKey"`
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit interface{}
+	RateLimit pulumi.IntInput `pulumi:"rateLimit"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RateBasedRule resource.
 type RateBasedRuleArgs struct {
 	// The name or description for the Amazon CloudWatch metric of this rule.
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The name or description of the rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
-	Predicates interface{}
+	Predicates RateBasedRulePredicatesArrayInput `pulumi:"predicates"`
 	// Valid value is IP.
-	RateKey interface{}
+	RateKey pulumi.StringInput `pulumi:"rateKey"`
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-	RateLimit interface{}
+	RateLimit pulumi.IntInput `pulumi:"rateLimit"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RateBasedRulePredicates struct {
+	// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+	DataId string `pulumi:"dataId"`
+	// Set this to `false` if you want to allow, block, or count requests
+	// based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
+	// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+	Negated bool `pulumi:"negated"`
+	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+	Type string `pulumi:"type"`
+}
+var rateBasedRulePredicatesType = reflect.TypeOf((*RateBasedRulePredicates)(nil)).Elem()
+
+type RateBasedRulePredicatesInput interface {
+	pulumi.Input
+
+	ToRateBasedRulePredicatesOutput() RateBasedRulePredicatesOutput
+	ToRateBasedRulePredicatesOutputWithContext(ctx context.Context) RateBasedRulePredicatesOutput
+}
+
+type RateBasedRulePredicatesArgs struct {
+	// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+	DataId pulumi.StringInput `pulumi:"dataId"`
+	// Set this to `false` if you want to allow, block, or count requests
+	// based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
+	// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+	Negated pulumi.BoolInput `pulumi:"negated"`
+	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RateBasedRulePredicatesArgs) ElementType() reflect.Type {
+	return rateBasedRulePredicatesType
+}
+
+func (a RateBasedRulePredicatesArgs) ToRateBasedRulePredicatesOutput() RateBasedRulePredicatesOutput {
+	return pulumi.ToOutput(a).(RateBasedRulePredicatesOutput)
+}
+
+func (a RateBasedRulePredicatesArgs) ToRateBasedRulePredicatesOutputWithContext(ctx context.Context) RateBasedRulePredicatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RateBasedRulePredicatesOutput)
+}
+
+type RateBasedRulePredicatesOutput struct { *pulumi.OutputState }
+
+// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+func (o RateBasedRulePredicatesOutput) DataId() pulumi.StringOutput {
+	return o.Apply(func(v RateBasedRulePredicates) string {
+		return v.DataId
+	}).(pulumi.StringOutput)
+}
+
+// Set this to `false` if you want to allow, block, or count requests
+// based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
+// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+func (o RateBasedRulePredicatesOutput) Negated() pulumi.BoolOutput {
+	return o.Apply(func(v RateBasedRulePredicates) bool {
+		return v.Negated
+	}).(pulumi.BoolOutput)
+}
+
+// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+func (o RateBasedRulePredicatesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v RateBasedRulePredicates) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (RateBasedRulePredicatesOutput) ElementType() reflect.Type {
+	return rateBasedRulePredicatesType
+}
+
+func (o RateBasedRulePredicatesOutput) ToRateBasedRulePredicatesOutput() RateBasedRulePredicatesOutput {
+	return o
+}
+
+func (o RateBasedRulePredicatesOutput) ToRateBasedRulePredicatesOutputWithContext(ctx context.Context) RateBasedRulePredicatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RateBasedRulePredicatesOutput{}) }
+
+var rateBasedRulePredicatesArrayType = reflect.TypeOf((*[]RateBasedRulePredicates)(nil)).Elem()
+
+type RateBasedRulePredicatesArrayInput interface {
+	pulumi.Input
+
+	ToRateBasedRulePredicatesArrayOutput() RateBasedRulePredicatesArrayOutput
+	ToRateBasedRulePredicatesArrayOutputWithContext(ctx context.Context) RateBasedRulePredicatesArrayOutput
+}
+
+type RateBasedRulePredicatesArrayArgs []RateBasedRulePredicatesInput
+
+func (RateBasedRulePredicatesArrayArgs) ElementType() reflect.Type {
+	return rateBasedRulePredicatesArrayType
+}
+
+func (a RateBasedRulePredicatesArrayArgs) ToRateBasedRulePredicatesArrayOutput() RateBasedRulePredicatesArrayOutput {
+	return pulumi.ToOutput(a).(RateBasedRulePredicatesArrayOutput)
+}
+
+func (a RateBasedRulePredicatesArrayArgs) ToRateBasedRulePredicatesArrayOutputWithContext(ctx context.Context) RateBasedRulePredicatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RateBasedRulePredicatesArrayOutput)
+}
+
+type RateBasedRulePredicatesArrayOutput struct { *pulumi.OutputState }
+
+func (o RateBasedRulePredicatesArrayOutput) Index(i pulumi.IntInput) RateBasedRulePredicatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RateBasedRulePredicates {
+		return vs[0].([]RateBasedRulePredicates)[vs[1].(int)]
+	}).(RateBasedRulePredicatesOutput)
+}
+
+func (RateBasedRulePredicatesArrayOutput) ElementType() reflect.Type {
+	return rateBasedRulePredicatesArrayType
+}
+
+func (o RateBasedRulePredicatesArrayOutput) ToRateBasedRulePredicatesArrayOutput() RateBasedRulePredicatesArrayOutput {
+	return o
+}
+
+func (o RateBasedRulePredicatesArrayOutput) ToRateBasedRulePredicatesArrayOutputWithContext(ctx context.Context) RateBasedRulePredicatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RateBasedRulePredicatesArrayOutput{}) }
+

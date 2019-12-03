@@ -12,39 +12,30 @@ import (
 // without having to hard code the ARN as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
-func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs) (*GetAliasResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:kms/getAlias:getAlias", inputs)
+func LookupAlias(ctx *pulumi.Context, args *GetAliasArgs, opts ...pulumi.InvokeOption) (*GetAliasResult, error) {
+	var rv GetAliasResult
+	err := ctx.Invoke("aws:kms/getAlias:getAlias", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAliasResult{
-		Arn: outputs["arn"],
-		Name: outputs["name"],
-		TargetKeyArn: outputs["targetKeyArn"],
-		TargetKeyId: outputs["targetKeyId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAlias.
 type GetAliasArgs struct {
 	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getAlias.
 type GetAliasResult struct {
 	// The Amazon Resource Name(ARN) of the key alias.
-	Arn interface{}
-	Name interface{}
+	Arn string `pulumi:"arn"`
+	Name string `pulumi:"name"`
 	// ARN pointed to by the alias.
-	TargetKeyArn interface{}
+	TargetKeyArn string `pulumi:"targetKeyArn"`
 	// Key identifier pointed to by the alias.
-	TargetKeyId interface{}
+	TargetKeyId string `pulumi:"targetKeyId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

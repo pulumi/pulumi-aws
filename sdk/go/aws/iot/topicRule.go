@@ -4,17 +4,59 @@
 package iot
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
 type TopicRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the topic rule
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	CloudwatchAlarm TopicRuleCloudwatchAlarmOutput `pulumi:"cloudwatchAlarm"`
+
+	CloudwatchMetric TopicRuleCloudwatchMetricOutput `pulumi:"cloudwatchMetric"`
+
+	// The description of the rule.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	Dynamodb TopicRuleDynamodbOutput `pulumi:"dynamodb"`
+
+	Elasticsearch TopicRuleElasticsearchOutput `pulumi:"elasticsearch"`
+
+	// Specifies whether the rule is enabled.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	Firehose TopicRuleFirehoseOutput `pulumi:"firehose"`
+
+	Kinesis TopicRuleKinesisOutput `pulumi:"kinesis"`
+
+	Lambda TopicRuleLambdaOutput `pulumi:"lambda"`
+
+	// The name of the rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	Republish TopicRuleRepublishOutput `pulumi:"republish"`
+
+	S3 TopicRuleS3Output `pulumi:"s3"`
+
+	Sns TopicRuleSnsOutput `pulumi:"sns"`
+
+	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+	Sql pulumi.StringOutput `pulumi:"sql"`
+
+	// The version of the SQL rules engine to use when evaluating the rule.
+	SqlVersion pulumi.StringOutput `pulumi:"sqlVersion"`
+
+	Sqs TopicRuleSqsOutput `pulumi:"sqs"`
 }
 
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
 func NewTopicRule(ctx *pulumi.Context,
-	name string, args *TopicRuleArgs, opts ...pulumi.ResourceOpt) (*TopicRule, error) {
+	name string, args *TopicRuleArgs, opts ...pulumi.ResourceOption) (*TopicRule, error) {
 	if args == nil || args.Enabled == nil {
 		return nil, errors.New("missing required argument 'Enabled'")
 	}
@@ -24,213 +66,1037 @@ func NewTopicRule(ctx *pulumi.Context,
 	if args == nil || args.SqlVersion == nil {
 		return nil, errors.New("missing required argument 'SqlVersion'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cloudwatchAlarm"] = nil
-		inputs["cloudwatchMetric"] = nil
-		inputs["description"] = nil
-		inputs["dynamodb"] = nil
-		inputs["elasticsearch"] = nil
-		inputs["enabled"] = nil
-		inputs["firehose"] = nil
-		inputs["kinesis"] = nil
-		inputs["lambda"] = nil
-		inputs["name"] = nil
-		inputs["republish"] = nil
-		inputs["s3"] = nil
-		inputs["sns"] = nil
-		inputs["sql"] = nil
-		inputs["sqlVersion"] = nil
-		inputs["sqs"] = nil
-	} else {
-		inputs["cloudwatchAlarm"] = args.CloudwatchAlarm
-		inputs["cloudwatchMetric"] = args.CloudwatchMetric
-		inputs["description"] = args.Description
-		inputs["dynamodb"] = args.Dynamodb
-		inputs["elasticsearch"] = args.Elasticsearch
-		inputs["enabled"] = args.Enabled
-		inputs["firehose"] = args.Firehose
-		inputs["kinesis"] = args.Kinesis
-		inputs["lambda"] = args.Lambda
-		inputs["name"] = args.Name
-		inputs["republish"] = args.Republish
-		inputs["s3"] = args.S3
-		inputs["sns"] = args.Sns
-		inputs["sql"] = args.Sql
-		inputs["sqlVersion"] = args.SqlVersion
-		inputs["sqs"] = args.Sqs
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CloudwatchAlarm; i != nil { inputs["cloudwatchAlarm"] = i.ToTopicRuleCloudwatchAlarmOutput() }
+		if i := args.CloudwatchMetric; i != nil { inputs["cloudwatchMetric"] = i.ToTopicRuleCloudwatchMetricOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Dynamodb; i != nil { inputs["dynamodb"] = i.ToTopicRuleDynamodbOutput() }
+		if i := args.Elasticsearch; i != nil { inputs["elasticsearch"] = i.ToTopicRuleElasticsearchOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Firehose; i != nil { inputs["firehose"] = i.ToTopicRuleFirehoseOutput() }
+		if i := args.Kinesis; i != nil { inputs["kinesis"] = i.ToTopicRuleKinesisOutput() }
+		if i := args.Lambda; i != nil { inputs["lambda"] = i.ToTopicRuleLambdaOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Republish; i != nil { inputs["republish"] = i.ToTopicRuleRepublishOutput() }
+		if i := args.S3; i != nil { inputs["s3"] = i.ToTopicRuleS3Output() }
+		if i := args.Sns; i != nil { inputs["sns"] = i.ToTopicRuleSnsOutput() }
+		if i := args.Sql; i != nil { inputs["sql"] = i.ToStringOutput() }
+		if i := args.SqlVersion; i != nil { inputs["sqlVersion"] = i.ToStringOutput() }
+		if i := args.Sqs; i != nil { inputs["sqs"] = i.ToTopicRuleSqsOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, true, inputs, opts...)
+	var resource TopicRule
+	err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TopicRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetTopicRule gets an existing TopicRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTopicRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TopicRuleState, opts ...pulumi.ResourceOpt) (*TopicRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TopicRuleState, opts ...pulumi.ResourceOption) (*TopicRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["cloudwatchAlarm"] = state.CloudwatchAlarm
-		inputs["cloudwatchMetric"] = state.CloudwatchMetric
-		inputs["description"] = state.Description
-		inputs["dynamodb"] = state.Dynamodb
-		inputs["elasticsearch"] = state.Elasticsearch
-		inputs["enabled"] = state.Enabled
-		inputs["firehose"] = state.Firehose
-		inputs["kinesis"] = state.Kinesis
-		inputs["lambda"] = state.Lambda
-		inputs["name"] = state.Name
-		inputs["republish"] = state.Republish
-		inputs["s3"] = state.S3
-		inputs["sns"] = state.Sns
-		inputs["sql"] = state.Sql
-		inputs["sqlVersion"] = state.SqlVersion
-		inputs["sqs"] = state.Sqs
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CloudwatchAlarm; i != nil { inputs["cloudwatchAlarm"] = i.ToTopicRuleCloudwatchAlarmOutput() }
+		if i := state.CloudwatchMetric; i != nil { inputs["cloudwatchMetric"] = i.ToTopicRuleCloudwatchMetricOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Dynamodb; i != nil { inputs["dynamodb"] = i.ToTopicRuleDynamodbOutput() }
+		if i := state.Elasticsearch; i != nil { inputs["elasticsearch"] = i.ToTopicRuleElasticsearchOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Firehose; i != nil { inputs["firehose"] = i.ToTopicRuleFirehoseOutput() }
+		if i := state.Kinesis; i != nil { inputs["kinesis"] = i.ToTopicRuleKinesisOutput() }
+		if i := state.Lambda; i != nil { inputs["lambda"] = i.ToTopicRuleLambdaOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Republish; i != nil { inputs["republish"] = i.ToTopicRuleRepublishOutput() }
+		if i := state.S3; i != nil { inputs["s3"] = i.ToTopicRuleS3Output() }
+		if i := state.Sns; i != nil { inputs["sns"] = i.ToTopicRuleSnsOutput() }
+		if i := state.Sql; i != nil { inputs["sql"] = i.ToStringOutput() }
+		if i := state.SqlVersion; i != nil { inputs["sqlVersion"] = i.ToStringOutput() }
+		if i := state.Sqs; i != nil { inputs["sqs"] = i.ToTopicRuleSqsOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iot/topicRule:TopicRule", name, id, inputs, opts...)
+	var resource TopicRule
+	err := ctx.ReadResource("aws:iot/topicRule:TopicRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TopicRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TopicRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TopicRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the topic rule
-func (r *TopicRule) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *TopicRule) CloudwatchAlarm() pulumi.Output {
-	return r.s.State["cloudwatchAlarm"]
-}
-
-func (r *TopicRule) CloudwatchMetric() pulumi.Output {
-	return r.s.State["cloudwatchMetric"]
-}
-
-// The description of the rule.
-func (r *TopicRule) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-func (r *TopicRule) Dynamodb() pulumi.Output {
-	return r.s.State["dynamodb"]
-}
-
-func (r *TopicRule) Elasticsearch() pulumi.Output {
-	return r.s.State["elasticsearch"]
-}
-
-// Specifies whether the rule is enabled.
-func (r *TopicRule) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-func (r *TopicRule) Firehose() pulumi.Output {
-	return r.s.State["firehose"]
-}
-
-func (r *TopicRule) Kinesis() pulumi.Output {
-	return r.s.State["kinesis"]
-}
-
-func (r *TopicRule) Lambda() pulumi.Output {
-	return r.s.State["lambda"]
-}
-
-// The name of the rule.
-func (r *TopicRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *TopicRule) Republish() pulumi.Output {
-	return r.s.State["republish"]
-}
-
-func (r *TopicRule) S3() pulumi.Output {
-	return r.s.State["s3"]
-}
-
-func (r *TopicRule) Sns() pulumi.Output {
-	return r.s.State["sns"]
-}
-
-// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-func (r *TopicRule) Sql() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sql"])
-}
-
-// The version of the SQL rules engine to use when evaluating the rule.
-func (r *TopicRule) SqlVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sqlVersion"])
-}
-
-func (r *TopicRule) Sqs() pulumi.Output {
-	return r.s.State["sqs"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TopicRule resources.
 type TopicRuleState struct {
 	// The ARN of the topic rule
-	Arn interface{}
-	CloudwatchAlarm interface{}
-	CloudwatchMetric interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	CloudwatchAlarm TopicRuleCloudwatchAlarmInput `pulumi:"cloudwatchAlarm"`
+	CloudwatchMetric TopicRuleCloudwatchMetricInput `pulumi:"cloudwatchMetric"`
 	// The description of the rule.
-	Description interface{}
-	Dynamodb interface{}
-	Elasticsearch interface{}
+	Description pulumi.StringInput `pulumi:"description"`
+	Dynamodb TopicRuleDynamodbInput `pulumi:"dynamodb"`
+	Elasticsearch TopicRuleElasticsearchInput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled interface{}
-	Firehose interface{}
-	Kinesis interface{}
-	Lambda interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Firehose TopicRuleFirehoseInput `pulumi:"firehose"`
+	Kinesis TopicRuleKinesisInput `pulumi:"kinesis"`
+	Lambda TopicRuleLambdaInput `pulumi:"lambda"`
 	// The name of the rule.
-	Name interface{}
-	Republish interface{}
-	S3 interface{}
-	Sns interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Republish TopicRuleRepublishInput `pulumi:"republish"`
+	S3 TopicRuleS3Input `pulumi:"s3"`
+	Sns TopicRuleSnsInput `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-	Sql interface{}
+	Sql pulumi.StringInput `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion interface{}
-	Sqs interface{}
+	SqlVersion pulumi.StringInput `pulumi:"sqlVersion"`
+	Sqs TopicRuleSqsInput `pulumi:"sqs"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
 type TopicRuleArgs struct {
-	CloudwatchAlarm interface{}
-	CloudwatchMetric interface{}
+	CloudwatchAlarm TopicRuleCloudwatchAlarmInput `pulumi:"cloudwatchAlarm"`
+	CloudwatchMetric TopicRuleCloudwatchMetricInput `pulumi:"cloudwatchMetric"`
 	// The description of the rule.
-	Description interface{}
-	Dynamodb interface{}
-	Elasticsearch interface{}
+	Description pulumi.StringInput `pulumi:"description"`
+	Dynamodb TopicRuleDynamodbInput `pulumi:"dynamodb"`
+	Elasticsearch TopicRuleElasticsearchInput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled interface{}
-	Firehose interface{}
-	Kinesis interface{}
-	Lambda interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Firehose TopicRuleFirehoseInput `pulumi:"firehose"`
+	Kinesis TopicRuleKinesisInput `pulumi:"kinesis"`
+	Lambda TopicRuleLambdaInput `pulumi:"lambda"`
 	// The name of the rule.
-	Name interface{}
-	Republish interface{}
-	S3 interface{}
-	Sns interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Republish TopicRuleRepublishInput `pulumi:"republish"`
+	S3 TopicRuleS3Input `pulumi:"s3"`
+	Sns TopicRuleSnsInput `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-	Sql interface{}
+	Sql pulumi.StringInput `pulumi:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
-	SqlVersion interface{}
-	Sqs interface{}
+	SqlVersion pulumi.StringInput `pulumi:"sqlVersion"`
+	Sqs TopicRuleSqsInput `pulumi:"sqs"`
 }
+type TopicRuleCloudwatchAlarm struct {
+	// The CloudWatch alarm name.
+	AlarmName string `pulumi:"alarmName"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The reason for the alarm change.
+	StateReason string `pulumi:"stateReason"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue string `pulumi:"stateValue"`
+}
+var topicRuleCloudwatchAlarmType = reflect.TypeOf((*TopicRuleCloudwatchAlarm)(nil)).Elem()
+
+type TopicRuleCloudwatchAlarmInput interface {
+	pulumi.Input
+
+	ToTopicRuleCloudwatchAlarmOutput() TopicRuleCloudwatchAlarmOutput
+	ToTopicRuleCloudwatchAlarmOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmOutput
+}
+
+type TopicRuleCloudwatchAlarmArgs struct {
+	// The CloudWatch alarm name.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The reason for the alarm change.
+	StateReason pulumi.StringInput `pulumi:"stateReason"`
+	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+	StateValue pulumi.StringInput `pulumi:"stateValue"`
+}
+
+func (TopicRuleCloudwatchAlarmArgs) ElementType() reflect.Type {
+	return topicRuleCloudwatchAlarmType
+}
+
+func (a TopicRuleCloudwatchAlarmArgs) ToTopicRuleCloudwatchAlarmOutput() TopicRuleCloudwatchAlarmOutput {
+	return pulumi.ToOutput(a).(TopicRuleCloudwatchAlarmOutput)
+}
+
+func (a TopicRuleCloudwatchAlarmArgs) ToTopicRuleCloudwatchAlarmOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleCloudwatchAlarmOutput)
+}
+
+type TopicRuleCloudwatchAlarmOutput struct { *pulumi.OutputState }
+
+// The CloudWatch alarm name.
+func (o TopicRuleCloudwatchAlarmOutput) AlarmName() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchAlarm) string {
+		return v.AlarmName
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleCloudwatchAlarmOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchAlarm) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// The reason for the alarm change.
+func (o TopicRuleCloudwatchAlarmOutput) StateReason() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchAlarm) string {
+		return v.StateReason
+	}).(pulumi.StringOutput)
+}
+
+// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+func (o TopicRuleCloudwatchAlarmOutput) StateValue() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchAlarm) string {
+		return v.StateValue
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleCloudwatchAlarmOutput) ElementType() reflect.Type {
+	return topicRuleCloudwatchAlarmType
+}
+
+func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmOutput() TopicRuleCloudwatchAlarmOutput {
+	return o
+}
+
+func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmOutput{}) }
+
+type TopicRuleCloudwatchMetric struct {
+	// The CloudWatch metric name.
+	MetricName string `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+	MetricTimestamp *string `pulumi:"metricTimestamp"`
+	// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+	MetricUnit string `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue string `pulumi:"metricValue"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+}
+var topicRuleCloudwatchMetricType = reflect.TypeOf((*TopicRuleCloudwatchMetric)(nil)).Elem()
+
+type TopicRuleCloudwatchMetricInput interface {
+	pulumi.Input
+
+	ToTopicRuleCloudwatchMetricOutput() TopicRuleCloudwatchMetricOutput
+	ToTopicRuleCloudwatchMetricOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricOutput
+}
+
+type TopicRuleCloudwatchMetricArgs struct {
+	// The CloudWatch metric name.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The CloudWatch metric namespace name.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+	MetricTimestamp pulumi.StringInput `pulumi:"metricTimestamp"`
+	// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+	MetricUnit pulumi.StringInput `pulumi:"metricUnit"`
+	// The CloudWatch metric value.
+	MetricValue pulumi.StringInput `pulumi:"metricValue"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleCloudwatchMetricArgs) ElementType() reflect.Type {
+	return topicRuleCloudwatchMetricType
+}
+
+func (a TopicRuleCloudwatchMetricArgs) ToTopicRuleCloudwatchMetricOutput() TopicRuleCloudwatchMetricOutput {
+	return pulumi.ToOutput(a).(TopicRuleCloudwatchMetricOutput)
+}
+
+func (a TopicRuleCloudwatchMetricArgs) ToTopicRuleCloudwatchMetricOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleCloudwatchMetricOutput)
+}
+
+type TopicRuleCloudwatchMetricOutput struct { *pulumi.OutputState }
+
+// The CloudWatch metric name.
+func (o TopicRuleCloudwatchMetricOutput) MetricName() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchMetric) string {
+		return v.MetricName
+	}).(pulumi.StringOutput)
+}
+
+// The CloudWatch metric namespace name.
+func (o TopicRuleCloudwatchMetricOutput) MetricNamespace() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchMetric) string {
+		return v.MetricNamespace
+	}).(pulumi.StringOutput)
+}
+
+// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+func (o TopicRuleCloudwatchMetricOutput) MetricTimestamp() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchMetric) string {
+		if v.MetricTimestamp == nil { return *new(string) } else { return *v.MetricTimestamp }
+	}).(pulumi.StringOutput)
+}
+
+// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+func (o TopicRuleCloudwatchMetricOutput) MetricUnit() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchMetric) string {
+		return v.MetricUnit
+	}).(pulumi.StringOutput)
+}
+
+// The CloudWatch metric value.
+func (o TopicRuleCloudwatchMetricOutput) MetricValue() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchMetric) string {
+		return v.MetricValue
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleCloudwatchMetricOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleCloudwatchMetric) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleCloudwatchMetricOutput) ElementType() reflect.Type {
+	return topicRuleCloudwatchMetricType
+}
+
+func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricOutput() TopicRuleCloudwatchMetricOutput {
+	return o
+}
+
+func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleCloudwatchMetricOutput{}) }
+
+type TopicRuleDynamodb struct {
+	// The hash key name.
+	HashKeyField string `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER".
+	HashKeyType *string `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue string `pulumi:"hashKeyValue"`
+	// The action payload.
+	PayloadField *string `pulumi:"payloadField"`
+	// The range key name.
+	RangeKeyField *string `pulumi:"rangeKeyField"`
+	// The range key type. Valid values are "STRING" or "NUMBER".
+	RangeKeyType *string `pulumi:"rangeKeyType"`
+	// The range key value.
+	RangeKeyValue *string `pulumi:"rangeKeyValue"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName string `pulumi:"tableName"`
+}
+var topicRuleDynamodbType = reflect.TypeOf((*TopicRuleDynamodb)(nil)).Elem()
+
+type TopicRuleDynamodbInput interface {
+	pulumi.Input
+
+	ToTopicRuleDynamodbOutput() TopicRuleDynamodbOutput
+	ToTopicRuleDynamodbOutputWithContext(ctx context.Context) TopicRuleDynamodbOutput
+}
+
+type TopicRuleDynamodbArgs struct {
+	// The hash key name.
+	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
+	// The hash key type. Valid values are "STRING" or "NUMBER".
+	HashKeyType pulumi.StringInput `pulumi:"hashKeyType"`
+	// The hash key value.
+	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
+	// The action payload.
+	PayloadField pulumi.StringInput `pulumi:"payloadField"`
+	// The range key name.
+	RangeKeyField pulumi.StringInput `pulumi:"rangeKeyField"`
+	// The range key type. Valid values are "STRING" or "NUMBER".
+	RangeKeyType pulumi.StringInput `pulumi:"rangeKeyType"`
+	// The range key value.
+	RangeKeyValue pulumi.StringInput `pulumi:"rangeKeyValue"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the DynamoDB table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (TopicRuleDynamodbArgs) ElementType() reflect.Type {
+	return topicRuleDynamodbType
+}
+
+func (a TopicRuleDynamodbArgs) ToTopicRuleDynamodbOutput() TopicRuleDynamodbOutput {
+	return pulumi.ToOutput(a).(TopicRuleDynamodbOutput)
+}
+
+func (a TopicRuleDynamodbArgs) ToTopicRuleDynamodbOutputWithContext(ctx context.Context) TopicRuleDynamodbOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleDynamodbOutput)
+}
+
+type TopicRuleDynamodbOutput struct { *pulumi.OutputState }
+
+// The hash key name.
+func (o TopicRuleDynamodbOutput) HashKeyField() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		return v.HashKeyField
+	}).(pulumi.StringOutput)
+}
+
+// The hash key type. Valid values are "STRING" or "NUMBER".
+func (o TopicRuleDynamodbOutput) HashKeyType() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		if v.HashKeyType == nil { return *new(string) } else { return *v.HashKeyType }
+	}).(pulumi.StringOutput)
+}
+
+// The hash key value.
+func (o TopicRuleDynamodbOutput) HashKeyValue() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		return v.HashKeyValue
+	}).(pulumi.StringOutput)
+}
+
+// The action payload.
+func (o TopicRuleDynamodbOutput) PayloadField() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		if v.PayloadField == nil { return *new(string) } else { return *v.PayloadField }
+	}).(pulumi.StringOutput)
+}
+
+// The range key name.
+func (o TopicRuleDynamodbOutput) RangeKeyField() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		if v.RangeKeyField == nil { return *new(string) } else { return *v.RangeKeyField }
+	}).(pulumi.StringOutput)
+}
+
+// The range key type. Valid values are "STRING" or "NUMBER".
+func (o TopicRuleDynamodbOutput) RangeKeyType() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		if v.RangeKeyType == nil { return *new(string) } else { return *v.RangeKeyType }
+	}).(pulumi.StringOutput)
+}
+
+// The range key value.
+func (o TopicRuleDynamodbOutput) RangeKeyValue() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		if v.RangeKeyValue == nil { return *new(string) } else { return *v.RangeKeyValue }
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleDynamodbOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// The name of the DynamoDB table.
+func (o TopicRuleDynamodbOutput) TableName() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleDynamodb) string {
+		return v.TableName
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleDynamodbOutput) ElementType() reflect.Type {
+	return topicRuleDynamodbType
+}
+
+func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbOutput() TopicRuleDynamodbOutput {
+	return o
+}
+
+func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbOutputWithContext(ctx context.Context) TopicRuleDynamodbOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleDynamodbOutput{}) }
+
+type TopicRuleElasticsearch struct {
+	// The endpoint of your Elasticsearch domain.
+	Endpoint string `pulumi:"endpoint"`
+	// The unique identifier for the document you are storing.
+	Id string `pulumi:"id"`
+	// The Elasticsearch index where you want to store your data.
+	Index string `pulumi:"index"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type string `pulumi:"type"`
+}
+var topicRuleElasticsearchType = reflect.TypeOf((*TopicRuleElasticsearch)(nil)).Elem()
+
+type TopicRuleElasticsearchInput interface {
+	pulumi.Input
+
+	ToTopicRuleElasticsearchOutput() TopicRuleElasticsearchOutput
+	ToTopicRuleElasticsearchOutputWithContext(ctx context.Context) TopicRuleElasticsearchOutput
+}
+
+type TopicRuleElasticsearchArgs struct {
+	// The endpoint of your Elasticsearch domain.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The unique identifier for the document you are storing.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Elasticsearch index where you want to store your data.
+	Index pulumi.StringInput `pulumi:"index"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The type of document you are storing.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TopicRuleElasticsearchArgs) ElementType() reflect.Type {
+	return topicRuleElasticsearchType
+}
+
+func (a TopicRuleElasticsearchArgs) ToTopicRuleElasticsearchOutput() TopicRuleElasticsearchOutput {
+	return pulumi.ToOutput(a).(TopicRuleElasticsearchOutput)
+}
+
+func (a TopicRuleElasticsearchArgs) ToTopicRuleElasticsearchOutputWithContext(ctx context.Context) TopicRuleElasticsearchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleElasticsearchOutput)
+}
+
+type TopicRuleElasticsearchOutput struct { *pulumi.OutputState }
+
+// The endpoint of your Elasticsearch domain.
+func (o TopicRuleElasticsearchOutput) Endpoint() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleElasticsearch) string {
+		return v.Endpoint
+	}).(pulumi.StringOutput)
+}
+
+// The unique identifier for the document you are storing.
+func (o TopicRuleElasticsearchOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleElasticsearch) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+// The Elasticsearch index where you want to store your data.
+func (o TopicRuleElasticsearchOutput) Index() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleElasticsearch) string {
+		return v.Index
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleElasticsearchOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleElasticsearch) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// The type of document you are storing.
+func (o TopicRuleElasticsearchOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleElasticsearch) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleElasticsearchOutput) ElementType() reflect.Type {
+	return topicRuleElasticsearchType
+}
+
+func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchOutput() TopicRuleElasticsearchOutput {
+	return o
+}
+
+func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchOutputWithContext(ctx context.Context) TopicRuleElasticsearchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleElasticsearchOutput{}) }
+
+type TopicRuleFirehose struct {
+	// The delivery stream name.
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator *string `pulumi:"separator"`
+}
+var topicRuleFirehoseType = reflect.TypeOf((*TopicRuleFirehose)(nil)).Elem()
+
+type TopicRuleFirehoseInput interface {
+	pulumi.Input
+
+	ToTopicRuleFirehoseOutput() TopicRuleFirehoseOutput
+	ToTopicRuleFirehoseOutputWithContext(ctx context.Context) TopicRuleFirehoseOutput
+}
+
+type TopicRuleFirehoseArgs struct {
+	// The delivery stream name.
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+	Separator pulumi.StringInput `pulumi:"separator"`
+}
+
+func (TopicRuleFirehoseArgs) ElementType() reflect.Type {
+	return topicRuleFirehoseType
+}
+
+func (a TopicRuleFirehoseArgs) ToTopicRuleFirehoseOutput() TopicRuleFirehoseOutput {
+	return pulumi.ToOutput(a).(TopicRuleFirehoseOutput)
+}
+
+func (a TopicRuleFirehoseArgs) ToTopicRuleFirehoseOutputWithContext(ctx context.Context) TopicRuleFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleFirehoseOutput)
+}
+
+type TopicRuleFirehoseOutput struct { *pulumi.OutputState }
+
+// The delivery stream name.
+func (o TopicRuleFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleFirehose) string {
+		return v.DeliveryStreamName
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleFirehoseOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleFirehose) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+func (o TopicRuleFirehoseOutput) Separator() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleFirehose) string {
+		if v.Separator == nil { return *new(string) } else { return *v.Separator }
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleFirehoseOutput) ElementType() reflect.Type {
+	return topicRuleFirehoseType
+}
+
+func (o TopicRuleFirehoseOutput) ToTopicRuleFirehoseOutput() TopicRuleFirehoseOutput {
+	return o
+}
+
+func (o TopicRuleFirehoseOutput) ToTopicRuleFirehoseOutputWithContext(ctx context.Context) TopicRuleFirehoseOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleFirehoseOutput{}) }
+
+type TopicRuleKinesis struct {
+	// The partition key.
+	PartitionKey *string `pulumi:"partitionKey"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName string `pulumi:"streamName"`
+}
+var topicRuleKinesisType = reflect.TypeOf((*TopicRuleKinesis)(nil)).Elem()
+
+type TopicRuleKinesisInput interface {
+	pulumi.Input
+
+	ToTopicRuleKinesisOutput() TopicRuleKinesisOutput
+	ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput
+}
+
+type TopicRuleKinesisArgs struct {
+	// The partition key.
+	PartitionKey pulumi.StringInput `pulumi:"partitionKey"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Amazon Kinesis stream.
+	StreamName pulumi.StringInput `pulumi:"streamName"`
+}
+
+func (TopicRuleKinesisArgs) ElementType() reflect.Type {
+	return topicRuleKinesisType
+}
+
+func (a TopicRuleKinesisArgs) ToTopicRuleKinesisOutput() TopicRuleKinesisOutput {
+	return pulumi.ToOutput(a).(TopicRuleKinesisOutput)
+}
+
+func (a TopicRuleKinesisArgs) ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleKinesisOutput)
+}
+
+type TopicRuleKinesisOutput struct { *pulumi.OutputState }
+
+// The partition key.
+func (o TopicRuleKinesisOutput) PartitionKey() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleKinesis) string {
+		if v.PartitionKey == nil { return *new(string) } else { return *v.PartitionKey }
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleKinesisOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleKinesis) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Amazon Kinesis stream.
+func (o TopicRuleKinesisOutput) StreamName() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleKinesis) string {
+		return v.StreamName
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleKinesisOutput) ElementType() reflect.Type {
+	return topicRuleKinesisType
+}
+
+func (o TopicRuleKinesisOutput) ToTopicRuleKinesisOutput() TopicRuleKinesisOutput {
+	return o
+}
+
+func (o TopicRuleKinesisOutput) ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleKinesisOutput{}) }
+
+type TopicRuleLambda struct {
+	// The ARN of the Lambda function.
+	FunctionArn string `pulumi:"functionArn"`
+}
+var topicRuleLambdaType = reflect.TypeOf((*TopicRuleLambda)(nil)).Elem()
+
+type TopicRuleLambdaInput interface {
+	pulumi.Input
+
+	ToTopicRuleLambdaOutput() TopicRuleLambdaOutput
+	ToTopicRuleLambdaOutputWithContext(ctx context.Context) TopicRuleLambdaOutput
+}
+
+type TopicRuleLambdaArgs struct {
+	// The ARN of the Lambda function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+}
+
+func (TopicRuleLambdaArgs) ElementType() reflect.Type {
+	return topicRuleLambdaType
+}
+
+func (a TopicRuleLambdaArgs) ToTopicRuleLambdaOutput() TopicRuleLambdaOutput {
+	return pulumi.ToOutput(a).(TopicRuleLambdaOutput)
+}
+
+func (a TopicRuleLambdaArgs) ToTopicRuleLambdaOutputWithContext(ctx context.Context) TopicRuleLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleLambdaOutput)
+}
+
+type TopicRuleLambdaOutput struct { *pulumi.OutputState }
+
+// The ARN of the Lambda function.
+func (o TopicRuleLambdaOutput) FunctionArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleLambda) string {
+		return v.FunctionArn
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleLambdaOutput) ElementType() reflect.Type {
+	return topicRuleLambdaType
+}
+
+func (o TopicRuleLambdaOutput) ToTopicRuleLambdaOutput() TopicRuleLambdaOutput {
+	return o
+}
+
+func (o TopicRuleLambdaOutput) ToTopicRuleLambdaOutputWithContext(ctx context.Context) TopicRuleLambdaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleLambdaOutput{}) }
+
+type TopicRuleRepublish struct {
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the MQTT topic the message should be republished to.
+	Topic string `pulumi:"topic"`
+}
+var topicRuleRepublishType = reflect.TypeOf((*TopicRuleRepublish)(nil)).Elem()
+
+type TopicRuleRepublishInput interface {
+	pulumi.Input
+
+	ToTopicRuleRepublishOutput() TopicRuleRepublishOutput
+	ToTopicRuleRepublishOutputWithContext(ctx context.Context) TopicRuleRepublishOutput
+}
+
+type TopicRuleRepublishArgs struct {
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the MQTT topic the message should be republished to.
+	Topic pulumi.StringInput `pulumi:"topic"`
+}
+
+func (TopicRuleRepublishArgs) ElementType() reflect.Type {
+	return topicRuleRepublishType
+}
+
+func (a TopicRuleRepublishArgs) ToTopicRuleRepublishOutput() TopicRuleRepublishOutput {
+	return pulumi.ToOutput(a).(TopicRuleRepublishOutput)
+}
+
+func (a TopicRuleRepublishArgs) ToTopicRuleRepublishOutputWithContext(ctx context.Context) TopicRuleRepublishOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleRepublishOutput)
+}
+
+type TopicRuleRepublishOutput struct { *pulumi.OutputState }
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleRepublishOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleRepublish) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// The name of the MQTT topic the message should be republished to.
+func (o TopicRuleRepublishOutput) Topic() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleRepublish) string {
+		return v.Topic
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleRepublishOutput) ElementType() reflect.Type {
+	return topicRuleRepublishType
+}
+
+func (o TopicRuleRepublishOutput) ToTopicRuleRepublishOutput() TopicRuleRepublishOutput {
+	return o
+}
+
+func (o TopicRuleRepublishOutput) ToTopicRuleRepublishOutputWithContext(ctx context.Context) TopicRuleRepublishOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleRepublishOutput{}) }
+
+type TopicRuleS3 struct {
+	// The Amazon S3 bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// The object key.
+	Key string `pulumi:"key"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+}
+var topicRuleS3Type = reflect.TypeOf((*TopicRuleS3)(nil)).Elem()
+
+type TopicRuleS3Input interface {
+	pulumi.Input
+
+	ToTopicRuleS3Output() TopicRuleS3Output
+	ToTopicRuleS3OutputWithContext(ctx context.Context) TopicRuleS3Output
+}
+
+type TopicRuleS3Args struct {
+	// The Amazon S3 bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The object key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (TopicRuleS3Args) ElementType() reflect.Type {
+	return topicRuleS3Type
+}
+
+func (a TopicRuleS3Args) ToTopicRuleS3Output() TopicRuleS3Output {
+	return pulumi.ToOutput(a).(TopicRuleS3Output)
+}
+
+func (a TopicRuleS3Args) ToTopicRuleS3OutputWithContext(ctx context.Context) TopicRuleS3Output {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleS3Output)
+}
+
+type TopicRuleS3Output struct { *pulumi.OutputState }
+
+// The Amazon S3 bucket name.
+func (o TopicRuleS3Output) BucketName() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleS3) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+// The object key.
+func (o TopicRuleS3Output) Key() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleS3) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleS3Output) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleS3) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleS3Output) ElementType() reflect.Type {
+	return topicRuleS3Type
+}
+
+func (o TopicRuleS3Output) ToTopicRuleS3Output() TopicRuleS3Output {
+	return o
+}
+
+func (o TopicRuleS3Output) ToTopicRuleS3OutputWithContext(ctx context.Context) TopicRuleS3Output {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleS3Output{}) }
+
+type TopicRuleSns struct {
+	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
+	MessageFormat *string `pulumi:"messageFormat"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn string `pulumi:"targetArn"`
+}
+var topicRuleSnsType = reflect.TypeOf((*TopicRuleSns)(nil)).Elem()
+
+type TopicRuleSnsInput interface {
+	pulumi.Input
+
+	ToTopicRuleSnsOutput() TopicRuleSnsOutput
+	ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput
+}
+
+type TopicRuleSnsArgs struct {
+	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
+	MessageFormat pulumi.StringInput `pulumi:"messageFormat"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The ARN of the SNS topic.
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
+}
+
+func (TopicRuleSnsArgs) ElementType() reflect.Type {
+	return topicRuleSnsType
+}
+
+func (a TopicRuleSnsArgs) ToTopicRuleSnsOutput() TopicRuleSnsOutput {
+	return pulumi.ToOutput(a).(TopicRuleSnsOutput)
+}
+
+func (a TopicRuleSnsArgs) ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleSnsOutput)
+}
+
+type TopicRuleSnsOutput struct { *pulumi.OutputState }
+
+// The message format of the message to publish. Accepted values are "JSON" and "RAW".
+func (o TopicRuleSnsOutput) MessageFormat() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleSns) string {
+		if v.MessageFormat == nil { return *new(string) } else { return *v.MessageFormat }
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleSnsOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleSns) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the SNS topic.
+func (o TopicRuleSnsOutput) TargetArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleSns) string {
+		return v.TargetArn
+	}).(pulumi.StringOutput)
+}
+
+func (TopicRuleSnsOutput) ElementType() reflect.Type {
+	return topicRuleSnsType
+}
+
+func (o TopicRuleSnsOutput) ToTopicRuleSnsOutput() TopicRuleSnsOutput {
+	return o
+}
+
+func (o TopicRuleSnsOutput) ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleSnsOutput{}) }
+
+type TopicRuleSqs struct {
+	// The URL of the Amazon SQS queue.
+	QueueUrl string `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn string `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 bool `pulumi:"useBase64"`
+}
+var topicRuleSqsType = reflect.TypeOf((*TopicRuleSqs)(nil)).Elem()
+
+type TopicRuleSqsInput interface {
+	pulumi.Input
+
+	ToTopicRuleSqsOutput() TopicRuleSqsOutput
+	ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput
+}
+
+type TopicRuleSqsArgs struct {
+	// The URL of the Amazon SQS queue.
+	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
+	// The ARN of the IAM role that grants access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Specifies whether to use Base64 encoding.
+	UseBase64 pulumi.BoolInput `pulumi:"useBase64"`
+}
+
+func (TopicRuleSqsArgs) ElementType() reflect.Type {
+	return topicRuleSqsType
+}
+
+func (a TopicRuleSqsArgs) ToTopicRuleSqsOutput() TopicRuleSqsOutput {
+	return pulumi.ToOutput(a).(TopicRuleSqsOutput)
+}
+
+func (a TopicRuleSqsArgs) ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TopicRuleSqsOutput)
+}
+
+type TopicRuleSqsOutput struct { *pulumi.OutputState }
+
+// The URL of the Amazon SQS queue.
+func (o TopicRuleSqsOutput) QueueUrl() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleSqs) string {
+		return v.QueueUrl
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that grants access.
+func (o TopicRuleSqsOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v TopicRuleSqs) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+// Specifies whether to use Base64 encoding.
+func (o TopicRuleSqsOutput) UseBase64() pulumi.BoolOutput {
+	return o.Apply(func(v TopicRuleSqs) bool {
+		return v.UseBase64
+	}).(pulumi.BoolOutput)
+}
+
+func (TopicRuleSqsOutput) ElementType() reflect.Type {
+	return topicRuleSqsType
+}
+
+func (o TopicRuleSqsOutput) ToTopicRuleSqsOutput() TopicRuleSqsOutput {
+	return o
+}
+
+func (o TopicRuleSqsOutput) ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TopicRuleSqsOutput{}) }
+

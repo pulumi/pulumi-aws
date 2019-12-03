@@ -18,202 +18,151 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
 type Route struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The destination CIDR block.
+	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+
+	// The destination IPv6 CIDR block.
+	DestinationIpv6CidrBlock pulumi.StringOutput `pulumi:"destinationIpv6CidrBlock"`
+
+	DestinationPrefixListId pulumi.StringOutput `pulumi:"destinationPrefixListId"`
+
+	// Identifier of a VPC Egress Only Internet Gateway.
+	EgressOnlyGatewayId pulumi.StringOutput `pulumi:"egressOnlyGatewayId"`
+
+	// Identifier of a VPC internet gateway or a virtual private gateway.
+	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
+
+	// Identifier of an EC2 instance.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+
+	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
+
+	// Identifier of a VPC NAT gateway.
+	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
+
+	// Identifier of an EC2 network interface.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+
+	Origin pulumi.StringOutput `pulumi:"origin"`
+
+	// The ID of the routing table.
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+
+	State pulumi.StringOutput `pulumi:"state"`
+
+	// Identifier of an EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+
+	// Identifier of a VPC peering connection.
+	VpcPeeringConnectionId pulumi.StringOutput `pulumi:"vpcPeeringConnectionId"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
-	name string, args *RouteArgs, opts ...pulumi.ResourceOpt) (*Route, error) {
+	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
 	if args == nil || args.RouteTableId == nil {
 		return nil, errors.New("missing required argument 'RouteTableId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["destinationCidrBlock"] = nil
-		inputs["destinationIpv6CidrBlock"] = nil
-		inputs["egressOnlyGatewayId"] = nil
-		inputs["gatewayId"] = nil
-		inputs["instanceId"] = nil
-		inputs["natGatewayId"] = nil
-		inputs["networkInterfaceId"] = nil
-		inputs["routeTableId"] = nil
-		inputs["transitGatewayId"] = nil
-		inputs["vpcPeeringConnectionId"] = nil
-	} else {
-		inputs["destinationCidrBlock"] = args.DestinationCidrBlock
-		inputs["destinationIpv6CidrBlock"] = args.DestinationIpv6CidrBlock
-		inputs["egressOnlyGatewayId"] = args.EgressOnlyGatewayId
-		inputs["gatewayId"] = args.GatewayId
-		inputs["instanceId"] = args.InstanceId
-		inputs["natGatewayId"] = args.NatGatewayId
-		inputs["networkInterfaceId"] = args.NetworkInterfaceId
-		inputs["routeTableId"] = args.RouteTableId
-		inputs["transitGatewayId"] = args.TransitGatewayId
-		inputs["vpcPeeringConnectionId"] = args.VpcPeeringConnectionId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DestinationCidrBlock; i != nil { inputs["destinationCidrBlock"] = i.ToStringOutput() }
+		if i := args.DestinationIpv6CidrBlock; i != nil { inputs["destinationIpv6CidrBlock"] = i.ToStringOutput() }
+		if i := args.EgressOnlyGatewayId; i != nil { inputs["egressOnlyGatewayId"] = i.ToStringOutput() }
+		if i := args.GatewayId; i != nil { inputs["gatewayId"] = i.ToStringOutput() }
+		if i := args.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := args.NatGatewayId; i != nil { inputs["natGatewayId"] = i.ToStringOutput() }
+		if i := args.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := args.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := args.TransitGatewayId; i != nil { inputs["transitGatewayId"] = i.ToStringOutput() }
+		if i := args.VpcPeeringConnectionId; i != nil { inputs["vpcPeeringConnectionId"] = i.ToStringOutput() }
 	}
-	inputs["destinationPrefixListId"] = nil
-	inputs["instanceOwnerId"] = nil
-	inputs["origin"] = nil
-	inputs["state"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/route:Route", name, true, inputs, opts...)
+	var resource Route
+	err := ctx.RegisterResource("aws:ec2/route:Route", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
+	return &resource, nil
 }
 
 // GetRoute gets an existing Route resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRoute(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteState, opts ...pulumi.ResourceOpt) (*Route, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["destinationCidrBlock"] = state.DestinationCidrBlock
-		inputs["destinationIpv6CidrBlock"] = state.DestinationIpv6CidrBlock
-		inputs["destinationPrefixListId"] = state.DestinationPrefixListId
-		inputs["egressOnlyGatewayId"] = state.EgressOnlyGatewayId
-		inputs["gatewayId"] = state.GatewayId
-		inputs["instanceId"] = state.InstanceId
-		inputs["instanceOwnerId"] = state.InstanceOwnerId
-		inputs["natGatewayId"] = state.NatGatewayId
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
-		inputs["origin"] = state.Origin
-		inputs["routeTableId"] = state.RouteTableId
-		inputs["state"] = state.State
-		inputs["transitGatewayId"] = state.TransitGatewayId
-		inputs["vpcPeeringConnectionId"] = state.VpcPeeringConnectionId
+		if i := state.DestinationCidrBlock; i != nil { inputs["destinationCidrBlock"] = i.ToStringOutput() }
+		if i := state.DestinationIpv6CidrBlock; i != nil { inputs["destinationIpv6CidrBlock"] = i.ToStringOutput() }
+		if i := state.DestinationPrefixListId; i != nil { inputs["destinationPrefixListId"] = i.ToStringOutput() }
+		if i := state.EgressOnlyGatewayId; i != nil { inputs["egressOnlyGatewayId"] = i.ToStringOutput() }
+		if i := state.GatewayId; i != nil { inputs["gatewayId"] = i.ToStringOutput() }
+		if i := state.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := state.InstanceOwnerId; i != nil { inputs["instanceOwnerId"] = i.ToStringOutput() }
+		if i := state.NatGatewayId; i != nil { inputs["natGatewayId"] = i.ToStringOutput() }
+		if i := state.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := state.Origin; i != nil { inputs["origin"] = i.ToStringOutput() }
+		if i := state.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := state.TransitGatewayId; i != nil { inputs["transitGatewayId"] = i.ToStringOutput() }
+		if i := state.VpcPeeringConnectionId; i != nil { inputs["vpcPeeringConnectionId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/route:Route", name, id, inputs, opts...)
+	var resource Route
+	err := ctx.ReadResource("aws:ec2/route:Route", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The destination CIDR block.
-func (r *Route) DestinationCidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
-}
-
-// The destination IPv6 CIDR block.
-func (r *Route) DestinationIpv6CidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["destinationIpv6CidrBlock"])
-}
-
-func (r *Route) DestinationPrefixListId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["destinationPrefixListId"])
-}
-
-// Identifier of a VPC Egress Only Internet Gateway.
-func (r *Route) EgressOnlyGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["egressOnlyGatewayId"])
-}
-
-// Identifier of a VPC internet gateway or a virtual private gateway.
-func (r *Route) GatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayId"])
-}
-
-// Identifier of an EC2 instance.
-func (r *Route) InstanceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceId"])
-}
-
-func (r *Route) InstanceOwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceOwnerId"])
-}
-
-// Identifier of a VPC NAT gateway.
-func (r *Route) NatGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["natGatewayId"])
-}
-
-// Identifier of an EC2 network interface.
-func (r *Route) NetworkInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
-}
-
-func (r *Route) Origin() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["origin"])
-}
-
-// The ID of the routing table.
-func (r *Route) RouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["routeTableId"])
-}
-
-func (r *Route) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
-}
-
-// Identifier of an EC2 Transit Gateway.
-func (r *Route) TransitGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
-}
-
-// Identifier of a VPC peering connection.
-func (r *Route) VpcPeeringConnectionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcPeeringConnectionId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Route resources.
 type RouteState struct {
 	// The destination CIDR block.
-	DestinationCidrBlock interface{}
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
-	DestinationIpv6CidrBlock interface{}
-	DestinationPrefixListId interface{}
+	DestinationIpv6CidrBlock pulumi.StringInput `pulumi:"destinationIpv6CidrBlock"`
+	DestinationPrefixListId pulumi.StringInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
-	EgressOnlyGatewayId interface{}
+	EgressOnlyGatewayId pulumi.StringInput `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway.
-	GatewayId interface{}
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	InstanceId interface{}
-	InstanceOwnerId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	InstanceOwnerId pulumi.StringInput `pulumi:"instanceOwnerId"`
 	// Identifier of a VPC NAT gateway.
-	NatGatewayId interface{}
+	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
-	NetworkInterfaceId interface{}
-	Origin interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	Origin pulumi.StringInput `pulumi:"origin"`
 	// The ID of the routing table.
-	RouteTableId interface{}
-	State interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
+	State pulumi.StringInput `pulumi:"state"`
 	// Identifier of an EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
 	// Identifier of a VPC peering connection.
-	VpcPeeringConnectionId interface{}
+	VpcPeeringConnectionId pulumi.StringInput `pulumi:"vpcPeeringConnectionId"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	// The destination CIDR block.
-	DestinationCidrBlock interface{}
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
-	DestinationIpv6CidrBlock interface{}
+	DestinationIpv6CidrBlock pulumi.StringInput `pulumi:"destinationIpv6CidrBlock"`
 	// Identifier of a VPC Egress Only Internet Gateway.
-	EgressOnlyGatewayId interface{}
+	EgressOnlyGatewayId pulumi.StringInput `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway.
-	GatewayId interface{}
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Identifier of a VPC NAT gateway.
-	NatGatewayId interface{}
+	NatGatewayId pulumi.StringInput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The ID of the routing table.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// Identifier of an EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
 	// Identifier of a VPC peering connection.
-	VpcPeeringConnectionId interface{}
+	VpcPeeringConnectionId pulumi.StringInput `pulumi:"vpcPeeringConnectionId"`
 }

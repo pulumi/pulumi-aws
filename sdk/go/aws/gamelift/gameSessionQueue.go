@@ -4,6 +4,8 @@
 package gamelift
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,108 +13,193 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
 type GameSessionQueue struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Game Session Queue ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// List of fleet/alias ARNs used by session queue for placing game sessions.
+	Destinations pulumi.StringArrayOutput `pulumi:"destinations"`
+
+	// Name of the session queue.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// One or more policies used to choose fleet based on player latency. See below.
+	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPoliciesArrayOutput `pulumi:"playerLatencyPolicies"`
+
+	// Maximum time a game session request can remain in the queue.
+	TimeoutInSeconds pulumi.IntOutput `pulumi:"timeoutInSeconds"`
 }
 
 // NewGameSessionQueue registers a new resource with the given unique name, arguments, and options.
 func NewGameSessionQueue(ctx *pulumi.Context,
-	name string, args *GameSessionQueueArgs, opts ...pulumi.ResourceOpt) (*GameSessionQueue, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["destinations"] = nil
-		inputs["name"] = nil
-		inputs["playerLatencyPolicies"] = nil
-		inputs["timeoutInSeconds"] = nil
-	} else {
-		inputs["destinations"] = args.Destinations
-		inputs["name"] = args.Name
-		inputs["playerLatencyPolicies"] = args.PlayerLatencyPolicies
-		inputs["timeoutInSeconds"] = args.TimeoutInSeconds
+	name string, args *GameSessionQueueArgs, opts ...pulumi.ResourceOption) (*GameSessionQueue, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Destinations; i != nil { inputs["destinations"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PlayerLatencyPolicies; i != nil { inputs["playerLatencyPolicies"] = i.ToGameSessionQueuePlayerLatencyPoliciesArrayOutput() }
+		if i := args.TimeoutInSeconds; i != nil { inputs["timeoutInSeconds"] = i.ToIntOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, true, inputs, opts...)
+	var resource GameSessionQueue
+	err := ctx.RegisterResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GameSessionQueue{s: s}, nil
+	return &resource, nil
 }
 
 // GetGameSessionQueue gets an existing GameSessionQueue resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGameSessionQueue(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GameSessionQueueState, opts ...pulumi.ResourceOpt) (*GameSessionQueue, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GameSessionQueueState, opts ...pulumi.ResourceOption) (*GameSessionQueue, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["destinations"] = state.Destinations
-		inputs["name"] = state.Name
-		inputs["playerLatencyPolicies"] = state.PlayerLatencyPolicies
-		inputs["timeoutInSeconds"] = state.TimeoutInSeconds
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Destinations; i != nil { inputs["destinations"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PlayerLatencyPolicies; i != nil { inputs["playerLatencyPolicies"] = i.ToGameSessionQueuePlayerLatencyPoliciesArrayOutput() }
+		if i := state.TimeoutInSeconds; i != nil { inputs["timeoutInSeconds"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, id, inputs, opts...)
+	var resource GameSessionQueue
+	err := ctx.ReadResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GameSessionQueue{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *GameSessionQueue) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *GameSessionQueue) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Game Session Queue ARN.
-func (r *GameSessionQueue) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// List of fleet/alias ARNs used by session queue for placing game sessions.
-func (r *GameSessionQueue) Destinations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["destinations"])
-}
-
-// Name of the session queue.
-func (r *GameSessionQueue) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// One or more policies used to choose fleet based on player latency. See below.
-func (r *GameSessionQueue) PlayerLatencyPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["playerLatencyPolicies"])
-}
-
-// Maximum time a game session request can remain in the queue.
-func (r *GameSessionQueue) TimeoutInSeconds() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["timeoutInSeconds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering GameSessionQueue resources.
 type GameSessionQueueState struct {
 	// Game Session Queue ARN.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
-	Destinations interface{}
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
 	// Name of the session queue.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more policies used to choose fleet based on player latency. See below.
-	PlayerLatencyPolicies interface{}
+	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPoliciesArrayInput `pulumi:"playerLatencyPolicies"`
 	// Maximum time a game session request can remain in the queue.
-	TimeoutInSeconds interface{}
+	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
 }
 
 // The set of arguments for constructing a GameSessionQueue resource.
 type GameSessionQueueArgs struct {
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
-	Destinations interface{}
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
 	// Name of the session queue.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more policies used to choose fleet based on player latency. See below.
-	PlayerLatencyPolicies interface{}
+	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPoliciesArrayInput `pulumi:"playerLatencyPolicies"`
 	// Maximum time a game session request can remain in the queue.
-	TimeoutInSeconds interface{}
+	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
 }
+type GameSessionQueuePlayerLatencyPolicies struct {
+	// Maximum latency value that is allowed for any player.
+	MaximumIndividualPlayerLatencyMilliseconds int `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
+	// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
+	PolicyDurationSeconds *int `pulumi:"policyDurationSeconds"`
+}
+var gameSessionQueuePlayerLatencyPoliciesType = reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicies)(nil)).Elem()
+
+type GameSessionQueuePlayerLatencyPoliciesInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePlayerLatencyPoliciesOutput() GameSessionQueuePlayerLatencyPoliciesOutput
+	ToGameSessionQueuePlayerLatencyPoliciesOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPoliciesOutput
+}
+
+type GameSessionQueuePlayerLatencyPoliciesArgs struct {
+	// Maximum latency value that is allowed for any player.
+	MaximumIndividualPlayerLatencyMilliseconds pulumi.IntInput `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
+	// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
+	PolicyDurationSeconds pulumi.IntInput `pulumi:"policyDurationSeconds"`
+}
+
+func (GameSessionQueuePlayerLatencyPoliciesArgs) ElementType() reflect.Type {
+	return gameSessionQueuePlayerLatencyPoliciesType
+}
+
+func (a GameSessionQueuePlayerLatencyPoliciesArgs) ToGameSessionQueuePlayerLatencyPoliciesOutput() GameSessionQueuePlayerLatencyPoliciesOutput {
+	return pulumi.ToOutput(a).(GameSessionQueuePlayerLatencyPoliciesOutput)
+}
+
+func (a GameSessionQueuePlayerLatencyPoliciesArgs) ToGameSessionQueuePlayerLatencyPoliciesOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GameSessionQueuePlayerLatencyPoliciesOutput)
+}
+
+type GameSessionQueuePlayerLatencyPoliciesOutput struct { *pulumi.OutputState }
+
+// Maximum latency value that is allowed for any player.
+func (o GameSessionQueuePlayerLatencyPoliciesOutput) MaximumIndividualPlayerLatencyMilliseconds() pulumi.IntOutput {
+	return o.Apply(func(v GameSessionQueuePlayerLatencyPolicies) int {
+		return v.MaximumIndividualPlayerLatencyMilliseconds
+	}).(pulumi.IntOutput)
+}
+
+// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
+func (o GameSessionQueuePlayerLatencyPoliciesOutput) PolicyDurationSeconds() pulumi.IntOutput {
+	return o.Apply(func(v GameSessionQueuePlayerLatencyPolicies) int {
+		if v.PolicyDurationSeconds == nil { return *new(int) } else { return *v.PolicyDurationSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (GameSessionQueuePlayerLatencyPoliciesOutput) ElementType() reflect.Type {
+	return gameSessionQueuePlayerLatencyPoliciesType
+}
+
+func (o GameSessionQueuePlayerLatencyPoliciesOutput) ToGameSessionQueuePlayerLatencyPoliciesOutput() GameSessionQueuePlayerLatencyPoliciesOutput {
+	return o
+}
+
+func (o GameSessionQueuePlayerLatencyPoliciesOutput) ToGameSessionQueuePlayerLatencyPoliciesOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPoliciesOutput{}) }
+
+var gameSessionQueuePlayerLatencyPoliciesArrayType = reflect.TypeOf((*[]GameSessionQueuePlayerLatencyPolicies)(nil)).Elem()
+
+type GameSessionQueuePlayerLatencyPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePlayerLatencyPoliciesArrayOutput() GameSessionQueuePlayerLatencyPoliciesArrayOutput
+	ToGameSessionQueuePlayerLatencyPoliciesArrayOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPoliciesArrayOutput
+}
+
+type GameSessionQueuePlayerLatencyPoliciesArrayArgs []GameSessionQueuePlayerLatencyPoliciesInput
+
+func (GameSessionQueuePlayerLatencyPoliciesArrayArgs) ElementType() reflect.Type {
+	return gameSessionQueuePlayerLatencyPoliciesArrayType
+}
+
+func (a GameSessionQueuePlayerLatencyPoliciesArrayArgs) ToGameSessionQueuePlayerLatencyPoliciesArrayOutput() GameSessionQueuePlayerLatencyPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(GameSessionQueuePlayerLatencyPoliciesArrayOutput)
+}
+
+func (a GameSessionQueuePlayerLatencyPoliciesArrayArgs) ToGameSessionQueuePlayerLatencyPoliciesArrayOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GameSessionQueuePlayerLatencyPoliciesArrayOutput)
+}
+
+type GameSessionQueuePlayerLatencyPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o GameSessionQueuePlayerLatencyPoliciesArrayOutput) Index(i pulumi.IntInput) GameSessionQueuePlayerLatencyPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GameSessionQueuePlayerLatencyPolicies {
+		return vs[0].([]GameSessionQueuePlayerLatencyPolicies)[vs[1].(int)]
+	}).(GameSessionQueuePlayerLatencyPoliciesOutput)
+}
+
+func (GameSessionQueuePlayerLatencyPoliciesArrayOutput) ElementType() reflect.Type {
+	return gameSessionQueuePlayerLatencyPoliciesArrayType
+}
+
+func (o GameSessionQueuePlayerLatencyPoliciesArrayOutput) ToGameSessionQueuePlayerLatencyPoliciesArrayOutput() GameSessionQueuePlayerLatencyPoliciesArrayOutput {
+	return o
+}
+
+func (o GameSessionQueuePlayerLatencyPoliciesArrayOutput) ToGameSessionQueuePlayerLatencyPoliciesArrayOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPoliciesArrayOutput{}) }
+

@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_resource.html.markdown.
 type Resource struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the parent API resource
+	ParentId pulumi.StringOutput `pulumi:"parentId"`
+
+	// The complete path for this API resource, including all parent paths.
+	Path pulumi.StringOutput `pulumi:"path"`
+
+	// The last path segment of this API resource.
+	PathPart pulumi.StringOutput `pulumi:"pathPart"`
+
+	// The ID of the associated REST API
+	RestApi pulumi.StringOutput `pulumi:"restApi"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
 func NewResource(ctx *pulumi.Context,
-	name string, args *ResourceArgs, opts ...pulumi.ResourceOpt) (*Resource, error) {
+	name string, args *ResourceArgs, opts ...pulumi.ResourceOption) (*Resource, error) {
 	if args == nil || args.ParentId == nil {
 		return nil, errors.New("missing required argument 'ParentId'")
 	}
@@ -27,90 +39,57 @@ func NewResource(ctx *pulumi.Context,
 	if args == nil || args.RestApi == nil {
 		return nil, errors.New("missing required argument 'RestApi'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["parentId"] = nil
-		inputs["pathPart"] = nil
-		inputs["restApi"] = nil
-	} else {
-		inputs["parentId"] = args.ParentId
-		inputs["pathPart"] = args.PathPart
-		inputs["restApi"] = args.RestApi
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ParentId; i != nil { inputs["parentId"] = i.ToStringOutput() }
+		if i := args.PathPart; i != nil { inputs["pathPart"] = i.ToStringOutput() }
+		if i := args.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
 	}
-	inputs["path"] = nil
-	s, err := ctx.RegisterResource("aws:apigateway/resource:Resource", name, true, inputs, opts...)
+	var resource Resource
+	err := ctx.RegisterResource("aws:apigateway/resource:Resource", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Resource{s: s}, nil
+	return &resource, nil
 }
 
 // GetResource gets an existing Resource resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetResource(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ResourceState, opts ...pulumi.ResourceOpt) (*Resource, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ResourceState, opts ...pulumi.ResourceOption) (*Resource, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["parentId"] = state.ParentId
-		inputs["path"] = state.Path
-		inputs["pathPart"] = state.PathPart
-		inputs["restApi"] = state.RestApi
+		if i := state.ParentId; i != nil { inputs["parentId"] = i.ToStringOutput() }
+		if i := state.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := state.PathPart; i != nil { inputs["pathPart"] = i.ToStringOutput() }
+		if i := state.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/resource:Resource", name, id, inputs, opts...)
+	var resource Resource
+	err := ctx.ReadResource("aws:apigateway/resource:Resource", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Resource{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Resource) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Resource) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the parent API resource
-func (r *Resource) ParentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parentId"])
-}
-
-// The complete path for this API resource, including all parent paths.
-func (r *Resource) Path() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["path"])
-}
-
-// The last path segment of this API resource.
-func (r *Resource) PathPart() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["pathPart"])
-}
-
-// The ID of the associated REST API
-func (r *Resource) RestApi() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restApi"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Resource resources.
 type ResourceState struct {
 	// The ID of the parent API resource
-	ParentId interface{}
+	ParentId pulumi.StringInput `pulumi:"parentId"`
 	// The complete path for this API resource, including all parent paths.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// The last path segment of this API resource.
-	PathPart interface{}
+	PathPart pulumi.StringInput `pulumi:"pathPart"`
 	// The ID of the associated REST API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
 	// The ID of the parent API resource
-	ParentId interface{}
+	ParentId pulumi.StringInput `pulumi:"parentId"`
 	// The last path segment of this API resource.
-	PathPart interface{}
+	PathPart pulumi.StringInput `pulumi:"pathPart"`
 	// The ID of the associated REST API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 }

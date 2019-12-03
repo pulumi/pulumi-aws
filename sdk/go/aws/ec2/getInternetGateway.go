@@ -10,46 +10,56 @@ import (
 // `ec2.InternetGateway` provides details about a specific Internet Gateway.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
-func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs) (*GetInternetGatewayResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["internetGatewayId"] = args.InternetGatewayId
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getInternetGateway:getInternetGateway", inputs)
+func LookupInternetGateway(ctx *pulumi.Context, args *GetInternetGatewayArgs, opts ...pulumi.InvokeOption) (*GetInternetGatewayResult, error) {
+	var rv GetInternetGatewayResult
+	err := ctx.Invoke("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetInternetGatewayResult{
-		Attachments: outputs["attachments"],
-		Filters: outputs["filters"],
-		InternetGatewayId: outputs["internetGatewayId"],
-		OwnerId: outputs["ownerId"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getInternetGateway.
 type GetInternetGatewayArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetInternetGatewayFiltersArgs `pulumi:"filters"`
 	// The id of the specific Internet Gateway to retrieve.
-	InternetGatewayId interface{}
+	InternetGatewayId *string `pulumi:"internetGatewayId"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInternetGateway.
 type GetInternetGatewayResult struct {
-	Attachments interface{}
-	Filters interface{}
-	InternetGatewayId interface{}
+	Attachments []GetInternetGatewayAttachmentsResult `pulumi:"attachments"`
+	Filters *[]GetInternetGatewayFiltersResult `pulumi:"filters"`
+	InternetGatewayId string `pulumi:"internetGatewayId"`
 	// The ID of the AWS account that owns the internet gateway.
-	OwnerId interface{}
-	Tags interface{}
+	OwnerId string `pulumi:"ownerId"`
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetInternetGatewayAttachmentsResult struct {
+	// The current state of the attachment between the gateway and the VPC. Present only if a VPC is attached
+	State string `pulumi:"state"`
+	// The ID of an attached VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+type GetInternetGatewayFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An Internet Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetInternetGatewayFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An Internet Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

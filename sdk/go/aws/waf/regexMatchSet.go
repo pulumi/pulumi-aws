@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,87 +13,274 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_regex_match_set.html.markdown.
 type RegexMatchSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name or description of the Regex Match Set.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The regular expression pattern that you want AWS WAF to search for in web requests,
+	// the location in requests that you want AWS WAF to search, and other settings. See below.
+	RegexMatchTuples RegexMatchSetRegexMatchTuplesArrayOutput `pulumi:"regexMatchTuples"`
 }
 
 // NewRegexMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewRegexMatchSet(ctx *pulumi.Context,
-	name string, args *RegexMatchSetArgs, opts ...pulumi.ResourceOpt) (*RegexMatchSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["regexMatchTuples"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["regexMatchTuples"] = args.RegexMatchTuples
+	name string, args *RegexMatchSetArgs, opts ...pulumi.ResourceOption) (*RegexMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RegexMatchTuples; i != nil { inputs["regexMatchTuples"] = i.ToRegexMatchSetRegexMatchTuplesArrayOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:waf/regexMatchSet:RegexMatchSet", name, true, inputs, opts...)
+	var resource RegexMatchSet
+	err := ctx.RegisterResource("aws:waf/regexMatchSet:RegexMatchSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RegexMatchSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetRegexMatchSet gets an existing RegexMatchSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRegexMatchSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RegexMatchSetState, opts ...pulumi.ResourceOpt) (*RegexMatchSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RegexMatchSetState, opts ...pulumi.ResourceOption) (*RegexMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["regexMatchTuples"] = state.RegexMatchTuples
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RegexMatchTuples; i != nil { inputs["regexMatchTuples"] = i.ToRegexMatchSetRegexMatchTuplesArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:waf/regexMatchSet:RegexMatchSet", name, id, inputs, opts...)
+	var resource RegexMatchSet
+	err := ctx.ReadResource("aws:waf/regexMatchSet:RegexMatchSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RegexMatchSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RegexMatchSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RegexMatchSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN)
-func (r *RegexMatchSet) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name or description of the Regex Match Set.
-func (r *RegexMatchSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The regular expression pattern that you want AWS WAF to search for in web requests,
-// the location in requests that you want AWS WAF to search, and other settings. See below.
-func (r *RegexMatchSet) RegexMatchTuples() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["regexMatchTuples"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RegexMatchSet resources.
 type RegexMatchSetState struct {
 	// Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name or description of the Regex Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The regular expression pattern that you want AWS WAF to search for in web requests,
 	// the location in requests that you want AWS WAF to search, and other settings. See below.
-	RegexMatchTuples interface{}
+	RegexMatchTuples RegexMatchSetRegexMatchTuplesArrayInput `pulumi:"regexMatchTuples"`
 }
 
 // The set of arguments for constructing a RegexMatchSet resource.
 type RegexMatchSetArgs struct {
 	// The name or description of the Regex Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The regular expression pattern that you want AWS WAF to search for in web requests,
 	// the location in requests that you want AWS WAF to search, and other settings. See below.
-	RegexMatchTuples interface{}
+	RegexMatchTuples RegexMatchSetRegexMatchTuplesArrayInput `pulumi:"regexMatchTuples"`
 }
+type RegexMatchSetRegexMatchTuples struct {
+	// The part of a web request that you want to search, such as a specified header or a query string.
+	FieldToMatch RegexMatchSetRegexMatchTuplesFieldToMatch `pulumi:"fieldToMatch"`
+	// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+	RegexPatternSetId string `pulumi:"regexPatternSetId"`
+	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+	// for all supported values.
+	TextTransformation string `pulumi:"textTransformation"`
+}
+var regexMatchSetRegexMatchTuplesType = reflect.TypeOf((*RegexMatchSetRegexMatchTuples)(nil)).Elem()
+
+type RegexMatchSetRegexMatchTuplesInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetRegexMatchTuplesOutput() RegexMatchSetRegexMatchTuplesOutput
+	ToRegexMatchSetRegexMatchTuplesOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesOutput
+}
+
+type RegexMatchSetRegexMatchTuplesArgs struct {
+	// The part of a web request that you want to search, such as a specified header or a query string.
+	FieldToMatch RegexMatchSetRegexMatchTuplesFieldToMatchInput `pulumi:"fieldToMatch"`
+	// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+	RegexPatternSetId pulumi.StringInput `pulumi:"regexPatternSetId"`
+	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+	// for all supported values.
+	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
+}
+
+func (RegexMatchSetRegexMatchTuplesArgs) ElementType() reflect.Type {
+	return regexMatchSetRegexMatchTuplesType
+}
+
+func (a RegexMatchSetRegexMatchTuplesArgs) ToRegexMatchSetRegexMatchTuplesOutput() RegexMatchSetRegexMatchTuplesOutput {
+	return pulumi.ToOutput(a).(RegexMatchSetRegexMatchTuplesOutput)
+}
+
+func (a RegexMatchSetRegexMatchTuplesArgs) ToRegexMatchSetRegexMatchTuplesOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegexMatchSetRegexMatchTuplesOutput)
+}
+
+type RegexMatchSetRegexMatchTuplesOutput struct { *pulumi.OutputState }
+
+// The part of a web request that you want to search, such as a specified header or a query string.
+func (o RegexMatchSetRegexMatchTuplesOutput) FieldToMatch() RegexMatchSetRegexMatchTuplesFieldToMatchOutput {
+	return o.Apply(func(v RegexMatchSetRegexMatchTuples) RegexMatchSetRegexMatchTuplesFieldToMatch {
+		return v.FieldToMatch
+	}).(RegexMatchSetRegexMatchTuplesFieldToMatchOutput)
+}
+
+// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+func (o RegexMatchSetRegexMatchTuplesOutput) RegexPatternSetId() pulumi.StringOutput {
+	return o.Apply(func(v RegexMatchSetRegexMatchTuples) string {
+		return v.RegexPatternSetId
+	}).(pulumi.StringOutput)
+}
+
+// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+// for all supported values.
+func (o RegexMatchSetRegexMatchTuplesOutput) TextTransformation() pulumi.StringOutput {
+	return o.Apply(func(v RegexMatchSetRegexMatchTuples) string {
+		return v.TextTransformation
+	}).(pulumi.StringOutput)
+}
+
+func (RegexMatchSetRegexMatchTuplesOutput) ElementType() reflect.Type {
+	return regexMatchSetRegexMatchTuplesType
+}
+
+func (o RegexMatchSetRegexMatchTuplesOutput) ToRegexMatchSetRegexMatchTuplesOutput() RegexMatchSetRegexMatchTuplesOutput {
+	return o
+}
+
+func (o RegexMatchSetRegexMatchTuplesOutput) ToRegexMatchSetRegexMatchTuplesOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegexMatchSetRegexMatchTuplesOutput{}) }
+
+var regexMatchSetRegexMatchTuplesArrayType = reflect.TypeOf((*[]RegexMatchSetRegexMatchTuples)(nil)).Elem()
+
+type RegexMatchSetRegexMatchTuplesArrayInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetRegexMatchTuplesArrayOutput() RegexMatchSetRegexMatchTuplesArrayOutput
+	ToRegexMatchSetRegexMatchTuplesArrayOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesArrayOutput
+}
+
+type RegexMatchSetRegexMatchTuplesArrayArgs []RegexMatchSetRegexMatchTuplesInput
+
+func (RegexMatchSetRegexMatchTuplesArrayArgs) ElementType() reflect.Type {
+	return regexMatchSetRegexMatchTuplesArrayType
+}
+
+func (a RegexMatchSetRegexMatchTuplesArrayArgs) ToRegexMatchSetRegexMatchTuplesArrayOutput() RegexMatchSetRegexMatchTuplesArrayOutput {
+	return pulumi.ToOutput(a).(RegexMatchSetRegexMatchTuplesArrayOutput)
+}
+
+func (a RegexMatchSetRegexMatchTuplesArrayArgs) ToRegexMatchSetRegexMatchTuplesArrayOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegexMatchSetRegexMatchTuplesArrayOutput)
+}
+
+type RegexMatchSetRegexMatchTuplesArrayOutput struct { *pulumi.OutputState }
+
+func (o RegexMatchSetRegexMatchTuplesArrayOutput) Index(i pulumi.IntInput) RegexMatchSetRegexMatchTuplesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RegexMatchSetRegexMatchTuples {
+		return vs[0].([]RegexMatchSetRegexMatchTuples)[vs[1].(int)]
+	}).(RegexMatchSetRegexMatchTuplesOutput)
+}
+
+func (RegexMatchSetRegexMatchTuplesArrayOutput) ElementType() reflect.Type {
+	return regexMatchSetRegexMatchTuplesArrayType
+}
+
+func (o RegexMatchSetRegexMatchTuplesArrayOutput) ToRegexMatchSetRegexMatchTuplesArrayOutput() RegexMatchSetRegexMatchTuplesArrayOutput {
+	return o
+}
+
+func (o RegexMatchSetRegexMatchTuplesArrayOutput) ToRegexMatchSetRegexMatchTuplesArrayOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegexMatchSetRegexMatchTuplesArrayOutput{}) }
+
+type RegexMatchSetRegexMatchTuplesFieldToMatch struct {
+	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+	// If `type` is any other value, omit this field.
+	Data *string `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string.
+	// e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+	// for all supported values.
+	Type string `pulumi:"type"`
+}
+var regexMatchSetRegexMatchTuplesFieldToMatchType = reflect.TypeOf((*RegexMatchSetRegexMatchTuplesFieldToMatch)(nil)).Elem()
+
+type RegexMatchSetRegexMatchTuplesFieldToMatchInput interface {
+	pulumi.Input
+
+	ToRegexMatchSetRegexMatchTuplesFieldToMatchOutput() RegexMatchSetRegexMatchTuplesFieldToMatchOutput
+	ToRegexMatchSetRegexMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesFieldToMatchOutput
+}
+
+type RegexMatchSetRegexMatchTuplesFieldToMatchArgs struct {
+	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+	// If `type` is any other value, omit this field.
+	Data pulumi.StringInput `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string.
+	// e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+	// for all supported values.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegexMatchSetRegexMatchTuplesFieldToMatchArgs) ElementType() reflect.Type {
+	return regexMatchSetRegexMatchTuplesFieldToMatchType
+}
+
+func (a RegexMatchSetRegexMatchTuplesFieldToMatchArgs) ToRegexMatchSetRegexMatchTuplesFieldToMatchOutput() RegexMatchSetRegexMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutput(a).(RegexMatchSetRegexMatchTuplesFieldToMatchOutput)
+}
+
+func (a RegexMatchSetRegexMatchTuplesFieldToMatchArgs) ToRegexMatchSetRegexMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegexMatchSetRegexMatchTuplesFieldToMatchOutput)
+}
+
+type RegexMatchSetRegexMatchTuplesFieldToMatchOutput struct { *pulumi.OutputState }
+
+// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+// If `type` is any other value, omit this field.
+func (o RegexMatchSetRegexMatchTuplesFieldToMatchOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v RegexMatchSetRegexMatchTuplesFieldToMatch) string {
+		if v.Data == nil { return *new(string) } else { return *v.Data }
+	}).(pulumi.StringOutput)
+}
+
+// The part of the web request that you want AWS WAF to search for a specified string.
+// e.g. `HEADER`, `METHOD` or `BODY`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+// for all supported values.
+func (o RegexMatchSetRegexMatchTuplesFieldToMatchOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v RegexMatchSetRegexMatchTuplesFieldToMatch) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (RegexMatchSetRegexMatchTuplesFieldToMatchOutput) ElementType() reflect.Type {
+	return regexMatchSetRegexMatchTuplesFieldToMatchType
+}
+
+func (o RegexMatchSetRegexMatchTuplesFieldToMatchOutput) ToRegexMatchSetRegexMatchTuplesFieldToMatchOutput() RegexMatchSetRegexMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func (o RegexMatchSetRegexMatchTuplesFieldToMatchOutput) ToRegexMatchSetRegexMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegexMatchSetRegexMatchTuplesFieldToMatchOutput{}) }
+

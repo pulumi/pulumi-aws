@@ -4,6 +4,8 @@
 package gamelift
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,105 +14,159 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
 type Build struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Name of the build
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
+	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
+
+	// Information indicating where your game build files are stored. See below.
+	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
+
+	// Version that is associated with this build.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewBuild registers a new resource with the given unique name, arguments, and options.
 func NewBuild(ctx *pulumi.Context,
-	name string, args *BuildArgs, opts ...pulumi.ResourceOpt) (*Build, error) {
+	name string, args *BuildArgs, opts ...pulumi.ResourceOption) (*Build, error) {
 	if args == nil || args.OperatingSystem == nil {
 		return nil, errors.New("missing required argument 'OperatingSystem'")
 	}
 	if args == nil || args.StorageLocation == nil {
 		return nil, errors.New("missing required argument 'StorageLocation'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["operatingSystem"] = nil
-		inputs["storageLocation"] = nil
-		inputs["version"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["operatingSystem"] = args.OperatingSystem
-		inputs["storageLocation"] = args.StorageLocation
-		inputs["version"] = args.Version
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OperatingSystem; i != nil { inputs["operatingSystem"] = i.ToStringOutput() }
+		if i := args.StorageLocation; i != nil { inputs["storageLocation"] = i.ToBuildStorageLocationOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:gamelift/build:Build", name, true, inputs, opts...)
+	var resource Build
+	err := ctx.RegisterResource("aws:gamelift/build:Build", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Build{s: s}, nil
+	return &resource, nil
 }
 
 // GetBuild gets an existing Build resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBuild(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BuildState, opts ...pulumi.ResourceOpt) (*Build, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BuildState, opts ...pulumi.ResourceOption) (*Build, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["operatingSystem"] = state.OperatingSystem
-		inputs["storageLocation"] = state.StorageLocation
-		inputs["version"] = state.Version
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OperatingSystem; i != nil { inputs["operatingSystem"] = i.ToStringOutput() }
+		if i := state.StorageLocation; i != nil { inputs["storageLocation"] = i.ToBuildStorageLocationOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:gamelift/build:Build", name, id, inputs, opts...)
+	var resource Build
+	err := ctx.ReadResource("aws:gamelift/build:Build", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Build{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Build) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Build) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Name of the build
-func (r *Build) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
-func (r *Build) OperatingSystem() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["operatingSystem"])
-}
-
-// Information indicating where your game build files are stored. See below.
-func (r *Build) StorageLocation() pulumi.Output {
-	return r.s.State["storageLocation"]
-}
-
-// Version that is associated with this build.
-func (r *Build) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Build resources.
 type BuildState struct {
 	// Name of the build
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
-	OperatingSystem interface{}
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
-	StorageLocation interface{}
+	StorageLocation BuildStorageLocationInput `pulumi:"storageLocation"`
 	// Version that is associated with this build.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Build resource.
 type BuildArgs struct {
 	// Name of the build
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
-	OperatingSystem interface{}
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
 	// Information indicating where your game build files are stored. See below.
-	StorageLocation interface{}
+	StorageLocation BuildStorageLocationInput `pulumi:"storageLocation"`
 	// Version that is associated with this build.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
+type BuildStorageLocation struct {
+	// Name of your S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// Name of the zip file containing your build files.
+	Key string `pulumi:"key"`
+	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+	RoleArn string `pulumi:"roleArn"`
+}
+var buildStorageLocationType = reflect.TypeOf((*BuildStorageLocation)(nil)).Elem()
+
+type BuildStorageLocationInput interface {
+	pulumi.Input
+
+	ToBuildStorageLocationOutput() BuildStorageLocationOutput
+	ToBuildStorageLocationOutputWithContext(ctx context.Context) BuildStorageLocationOutput
+}
+
+type BuildStorageLocationArgs struct {
+	// Name of your S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Name of the zip file containing your build files.
+	Key pulumi.StringInput `pulumi:"key"`
+	// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (BuildStorageLocationArgs) ElementType() reflect.Type {
+	return buildStorageLocationType
+}
+
+func (a BuildStorageLocationArgs) ToBuildStorageLocationOutput() BuildStorageLocationOutput {
+	return pulumi.ToOutput(a).(BuildStorageLocationOutput)
+}
+
+func (a BuildStorageLocationArgs) ToBuildStorageLocationOutputWithContext(ctx context.Context) BuildStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BuildStorageLocationOutput)
+}
+
+type BuildStorageLocationOutput struct { *pulumi.OutputState }
+
+// Name of your S3 bucket.
+func (o BuildStorageLocationOutput) Bucket() pulumi.StringOutput {
+	return o.Apply(func(v BuildStorageLocation) string {
+		return v.Bucket
+	}).(pulumi.StringOutput)
+}
+
+// Name of the zip file containing your build files.
+func (o BuildStorageLocationOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v BuildStorageLocation) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+func (o BuildStorageLocationOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v BuildStorageLocation) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (BuildStorageLocationOutput) ElementType() reflect.Type {
+	return buildStorageLocationType
+}
+
+func (o BuildStorageLocationOutput) ToBuildStorageLocationOutput() BuildStorageLocationOutput {
+	return o
+}
+
+func (o BuildStorageLocationOutput) ToBuildStorageLocationOutputWithContext(ctx context.Context) BuildStorageLocationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BuildStorageLocationOutput{}) }
+

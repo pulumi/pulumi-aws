@@ -10,102 +10,81 @@ import (
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_transit_virtual_interface_accepter.html.markdown.
 type HostedTransitVirtualInterfaceAcceptor struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the virtual interface.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The ID of the Direct Connect gateway to which to connect the virtual interface.
+	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The ID of the Direct Connect virtual interface to accept.
+	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
 }
 
 // NewHostedTransitVirtualInterfaceAcceptor registers a new resource with the given unique name, arguments, and options.
 func NewHostedTransitVirtualInterfaceAcceptor(ctx *pulumi.Context,
-	name string, args *HostedTransitVirtualInterfaceAcceptorArgs, opts ...pulumi.ResourceOpt) (*HostedTransitVirtualInterfaceAcceptor, error) {
+	name string, args *HostedTransitVirtualInterfaceAcceptorArgs, opts ...pulumi.ResourceOption) (*HostedTransitVirtualInterfaceAcceptor, error) {
 	if args == nil || args.DxGatewayId == nil {
 		return nil, errors.New("missing required argument 'DxGatewayId'")
 	}
 	if args == nil || args.VirtualInterfaceId == nil {
 		return nil, errors.New("missing required argument 'VirtualInterfaceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dxGatewayId"] = nil
-		inputs["tags"] = nil
-		inputs["virtualInterfaceId"] = nil
-	} else {
-		inputs["dxGatewayId"] = args.DxGatewayId
-		inputs["tags"] = args.Tags
-		inputs["virtualInterfaceId"] = args.VirtualInterfaceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DxGatewayId; i != nil { inputs["dxGatewayId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VirtualInterfaceId; i != nil { inputs["virtualInterfaceId"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, true, inputs, opts...)
+	var resource HostedTransitVirtualInterfaceAcceptor
+	err := ctx.RegisterResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HostedTransitVirtualInterfaceAcceptor{s: s}, nil
+	return &resource, nil
 }
 
 // GetHostedTransitVirtualInterfaceAcceptor gets an existing HostedTransitVirtualInterfaceAcceptor resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetHostedTransitVirtualInterfaceAcceptor(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *HostedTransitVirtualInterfaceAcceptorState, opts ...pulumi.ResourceOpt) (*HostedTransitVirtualInterfaceAcceptor, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *HostedTransitVirtualInterfaceAcceptorState, opts ...pulumi.ResourceOption) (*HostedTransitVirtualInterfaceAcceptor, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["dxGatewayId"] = state.DxGatewayId
-		inputs["tags"] = state.Tags
-		inputs["virtualInterfaceId"] = state.VirtualInterfaceId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DxGatewayId; i != nil { inputs["dxGatewayId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualInterfaceId; i != nil { inputs["virtualInterfaceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, id, inputs, opts...)
+	var resource HostedTransitVirtualInterfaceAcceptor
+	err := ctx.ReadResource("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HostedTransitVirtualInterfaceAcceptor{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *HostedTransitVirtualInterfaceAcceptor) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *HostedTransitVirtualInterfaceAcceptor) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the virtual interface.
-func (r *HostedTransitVirtualInterfaceAcceptor) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The ID of the Direct Connect gateway to which to connect the virtual interface.
-func (r *HostedTransitVirtualInterfaceAcceptor) DxGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dxGatewayId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *HostedTransitVirtualInterfaceAcceptor) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The ID of the Direct Connect virtual interface to accept.
-func (r *HostedTransitVirtualInterfaceAcceptor) VirtualInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualInterfaceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering HostedTransitVirtualInterfaceAcceptor resources.
 type HostedTransitVirtualInterfaceAcceptorState struct {
 	// The ARN of the virtual interface.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId interface{}
+	DxGatewayId pulumi.StringInput `pulumi:"dxGatewayId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId interface{}
+	VirtualInterfaceId pulumi.StringInput `pulumi:"virtualInterfaceId"`
 }
 
 // The set of arguments for constructing a HostedTransitVirtualInterfaceAcceptor resource.
 type HostedTransitVirtualInterfaceAcceptorArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
-	DxGatewayId interface{}
+	DxGatewayId pulumi.StringInput `pulumi:"dxGatewayId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
-	VirtualInterfaceId interface{}
+	VirtualInterfaceId pulumi.StringInput `pulumi:"virtualInterfaceId"`
 }

@@ -4,6 +4,8 @@
 package cloudwatch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,105 +14,159 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_permission.html.markdown.
 type EventPermission struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+	Action pulumi.StringOutput `pulumi:"action"`
+
+	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+	Condition EventPermissionConditionOutput `pulumi:"condition"`
+
+	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+
+	// An identifier string for the external account that you are granting permissions to.
+	StatementId pulumi.StringOutput `pulumi:"statementId"`
 }
 
 // NewEventPermission registers a new resource with the given unique name, arguments, and options.
 func NewEventPermission(ctx *pulumi.Context,
-	name string, args *EventPermissionArgs, opts ...pulumi.ResourceOpt) (*EventPermission, error) {
+	name string, args *EventPermissionArgs, opts ...pulumi.ResourceOption) (*EventPermission, error) {
 	if args == nil || args.Principal == nil {
 		return nil, errors.New("missing required argument 'Principal'")
 	}
 	if args == nil || args.StatementId == nil {
 		return nil, errors.New("missing required argument 'StatementId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["action"] = nil
-		inputs["condition"] = nil
-		inputs["principal"] = nil
-		inputs["statementId"] = nil
-	} else {
-		inputs["action"] = args.Action
-		inputs["condition"] = args.Condition
-		inputs["principal"] = args.Principal
-		inputs["statementId"] = args.StatementId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Action; i != nil { inputs["action"] = i.ToStringOutput() }
+		if i := args.Condition; i != nil { inputs["condition"] = i.ToEventPermissionConditionOutput() }
+		if i := args.Principal; i != nil { inputs["principal"] = i.ToStringOutput() }
+		if i := args.StatementId; i != nil { inputs["statementId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cloudwatch/eventPermission:EventPermission", name, true, inputs, opts...)
+	var resource EventPermission
+	err := ctx.RegisterResource("aws:cloudwatch/eventPermission:EventPermission", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventPermission{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventPermission gets an existing EventPermission resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventPermission(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventPermissionState, opts ...pulumi.ResourceOpt) (*EventPermission, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventPermissionState, opts ...pulumi.ResourceOption) (*EventPermission, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["action"] = state.Action
-		inputs["condition"] = state.Condition
-		inputs["principal"] = state.Principal
-		inputs["statementId"] = state.StatementId
+		if i := state.Action; i != nil { inputs["action"] = i.ToStringOutput() }
+		if i := state.Condition; i != nil { inputs["condition"] = i.ToEventPermissionConditionOutput() }
+		if i := state.Principal; i != nil { inputs["principal"] = i.ToStringOutput() }
+		if i := state.StatementId; i != nil { inputs["statementId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/eventPermission:EventPermission", name, id, inputs, opts...)
+	var resource EventPermission
+	err := ctx.ReadResource("aws:cloudwatch/eventPermission:EventPermission", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventPermission{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventPermission) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventPermission) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-func (r *EventPermission) Action() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["action"])
-}
-
-// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-func (r *EventPermission) Condition() pulumi.Output {
-	return r.s.State["condition"]
-}
-
-// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-func (r *EventPermission) Principal() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["principal"])
-}
-
-// An identifier string for the external account that you are granting permissions to.
-func (r *EventPermission) StatementId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["statementId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventPermission resources.
 type EventPermissionState struct {
 	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action interface{}
+	Action pulumi.StringInput `pulumi:"action"`
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition interface{}
+	Condition EventPermissionConditionInput `pulumi:"condition"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal interface{}
+	Principal pulumi.StringInput `pulumi:"principal"`
 	// An identifier string for the external account that you are granting permissions to.
-	StatementId interface{}
+	StatementId pulumi.StringInput `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a EventPermission resource.
 type EventPermissionArgs struct {
 	// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-	Action interface{}
+	Action pulumi.StringInput `pulumi:"action"`
 	// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-	Condition interface{}
+	Condition EventPermissionConditionInput `pulumi:"condition"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-	Principal interface{}
+	Principal pulumi.StringInput `pulumi:"principal"`
 	// An identifier string for the external account that you are granting permissions to.
-	StatementId interface{}
+	StatementId pulumi.StringInput `pulumi:"statementId"`
 }
+type EventPermissionCondition struct {
+	// Key for the condition. Valid values: `aws:PrincipalOrgID`.
+	Key string `pulumi:"key"`
+	// Type of condition. Value values: `StringEquals`.
+	Type string `pulumi:"type"`
+	// Value for the key.
+	Value string `pulumi:"value"`
+}
+var eventPermissionConditionType = reflect.TypeOf((*EventPermissionCondition)(nil)).Elem()
+
+type EventPermissionConditionInput interface {
+	pulumi.Input
+
+	ToEventPermissionConditionOutput() EventPermissionConditionOutput
+	ToEventPermissionConditionOutputWithContext(ctx context.Context) EventPermissionConditionOutput
+}
+
+type EventPermissionConditionArgs struct {
+	// Key for the condition. Valid values: `aws:PrincipalOrgID`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Type of condition. Value values: `StringEquals`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value for the key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventPermissionConditionArgs) ElementType() reflect.Type {
+	return eventPermissionConditionType
+}
+
+func (a EventPermissionConditionArgs) ToEventPermissionConditionOutput() EventPermissionConditionOutput {
+	return pulumi.ToOutput(a).(EventPermissionConditionOutput)
+}
+
+func (a EventPermissionConditionArgs) ToEventPermissionConditionOutputWithContext(ctx context.Context) EventPermissionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventPermissionConditionOutput)
+}
+
+type EventPermissionConditionOutput struct { *pulumi.OutputState }
+
+// Key for the condition. Valid values: `aws:PrincipalOrgID`.
+func (o EventPermissionConditionOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v EventPermissionCondition) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+// Type of condition. Value values: `StringEquals`.
+func (o EventPermissionConditionOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v EventPermissionCondition) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Value for the key.
+func (o EventPermissionConditionOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v EventPermissionCondition) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (EventPermissionConditionOutput) ElementType() reflect.Type {
+	return eventPermissionConditionType
+}
+
+func (o EventPermissionConditionOutput) ToEventPermissionConditionOutput() EventPermissionConditionOutput {
+	return o
+}
+
+func (o EventPermissionConditionOutput) ToEventPermissionConditionOutputWithContext(ctx context.Context) EventPermissionConditionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventPermissionConditionOutput{}) }
+

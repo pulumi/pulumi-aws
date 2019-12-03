@@ -4,6 +4,8 @@
 package batch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -24,150 +26,217 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_job_definition.html.markdown.
 type JobDefinition struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name of the job definition.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+	ContainerProperties pulumi.StringOutput `pulumi:"containerProperties"`
+
+	// Specifies the name of the job definition.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the parameter substitution placeholders to set in the job definition.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+
+	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
+	// Maximum number of `retryStrategy` is `1`.  Defined below.
+	RetryStrategy JobDefinitionRetryStrategyOutput `pulumi:"retryStrategy"`
+
+	// The revision of the job definition.
+	Revision pulumi.IntOutput `pulumi:"revision"`
+
+	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+	Timeout JobDefinitionTimeoutOutput `pulumi:"timeout"`
+
+	// The type of job definition.  Must be `container`
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
 func NewJobDefinition(ctx *pulumi.Context,
-	name string, args *JobDefinitionArgs, opts ...pulumi.ResourceOpt) (*JobDefinition, error) {
+	name string, args *JobDefinitionArgs, opts ...pulumi.ResourceOption) (*JobDefinition, error) {
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["containerProperties"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-		inputs["retryStrategy"] = nil
-		inputs["timeout"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["containerProperties"] = args.ContainerProperties
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
-		inputs["retryStrategy"] = args.RetryStrategy
-		inputs["timeout"] = args.Timeout
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ContainerProperties; i != nil { inputs["containerProperties"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := args.RetryStrategy; i != nil { inputs["retryStrategy"] = i.ToJobDefinitionRetryStrategyOutput() }
+		if i := args.Timeout; i != nil { inputs["timeout"] = i.ToJobDefinitionTimeoutOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["revision"] = nil
-	s, err := ctx.RegisterResource("aws:batch/jobDefinition:JobDefinition", name, true, inputs, opts...)
+	var resource JobDefinition
+	err := ctx.RegisterResource("aws:batch/jobDefinition:JobDefinition", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &JobDefinition{s: s}, nil
+	return &resource, nil
 }
 
 // GetJobDefinition gets an existing JobDefinition resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetJobDefinition(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *JobDefinitionState, opts ...pulumi.ResourceOpt) (*JobDefinition, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *JobDefinitionState, opts ...pulumi.ResourceOption) (*JobDefinition, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["containerProperties"] = state.ContainerProperties
-		inputs["name"] = state.Name
-		inputs["parameters"] = state.Parameters
-		inputs["retryStrategy"] = state.RetryStrategy
-		inputs["revision"] = state.Revision
-		inputs["timeout"] = state.Timeout
-		inputs["type"] = state.Type
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ContainerProperties; i != nil { inputs["containerProperties"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := state.RetryStrategy; i != nil { inputs["retryStrategy"] = i.ToJobDefinitionRetryStrategyOutput() }
+		if i := state.Revision; i != nil { inputs["revision"] = i.ToIntOutput() }
+		if i := state.Timeout; i != nil { inputs["timeout"] = i.ToJobDefinitionTimeoutOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:batch/jobDefinition:JobDefinition", name, id, inputs, opts...)
+	var resource JobDefinition
+	err := ctx.ReadResource("aws:batch/jobDefinition:JobDefinition", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &JobDefinition{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *JobDefinition) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *JobDefinition) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name of the job definition.
-func (r *JobDefinition) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-func (r *JobDefinition) ContainerProperties() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["containerProperties"])
-}
-
-// Specifies the name of the job definition.
-func (r *JobDefinition) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the parameter substitution placeholders to set in the job definition.
-func (r *JobDefinition) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
-}
-
-// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-// Maximum number of `retryStrategy` is `1`.  Defined below.
-func (r *JobDefinition) RetryStrategy() pulumi.Output {
-	return r.s.State["retryStrategy"]
-}
-
-// The revision of the job definition.
-func (r *JobDefinition) Revision() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["revision"])
-}
-
-// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-func (r *JobDefinition) Timeout() pulumi.Output {
-	return r.s.State["timeout"]
-}
-
-// The type of job definition.  Must be `container`
-func (r *JobDefinition) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering JobDefinition resources.
 type JobDefinitionState struct {
 	// The Amazon Resource Name of the job definition.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties interface{}
+	ContainerProperties pulumi.StringInput `pulumi:"containerProperties"`
 	// Specifies the name of the job definition.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy interface{}
+	RetryStrategy JobDefinitionRetryStrategyInput `pulumi:"retryStrategy"`
 	// The revision of the job definition.
-	Revision interface{}
+	Revision pulumi.IntInput `pulumi:"revision"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout interface{}
+	Timeout JobDefinitionTimeoutInput `pulumi:"timeout"`
 	// The type of job definition.  Must be `container`
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties interface{}
+	ContainerProperties pulumi.StringInput `pulumi:"containerProperties"`
 	// Specifies the name of the job definition.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
 	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy interface{}
+	RetryStrategy JobDefinitionRetryStrategyInput `pulumi:"retryStrategy"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout interface{}
+	Timeout JobDefinitionTimeoutInput `pulumi:"timeout"`
 	// The type of job definition.  Must be `container`
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
+type JobDefinitionRetryStrategy struct {
+	Attempts *int `pulumi:"attempts"`
+}
+var jobDefinitionRetryStrategyType = reflect.TypeOf((*JobDefinitionRetryStrategy)(nil)).Elem()
+
+type JobDefinitionRetryStrategyInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRetryStrategyOutput() JobDefinitionRetryStrategyOutput
+	ToJobDefinitionRetryStrategyOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyOutput
+}
+
+type JobDefinitionRetryStrategyArgs struct {
+	Attempts pulumi.IntInput `pulumi:"attempts"`
+}
+
+func (JobDefinitionRetryStrategyArgs) ElementType() reflect.Type {
+	return jobDefinitionRetryStrategyType
+}
+
+func (a JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyOutput() JobDefinitionRetryStrategyOutput {
+	return pulumi.ToOutput(a).(JobDefinitionRetryStrategyOutput)
+}
+
+func (a JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobDefinitionRetryStrategyOutput)
+}
+
+type JobDefinitionRetryStrategyOutput struct { *pulumi.OutputState }
+
+func (o JobDefinitionRetryStrategyOutput) Attempts() pulumi.IntOutput {
+	return o.Apply(func(v JobDefinitionRetryStrategy) int {
+		if v.Attempts == nil { return *new(int) } else { return *v.Attempts }
+	}).(pulumi.IntOutput)
+}
+
+func (JobDefinitionRetryStrategyOutput) ElementType() reflect.Type {
+	return jobDefinitionRetryStrategyType
+}
+
+func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyOutput() JobDefinitionRetryStrategyOutput {
+	return o
+}
+
+func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{}) }
+
+type JobDefinitionTimeout struct {
+	AttemptDurationSeconds *int `pulumi:"attemptDurationSeconds"`
+}
+var jobDefinitionTimeoutType = reflect.TypeOf((*JobDefinitionTimeout)(nil)).Elem()
+
+type JobDefinitionTimeoutInput interface {
+	pulumi.Input
+
+	ToJobDefinitionTimeoutOutput() JobDefinitionTimeoutOutput
+	ToJobDefinitionTimeoutOutputWithContext(ctx context.Context) JobDefinitionTimeoutOutput
+}
+
+type JobDefinitionTimeoutArgs struct {
+	AttemptDurationSeconds pulumi.IntInput `pulumi:"attemptDurationSeconds"`
+}
+
+func (JobDefinitionTimeoutArgs) ElementType() reflect.Type {
+	return jobDefinitionTimeoutType
+}
+
+func (a JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutOutput() JobDefinitionTimeoutOutput {
+	return pulumi.ToOutput(a).(JobDefinitionTimeoutOutput)
+}
+
+func (a JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutOutputWithContext(ctx context.Context) JobDefinitionTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobDefinitionTimeoutOutput)
+}
+
+type JobDefinitionTimeoutOutput struct { *pulumi.OutputState }
+
+func (o JobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntOutput {
+	return o.Apply(func(v JobDefinitionTimeout) int {
+		if v.AttemptDurationSeconds == nil { return *new(int) } else { return *v.AttemptDurationSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (JobDefinitionTimeoutOutput) ElementType() reflect.Type {
+	return jobDefinitionTimeoutType
+}
+
+func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutOutput() JobDefinitionTimeoutOutput {
+	return o
+}
+
+func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutOutputWithContext(ctx context.Context) JobDefinitionTimeoutOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{}) }
+

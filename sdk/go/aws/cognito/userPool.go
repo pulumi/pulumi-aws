@@ -4,6 +4,8 @@
 package cognito
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,315 +13,1292 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool.html.markdown.
 type UserPool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The configuration for AdminCreateUser requests.
+	AdminCreateUserConfig UserPoolAdminCreateUserConfigOutput `pulumi:"adminCreateUserConfig"`
+
+	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
+	AliasAttributes pulumi.StringArrayOutput `pulumi:"aliasAttributes"`
+
+	// The ARN of the user pool.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The attributes to be auto-verified. Possible values: email, phone_number.
+	AutoVerifiedAttributes pulumi.StringArrayOutput `pulumi:"autoVerifiedAttributes"`
+
+	// The date the user pool was created.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+
+	// The configuration for the user pool's device tracking.
+	DeviceConfiguration UserPoolDeviceConfigurationOutput `pulumi:"deviceConfiguration"`
+
+	// The Email Configuration.
+	EmailConfiguration UserPoolEmailConfigurationOutput `pulumi:"emailConfiguration"`
+
+	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
+	EmailVerificationMessage pulumi.StringOutput `pulumi:"emailVerificationMessage"`
+
+	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
+	EmailVerificationSubject pulumi.StringOutput `pulumi:"emailVerificationSubject"`
+
+	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// A container for the AWS Lambda triggers associated with the user pool.
+	LambdaConfig UserPoolLambdaConfigOutput `pulumi:"lambdaConfig"`
+
+	// The date the user pool was last modified.
+	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
+
+	// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+	MfaConfiguration pulumi.StringOutput `pulumi:"mfaConfiguration"`
+
+	// The name of the attribute.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A container for information about the user pool password policy.
+	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
+
+	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+	Schemas UserPoolSchemasArrayOutput `pulumi:"schemas"`
+
+	// A string representing the SMS authentication message.
+	SmsAuthenticationMessage pulumi.StringOutput `pulumi:"smsAuthenticationMessage"`
+
+	// The SMS Configuration.
+	SmsConfiguration UserPoolSmsConfigurationOutput `pulumi:"smsConfiguration"`
+
+	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
+	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
+
+	// A mapping of tags to assign to the User Pool.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
+	UserPoolAddOns UserPoolUserPoolAddOnsOutput `pulumi:"userPoolAddOns"`
+
+	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
+	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
+
+	// The verification message templates configuration.
+	VerificationMessageTemplate UserPoolVerificationMessageTemplateOutput `pulumi:"verificationMessageTemplate"`
 }
 
 // NewUserPool registers a new resource with the given unique name, arguments, and options.
 func NewUserPool(ctx *pulumi.Context,
-	name string, args *UserPoolArgs, opts ...pulumi.ResourceOpt) (*UserPool, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["adminCreateUserConfig"] = nil
-		inputs["aliasAttributes"] = nil
-		inputs["autoVerifiedAttributes"] = nil
-		inputs["deviceConfiguration"] = nil
-		inputs["emailConfiguration"] = nil
-		inputs["emailVerificationMessage"] = nil
-		inputs["emailVerificationSubject"] = nil
-		inputs["lambdaConfig"] = nil
-		inputs["mfaConfiguration"] = nil
-		inputs["name"] = nil
-		inputs["passwordPolicy"] = nil
-		inputs["schemas"] = nil
-		inputs["smsAuthenticationMessage"] = nil
-		inputs["smsConfiguration"] = nil
-		inputs["smsVerificationMessage"] = nil
-		inputs["tags"] = nil
-		inputs["userPoolAddOns"] = nil
-		inputs["usernameAttributes"] = nil
-		inputs["verificationMessageTemplate"] = nil
-	} else {
-		inputs["adminCreateUserConfig"] = args.AdminCreateUserConfig
-		inputs["aliasAttributes"] = args.AliasAttributes
-		inputs["autoVerifiedAttributes"] = args.AutoVerifiedAttributes
-		inputs["deviceConfiguration"] = args.DeviceConfiguration
-		inputs["emailConfiguration"] = args.EmailConfiguration
-		inputs["emailVerificationMessage"] = args.EmailVerificationMessage
-		inputs["emailVerificationSubject"] = args.EmailVerificationSubject
-		inputs["lambdaConfig"] = args.LambdaConfig
-		inputs["mfaConfiguration"] = args.MfaConfiguration
-		inputs["name"] = args.Name
-		inputs["passwordPolicy"] = args.PasswordPolicy
-		inputs["schemas"] = args.Schemas
-		inputs["smsAuthenticationMessage"] = args.SmsAuthenticationMessage
-		inputs["smsConfiguration"] = args.SmsConfiguration
-		inputs["smsVerificationMessage"] = args.SmsVerificationMessage
-		inputs["tags"] = args.Tags
-		inputs["userPoolAddOns"] = args.UserPoolAddOns
-		inputs["usernameAttributes"] = args.UsernameAttributes
-		inputs["verificationMessageTemplate"] = args.VerificationMessageTemplate
+	name string, args *UserPoolArgs, opts ...pulumi.ResourceOption) (*UserPool, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdminCreateUserConfig; i != nil { inputs["adminCreateUserConfig"] = i.ToUserPoolAdminCreateUserConfigOutput() }
+		if i := args.AliasAttributes; i != nil { inputs["aliasAttributes"] = i.ToStringArrayOutput() }
+		if i := args.AutoVerifiedAttributes; i != nil { inputs["autoVerifiedAttributes"] = i.ToStringArrayOutput() }
+		if i := args.DeviceConfiguration; i != nil { inputs["deviceConfiguration"] = i.ToUserPoolDeviceConfigurationOutput() }
+		if i := args.EmailConfiguration; i != nil { inputs["emailConfiguration"] = i.ToUserPoolEmailConfigurationOutput() }
+		if i := args.EmailVerificationMessage; i != nil { inputs["emailVerificationMessage"] = i.ToStringOutput() }
+		if i := args.EmailVerificationSubject; i != nil { inputs["emailVerificationSubject"] = i.ToStringOutput() }
+		if i := args.LambdaConfig; i != nil { inputs["lambdaConfig"] = i.ToUserPoolLambdaConfigOutput() }
+		if i := args.MfaConfiguration; i != nil { inputs["mfaConfiguration"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PasswordPolicy; i != nil { inputs["passwordPolicy"] = i.ToUserPoolPasswordPolicyOutput() }
+		if i := args.Schemas; i != nil { inputs["schemas"] = i.ToUserPoolSchemasArrayOutput() }
+		if i := args.SmsAuthenticationMessage; i != nil { inputs["smsAuthenticationMessage"] = i.ToStringOutput() }
+		if i := args.SmsConfiguration; i != nil { inputs["smsConfiguration"] = i.ToUserPoolSmsConfigurationOutput() }
+		if i := args.SmsVerificationMessage; i != nil { inputs["smsVerificationMessage"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.UserPoolAddOns; i != nil { inputs["userPoolAddOns"] = i.ToUserPoolUserPoolAddOnsOutput() }
+		if i := args.UsernameAttributes; i != nil { inputs["usernameAttributes"] = i.ToStringArrayOutput() }
+		if i := args.VerificationMessageTemplate; i != nil { inputs["verificationMessageTemplate"] = i.ToUserPoolVerificationMessageTemplateOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["creationDate"] = nil
-	inputs["endpoint"] = nil
-	inputs["lastModifiedDate"] = nil
-	s, err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, true, inputs, opts...)
+	var resource UserPool
+	err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UserPool{s: s}, nil
+	return &resource, nil
 }
 
 // GetUserPool gets an existing UserPool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetUserPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *UserPoolState, opts ...pulumi.ResourceOpt) (*UserPool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *UserPoolState, opts ...pulumi.ResourceOption) (*UserPool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["adminCreateUserConfig"] = state.AdminCreateUserConfig
-		inputs["aliasAttributes"] = state.AliasAttributes
-		inputs["arn"] = state.Arn
-		inputs["autoVerifiedAttributes"] = state.AutoVerifiedAttributes
-		inputs["creationDate"] = state.CreationDate
-		inputs["deviceConfiguration"] = state.DeviceConfiguration
-		inputs["emailConfiguration"] = state.EmailConfiguration
-		inputs["emailVerificationMessage"] = state.EmailVerificationMessage
-		inputs["emailVerificationSubject"] = state.EmailVerificationSubject
-		inputs["endpoint"] = state.Endpoint
-		inputs["lambdaConfig"] = state.LambdaConfig
-		inputs["lastModifiedDate"] = state.LastModifiedDate
-		inputs["mfaConfiguration"] = state.MfaConfiguration
-		inputs["name"] = state.Name
-		inputs["passwordPolicy"] = state.PasswordPolicy
-		inputs["schemas"] = state.Schemas
-		inputs["smsAuthenticationMessage"] = state.SmsAuthenticationMessage
-		inputs["smsConfiguration"] = state.SmsConfiguration
-		inputs["smsVerificationMessage"] = state.SmsVerificationMessage
-		inputs["tags"] = state.Tags
-		inputs["userPoolAddOns"] = state.UserPoolAddOns
-		inputs["usernameAttributes"] = state.UsernameAttributes
-		inputs["verificationMessageTemplate"] = state.VerificationMessageTemplate
+		if i := state.AdminCreateUserConfig; i != nil { inputs["adminCreateUserConfig"] = i.ToUserPoolAdminCreateUserConfigOutput() }
+		if i := state.AliasAttributes; i != nil { inputs["aliasAttributes"] = i.ToStringArrayOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AutoVerifiedAttributes; i != nil { inputs["autoVerifiedAttributes"] = i.ToStringArrayOutput() }
+		if i := state.CreationDate; i != nil { inputs["creationDate"] = i.ToStringOutput() }
+		if i := state.DeviceConfiguration; i != nil { inputs["deviceConfiguration"] = i.ToUserPoolDeviceConfigurationOutput() }
+		if i := state.EmailConfiguration; i != nil { inputs["emailConfiguration"] = i.ToUserPoolEmailConfigurationOutput() }
+		if i := state.EmailVerificationMessage; i != nil { inputs["emailVerificationMessage"] = i.ToStringOutput() }
+		if i := state.EmailVerificationSubject; i != nil { inputs["emailVerificationSubject"] = i.ToStringOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.LambdaConfig; i != nil { inputs["lambdaConfig"] = i.ToUserPoolLambdaConfigOutput() }
+		if i := state.LastModifiedDate; i != nil { inputs["lastModifiedDate"] = i.ToStringOutput() }
+		if i := state.MfaConfiguration; i != nil { inputs["mfaConfiguration"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PasswordPolicy; i != nil { inputs["passwordPolicy"] = i.ToUserPoolPasswordPolicyOutput() }
+		if i := state.Schemas; i != nil { inputs["schemas"] = i.ToUserPoolSchemasArrayOutput() }
+		if i := state.SmsAuthenticationMessage; i != nil { inputs["smsAuthenticationMessage"] = i.ToStringOutput() }
+		if i := state.SmsConfiguration; i != nil { inputs["smsConfiguration"] = i.ToUserPoolSmsConfigurationOutput() }
+		if i := state.SmsVerificationMessage; i != nil { inputs["smsVerificationMessage"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UserPoolAddOns; i != nil { inputs["userPoolAddOns"] = i.ToUserPoolUserPoolAddOnsOutput() }
+		if i := state.UsernameAttributes; i != nil { inputs["usernameAttributes"] = i.ToStringArrayOutput() }
+		if i := state.VerificationMessageTemplate; i != nil { inputs["verificationMessageTemplate"] = i.ToUserPoolVerificationMessageTemplateOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cognito/userPool:UserPool", name, id, inputs, opts...)
+	var resource UserPool
+	err := ctx.ReadResource("aws:cognito/userPool:UserPool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UserPool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *UserPool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *UserPool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The configuration for AdminCreateUser requests.
-func (r *UserPool) AdminCreateUserConfig() pulumi.Output {
-	return r.s.State["adminCreateUserConfig"]
-}
-
-// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
-func (r *UserPool) AliasAttributes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["aliasAttributes"])
-}
-
-// The ARN of the user pool.
-func (r *UserPool) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The attributes to be auto-verified. Possible values: email, phone_number.
-func (r *UserPool) AutoVerifiedAttributes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["autoVerifiedAttributes"])
-}
-
-// The date the user pool was created.
-func (r *UserPool) CreationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["creationDate"])
-}
-
-// The configuration for the user pool's device tracking.
-func (r *UserPool) DeviceConfiguration() pulumi.Output {
-	return r.s.State["deviceConfiguration"]
-}
-
-// The Email Configuration.
-func (r *UserPool) EmailConfiguration() pulumi.Output {
-	return r.s.State["emailConfiguration"]
-}
-
-// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
-func (r *UserPool) EmailVerificationMessage() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["emailVerificationMessage"])
-}
-
-// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
-func (r *UserPool) EmailVerificationSubject() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["emailVerificationSubject"])
-}
-
-// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
-func (r *UserPool) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// A container for the AWS Lambda triggers associated with the user pool.
-func (r *UserPool) LambdaConfig() pulumi.Output {
-	return r.s.State["lambdaConfig"]
-}
-
-// The date the user pool was last modified.
-func (r *UserPool) LastModifiedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastModifiedDate"])
-}
-
-// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
-func (r *UserPool) MfaConfiguration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["mfaConfiguration"])
-}
-
-// The name of the attribute.
-func (r *UserPool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A container for information about the user pool password policy.
-func (r *UserPool) PasswordPolicy() pulumi.Output {
-	return r.s.State["passwordPolicy"]
-}
-
-// A container with the schema attributes of a user pool. Maximum of 50 attributes.
-func (r *UserPool) Schemas() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["schemas"])
-}
-
-// A string representing the SMS authentication message.
-func (r *UserPool) SmsAuthenticationMessage() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["smsAuthenticationMessage"])
-}
-
-// The SMS Configuration.
-func (r *UserPool) SmsConfiguration() pulumi.Output {
-	return r.s.State["smsConfiguration"]
-}
-
-// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
-func (r *UserPool) SmsVerificationMessage() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["smsVerificationMessage"])
-}
-
-// A mapping of tags to assign to the User Pool.
-func (r *UserPool) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Configuration block for user pool add-ons to enable user pool advanced security mode features.
-func (r *UserPool) UserPoolAddOns() pulumi.Output {
-	return r.s.State["userPoolAddOns"]
-}
-
-// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
-func (r *UserPool) UsernameAttributes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["usernameAttributes"])
-}
-
-// The verification message templates configuration.
-func (r *UserPool) VerificationMessageTemplate() pulumi.Output {
-	return r.s.State["verificationMessageTemplate"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering UserPool resources.
 type UserPoolState struct {
 	// The configuration for AdminCreateUser requests.
-	AdminCreateUserConfig interface{}
+	AdminCreateUserConfig UserPoolAdminCreateUserConfigInput `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
-	AliasAttributes interface{}
+	AliasAttributes pulumi.StringArrayInput `pulumi:"aliasAttributes"`
 	// The ARN of the user pool.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The attributes to be auto-verified. Possible values: email, phone_number.
-	AutoVerifiedAttributes interface{}
+	AutoVerifiedAttributes pulumi.StringArrayInput `pulumi:"autoVerifiedAttributes"`
 	// The date the user pool was created.
-	CreationDate interface{}
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
 	// The configuration for the user pool's device tracking.
-	DeviceConfiguration interface{}
+	DeviceConfiguration UserPoolDeviceConfigurationInput `pulumi:"deviceConfiguration"`
 	// The Email Configuration.
-	EmailConfiguration interface{}
+	EmailConfiguration UserPoolEmailConfigurationInput `pulumi:"emailConfiguration"`
 	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
-	EmailVerificationMessage interface{}
+	EmailVerificationMessage pulumi.StringInput `pulumi:"emailVerificationMessage"`
 	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
-	EmailVerificationSubject interface{}
+	EmailVerificationSubject pulumi.StringInput `pulumi:"emailVerificationSubject"`
 	// The endpoint name of the user pool. Example format: cognito-idp.REGION.amazonaws.com/xxxx_yyyyy
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// A container for the AWS Lambda triggers associated with the user pool.
-	LambdaConfig interface{}
+	LambdaConfig UserPoolLambdaConfigInput `pulumi:"lambdaConfig"`
 	// The date the user pool was last modified.
-	LastModifiedDate interface{}
+	LastModifiedDate pulumi.StringInput `pulumi:"lastModifiedDate"`
 	// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
-	MfaConfiguration interface{}
+	MfaConfiguration pulumi.StringInput `pulumi:"mfaConfiguration"`
 	// The name of the attribute.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A container for information about the user pool password policy.
-	PasswordPolicy interface{}
+	PasswordPolicy UserPoolPasswordPolicyInput `pulumi:"passwordPolicy"`
 	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
-	Schemas interface{}
+	Schemas UserPoolSchemasArrayInput `pulumi:"schemas"`
 	// A string representing the SMS authentication message.
-	SmsAuthenticationMessage interface{}
+	SmsAuthenticationMessage pulumi.StringInput `pulumi:"smsAuthenticationMessage"`
 	// The SMS Configuration.
-	SmsConfiguration interface{}
+	SmsConfiguration UserPoolSmsConfigurationInput `pulumi:"smsConfiguration"`
 	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
-	SmsVerificationMessage interface{}
+	SmsVerificationMessage pulumi.StringInput `pulumi:"smsVerificationMessage"`
 	// A mapping of tags to assign to the User Pool.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
-	UserPoolAddOns interface{}
+	UserPoolAddOns UserPoolUserPoolAddOnsInput `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
-	UsernameAttributes interface{}
+	UsernameAttributes pulumi.StringArrayInput `pulumi:"usernameAttributes"`
 	// The verification message templates configuration.
-	VerificationMessageTemplate interface{}
+	VerificationMessageTemplate UserPoolVerificationMessageTemplateInput `pulumi:"verificationMessageTemplate"`
 }
 
 // The set of arguments for constructing a UserPool resource.
 type UserPoolArgs struct {
 	// The configuration for AdminCreateUser requests.
-	AdminCreateUserConfig interface{}
+	AdminCreateUserConfig UserPoolAdminCreateUserConfigInput `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. Possible values: phone_number, email, or preferred_username. Conflicts with `usernameAttributes`.
-	AliasAttributes interface{}
+	AliasAttributes pulumi.StringArrayInput `pulumi:"aliasAttributes"`
 	// The attributes to be auto-verified. Possible values: email, phone_number.
-	AutoVerifiedAttributes interface{}
+	AutoVerifiedAttributes pulumi.StringArrayInput `pulumi:"autoVerifiedAttributes"`
 	// The configuration for the user pool's device tracking.
-	DeviceConfiguration interface{}
+	DeviceConfiguration UserPoolDeviceConfigurationInput `pulumi:"deviceConfiguration"`
 	// The Email Configuration.
-	EmailConfiguration interface{}
+	EmailConfiguration UserPoolEmailConfigurationInput `pulumi:"emailConfiguration"`
 	// A string representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
-	EmailVerificationMessage interface{}
+	EmailVerificationMessage pulumi.StringInput `pulumi:"emailVerificationMessage"`
 	// A string representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
-	EmailVerificationSubject interface{}
+	EmailVerificationSubject pulumi.StringInput `pulumi:"emailVerificationSubject"`
 	// A container for the AWS Lambda triggers associated with the user pool.
-	LambdaConfig interface{}
+	LambdaConfig UserPoolLambdaConfigInput `pulumi:"lambdaConfig"`
 	// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
-	MfaConfiguration interface{}
+	MfaConfiguration pulumi.StringInput `pulumi:"mfaConfiguration"`
 	// The name of the attribute.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A container for information about the user pool password policy.
-	PasswordPolicy interface{}
+	PasswordPolicy UserPoolPasswordPolicyInput `pulumi:"passwordPolicy"`
 	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
-	Schemas interface{}
+	Schemas UserPoolSchemasArrayInput `pulumi:"schemas"`
 	// A string representing the SMS authentication message.
-	SmsAuthenticationMessage interface{}
+	SmsAuthenticationMessage pulumi.StringInput `pulumi:"smsAuthenticationMessage"`
 	// The SMS Configuration.
-	SmsConfiguration interface{}
+	SmsConfiguration UserPoolSmsConfigurationInput `pulumi:"smsConfiguration"`
 	// A string representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
-	SmsVerificationMessage interface{}
+	SmsVerificationMessage pulumi.StringInput `pulumi:"smsVerificationMessage"`
 	// A mapping of tags to assign to the User Pool.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
-	UserPoolAddOns interface{}
+	UserPoolAddOns UserPoolUserPoolAddOnsInput `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
-	UsernameAttributes interface{}
+	UsernameAttributes pulumi.StringArrayInput `pulumi:"usernameAttributes"`
 	// The verification message templates configuration.
-	VerificationMessageTemplate interface{}
+	VerificationMessageTemplate UserPoolVerificationMessageTemplateInput `pulumi:"verificationMessageTemplate"`
 }
+type UserPoolAdminCreateUserConfig struct {
+	// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
+	// The invite message template structure.
+	InviteMessageTemplate *UserPoolAdminCreateUserConfigInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
+	// The user account expiration limit, in days, after which the account is no longer usable.
+	UnusedAccountValidityDays *int `pulumi:"unusedAccountValidityDays"`
+}
+var userPoolAdminCreateUserConfigType = reflect.TypeOf((*UserPoolAdminCreateUserConfig)(nil)).Elem()
+
+type UserPoolAdminCreateUserConfigInput interface {
+	pulumi.Input
+
+	ToUserPoolAdminCreateUserConfigOutput() UserPoolAdminCreateUserConfigOutput
+	ToUserPoolAdminCreateUserConfigOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigOutput
+}
+
+type UserPoolAdminCreateUserConfigArgs struct {
+	// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+	AllowAdminCreateUserOnly pulumi.BoolInput `pulumi:"allowAdminCreateUserOnly"`
+	// The invite message template structure.
+	InviteMessageTemplate UserPoolAdminCreateUserConfigInviteMessageTemplateInput `pulumi:"inviteMessageTemplate"`
+	// The user account expiration limit, in days, after which the account is no longer usable.
+	UnusedAccountValidityDays pulumi.IntInput `pulumi:"unusedAccountValidityDays"`
+}
+
+func (UserPoolAdminCreateUserConfigArgs) ElementType() reflect.Type {
+	return userPoolAdminCreateUserConfigType
+}
+
+func (a UserPoolAdminCreateUserConfigArgs) ToUserPoolAdminCreateUserConfigOutput() UserPoolAdminCreateUserConfigOutput {
+	return pulumi.ToOutput(a).(UserPoolAdminCreateUserConfigOutput)
+}
+
+func (a UserPoolAdminCreateUserConfigArgs) ToUserPoolAdminCreateUserConfigOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolAdminCreateUserConfigOutput)
+}
+
+type UserPoolAdminCreateUserConfigOutput struct { *pulumi.OutputState }
+
+// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+func (o UserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolAdminCreateUserConfig) bool {
+		if v.AllowAdminCreateUserOnly == nil { return *new(bool) } else { return *v.AllowAdminCreateUserOnly }
+	}).(pulumi.BoolOutput)
+}
+
+// The invite message template structure.
+func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return o.Apply(func(v UserPoolAdminCreateUserConfig) UserPoolAdminCreateUserConfigInviteMessageTemplate {
+		if v.InviteMessageTemplate == nil { return *new(UserPoolAdminCreateUserConfigInviteMessageTemplate) } else { return *v.InviteMessageTemplate }
+	}).(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
+}
+
+// The user account expiration limit, in days, after which the account is no longer usable.
+func (o UserPoolAdminCreateUserConfigOutput) UnusedAccountValidityDays() pulumi.IntOutput {
+	return o.Apply(func(v UserPoolAdminCreateUserConfig) int {
+		if v.UnusedAccountValidityDays == nil { return *new(int) } else { return *v.UnusedAccountValidityDays }
+	}).(pulumi.IntOutput)
+}
+
+func (UserPoolAdminCreateUserConfigOutput) ElementType() reflect.Type {
+	return userPoolAdminCreateUserConfigType
+}
+
+func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigOutput() UserPoolAdminCreateUserConfigOutput {
+	return o
+}
+
+func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigOutput{}) }
+
+type UserPoolAdminCreateUserConfigInviteMessageTemplate struct {
+	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	EmailMessage *string `pulumi:"emailMessage"`
+	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	EmailSubject *string `pulumi:"emailSubject"`
+	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	SmsMessage *string `pulumi:"smsMessage"`
+}
+var userPoolAdminCreateUserConfigInviteMessageTemplateType = reflect.TypeOf((*UserPoolAdminCreateUserConfigInviteMessageTemplate)(nil)).Elem()
+
+type UserPoolAdminCreateUserConfigInviteMessageTemplateInput interface {
+	pulumi.Input
+
+	ToUserPoolAdminCreateUserConfigInviteMessageTemplateOutput() UserPoolAdminCreateUserConfigInviteMessageTemplateOutput
+	ToUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigInviteMessageTemplateOutput
+}
+
+type UserPoolAdminCreateUserConfigInviteMessageTemplateArgs struct {
+	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	EmailMessage pulumi.StringInput `pulumi:"emailMessage"`
+	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	EmailSubject pulumi.StringInput `pulumi:"emailSubject"`
+	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	SmsMessage pulumi.StringInput `pulumi:"smsMessage"`
+}
+
+func (UserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ElementType() reflect.Type {
+	return userPoolAdminCreateUserConfigInviteMessageTemplateType
+}
+
+func (a UserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ToUserPoolAdminCreateUserConfigInviteMessageTemplateOutput() UserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return pulumi.ToOutput(a).(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
+}
+
+func (a UserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ToUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
+}
+
+type UserPoolAdminCreateUserConfigInviteMessageTemplateOutput struct { *pulumi.OutputState }
+
+// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailMessage() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) string {
+		if v.EmailMessage == nil { return *new(string) } else { return *v.EmailMessage }
+	}).(pulumi.StringOutput)
+}
+
+// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailSubject() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) string {
+		if v.EmailSubject == nil { return *new(string) } else { return *v.EmailSubject }
+	}).(pulumi.StringOutput)
+}
+
+// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) SmsMessage() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) string {
+		if v.SmsMessage == nil { return *new(string) } else { return *v.SmsMessage }
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ElementType() reflect.Type {
+	return userPoolAdminCreateUserConfigInviteMessageTemplateType
+}
+
+func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToUserPoolAdminCreateUserConfigInviteMessageTemplateOutput() UserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return o
+}
+
+func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput{}) }
+
+type UserPoolDeviceConfiguration struct {
+	// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+	ChallengeRequiredOnNewDevice *bool `pulumi:"challengeRequiredOnNewDevice"`
+	// If true, a device is only remembered on user prompt.
+	DeviceOnlyRememberedOnUserPrompt *bool `pulumi:"deviceOnlyRememberedOnUserPrompt"`
+}
+var userPoolDeviceConfigurationType = reflect.TypeOf((*UserPoolDeviceConfiguration)(nil)).Elem()
+
+type UserPoolDeviceConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolDeviceConfigurationOutput() UserPoolDeviceConfigurationOutput
+	ToUserPoolDeviceConfigurationOutputWithContext(ctx context.Context) UserPoolDeviceConfigurationOutput
+}
+
+type UserPoolDeviceConfigurationArgs struct {
+	// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+	ChallengeRequiredOnNewDevice pulumi.BoolInput `pulumi:"challengeRequiredOnNewDevice"`
+	// If true, a device is only remembered on user prompt.
+	DeviceOnlyRememberedOnUserPrompt pulumi.BoolInput `pulumi:"deviceOnlyRememberedOnUserPrompt"`
+}
+
+func (UserPoolDeviceConfigurationArgs) ElementType() reflect.Type {
+	return userPoolDeviceConfigurationType
+}
+
+func (a UserPoolDeviceConfigurationArgs) ToUserPoolDeviceConfigurationOutput() UserPoolDeviceConfigurationOutput {
+	return pulumi.ToOutput(a).(UserPoolDeviceConfigurationOutput)
+}
+
+func (a UserPoolDeviceConfigurationArgs) ToUserPoolDeviceConfigurationOutputWithContext(ctx context.Context) UserPoolDeviceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolDeviceConfigurationOutput)
+}
+
+type UserPoolDeviceConfigurationOutput struct { *pulumi.OutputState }
+
+// Indicates whether a challenge is required on a new device. Only applicable to a new device.
+func (o UserPoolDeviceConfigurationOutput) ChallengeRequiredOnNewDevice() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolDeviceConfiguration) bool {
+		if v.ChallengeRequiredOnNewDevice == nil { return *new(bool) } else { return *v.ChallengeRequiredOnNewDevice }
+	}).(pulumi.BoolOutput)
+}
+
+// If true, a device is only remembered on user prompt.
+func (o UserPoolDeviceConfigurationOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolDeviceConfiguration) bool {
+		if v.DeviceOnlyRememberedOnUserPrompt == nil { return *new(bool) } else { return *v.DeviceOnlyRememberedOnUserPrompt }
+	}).(pulumi.BoolOutput)
+}
+
+func (UserPoolDeviceConfigurationOutput) ElementType() reflect.Type {
+	return userPoolDeviceConfigurationType
+}
+
+func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationOutput() UserPoolDeviceConfigurationOutput {
+	return o
+}
+
+func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationOutputWithContext(ctx context.Context) UserPoolDeviceConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolDeviceConfigurationOutput{}) }
+
+type UserPoolEmailConfiguration struct {
+	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
+	// The REPLY-TO email address.
+	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
+	// The ARN of the email source.
+	SourceArn *string `pulumi:"sourceArn"`
+}
+var userPoolEmailConfigurationType = reflect.TypeOf((*UserPoolEmailConfiguration)(nil)).Elem()
+
+type UserPoolEmailConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolEmailConfigurationOutput() UserPoolEmailConfigurationOutput
+	ToUserPoolEmailConfigurationOutputWithContext(ctx context.Context) UserPoolEmailConfigurationOutput
+}
+
+type UserPoolEmailConfigurationArgs struct {
+	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+	EmailSendingAccount pulumi.StringInput `pulumi:"emailSendingAccount"`
+	// The REPLY-TO email address.
+	ReplyToEmailAddress pulumi.StringInput `pulumi:"replyToEmailAddress"`
+	// The ARN of the email source.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
+}
+
+func (UserPoolEmailConfigurationArgs) ElementType() reflect.Type {
+	return userPoolEmailConfigurationType
+}
+
+func (a UserPoolEmailConfigurationArgs) ToUserPoolEmailConfigurationOutput() UserPoolEmailConfigurationOutput {
+	return pulumi.ToOutput(a).(UserPoolEmailConfigurationOutput)
+}
+
+func (a UserPoolEmailConfigurationArgs) ToUserPoolEmailConfigurationOutputWithContext(ctx context.Context) UserPoolEmailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolEmailConfigurationOutput)
+}
+
+type UserPoolEmailConfigurationOutput struct { *pulumi.OutputState }
+
+// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolEmailConfiguration) string {
+		if v.EmailSendingAccount == nil { return *new(string) } else { return *v.EmailSendingAccount }
+	}).(pulumi.StringOutput)
+}
+
+// The REPLY-TO email address.
+func (o UserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolEmailConfiguration) string {
+		if v.ReplyToEmailAddress == nil { return *new(string) } else { return *v.ReplyToEmailAddress }
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the email source.
+func (o UserPoolEmailConfigurationOutput) SourceArn() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolEmailConfiguration) string {
+		if v.SourceArn == nil { return *new(string) } else { return *v.SourceArn }
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolEmailConfigurationOutput) ElementType() reflect.Type {
+	return userPoolEmailConfigurationType
+}
+
+func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationOutput() UserPoolEmailConfigurationOutput {
+	return o
+}
+
+func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationOutputWithContext(ctx context.Context) UserPoolEmailConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{}) }
+
+type UserPoolLambdaConfig struct {
+	// The ARN of the lambda creating an authentication challenge.
+	CreateAuthChallenge *string `pulumi:"createAuthChallenge"`
+	// A custom Message AWS Lambda trigger.
+	CustomMessage *string `pulumi:"customMessage"`
+	// Defines the authentication challenge.
+	DefineAuthChallenge *string `pulumi:"defineAuthChallenge"`
+	// A post-authentication AWS Lambda trigger.
+	PostAuthentication *string `pulumi:"postAuthentication"`
+	// A post-confirmation AWS Lambda trigger.
+	PostConfirmation *string `pulumi:"postConfirmation"`
+	// A pre-authentication AWS Lambda trigger.
+	PreAuthentication *string `pulumi:"preAuthentication"`
+	// A pre-registration AWS Lambda trigger.
+	PreSignUp *string `pulumi:"preSignUp"`
+	// Allow to customize identity token claims before token generation.
+	PreTokenGeneration *string `pulumi:"preTokenGeneration"`
+	// The user migration Lambda config type.
+	UserMigration *string `pulumi:"userMigration"`
+	// Verifies the authentication challenge response.
+	VerifyAuthChallengeResponse *string `pulumi:"verifyAuthChallengeResponse"`
+}
+var userPoolLambdaConfigType = reflect.TypeOf((*UserPoolLambdaConfig)(nil)).Elem()
+
+type UserPoolLambdaConfigInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigOutput() UserPoolLambdaConfigOutput
+	ToUserPoolLambdaConfigOutputWithContext(ctx context.Context) UserPoolLambdaConfigOutput
+}
+
+type UserPoolLambdaConfigArgs struct {
+	// The ARN of the lambda creating an authentication challenge.
+	CreateAuthChallenge pulumi.StringInput `pulumi:"createAuthChallenge"`
+	// A custom Message AWS Lambda trigger.
+	CustomMessage pulumi.StringInput `pulumi:"customMessage"`
+	// Defines the authentication challenge.
+	DefineAuthChallenge pulumi.StringInput `pulumi:"defineAuthChallenge"`
+	// A post-authentication AWS Lambda trigger.
+	PostAuthentication pulumi.StringInput `pulumi:"postAuthentication"`
+	// A post-confirmation AWS Lambda trigger.
+	PostConfirmation pulumi.StringInput `pulumi:"postConfirmation"`
+	// A pre-authentication AWS Lambda trigger.
+	PreAuthentication pulumi.StringInput `pulumi:"preAuthentication"`
+	// A pre-registration AWS Lambda trigger.
+	PreSignUp pulumi.StringInput `pulumi:"preSignUp"`
+	// Allow to customize identity token claims before token generation.
+	PreTokenGeneration pulumi.StringInput `pulumi:"preTokenGeneration"`
+	// The user migration Lambda config type.
+	UserMigration pulumi.StringInput `pulumi:"userMigration"`
+	// Verifies the authentication challenge response.
+	VerifyAuthChallengeResponse pulumi.StringInput `pulumi:"verifyAuthChallengeResponse"`
+}
+
+func (UserPoolLambdaConfigArgs) ElementType() reflect.Type {
+	return userPoolLambdaConfigType
+}
+
+func (a UserPoolLambdaConfigArgs) ToUserPoolLambdaConfigOutput() UserPoolLambdaConfigOutput {
+	return pulumi.ToOutput(a).(UserPoolLambdaConfigOutput)
+}
+
+func (a UserPoolLambdaConfigArgs) ToUserPoolLambdaConfigOutputWithContext(ctx context.Context) UserPoolLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolLambdaConfigOutput)
+}
+
+type UserPoolLambdaConfigOutput struct { *pulumi.OutputState }
+
+// The ARN of the lambda creating an authentication challenge.
+func (o UserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.CreateAuthChallenge == nil { return *new(string) } else { return *v.CreateAuthChallenge }
+	}).(pulumi.StringOutput)
+}
+
+// A custom Message AWS Lambda trigger.
+func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.CustomMessage == nil { return *new(string) } else { return *v.CustomMessage }
+	}).(pulumi.StringOutput)
+}
+
+// Defines the authentication challenge.
+func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.DefineAuthChallenge == nil { return *new(string) } else { return *v.DefineAuthChallenge }
+	}).(pulumi.StringOutput)
+}
+
+// A post-authentication AWS Lambda trigger.
+func (o UserPoolLambdaConfigOutput) PostAuthentication() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.PostAuthentication == nil { return *new(string) } else { return *v.PostAuthentication }
+	}).(pulumi.StringOutput)
+}
+
+// A post-confirmation AWS Lambda trigger.
+func (o UserPoolLambdaConfigOutput) PostConfirmation() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.PostConfirmation == nil { return *new(string) } else { return *v.PostConfirmation }
+	}).(pulumi.StringOutput)
+}
+
+// A pre-authentication AWS Lambda trigger.
+func (o UserPoolLambdaConfigOutput) PreAuthentication() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.PreAuthentication == nil { return *new(string) } else { return *v.PreAuthentication }
+	}).(pulumi.StringOutput)
+}
+
+// A pre-registration AWS Lambda trigger.
+func (o UserPoolLambdaConfigOutput) PreSignUp() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.PreSignUp == nil { return *new(string) } else { return *v.PreSignUp }
+	}).(pulumi.StringOutput)
+}
+
+// Allow to customize identity token claims before token generation.
+func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.PreTokenGeneration == nil { return *new(string) } else { return *v.PreTokenGeneration }
+	}).(pulumi.StringOutput)
+}
+
+// The user migration Lambda config type.
+func (o UserPoolLambdaConfigOutput) UserMigration() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.UserMigration == nil { return *new(string) } else { return *v.UserMigration }
+	}).(pulumi.StringOutput)
+}
+
+// Verifies the authentication challenge response.
+func (o UserPoolLambdaConfigOutput) VerifyAuthChallengeResponse() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolLambdaConfig) string {
+		if v.VerifyAuthChallengeResponse == nil { return *new(string) } else { return *v.VerifyAuthChallengeResponse }
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolLambdaConfigOutput) ElementType() reflect.Type {
+	return userPoolLambdaConfigType
+}
+
+func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigOutput() UserPoolLambdaConfigOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigOutputWithContext(ctx context.Context) UserPoolLambdaConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolLambdaConfigOutput{}) }
+
+type UserPoolPasswordPolicy struct {
+	// The minimum length of the password policy that you have set.
+	MinimumLength *int `pulumi:"minimumLength"`
+	// Whether you have required users to use at least one lowercase letter in their password.
+	RequireLowercase *bool `pulumi:"requireLowercase"`
+	// Whether you have required users to use at least one number in their password.
+	RequireNumbers *bool `pulumi:"requireNumbers"`
+	// Whether you have required users to use at least one symbol in their password.
+	RequireSymbols *bool `pulumi:"requireSymbols"`
+	// Whether you have required users to use at least one uppercase letter in their password.
+	RequireUppercase *bool `pulumi:"requireUppercase"`
+}
+var userPoolPasswordPolicyType = reflect.TypeOf((*UserPoolPasswordPolicy)(nil)).Elem()
+
+type UserPoolPasswordPolicyInput interface {
+	pulumi.Input
+
+	ToUserPoolPasswordPolicyOutput() UserPoolPasswordPolicyOutput
+	ToUserPoolPasswordPolicyOutputWithContext(ctx context.Context) UserPoolPasswordPolicyOutput
+}
+
+type UserPoolPasswordPolicyArgs struct {
+	// The minimum length of the password policy that you have set.
+	MinimumLength pulumi.IntInput `pulumi:"minimumLength"`
+	// Whether you have required users to use at least one lowercase letter in their password.
+	RequireLowercase pulumi.BoolInput `pulumi:"requireLowercase"`
+	// Whether you have required users to use at least one number in their password.
+	RequireNumbers pulumi.BoolInput `pulumi:"requireNumbers"`
+	// Whether you have required users to use at least one symbol in their password.
+	RequireSymbols pulumi.BoolInput `pulumi:"requireSymbols"`
+	// Whether you have required users to use at least one uppercase letter in their password.
+	RequireUppercase pulumi.BoolInput `pulumi:"requireUppercase"`
+}
+
+func (UserPoolPasswordPolicyArgs) ElementType() reflect.Type {
+	return userPoolPasswordPolicyType
+}
+
+func (a UserPoolPasswordPolicyArgs) ToUserPoolPasswordPolicyOutput() UserPoolPasswordPolicyOutput {
+	return pulumi.ToOutput(a).(UserPoolPasswordPolicyOutput)
+}
+
+func (a UserPoolPasswordPolicyArgs) ToUserPoolPasswordPolicyOutputWithContext(ctx context.Context) UserPoolPasswordPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolPasswordPolicyOutput)
+}
+
+type UserPoolPasswordPolicyOutput struct { *pulumi.OutputState }
+
+// The minimum length of the password policy that you have set.
+func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntOutput {
+	return o.Apply(func(v UserPoolPasswordPolicy) int {
+		if v.MinimumLength == nil { return *new(int) } else { return *v.MinimumLength }
+	}).(pulumi.IntOutput)
+}
+
+// Whether you have required users to use at least one lowercase letter in their password.
+func (o UserPoolPasswordPolicyOutput) RequireLowercase() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolPasswordPolicy) bool {
+		if v.RequireLowercase == nil { return *new(bool) } else { return *v.RequireLowercase }
+	}).(pulumi.BoolOutput)
+}
+
+// Whether you have required users to use at least one number in their password.
+func (o UserPoolPasswordPolicyOutput) RequireNumbers() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolPasswordPolicy) bool {
+		if v.RequireNumbers == nil { return *new(bool) } else { return *v.RequireNumbers }
+	}).(pulumi.BoolOutput)
+}
+
+// Whether you have required users to use at least one symbol in their password.
+func (o UserPoolPasswordPolicyOutput) RequireSymbols() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolPasswordPolicy) bool {
+		if v.RequireSymbols == nil { return *new(bool) } else { return *v.RequireSymbols }
+	}).(pulumi.BoolOutput)
+}
+
+// Whether you have required users to use at least one uppercase letter in their password.
+func (o UserPoolPasswordPolicyOutput) RequireUppercase() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolPasswordPolicy) bool {
+		if v.RequireUppercase == nil { return *new(bool) } else { return *v.RequireUppercase }
+	}).(pulumi.BoolOutput)
+}
+
+func (UserPoolPasswordPolicyOutput) ElementType() reflect.Type {
+	return userPoolPasswordPolicyType
+}
+
+func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyOutput() UserPoolPasswordPolicyOutput {
+	return o
+}
+
+func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyOutputWithContext(ctx context.Context) UserPoolPasswordPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolPasswordPolicyOutput{}) }
+
+type UserPoolSchemas struct {
+	// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+	AttributeDataType string `pulumi:"attributeDataType"`
+	// Specifies whether the attribute type is developer only.
+	DeveloperOnlyAttribute *bool `pulumi:"developerOnlyAttribute"`
+	// Specifies whether the attribute can be changed once it has been created.
+	Mutable *bool `pulumi:"mutable"`
+	// The name of the attribute.
+	Name string `pulumi:"name"`
+	// Specifies the constraints for an attribute of the number type.
+	NumberAttributeConstraints *UserPoolSchemasNumberAttributeConstraints `pulumi:"numberAttributeConstraints"`
+	// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+	Required *bool `pulumi:"required"`
+	// -Specifies the constraints for an attribute of the string type.
+	StringAttributeConstraints *UserPoolSchemasStringAttributeConstraints `pulumi:"stringAttributeConstraints"`
+}
+var userPoolSchemasType = reflect.TypeOf((*UserPoolSchemas)(nil)).Elem()
+
+type UserPoolSchemasInput interface {
+	pulumi.Input
+
+	ToUserPoolSchemasOutput() UserPoolSchemasOutput
+	ToUserPoolSchemasOutputWithContext(ctx context.Context) UserPoolSchemasOutput
+}
+
+type UserPoolSchemasArgs struct {
+	// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+	AttributeDataType pulumi.StringInput `pulumi:"attributeDataType"`
+	// Specifies whether the attribute type is developer only.
+	DeveloperOnlyAttribute pulumi.BoolInput `pulumi:"developerOnlyAttribute"`
+	// Specifies whether the attribute can be changed once it has been created.
+	Mutable pulumi.BoolInput `pulumi:"mutable"`
+	// The name of the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the constraints for an attribute of the number type.
+	NumberAttributeConstraints UserPoolSchemasNumberAttributeConstraintsInput `pulumi:"numberAttributeConstraints"`
+	// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+	Required pulumi.BoolInput `pulumi:"required"`
+	// -Specifies the constraints for an attribute of the string type.
+	StringAttributeConstraints UserPoolSchemasStringAttributeConstraintsInput `pulumi:"stringAttributeConstraints"`
+}
+
+func (UserPoolSchemasArgs) ElementType() reflect.Type {
+	return userPoolSchemasType
+}
+
+func (a UserPoolSchemasArgs) ToUserPoolSchemasOutput() UserPoolSchemasOutput {
+	return pulumi.ToOutput(a).(UserPoolSchemasOutput)
+}
+
+func (a UserPoolSchemasArgs) ToUserPoolSchemasOutputWithContext(ctx context.Context) UserPoolSchemasOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolSchemasOutput)
+}
+
+type UserPoolSchemasOutput struct { *pulumi.OutputState }
+
+// The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+func (o UserPoolSchemasOutput) AttributeDataType() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSchemas) string {
+		return v.AttributeDataType
+	}).(pulumi.StringOutput)
+}
+
+// Specifies whether the attribute type is developer only.
+func (o UserPoolSchemasOutput) DeveloperOnlyAttribute() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolSchemas) bool {
+		if v.DeveloperOnlyAttribute == nil { return *new(bool) } else { return *v.DeveloperOnlyAttribute }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies whether the attribute can be changed once it has been created.
+func (o UserPoolSchemasOutput) Mutable() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolSchemas) bool {
+		if v.Mutable == nil { return *new(bool) } else { return *v.Mutable }
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the attribute.
+func (o UserPoolSchemasOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSchemas) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the constraints for an attribute of the number type.
+func (o UserPoolSchemasOutput) NumberAttributeConstraints() UserPoolSchemasNumberAttributeConstraintsOutput {
+	return o.Apply(func(v UserPoolSchemas) UserPoolSchemasNumberAttributeConstraints {
+		if v.NumberAttributeConstraints == nil { return *new(UserPoolSchemasNumberAttributeConstraints) } else { return *v.NumberAttributeConstraints }
+	}).(UserPoolSchemasNumberAttributeConstraintsOutput)
+}
+
+// Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+func (o UserPoolSchemasOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v UserPoolSchemas) bool {
+		if v.Required == nil { return *new(bool) } else { return *v.Required }
+	}).(pulumi.BoolOutput)
+}
+
+// -Specifies the constraints for an attribute of the string type.
+func (o UserPoolSchemasOutput) StringAttributeConstraints() UserPoolSchemasStringAttributeConstraintsOutput {
+	return o.Apply(func(v UserPoolSchemas) UserPoolSchemasStringAttributeConstraints {
+		if v.StringAttributeConstraints == nil { return *new(UserPoolSchemasStringAttributeConstraints) } else { return *v.StringAttributeConstraints }
+	}).(UserPoolSchemasStringAttributeConstraintsOutput)
+}
+
+func (UserPoolSchemasOutput) ElementType() reflect.Type {
+	return userPoolSchemasType
+}
+
+func (o UserPoolSchemasOutput) ToUserPoolSchemasOutput() UserPoolSchemasOutput {
+	return o
+}
+
+func (o UserPoolSchemasOutput) ToUserPoolSchemasOutputWithContext(ctx context.Context) UserPoolSchemasOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolSchemasOutput{}) }
+
+var userPoolSchemasArrayType = reflect.TypeOf((*[]UserPoolSchemas)(nil)).Elem()
+
+type UserPoolSchemasArrayInput interface {
+	pulumi.Input
+
+	ToUserPoolSchemasArrayOutput() UserPoolSchemasArrayOutput
+	ToUserPoolSchemasArrayOutputWithContext(ctx context.Context) UserPoolSchemasArrayOutput
+}
+
+type UserPoolSchemasArrayArgs []UserPoolSchemasInput
+
+func (UserPoolSchemasArrayArgs) ElementType() reflect.Type {
+	return userPoolSchemasArrayType
+}
+
+func (a UserPoolSchemasArrayArgs) ToUserPoolSchemasArrayOutput() UserPoolSchemasArrayOutput {
+	return pulumi.ToOutput(a).(UserPoolSchemasArrayOutput)
+}
+
+func (a UserPoolSchemasArrayArgs) ToUserPoolSchemasArrayOutputWithContext(ctx context.Context) UserPoolSchemasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolSchemasArrayOutput)
+}
+
+type UserPoolSchemasArrayOutput struct { *pulumi.OutputState }
+
+func (o UserPoolSchemasArrayOutput) Index(i pulumi.IntInput) UserPoolSchemasOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) UserPoolSchemas {
+		return vs[0].([]UserPoolSchemas)[vs[1].(int)]
+	}).(UserPoolSchemasOutput)
+}
+
+func (UserPoolSchemasArrayOutput) ElementType() reflect.Type {
+	return userPoolSchemasArrayType
+}
+
+func (o UserPoolSchemasArrayOutput) ToUserPoolSchemasArrayOutput() UserPoolSchemasArrayOutput {
+	return o
+}
+
+func (o UserPoolSchemasArrayOutput) ToUserPoolSchemasArrayOutputWithContext(ctx context.Context) UserPoolSchemasArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolSchemasArrayOutput{}) }
+
+type UserPoolSchemasNumberAttributeConstraints struct {
+	// The maximum value of an attribute that is of the number data type.
+	MaxValue *string `pulumi:"maxValue"`
+	// The minimum value of an attribute that is of the number data type.
+	MinValue *string `pulumi:"minValue"`
+}
+var userPoolSchemasNumberAttributeConstraintsType = reflect.TypeOf((*UserPoolSchemasNumberAttributeConstraints)(nil)).Elem()
+
+type UserPoolSchemasNumberAttributeConstraintsInput interface {
+	pulumi.Input
+
+	ToUserPoolSchemasNumberAttributeConstraintsOutput() UserPoolSchemasNumberAttributeConstraintsOutput
+	ToUserPoolSchemasNumberAttributeConstraintsOutputWithContext(ctx context.Context) UserPoolSchemasNumberAttributeConstraintsOutput
+}
+
+type UserPoolSchemasNumberAttributeConstraintsArgs struct {
+	// The maximum value of an attribute that is of the number data type.
+	MaxValue pulumi.StringInput `pulumi:"maxValue"`
+	// The minimum value of an attribute that is of the number data type.
+	MinValue pulumi.StringInput `pulumi:"minValue"`
+}
+
+func (UserPoolSchemasNumberAttributeConstraintsArgs) ElementType() reflect.Type {
+	return userPoolSchemasNumberAttributeConstraintsType
+}
+
+func (a UserPoolSchemasNumberAttributeConstraintsArgs) ToUserPoolSchemasNumberAttributeConstraintsOutput() UserPoolSchemasNumberAttributeConstraintsOutput {
+	return pulumi.ToOutput(a).(UserPoolSchemasNumberAttributeConstraintsOutput)
+}
+
+func (a UserPoolSchemasNumberAttributeConstraintsArgs) ToUserPoolSchemasNumberAttributeConstraintsOutputWithContext(ctx context.Context) UserPoolSchemasNumberAttributeConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolSchemasNumberAttributeConstraintsOutput)
+}
+
+type UserPoolSchemasNumberAttributeConstraintsOutput struct { *pulumi.OutputState }
+
+// The maximum value of an attribute that is of the number data type.
+func (o UserPoolSchemasNumberAttributeConstraintsOutput) MaxValue() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSchemasNumberAttributeConstraints) string {
+		if v.MaxValue == nil { return *new(string) } else { return *v.MaxValue }
+	}).(pulumi.StringOutput)
+}
+
+// The minimum value of an attribute that is of the number data type.
+func (o UserPoolSchemasNumberAttributeConstraintsOutput) MinValue() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSchemasNumberAttributeConstraints) string {
+		if v.MinValue == nil { return *new(string) } else { return *v.MinValue }
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolSchemasNumberAttributeConstraintsOutput) ElementType() reflect.Type {
+	return userPoolSchemasNumberAttributeConstraintsType
+}
+
+func (o UserPoolSchemasNumberAttributeConstraintsOutput) ToUserPoolSchemasNumberAttributeConstraintsOutput() UserPoolSchemasNumberAttributeConstraintsOutput {
+	return o
+}
+
+func (o UserPoolSchemasNumberAttributeConstraintsOutput) ToUserPoolSchemasNumberAttributeConstraintsOutputWithContext(ctx context.Context) UserPoolSchemasNumberAttributeConstraintsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolSchemasNumberAttributeConstraintsOutput{}) }
+
+type UserPoolSchemasStringAttributeConstraints struct {
+	// The maximum length of an attribute value of the string type.
+	MaxLength *string `pulumi:"maxLength"`
+	// The minimum length of an attribute value of the string type.
+	MinLength *string `pulumi:"minLength"`
+}
+var userPoolSchemasStringAttributeConstraintsType = reflect.TypeOf((*UserPoolSchemasStringAttributeConstraints)(nil)).Elem()
+
+type UserPoolSchemasStringAttributeConstraintsInput interface {
+	pulumi.Input
+
+	ToUserPoolSchemasStringAttributeConstraintsOutput() UserPoolSchemasStringAttributeConstraintsOutput
+	ToUserPoolSchemasStringAttributeConstraintsOutputWithContext(ctx context.Context) UserPoolSchemasStringAttributeConstraintsOutput
+}
+
+type UserPoolSchemasStringAttributeConstraintsArgs struct {
+	// The maximum length of an attribute value of the string type.
+	MaxLength pulumi.StringInput `pulumi:"maxLength"`
+	// The minimum length of an attribute value of the string type.
+	MinLength pulumi.StringInput `pulumi:"minLength"`
+}
+
+func (UserPoolSchemasStringAttributeConstraintsArgs) ElementType() reflect.Type {
+	return userPoolSchemasStringAttributeConstraintsType
+}
+
+func (a UserPoolSchemasStringAttributeConstraintsArgs) ToUserPoolSchemasStringAttributeConstraintsOutput() UserPoolSchemasStringAttributeConstraintsOutput {
+	return pulumi.ToOutput(a).(UserPoolSchemasStringAttributeConstraintsOutput)
+}
+
+func (a UserPoolSchemasStringAttributeConstraintsArgs) ToUserPoolSchemasStringAttributeConstraintsOutputWithContext(ctx context.Context) UserPoolSchemasStringAttributeConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolSchemasStringAttributeConstraintsOutput)
+}
+
+type UserPoolSchemasStringAttributeConstraintsOutput struct { *pulumi.OutputState }
+
+// The maximum length of an attribute value of the string type.
+func (o UserPoolSchemasStringAttributeConstraintsOutput) MaxLength() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSchemasStringAttributeConstraints) string {
+		if v.MaxLength == nil { return *new(string) } else { return *v.MaxLength }
+	}).(pulumi.StringOutput)
+}
+
+// The minimum length of an attribute value of the string type.
+func (o UserPoolSchemasStringAttributeConstraintsOutput) MinLength() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSchemasStringAttributeConstraints) string {
+		if v.MinLength == nil { return *new(string) } else { return *v.MinLength }
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolSchemasStringAttributeConstraintsOutput) ElementType() reflect.Type {
+	return userPoolSchemasStringAttributeConstraintsType
+}
+
+func (o UserPoolSchemasStringAttributeConstraintsOutput) ToUserPoolSchemasStringAttributeConstraintsOutput() UserPoolSchemasStringAttributeConstraintsOutput {
+	return o
+}
+
+func (o UserPoolSchemasStringAttributeConstraintsOutput) ToUserPoolSchemasStringAttributeConstraintsOutputWithContext(ctx context.Context) UserPoolSchemasStringAttributeConstraintsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolSchemasStringAttributeConstraintsOutput{}) }
+
+type UserPoolSmsConfiguration struct {
+	// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+	ExternalId string `pulumi:"externalId"`
+	// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+	SnsCallerArn string `pulumi:"snsCallerArn"`
+}
+var userPoolSmsConfigurationType = reflect.TypeOf((*UserPoolSmsConfiguration)(nil)).Elem()
+
+type UserPoolSmsConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolSmsConfigurationOutput() UserPoolSmsConfigurationOutput
+	ToUserPoolSmsConfigurationOutputWithContext(ctx context.Context) UserPoolSmsConfigurationOutput
+}
+
+type UserPoolSmsConfigurationArgs struct {
+	// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+	SnsCallerArn pulumi.StringInput `pulumi:"snsCallerArn"`
+}
+
+func (UserPoolSmsConfigurationArgs) ElementType() reflect.Type {
+	return userPoolSmsConfigurationType
+}
+
+func (a UserPoolSmsConfigurationArgs) ToUserPoolSmsConfigurationOutput() UserPoolSmsConfigurationOutput {
+	return pulumi.ToOutput(a).(UserPoolSmsConfigurationOutput)
+}
+
+func (a UserPoolSmsConfigurationArgs) ToUserPoolSmsConfigurationOutputWithContext(ctx context.Context) UserPoolSmsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolSmsConfigurationOutput)
+}
+
+type UserPoolSmsConfigurationOutput struct { *pulumi.OutputState }
+
+// The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+func (o UserPoolSmsConfigurationOutput) ExternalId() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSmsConfiguration) string {
+		return v.ExternalId
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+func (o UserPoolSmsConfigurationOutput) SnsCallerArn() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolSmsConfiguration) string {
+		return v.SnsCallerArn
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolSmsConfigurationOutput) ElementType() reflect.Type {
+	return userPoolSmsConfigurationType
+}
+
+func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationOutput() UserPoolSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationOutputWithContext(ctx context.Context) UserPoolSmsConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolSmsConfigurationOutput{}) }
+
+type UserPoolUserPoolAddOns struct {
+	// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+	AdvancedSecurityMode string `pulumi:"advancedSecurityMode"`
+}
+var userPoolUserPoolAddOnsType = reflect.TypeOf((*UserPoolUserPoolAddOns)(nil)).Elem()
+
+type UserPoolUserPoolAddOnsInput interface {
+	pulumi.Input
+
+	ToUserPoolUserPoolAddOnsOutput() UserPoolUserPoolAddOnsOutput
+	ToUserPoolUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsOutput
+}
+
+type UserPoolUserPoolAddOnsArgs struct {
+	// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+	AdvancedSecurityMode pulumi.StringInput `pulumi:"advancedSecurityMode"`
+}
+
+func (UserPoolUserPoolAddOnsArgs) ElementType() reflect.Type {
+	return userPoolUserPoolAddOnsType
+}
+
+func (a UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsOutput() UserPoolUserPoolAddOnsOutput {
+	return pulumi.ToOutput(a).(UserPoolUserPoolAddOnsOutput)
+}
+
+func (a UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolUserPoolAddOnsOutput)
+}
+
+type UserPoolUserPoolAddOnsOutput struct { *pulumi.OutputState }
+
+// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+func (o UserPoolUserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolUserPoolAddOns) string {
+		return v.AdvancedSecurityMode
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolUserPoolAddOnsOutput) ElementType() reflect.Type {
+	return userPoolUserPoolAddOnsType
+}
+
+func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsOutput() UserPoolUserPoolAddOnsOutput {
+	return o
+}
+
+func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolUserPoolAddOnsOutput{}) }
+
+type UserPoolVerificationMessageTemplate struct {
+	// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+	DefaultEmailOption *string `pulumi:"defaultEmailOption"`
+	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	EmailMessage *string `pulumi:"emailMessage"`
+	// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+	EmailMessageByLink *string `pulumi:"emailMessageByLink"`
+	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	EmailSubject *string `pulumi:"emailSubject"`
+	// The subject line for the email message template for sending a confirmation link to the user.
+	EmailSubjectByLink *string `pulumi:"emailSubjectByLink"`
+	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	SmsMessage *string `pulumi:"smsMessage"`
+}
+var userPoolVerificationMessageTemplateType = reflect.TypeOf((*UserPoolVerificationMessageTemplate)(nil)).Elem()
+
+type UserPoolVerificationMessageTemplateInput interface {
+	pulumi.Input
+
+	ToUserPoolVerificationMessageTemplateOutput() UserPoolVerificationMessageTemplateOutput
+	ToUserPoolVerificationMessageTemplateOutputWithContext(ctx context.Context) UserPoolVerificationMessageTemplateOutput
+}
+
+type UserPoolVerificationMessageTemplateArgs struct {
+	// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+	DefaultEmailOption pulumi.StringInput `pulumi:"defaultEmailOption"`
+	// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	EmailMessage pulumi.StringInput `pulumi:"emailMessage"`
+	// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+	EmailMessageByLink pulumi.StringInput `pulumi:"emailMessageByLink"`
+	// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	EmailSubject pulumi.StringInput `pulumi:"emailSubject"`
+	// The subject line for the email message template for sending a confirmation link to the user.
+	EmailSubjectByLink pulumi.StringInput `pulumi:"emailSubjectByLink"`
+	// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	SmsMessage pulumi.StringInput `pulumi:"smsMessage"`
+}
+
+func (UserPoolVerificationMessageTemplateArgs) ElementType() reflect.Type {
+	return userPoolVerificationMessageTemplateType
+}
+
+func (a UserPoolVerificationMessageTemplateArgs) ToUserPoolVerificationMessageTemplateOutput() UserPoolVerificationMessageTemplateOutput {
+	return pulumi.ToOutput(a).(UserPoolVerificationMessageTemplateOutput)
+}
+
+func (a UserPoolVerificationMessageTemplateArgs) ToUserPoolVerificationMessageTemplateOutputWithContext(ctx context.Context) UserPoolVerificationMessageTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UserPoolVerificationMessageTemplateOutput)
+}
+
+type UserPoolVerificationMessageTemplateOutput struct { *pulumi.OutputState }
+
+// The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+func (o UserPoolVerificationMessageTemplateOutput) DefaultEmailOption() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolVerificationMessageTemplate) string {
+		if v.DefaultEmailOption == nil { return *new(string) } else { return *v.DefaultEmailOption }
+	}).(pulumi.StringOutput)
+}
+
+// The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+func (o UserPoolVerificationMessageTemplateOutput) EmailMessage() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolVerificationMessageTemplate) string {
+		if v.EmailMessage == nil { return *new(string) } else { return *v.EmailMessage }
+	}).(pulumi.StringOutput)
+}
+
+// The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+func (o UserPoolVerificationMessageTemplateOutput) EmailMessageByLink() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolVerificationMessageTemplate) string {
+		if v.EmailMessageByLink == nil { return *new(string) } else { return *v.EmailMessageByLink }
+	}).(pulumi.StringOutput)
+}
+
+// The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+func (o UserPoolVerificationMessageTemplateOutput) EmailSubject() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolVerificationMessageTemplate) string {
+		if v.EmailSubject == nil { return *new(string) } else { return *v.EmailSubject }
+	}).(pulumi.StringOutput)
+}
+
+// The subject line for the email message template for sending a confirmation link to the user.
+func (o UserPoolVerificationMessageTemplateOutput) EmailSubjectByLink() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolVerificationMessageTemplate) string {
+		if v.EmailSubjectByLink == nil { return *new(string) } else { return *v.EmailSubjectByLink }
+	}).(pulumi.StringOutput)
+}
+
+// The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+func (o UserPoolVerificationMessageTemplateOutput) SmsMessage() pulumi.StringOutput {
+	return o.Apply(func(v UserPoolVerificationMessageTemplate) string {
+		if v.SmsMessage == nil { return *new(string) } else { return *v.SmsMessage }
+	}).(pulumi.StringOutput)
+}
+
+func (UserPoolVerificationMessageTemplateOutput) ElementType() reflect.Type {
+	return userPoolVerificationMessageTemplateType
+}
+
+func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessageTemplateOutput() UserPoolVerificationMessageTemplateOutput {
+	return o
+}
+
+func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessageTemplateOutputWithContext(ctx context.Context) UserPoolVerificationMessageTemplateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{}) }
+

@@ -4,6 +4,8 @@
 package iot
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,93 +13,136 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
 type ThingType struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the created AWS IoT Thing Type.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
+	Deprecated pulumi.BoolOutput `pulumi:"deprecated"`
+
+	// The name of the thing type.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	Properties ThingTypePropertiesOutput `pulumi:"properties"`
 }
 
 // NewThingType registers a new resource with the given unique name, arguments, and options.
 func NewThingType(ctx *pulumi.Context,
-	name string, args *ThingTypeArgs, opts ...pulumi.ResourceOpt) (*ThingType, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deprecated"] = nil
-		inputs["name"] = nil
-		inputs["properties"] = nil
-	} else {
-		inputs["deprecated"] = args.Deprecated
-		inputs["name"] = args.Name
-		inputs["properties"] = args.Properties
+	name string, args *ThingTypeArgs, opts ...pulumi.ResourceOption) (*ThingType, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Deprecated; i != nil { inputs["deprecated"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Properties; i != nil { inputs["properties"] = i.ToThingTypePropertiesOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:iot/thingType:ThingType", name, true, inputs, opts...)
+	var resource ThingType
+	err := ctx.RegisterResource("aws:iot/thingType:ThingType", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ThingType{s: s}, nil
+	return &resource, nil
 }
 
 // GetThingType gets an existing ThingType resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetThingType(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ThingTypeState, opts ...pulumi.ResourceOpt) (*ThingType, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ThingTypeState, opts ...pulumi.ResourceOption) (*ThingType, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["deprecated"] = state.Deprecated
-		inputs["name"] = state.Name
-		inputs["properties"] = state.Properties
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Deprecated; i != nil { inputs["deprecated"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Properties; i != nil { inputs["properties"] = i.ToThingTypePropertiesOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iot/thingType:ThingType", name, id, inputs, opts...)
+	var resource ThingType
+	err := ctx.ReadResource("aws:iot/thingType:ThingType", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ThingType{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ThingType) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ThingType) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the created AWS IoT Thing Type.
-func (r *ThingType) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Whether the thing type is deprecated. If true, no new things could be associated with this type.
-func (r *ThingType) Deprecated() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deprecated"])
-}
-
-// The name of the thing type.
-func (r *ThingType) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *ThingType) Properties() pulumi.Output {
-	return r.s.State["properties"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ThingType resources.
 type ThingTypeState struct {
 	// The ARN of the created AWS IoT Thing Type.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
-	Deprecated interface{}
+	Deprecated pulumi.BoolInput `pulumi:"deprecated"`
 	// The name of the thing type.
-	Name interface{}
-	Properties interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Properties ThingTypePropertiesInput `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a ThingType resource.
 type ThingTypeArgs struct {
 	// Whether the thing type is deprecated. If true, no new things could be associated with this type.
-	Deprecated interface{}
+	Deprecated pulumi.BoolInput `pulumi:"deprecated"`
 	// The name of the thing type.
-	Name interface{}
-	Properties interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Properties ThingTypePropertiesInput `pulumi:"properties"`
 }
+type ThingTypeProperties struct {
+	// The description of the thing type.
+	Description *string `pulumi:"description"`
+	// A list of searchable thing attribute names.
+	SearchableAttributes *[]string `pulumi:"searchableAttributes"`
+}
+var thingTypePropertiesType = reflect.TypeOf((*ThingTypeProperties)(nil)).Elem()
+
+type ThingTypePropertiesInput interface {
+	pulumi.Input
+
+	ToThingTypePropertiesOutput() ThingTypePropertiesOutput
+	ToThingTypePropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesOutput
+}
+
+type ThingTypePropertiesArgs struct {
+	// The description of the thing type.
+	Description pulumi.StringInput `pulumi:"description"`
+	// A list of searchable thing attribute names.
+	SearchableAttributes pulumi.StringArrayInput `pulumi:"searchableAttributes"`
+}
+
+func (ThingTypePropertiesArgs) ElementType() reflect.Type {
+	return thingTypePropertiesType
+}
+
+func (a ThingTypePropertiesArgs) ToThingTypePropertiesOutput() ThingTypePropertiesOutput {
+	return pulumi.ToOutput(a).(ThingTypePropertiesOutput)
+}
+
+func (a ThingTypePropertiesArgs) ToThingTypePropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ThingTypePropertiesOutput)
+}
+
+type ThingTypePropertiesOutput struct { *pulumi.OutputState }
+
+// The description of the thing type.
+func (o ThingTypePropertiesOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ThingTypeProperties) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+// A list of searchable thing attribute names.
+func (o ThingTypePropertiesOutput) SearchableAttributes() pulumi.StringArrayOutput {
+	return o.Apply(func(v ThingTypeProperties) []string {
+		if v.SearchableAttributes == nil { return *new([]string) } else { return *v.SearchableAttributes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ThingTypePropertiesOutput) ElementType() reflect.Type {
+	return thingTypePropertiesType
+}
+
+func (o ThingTypePropertiesOutput) ToThingTypePropertiesOutput() ThingTypePropertiesOutput {
+	return o
+}
+
+func (o ThingTypePropertiesOutput) ToThingTypePropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ThingTypePropertiesOutput{}) }
+

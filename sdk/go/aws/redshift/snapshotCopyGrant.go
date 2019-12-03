@@ -14,99 +14,78 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_snapshot_copy_grant.html.markdown.
 type SnapshotCopyGrant struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of snapshot copy grant
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// A friendly name for identifying the grant.
+	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewSnapshotCopyGrant registers a new resource with the given unique name, arguments, and options.
 func NewSnapshotCopyGrant(ctx *pulumi.Context,
-	name string, args *SnapshotCopyGrantArgs, opts ...pulumi.ResourceOpt) (*SnapshotCopyGrant, error) {
+	name string, args *SnapshotCopyGrantArgs, opts ...pulumi.ResourceOption) (*SnapshotCopyGrant, error) {
 	if args == nil || args.SnapshotCopyGrantName == nil {
 		return nil, errors.New("missing required argument 'SnapshotCopyGrantName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["kmsKeyId"] = nil
-		inputs["snapshotCopyGrantName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["snapshotCopyGrantName"] = args.SnapshotCopyGrantName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.SnapshotCopyGrantName; i != nil { inputs["snapshotCopyGrantName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, true, inputs, opts...)
+	var resource SnapshotCopyGrant
+	err := ctx.RegisterResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SnapshotCopyGrant{s: s}, nil
+	return &resource, nil
 }
 
 // GetSnapshotCopyGrant gets an existing SnapshotCopyGrant resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSnapshotCopyGrant(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SnapshotCopyGrantState, opts ...pulumi.ResourceOpt) (*SnapshotCopyGrant, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SnapshotCopyGrantState, opts ...pulumi.ResourceOption) (*SnapshotCopyGrant, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["snapshotCopyGrantName"] = state.SnapshotCopyGrantName
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.SnapshotCopyGrantName; i != nil { inputs["snapshotCopyGrantName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, id, inputs, opts...)
+	var resource SnapshotCopyGrant
+	err := ctx.ReadResource("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SnapshotCopyGrant{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SnapshotCopyGrant) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SnapshotCopyGrant) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of snapshot copy grant
-func (r *SnapshotCopyGrant) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-func (r *SnapshotCopyGrant) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// A friendly name for identifying the grant.
-func (r *SnapshotCopyGrant) SnapshotCopyGrantName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snapshotCopyGrantName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *SnapshotCopyGrant) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SnapshotCopyGrant resources.
 type SnapshotCopyGrantState struct {
 	// Amazon Resource Name (ARN) of snapshot copy grant
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
-	SnapshotCopyGrantName interface{}
+	SnapshotCopyGrantName pulumi.StringInput `pulumi:"snapshotCopyGrantName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopyGrant resource.
 type SnapshotCopyGrantArgs struct {
 	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
-	SnapshotCopyGrantName interface{}
+	SnapshotCopyGrantName pulumi.StringInput `pulumi:"snapshotCopyGrantName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

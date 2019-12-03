@@ -11,75 +11,60 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_regex_pattern_set.html.markdown.
 type RegexPatternSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name or description of the Regex Pattern Set.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+	RegexPatternStrings pulumi.StringArrayOutput `pulumi:"regexPatternStrings"`
 }
 
 // NewRegexPatternSet registers a new resource with the given unique name, arguments, and options.
 func NewRegexPatternSet(ctx *pulumi.Context,
-	name string, args *RegexPatternSetArgs, opts ...pulumi.ResourceOpt) (*RegexPatternSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["regexPatternStrings"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["regexPatternStrings"] = args.RegexPatternStrings
+	name string, args *RegexPatternSetArgs, opts ...pulumi.ResourceOption) (*RegexPatternSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RegexPatternStrings; i != nil { inputs["regexPatternStrings"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:wafregional/regexPatternSet:RegexPatternSet", name, true, inputs, opts...)
+	var resource RegexPatternSet
+	err := ctx.RegisterResource("aws:wafregional/regexPatternSet:RegexPatternSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RegexPatternSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetRegexPatternSet gets an existing RegexPatternSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRegexPatternSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RegexPatternSetState, opts ...pulumi.ResourceOpt) (*RegexPatternSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RegexPatternSetState, opts ...pulumi.ResourceOption) (*RegexPatternSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["regexPatternStrings"] = state.RegexPatternStrings
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RegexPatternStrings; i != nil { inputs["regexPatternStrings"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:wafregional/regexPatternSet:RegexPatternSet", name, id, inputs, opts...)
+	var resource RegexPatternSet
+	err := ctx.ReadResource("aws:wafregional/regexPatternSet:RegexPatternSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RegexPatternSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RegexPatternSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RegexPatternSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name or description of the Regex Pattern Set.
-func (r *RegexPatternSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
-func (r *RegexPatternSet) RegexPatternStrings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["regexPatternStrings"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type RegexPatternSetState struct {
 	// The name or description of the Regex Pattern Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
-	RegexPatternStrings interface{}
+	RegexPatternStrings pulumi.StringArrayInput `pulumi:"regexPatternStrings"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
 type RegexPatternSetArgs struct {
 	// The name or description of the Regex Pattern Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
-	RegexPatternStrings interface{}
+	RegexPatternStrings pulumi.StringArrayInput `pulumi:"regexPatternStrings"`
 }

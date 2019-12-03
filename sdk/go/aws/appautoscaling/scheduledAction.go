@@ -4,6 +4,8 @@
 package appautoscaling
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,162 +14,190 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_scheduled_action.html.markdown.
 type ScheduledAction struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the scheduled action.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
+	EndTime pulumi.StringOutput `pulumi:"endTime"`
+
+	// The name of the scheduled action.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+
+	// The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
+	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
+
+	// The new minimum and maximum capacity. You can set both values or just one. See below
+	ScalableTargetAction ScheduledActionScalableTargetActionOutput `pulumi:"scalableTargetAction"`
+
+	// The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
+	Schedule pulumi.StringOutput `pulumi:"schedule"`
+
+	// The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
+	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
+
+	// The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
 }
 
 // NewScheduledAction registers a new resource with the given unique name, arguments, and options.
 func NewScheduledAction(ctx *pulumi.Context,
-	name string, args *ScheduledActionArgs, opts ...pulumi.ResourceOpt) (*ScheduledAction, error) {
+	name string, args *ScheduledActionArgs, opts ...pulumi.ResourceOption) (*ScheduledAction, error) {
 	if args == nil || args.ResourceId == nil {
 		return nil, errors.New("missing required argument 'ResourceId'")
 	}
 	if args == nil || args.ServiceNamespace == nil {
 		return nil, errors.New("missing required argument 'ServiceNamespace'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["endTime"] = nil
-		inputs["name"] = nil
-		inputs["resourceId"] = nil
-		inputs["scalableDimension"] = nil
-		inputs["scalableTargetAction"] = nil
-		inputs["schedule"] = nil
-		inputs["serviceNamespace"] = nil
-		inputs["startTime"] = nil
-	} else {
-		inputs["endTime"] = args.EndTime
-		inputs["name"] = args.Name
-		inputs["resourceId"] = args.ResourceId
-		inputs["scalableDimension"] = args.ScalableDimension
-		inputs["scalableTargetAction"] = args.ScalableTargetAction
-		inputs["schedule"] = args.Schedule
-		inputs["serviceNamespace"] = args.ServiceNamespace
-		inputs["startTime"] = args.StartTime
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EndTime; i != nil { inputs["endTime"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceId; i != nil { inputs["resourceId"] = i.ToStringOutput() }
+		if i := args.ScalableDimension; i != nil { inputs["scalableDimension"] = i.ToStringOutput() }
+		if i := args.ScalableTargetAction; i != nil { inputs["scalableTargetAction"] = i.ToScheduledActionScalableTargetActionOutput() }
+		if i := args.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := args.ServiceNamespace; i != nil { inputs["serviceNamespace"] = i.ToStringOutput() }
+		if i := args.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:appautoscaling/scheduledAction:ScheduledAction", name, true, inputs, opts...)
+	var resource ScheduledAction
+	err := ctx.RegisterResource("aws:appautoscaling/scheduledAction:ScheduledAction", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ScheduledAction{s: s}, nil
+	return &resource, nil
 }
 
 // GetScheduledAction gets an existing ScheduledAction resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetScheduledAction(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ScheduledActionState, opts ...pulumi.ResourceOpt) (*ScheduledAction, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ScheduledActionState, opts ...pulumi.ResourceOption) (*ScheduledAction, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["endTime"] = state.EndTime
-		inputs["name"] = state.Name
-		inputs["resourceId"] = state.ResourceId
-		inputs["scalableDimension"] = state.ScalableDimension
-		inputs["scalableTargetAction"] = state.ScalableTargetAction
-		inputs["schedule"] = state.Schedule
-		inputs["serviceNamespace"] = state.ServiceNamespace
-		inputs["startTime"] = state.StartTime
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.EndTime; i != nil { inputs["endTime"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceId; i != nil { inputs["resourceId"] = i.ToStringOutput() }
+		if i := state.ScalableDimension; i != nil { inputs["scalableDimension"] = i.ToStringOutput() }
+		if i := state.ScalableTargetAction; i != nil { inputs["scalableTargetAction"] = i.ToScheduledActionScalableTargetActionOutput() }
+		if i := state.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := state.ServiceNamespace; i != nil { inputs["serviceNamespace"] = i.ToStringOutput() }
+		if i := state.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appautoscaling/scheduledAction:ScheduledAction", name, id, inputs, opts...)
+	var resource ScheduledAction
+	err := ctx.ReadResource("aws:appautoscaling/scheduledAction:ScheduledAction", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ScheduledAction{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ScheduledAction) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ScheduledAction) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the scheduled action.
-func (r *ScheduledAction) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
-func (r *ScheduledAction) EndTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endTime"])
-}
-
-// The name of the scheduled action.
-func (r *ScheduledAction) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
-func (r *ScheduledAction) ResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceId"])
-}
-
-// The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
-func (r *ScheduledAction) ScalableDimension() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scalableDimension"])
-}
-
-// The new minimum and maximum capacity. You can set both values or just one. See below
-func (r *ScheduledAction) ScalableTargetAction() pulumi.Output {
-	return r.s.State["scalableTargetAction"]
-}
-
-// The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
-func (r *ScheduledAction) Schedule() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["schedule"])
-}
-
-// The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
-func (r *ScheduledAction) ServiceNamespace() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceNamespace"])
-}
-
-// The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
-func (r *ScheduledAction) StartTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startTime"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ScheduledAction resources.
 type ScheduledActionState struct {
 	// The Amazon Resource Name (ARN) of the scheduled action.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
-	EndTime interface{}
+	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// The name of the scheduled action.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
-	ResourceId interface{}
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
-	ScalableDimension interface{}
+	ScalableDimension pulumi.StringInput `pulumi:"scalableDimension"`
 	// The new minimum and maximum capacity. You can set both values or just one. See below
-	ScalableTargetAction interface{}
+	ScalableTargetAction ScheduledActionScalableTargetActionInput `pulumi:"scalableTargetAction"`
 	// The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
-	ServiceNamespace interface{}
+	ServiceNamespace pulumi.StringInput `pulumi:"serviceNamespace"`
 	// The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
 // The set of arguments for constructing a ScheduledAction resource.
 type ScheduledActionArgs struct {
 	// The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z
-	EndTime interface{}
+	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// The name of the scheduled action.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The identifier of the resource associated with the scheduled action. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ResourceId)
-	ResourceId interface{}
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The scalable dimension. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ScalableDimension) Example: ecs:service:DesiredCount
-	ScalableDimension interface{}
+	ScalableDimension pulumi.StringInput `pulumi:"scalableDimension"`
 	// The new minimum and maximum capacity. You can set both values or just one. See below
-	ScalableTargetAction interface{}
+	ScalableTargetAction ScheduledActionScalableTargetActionInput `pulumi:"scalableTargetAction"`
 	// The schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). In UTC. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-Schedule)
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// The namespace of the AWS service. Documentation can be found in the parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_PutScheduledAction.html#ApplicationAutoScaling-PutScheduledAction-request-ServiceNamespace) Example: ecs
-	ServiceNamespace interface{}
+	ServiceNamespace pulumi.StringInput `pulumi:"serviceNamespace"`
 	// The date and time for the scheduled action to start. Specify the following format: 2006-01-02T15:04:05Z
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
+type ScheduledActionScalableTargetAction struct {
+	// The maximum capacity.
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The minimum capacity.
+	MinCapacity *int `pulumi:"minCapacity"`
+}
+var scheduledActionScalableTargetActionType = reflect.TypeOf((*ScheduledActionScalableTargetAction)(nil)).Elem()
+
+type ScheduledActionScalableTargetActionInput interface {
+	pulumi.Input
+
+	ToScheduledActionScalableTargetActionOutput() ScheduledActionScalableTargetActionOutput
+	ToScheduledActionScalableTargetActionOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionOutput
+}
+
+type ScheduledActionScalableTargetActionArgs struct {
+	// The maximum capacity.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// The minimum capacity.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+}
+
+func (ScheduledActionScalableTargetActionArgs) ElementType() reflect.Type {
+	return scheduledActionScalableTargetActionType
+}
+
+func (a ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTargetActionOutput() ScheduledActionScalableTargetActionOutput {
+	return pulumi.ToOutput(a).(ScheduledActionScalableTargetActionOutput)
+}
+
+func (a ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTargetActionOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduledActionScalableTargetActionOutput)
+}
+
+type ScheduledActionScalableTargetActionOutput struct { *pulumi.OutputState }
+
+// The maximum capacity.
+func (o ScheduledActionScalableTargetActionOutput) MaxCapacity() pulumi.IntOutput {
+	return o.Apply(func(v ScheduledActionScalableTargetAction) int {
+		if v.MaxCapacity == nil { return *new(int) } else { return *v.MaxCapacity }
+	}).(pulumi.IntOutput)
+}
+
+// The minimum capacity.
+func (o ScheduledActionScalableTargetActionOutput) MinCapacity() pulumi.IntOutput {
+	return o.Apply(func(v ScheduledActionScalableTargetAction) int {
+		if v.MinCapacity == nil { return *new(int) } else { return *v.MinCapacity }
+	}).(pulumi.IntOutput)
+}
+
+func (ScheduledActionScalableTargetActionOutput) ElementType() reflect.Type {
+	return scheduledActionScalableTargetActionType
+}
+
+func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTargetActionOutput() ScheduledActionScalableTargetActionOutput {
+	return o
+}
+
+func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTargetActionOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduledActionScalableTargetActionOutput{}) }
+

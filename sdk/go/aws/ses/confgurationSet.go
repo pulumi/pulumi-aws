@@ -8,60 +8,48 @@ import (
 )
 
 type ConfgurationSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewConfgurationSet registers a new resource with the given unique name, arguments, and options.
 func NewConfgurationSet(ctx *pulumi.Context,
-	name string, args *ConfgurationSetArgs, opts ...pulumi.ResourceOpt) (*ConfgurationSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-	} else {
-		inputs["name"] = args.Name
+	name string, args *ConfgurationSetArgs, opts ...pulumi.ResourceOption) (*ConfgurationSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ses/confgurationSet:ConfgurationSet", name, true, inputs, opts...)
+	var resource ConfgurationSet
+	err := ctx.RegisterResource("aws:ses/confgurationSet:ConfgurationSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConfgurationSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetConfgurationSet gets an existing ConfgurationSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConfgurationSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConfgurationSetState, opts ...pulumi.ResourceOpt) (*ConfgurationSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConfgurationSetState, opts ...pulumi.ResourceOption) (*ConfgurationSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/confgurationSet:ConfgurationSet", name, id, inputs, opts...)
+	var resource ConfgurationSet
+	err := ctx.ReadResource("aws:ses/confgurationSet:ConfgurationSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConfgurationSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ConfgurationSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ConfgurationSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *ConfgurationSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ConfgurationSet resources.
 type ConfgurationSetState struct {
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ConfgurationSet resource.
 type ConfgurationSetArgs struct {
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

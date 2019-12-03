@@ -4,6 +4,8 @@
 package kms
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,43 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
 type Grant struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+	Constraints GrantConstraintsArrayOutput `pulumi:"constraints"`
+
+	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+	GrantCreationTokens pulumi.StringArrayOutput `pulumi:"grantCreationTokens"`
+
+	// The unique identifier for the grant.
+	GrantId pulumi.StringOutput `pulumi:"grantId"`
+
+	// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
+	GrantToken pulumi.StringOutput `pulumi:"grantToken"`
+
+	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+	GranteePrincipal pulumi.StringOutput `pulumi:"granteePrincipal"`
+
+	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
+
+	// A friendly name for identifying the grant.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
+	Operations pulumi.StringArrayOutput `pulumi:"operations"`
+
+	RetireOnDelete pulumi.BoolOutput `pulumi:"retireOnDelete"`
+
+	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
+	RetiringPrincipal pulumi.StringOutput `pulumi:"retiringPrincipal"`
 }
 
 // NewGrant registers a new resource with the given unique name, arguments, and options.
 func NewGrant(ctx *pulumi.Context,
-	name string, args *GrantArgs, opts ...pulumi.ResourceOpt) (*Grant, error) {
+	name string, args *GrantArgs, opts ...pulumi.ResourceOption) (*Grant, error) {
 	if args == nil || args.GranteePrincipal == nil {
 		return nil, errors.New("missing required argument 'GranteePrincipal'")
 	}
@@ -27,162 +60,195 @@ func NewGrant(ctx *pulumi.Context,
 	if args == nil || args.Operations == nil {
 		return nil, errors.New("missing required argument 'Operations'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["constraints"] = nil
-		inputs["grantCreationTokens"] = nil
-		inputs["granteePrincipal"] = nil
-		inputs["keyId"] = nil
-		inputs["name"] = nil
-		inputs["operations"] = nil
-		inputs["retireOnDelete"] = nil
-		inputs["retiringPrincipal"] = nil
-	} else {
-		inputs["constraints"] = args.Constraints
-		inputs["grantCreationTokens"] = args.GrantCreationTokens
-		inputs["granteePrincipal"] = args.GranteePrincipal
-		inputs["keyId"] = args.KeyId
-		inputs["name"] = args.Name
-		inputs["operations"] = args.Operations
-		inputs["retireOnDelete"] = args.RetireOnDelete
-		inputs["retiringPrincipal"] = args.RetiringPrincipal
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Constraints; i != nil { inputs["constraints"] = i.ToGrantConstraintsArrayOutput() }
+		if i := args.GrantCreationTokens; i != nil { inputs["grantCreationTokens"] = i.ToStringArrayOutput() }
+		if i := args.GranteePrincipal; i != nil { inputs["granteePrincipal"] = i.ToStringOutput() }
+		if i := args.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Operations; i != nil { inputs["operations"] = i.ToStringArrayOutput() }
+		if i := args.RetireOnDelete; i != nil { inputs["retireOnDelete"] = i.ToBoolOutput() }
+		if i := args.RetiringPrincipal; i != nil { inputs["retiringPrincipal"] = i.ToStringOutput() }
 	}
-	inputs["grantId"] = nil
-	inputs["grantToken"] = nil
-	s, err := ctx.RegisterResource("aws:kms/grant:Grant", name, true, inputs, opts...)
+	var resource Grant
+	err := ctx.RegisterResource("aws:kms/grant:Grant", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Grant{s: s}, nil
+	return &resource, nil
 }
 
 // GetGrant gets an existing Grant resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGrant(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GrantState, opts ...pulumi.ResourceOpt) (*Grant, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GrantState, opts ...pulumi.ResourceOption) (*Grant, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["constraints"] = state.Constraints
-		inputs["grantCreationTokens"] = state.GrantCreationTokens
-		inputs["grantId"] = state.GrantId
-		inputs["grantToken"] = state.GrantToken
-		inputs["granteePrincipal"] = state.GranteePrincipal
-		inputs["keyId"] = state.KeyId
-		inputs["name"] = state.Name
-		inputs["operations"] = state.Operations
-		inputs["retireOnDelete"] = state.RetireOnDelete
-		inputs["retiringPrincipal"] = state.RetiringPrincipal
+		if i := state.Constraints; i != nil { inputs["constraints"] = i.ToGrantConstraintsArrayOutput() }
+		if i := state.GrantCreationTokens; i != nil { inputs["grantCreationTokens"] = i.ToStringArrayOutput() }
+		if i := state.GrantId; i != nil { inputs["grantId"] = i.ToStringOutput() }
+		if i := state.GrantToken; i != nil { inputs["grantToken"] = i.ToStringOutput() }
+		if i := state.GranteePrincipal; i != nil { inputs["granteePrincipal"] = i.ToStringOutput() }
+		if i := state.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Operations; i != nil { inputs["operations"] = i.ToStringArrayOutput() }
+		if i := state.RetireOnDelete; i != nil { inputs["retireOnDelete"] = i.ToBoolOutput() }
+		if i := state.RetiringPrincipal; i != nil { inputs["retiringPrincipal"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:kms/grant:Grant", name, id, inputs, opts...)
+	var resource Grant
+	err := ctx.ReadResource("aws:kms/grant:Grant", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Grant{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Grant) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Grant) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
-func (r *Grant) Constraints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["constraints"])
-}
-
-// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
-// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-func (r *Grant) GrantCreationTokens() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["grantCreationTokens"])
-}
-
-// The unique identifier for the grant.
-func (r *Grant) GrantId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["grantId"])
-}
-
-// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
-func (r *Grant) GrantToken() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["grantToken"])
-}
-
-// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-func (r *Grant) GranteePrincipal() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["granteePrincipal"])
-}
-
-// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-func (r *Grant) KeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyId"])
-}
-
-// A friendly name for identifying the grant.
-func (r *Grant) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-func (r *Grant) Operations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["operations"])
-}
-
-func (r *Grant) RetireOnDelete() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["retireOnDelete"])
-}
-
-// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-func (r *Grant) RetiringPrincipal() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["retiringPrincipal"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Grant resources.
 type GrantState struct {
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
-	Constraints interface{}
+	Constraints GrantConstraintsArrayInput `pulumi:"constraints"`
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
 	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
 	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-	GrantCreationTokens interface{}
+	GrantCreationTokens pulumi.StringArrayInput `pulumi:"grantCreationTokens"`
 	// The unique identifier for the grant.
-	GrantId interface{}
+	GrantId pulumi.StringInput `pulumi:"grantId"`
 	// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
-	GrantToken interface{}
+	GrantToken pulumi.StringInput `pulumi:"grantToken"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-	GranteePrincipal interface{}
+	GranteePrincipal pulumi.StringInput `pulumi:"granteePrincipal"`
 	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// A friendly name for identifying the grant.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations interface{}
-	RetireOnDelete interface{}
+	Operations pulumi.StringArrayInput `pulumi:"operations"`
+	RetireOnDelete pulumi.BoolInput `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-	RetiringPrincipal interface{}
+	RetiringPrincipal pulumi.StringInput `pulumi:"retiringPrincipal"`
 }
 
 // The set of arguments for constructing a Grant resource.
 type GrantArgs struct {
 	// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
-	Constraints interface{}
+	Constraints GrantConstraintsArrayInput `pulumi:"constraints"`
 	// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
 	// * `retireOnDelete` -(Defaults to false, Forces new resources) If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
 	// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-	GrantCreationTokens interface{}
+	GrantCreationTokens pulumi.StringArrayInput `pulumi:"grantCreationTokens"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-	GranteePrincipal interface{}
+	GranteePrincipal pulumi.StringInput `pulumi:"granteePrincipal"`
 	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// A friendly name for identifying the grant.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
-	Operations interface{}
-	RetireOnDelete interface{}
+	Operations pulumi.StringArrayInput `pulumi:"operations"`
+	RetireOnDelete pulumi.BoolInput `pulumi:"retireOnDelete"`
 	// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-	RetiringPrincipal interface{}
+	RetiringPrincipal pulumi.StringInput `pulumi:"retiringPrincipal"`
 }
+type GrantConstraints struct {
+	EncryptionContextEquals *map[string]string `pulumi:"encryptionContextEquals"`
+	EncryptionContextSubset *map[string]string `pulumi:"encryptionContextSubset"`
+}
+var grantConstraintsType = reflect.TypeOf((*GrantConstraints)(nil)).Elem()
+
+type GrantConstraintsInput interface {
+	pulumi.Input
+
+	ToGrantConstraintsOutput() GrantConstraintsOutput
+	ToGrantConstraintsOutputWithContext(ctx context.Context) GrantConstraintsOutput
+}
+
+type GrantConstraintsArgs struct {
+	EncryptionContextEquals pulumi.StringMapInput `pulumi:"encryptionContextEquals"`
+	EncryptionContextSubset pulumi.StringMapInput `pulumi:"encryptionContextSubset"`
+}
+
+func (GrantConstraintsArgs) ElementType() reflect.Type {
+	return grantConstraintsType
+}
+
+func (a GrantConstraintsArgs) ToGrantConstraintsOutput() GrantConstraintsOutput {
+	return pulumi.ToOutput(a).(GrantConstraintsOutput)
+}
+
+func (a GrantConstraintsArgs) ToGrantConstraintsOutputWithContext(ctx context.Context) GrantConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GrantConstraintsOutput)
+}
+
+type GrantConstraintsOutput struct { *pulumi.OutputState }
+
+func (o GrantConstraintsOutput) EncryptionContextEquals() pulumi.StringMapOutput {
+	return o.Apply(func(v GrantConstraints) map[string]string {
+		if v.EncryptionContextEquals == nil { return *new(map[string]string) } else { return *v.EncryptionContextEquals }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o GrantConstraintsOutput) EncryptionContextSubset() pulumi.StringMapOutput {
+	return o.Apply(func(v GrantConstraints) map[string]string {
+		if v.EncryptionContextSubset == nil { return *new(map[string]string) } else { return *v.EncryptionContextSubset }
+	}).(pulumi.StringMapOutput)
+}
+
+func (GrantConstraintsOutput) ElementType() reflect.Type {
+	return grantConstraintsType
+}
+
+func (o GrantConstraintsOutput) ToGrantConstraintsOutput() GrantConstraintsOutput {
+	return o
+}
+
+func (o GrantConstraintsOutput) ToGrantConstraintsOutputWithContext(ctx context.Context) GrantConstraintsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GrantConstraintsOutput{}) }
+
+var grantConstraintsArrayType = reflect.TypeOf((*[]GrantConstraints)(nil)).Elem()
+
+type GrantConstraintsArrayInput interface {
+	pulumi.Input
+
+	ToGrantConstraintsArrayOutput() GrantConstraintsArrayOutput
+	ToGrantConstraintsArrayOutputWithContext(ctx context.Context) GrantConstraintsArrayOutput
+}
+
+type GrantConstraintsArrayArgs []GrantConstraintsInput
+
+func (GrantConstraintsArrayArgs) ElementType() reflect.Type {
+	return grantConstraintsArrayType
+}
+
+func (a GrantConstraintsArrayArgs) ToGrantConstraintsArrayOutput() GrantConstraintsArrayOutput {
+	return pulumi.ToOutput(a).(GrantConstraintsArrayOutput)
+}
+
+func (a GrantConstraintsArrayArgs) ToGrantConstraintsArrayOutputWithContext(ctx context.Context) GrantConstraintsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GrantConstraintsArrayOutput)
+}
+
+type GrantConstraintsArrayOutput struct { *pulumi.OutputState }
+
+func (o GrantConstraintsArrayOutput) Index(i pulumi.IntInput) GrantConstraintsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GrantConstraints {
+		return vs[0].([]GrantConstraints)[vs[1].(int)]
+	}).(GrantConstraintsOutput)
+}
+
+func (GrantConstraintsArrayOutput) ElementType() reflect.Type {
+	return grantConstraintsArrayType
+}
+
+func (o GrantConstraintsArrayOutput) ToGrantConstraintsArrayOutput() GrantConstraintsArrayOutput {
+	return o
+}
+
+func (o GrantConstraintsArrayOutput) ToGrantConstraintsArrayOutputWithContext(ctx context.Context) GrantConstraintsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GrantConstraintsArrayOutput{}) }
+

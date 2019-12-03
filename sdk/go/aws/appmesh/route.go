@@ -4,6 +4,8 @@
 package appmesh
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
 type Route struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the route.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The creation date of the route.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The last update date of the route.
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+
+	// The name of the service mesh in which to create the route.
+	MeshName pulumi.StringOutput `pulumi:"meshName"`
+
+	// The name to use for the route.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The route specification to apply.
+	Spec RouteSpecOutput `pulumi:"spec"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The name of the virtual router in which to create the route.
+	VirtualRouterName pulumi.StringOutput `pulumi:"virtualRouterName"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
-	name string, args *RouteArgs, opts ...pulumi.ResourceOpt) (*Route, error) {
+	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
 	if args == nil || args.MeshName == nil {
 		return nil, errors.New("missing required argument 'MeshName'")
 	}
@@ -27,132 +53,642 @@ func NewRoute(ctx *pulumi.Context,
 	if args == nil || args.VirtualRouterName == nil {
 		return nil, errors.New("missing required argument 'VirtualRouterName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["meshName"] = nil
-		inputs["name"] = nil
-		inputs["spec"] = nil
-		inputs["tags"] = nil
-		inputs["virtualRouterName"] = nil
-	} else {
-		inputs["meshName"] = args.MeshName
-		inputs["name"] = args.Name
-		inputs["spec"] = args.Spec
-		inputs["tags"] = args.Tags
-		inputs["virtualRouterName"] = args.VirtualRouterName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MeshName; i != nil { inputs["meshName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Spec; i != nil { inputs["spec"] = i.ToRouteSpecOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VirtualRouterName; i != nil { inputs["virtualRouterName"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["lastUpdatedDate"] = nil
-	s, err := ctx.RegisterResource("aws:appmesh/route:Route", name, true, inputs, opts...)
+	var resource Route
+	err := ctx.RegisterResource("aws:appmesh/route:Route", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
+	return &resource, nil
 }
 
 // GetRoute gets an existing Route resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRoute(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteState, opts ...pulumi.ResourceOpt) (*Route, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["createdDate"] = state.CreatedDate
-		inputs["lastUpdatedDate"] = state.LastUpdatedDate
-		inputs["meshName"] = state.MeshName
-		inputs["name"] = state.Name
-		inputs["spec"] = state.Spec
-		inputs["tags"] = state.Tags
-		inputs["virtualRouterName"] = state.VirtualRouterName
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.LastUpdatedDate; i != nil { inputs["lastUpdatedDate"] = i.ToStringOutput() }
+		if i := state.MeshName; i != nil { inputs["meshName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Spec; i != nil { inputs["spec"] = i.ToRouteSpecOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualRouterName; i != nil { inputs["virtualRouterName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appmesh/route:Route", name, id, inputs, opts...)
+	var resource Route
+	err := ctx.ReadResource("aws:appmesh/route:Route", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the route.
-func (r *Route) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The creation date of the route.
-func (r *Route) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The last update date of the route.
-func (r *Route) LastUpdatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
-}
-
-// The name of the service mesh in which to create the route.
-func (r *Route) MeshName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["meshName"])
-}
-
-// The name to use for the route.
-func (r *Route) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The route specification to apply.
-func (r *Route) Spec() pulumi.Output {
-	return r.s.State["spec"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Route) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The name of the virtual router in which to create the route.
-func (r *Route) VirtualRouterName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualRouterName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Route resources.
 type RouteState struct {
 	// The ARN of the route.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The creation date of the route.
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The last update date of the route.
-	LastUpdatedDate interface{}
+	LastUpdatedDate pulumi.StringInput `pulumi:"lastUpdatedDate"`
 	// The name of the service mesh in which to create the route.
-	MeshName interface{}
+	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// The name to use for the route.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The route specification to apply.
-	Spec interface{}
+	Spec RouteSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
-	VirtualRouterName interface{}
+	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	// The name of the service mesh in which to create the route.
-	MeshName interface{}
+	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// The name to use for the route.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The route specification to apply.
-	Spec interface{}
+	Spec RouteSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The name of the virtual router in which to create the route.
-	VirtualRouterName interface{}
+	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
 }
+type RouteSpec struct {
+	// The HTTP routing information for the route.
+	HttpRoute *RouteSpecHttpRoute `pulumi:"httpRoute"`
+	// The TCP routing information for the route.
+	TcpRoute *RouteSpecTcpRoute `pulumi:"tcpRoute"`
+}
+var routeSpecType = reflect.TypeOf((*RouteSpec)(nil)).Elem()
+
+type RouteSpecInput interface {
+	pulumi.Input
+
+	ToRouteSpecOutput() RouteSpecOutput
+	ToRouteSpecOutputWithContext(ctx context.Context) RouteSpecOutput
+}
+
+type RouteSpecArgs struct {
+	// The HTTP routing information for the route.
+	HttpRoute RouteSpecHttpRouteInput `pulumi:"httpRoute"`
+	// The TCP routing information for the route.
+	TcpRoute RouteSpecTcpRouteInput `pulumi:"tcpRoute"`
+}
+
+func (RouteSpecArgs) ElementType() reflect.Type {
+	return routeSpecType
+}
+
+func (a RouteSpecArgs) ToRouteSpecOutput() RouteSpecOutput {
+	return pulumi.ToOutput(a).(RouteSpecOutput)
+}
+
+func (a RouteSpecArgs) ToRouteSpecOutputWithContext(ctx context.Context) RouteSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecOutput)
+}
+
+type RouteSpecOutput struct { *pulumi.OutputState }
+
+// The HTTP routing information for the route.
+func (o RouteSpecOutput) HttpRoute() RouteSpecHttpRouteOutput {
+	return o.Apply(func(v RouteSpec) RouteSpecHttpRoute {
+		if v.HttpRoute == nil { return *new(RouteSpecHttpRoute) } else { return *v.HttpRoute }
+	}).(RouteSpecHttpRouteOutput)
+}
+
+// The TCP routing information for the route.
+func (o RouteSpecOutput) TcpRoute() RouteSpecTcpRouteOutput {
+	return o.Apply(func(v RouteSpec) RouteSpecTcpRoute {
+		if v.TcpRoute == nil { return *new(RouteSpecTcpRoute) } else { return *v.TcpRoute }
+	}).(RouteSpecTcpRouteOutput)
+}
+
+func (RouteSpecOutput) ElementType() reflect.Type {
+	return routeSpecType
+}
+
+func (o RouteSpecOutput) ToRouteSpecOutput() RouteSpecOutput {
+	return o
+}
+
+func (o RouteSpecOutput) ToRouteSpecOutputWithContext(ctx context.Context) RouteSpecOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecOutput{}) }
+
+type RouteSpecHttpRoute struct {
+	// The action to take if a match is determined.
+	Action RouteSpecHttpRouteAction `pulumi:"action"`
+	// The criteria for determining an HTTP request match.
+	Match RouteSpecHttpRouteMatch `pulumi:"match"`
+}
+var routeSpecHttpRouteType = reflect.TypeOf((*RouteSpecHttpRoute)(nil)).Elem()
+
+type RouteSpecHttpRouteInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteOutput() RouteSpecHttpRouteOutput
+	ToRouteSpecHttpRouteOutputWithContext(ctx context.Context) RouteSpecHttpRouteOutput
+}
+
+type RouteSpecHttpRouteArgs struct {
+	// The action to take if a match is determined.
+	Action RouteSpecHttpRouteActionInput `pulumi:"action"`
+	// The criteria for determining an HTTP request match.
+	Match RouteSpecHttpRouteMatchInput `pulumi:"match"`
+}
+
+func (RouteSpecHttpRouteArgs) ElementType() reflect.Type {
+	return routeSpecHttpRouteType
+}
+
+func (a RouteSpecHttpRouteArgs) ToRouteSpecHttpRouteOutput() RouteSpecHttpRouteOutput {
+	return pulumi.ToOutput(a).(RouteSpecHttpRouteOutput)
+}
+
+func (a RouteSpecHttpRouteArgs) ToRouteSpecHttpRouteOutputWithContext(ctx context.Context) RouteSpecHttpRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecHttpRouteOutput)
+}
+
+type RouteSpecHttpRouteOutput struct { *pulumi.OutputState }
+
+// The action to take if a match is determined.
+func (o RouteSpecHttpRouteOutput) Action() RouteSpecHttpRouteActionOutput {
+	return o.Apply(func(v RouteSpecHttpRoute) RouteSpecHttpRouteAction {
+		return v.Action
+	}).(RouteSpecHttpRouteActionOutput)
+}
+
+// The criteria for determining an HTTP request match.
+func (o RouteSpecHttpRouteOutput) Match() RouteSpecHttpRouteMatchOutput {
+	return o.Apply(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch {
+		return v.Match
+	}).(RouteSpecHttpRouteMatchOutput)
+}
+
+func (RouteSpecHttpRouteOutput) ElementType() reflect.Type {
+	return routeSpecHttpRouteType
+}
+
+func (o RouteSpecHttpRouteOutput) ToRouteSpecHttpRouteOutput() RouteSpecHttpRouteOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteOutput) ToRouteSpecHttpRouteOutputWithContext(ctx context.Context) RouteSpecHttpRouteOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecHttpRouteOutput{}) }
+
+type RouteSpecHttpRouteAction struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets []RouteSpecHttpRouteActionWeightedTargets `pulumi:"weightedTargets"`
+}
+var routeSpecHttpRouteActionType = reflect.TypeOf((*RouteSpecHttpRouteAction)(nil)).Elem()
+
+type RouteSpecHttpRouteActionInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteActionOutput() RouteSpecHttpRouteActionOutput
+	ToRouteSpecHttpRouteActionOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionOutput
+}
+
+type RouteSpecHttpRouteActionArgs struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets RouteSpecHttpRouteActionWeightedTargetsArrayInput `pulumi:"weightedTargets"`
+}
+
+func (RouteSpecHttpRouteActionArgs) ElementType() reflect.Type {
+	return routeSpecHttpRouteActionType
+}
+
+func (a RouteSpecHttpRouteActionArgs) ToRouteSpecHttpRouteActionOutput() RouteSpecHttpRouteActionOutput {
+	return pulumi.ToOutput(a).(RouteSpecHttpRouteActionOutput)
+}
+
+func (a RouteSpecHttpRouteActionArgs) ToRouteSpecHttpRouteActionOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecHttpRouteActionOutput)
+}
+
+type RouteSpecHttpRouteActionOutput struct { *pulumi.OutputState }
+
+// The targets that traffic is routed to when a request matches the route.
+// You can specify one or more targets and their relative weights with which to distribute traffic.
+func (o RouteSpecHttpRouteActionOutput) WeightedTargets() RouteSpecHttpRouteActionWeightedTargetsArrayOutput {
+	return o.Apply(func(v RouteSpecHttpRouteAction) []RouteSpecHttpRouteActionWeightedTargets {
+		return v.WeightedTargets
+	}).(RouteSpecHttpRouteActionWeightedTargetsArrayOutput)
+}
+
+func (RouteSpecHttpRouteActionOutput) ElementType() reflect.Type {
+	return routeSpecHttpRouteActionType
+}
+
+func (o RouteSpecHttpRouteActionOutput) ToRouteSpecHttpRouteActionOutput() RouteSpecHttpRouteActionOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteActionOutput) ToRouteSpecHttpRouteActionOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecHttpRouteActionOutput{}) }
+
+type RouteSpecHttpRouteActionWeightedTargets struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode string `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight int `pulumi:"weight"`
+}
+var routeSpecHttpRouteActionWeightedTargetsType = reflect.TypeOf((*RouteSpecHttpRouteActionWeightedTargets)(nil)).Elem()
+
+type RouteSpecHttpRouteActionWeightedTargetsInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteActionWeightedTargetsOutput() RouteSpecHttpRouteActionWeightedTargetsOutput
+	ToRouteSpecHttpRouteActionWeightedTargetsOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionWeightedTargetsOutput
+}
+
+type RouteSpecHttpRouteActionWeightedTargetsArgs struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (RouteSpecHttpRouteActionWeightedTargetsArgs) ElementType() reflect.Type {
+	return routeSpecHttpRouteActionWeightedTargetsType
+}
+
+func (a RouteSpecHttpRouteActionWeightedTargetsArgs) ToRouteSpecHttpRouteActionWeightedTargetsOutput() RouteSpecHttpRouteActionWeightedTargetsOutput {
+	return pulumi.ToOutput(a).(RouteSpecHttpRouteActionWeightedTargetsOutput)
+}
+
+func (a RouteSpecHttpRouteActionWeightedTargetsArgs) ToRouteSpecHttpRouteActionWeightedTargetsOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionWeightedTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecHttpRouteActionWeightedTargetsOutput)
+}
+
+type RouteSpecHttpRouteActionWeightedTargetsOutput struct { *pulumi.OutputState }
+
+// The virtual node to associate with the weighted target.
+func (o RouteSpecHttpRouteActionWeightedTargetsOutput) VirtualNode() pulumi.StringOutput {
+	return o.Apply(func(v RouteSpecHttpRouteActionWeightedTargets) string {
+		return v.VirtualNode
+	}).(pulumi.StringOutput)
+}
+
+// The relative weight of the weighted target. An integer between 0 and 100.
+func (o RouteSpecHttpRouteActionWeightedTargetsOutput) Weight() pulumi.IntOutput {
+	return o.Apply(func(v RouteSpecHttpRouteActionWeightedTargets) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+func (RouteSpecHttpRouteActionWeightedTargetsOutput) ElementType() reflect.Type {
+	return routeSpecHttpRouteActionWeightedTargetsType
+}
+
+func (o RouteSpecHttpRouteActionWeightedTargetsOutput) ToRouteSpecHttpRouteActionWeightedTargetsOutput() RouteSpecHttpRouteActionWeightedTargetsOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteActionWeightedTargetsOutput) ToRouteSpecHttpRouteActionWeightedTargetsOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionWeightedTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecHttpRouteActionWeightedTargetsOutput{}) }
+
+var routeSpecHttpRouteActionWeightedTargetsArrayType = reflect.TypeOf((*[]RouteSpecHttpRouteActionWeightedTargets)(nil)).Elem()
+
+type RouteSpecHttpRouteActionWeightedTargetsArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteActionWeightedTargetsArrayOutput() RouteSpecHttpRouteActionWeightedTargetsArrayOutput
+	ToRouteSpecHttpRouteActionWeightedTargetsArrayOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionWeightedTargetsArrayOutput
+}
+
+type RouteSpecHttpRouteActionWeightedTargetsArrayArgs []RouteSpecHttpRouteActionWeightedTargetsInput
+
+func (RouteSpecHttpRouteActionWeightedTargetsArrayArgs) ElementType() reflect.Type {
+	return routeSpecHttpRouteActionWeightedTargetsArrayType
+}
+
+func (a RouteSpecHttpRouteActionWeightedTargetsArrayArgs) ToRouteSpecHttpRouteActionWeightedTargetsArrayOutput() RouteSpecHttpRouteActionWeightedTargetsArrayOutput {
+	return pulumi.ToOutput(a).(RouteSpecHttpRouteActionWeightedTargetsArrayOutput)
+}
+
+func (a RouteSpecHttpRouteActionWeightedTargetsArrayArgs) ToRouteSpecHttpRouteActionWeightedTargetsArrayOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionWeightedTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecHttpRouteActionWeightedTargetsArrayOutput)
+}
+
+type RouteSpecHttpRouteActionWeightedTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o RouteSpecHttpRouteActionWeightedTargetsArrayOutput) Index(i pulumi.IntInput) RouteSpecHttpRouteActionWeightedTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RouteSpecHttpRouteActionWeightedTargets {
+		return vs[0].([]RouteSpecHttpRouteActionWeightedTargets)[vs[1].(int)]
+	}).(RouteSpecHttpRouteActionWeightedTargetsOutput)
+}
+
+func (RouteSpecHttpRouteActionWeightedTargetsArrayOutput) ElementType() reflect.Type {
+	return routeSpecHttpRouteActionWeightedTargetsArrayType
+}
+
+func (o RouteSpecHttpRouteActionWeightedTargetsArrayOutput) ToRouteSpecHttpRouteActionWeightedTargetsArrayOutput() RouteSpecHttpRouteActionWeightedTargetsArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteActionWeightedTargetsArrayOutput) ToRouteSpecHttpRouteActionWeightedTargetsArrayOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionWeightedTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecHttpRouteActionWeightedTargetsArrayOutput{}) }
+
+type RouteSpecHttpRouteMatch struct {
+	// Specifies the path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix string `pulumi:"prefix"`
+}
+var routeSpecHttpRouteMatchType = reflect.TypeOf((*RouteSpecHttpRouteMatch)(nil)).Elem()
+
+type RouteSpecHttpRouteMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchOutput() RouteSpecHttpRouteMatchOutput
+	ToRouteSpecHttpRouteMatchOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchOutput
+}
+
+type RouteSpecHttpRouteMatchArgs struct {
+	// Specifies the path with which to match requests.
+	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (RouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
+	return routeSpecHttpRouteMatchType
+}
+
+func (a RouteSpecHttpRouteMatchArgs) ToRouteSpecHttpRouteMatchOutput() RouteSpecHttpRouteMatchOutput {
+	return pulumi.ToOutput(a).(RouteSpecHttpRouteMatchOutput)
+}
+
+func (a RouteSpecHttpRouteMatchArgs) ToRouteSpecHttpRouteMatchOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecHttpRouteMatchOutput)
+}
+
+type RouteSpecHttpRouteMatchOutput struct { *pulumi.OutputState }
+
+// Specifies the path with which to match requests.
+// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
+	return o.Apply(func(v RouteSpecHttpRouteMatch) string {
+		return v.Prefix
+	}).(pulumi.StringOutput)
+}
+
+func (RouteSpecHttpRouteMatchOutput) ElementType() reflect.Type {
+	return routeSpecHttpRouteMatchType
+}
+
+func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchOutput() RouteSpecHttpRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecHttpRouteMatchOutput{}) }
+
+type RouteSpecTcpRoute struct {
+	// The action to take if a match is determined.
+	Action RouteSpecTcpRouteAction `pulumi:"action"`
+}
+var routeSpecTcpRouteType = reflect.TypeOf((*RouteSpecTcpRoute)(nil)).Elem()
+
+type RouteSpecTcpRouteInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteOutput() RouteSpecTcpRouteOutput
+	ToRouteSpecTcpRouteOutputWithContext(ctx context.Context) RouteSpecTcpRouteOutput
+}
+
+type RouteSpecTcpRouteArgs struct {
+	// The action to take if a match is determined.
+	Action RouteSpecTcpRouteActionInput `pulumi:"action"`
+}
+
+func (RouteSpecTcpRouteArgs) ElementType() reflect.Type {
+	return routeSpecTcpRouteType
+}
+
+func (a RouteSpecTcpRouteArgs) ToRouteSpecTcpRouteOutput() RouteSpecTcpRouteOutput {
+	return pulumi.ToOutput(a).(RouteSpecTcpRouteOutput)
+}
+
+func (a RouteSpecTcpRouteArgs) ToRouteSpecTcpRouteOutputWithContext(ctx context.Context) RouteSpecTcpRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecTcpRouteOutput)
+}
+
+type RouteSpecTcpRouteOutput struct { *pulumi.OutputState }
+
+// The action to take if a match is determined.
+func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
+	return o.Apply(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction {
+		return v.Action
+	}).(RouteSpecTcpRouteActionOutput)
+}
+
+func (RouteSpecTcpRouteOutput) ElementType() reflect.Type {
+	return routeSpecTcpRouteType
+}
+
+func (o RouteSpecTcpRouteOutput) ToRouteSpecTcpRouteOutput() RouteSpecTcpRouteOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteOutput) ToRouteSpecTcpRouteOutputWithContext(ctx context.Context) RouteSpecTcpRouteOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecTcpRouteOutput{}) }
+
+type RouteSpecTcpRouteAction struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets []RouteSpecTcpRouteActionWeightedTargets `pulumi:"weightedTargets"`
+}
+var routeSpecTcpRouteActionType = reflect.TypeOf((*RouteSpecTcpRouteAction)(nil)).Elem()
+
+type RouteSpecTcpRouteActionInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteActionOutput() RouteSpecTcpRouteActionOutput
+	ToRouteSpecTcpRouteActionOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionOutput
+}
+
+type RouteSpecTcpRouteActionArgs struct {
+	// The targets that traffic is routed to when a request matches the route.
+	// You can specify one or more targets and their relative weights with which to distribute traffic.
+	WeightedTargets RouteSpecTcpRouteActionWeightedTargetsArrayInput `pulumi:"weightedTargets"`
+}
+
+func (RouteSpecTcpRouteActionArgs) ElementType() reflect.Type {
+	return routeSpecTcpRouteActionType
+}
+
+func (a RouteSpecTcpRouteActionArgs) ToRouteSpecTcpRouteActionOutput() RouteSpecTcpRouteActionOutput {
+	return pulumi.ToOutput(a).(RouteSpecTcpRouteActionOutput)
+}
+
+func (a RouteSpecTcpRouteActionArgs) ToRouteSpecTcpRouteActionOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecTcpRouteActionOutput)
+}
+
+type RouteSpecTcpRouteActionOutput struct { *pulumi.OutputState }
+
+// The targets that traffic is routed to when a request matches the route.
+// You can specify one or more targets and their relative weights with which to distribute traffic.
+func (o RouteSpecTcpRouteActionOutput) WeightedTargets() RouteSpecTcpRouteActionWeightedTargetsArrayOutput {
+	return o.Apply(func(v RouteSpecTcpRouteAction) []RouteSpecTcpRouteActionWeightedTargets {
+		return v.WeightedTargets
+	}).(RouteSpecTcpRouteActionWeightedTargetsArrayOutput)
+}
+
+func (RouteSpecTcpRouteActionOutput) ElementType() reflect.Type {
+	return routeSpecTcpRouteActionType
+}
+
+func (o RouteSpecTcpRouteActionOutput) ToRouteSpecTcpRouteActionOutput() RouteSpecTcpRouteActionOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteActionOutput) ToRouteSpecTcpRouteActionOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecTcpRouteActionOutput{}) }
+
+type RouteSpecTcpRouteActionWeightedTargets struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode string `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight int `pulumi:"weight"`
+}
+var routeSpecTcpRouteActionWeightedTargetsType = reflect.TypeOf((*RouteSpecTcpRouteActionWeightedTargets)(nil)).Elem()
+
+type RouteSpecTcpRouteActionWeightedTargetsInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteActionWeightedTargetsOutput() RouteSpecTcpRouteActionWeightedTargetsOutput
+	ToRouteSpecTcpRouteActionWeightedTargetsOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionWeightedTargetsOutput
+}
+
+type RouteSpecTcpRouteActionWeightedTargetsArgs struct {
+	// The virtual node to associate with the weighted target.
+	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
+	// The relative weight of the weighted target. An integer between 0 and 100.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (RouteSpecTcpRouteActionWeightedTargetsArgs) ElementType() reflect.Type {
+	return routeSpecTcpRouteActionWeightedTargetsType
+}
+
+func (a RouteSpecTcpRouteActionWeightedTargetsArgs) ToRouteSpecTcpRouteActionWeightedTargetsOutput() RouteSpecTcpRouteActionWeightedTargetsOutput {
+	return pulumi.ToOutput(a).(RouteSpecTcpRouteActionWeightedTargetsOutput)
+}
+
+func (a RouteSpecTcpRouteActionWeightedTargetsArgs) ToRouteSpecTcpRouteActionWeightedTargetsOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionWeightedTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecTcpRouteActionWeightedTargetsOutput)
+}
+
+type RouteSpecTcpRouteActionWeightedTargetsOutput struct { *pulumi.OutputState }
+
+// The virtual node to associate with the weighted target.
+func (o RouteSpecTcpRouteActionWeightedTargetsOutput) VirtualNode() pulumi.StringOutput {
+	return o.Apply(func(v RouteSpecTcpRouteActionWeightedTargets) string {
+		return v.VirtualNode
+	}).(pulumi.StringOutput)
+}
+
+// The relative weight of the weighted target. An integer between 0 and 100.
+func (o RouteSpecTcpRouteActionWeightedTargetsOutput) Weight() pulumi.IntOutput {
+	return o.Apply(func(v RouteSpecTcpRouteActionWeightedTargets) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+func (RouteSpecTcpRouteActionWeightedTargetsOutput) ElementType() reflect.Type {
+	return routeSpecTcpRouteActionWeightedTargetsType
+}
+
+func (o RouteSpecTcpRouteActionWeightedTargetsOutput) ToRouteSpecTcpRouteActionWeightedTargetsOutput() RouteSpecTcpRouteActionWeightedTargetsOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteActionWeightedTargetsOutput) ToRouteSpecTcpRouteActionWeightedTargetsOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionWeightedTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetsOutput{}) }
+
+var routeSpecTcpRouteActionWeightedTargetsArrayType = reflect.TypeOf((*[]RouteSpecTcpRouteActionWeightedTargets)(nil)).Elem()
+
+type RouteSpecTcpRouteActionWeightedTargetsArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteActionWeightedTargetsArrayOutput() RouteSpecTcpRouteActionWeightedTargetsArrayOutput
+	ToRouteSpecTcpRouteActionWeightedTargetsArrayOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionWeightedTargetsArrayOutput
+}
+
+type RouteSpecTcpRouteActionWeightedTargetsArrayArgs []RouteSpecTcpRouteActionWeightedTargetsInput
+
+func (RouteSpecTcpRouteActionWeightedTargetsArrayArgs) ElementType() reflect.Type {
+	return routeSpecTcpRouteActionWeightedTargetsArrayType
+}
+
+func (a RouteSpecTcpRouteActionWeightedTargetsArrayArgs) ToRouteSpecTcpRouteActionWeightedTargetsArrayOutput() RouteSpecTcpRouteActionWeightedTargetsArrayOutput {
+	return pulumi.ToOutput(a).(RouteSpecTcpRouteActionWeightedTargetsArrayOutput)
+}
+
+func (a RouteSpecTcpRouteActionWeightedTargetsArrayArgs) ToRouteSpecTcpRouteActionWeightedTargetsArrayOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionWeightedTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteSpecTcpRouteActionWeightedTargetsArrayOutput)
+}
+
+type RouteSpecTcpRouteActionWeightedTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o RouteSpecTcpRouteActionWeightedTargetsArrayOutput) Index(i pulumi.IntInput) RouteSpecTcpRouteActionWeightedTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RouteSpecTcpRouteActionWeightedTargets {
+		return vs[0].([]RouteSpecTcpRouteActionWeightedTargets)[vs[1].(int)]
+	}).(RouteSpecTcpRouteActionWeightedTargetsOutput)
+}
+
+func (RouteSpecTcpRouteActionWeightedTargetsArrayOutput) ElementType() reflect.Type {
+	return routeSpecTcpRouteActionWeightedTargetsArrayType
+}
+
+func (o RouteSpecTcpRouteActionWeightedTargetsArrayOutput) ToRouteSpecTcpRouteActionWeightedTargetsArrayOutput() RouteSpecTcpRouteActionWeightedTargetsArrayOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteActionWeightedTargetsArrayOutput) ToRouteSpecTcpRouteActionWeightedTargetsArrayOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionWeightedTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetsArrayOutput{}) }
+

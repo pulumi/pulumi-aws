@@ -11,32 +11,13 @@ import (
 // resources.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
-func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs) (*GetVolumeResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["mostRecent"] = args.MostRecent
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ebs/getVolume:getVolume", inputs)
+func LookupVolume(ctx *pulumi.Context, args *GetVolumeArgs, opts ...pulumi.InvokeOption) (*GetVolumeResult, error) {
+	var rv GetVolumeResult
+	err := ctx.Invoke("aws:ebs/getVolume:getVolume", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVolumeResult{
-		Arn: outputs["arn"],
-		AvailabilityZone: outputs["availabilityZone"],
-		Encrypted: outputs["encrypted"],
-		Filters: outputs["filters"],
-		Iops: outputs["iops"],
-		KmsKeyId: outputs["kmsKeyId"],
-		MostRecent: outputs["mostRecent"],
-		Size: outputs["size"],
-		SnapshotId: outputs["snapshotId"],
-		Tags: outputs["tags"],
-		VolumeId: outputs["volumeId"],
-		VolumeType: outputs["volumeType"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVolume.
@@ -44,37 +25,45 @@ type GetVolumeArgs struct {
 	// One or more name/value pairs to filter off of. There are
 	// several valid keys, for a full reference, check out
 	// [describe-volumes in the AWS CLI reference][1].
-	Filters interface{}
+	Filters *[]GetVolumeFiltersArgs `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent Volume.
-	MostRecent interface{}
-	Tags interface{}
+	MostRecent *bool `pulumi:"mostRecent"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVolume.
 type GetVolumeResult struct {
 	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The AZ where the EBS volume exists.
-	AvailabilityZone interface{}
+	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Whether the disk is encrypted.
-	Encrypted interface{}
-	Filters interface{}
+	Encrypted bool `pulumi:"encrypted"`
+	Filters *[]GetVolumeFiltersResult `pulumi:"filters"`
 	// The amount of IOPS for the disk.
-	Iops interface{}
+	Iops int `pulumi:"iops"`
 	// The ARN for the KMS encryption key.
-	KmsKeyId interface{}
-	MostRecent interface{}
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	MostRecent *bool `pulumi:"mostRecent"`
 	// The size of the drive in GiBs.
-	Size interface{}
+	Size int `pulumi:"size"`
 	// The snapshotId the EBS volume is based off.
-	SnapshotId interface{}
+	SnapshotId string `pulumi:"snapshotId"`
 	// A mapping of tags for the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The volume ID (e.g. vol-59fcb34e).
-	VolumeId interface{}
+	VolumeId string `pulumi:"volumeId"`
 	// The type of EBS volume.
-	VolumeType interface{}
+	VolumeType string `pulumi:"volumeType"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetVolumeFiltersArgs struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetVolumeFiltersResult struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
 }

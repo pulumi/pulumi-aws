@@ -14,60 +14,89 @@ import (
 // the Route Table.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
-func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["routeTableId"] = args.RouteTableId
-		inputs["subnetId"] = args.SubnetId
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getRouteTable:getRouteTable", inputs)
+func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs, opts ...pulumi.InvokeOption) (*GetRouteTableResult, error) {
+	var rv GetRouteTableResult
+	err := ctx.Invoke("aws:ec2/getRouteTable:getRouteTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRouteTableResult{
-		Associations: outputs["associations"],
-		Filters: outputs["filters"],
-		OwnerId: outputs["ownerId"],
-		RouteTableId: outputs["routeTableId"],
-		Routes: outputs["routes"],
-		SubnetId: outputs["subnetId"],
-		Tags: outputs["tags"],
-		VpcId: outputs["vpcId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRouteTable.
 type GetRouteTableArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetRouteTableFiltersArgs `pulumi:"filters"`
 	// The id of the specific Route Table to retrieve.
-	RouteTableId interface{}
+	RouteTableId *string `pulumi:"routeTableId"`
 	// The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
-	SubnetId interface{}
+	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired Route Table.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 	// The id of the VPC that the desired Route Table belongs to.
-	VpcId interface{}
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getRouteTable.
 type GetRouteTableResult struct {
-	Associations interface{}
-	Filters interface{}
+	Associations []GetRouteTableAssociationsResult `pulumi:"associations"`
+	Filters *[]GetRouteTableFiltersResult `pulumi:"filters"`
 	// The ID of the AWS account that owns the route table
-	OwnerId interface{}
+	OwnerId string `pulumi:"ownerId"`
 	// The Route Table ID.
-	RouteTableId interface{}
-	Routes interface{}
+	RouteTableId string `pulumi:"routeTableId"`
+	Routes []GetRouteTableRoutesResult `pulumi:"routes"`
 	// The Subnet ID.
-	SubnetId interface{}
-	Tags interface{}
-	VpcId interface{}
+	SubnetId string `pulumi:"subnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	VpcId string `pulumi:"vpcId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetRouteTableAssociationsResult struct {
+	// If the Association due to the Main Route Table.
+	Main bool `pulumi:"main"`
+	// The Association ID .
+	RouteTableAssociationId string `pulumi:"routeTableAssociationId"`
+	// The id of the specific Route Table to retrieve.
+	RouteTableId string `pulumi:"routeTableId"`
+	// The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+	SubnetId string `pulumi:"subnetId"`
+}
+type GetRouteTableFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetRouteTableFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetRouteTableRoutesResult struct {
+	// The CIDR block of the route.
+	CidrBlock string `pulumi:"cidrBlock"`
+	// The ID of the Egress Only Internet Gateway.
+	EgressOnlyGatewayId string `pulumi:"egressOnlyGatewayId"`
+	// The Internet Gateway ID.
+	GatewayId string `pulumi:"gatewayId"`
+	// The EC2 instance ID.
+	InstanceId string `pulumi:"instanceId"`
+	// The IPv6 CIDR block of the route.
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+	// The NAT Gateway ID.
+	NatGatewayId string `pulumi:"natGatewayId"`
+	// The ID of the elastic network interface (eni) to use.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The EC2 Transit Gateway ID.
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+	// The VPC Peering ID.
+	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }

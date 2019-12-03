@@ -10,65 +10,47 @@ import (
 // Provides information about a Lambda Layer Version.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
-func LookupLayerVersion(ctx *pulumi.Context, args *GetLayerVersionArgs) (*GetLayerVersionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["compatibleRuntime"] = args.CompatibleRuntime
-		inputs["layerName"] = args.LayerName
-		inputs["version"] = args.Version
-	}
-	outputs, err := ctx.Invoke("aws:lambda/getLayerVersion:getLayerVersion", inputs)
+func LookupLayerVersion(ctx *pulumi.Context, args *GetLayerVersionArgs, opts ...pulumi.InvokeOption) (*GetLayerVersionResult, error) {
+	var rv GetLayerVersionResult
+	err := ctx.Invoke("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLayerVersionResult{
-		Arn: outputs["arn"],
-		CompatibleRuntime: outputs["compatibleRuntime"],
-		CompatibleRuntimes: outputs["compatibleRuntimes"],
-		CreatedDate: outputs["createdDate"],
-		Description: outputs["description"],
-		LayerArn: outputs["layerArn"],
-		LayerName: outputs["layerName"],
-		LicenseInfo: outputs["licenseInfo"],
-		SourceCodeHash: outputs["sourceCodeHash"],
-		SourceCodeSize: outputs["sourceCodeSize"],
-		Version: outputs["version"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLayerVersion.
 type GetLayerVersionArgs struct {
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-	CompatibleRuntime interface{}
+	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
-	LayerName interface{}
+	LayerName string `pulumi:"layerName"`
 	// Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
-	Version interface{}
+	Version *int `pulumi:"version"`
 }
 
 // A collection of values returned by getLayerVersion.
 type GetLayerVersionResult struct {
 	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
-	Arn interface{}
-	CompatibleRuntime interface{}
+	Arn string `pulumi:"arn"`
+	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
 	// A list of [Runtimes][1] the specific Lambda Layer version is compatible with.
-	CompatibleRuntimes interface{}
+	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// The date this resource was created.
-	CreatedDate interface{}
+	CreatedDate string `pulumi:"createdDate"`
 	// Description of the specific Lambda Layer version.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the Lambda Layer without version.
-	LayerArn interface{}
-	LayerName interface{}
+	LayerArn string `pulumi:"layerArn"`
+	LayerName string `pulumi:"layerName"`
 	// License info associated with the specific Lambda Layer version.
-	LicenseInfo interface{}
+	LicenseInfo string `pulumi:"licenseInfo"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
-	SourceCodeHash interface{}
+	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
-	SourceCodeSize interface{}
+	SourceCodeSize int `pulumi:"sourceCodeSize"`
 	// This Lamba Layer version.
-	Version interface{}
+	Version int `pulumi:"version"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

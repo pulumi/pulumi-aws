@@ -12,135 +12,102 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_service_linked_role.html.markdown.
 type ServiceLinkedRole struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) specifying the role.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
+	AwsServiceName pulumi.StringOutput `pulumi:"awsServiceName"`
+
+	// The creation date of the IAM role.
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+
+	// Additional string appended to the role name. Not all AWS services support custom suffixes.
+	CustomSuffix pulumi.StringOutput `pulumi:"customSuffix"`
+
+	// The description of the role.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the role.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The path of the role.
+	Path pulumi.StringOutput `pulumi:"path"`
+
+	// The stable and unique string identifying the role.
+	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
 // NewServiceLinkedRole registers a new resource with the given unique name, arguments, and options.
 func NewServiceLinkedRole(ctx *pulumi.Context,
-	name string, args *ServiceLinkedRoleArgs, opts ...pulumi.ResourceOpt) (*ServiceLinkedRole, error) {
+	name string, args *ServiceLinkedRoleArgs, opts ...pulumi.ResourceOption) (*ServiceLinkedRole, error) {
 	if args == nil || args.AwsServiceName == nil {
 		return nil, errors.New("missing required argument 'AwsServiceName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["awsServiceName"] = nil
-		inputs["customSuffix"] = nil
-		inputs["description"] = nil
-	} else {
-		inputs["awsServiceName"] = args.AwsServiceName
-		inputs["customSuffix"] = args.CustomSuffix
-		inputs["description"] = args.Description
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AwsServiceName; i != nil { inputs["awsServiceName"] = i.ToStringOutput() }
+		if i := args.CustomSuffix; i != nil { inputs["customSuffix"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createDate"] = nil
-	inputs["name"] = nil
-	inputs["path"] = nil
-	inputs["uniqueId"] = nil
-	s, err := ctx.RegisterResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, true, inputs, opts...)
+	var resource ServiceLinkedRole
+	err := ctx.RegisterResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ServiceLinkedRole{s: s}, nil
+	return &resource, nil
 }
 
 // GetServiceLinkedRole gets an existing ServiceLinkedRole resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetServiceLinkedRole(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServiceLinkedRoleState, opts ...pulumi.ResourceOpt) (*ServiceLinkedRole, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServiceLinkedRoleState, opts ...pulumi.ResourceOption) (*ServiceLinkedRole, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["awsServiceName"] = state.AwsServiceName
-		inputs["createDate"] = state.CreateDate
-		inputs["customSuffix"] = state.CustomSuffix
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["path"] = state.Path
-		inputs["uniqueId"] = state.UniqueId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AwsServiceName; i != nil { inputs["awsServiceName"] = i.ToStringOutput() }
+		if i := state.CreateDate; i != nil { inputs["createDate"] = i.ToStringOutput() }
+		if i := state.CustomSuffix; i != nil { inputs["customSuffix"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := state.UniqueId; i != nil { inputs["uniqueId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, id, inputs, opts...)
+	var resource ServiceLinkedRole
+	err := ctx.ReadResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ServiceLinkedRole{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ServiceLinkedRole) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ServiceLinkedRole) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) specifying the role.
-func (r *ServiceLinkedRole) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-func (r *ServiceLinkedRole) AwsServiceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["awsServiceName"])
-}
-
-// The creation date of the IAM role.
-func (r *ServiceLinkedRole) CreateDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createDate"])
-}
-
-// Additional string appended to the role name. Not all AWS services support custom suffixes.
-func (r *ServiceLinkedRole) CustomSuffix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customSuffix"])
-}
-
-// The description of the role.
-func (r *ServiceLinkedRole) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the role.
-func (r *ServiceLinkedRole) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The path of the role.
-func (r *ServiceLinkedRole) Path() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["path"])
-}
-
-// The stable and unique string identifying the role.
-func (r *ServiceLinkedRole) UniqueId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ServiceLinkedRole resources.
 type ServiceLinkedRoleState struct {
 	// The Amazon Resource Name (ARN) specifying the role.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-	AwsServiceName interface{}
+	AwsServiceName pulumi.StringInput `pulumi:"awsServiceName"`
 	// The creation date of the IAM role.
-	CreateDate interface{}
+	CreateDate pulumi.StringInput `pulumi:"createDate"`
 	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix interface{}
+	CustomSuffix pulumi.StringInput `pulumi:"customSuffix"`
 	// The description of the role.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the role.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The path of the role.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// The stable and unique string identifying the role.
-	UniqueId interface{}
+	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
 }
 
 // The set of arguments for constructing a ServiceLinkedRole resource.
 type ServiceLinkedRoleArgs struct {
 	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-	AwsServiceName interface{}
+	AwsServiceName pulumi.StringInput `pulumi:"awsServiceName"`
 	// Additional string appended to the role name. Not all AWS services support custom suffixes.
-	CustomSuffix interface{}
+	CustomSuffix pulumi.StringInput `pulumi:"customSuffix"`
 	// The description of the role.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 }

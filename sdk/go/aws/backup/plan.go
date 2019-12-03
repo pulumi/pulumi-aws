@@ -4,6 +4,8 @@
 package backup
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,108 +14,312 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_plan.html.markdown.
 type Plan struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the backup plan.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The display name of a backup plan.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
+	Rules PlanRulesArrayOutput `pulumi:"rules"`
+
+	// Metadata that you can assign to help organize the plans you create.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
 func NewPlan(ctx *pulumi.Context,
-	name string, args *PlanArgs, opts ...pulumi.ResourceOpt) (*Plan, error) {
+	name string, args *PlanArgs, opts ...pulumi.ResourceOption) (*Plan, error) {
 	if args == nil || args.Rules == nil {
 		return nil, errors.New("missing required argument 'Rules'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["rules"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["rules"] = args.Rules
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Rules; i != nil { inputs["rules"] = i.ToPlanRulesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("aws:backup/plan:Plan", name, true, inputs, opts...)
+	var resource Plan
+	err := ctx.RegisterResource("aws:backup/plan:Plan", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Plan{s: s}, nil
+	return &resource, nil
 }
 
 // GetPlan gets an existing Plan resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPlan(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PlanState, opts ...pulumi.ResourceOpt) (*Plan, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PlanState, opts ...pulumi.ResourceOption) (*Plan, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["rules"] = state.Rules
-		inputs["tags"] = state.Tags
-		inputs["version"] = state.Version
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Rules; i != nil { inputs["rules"] = i.ToPlanRulesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:backup/plan:Plan", name, id, inputs, opts...)
+	var resource Plan
+	err := ctx.ReadResource("aws:backup/plan:Plan", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Plan{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Plan) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Plan) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the backup plan.
-func (r *Plan) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The display name of a backup plan.
-func (r *Plan) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-func (r *Plan) Rules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["rules"])
-}
-
-// Metadata that you can assign to help organize the plans you create.
-func (r *Plan) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-func (r *Plan) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Plan resources.
 type PlanState struct {
 	// The ARN of the backup plan.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The display name of a backup plan.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules interface{}
+	Rules PlanRulesArrayInput `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
 	// The display name of a backup plan.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-	Rules interface{}
+	Rules PlanRulesArrayInput `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type PlanRules struct {
+	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+	CompletionWindow *int `pulumi:"completionWindow"`
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+	Lifecycle *PlanRulesLifecycle `pulumi:"lifecycle"`
+	// Metadata that you can assign to help organize the resources that you create.
+	RecoveryPointTags *map[string]string `pulumi:"recoveryPointTags"`
+	// An display name for a backup rule.
+	RuleName string `pulumi:"ruleName"`
+	// A CRON expression specifying when AWS Backup initiates a backup job.
+	Schedule *string `pulumi:"schedule"`
+	// The amount of time in minutes before beginning a backup.
+	StartWindow *int `pulumi:"startWindow"`
+	// The name of a logical container where backups are stored.
+	TargetVaultName string `pulumi:"targetVaultName"`
+}
+var planRulesType = reflect.TypeOf((*PlanRules)(nil)).Elem()
+
+type PlanRulesInput interface {
+	pulumi.Input
+
+	ToPlanRulesOutput() PlanRulesOutput
+	ToPlanRulesOutputWithContext(ctx context.Context) PlanRulesOutput
+}
+
+type PlanRulesArgs struct {
+	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+	CompletionWindow pulumi.IntInput `pulumi:"completionWindow"`
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+	Lifecycle PlanRulesLifecycleInput `pulumi:"lifecycle"`
+	// Metadata that you can assign to help organize the resources that you create.
+	RecoveryPointTags pulumi.MapInput `pulumi:"recoveryPointTags"`
+	// An display name for a backup rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	// A CRON expression specifying when AWS Backup initiates a backup job.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
+	// The amount of time in minutes before beginning a backup.
+	StartWindow pulumi.IntInput `pulumi:"startWindow"`
+	// The name of a logical container where backups are stored.
+	TargetVaultName pulumi.StringInput `pulumi:"targetVaultName"`
+}
+
+func (PlanRulesArgs) ElementType() reflect.Type {
+	return planRulesType
+}
+
+func (a PlanRulesArgs) ToPlanRulesOutput() PlanRulesOutput {
+	return pulumi.ToOutput(a).(PlanRulesOutput)
+}
+
+func (a PlanRulesArgs) ToPlanRulesOutputWithContext(ctx context.Context) PlanRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PlanRulesOutput)
+}
+
+type PlanRulesOutput struct { *pulumi.OutputState }
+
+// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+func (o PlanRulesOutput) CompletionWindow() pulumi.IntOutput {
+	return o.Apply(func(v PlanRules) int {
+		if v.CompletionWindow == nil { return *new(int) } else { return *v.CompletionWindow }
+	}).(pulumi.IntOutput)
+}
+
+// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+func (o PlanRulesOutput) Lifecycle() PlanRulesLifecycleOutput {
+	return o.Apply(func(v PlanRules) PlanRulesLifecycle {
+		if v.Lifecycle == nil { return *new(PlanRulesLifecycle) } else { return *v.Lifecycle }
+	}).(PlanRulesLifecycleOutput)
+}
+
+// Metadata that you can assign to help organize the resources that you create.
+func (o PlanRulesOutput) RecoveryPointTags() pulumi.MapOutput {
+	return o.Apply(func(v PlanRules) map[string]string {
+		if v.RecoveryPointTags == nil { return *new(map[string]string) } else { return *v.RecoveryPointTags }
+	}).(pulumi.MapOutput)
+}
+
+// An display name for a backup rule.
+func (o PlanRulesOutput) RuleName() pulumi.StringOutput {
+	return o.Apply(func(v PlanRules) string {
+		return v.RuleName
+	}).(pulumi.StringOutput)
+}
+
+// A CRON expression specifying when AWS Backup initiates a backup job.
+func (o PlanRulesOutput) Schedule() pulumi.StringOutput {
+	return o.Apply(func(v PlanRules) string {
+		if v.Schedule == nil { return *new(string) } else { return *v.Schedule }
+	}).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes before beginning a backup.
+func (o PlanRulesOutput) StartWindow() pulumi.IntOutput {
+	return o.Apply(func(v PlanRules) int {
+		if v.StartWindow == nil { return *new(int) } else { return *v.StartWindow }
+	}).(pulumi.IntOutput)
+}
+
+// The name of a logical container where backups are stored.
+func (o PlanRulesOutput) TargetVaultName() pulumi.StringOutput {
+	return o.Apply(func(v PlanRules) string {
+		return v.TargetVaultName
+	}).(pulumi.StringOutput)
+}
+
+func (PlanRulesOutput) ElementType() reflect.Type {
+	return planRulesType
+}
+
+func (o PlanRulesOutput) ToPlanRulesOutput() PlanRulesOutput {
+	return o
+}
+
+func (o PlanRulesOutput) ToPlanRulesOutputWithContext(ctx context.Context) PlanRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PlanRulesOutput{}) }
+
+var planRulesArrayType = reflect.TypeOf((*[]PlanRules)(nil)).Elem()
+
+type PlanRulesArrayInput interface {
+	pulumi.Input
+
+	ToPlanRulesArrayOutput() PlanRulesArrayOutput
+	ToPlanRulesArrayOutputWithContext(ctx context.Context) PlanRulesArrayOutput
+}
+
+type PlanRulesArrayArgs []PlanRulesInput
+
+func (PlanRulesArrayArgs) ElementType() reflect.Type {
+	return planRulesArrayType
+}
+
+func (a PlanRulesArrayArgs) ToPlanRulesArrayOutput() PlanRulesArrayOutput {
+	return pulumi.ToOutput(a).(PlanRulesArrayOutput)
+}
+
+func (a PlanRulesArrayArgs) ToPlanRulesArrayOutputWithContext(ctx context.Context) PlanRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PlanRulesArrayOutput)
+}
+
+type PlanRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o PlanRulesArrayOutput) Index(i pulumi.IntInput) PlanRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PlanRules {
+		return vs[0].([]PlanRules)[vs[1].(int)]
+	}).(PlanRulesOutput)
+}
+
+func (PlanRulesArrayOutput) ElementType() reflect.Type {
+	return planRulesArrayType
+}
+
+func (o PlanRulesArrayOutput) ToPlanRulesArrayOutput() PlanRulesArrayOutput {
+	return o
+}
+
+func (o PlanRulesArrayOutput) ToPlanRulesArrayOutputWithContext(ctx context.Context) PlanRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PlanRulesArrayOutput{}) }
+
+type PlanRulesLifecycle struct {
+	// Specifies the number of days after creation that a recovery point is moved to cold storage.
+	ColdStorageAfter *int `pulumi:"coldStorageAfter"`
+	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+	DeleteAfter *int `pulumi:"deleteAfter"`
+}
+var planRulesLifecycleType = reflect.TypeOf((*PlanRulesLifecycle)(nil)).Elem()
+
+type PlanRulesLifecycleInput interface {
+	pulumi.Input
+
+	ToPlanRulesLifecycleOutput() PlanRulesLifecycleOutput
+	ToPlanRulesLifecycleOutputWithContext(ctx context.Context) PlanRulesLifecycleOutput
+}
+
+type PlanRulesLifecycleArgs struct {
+	// Specifies the number of days after creation that a recovery point is moved to cold storage.
+	ColdStorageAfter pulumi.IntInput `pulumi:"coldStorageAfter"`
+	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+	DeleteAfter pulumi.IntInput `pulumi:"deleteAfter"`
+}
+
+func (PlanRulesLifecycleArgs) ElementType() reflect.Type {
+	return planRulesLifecycleType
+}
+
+func (a PlanRulesLifecycleArgs) ToPlanRulesLifecycleOutput() PlanRulesLifecycleOutput {
+	return pulumi.ToOutput(a).(PlanRulesLifecycleOutput)
+}
+
+func (a PlanRulesLifecycleArgs) ToPlanRulesLifecycleOutputWithContext(ctx context.Context) PlanRulesLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PlanRulesLifecycleOutput)
+}
+
+type PlanRulesLifecycleOutput struct { *pulumi.OutputState }
+
+// Specifies the number of days after creation that a recovery point is moved to cold storage.
+func (o PlanRulesLifecycleOutput) ColdStorageAfter() pulumi.IntOutput {
+	return o.Apply(func(v PlanRulesLifecycle) int {
+		if v.ColdStorageAfter == nil { return *new(int) } else { return *v.ColdStorageAfter }
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
+func (o PlanRulesLifecycleOutput) DeleteAfter() pulumi.IntOutput {
+	return o.Apply(func(v PlanRulesLifecycle) int {
+		if v.DeleteAfter == nil { return *new(int) } else { return *v.DeleteAfter }
+	}).(pulumi.IntOutput)
+}
+
+func (PlanRulesLifecycleOutput) ElementType() reflect.Type {
+	return planRulesLifecycleType
+}
+
+func (o PlanRulesLifecycleOutput) ToPlanRulesLifecycleOutput() PlanRulesLifecycleOutput {
+	return o
+}
+
+func (o PlanRulesLifecycleOutput) ToPlanRulesLifecycleOutputWithContext(ctx context.Context) PlanRulesLifecycleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PlanRulesLifecycleOutput{}) }
+

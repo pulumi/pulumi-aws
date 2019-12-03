@@ -4,6 +4,8 @@
 package s3
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,90 +14,136 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_metric.html.markdown.
 type BucketMetric struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the bucket to put metric configuration.
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+
+	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	Filter BucketMetricFilterOutput `pulumi:"filter"`
+
+	// Unique identifier of the metrics configuration for the bucket.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewBucketMetric registers a new resource with the given unique name, arguments, and options.
 func NewBucketMetric(ctx *pulumi.Context,
-	name string, args *BucketMetricArgs, opts ...pulumi.ResourceOpt) (*BucketMetric, error) {
+	name string, args *BucketMetricArgs, opts ...pulumi.ResourceOption) (*BucketMetric, error) {
 	if args == nil || args.Bucket == nil {
 		return nil, errors.New("missing required argument 'Bucket'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["bucket"] = nil
-		inputs["filter"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["bucket"] = args.Bucket
-		inputs["filter"] = args.Filter
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Bucket; i != nil { inputs["bucket"] = i.ToStringOutput() }
+		if i := args.Filter; i != nil { inputs["filter"] = i.ToBucketMetricFilterOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:s3/bucketMetric:BucketMetric", name, true, inputs, opts...)
+	var resource BucketMetric
+	err := ctx.RegisterResource("aws:s3/bucketMetric:BucketMetric", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BucketMetric{s: s}, nil
+	return &resource, nil
 }
 
 // GetBucketMetric gets an existing BucketMetric resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBucketMetric(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BucketMetricState, opts ...pulumi.ResourceOpt) (*BucketMetric, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BucketMetricState, opts ...pulumi.ResourceOption) (*BucketMetric, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["bucket"] = state.Bucket
-		inputs["filter"] = state.Filter
-		inputs["name"] = state.Name
+		if i := state.Bucket; i != nil { inputs["bucket"] = i.ToStringOutput() }
+		if i := state.Filter; i != nil { inputs["filter"] = i.ToBucketMetricFilterOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:s3/bucketMetric:BucketMetric", name, id, inputs, opts...)
+	var resource BucketMetric
+	err := ctx.ReadResource("aws:s3/bucketMetric:BucketMetric", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BucketMetric{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *BucketMetric) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *BucketMetric) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the bucket to put metric configuration.
-func (r *BucketMetric) Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bucket"])
-}
-
-// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-func (r *BucketMetric) Filter() pulumi.Output {
-	return r.s.State["filter"]
-}
-
-// Unique identifier of the metrics configuration for the bucket.
-func (r *BucketMetric) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering BucketMetric resources.
 type BucketMetricState struct {
 	// The name of the bucket to put metric configuration.
-	Bucket interface{}
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter interface{}
+	Filter BucketMetricFilterInput `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a BucketMetric resource.
 type BucketMetricArgs struct {
 	// The name of the bucket to put metric configuration.
-	Bucket interface{}
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter interface{}
+	Filter BucketMetricFilterInput `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type BucketMetricFilter struct {
+	// Object prefix for filtering (singular).
+	Prefix *string `pulumi:"prefix"`
+	// Object tags for filtering (up to 10).
+	Tags *map[string]string `pulumi:"tags"`
+}
+var bucketMetricFilterType = reflect.TypeOf((*BucketMetricFilter)(nil)).Elem()
+
+type BucketMetricFilterInput interface {
+	pulumi.Input
+
+	ToBucketMetricFilterOutput() BucketMetricFilterOutput
+	ToBucketMetricFilterOutputWithContext(ctx context.Context) BucketMetricFilterOutput
+}
+
+type BucketMetricFilterArgs struct {
+	// Object prefix for filtering (singular).
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Object tags for filtering (up to 10).
+	Tags pulumi.MapInput `pulumi:"tags"`
+}
+
+func (BucketMetricFilterArgs) ElementType() reflect.Type {
+	return bucketMetricFilterType
+}
+
+func (a BucketMetricFilterArgs) ToBucketMetricFilterOutput() BucketMetricFilterOutput {
+	return pulumi.ToOutput(a).(BucketMetricFilterOutput)
+}
+
+func (a BucketMetricFilterArgs) ToBucketMetricFilterOutputWithContext(ctx context.Context) BucketMetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BucketMetricFilterOutput)
+}
+
+type BucketMetricFilterOutput struct { *pulumi.OutputState }
+
+// Object prefix for filtering (singular).
+func (o BucketMetricFilterOutput) Prefix() pulumi.StringOutput {
+	return o.Apply(func(v BucketMetricFilter) string {
+		if v.Prefix == nil { return *new(string) } else { return *v.Prefix }
+	}).(pulumi.StringOutput)
+}
+
+// Object tags for filtering (up to 10).
+func (o BucketMetricFilterOutput) Tags() pulumi.MapOutput {
+	return o.Apply(func(v BucketMetricFilter) map[string]string {
+		if v.Tags == nil { return *new(map[string]string) } else { return *v.Tags }
+	}).(pulumi.MapOutput)
+}
+
+func (BucketMetricFilterOutput) ElementType() reflect.Type {
+	return bucketMetricFilterType
+}
+
+func (o BucketMetricFilterOutput) ToBucketMetricFilterOutput() BucketMetricFilterOutput {
+	return o
+}
+
+func (o BucketMetricFilterOutput) ToBucketMetricFilterOutputWithContext(ctx context.Context) BucketMetricFilterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BucketMetricFilterOutput{}) }
+

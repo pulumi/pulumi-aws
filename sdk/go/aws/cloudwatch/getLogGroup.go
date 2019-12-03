@@ -10,36 +10,28 @@ import (
 // Use this data source to get information about an AWS Cloudwatch Log Group
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
-func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", inputs)
+func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs, opts ...pulumi.InvokeOption) (*GetLogGroupResult, error) {
+	var rv GetLogGroupResult
+	err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLogGroupResult{
-		Arn: outputs["arn"],
-		CreationTime: outputs["creationTime"],
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLogGroup.
 type GetLogGroupArgs struct {
 	// The name of the Cloudwatch log group
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getLogGroup.
 type GetLogGroupResult struct {
 	// The ARN of the Cloudwatch log group
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-	CreationTime interface{}
-	Name interface{}
+	CreationTime int `pulumi:"creationTime"`
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

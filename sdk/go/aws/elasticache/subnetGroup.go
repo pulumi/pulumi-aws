@@ -16,90 +16,73 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
 type SubnetGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Name for the cache subnet group. Elasticache converts this name to lowercase.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// List of VPC Subnet IDs for the cache subnet group
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
 func NewSubnetGroup(ctx *pulumi.Context,
-	name string, args *SubnetGroupArgs, opts ...pulumi.ResourceOpt) (*SubnetGroup, error) {
+	name string, args *SubnetGroupArgs, opts ...pulumi.ResourceOption) (*SubnetGroup, error) {
 	if args == nil || args.SubnetIds == nil {
 		return nil, errors.New("missing required argument 'SubnetIds'")
 	}
-	inputs := make(map[string]interface{})
-	inputs["description"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["name"] = nil
-		inputs["subnetIds"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["subnetIds"] = args.SubnetIds
+	inputs := map[string]pulumi.Input{}
+	inputs["description"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:elasticache/subnetGroup:SubnetGroup", name, true, inputs, opts...)
+	var resource SubnetGroup
+	err := ctx.RegisterResource("aws:elasticache/subnetGroup:SubnetGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubnetGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubnetGroup gets an existing SubnetGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubnetGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubnetGroupState, opts ...pulumi.ResourceOpt) (*SubnetGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubnetGroupState, opts ...pulumi.ResourceOption) (*SubnetGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["subnetIds"] = state.SubnetIds
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticache/subnetGroup:SubnetGroup", name, id, inputs, opts...)
+	var resource SubnetGroup
+	err := ctx.ReadResource("aws:elasticache/subnetGroup:SubnetGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubnetGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SubnetGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SubnetGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-func (r *SubnetGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Name for the cache subnet group. Elasticache converts this name to lowercase.
-func (r *SubnetGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// List of VPC Subnet IDs for the cache subnet group
-func (r *SubnetGroup) SubnetIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type SubnetGroupState struct {
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
 	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name for the cache subnet group. Elasticache converts this name to lowercase.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }

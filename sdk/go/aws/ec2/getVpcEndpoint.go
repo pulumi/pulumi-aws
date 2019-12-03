@@ -11,89 +11,84 @@ import (
 // a specific VPC endpoint.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
-func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs) (*GetVpcEndpointResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["id"] = args.Id
-		inputs["serviceName"] = args.ServiceName
-		inputs["state"] = args.State
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", inputs)
+func LookupVpcEndpoint(ctx *pulumi.Context, args *GetVpcEndpointArgs, opts ...pulumi.InvokeOption) (*GetVpcEndpointResult, error) {
+	var rv GetVpcEndpointResult
+	err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpcEndpointResult{
-		CidrBlocks: outputs["cidrBlocks"],
-		DnsEntries: outputs["dnsEntries"],
-		Filters: outputs["filters"],
-		Id: outputs["id"],
-		NetworkInterfaceIds: outputs["networkInterfaceIds"],
-		OwnerId: outputs["ownerId"],
-		Policy: outputs["policy"],
-		PrefixListId: outputs["prefixListId"],
-		PrivateDnsEnabled: outputs["privateDnsEnabled"],
-		RequesterManaged: outputs["requesterManaged"],
-		RouteTableIds: outputs["routeTableIds"],
-		SecurityGroupIds: outputs["securityGroupIds"],
-		ServiceName: outputs["serviceName"],
-		State: outputs["state"],
-		SubnetIds: outputs["subnetIds"],
-		Tags: outputs["tags"],
-		VpcEndpointType: outputs["vpcEndpointType"],
-		VpcId: outputs["vpcId"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpcEndpoint.
 type GetVpcEndpointArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetVpcEndpointFiltersArgs `pulumi:"filters"`
 	// The ID of the specific VPC Endpoint to retrieve.
-	Id interface{}
+	Id *string `pulumi:"id"`
 	// The AWS service name of the specific VPC Endpoint to retrieve.
-	ServiceName interface{}
+	ServiceName *string `pulumi:"serviceName"`
 	// The state of the specific VPC Endpoint to retrieve.
-	State interface{}
+	State *string `pulumi:"state"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the specific VPC Endpoint to retrieve.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 	// The ID of the VPC in which the specific VPC Endpoint is used.
-	VpcId interface{}
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getVpcEndpoint.
 type GetVpcEndpointResult struct {
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-	CidrBlocks interface{}
+	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-	DnsEntries interface{}
-	Filters interface{}
-	Id interface{}
+	DnsEntries []GetVpcEndpointDnsEntriesResult `pulumi:"dnsEntries"`
+	Filters *[]GetVpcEndpointFiltersResult `pulumi:"filters"`
+	Id string `pulumi:"id"`
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-	NetworkInterfaceIds interface{}
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
-	OwnerId interface{}
+	OwnerId string `pulumi:"ownerId"`
 	// The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
-	Policy interface{}
+	Policy string `pulumi:"policy"`
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-	PrefixListId interface{}
+	PrefixListId string `pulumi:"prefixListId"`
 	// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
-	PrivateDnsEnabled interface{}
+	PrivateDnsEnabled bool `pulumi:"privateDnsEnabled"`
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
-	RequesterManaged interface{}
+	RequesterManaged bool `pulumi:"requesterManaged"`
 	// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
-	RouteTableIds interface{}
+	RouteTableIds []string `pulumi:"routeTableIds"`
 	// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
-	SecurityGroupIds interface{}
-	ServiceName interface{}
-	State interface{}
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	ServiceName string `pulumi:"serviceName"`
+	State string `pulumi:"state"`
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-	SubnetIds interface{}
-	Tags interface{}
+	SubnetIds []string `pulumi:"subnetIds"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC Endpoint type, `Gateway` or `Interface`.
-	VpcEndpointType interface{}
-	VpcId interface{}
+	VpcEndpointType string `pulumi:"vpcEndpointType"`
+	VpcId string `pulumi:"vpcId"`
+}
+type GetVpcEndpointDnsEntriesResult struct {
+	// The DNS name.
+	DnsName string `pulumi:"dnsName"`
+	// The ID of the private hosted zone.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+type GetVpcEndpointFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Endpoint will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetVpcEndpointFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Endpoint will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

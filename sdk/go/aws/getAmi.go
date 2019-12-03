@@ -11,81 +11,42 @@ import (
 // resources.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
-func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs) (*GetAmiResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["executableUsers"] = args.ExecutableUsers
-		inputs["filters"] = args.Filters
-		inputs["mostRecent"] = args.MostRecent
-		inputs["nameRegex"] = args.NameRegex
-		inputs["owners"] = args.Owners
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:index/getAmi:getAmi", inputs)
+func LookupAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {
+	var rv GetAmiResult
+	err := ctx.Invoke("aws:index/getAmi:getAmi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAmiResult{
-		Architecture: outputs["architecture"],
-		BlockDeviceMappings: outputs["blockDeviceMappings"],
-		CreationDate: outputs["creationDate"],
-		Description: outputs["description"],
-		ExecutableUsers: outputs["executableUsers"],
-		Filters: outputs["filters"],
-		Hypervisor: outputs["hypervisor"],
-		ImageId: outputs["imageId"],
-		ImageLocation: outputs["imageLocation"],
-		ImageOwnerAlias: outputs["imageOwnerAlias"],
-		ImageType: outputs["imageType"],
-		KernelId: outputs["kernelId"],
-		MostRecent: outputs["mostRecent"],
-		Name: outputs["name"],
-		NameRegex: outputs["nameRegex"],
-		OwnerId: outputs["ownerId"],
-		Owners: outputs["owners"],
-		Platform: outputs["platform"],
-		ProductCodes: outputs["productCodes"],
-		Public: outputs["public"],
-		RamdiskId: outputs["ramdiskId"],
-		RootDeviceName: outputs["rootDeviceName"],
-		RootDeviceType: outputs["rootDeviceType"],
-		RootSnapshotId: outputs["rootSnapshotId"],
-		SriovNetSupport: outputs["sriovNetSupport"],
-		State: outputs["state"],
-		StateReason: outputs["stateReason"],
-		Tags: outputs["tags"],
-		VirtualizationType: outputs["virtualizationType"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAmi.
 type GetAmiArgs struct {
 	// Limit search to users with *explicit* launch permission on
 	// the image. Valid items are the numeric account ID or `self`.
-	ExecutableUsers interface{}
+	ExecutableUsers *[]string `pulumi:"executableUsers"`
 	// One or more name/value pairs to filter off of. There are
 	// several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
-	Filters interface{}
+	Filters *[]GetAmiFiltersArgs `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent AMI.
-	MostRecent interface{}
+	MostRecent *bool `pulumi:"mostRecent"`
 	// A regex string to apply to the AMI list returned
 	// by AWS. This allows more advanced filtering not supported from the AWS API. This
 	// filtering is done locally on what AWS returns, and could have a performance
 	// impact if the result is large. It is recommended to combine this with other
 	// options to narrow down the list AWS returns.
-	NameRegex interface{}
+	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
-	Owners interface{}
-	Tags interface{}
+	Owners []string `pulumi:"owners"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAmi.
 type GetAmiResult struct {
 	// The OS architecture of the AMI (ie: `i386` or `x8664`).
-	Architecture interface{}
+	Architecture string `pulumi:"architecture"`
 	// The block device mappings of the AMI.
 	// * `block_device_mappings.#.device_name` - The physical name of the device.
 	// * `block_device_mappings.#.ebs.delete_on_termination` - `true` if the EBS volume
@@ -101,69 +62,89 @@ type GetAmiResult struct {
 	// included in the block device mapping of the AMI.
 	// * `block_device_mappings.#.virtual_name` - The virtual device name (for
 	// instance stores).
-	BlockDeviceMappings interface{}
+	BlockDeviceMappings []GetAmiBlockDeviceMappingsResult `pulumi:"blockDeviceMappings"`
 	// The date and time the image was created.
-	CreationDate interface{}
+	CreationDate string `pulumi:"creationDate"`
 	// The description of the AMI that was provided during image
 	// creation.
-	Description interface{}
-	ExecutableUsers interface{}
-	Filters interface{}
+	Description string `pulumi:"description"`
+	ExecutableUsers *[]string `pulumi:"executableUsers"`
+	Filters *[]GetAmiFiltersResult `pulumi:"filters"`
 	// The hypervisor type of the image.
-	Hypervisor interface{}
+	Hypervisor string `pulumi:"hypervisor"`
 	// The ID of the AMI. Should be the same as the resource `id`.
-	ImageId interface{}
+	ImageId string `pulumi:"imageId"`
 	// The location of the AMI.
-	ImageLocation interface{}
+	ImageLocation string `pulumi:"imageLocation"`
 	// The AWS account alias (for example, `amazon`, `self`) or
 	// the AWS account ID of the AMI owner.
-	ImageOwnerAlias interface{}
+	ImageOwnerAlias string `pulumi:"imageOwnerAlias"`
 	// The type of image.
-	ImageType interface{}
+	ImageType string `pulumi:"imageType"`
 	// The kernel associated with the image, if any. Only applicable
 	// for machine images.
-	KernelId interface{}
-	MostRecent interface{}
+	KernelId string `pulumi:"kernelId"`
+	MostRecent *bool `pulumi:"mostRecent"`
 	// The name of the AMI that was provided during image creation.
-	Name interface{}
-	NameRegex interface{}
+	Name string `pulumi:"name"`
+	NameRegex *string `pulumi:"nameRegex"`
 	// The AWS account ID of the image owner.
-	OwnerId interface{}
-	Owners interface{}
+	OwnerId string `pulumi:"ownerId"`
+	Owners []string `pulumi:"owners"`
 	// The value is Windows for `Windows` AMIs; otherwise blank.
-	Platform interface{}
+	Platform string `pulumi:"platform"`
 	// Any product codes associated with the AMI.
 	// * `product_codes.#.product_code_id` - The product code.
 	// * `product_codes.#.product_code_type` - The type of product code.
-	ProductCodes interface{}
+	ProductCodes []GetAmiProductCodesResult `pulumi:"productCodes"`
 	// `true` if the image has public launch permissions.
-	Public interface{}
+	Public bool `pulumi:"public"`
 	// The RAM disk associated with the image, if any. Only applicable
 	// for machine images.
-	RamdiskId interface{}
+	RamdiskId string `pulumi:"ramdiskId"`
 	// The device name of the root device.
-	RootDeviceName interface{}
+	RootDeviceName string `pulumi:"rootDeviceName"`
 	// The type of root device (ie: `ebs` or `instance-store`).
-	RootDeviceType interface{}
+	RootDeviceType string `pulumi:"rootDeviceType"`
 	// The snapshot id associated with the root device, if any
 	// (only applies to `ebs` root devices).
-	RootSnapshotId interface{}
+	RootSnapshotId string `pulumi:"rootSnapshotId"`
 	// Specifies whether enhanced networking is enabled.
-	SriovNetSupport interface{}
+	SriovNetSupport string `pulumi:"sriovNetSupport"`
 	// The current state of the AMI. If the state is `available`, the image
 	// is successfully registered and can be used to launch an instance.
-	State interface{}
+	State string `pulumi:"state"`
 	// Describes a state change. Fields are `UNSET` if not available.
 	// * `state_reason.code` - The reason code for the state change.
 	// * `state_reason.message` - The message for the state change.
-	StateReason interface{}
+	StateReason map[string]string `pulumi:"stateReason"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The type of virtualization of the AMI (ie: `hvm` or
 	// `paravirtual`).
-	VirtualizationType interface{}
+	VirtualizationType string `pulumi:"virtualizationType"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAmiBlockDeviceMappingsResult struct {
+	DeviceName string `pulumi:"deviceName"`
+	Ebs map[string]string `pulumi:"ebs"`
+	NoDevice string `pulumi:"noDevice"`
+	VirtualName string `pulumi:"virtualName"`
+}
+type GetAmiFiltersArgs struct {
+	// The name of the AMI that was provided during image creation.
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetAmiFiltersResult struct {
+	// The name of the AMI that was provided during image creation.
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetAmiProductCodesResult struct {
+	ProductCodeId string `pulumi:"productCodeId"`
+	ProductCodeType string `pulumi:"productCodeType"`
 }

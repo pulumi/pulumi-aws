@@ -15,40 +15,31 @@ import (
 // configuration from its parent module.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
-func LookupRegion(ctx *pulumi.Context, args *GetRegionArgs) (*GetRegionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["endpoint"] = args.Endpoint
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:index/getRegion:getRegion", inputs)
+func LookupRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
+	var rv GetRegionResult
+	err := ctx.Invoke("aws:index/getRegion:getRegion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRegionResult{
-		Description: outputs["description"],
-		Endpoint: outputs["endpoint"],
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRegion.
 type GetRegionArgs struct {
 	// The EC2 endpoint of the region to select.
-	Endpoint interface{}
+	Endpoint *string `pulumi:"endpoint"`
 	// The full name of the region to select.
-	Name interface{}
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getRegion.
 type GetRegionResult struct {
 	// The region's description in this format: "Location (Region name)".
-	Description interface{}
+	Description string `pulumi:"description"`
 	// The EC2 endpoint for the selected region.
-	Endpoint interface{}
+	Endpoint string `pulumi:"endpoint"`
 	// The name of the selected region.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

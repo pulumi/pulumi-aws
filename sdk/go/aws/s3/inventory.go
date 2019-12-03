@@ -4,6 +4,8 @@
 package s3
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,37 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_inventory.html.markdown.
 type Inventory struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The S3 bucket configuration where inventory results are published (documented below).
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+
+	// Contains information about where to publish the inventory results (documented below).
+	Destination InventoryDestinationOutput `pulumi:"destination"`
+
+	// Specifies whether the inventory is enabled or disabled.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	Filter InventoryFilterOutput `pulumi:"filter"`
+
+	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
+	IncludedObjectVersions pulumi.StringOutput `pulumi:"includedObjectVersions"`
+
+	// Unique identifier of the inventory configuration for the bucket.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// List of optional fields that are included in the inventory results.
+	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+	OptionalFields pulumi.StringArrayOutput `pulumi:"optionalFields"`
+
+	// Specifies the schedule for generating inventory results (documented below).
+	Schedule InventoryScheduleOutput `pulumi:"schedule"`
 }
 
 // NewInventory registers a new resource with the given unique name, arguments, and options.
 func NewInventory(ctx *pulumi.Context,
-	name string, args *InventoryArgs, opts ...pulumi.ResourceOpt) (*Inventory, error) {
+	name string, args *InventoryArgs, opts ...pulumi.ResourceOption) (*Inventory, error) {
 	if args == nil || args.Bucket == nil {
 		return nil, errors.New("missing required argument 'Bucket'")
 	}
@@ -30,144 +57,502 @@ func NewInventory(ctx *pulumi.Context,
 	if args == nil || args.Schedule == nil {
 		return nil, errors.New("missing required argument 'Schedule'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["bucket"] = nil
-		inputs["destination"] = nil
-		inputs["enabled"] = nil
-		inputs["filter"] = nil
-		inputs["includedObjectVersions"] = nil
-		inputs["name"] = nil
-		inputs["optionalFields"] = nil
-		inputs["schedule"] = nil
-	} else {
-		inputs["bucket"] = args.Bucket
-		inputs["destination"] = args.Destination
-		inputs["enabled"] = args.Enabled
-		inputs["filter"] = args.Filter
-		inputs["includedObjectVersions"] = args.IncludedObjectVersions
-		inputs["name"] = args.Name
-		inputs["optionalFields"] = args.OptionalFields
-		inputs["schedule"] = args.Schedule
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Bucket; i != nil { inputs["bucket"] = i.ToStringOutput() }
+		if i := args.Destination; i != nil { inputs["destination"] = i.ToInventoryDestinationOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Filter; i != nil { inputs["filter"] = i.ToInventoryFilterOutput() }
+		if i := args.IncludedObjectVersions; i != nil { inputs["includedObjectVersions"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OptionalFields; i != nil { inputs["optionalFields"] = i.ToStringArrayOutput() }
+		if i := args.Schedule; i != nil { inputs["schedule"] = i.ToInventoryScheduleOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:s3/inventory:Inventory", name, true, inputs, opts...)
+	var resource Inventory
+	err := ctx.RegisterResource("aws:s3/inventory:Inventory", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Inventory{s: s}, nil
+	return &resource, nil
 }
 
 // GetInventory gets an existing Inventory resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInventory(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InventoryState, opts ...pulumi.ResourceOpt) (*Inventory, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InventoryState, opts ...pulumi.ResourceOption) (*Inventory, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["bucket"] = state.Bucket
-		inputs["destination"] = state.Destination
-		inputs["enabled"] = state.Enabled
-		inputs["filter"] = state.Filter
-		inputs["includedObjectVersions"] = state.IncludedObjectVersions
-		inputs["name"] = state.Name
-		inputs["optionalFields"] = state.OptionalFields
-		inputs["schedule"] = state.Schedule
+		if i := state.Bucket; i != nil { inputs["bucket"] = i.ToStringOutput() }
+		if i := state.Destination; i != nil { inputs["destination"] = i.ToInventoryDestinationOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Filter; i != nil { inputs["filter"] = i.ToInventoryFilterOutput() }
+		if i := state.IncludedObjectVersions; i != nil { inputs["includedObjectVersions"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OptionalFields; i != nil { inputs["optionalFields"] = i.ToStringArrayOutput() }
+		if i := state.Schedule; i != nil { inputs["schedule"] = i.ToInventoryScheduleOutput() }
 	}
-	s, err := ctx.ReadResource("aws:s3/inventory:Inventory", name, id, inputs, opts...)
+	var resource Inventory
+	err := ctx.ReadResource("aws:s3/inventory:Inventory", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Inventory{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Inventory) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Inventory) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The S3 bucket configuration where inventory results are published (documented below).
-func (r *Inventory) Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bucket"])
-}
-
-// Contains information about where to publish the inventory results (documented below).
-func (r *Inventory) Destination() pulumi.Output {
-	return r.s.State["destination"]
-}
-
-// Specifies whether the inventory is enabled or disabled.
-func (r *Inventory) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-func (r *Inventory) Filter() pulumi.Output {
-	return r.s.State["filter"]
-}
-
-// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-func (r *Inventory) IncludedObjectVersions() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["includedObjectVersions"])
-}
-
-// Unique identifier of the inventory configuration for the bucket.
-func (r *Inventory) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// List of optional fields that are included in the inventory results.
-// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
-func (r *Inventory) OptionalFields() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["optionalFields"])
-}
-
-// Specifies the schedule for generating inventory results (documented below).
-func (r *Inventory) Schedule() pulumi.Output {
-	return r.s.State["schedule"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Inventory resources.
 type InventoryState struct {
 	// The S3 bucket configuration where inventory results are published (documented below).
-	Bucket interface{}
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
-	Destination interface{}
+	Destination InventoryDestinationInput `pulumi:"destination"`
 	// Specifies whether the inventory is enabled or disabled.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-	Filter interface{}
+	Filter InventoryFilterInput `pulumi:"filter"`
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-	IncludedObjectVersions interface{}
+	IncludedObjectVersions pulumi.StringInput `pulumi:"includedObjectVersions"`
 	// Unique identifier of the inventory configuration for the bucket.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// List of optional fields that are included in the inventory results.
 	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
-	OptionalFields interface{}
+	OptionalFields pulumi.StringArrayInput `pulumi:"optionalFields"`
 	// Specifies the schedule for generating inventory results (documented below).
-	Schedule interface{}
+	Schedule InventoryScheduleInput `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a Inventory resource.
 type InventoryArgs struct {
 	// The S3 bucket configuration where inventory results are published (documented below).
-	Bucket interface{}
+	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
-	Destination interface{}
+	Destination InventoryDestinationInput `pulumi:"destination"`
 	// Specifies whether the inventory is enabled or disabled.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-	Filter interface{}
+	Filter InventoryFilterInput `pulumi:"filter"`
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-	IncludedObjectVersions interface{}
+	IncludedObjectVersions pulumi.StringInput `pulumi:"includedObjectVersions"`
 	// Unique identifier of the inventory configuration for the bucket.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// List of optional fields that are included in the inventory results.
 	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
-	OptionalFields interface{}
+	OptionalFields pulumi.StringArrayInput `pulumi:"optionalFields"`
 	// Specifies the schedule for generating inventory results (documented below).
-	Schedule interface{}
+	Schedule InventoryScheduleInput `pulumi:"schedule"`
 }
+type InventoryDestination struct {
+	// The S3 bucket configuration where inventory results are published (documented below).
+	Bucket InventoryDestinationBucket `pulumi:"bucket"`
+}
+var inventoryDestinationType = reflect.TypeOf((*InventoryDestination)(nil)).Elem()
+
+type InventoryDestinationInput interface {
+	pulumi.Input
+
+	ToInventoryDestinationOutput() InventoryDestinationOutput
+	ToInventoryDestinationOutputWithContext(ctx context.Context) InventoryDestinationOutput
+}
+
+type InventoryDestinationArgs struct {
+	// The S3 bucket configuration where inventory results are published (documented below).
+	Bucket InventoryDestinationBucketInput `pulumi:"bucket"`
+}
+
+func (InventoryDestinationArgs) ElementType() reflect.Type {
+	return inventoryDestinationType
+}
+
+func (a InventoryDestinationArgs) ToInventoryDestinationOutput() InventoryDestinationOutput {
+	return pulumi.ToOutput(a).(InventoryDestinationOutput)
+}
+
+func (a InventoryDestinationArgs) ToInventoryDestinationOutputWithContext(ctx context.Context) InventoryDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryDestinationOutput)
+}
+
+type InventoryDestinationOutput struct { *pulumi.OutputState }
+
+// The S3 bucket configuration where inventory results are published (documented below).
+func (o InventoryDestinationOutput) Bucket() InventoryDestinationBucketOutput {
+	return o.Apply(func(v InventoryDestination) InventoryDestinationBucket {
+		return v.Bucket
+	}).(InventoryDestinationBucketOutput)
+}
+
+func (InventoryDestinationOutput) ElementType() reflect.Type {
+	return inventoryDestinationType
+}
+
+func (o InventoryDestinationOutput) ToInventoryDestinationOutput() InventoryDestinationOutput {
+	return o
+}
+
+func (o InventoryDestinationOutput) ToInventoryDestinationOutputWithContext(ctx context.Context) InventoryDestinationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryDestinationOutput{}) }
+
+type InventoryDestinationBucket struct {
+	// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+	AccountId *string `pulumi:"accountId"`
+	// The Amazon S3 bucket ARN of the destination.
+	BucketArn string `pulumi:"bucketArn"`
+	// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+	Encryption *InventoryDestinationBucketEncryption `pulumi:"encryption"`
+	// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+	Format string `pulumi:"format"`
+	// The prefix that is prepended to all inventory results.
+	Prefix *string `pulumi:"prefix"`
+}
+var inventoryDestinationBucketType = reflect.TypeOf((*InventoryDestinationBucket)(nil)).Elem()
+
+type InventoryDestinationBucketInput interface {
+	pulumi.Input
+
+	ToInventoryDestinationBucketOutput() InventoryDestinationBucketOutput
+	ToInventoryDestinationBucketOutputWithContext(ctx context.Context) InventoryDestinationBucketOutput
+}
+
+type InventoryDestinationBucketArgs struct {
+	// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The Amazon S3 bucket ARN of the destination.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+	Encryption InventoryDestinationBucketEncryptionInput `pulumi:"encryption"`
+	// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+	Format pulumi.StringInput `pulumi:"format"`
+	// The prefix that is prepended to all inventory results.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (InventoryDestinationBucketArgs) ElementType() reflect.Type {
+	return inventoryDestinationBucketType
+}
+
+func (a InventoryDestinationBucketArgs) ToInventoryDestinationBucketOutput() InventoryDestinationBucketOutput {
+	return pulumi.ToOutput(a).(InventoryDestinationBucketOutput)
+}
+
+func (a InventoryDestinationBucketArgs) ToInventoryDestinationBucketOutputWithContext(ctx context.Context) InventoryDestinationBucketOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryDestinationBucketOutput)
+}
+
+type InventoryDestinationBucketOutput struct { *pulumi.OutputState }
+
+// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
+func (o InventoryDestinationBucketOutput) AccountId() pulumi.StringOutput {
+	return o.Apply(func(v InventoryDestinationBucket) string {
+		if v.AccountId == nil { return *new(string) } else { return *v.AccountId }
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon S3 bucket ARN of the destination.
+func (o InventoryDestinationBucketOutput) BucketArn() pulumi.StringOutput {
+	return o.Apply(func(v InventoryDestinationBucket) string {
+		return v.BucketArn
+	}).(pulumi.StringOutput)
+}
+
+// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+func (o InventoryDestinationBucketOutput) Encryption() InventoryDestinationBucketEncryptionOutput {
+	return o.Apply(func(v InventoryDestinationBucket) InventoryDestinationBucketEncryption {
+		if v.Encryption == nil { return *new(InventoryDestinationBucketEncryption) } else { return *v.Encryption }
+	}).(InventoryDestinationBucketEncryptionOutput)
+}
+
+// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+func (o InventoryDestinationBucketOutput) Format() pulumi.StringOutput {
+	return o.Apply(func(v InventoryDestinationBucket) string {
+		return v.Format
+	}).(pulumi.StringOutput)
+}
+
+// The prefix that is prepended to all inventory results.
+func (o InventoryDestinationBucketOutput) Prefix() pulumi.StringOutput {
+	return o.Apply(func(v InventoryDestinationBucket) string {
+		if v.Prefix == nil { return *new(string) } else { return *v.Prefix }
+	}).(pulumi.StringOutput)
+}
+
+func (InventoryDestinationBucketOutput) ElementType() reflect.Type {
+	return inventoryDestinationBucketType
+}
+
+func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketOutput() InventoryDestinationBucketOutput {
+	return o
+}
+
+func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketOutputWithContext(ctx context.Context) InventoryDestinationBucketOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryDestinationBucketOutput{}) }
+
+type InventoryDestinationBucketEncryption struct {
+	// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+	SseKms *InventoryDestinationBucketEncryptionSseKms `pulumi:"sseKms"`
+	// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+	SseS3 *InventoryDestinationBucketEncryptionSseS3 `pulumi:"sseS3"`
+}
+var inventoryDestinationBucketEncryptionType = reflect.TypeOf((*InventoryDestinationBucketEncryption)(nil)).Elem()
+
+type InventoryDestinationBucketEncryptionInput interface {
+	pulumi.Input
+
+	ToInventoryDestinationBucketEncryptionOutput() InventoryDestinationBucketEncryptionOutput
+	ToInventoryDestinationBucketEncryptionOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionOutput
+}
+
+type InventoryDestinationBucketEncryptionArgs struct {
+	// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+	SseKms InventoryDestinationBucketEncryptionSseKmsInput `pulumi:"sseKms"`
+	// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+	SseS3 InventoryDestinationBucketEncryptionSseS3Input `pulumi:"sseS3"`
+}
+
+func (InventoryDestinationBucketEncryptionArgs) ElementType() reflect.Type {
+	return inventoryDestinationBucketEncryptionType
+}
+
+func (a InventoryDestinationBucketEncryptionArgs) ToInventoryDestinationBucketEncryptionOutput() InventoryDestinationBucketEncryptionOutput {
+	return pulumi.ToOutput(a).(InventoryDestinationBucketEncryptionOutput)
+}
+
+func (a InventoryDestinationBucketEncryptionArgs) ToInventoryDestinationBucketEncryptionOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryDestinationBucketEncryptionOutput)
+}
+
+type InventoryDestinationBucketEncryptionOutput struct { *pulumi.OutputState }
+
+// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+func (o InventoryDestinationBucketEncryptionOutput) SseKms() InventoryDestinationBucketEncryptionSseKmsOutput {
+	return o.Apply(func(v InventoryDestinationBucketEncryption) InventoryDestinationBucketEncryptionSseKms {
+		if v.SseKms == nil { return *new(InventoryDestinationBucketEncryptionSseKms) } else { return *v.SseKms }
+	}).(InventoryDestinationBucketEncryptionSseKmsOutput)
+}
+
+// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+func (o InventoryDestinationBucketEncryptionOutput) SseS3() InventoryDestinationBucketEncryptionSseS3Output {
+	return o.Apply(func(v InventoryDestinationBucketEncryption) InventoryDestinationBucketEncryptionSseS3 {
+		if v.SseS3 == nil { return *new(InventoryDestinationBucketEncryptionSseS3) } else { return *v.SseS3 }
+	}).(InventoryDestinationBucketEncryptionSseS3Output)
+}
+
+func (InventoryDestinationBucketEncryptionOutput) ElementType() reflect.Type {
+	return inventoryDestinationBucketEncryptionType
+}
+
+func (o InventoryDestinationBucketEncryptionOutput) ToInventoryDestinationBucketEncryptionOutput() InventoryDestinationBucketEncryptionOutput {
+	return o
+}
+
+func (o InventoryDestinationBucketEncryptionOutput) ToInventoryDestinationBucketEncryptionOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryDestinationBucketEncryptionOutput{}) }
+
+type InventoryDestinationBucketEncryptionSseKms struct {
+	// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+	KeyId string `pulumi:"keyId"`
+}
+var inventoryDestinationBucketEncryptionSseKmsType = reflect.TypeOf((*InventoryDestinationBucketEncryptionSseKms)(nil)).Elem()
+
+type InventoryDestinationBucketEncryptionSseKmsInput interface {
+	pulumi.Input
+
+	ToInventoryDestinationBucketEncryptionSseKmsOutput() InventoryDestinationBucketEncryptionSseKmsOutput
+	ToInventoryDestinationBucketEncryptionSseKmsOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseKmsOutput
+}
+
+type InventoryDestinationBucketEncryptionSseKmsArgs struct {
+	// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+}
+
+func (InventoryDestinationBucketEncryptionSseKmsArgs) ElementType() reflect.Type {
+	return inventoryDestinationBucketEncryptionSseKmsType
+}
+
+func (a InventoryDestinationBucketEncryptionSseKmsArgs) ToInventoryDestinationBucketEncryptionSseKmsOutput() InventoryDestinationBucketEncryptionSseKmsOutput {
+	return pulumi.ToOutput(a).(InventoryDestinationBucketEncryptionSseKmsOutput)
+}
+
+func (a InventoryDestinationBucketEncryptionSseKmsArgs) ToInventoryDestinationBucketEncryptionSseKmsOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseKmsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryDestinationBucketEncryptionSseKmsOutput)
+}
+
+type InventoryDestinationBucketEncryptionSseKmsOutput struct { *pulumi.OutputState }
+
+// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+func (o InventoryDestinationBucketEncryptionSseKmsOutput) KeyId() pulumi.StringOutput {
+	return o.Apply(func(v InventoryDestinationBucketEncryptionSseKms) string {
+		return v.KeyId
+	}).(pulumi.StringOutput)
+}
+
+func (InventoryDestinationBucketEncryptionSseKmsOutput) ElementType() reflect.Type {
+	return inventoryDestinationBucketEncryptionSseKmsType
+}
+
+func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToInventoryDestinationBucketEncryptionSseKmsOutput() InventoryDestinationBucketEncryptionSseKmsOutput {
+	return o
+}
+
+func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToInventoryDestinationBucketEncryptionSseKmsOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseKmsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryDestinationBucketEncryptionSseKmsOutput{}) }
+
+type InventoryDestinationBucketEncryptionSseS3 struct {
+}
+var inventoryDestinationBucketEncryptionSseS3Type = reflect.TypeOf((*InventoryDestinationBucketEncryptionSseS3)(nil)).Elem()
+
+type InventoryDestinationBucketEncryptionSseS3Input interface {
+	pulumi.Input
+
+	ToInventoryDestinationBucketEncryptionSseS3Output() InventoryDestinationBucketEncryptionSseS3Output
+	ToInventoryDestinationBucketEncryptionSseS3OutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseS3Output
+}
+
+type InventoryDestinationBucketEncryptionSseS3Args struct {
+}
+
+func (InventoryDestinationBucketEncryptionSseS3Args) ElementType() reflect.Type {
+	return inventoryDestinationBucketEncryptionSseS3Type
+}
+
+func (a InventoryDestinationBucketEncryptionSseS3Args) ToInventoryDestinationBucketEncryptionSseS3Output() InventoryDestinationBucketEncryptionSseS3Output {
+	return pulumi.ToOutput(a).(InventoryDestinationBucketEncryptionSseS3Output)
+}
+
+func (a InventoryDestinationBucketEncryptionSseS3Args) ToInventoryDestinationBucketEncryptionSseS3OutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseS3Output {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryDestinationBucketEncryptionSseS3Output)
+}
+
+type InventoryDestinationBucketEncryptionSseS3Output struct { *pulumi.OutputState }
+
+
+func (InventoryDestinationBucketEncryptionSseS3Output) ElementType() reflect.Type {
+	return inventoryDestinationBucketEncryptionSseS3Type
+}
+
+func (o InventoryDestinationBucketEncryptionSseS3Output) ToInventoryDestinationBucketEncryptionSseS3Output() InventoryDestinationBucketEncryptionSseS3Output {
+	return o
+}
+
+func (o InventoryDestinationBucketEncryptionSseS3Output) ToInventoryDestinationBucketEncryptionSseS3OutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseS3Output {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryDestinationBucketEncryptionSseS3Output{}) }
+
+type InventoryFilter struct {
+	// The prefix that is prepended to all inventory results.
+	Prefix *string `pulumi:"prefix"`
+}
+var inventoryFilterType = reflect.TypeOf((*InventoryFilter)(nil)).Elem()
+
+type InventoryFilterInput interface {
+	pulumi.Input
+
+	ToInventoryFilterOutput() InventoryFilterOutput
+	ToInventoryFilterOutputWithContext(ctx context.Context) InventoryFilterOutput
+}
+
+type InventoryFilterArgs struct {
+	// The prefix that is prepended to all inventory results.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (InventoryFilterArgs) ElementType() reflect.Type {
+	return inventoryFilterType
+}
+
+func (a InventoryFilterArgs) ToInventoryFilterOutput() InventoryFilterOutput {
+	return pulumi.ToOutput(a).(InventoryFilterOutput)
+}
+
+func (a InventoryFilterArgs) ToInventoryFilterOutputWithContext(ctx context.Context) InventoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryFilterOutput)
+}
+
+type InventoryFilterOutput struct { *pulumi.OutputState }
+
+// The prefix that is prepended to all inventory results.
+func (o InventoryFilterOutput) Prefix() pulumi.StringOutput {
+	return o.Apply(func(v InventoryFilter) string {
+		if v.Prefix == nil { return *new(string) } else { return *v.Prefix }
+	}).(pulumi.StringOutput)
+}
+
+func (InventoryFilterOutput) ElementType() reflect.Type {
+	return inventoryFilterType
+}
+
+func (o InventoryFilterOutput) ToInventoryFilterOutput() InventoryFilterOutput {
+	return o
+}
+
+func (o InventoryFilterOutput) ToInventoryFilterOutputWithContext(ctx context.Context) InventoryFilterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryFilterOutput{}) }
+
+type InventorySchedule struct {
+	// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+	Frequency string `pulumi:"frequency"`
+}
+var inventoryScheduleType = reflect.TypeOf((*InventorySchedule)(nil)).Elem()
+
+type InventoryScheduleInput interface {
+	pulumi.Input
+
+	ToInventoryScheduleOutput() InventoryScheduleOutput
+	ToInventoryScheduleOutputWithContext(ctx context.Context) InventoryScheduleOutput
+}
+
+type InventoryScheduleArgs struct {
+	// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+}
+
+func (InventoryScheduleArgs) ElementType() reflect.Type {
+	return inventoryScheduleType
+}
+
+func (a InventoryScheduleArgs) ToInventoryScheduleOutput() InventoryScheduleOutput {
+	return pulumi.ToOutput(a).(InventoryScheduleOutput)
+}
+
+func (a InventoryScheduleArgs) ToInventoryScheduleOutputWithContext(ctx context.Context) InventoryScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InventoryScheduleOutput)
+}
+
+type InventoryScheduleOutput struct { *pulumi.OutputState }
+
+// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+func (o InventoryScheduleOutput) Frequency() pulumi.StringOutput {
+	return o.Apply(func(v InventorySchedule) string {
+		return v.Frequency
+	}).(pulumi.StringOutput)
+}
+
+func (InventoryScheduleOutput) ElementType() reflect.Type {
+	return inventoryScheduleType
+}
+
+func (o InventoryScheduleOutput) ToInventoryScheduleOutput() InventoryScheduleOutput {
+	return o
+}
+
+func (o InventoryScheduleOutput) ToInventoryScheduleOutputWithContext(ctx context.Context) InventoryScheduleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InventoryScheduleOutput{}) }
+

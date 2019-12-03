@@ -10,36 +10,28 @@ import (
 // Use this data source to fetch information about a Quantum Ledger Database.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
-func LookupLedger(ctx *pulumi.Context, args *GetLedgerArgs) (*GetLedgerResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:qldb/getLedger:getLedger", inputs)
+func LookupLedger(ctx *pulumi.Context, args *GetLedgerArgs, opts ...pulumi.InvokeOption) (*GetLedgerResult, error) {
+	var rv GetLedgerResult
+	err := ctx.Invoke("aws:qldb/getLedger:getLedger", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLedgerResult{
-		Arn: outputs["arn"],
-		DeletionProtection: outputs["deletionProtection"],
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLedger.
 type GetLedgerArgs struct {
 	// The friendly name of the ledger to match.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getLedger.
 type GetLedgerResult struct {
 	// Amazon Resource Name (ARN) of the ledger.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
-	DeletionProtection interface{}
-	Name interface{}
+	DeletionProtection bool `pulumi:"deletionProtection"`
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

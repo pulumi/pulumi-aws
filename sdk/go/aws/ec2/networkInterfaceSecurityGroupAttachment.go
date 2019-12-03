@@ -28,81 +28,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_sg_attachment.html.markdown.
 type NetworkInterfaceSecurityGroupAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the network interface to attach to.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+
+	// The ID of the security group.
+	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 }
 
 // NewNetworkInterfaceSecurityGroupAttachment registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceSecurityGroupAttachment(ctx *pulumi.Context,
-	name string, args *NetworkInterfaceSecurityGroupAttachmentArgs, opts ...pulumi.ResourceOpt) (*NetworkInterfaceSecurityGroupAttachment, error) {
+	name string, args *NetworkInterfaceSecurityGroupAttachmentArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceSecurityGroupAttachment, error) {
 	if args == nil || args.NetworkInterfaceId == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
 	}
 	if args == nil || args.SecurityGroupId == nil {
 		return nil, errors.New("missing required argument 'SecurityGroupId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["networkInterfaceId"] = nil
-		inputs["securityGroupId"] = nil
-	} else {
-		inputs["networkInterfaceId"] = args.NetworkInterfaceId
-		inputs["securityGroupId"] = args.SecurityGroupId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := args.SecurityGroupId; i != nil { inputs["securityGroupId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, true, inputs, opts...)
+	var resource NetworkInterfaceSecurityGroupAttachment
+	err := ctx.RegisterResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterfaceSecurityGroupAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkInterfaceSecurityGroupAttachment gets an existing NetworkInterfaceSecurityGroupAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkInterfaceSecurityGroupAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkInterfaceSecurityGroupAttachmentState, opts ...pulumi.ResourceOpt) (*NetworkInterfaceSecurityGroupAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkInterfaceSecurityGroupAttachmentState, opts ...pulumi.ResourceOption) (*NetworkInterfaceSecurityGroupAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
-		inputs["securityGroupId"] = state.SecurityGroupId
+		if i := state.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := state.SecurityGroupId; i != nil { inputs["securityGroupId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, id, inputs, opts...)
+	var resource NetworkInterfaceSecurityGroupAttachment
+	err := ctx.ReadResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterfaceSecurityGroupAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceSecurityGroupAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceSecurityGroupAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the network interface to attach to.
-func (r *NetworkInterfaceSecurityGroupAttachment) NetworkInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
-}
-
-// The ID of the security group.
-func (r *NetworkInterfaceSecurityGroupAttachment) SecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.
 type NetworkInterfaceSecurityGroupAttachmentState struct {
 	// The ID of the network interface to attach to.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The ID of the security group.
-	SecurityGroupId interface{}
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceSecurityGroupAttachment resource.
 type NetworkInterfaceSecurityGroupAttachmentArgs struct {
 	// The ID of the network interface to attach to.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The ID of the security group.
-	SecurityGroupId interface{}
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
 }

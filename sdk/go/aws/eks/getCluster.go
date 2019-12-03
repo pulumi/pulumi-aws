@@ -10,68 +10,75 @@ import (
 // Retrieve information about an EKS Cluster.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
-func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:eks/getCluster:getCluster", inputs)
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
+	var rv GetClusterResult
+	err := ctx.Invoke("aws:eks/getCluster:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetClusterResult{
-		Arn: outputs["arn"],
-		CertificateAuthority: outputs["certificateAuthority"],
-		CreatedAt: outputs["createdAt"],
-		EnabledClusterLogTypes: outputs["enabledClusterLogTypes"],
-		Endpoint: outputs["endpoint"],
-		Identities: outputs["identities"],
-		Name: outputs["name"],
-		PlatformVersion: outputs["platformVersion"],
-		RoleArn: outputs["roleArn"],
-		Status: outputs["status"],
-		Tags: outputs["tags"],
-		Version: outputs["version"],
-		VpcConfig: outputs["vpcConfig"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCluster.
 type GetClusterArgs struct {
 	// The name of the cluster
-	Name interface{}
-	Tags interface{}
+	Name string `pulumi:"name"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type GetClusterResult struct {
 	// The Amazon Resource Name (ARN) of the cluster.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
-	CertificateAuthority interface{}
+	CertificateAuthority GetClusterCertificateAuthorityResult `pulumi:"certificateAuthority"`
 	// The Unix epoch time stamp in seconds for when the cluster was created.
-	CreatedAt interface{}
+	CreatedAt string `pulumi:"createdAt"`
 	// The enabled control plane logs.
-	EnabledClusterLogTypes interface{}
+	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// The endpoint for your Kubernetes API server.
-	Endpoint interface{}
+	Endpoint string `pulumi:"endpoint"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
-	Identities interface{}
-	Name interface{}
+	Identities []GetClusterIdentitiesResult `pulumi:"identities"`
+	Name string `pulumi:"name"`
 	// The platform version for the cluster.
-	PlatformVersion interface{}
+	PlatformVersion string `pulumi:"platformVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn interface{}
+	RoleArn string `pulumi:"roleArn"`
 	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
-	Status interface{}
+	Status string `pulumi:"status"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The Kubernetes server version for the cluster.
-	Version interface{}
+	Version string `pulumi:"version"`
 	// Nested attribute containing VPC configuration for the cluster.
-	VpcConfig interface{}
+	VpcConfig GetClusterVpcConfigResult `pulumi:"vpcConfig"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetClusterCertificateAuthorityResult struct {
+	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+	Data string `pulumi:"data"`
+}
+type GetClusterIdentitiesOidcsResult struct {
+	// Issuer URL for the OpenID Connect identity provider.
+	Issuer string `pulumi:"issuer"`
+}
+type GetClusterIdentitiesResult struct {
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+	Oidcs []GetClusterIdentitiesOidcsResult `pulumi:"oidcs"`
+}
+type GetClusterVpcConfigResult struct {
+	// The cluster security group that was created by Amazon EKS for the cluster. 
+	ClusterSecurityGroupId string `pulumi:"clusterSecurityGroupId"`
+	// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
+	EndpointPrivateAccess bool `pulumi:"endpointPrivateAccess"`
+	// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
+	EndpointPublicAccess bool `pulumi:"endpointPublicAccess"`
+	// List of security group IDs
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The VPC associated with your cluster.
+	VpcId string `pulumi:"vpcId"`
 }

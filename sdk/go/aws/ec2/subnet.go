@@ -10,172 +10,130 @@ import (
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/subnet.html.markdown.
 type Subnet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the subnet.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Specify true to indicate
+	// that network interfaces created in the specified subnet should be
+	// assigned an IPv6 address. Default is `false`
+	AssignIpv6AddressOnCreation pulumi.BoolOutput `pulumi:"assignIpv6AddressOnCreation"`
+
+	// The AZ for the subnet.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	// The AZ ID of the subnet.
+	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
+
+	// The CIDR block for the subnet.
+	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+
+	// The IPv6 network range for the subnet,
+	// in CIDR notation. The subnet size must use a /64 prefix length.
+	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+
+	// The association ID for the IPv6 CIDR block.
+	Ipv6CidrBlockAssociationId pulumi.StringOutput `pulumi:"ipv6CidrBlockAssociationId"`
+
+	// Specify true to indicate
+	// that instances launched into the subnet should be assigned
+	// a public IP address. Default is `false`.
+	MapPublicIpOnLaunch pulumi.BoolOutput `pulumi:"mapPublicIpOnLaunch"`
+
+	// The ID of the AWS account that owns the subnet.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The VPC ID.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
 func NewSubnet(ctx *pulumi.Context,
-	name string, args *SubnetArgs, opts ...pulumi.ResourceOpt) (*Subnet, error) {
+	name string, args *SubnetArgs, opts ...pulumi.ResourceOption) (*Subnet, error) {
 	if args == nil || args.CidrBlock == nil {
 		return nil, errors.New("missing required argument 'CidrBlock'")
 	}
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["assignIpv6AddressOnCreation"] = nil
-		inputs["availabilityZone"] = nil
-		inputs["availabilityZoneId"] = nil
-		inputs["cidrBlock"] = nil
-		inputs["ipv6CidrBlock"] = nil
-		inputs["mapPublicIpOnLaunch"] = nil
-		inputs["tags"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["assignIpv6AddressOnCreation"] = args.AssignIpv6AddressOnCreation
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["availabilityZoneId"] = args.AvailabilityZoneId
-		inputs["cidrBlock"] = args.CidrBlock
-		inputs["ipv6CidrBlock"] = args.Ipv6CidrBlock
-		inputs["mapPublicIpOnLaunch"] = args.MapPublicIpOnLaunch
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AssignIpv6AddressOnCreation; i != nil { inputs["assignIpv6AddressOnCreation"] = i.ToBoolOutput() }
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.AvailabilityZoneId; i != nil { inputs["availabilityZoneId"] = i.ToStringOutput() }
+		if i := args.CidrBlock; i != nil { inputs["cidrBlock"] = i.ToStringOutput() }
+		if i := args.Ipv6CidrBlock; i != nil { inputs["ipv6CidrBlock"] = i.ToStringOutput() }
+		if i := args.MapPublicIpOnLaunch; i != nil { inputs["mapPublicIpOnLaunch"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["ipv6CidrBlockAssociationId"] = nil
-	inputs["ownerId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/subnet:Subnet", name, true, inputs, opts...)
+	var resource Subnet
+	err := ctx.RegisterResource("aws:ec2/subnet:Subnet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subnet{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubnet gets an existing Subnet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubnet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubnetState, opts ...pulumi.ResourceOpt) (*Subnet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubnetState, opts ...pulumi.ResourceOption) (*Subnet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["assignIpv6AddressOnCreation"] = state.AssignIpv6AddressOnCreation
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["availabilityZoneId"] = state.AvailabilityZoneId
-		inputs["cidrBlock"] = state.CidrBlock
-		inputs["ipv6CidrBlock"] = state.Ipv6CidrBlock
-		inputs["ipv6CidrBlockAssociationId"] = state.Ipv6CidrBlockAssociationId
-		inputs["mapPublicIpOnLaunch"] = state.MapPublicIpOnLaunch
-		inputs["ownerId"] = state.OwnerId
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AssignIpv6AddressOnCreation; i != nil { inputs["assignIpv6AddressOnCreation"] = i.ToBoolOutput() }
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.AvailabilityZoneId; i != nil { inputs["availabilityZoneId"] = i.ToStringOutput() }
+		if i := state.CidrBlock; i != nil { inputs["cidrBlock"] = i.ToStringOutput() }
+		if i := state.Ipv6CidrBlock; i != nil { inputs["ipv6CidrBlock"] = i.ToStringOutput() }
+		if i := state.Ipv6CidrBlockAssociationId; i != nil { inputs["ipv6CidrBlockAssociationId"] = i.ToStringOutput() }
+		if i := state.MapPublicIpOnLaunch; i != nil { inputs["mapPublicIpOnLaunch"] = i.ToBoolOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/subnet:Subnet", name, id, inputs, opts...)
+	var resource Subnet
+	err := ctx.ReadResource("aws:ec2/subnet:Subnet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subnet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Subnet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Subnet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the subnet.
-func (r *Subnet) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Specify true to indicate
-// that network interfaces created in the specified subnet should be
-// assigned an IPv6 address. Default is `false`
-func (r *Subnet) AssignIpv6AddressOnCreation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["assignIpv6AddressOnCreation"])
-}
-
-// The AZ for the subnet.
-func (r *Subnet) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// The AZ ID of the subnet.
-func (r *Subnet) AvailabilityZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZoneId"])
-}
-
-// The CIDR block for the subnet.
-func (r *Subnet) CidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cidrBlock"])
-}
-
-// The IPv6 network range for the subnet,
-// in CIDR notation. The subnet size must use a /64 prefix length.
-func (r *Subnet) Ipv6CidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
-}
-
-// The association ID for the IPv6 CIDR block.
-func (r *Subnet) Ipv6CidrBlockAssociationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipv6CidrBlockAssociationId"])
-}
-
-// Specify true to indicate
-// that instances launched into the subnet should be assigned
-// a public IP address. Default is `false`.
-func (r *Subnet) MapPublicIpOnLaunch() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["mapPublicIpOnLaunch"])
-}
-
-// The ID of the AWS account that owns the subnet.
-func (r *Subnet) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Subnet) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The VPC ID.
-func (r *Subnet) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Subnet resources.
 type SubnetState struct {
 	// The ARN of the subnet.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Specify true to indicate
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
-	AssignIpv6AddressOnCreation interface{}
+	AssignIpv6AddressOnCreation pulumi.BoolInput `pulumi:"assignIpv6AddressOnCreation"`
 	// The AZ for the subnet.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The AZ ID of the subnet.
-	AvailabilityZoneId interface{}
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
-	CidrBlock interface{}
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
-	Ipv6CidrBlock interface{}
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
-	Ipv6CidrBlockAssociationId interface{}
+	Ipv6CidrBlockAssociationId pulumi.StringInput `pulumi:"ipv6CidrBlockAssociationId"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
-	MapPublicIpOnLaunch interface{}
+	MapPublicIpOnLaunch pulumi.BoolInput `pulumi:"mapPublicIpOnLaunch"`
 	// The ID of the AWS account that owns the subnet.
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Subnet resource.
@@ -183,22 +141,22 @@ type SubnetArgs struct {
 	// Specify true to indicate
 	// that network interfaces created in the specified subnet should be
 	// assigned an IPv6 address. Default is `false`
-	AssignIpv6AddressOnCreation interface{}
+	AssignIpv6AddressOnCreation pulumi.BoolInput `pulumi:"assignIpv6AddressOnCreation"`
 	// The AZ for the subnet.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The AZ ID of the subnet.
-	AvailabilityZoneId interface{}
+	AvailabilityZoneId pulumi.StringInput `pulumi:"availabilityZoneId"`
 	// The CIDR block for the subnet.
-	CidrBlock interface{}
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// The IPv6 network range for the subnet,
 	// in CIDR notation. The subnet size must use a /64 prefix length.
-	Ipv6CidrBlock interface{}
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
 	// Specify true to indicate
 	// that instances launched into the subnet should be assigned
 	// a public IP address. Default is `false`.
-	MapPublicIpOnLaunch interface{}
+	MapPublicIpOnLaunch pulumi.BoolInput `pulumi:"mapPublicIpOnLaunch"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

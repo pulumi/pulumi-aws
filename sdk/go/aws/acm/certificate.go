@@ -4,6 +4,8 @@
 package acm
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -33,189 +35,325 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate.html.markdown.
 type Certificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the certificate
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// ARN of an ACMPCA
+	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
+
+	// The certificate's PEM-formatted public key
+	CertificateBody pulumi.StringOutput `pulumi:"certificateBody"`
+
+	// The certificate's PEM-formatted chain
+	// * Creating a private CA issued certificate
+	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
+
+	// A domain name for which the certificate should be issued
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+
+	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	DomainValidationOptions CertificateDomainValidationOptionsArrayOutput `pulumi:"domainValidationOptions"`
+
+	Options CertificateOptionsOutput `pulumi:"options"`
+
+	// The certificate's PEM-formatted private key
+	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
+
+	// A list of domains that should be SANs in the issued certificate
+	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
+	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
+
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// * Importing an existing certificate
+	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
-	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificateAuthorityArn"] = nil
-		inputs["certificateBody"] = nil
-		inputs["certificateChain"] = nil
-		inputs["domainName"] = nil
-		inputs["options"] = nil
-		inputs["privateKey"] = nil
-		inputs["subjectAlternativeNames"] = nil
-		inputs["tags"] = nil
-		inputs["validationMethod"] = nil
-	} else {
-		inputs["certificateAuthorityArn"] = args.CertificateAuthorityArn
-		inputs["certificateBody"] = args.CertificateBody
-		inputs["certificateChain"] = args.CertificateChain
-		inputs["domainName"] = args.DomainName
-		inputs["options"] = args.Options
-		inputs["privateKey"] = args.PrivateKey
-		inputs["subjectAlternativeNames"] = args.SubjectAlternativeNames
-		inputs["tags"] = args.Tags
-		inputs["validationMethod"] = args.ValidationMethod
+	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CertificateAuthorityArn; i != nil { inputs["certificateAuthorityArn"] = i.ToStringOutput() }
+		if i := args.CertificateBody; i != nil { inputs["certificateBody"] = i.ToStringOutput() }
+		if i := args.CertificateChain; i != nil { inputs["certificateChain"] = i.ToStringOutput() }
+		if i := args.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := args.Options; i != nil { inputs["options"] = i.ToCertificateOptionsOutput() }
+		if i := args.PrivateKey; i != nil { inputs["privateKey"] = i.ToStringOutput() }
+		if i := args.SubjectAlternativeNames; i != nil { inputs["subjectAlternativeNames"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.ValidationMethod; i != nil { inputs["validationMethod"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["domainValidationOptions"] = nil
-	inputs["validationEmails"] = nil
-	s, err := ctx.RegisterResource("aws:acm/certificate:Certificate", name, true, inputs, opts...)
+	var resource Certificate
+	err := ctx.RegisterResource("aws:acm/certificate:Certificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificate gets an existing Certificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateState, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["certificateAuthorityArn"] = state.CertificateAuthorityArn
-		inputs["certificateBody"] = state.CertificateBody
-		inputs["certificateChain"] = state.CertificateChain
-		inputs["domainName"] = state.DomainName
-		inputs["domainValidationOptions"] = state.DomainValidationOptions
-		inputs["options"] = state.Options
-		inputs["privateKey"] = state.PrivateKey
-		inputs["subjectAlternativeNames"] = state.SubjectAlternativeNames
-		inputs["tags"] = state.Tags
-		inputs["validationEmails"] = state.ValidationEmails
-		inputs["validationMethod"] = state.ValidationMethod
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CertificateAuthorityArn; i != nil { inputs["certificateAuthorityArn"] = i.ToStringOutput() }
+		if i := state.CertificateBody; i != nil { inputs["certificateBody"] = i.ToStringOutput() }
+		if i := state.CertificateChain; i != nil { inputs["certificateChain"] = i.ToStringOutput() }
+		if i := state.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := state.DomainValidationOptions; i != nil { inputs["domainValidationOptions"] = i.ToCertificateDomainValidationOptionsArrayOutput() }
+		if i := state.Options; i != nil { inputs["options"] = i.ToCertificateOptionsOutput() }
+		if i := state.PrivateKey; i != nil { inputs["privateKey"] = i.ToStringOutput() }
+		if i := state.SubjectAlternativeNames; i != nil { inputs["subjectAlternativeNames"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ValidationEmails; i != nil { inputs["validationEmails"] = i.ToStringArrayOutput() }
+		if i := state.ValidationMethod; i != nil { inputs["validationMethod"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:acm/certificate:Certificate", name, id, inputs, opts...)
+	var resource Certificate
+	err := ctx.ReadResource("aws:acm/certificate:Certificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the certificate
-func (r *Certificate) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// ARN of an ACMPCA
-func (r *Certificate) CertificateAuthorityArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateAuthorityArn"])
-}
-
-// The certificate's PEM-formatted public key
-func (r *Certificate) CertificateBody() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateBody"])
-}
-
-// The certificate's PEM-formatted chain
-// * Creating a private CA issued certificate
-func (r *Certificate) CertificateChain() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateChain"])
-}
-
-// A domain name for which the certificate should be issued
-func (r *Certificate) DomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainName"])
-}
-
-// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
-func (r *Certificate) DomainValidationOptions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["domainValidationOptions"])
-}
-
-func (r *Certificate) Options() pulumi.Output {
-	return r.s.State["options"]
-}
-
-// The certificate's PEM-formatted private key
-func (r *Certificate) PrivateKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateKey"])
-}
-
-// A list of domains that should be SANs in the issued certificate
-func (r *Certificate) SubjectAlternativeNames() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subjectAlternativeNames"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Certificate) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
-func (r *Certificate) ValidationEmails() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["validationEmails"])
-}
-
-// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-// * Importing an existing certificate
-func (r *Certificate) ValidationMethod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["validationMethod"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Certificate resources.
 type CertificateState struct {
 	// The ARN of the certificate
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// ARN of an ACMPCA
-	CertificateAuthorityArn interface{}
+	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
 	// The certificate's PEM-formatted public key
-	CertificateBody interface{}
+	CertificateBody pulumi.StringInput `pulumi:"certificateBody"`
 	// The certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
-	CertificateChain interface{}
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
-	DomainValidationOptions interface{}
-	Options interface{}
+	DomainValidationOptions CertificateDomainValidationOptionsArrayInput `pulumi:"domainValidationOptions"`
+	Options CertificateOptionsInput `pulumi:"options"`
 	// The certificate's PEM-formatted private key
-	PrivateKey interface{}
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
-	SubjectAlternativeNames interface{}
+	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
-	ValidationEmails interface{}
+	ValidationEmails pulumi.StringArrayInput `pulumi:"validationEmails"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
 	// * Importing an existing certificate
-	ValidationMethod interface{}
+	ValidationMethod pulumi.StringInput `pulumi:"validationMethod"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// ARN of an ACMPCA
-	CertificateAuthorityArn interface{}
+	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
 	// The certificate's PEM-formatted public key
-	CertificateBody interface{}
+	CertificateBody pulumi.StringInput `pulumi:"certificateBody"`
 	// The certificate's PEM-formatted chain
 	// * Creating a private CA issued certificate
-	CertificateChain interface{}
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
-	DomainName interface{}
-	Options interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	Options CertificateOptionsInput `pulumi:"options"`
 	// The certificate's PEM-formatted private key
-	PrivateKey interface{}
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 	// A list of domains that should be SANs in the issued certificate
-	SubjectAlternativeNames interface{}
+	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
 	// * Importing an existing certificate
-	ValidationMethod interface{}
+	ValidationMethod pulumi.StringInput `pulumi:"validationMethod"`
 }
+type CertificateDomainValidationOptions struct {
+	// A domain name for which the certificate should be issued
+	DomainName string `pulumi:"domainName"`
+	// The name of the DNS record to create to validate the certificate
+	ResourceRecordName string `pulumi:"resourceRecordName"`
+	// The type of DNS record to create
+	ResourceRecordType string `pulumi:"resourceRecordType"`
+	// The value the DNS record needs to have
+	ResourceRecordValue string `pulumi:"resourceRecordValue"`
+}
+var certificateDomainValidationOptionsType = reflect.TypeOf((*CertificateDomainValidationOptions)(nil)).Elem()
+
+type CertificateDomainValidationOptionsInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionsOutput() CertificateDomainValidationOptionsOutput
+	ToCertificateDomainValidationOptionsOutputWithContext(ctx context.Context) CertificateDomainValidationOptionsOutput
+}
+
+type CertificateDomainValidationOptionsArgs struct {
+	// A domain name for which the certificate should be issued
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of the DNS record to create to validate the certificate
+	ResourceRecordName pulumi.StringInput `pulumi:"resourceRecordName"`
+	// The type of DNS record to create
+	ResourceRecordType pulumi.StringInput `pulumi:"resourceRecordType"`
+	// The value the DNS record needs to have
+	ResourceRecordValue pulumi.StringInput `pulumi:"resourceRecordValue"`
+}
+
+func (CertificateDomainValidationOptionsArgs) ElementType() reflect.Type {
+	return certificateDomainValidationOptionsType
+}
+
+func (a CertificateDomainValidationOptionsArgs) ToCertificateDomainValidationOptionsOutput() CertificateDomainValidationOptionsOutput {
+	return pulumi.ToOutput(a).(CertificateDomainValidationOptionsOutput)
+}
+
+func (a CertificateDomainValidationOptionsArgs) ToCertificateDomainValidationOptionsOutputWithContext(ctx context.Context) CertificateDomainValidationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CertificateDomainValidationOptionsOutput)
+}
+
+type CertificateDomainValidationOptionsOutput struct { *pulumi.OutputState }
+
+// A domain name for which the certificate should be issued
+func (o CertificateDomainValidationOptionsOutput) DomainName() pulumi.StringOutput {
+	return o.Apply(func(v CertificateDomainValidationOptions) string {
+		return v.DomainName
+	}).(pulumi.StringOutput)
+}
+
+// The name of the DNS record to create to validate the certificate
+func (o CertificateDomainValidationOptionsOutput) ResourceRecordName() pulumi.StringOutput {
+	return o.Apply(func(v CertificateDomainValidationOptions) string {
+		return v.ResourceRecordName
+	}).(pulumi.StringOutput)
+}
+
+// The type of DNS record to create
+func (o CertificateDomainValidationOptionsOutput) ResourceRecordType() pulumi.StringOutput {
+	return o.Apply(func(v CertificateDomainValidationOptions) string {
+		return v.ResourceRecordType
+	}).(pulumi.StringOutput)
+}
+
+// The value the DNS record needs to have
+func (o CertificateDomainValidationOptionsOutput) ResourceRecordValue() pulumi.StringOutput {
+	return o.Apply(func(v CertificateDomainValidationOptions) string {
+		return v.ResourceRecordValue
+	}).(pulumi.StringOutput)
+}
+
+func (CertificateDomainValidationOptionsOutput) ElementType() reflect.Type {
+	return certificateDomainValidationOptionsType
+}
+
+func (o CertificateDomainValidationOptionsOutput) ToCertificateDomainValidationOptionsOutput() CertificateDomainValidationOptionsOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionsOutput) ToCertificateDomainValidationOptionsOutputWithContext(ctx context.Context) CertificateDomainValidationOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CertificateDomainValidationOptionsOutput{}) }
+
+var certificateDomainValidationOptionsArrayType = reflect.TypeOf((*[]CertificateDomainValidationOptions)(nil)).Elem()
+
+type CertificateDomainValidationOptionsArrayInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionsArrayOutput() CertificateDomainValidationOptionsArrayOutput
+	ToCertificateDomainValidationOptionsArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionsArrayOutput
+}
+
+type CertificateDomainValidationOptionsArrayArgs []CertificateDomainValidationOptionsInput
+
+func (CertificateDomainValidationOptionsArrayArgs) ElementType() reflect.Type {
+	return certificateDomainValidationOptionsArrayType
+}
+
+func (a CertificateDomainValidationOptionsArrayArgs) ToCertificateDomainValidationOptionsArrayOutput() CertificateDomainValidationOptionsArrayOutput {
+	return pulumi.ToOutput(a).(CertificateDomainValidationOptionsArrayOutput)
+}
+
+func (a CertificateDomainValidationOptionsArrayArgs) ToCertificateDomainValidationOptionsArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CertificateDomainValidationOptionsArrayOutput)
+}
+
+type CertificateDomainValidationOptionsArrayOutput struct { *pulumi.OutputState }
+
+func (o CertificateDomainValidationOptionsArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CertificateDomainValidationOptions {
+		return vs[0].([]CertificateDomainValidationOptions)[vs[1].(int)]
+	}).(CertificateDomainValidationOptionsOutput)
+}
+
+func (CertificateDomainValidationOptionsArrayOutput) ElementType() reflect.Type {
+	return certificateDomainValidationOptionsArrayType
+}
+
+func (o CertificateDomainValidationOptionsArrayOutput) ToCertificateDomainValidationOptionsArrayOutput() CertificateDomainValidationOptionsArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionsArrayOutput) ToCertificateDomainValidationOptionsArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CertificateDomainValidationOptionsArrayOutput{}) }
+
+type CertificateOptions struct {
+	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
+}
+var certificateOptionsType = reflect.TypeOf((*CertificateOptions)(nil)).Elem()
+
+type CertificateOptionsInput interface {
+	pulumi.Input
+
+	ToCertificateOptionsOutput() CertificateOptionsOutput
+	ToCertificateOptionsOutputWithContext(ctx context.Context) CertificateOptionsOutput
+}
+
+type CertificateOptionsArgs struct {
+	CertificateTransparencyLoggingPreference pulumi.StringInput `pulumi:"certificateTransparencyLoggingPreference"`
+}
+
+func (CertificateOptionsArgs) ElementType() reflect.Type {
+	return certificateOptionsType
+}
+
+func (a CertificateOptionsArgs) ToCertificateOptionsOutput() CertificateOptionsOutput {
+	return pulumi.ToOutput(a).(CertificateOptionsOutput)
+}
+
+func (a CertificateOptionsArgs) ToCertificateOptionsOutputWithContext(ctx context.Context) CertificateOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CertificateOptionsOutput)
+}
+
+type CertificateOptionsOutput struct { *pulumi.OutputState }
+
+func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pulumi.StringOutput {
+	return o.Apply(func(v CertificateOptions) string {
+		if v.CertificateTransparencyLoggingPreference == nil { return *new(string) } else { return *v.CertificateTransparencyLoggingPreference }
+	}).(pulumi.StringOutput)
+}
+
+func (CertificateOptionsOutput) ElementType() reflect.Type {
+	return certificateOptionsType
+}
+
+func (o CertificateOptionsOutput) ToCertificateOptionsOutput() CertificateOptionsOutput {
+	return o
+}
+
+func (o CertificateOptionsOutput) ToCertificateOptionsOutputWithContext(ctx context.Context) CertificateOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CertificateOptionsOutput{}) }
+

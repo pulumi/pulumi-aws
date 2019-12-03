@@ -4,6 +4,8 @@
 package macie
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,102 +16,151 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
 type S3BucketAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the S3 bucket that you want to associate with Amazon Macie.
+	BucketName pulumi.StringOutput `pulumi:"bucketName"`
+
+	// The configuration of how Amazon Macie classifies the S3 objects.
+	ClassificationType S3BucketAssociationClassificationTypeOutput `pulumi:"classificationType"`
+
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	MemberAccountId pulumi.StringOutput `pulumi:"memberAccountId"`
+
+	// Object key prefix identifying one or more S3 objects to which the association applies.
+	Prefix pulumi.StringOutput `pulumi:"prefix"`
 }
 
 // NewS3BucketAssociation registers a new resource with the given unique name, arguments, and options.
 func NewS3BucketAssociation(ctx *pulumi.Context,
-	name string, args *S3BucketAssociationArgs, opts ...pulumi.ResourceOpt) (*S3BucketAssociation, error) {
+	name string, args *S3BucketAssociationArgs, opts ...pulumi.ResourceOption) (*S3BucketAssociation, error) {
 	if args == nil || args.BucketName == nil {
 		return nil, errors.New("missing required argument 'BucketName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["bucketName"] = nil
-		inputs["classificationType"] = nil
-		inputs["memberAccountId"] = nil
-		inputs["prefix"] = nil
-	} else {
-		inputs["bucketName"] = args.BucketName
-		inputs["classificationType"] = args.ClassificationType
-		inputs["memberAccountId"] = args.MemberAccountId
-		inputs["prefix"] = args.Prefix
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BucketName; i != nil { inputs["bucketName"] = i.ToStringOutput() }
+		if i := args.ClassificationType; i != nil { inputs["classificationType"] = i.ToS3BucketAssociationClassificationTypeOutput() }
+		if i := args.MemberAccountId; i != nil { inputs["memberAccountId"] = i.ToStringOutput() }
+		if i := args.Prefix; i != nil { inputs["prefix"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:macie/s3BucketAssociation:S3BucketAssociation", name, true, inputs, opts...)
+	var resource S3BucketAssociation
+	err := ctx.RegisterResource("aws:macie/s3BucketAssociation:S3BucketAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &S3BucketAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetS3BucketAssociation gets an existing S3BucketAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetS3BucketAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *S3BucketAssociationState, opts ...pulumi.ResourceOpt) (*S3BucketAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *S3BucketAssociationState, opts ...pulumi.ResourceOption) (*S3BucketAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["bucketName"] = state.BucketName
-		inputs["classificationType"] = state.ClassificationType
-		inputs["memberAccountId"] = state.MemberAccountId
-		inputs["prefix"] = state.Prefix
+		if i := state.BucketName; i != nil { inputs["bucketName"] = i.ToStringOutput() }
+		if i := state.ClassificationType; i != nil { inputs["classificationType"] = i.ToS3BucketAssociationClassificationTypeOutput() }
+		if i := state.MemberAccountId; i != nil { inputs["memberAccountId"] = i.ToStringOutput() }
+		if i := state.Prefix; i != nil { inputs["prefix"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:macie/s3BucketAssociation:S3BucketAssociation", name, id, inputs, opts...)
+	var resource S3BucketAssociation
+	err := ctx.ReadResource("aws:macie/s3BucketAssociation:S3BucketAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &S3BucketAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *S3BucketAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *S3BucketAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the S3 bucket that you want to associate with Amazon Macie.
-func (r *S3BucketAssociation) BucketName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bucketName"])
-}
-
-// The configuration of how Amazon Macie classifies the S3 objects.
-func (r *S3BucketAssociation) ClassificationType() pulumi.Output {
-	return r.s.State["classificationType"]
-}
-
-// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
-func (r *S3BucketAssociation) MemberAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["memberAccountId"])
-}
-
-// Object key prefix identifying one or more S3 objects to which the association applies.
-func (r *S3BucketAssociation) Prefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["prefix"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering S3BucketAssociation resources.
 type S3BucketAssociationState struct {
 	// The name of the S3 bucket that you want to associate with Amazon Macie.
-	BucketName interface{}
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The configuration of how Amazon Macie classifies the S3 objects.
-	ClassificationType interface{}
+	ClassificationType S3BucketAssociationClassificationTypeInput `pulumi:"classificationType"`
 	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
-	MemberAccountId interface{}
+	MemberAccountId pulumi.StringInput `pulumi:"memberAccountId"`
 	// Object key prefix identifying one or more S3 objects to which the association applies.
-	Prefix interface{}
+	Prefix pulumi.StringInput `pulumi:"prefix"`
 }
 
 // The set of arguments for constructing a S3BucketAssociation resource.
 type S3BucketAssociationArgs struct {
 	// The name of the S3 bucket that you want to associate with Amazon Macie.
-	BucketName interface{}
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The configuration of how Amazon Macie classifies the S3 objects.
-	ClassificationType interface{}
+	ClassificationType S3BucketAssociationClassificationTypeInput `pulumi:"classificationType"`
 	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
-	MemberAccountId interface{}
+	MemberAccountId pulumi.StringInput `pulumi:"memberAccountId"`
 	// Object key prefix identifying one or more S3 objects to which the association applies.
-	Prefix interface{}
+	Prefix pulumi.StringInput `pulumi:"prefix"`
 }
+type S3BucketAssociationClassificationType struct {
+	// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+	// The only valid value is the default value, `FULL`.
+	Continuous *string `pulumi:"continuous"`
+	// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+	// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+	OneTime *string `pulumi:"oneTime"`
+}
+var s3BucketAssociationClassificationTypeType = reflect.TypeOf((*S3BucketAssociationClassificationType)(nil)).Elem()
+
+type S3BucketAssociationClassificationTypeInput interface {
+	pulumi.Input
+
+	ToS3BucketAssociationClassificationTypeOutput() S3BucketAssociationClassificationTypeOutput
+	ToS3BucketAssociationClassificationTypeOutputWithContext(ctx context.Context) S3BucketAssociationClassificationTypeOutput
+}
+
+type S3BucketAssociationClassificationTypeArgs struct {
+	// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+	// The only valid value is the default value, `FULL`.
+	Continuous pulumi.StringInput `pulumi:"continuous"`
+	// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+	// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+	OneTime pulumi.StringInput `pulumi:"oneTime"`
+}
+
+func (S3BucketAssociationClassificationTypeArgs) ElementType() reflect.Type {
+	return s3BucketAssociationClassificationTypeType
+}
+
+func (a S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassificationTypeOutput() S3BucketAssociationClassificationTypeOutput {
+	return pulumi.ToOutput(a).(S3BucketAssociationClassificationTypeOutput)
+}
+
+func (a S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassificationTypeOutputWithContext(ctx context.Context) S3BucketAssociationClassificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(S3BucketAssociationClassificationTypeOutput)
+}
+
+type S3BucketAssociationClassificationTypeOutput struct { *pulumi.OutputState }
+
+// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
+// The only valid value is the default value, `FULL`.
+func (o S3BucketAssociationClassificationTypeOutput) Continuous() pulumi.StringOutput {
+	return o.Apply(func(v S3BucketAssociationClassificationType) string {
+		if v.Continuous == nil { return *new(string) } else { return *v.Continuous }
+	}).(pulumi.StringOutput)
+}
+
+// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
+// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
+func (o S3BucketAssociationClassificationTypeOutput) OneTime() pulumi.StringOutput {
+	return o.Apply(func(v S3BucketAssociationClassificationType) string {
+		if v.OneTime == nil { return *new(string) } else { return *v.OneTime }
+	}).(pulumi.StringOutput)
+}
+
+func (S3BucketAssociationClassificationTypeOutput) ElementType() reflect.Type {
+	return s3BucketAssociationClassificationTypeType
+}
+
+func (o S3BucketAssociationClassificationTypeOutput) ToS3BucketAssociationClassificationTypeOutput() S3BucketAssociationClassificationTypeOutput {
+	return o
+}
+
+func (o S3BucketAssociationClassificationTypeOutput) ToS3BucketAssociationClassificationTypeOutputWithContext(ctx context.Context) S3BucketAssociationClassificationTypeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(S3BucketAssociationClassificationTypeOutput{}) }
+

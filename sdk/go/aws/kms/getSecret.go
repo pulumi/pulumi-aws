@@ -10,29 +10,35 @@ import (
 // !> **WARNING:** This data source was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the [`kms.getSecrets` data source](https://www.terraform.io/docs/providers/aws/d/kms_secrets.html) following instructions available in the [Version 2 Upgrade Guide](https://www.terraform.io/docs/providers/aws/guides/version-2-upgrade.html#data-source-aws_kms_secret).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secret.html.markdown.
-func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["secrets"] = args.Secrets
-	}
-	outputs, err := ctx.Invoke("aws:kms/getSecret:getSecret", inputs)
+func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
+	var rv GetSecretResult
+	err := ctx.Invoke("aws:kms/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSecretResult{
-		Secrets: outputs["secrets"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
-	Secrets interface{}
+	Secrets []GetSecretSecretsArgs `pulumi:"secrets"`
 }
 
 // A collection of values returned by getSecret.
 type GetSecretResult struct {
-	Secrets interface{}
+	Secrets []GetSecretSecretsResult `pulumi:"secrets"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSecretSecretsArgs struct {
+	Context *map[string]string `pulumi:"context"`
+	GrantTokens *[]string `pulumi:"grantTokens"`
+	Name string `pulumi:"name"`
+	Payload string `pulumi:"payload"`
+}
+type GetSecretSecretsResult struct {
+	Context *map[string]string `pulumi:"context"`
+	GrantTokens *[]string `pulumi:"grantTokens"`
+	Name string `pulumi:"name"`
+	Payload string `pulumi:"payload"`
 }

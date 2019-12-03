@@ -4,6 +4,8 @@
 package budgets
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,48 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/budgets_budget.html.markdown.
 type Budget struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+
+	// Whether this budget tracks monetary cost or usage.
+	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
+
+	// Map of CostFilters key/value pairs to apply to the budget.
+	CostFilters pulumi.MapOutput `pulumi:"costFilters"`
+
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
+
+	// The amount of cost or usage being measured for a budget.
+	LimitAmount pulumi.StringOutput `pulumi:"limitAmount"`
+
+	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+	LimitUnit pulumi.StringOutput `pulumi:"limitUnit"`
+
+	// The name of a budget. Unique within accounts.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The prefix of the name of a budget. Unique within accounts.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+	Notifications BudgetNotificationsArrayOutput `pulumi:"notifications"`
+
+	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+	TimePeriodEnd pulumi.StringOutput `pulumi:"timePeriodEnd"`
+
+	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
+
+	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
 
 // NewBudget registers a new resource with the given unique name, arguments, and options.
 func NewBudget(ctx *pulumi.Context,
-	name string, args *BudgetArgs, opts ...pulumi.ResourceOpt) (*Budget, error) {
+	name string, args *BudgetArgs, opts ...pulumi.ResourceOption) (*Budget, error) {
 	if args == nil || args.BudgetType == nil {
 		return nil, errors.New("missing required argument 'BudgetType'")
 	}
@@ -33,189 +71,424 @@ func NewBudget(ctx *pulumi.Context,
 	if args == nil || args.TimeUnit == nil {
 		return nil, errors.New("missing required argument 'TimeUnit'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountId"] = nil
-		inputs["budgetType"] = nil
-		inputs["costFilters"] = nil
-		inputs["costTypes"] = nil
-		inputs["limitAmount"] = nil
-		inputs["limitUnit"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["notifications"] = nil
-		inputs["timePeriodEnd"] = nil
-		inputs["timePeriodStart"] = nil
-		inputs["timeUnit"] = nil
-	} else {
-		inputs["accountId"] = args.AccountId
-		inputs["budgetType"] = args.BudgetType
-		inputs["costFilters"] = args.CostFilters
-		inputs["costTypes"] = args.CostTypes
-		inputs["limitAmount"] = args.LimitAmount
-		inputs["limitUnit"] = args.LimitUnit
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["notifications"] = args.Notifications
-		inputs["timePeriodEnd"] = args.TimePeriodEnd
-		inputs["timePeriodStart"] = args.TimePeriodStart
-		inputs["timeUnit"] = args.TimeUnit
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := args.BudgetType; i != nil { inputs["budgetType"] = i.ToStringOutput() }
+		if i := args.CostFilters; i != nil { inputs["costFilters"] = i.ToMapOutput() }
+		if i := args.CostTypes; i != nil { inputs["costTypes"] = i.ToBudgetCostTypesOutput() }
+		if i := args.LimitAmount; i != nil { inputs["limitAmount"] = i.ToStringOutput() }
+		if i := args.LimitUnit; i != nil { inputs["limitUnit"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.Notifications; i != nil { inputs["notifications"] = i.ToBudgetNotificationsArrayOutput() }
+		if i := args.TimePeriodEnd; i != nil { inputs["timePeriodEnd"] = i.ToStringOutput() }
+		if i := args.TimePeriodStart; i != nil { inputs["timePeriodStart"] = i.ToStringOutput() }
+		if i := args.TimeUnit; i != nil { inputs["timeUnit"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:budgets/budget:Budget", name, true, inputs, opts...)
+	var resource Budget
+	err := ctx.RegisterResource("aws:budgets/budget:Budget", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Budget{s: s}, nil
+	return &resource, nil
 }
 
 // GetBudget gets an existing Budget resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBudget(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BudgetState, opts ...pulumi.ResourceOpt) (*Budget, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BudgetState, opts ...pulumi.ResourceOption) (*Budget, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountId"] = state.AccountId
-		inputs["budgetType"] = state.BudgetType
-		inputs["costFilters"] = state.CostFilters
-		inputs["costTypes"] = state.CostTypes
-		inputs["limitAmount"] = state.LimitAmount
-		inputs["limitUnit"] = state.LimitUnit
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["notifications"] = state.Notifications
-		inputs["timePeriodEnd"] = state.TimePeriodEnd
-		inputs["timePeriodStart"] = state.TimePeriodStart
-		inputs["timeUnit"] = state.TimeUnit
+		if i := state.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := state.BudgetType; i != nil { inputs["budgetType"] = i.ToStringOutput() }
+		if i := state.CostFilters; i != nil { inputs["costFilters"] = i.ToMapOutput() }
+		if i := state.CostTypes; i != nil { inputs["costTypes"] = i.ToBudgetCostTypesOutput() }
+		if i := state.LimitAmount; i != nil { inputs["limitAmount"] = i.ToStringOutput() }
+		if i := state.LimitUnit; i != nil { inputs["limitUnit"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.Notifications; i != nil { inputs["notifications"] = i.ToBudgetNotificationsArrayOutput() }
+		if i := state.TimePeriodEnd; i != nil { inputs["timePeriodEnd"] = i.ToStringOutput() }
+		if i := state.TimePeriodStart; i != nil { inputs["timePeriodStart"] = i.ToStringOutput() }
+		if i := state.TimeUnit; i != nil { inputs["timeUnit"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:budgets/budget:Budget", name, id, inputs, opts...)
+	var resource Budget
+	err := ctx.ReadResource("aws:budgets/budget:Budget", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Budget{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Budget) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Budget) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the target account for budget. Will use current user's accountId by default if omitted.
-func (r *Budget) AccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountId"])
-}
-
-// Whether this budget tracks monetary cost or usage.
-func (r *Budget) BudgetType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["budgetType"])
-}
-
-// Map of CostFilters key/value pairs to apply to the budget.
-func (r *Budget) CostFilters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["costFilters"])
-}
-
-// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
-func (r *Budget) CostTypes() pulumi.Output {
-	return r.s.State["costTypes"]
-}
-
-// The amount of cost or usage being measured for a budget.
-func (r *Budget) LimitAmount() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["limitAmount"])
-}
-
-// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-func (r *Budget) LimitUnit() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["limitUnit"])
-}
-
-// The name of a budget. Unique within accounts.
-func (r *Budget) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The prefix of the name of a budget. Unique within accounts.
-func (r *Budget) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
-func (r *Budget) Notifications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["notifications"])
-}
-
-// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-func (r *Budget) TimePeriodEnd() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timePeriodEnd"])
-}
-
-// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-func (r *Budget) TimePeriodStart() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timePeriodStart"])
-}
-
-// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-func (r *Budget) TimeUnit() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timeUnit"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Budget resources.
 type BudgetState struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Whether this budget tracks monetary cost or usage.
-	BudgetType interface{}
+	BudgetType pulumi.StringInput `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters interface{}
+	CostFilters pulumi.MapInput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
-	CostTypes interface{}
+	CostTypes BudgetCostTypesInput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
-	LimitAmount interface{}
+	LimitAmount pulumi.StringInput `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-	LimitUnit interface{}
+	LimitUnit pulumi.StringInput `pulumi:"limitUnit"`
 	// The name of a budget. Unique within accounts.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
-	Notifications interface{}
+	Notifications BudgetNotificationsArrayInput `pulumi:"notifications"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-	TimePeriodEnd interface{}
+	TimePeriodEnd pulumi.StringInput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-	TimePeriodStart interface{}
+	TimePeriodStart pulumi.StringInput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-	TimeUnit interface{}
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
 }
 
 // The set of arguments for constructing a Budget resource.
 type BudgetArgs struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Whether this budget tracks monetary cost or usage.
-	BudgetType interface{}
+	BudgetType pulumi.StringInput `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters interface{}
+	CostFilters pulumi.MapInput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
-	CostTypes interface{}
+	CostTypes BudgetCostTypesInput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
-	LimitAmount interface{}
+	LimitAmount pulumi.StringInput `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-	LimitUnit interface{}
+	LimitUnit pulumi.StringInput `pulumi:"limitUnit"`
 	// The name of a budget. Unique within accounts.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
-	Notifications interface{}
+	Notifications BudgetNotificationsArrayInput `pulumi:"notifications"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-	TimePeriodEnd interface{}
+	TimePeriodEnd pulumi.StringInput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-	TimePeriodStart interface{}
+	TimePeriodStart pulumi.StringInput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-	TimeUnit interface{}
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
 }
+type BudgetCostTypes struct {
+	// A boolean value whether to include credits in the cost budget. Defaults to `true`
+	IncludeCredit *bool `pulumi:"includeCredit"`
+	// Specifies whether a budget includes discounts. Defaults to `true`
+	IncludeDiscount *bool `pulumi:"includeDiscount"`
+	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
+	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+	IncludeRecurring *bool `pulumi:"includeRecurring"`
+	// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+	IncludeRefund *bool `pulumi:"includeRefund"`
+	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+	IncludeSubscription *bool `pulumi:"includeSubscription"`
+	// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+	IncludeSupport *bool `pulumi:"includeSupport"`
+	// A boolean value whether to include tax in the cost budget. Defaults to `true`
+	IncludeTax *bool `pulumi:"includeTax"`
+	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+	IncludeUpfront *bool `pulumi:"includeUpfront"`
+	// Specifies whether a budget uses the amortized rate. Defaults to `false`
+	UseAmortized *bool `pulumi:"useAmortized"`
+	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+	UseBlended *bool `pulumi:"useBlended"`
+}
+var budgetCostTypesType = reflect.TypeOf((*BudgetCostTypes)(nil)).Elem()
+
+type BudgetCostTypesInput interface {
+	pulumi.Input
+
+	ToBudgetCostTypesOutput() BudgetCostTypesOutput
+	ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput
+}
+
+type BudgetCostTypesArgs struct {
+	// A boolean value whether to include credits in the cost budget. Defaults to `true`
+	IncludeCredit pulumi.BoolInput `pulumi:"includeCredit"`
+	// Specifies whether a budget includes discounts. Defaults to `true`
+	IncludeDiscount pulumi.BoolInput `pulumi:"includeDiscount"`
+	// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+	IncludeOtherSubscription pulumi.BoolInput `pulumi:"includeOtherSubscription"`
+	// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+	IncludeRecurring pulumi.BoolInput `pulumi:"includeRecurring"`
+	// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+	IncludeRefund pulumi.BoolInput `pulumi:"includeRefund"`
+	// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+	IncludeSubscription pulumi.BoolInput `pulumi:"includeSubscription"`
+	// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+	IncludeSupport pulumi.BoolInput `pulumi:"includeSupport"`
+	// A boolean value whether to include tax in the cost budget. Defaults to `true`
+	IncludeTax pulumi.BoolInput `pulumi:"includeTax"`
+	// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+	IncludeUpfront pulumi.BoolInput `pulumi:"includeUpfront"`
+	// Specifies whether a budget uses the amortized rate. Defaults to `false`
+	UseAmortized pulumi.BoolInput `pulumi:"useAmortized"`
+	// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+	UseBlended pulumi.BoolInput `pulumi:"useBlended"`
+}
+
+func (BudgetCostTypesArgs) ElementType() reflect.Type {
+	return budgetCostTypesType
+}
+
+func (a BudgetCostTypesArgs) ToBudgetCostTypesOutput() BudgetCostTypesOutput {
+	return pulumi.ToOutput(a).(BudgetCostTypesOutput)
+}
+
+func (a BudgetCostTypesArgs) ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BudgetCostTypesOutput)
+}
+
+type BudgetCostTypesOutput struct { *pulumi.OutputState }
+
+// A boolean value whether to include credits in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeCredit() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeCredit == nil { return *new(bool) } else { return *v.IncludeCredit }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies whether a budget includes discounts. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeDiscount() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeDiscount == nil { return *new(bool) } else { return *v.IncludeDiscount }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeOtherSubscription() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeOtherSubscription == nil { return *new(bool) } else { return *v.IncludeOtherSubscription }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeRecurring() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeRecurring == nil { return *new(bool) } else { return *v.IncludeRecurring }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeRefund() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeRefund == nil { return *new(bool) } else { return *v.IncludeRefund }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeSubscription() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeSubscription == nil { return *new(bool) } else { return *v.IncludeSubscription }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeSupport() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeSupport == nil { return *new(bool) } else { return *v.IncludeSupport }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include tax in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeTax() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeTax == nil { return *new(bool) } else { return *v.IncludeTax }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+func (o BudgetCostTypesOutput) IncludeUpfront() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.IncludeUpfront == nil { return *new(bool) } else { return *v.IncludeUpfront }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies whether a budget uses the amortized rate. Defaults to `false`
+func (o BudgetCostTypesOutput) UseAmortized() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.UseAmortized == nil { return *new(bool) } else { return *v.UseAmortized }
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+func (o BudgetCostTypesOutput) UseBlended() pulumi.BoolOutput {
+	return o.Apply(func(v BudgetCostTypes) bool {
+		if v.UseBlended == nil { return *new(bool) } else { return *v.UseBlended }
+	}).(pulumi.BoolOutput)
+}
+
+func (BudgetCostTypesOutput) ElementType() reflect.Type {
+	return budgetCostTypesType
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesOutput() BudgetCostTypesOutput {
+	return o
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BudgetCostTypesOutput{}) }
+
+type BudgetNotifications struct {
+	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+	NotificationType string `pulumi:"notificationType"`
+	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+	SubscriberEmailAddresses *[]string `pulumi:"subscriberEmailAddresses"`
+	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	SubscriberSnsTopicArns *[]string `pulumi:"subscriberSnsTopicArns"`
+	// (Required) Threshold when the notification should be sent.
+	Threshold float64 `pulumi:"threshold"`
+	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	ThresholdType string `pulumi:"thresholdType"`
+}
+var budgetNotificationsType = reflect.TypeOf((*BudgetNotifications)(nil)).Elem()
+
+type BudgetNotificationsInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationsOutput() BudgetNotificationsOutput
+	ToBudgetNotificationsOutputWithContext(ctx context.Context) BudgetNotificationsOutput
+}
+
+type BudgetNotificationsArgs struct {
+	// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
+	// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+	SubscriberEmailAddresses pulumi.StringArrayInput `pulumi:"subscriberEmailAddresses"`
+	// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+	SubscriberSnsTopicArns pulumi.StringArrayInput `pulumi:"subscriberSnsTopicArns"`
+	// (Required) Threshold when the notification should be sent.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
+}
+
+func (BudgetNotificationsArgs) ElementType() reflect.Type {
+	return budgetNotificationsType
+}
+
+func (a BudgetNotificationsArgs) ToBudgetNotificationsOutput() BudgetNotificationsOutput {
+	return pulumi.ToOutput(a).(BudgetNotificationsOutput)
+}
+
+func (a BudgetNotificationsArgs) ToBudgetNotificationsOutputWithContext(ctx context.Context) BudgetNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BudgetNotificationsOutput)
+}
+
+type BudgetNotificationsOutput struct { *pulumi.OutputState }
+
+// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+func (o BudgetNotificationsOutput) ComparisonOperator() pulumi.StringOutput {
+	return o.Apply(func(v BudgetNotifications) string {
+		return v.ComparisonOperator
+	}).(pulumi.StringOutput)
+}
+
+// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+func (o BudgetNotificationsOutput) NotificationType() pulumi.StringOutput {
+	return o.Apply(func(v BudgetNotifications) string {
+		return v.NotificationType
+	}).(pulumi.StringOutput)
+}
+
+// (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
+func (o BudgetNotificationsOutput) SubscriberEmailAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v BudgetNotifications) []string {
+		if v.SubscriberEmailAddresses == nil { return *new([]string) } else { return *v.SubscriberEmailAddresses }
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
+func (o BudgetNotificationsOutput) SubscriberSnsTopicArns() pulumi.StringArrayOutput {
+	return o.Apply(func(v BudgetNotifications) []string {
+		if v.SubscriberSnsTopicArns == nil { return *new([]string) } else { return *v.SubscriberSnsTopicArns }
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Required) Threshold when the notification should be sent.
+func (o BudgetNotificationsOutput) Threshold() pulumi.Float64Output {
+	return o.Apply(func(v BudgetNotifications) float64 {
+		return v.Threshold
+	}).(pulumi.Float64Output)
+}
+
+// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+func (o BudgetNotificationsOutput) ThresholdType() pulumi.StringOutput {
+	return o.Apply(func(v BudgetNotifications) string {
+		return v.ThresholdType
+	}).(pulumi.StringOutput)
+}
+
+func (BudgetNotificationsOutput) ElementType() reflect.Type {
+	return budgetNotificationsType
+}
+
+func (o BudgetNotificationsOutput) ToBudgetNotificationsOutput() BudgetNotificationsOutput {
+	return o
+}
+
+func (o BudgetNotificationsOutput) ToBudgetNotificationsOutputWithContext(ctx context.Context) BudgetNotificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BudgetNotificationsOutput{}) }
+
+var budgetNotificationsArrayType = reflect.TypeOf((*[]BudgetNotifications)(nil)).Elem()
+
+type BudgetNotificationsArrayInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationsArrayOutput() BudgetNotificationsArrayOutput
+	ToBudgetNotificationsArrayOutputWithContext(ctx context.Context) BudgetNotificationsArrayOutput
+}
+
+type BudgetNotificationsArrayArgs []BudgetNotificationsInput
+
+func (BudgetNotificationsArrayArgs) ElementType() reflect.Type {
+	return budgetNotificationsArrayType
+}
+
+func (a BudgetNotificationsArrayArgs) ToBudgetNotificationsArrayOutput() BudgetNotificationsArrayOutput {
+	return pulumi.ToOutput(a).(BudgetNotificationsArrayOutput)
+}
+
+func (a BudgetNotificationsArrayArgs) ToBudgetNotificationsArrayOutputWithContext(ctx context.Context) BudgetNotificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BudgetNotificationsArrayOutput)
+}
+
+type BudgetNotificationsArrayOutput struct { *pulumi.OutputState }
+
+func (o BudgetNotificationsArrayOutput) Index(i pulumi.IntInput) BudgetNotificationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BudgetNotifications {
+		return vs[0].([]BudgetNotifications)[vs[1].(int)]
+	}).(BudgetNotificationsOutput)
+}
+
+func (BudgetNotificationsArrayOutput) ElementType() reflect.Type {
+	return budgetNotificationsArrayType
+}
+
+func (o BudgetNotificationsArrayOutput) ToBudgetNotificationsArrayOutput() BudgetNotificationsArrayOutput {
+	return o
+}
+
+func (o BudgetNotificationsArrayOutput) ToBudgetNotificationsArrayOutputWithContext(ctx context.Context) BudgetNotificationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BudgetNotificationsArrayOutput{}) }
+

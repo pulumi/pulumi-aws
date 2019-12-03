@@ -4,6 +4,8 @@
 package dax
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the DAX cluster
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// List of Availability Zones in which the
+	// nodes will be created
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+
+	// The DNS name of the DAX cluster without the port appended
+	ClusterAddress pulumi.StringOutput `pulumi:"clusterAddress"`
+
+	// Group identifier. DAX converts this name to
+	// lowercase
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+
+	// The configuration endpoint for this DAX cluster,
+	// consisting of a DNS name and a port number
+	ConfigurationEndpoint pulumi.StringOutput `pulumi:"configurationEndpoint"`
+
+	// Description for the cluster
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A valid Amazon Resource Name (ARN) that identifies
+	// an IAM role. At runtime, DAX will assume this role and use the role's
+	// permissions to access DynamoDB on your behalf
+	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
+
+	// Specifies the weekly time range for when
+	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
+	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
+	// `sun:05:00-sun:09:00`
+	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
+
+	// The compute and memory capacity of the nodes. See
+	// [Nodes][1] for supported node types
+	NodeType pulumi.StringOutput `pulumi:"nodeType"`
+
+	// List of node objects including `id`, `address`, `port` and
+	// `availabilityZone`. Referenceable e.g. as
+	// `${aws_dax_cluster.test.nodes.0.address}`
+	Nodes ClusterNodesArrayOutput `pulumi:"nodes"`
+
+	// An Amazon Resource Name (ARN) of an
+	// SNS topic to send DAX notifications to. Example:
+	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
+	NotificationTopicArn pulumi.StringOutput `pulumi:"notificationTopicArn"`
+
+	// Name of the parameter group to associate
+	// with this DAX cluster
+	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
+
+	// The port used by the configuration endpoint
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// The number of nodes in the DAX cluster. A
+	// replication factor of 1 will create a single-node cluster, without any read
+	// replicas
+	ReplicationFactor pulumi.IntOutput `pulumi:"replicationFactor"`
+
+	// One or more VPC security groups associated
+	// with the cluster
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+
+	// Encrypt at rest options
+	ServerSideEncryption ClusterServerSideEncryptionOutput `pulumi:"serverSideEncryption"`
+
+	// Name of the subnet group to be used for the
+	// cluster
+	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+
+	// A mapping of tags to assign to the resource
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
@@ -30,297 +104,337 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil || args.ReplicationFactor == nil {
 		return nil, errors.New("missing required argument 'ReplicationFactor'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["availabilityZones"] = nil
-		inputs["clusterName"] = nil
-		inputs["description"] = nil
-		inputs["iamRoleArn"] = nil
-		inputs["maintenanceWindow"] = nil
-		inputs["nodeType"] = nil
-		inputs["notificationTopicArn"] = nil
-		inputs["parameterGroupName"] = nil
-		inputs["replicationFactor"] = nil
-		inputs["securityGroupIds"] = nil
-		inputs["serverSideEncryption"] = nil
-		inputs["subnetGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["availabilityZones"] = args.AvailabilityZones
-		inputs["clusterName"] = args.ClusterName
-		inputs["description"] = args.Description
-		inputs["iamRoleArn"] = args.IamRoleArn
-		inputs["maintenanceWindow"] = args.MaintenanceWindow
-		inputs["nodeType"] = args.NodeType
-		inputs["notificationTopicArn"] = args.NotificationTopicArn
-		inputs["parameterGroupName"] = args.ParameterGroupName
-		inputs["replicationFactor"] = args.ReplicationFactor
-		inputs["securityGroupIds"] = args.SecurityGroupIds
-		inputs["serverSideEncryption"] = args.ServerSideEncryption
-		inputs["subnetGroupName"] = args.SubnetGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := args.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.IamRoleArn; i != nil { inputs["iamRoleArn"] = i.ToStringOutput() }
+		if i := args.MaintenanceWindow; i != nil { inputs["maintenanceWindow"] = i.ToStringOutput() }
+		if i := args.NodeType; i != nil { inputs["nodeType"] = i.ToStringOutput() }
+		if i := args.NotificationTopicArn; i != nil { inputs["notificationTopicArn"] = i.ToStringOutput() }
+		if i := args.ParameterGroupName; i != nil { inputs["parameterGroupName"] = i.ToStringOutput() }
+		if i := args.ReplicationFactor; i != nil { inputs["replicationFactor"] = i.ToIntOutput() }
+		if i := args.SecurityGroupIds; i != nil { inputs["securityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.ServerSideEncryption; i != nil { inputs["serverSideEncryption"] = i.ToClusterServerSideEncryptionOutput() }
+		if i := args.SubnetGroupName; i != nil { inputs["subnetGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["clusterAddress"] = nil
-	inputs["configurationEndpoint"] = nil
-	inputs["nodes"] = nil
-	inputs["port"] = nil
-	s, err := ctx.RegisterResource("aws:dax/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:dax/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["availabilityZones"] = state.AvailabilityZones
-		inputs["clusterAddress"] = state.ClusterAddress
-		inputs["clusterName"] = state.ClusterName
-		inputs["configurationEndpoint"] = state.ConfigurationEndpoint
-		inputs["description"] = state.Description
-		inputs["iamRoleArn"] = state.IamRoleArn
-		inputs["maintenanceWindow"] = state.MaintenanceWindow
-		inputs["nodeType"] = state.NodeType
-		inputs["nodes"] = state.Nodes
-		inputs["notificationTopicArn"] = state.NotificationTopicArn
-		inputs["parameterGroupName"] = state.ParameterGroupName
-		inputs["port"] = state.Port
-		inputs["replicationFactor"] = state.ReplicationFactor
-		inputs["securityGroupIds"] = state.SecurityGroupIds
-		inputs["serverSideEncryption"] = state.ServerSideEncryption
-		inputs["subnetGroupName"] = state.SubnetGroupName
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := state.ClusterAddress; i != nil { inputs["clusterAddress"] = i.ToStringOutput() }
+		if i := state.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := state.ConfigurationEndpoint; i != nil { inputs["configurationEndpoint"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.IamRoleArn; i != nil { inputs["iamRoleArn"] = i.ToStringOutput() }
+		if i := state.MaintenanceWindow; i != nil { inputs["maintenanceWindow"] = i.ToStringOutput() }
+		if i := state.NodeType; i != nil { inputs["nodeType"] = i.ToStringOutput() }
+		if i := state.Nodes; i != nil { inputs["nodes"] = i.ToClusterNodesArrayOutput() }
+		if i := state.NotificationTopicArn; i != nil { inputs["notificationTopicArn"] = i.ToStringOutput() }
+		if i := state.ParameterGroupName; i != nil { inputs["parameterGroupName"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.ReplicationFactor; i != nil { inputs["replicationFactor"] = i.ToIntOutput() }
+		if i := state.SecurityGroupIds; i != nil { inputs["securityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.ServerSideEncryption; i != nil { inputs["serverSideEncryption"] = i.ToClusterServerSideEncryptionOutput() }
+		if i := state.SubnetGroupName; i != nil { inputs["subnetGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:dax/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:dax/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the DAX cluster
-func (r *Cluster) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// List of Availability Zones in which the
-// nodes will be created
-func (r *Cluster) AvailabilityZones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
-}
-
-// The DNS name of the DAX cluster without the port appended
-func (r *Cluster) ClusterAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterAddress"])
-}
-
-// Group identifier. DAX converts this name to
-// lowercase
-func (r *Cluster) ClusterName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterName"])
-}
-
-// The configuration endpoint for this DAX cluster,
-// consisting of a DNS name and a port number
-func (r *Cluster) ConfigurationEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configurationEndpoint"])
-}
-
-// Description for the cluster
-func (r *Cluster) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A valid Amazon Resource Name (ARN) that identifies
-// an IAM role. At runtime, DAX will assume this role and use the role's
-// permissions to access DynamoDB on your behalf
-func (r *Cluster) IamRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
-}
-
-// Specifies the weekly time range for when
-// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-// `sun:05:00-sun:09:00`
-func (r *Cluster) MaintenanceWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["maintenanceWindow"])
-}
-
-// The compute and memory capacity of the nodes. See
-// [Nodes][1] for supported node types
-func (r *Cluster) NodeType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeType"])
-}
-
-// List of node objects including `id`, `address`, `port` and
-// `availabilityZone`. Referenceable e.g. as
-// `${aws_dax_cluster.test.nodes.0.address}`
-func (r *Cluster) Nodes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["nodes"])
-}
-
-// An Amazon Resource Name (ARN) of an
-// SNS topic to send DAX notifications to. Example:
-// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-func (r *Cluster) NotificationTopicArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notificationTopicArn"])
-}
-
-// Name of the parameter group to associate
-// with this DAX cluster
-func (r *Cluster) ParameterGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parameterGroupName"])
-}
-
-// The port used by the configuration endpoint
-func (r *Cluster) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// The number of nodes in the DAX cluster. A
-// replication factor of 1 will create a single-node cluster, without any read
-// replicas
-func (r *Cluster) ReplicationFactor() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["replicationFactor"])
-}
-
-// One or more VPC security groups associated
-// with the cluster
-func (r *Cluster) SecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
-}
-
-// Encrypt at rest options
-func (r *Cluster) ServerSideEncryption() pulumi.Output {
-	return r.s.State["serverSideEncryption"]
-}
-
-// Name of the subnet group to be used for the
-// cluster
-func (r *Cluster) SubnetGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetGroupName"])
-}
-
-// A mapping of tags to assign to the resource
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// The ARN of the DAX cluster
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// List of Availability Zones in which the
 	// nodes will be created
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The DNS name of the DAX cluster without the port appended
-	ClusterAddress interface{}
+	ClusterAddress pulumi.StringInput `pulumi:"clusterAddress"`
 	// Group identifier. DAX converts this name to
 	// lowercase
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The configuration endpoint for this DAX cluster,
 	// consisting of a DNS name and a port number
-	ConfigurationEndpoint interface{}
+	ConfigurationEndpoint pulumi.StringInput `pulumi:"configurationEndpoint"`
 	// Description for the cluster
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A valid Amazon Resource Name (ARN) that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
-	IamRoleArn interface{}
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// Specifies the weekly time range for when
 	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
 	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
 	// `sun:05:00-sun:09:00`
-	MaintenanceWindow interface{}
+	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
 	// [Nodes][1] for supported node types
-	NodeType interface{}
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
 	// `availabilityZone`. Referenceable e.g. as
 	// `${aws_dax_cluster.test.nodes.0.address}`
-	Nodes interface{}
+	Nodes ClusterNodesArrayInput `pulumi:"nodes"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn interface{}
+	NotificationTopicArn pulumi.StringInput `pulumi:"notificationTopicArn"`
 	// Name of the parameter group to associate
 	// with this DAX cluster
-	ParameterGroupName interface{}
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 	// The port used by the configuration endpoint
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
-	ReplicationFactor interface{}
+	ReplicationFactor pulumi.IntInput `pulumi:"replicationFactor"`
 	// One or more VPC security groups associated
 	// with the cluster
-	SecurityGroupIds interface{}
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// Encrypt at rest options
-	ServerSideEncryption interface{}
+	ServerSideEncryption ClusterServerSideEncryptionInput `pulumi:"serverSideEncryption"`
 	// Name of the subnet group to be used for the
 	// cluster
-	SubnetGroupName interface{}
+	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// List of Availability Zones in which the
 	// nodes will be created
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Group identifier. DAX converts this name to
 	// lowercase
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Description for the cluster
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A valid Amazon Resource Name (ARN) that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
-	IamRoleArn interface{}
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// Specifies the weekly time range for when
 	// maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
 	// (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
 	// `sun:05:00-sun:09:00`
-	MaintenanceWindow interface{}
+	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes. See
 	// [Nodes][1] for supported node types
-	NodeType interface{}
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
 	// An Amazon Resource Name (ARN) of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-	NotificationTopicArn interface{}
+	NotificationTopicArn pulumi.StringInput `pulumi:"notificationTopicArn"`
 	// Name of the parameter group to associate
 	// with this DAX cluster
-	ParameterGroupName interface{}
+	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
-	ReplicationFactor interface{}
+	ReplicationFactor pulumi.IntInput `pulumi:"replicationFactor"`
 	// One or more VPC security groups associated
 	// with the cluster
-	SecurityGroupIds interface{}
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// Encrypt at rest options
-	ServerSideEncryption interface{}
+	ServerSideEncryption ClusterServerSideEncryptionInput `pulumi:"serverSideEncryption"`
 	// Name of the subnet group to be used for the
 	// cluster
-	SubnetGroupName interface{}
+	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ClusterNodes struct {
+	Address string `pulumi:"address"`
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	Id string `pulumi:"id"`
+	// The port used by the configuration endpoint
+	Port int `pulumi:"port"`
+}
+var clusterNodesType = reflect.TypeOf((*ClusterNodes)(nil)).Elem()
+
+type ClusterNodesInput interface {
+	pulumi.Input
+
+	ToClusterNodesOutput() ClusterNodesOutput
+	ToClusterNodesOutputWithContext(ctx context.Context) ClusterNodesOutput
+}
+
+type ClusterNodesArgs struct {
+	Address pulumi.StringInput `pulumi:"address"`
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The port used by the configuration endpoint
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ClusterNodesArgs) ElementType() reflect.Type {
+	return clusterNodesType
+}
+
+func (a ClusterNodesArgs) ToClusterNodesOutput() ClusterNodesOutput {
+	return pulumi.ToOutput(a).(ClusterNodesOutput)
+}
+
+func (a ClusterNodesArgs) ToClusterNodesOutputWithContext(ctx context.Context) ClusterNodesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterNodesOutput)
+}
+
+type ClusterNodesOutput struct { *pulumi.OutputState }
+
+func (o ClusterNodesOutput) Address() pulumi.StringOutput {
+	return o.Apply(func(v ClusterNodes) string {
+		return v.Address
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNodesOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.Apply(func(v ClusterNodes) string {
+		return v.AvailabilityZone
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNodesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ClusterNodes) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+// The port used by the configuration endpoint
+func (o ClusterNodesOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodes) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterNodesOutput) ElementType() reflect.Type {
+	return clusterNodesType
+}
+
+func (o ClusterNodesOutput) ToClusterNodesOutput() ClusterNodesOutput {
+	return o
+}
+
+func (o ClusterNodesOutput) ToClusterNodesOutputWithContext(ctx context.Context) ClusterNodesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterNodesOutput{}) }
+
+var clusterNodesArrayType = reflect.TypeOf((*[]ClusterNodes)(nil)).Elem()
+
+type ClusterNodesArrayInput interface {
+	pulumi.Input
+
+	ToClusterNodesArrayOutput() ClusterNodesArrayOutput
+	ToClusterNodesArrayOutputWithContext(ctx context.Context) ClusterNodesArrayOutput
+}
+
+type ClusterNodesArrayArgs []ClusterNodesInput
+
+func (ClusterNodesArrayArgs) ElementType() reflect.Type {
+	return clusterNodesArrayType
+}
+
+func (a ClusterNodesArrayArgs) ToClusterNodesArrayOutput() ClusterNodesArrayOutput {
+	return pulumi.ToOutput(a).(ClusterNodesArrayOutput)
+}
+
+func (a ClusterNodesArrayArgs) ToClusterNodesArrayOutputWithContext(ctx context.Context) ClusterNodesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterNodesArrayOutput)
+}
+
+type ClusterNodesArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterNodesArrayOutput) Index(i pulumi.IntInput) ClusterNodesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterNodes {
+		return vs[0].([]ClusterNodes)[vs[1].(int)]
+	}).(ClusterNodesOutput)
+}
+
+func (ClusterNodesArrayOutput) ElementType() reflect.Type {
+	return clusterNodesArrayType
+}
+
+func (o ClusterNodesArrayOutput) ToClusterNodesArrayOutput() ClusterNodesArrayOutput {
+	return o
+}
+
+func (o ClusterNodesArrayOutput) ToClusterNodesArrayOutputWithContext(ctx context.Context) ClusterNodesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterNodesArrayOutput{}) }
+
+type ClusterServerSideEncryption struct {
+	// Whether to enable encryption at rest. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+var clusterServerSideEncryptionType = reflect.TypeOf((*ClusterServerSideEncryption)(nil)).Elem()
+
+type ClusterServerSideEncryptionInput interface {
+	pulumi.Input
+
+	ToClusterServerSideEncryptionOutput() ClusterServerSideEncryptionOutput
+	ToClusterServerSideEncryptionOutputWithContext(ctx context.Context) ClusterServerSideEncryptionOutput
+}
+
+type ClusterServerSideEncryptionArgs struct {
+	// Whether to enable encryption at rest. Defaults to `false`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClusterServerSideEncryptionArgs) ElementType() reflect.Type {
+	return clusterServerSideEncryptionType
+}
+
+func (a ClusterServerSideEncryptionArgs) ToClusterServerSideEncryptionOutput() ClusterServerSideEncryptionOutput {
+	return pulumi.ToOutput(a).(ClusterServerSideEncryptionOutput)
+}
+
+func (a ClusterServerSideEncryptionArgs) ToClusterServerSideEncryptionOutputWithContext(ctx context.Context) ClusterServerSideEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterServerSideEncryptionOutput)
+}
+
+type ClusterServerSideEncryptionOutput struct { *pulumi.OutputState }
+
+// Whether to enable encryption at rest. Defaults to `false`.
+func (o ClusterServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ClusterServerSideEncryption) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (ClusterServerSideEncryptionOutput) ElementType() reflect.Type {
+	return clusterServerSideEncryptionType
+}
+
+func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionOutput() ClusterServerSideEncryptionOutput {
+	return o
+}
+
+func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionOutputWithContext(ctx context.Context) ClusterServerSideEncryptionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterServerSideEncryptionOutput{}) }
+

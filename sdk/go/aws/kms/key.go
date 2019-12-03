@@ -11,159 +11,123 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
 type Key struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the key.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Duration in days after which the key is deleted
+	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+	DeletionWindowInDays pulumi.IntOutput `pulumi:"deletionWindowInDays"`
+
+	// The description of the key as viewed in AWS console.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
+	// is enabled. Defaults to false.
+	EnableKeyRotation pulumi.BoolOutput `pulumi:"enableKeyRotation"`
+
+	// Specifies whether the key is enabled. Defaults to true.
+	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
+
+	// The globally unique identifier for the key.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
+
+	// Specifies the intended use of the key.
+	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// A mapping of tags to assign to the object.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
 func NewKey(ctx *pulumi.Context,
-	name string, args *KeyArgs, opts ...pulumi.ResourceOpt) (*Key, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deletionWindowInDays"] = nil
-		inputs["description"] = nil
-		inputs["enableKeyRotation"] = nil
-		inputs["isEnabled"] = nil
-		inputs["keyUsage"] = nil
-		inputs["policy"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["deletionWindowInDays"] = args.DeletionWindowInDays
-		inputs["description"] = args.Description
-		inputs["enableKeyRotation"] = args.EnableKeyRotation
-		inputs["isEnabled"] = args.IsEnabled
-		inputs["keyUsage"] = args.KeyUsage
-		inputs["policy"] = args.Policy
-		inputs["tags"] = args.Tags
+	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeletionWindowInDays; i != nil { inputs["deletionWindowInDays"] = i.ToIntOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EnableKeyRotation; i != nil { inputs["enableKeyRotation"] = i.ToBoolOutput() }
+		if i := args.IsEnabled; i != nil { inputs["isEnabled"] = i.ToBoolOutput() }
+		if i := args.KeyUsage; i != nil { inputs["keyUsage"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["keyId"] = nil
-	s, err := ctx.RegisterResource("aws:kms/key:Key", name, true, inputs, opts...)
+	var resource Key
+	err := ctx.RegisterResource("aws:kms/key:Key", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Key{s: s}, nil
+	return &resource, nil
 }
 
 // GetKey gets an existing Key resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetKey(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *KeyState, opts ...pulumi.ResourceOpt) (*Key, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["deletionWindowInDays"] = state.DeletionWindowInDays
-		inputs["description"] = state.Description
-		inputs["enableKeyRotation"] = state.EnableKeyRotation
-		inputs["isEnabled"] = state.IsEnabled
-		inputs["keyId"] = state.KeyId
-		inputs["keyUsage"] = state.KeyUsage
-		inputs["policy"] = state.Policy
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DeletionWindowInDays; i != nil { inputs["deletionWindowInDays"] = i.ToIntOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EnableKeyRotation; i != nil { inputs["enableKeyRotation"] = i.ToBoolOutput() }
+		if i := state.IsEnabled; i != nil { inputs["isEnabled"] = i.ToBoolOutput() }
+		if i := state.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := state.KeyUsage; i != nil { inputs["keyUsage"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:kms/key:Key", name, id, inputs, opts...)
+	var resource Key
+	err := ctx.ReadResource("aws:kms/key:Key", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Key{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Key) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Key) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the key.
-func (r *Key) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Duration in days after which the key is deleted
-// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
-func (r *Key) DeletionWindowInDays() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["deletionWindowInDays"])
-}
-
-// The description of the key as viewed in AWS console.
-func (r *Key) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
-// is enabled. Defaults to false.
-func (r *Key) EnableKeyRotation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableKeyRotation"])
-}
-
-// Specifies whether the key is enabled. Defaults to true.
-func (r *Key) IsEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isEnabled"])
-}
-
-// The globally unique identifier for the key.
-func (r *Key) KeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyId"])
-}
-
-// Specifies the intended use of the key.
-// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-func (r *Key) KeyUsage() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyUsage"])
-}
-
-func (r *Key) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// A mapping of tags to assign to the object.
-func (r *Key) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Key resources.
 type KeyState struct {
 	// The Amazon Resource Name (ARN) of the key.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
-	DeletionWindowInDays interface{}
+	DeletionWindowInDays pulumi.IntInput `pulumi:"deletionWindowInDays"`
 	// The description of the key as viewed in AWS console.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
 	// is enabled. Defaults to false.
-	EnableKeyRotation interface{}
+	EnableKeyRotation pulumi.BoolInput `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to true.
-	IsEnabled interface{}
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The globally unique identifier for the key.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Specifies the intended use of the key.
 	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-	KeyUsage interface{}
-	Policy interface{}
+	KeyUsage pulumi.StringInput `pulumi:"keyUsage"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
-	DeletionWindowInDays interface{}
+	DeletionWindowInDays pulumi.IntInput `pulumi:"deletionWindowInDays"`
 	// The description of the key as viewed in AWS console.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
 	// is enabled. Defaults to false.
-	EnableKeyRotation interface{}
+	EnableKeyRotation pulumi.BoolInput `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to true.
-	IsEnabled interface{}
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// Specifies the intended use of the key.
 	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-	KeyUsage interface{}
-	Policy interface{}
+	KeyUsage pulumi.StringInput `pulumi:"keyUsage"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

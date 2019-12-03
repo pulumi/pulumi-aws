@@ -16,61 +16,56 @@ import (
 // an LB Target Group for use in other resources, given LB Target Group name.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group.html.markdown.
-func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs) (*GetTargetGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["arn"] = args.Arn
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:alb/getTargetGroup:getTargetGroup", inputs)
+func LookupTargetGroup(ctx *pulumi.Context, args *GetTargetGroupArgs, opts ...pulumi.InvokeOption) (*GetTargetGroupResult, error) {
+	var rv GetTargetGroupResult
+	err := ctx.Invoke("aws:alb/getTargetGroup:getTargetGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetTargetGroupResult{
-		Arn: outputs["arn"],
-		ArnSuffix: outputs["arnSuffix"],
-		DeregistrationDelay: outputs["deregistrationDelay"],
-		HealthCheck: outputs["healthCheck"],
-		LambdaMultiValueHeadersEnabled: outputs["lambdaMultiValueHeadersEnabled"],
-		Name: outputs["name"],
-		Port: outputs["port"],
-		Protocol: outputs["protocol"],
-		ProxyProtocolV2: outputs["proxyProtocolV2"],
-		SlowStart: outputs["slowStart"],
-		Stickiness: outputs["stickiness"],
-		Tags: outputs["tags"],
-		TargetType: outputs["targetType"],
-		VpcId: outputs["vpcId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getTargetGroup.
 type GetTargetGroupArgs struct {
 	// The full ARN of the target group.
-	Arn interface{}
+	Arn *string `pulumi:"arn"`
 	// The unique name of the target group.
-	Name interface{}
-	Tags interface{}
+	Name *string `pulumi:"name"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTargetGroup.
 type GetTargetGroupResult struct {
-	Arn interface{}
-	ArnSuffix interface{}
-	DeregistrationDelay interface{}
-	HealthCheck interface{}
-	LambdaMultiValueHeadersEnabled interface{}
-	Name interface{}
-	Port interface{}
-	Protocol interface{}
-	ProxyProtocolV2 interface{}
-	SlowStart interface{}
-	Stickiness interface{}
-	Tags interface{}
-	TargetType interface{}
-	VpcId interface{}
+	Arn string `pulumi:"arn"`
+	ArnSuffix string `pulumi:"arnSuffix"`
+	DeregistrationDelay int `pulumi:"deregistrationDelay"`
+	HealthCheck GetTargetGroupHealthCheckResult `pulumi:"healthCheck"`
+	LambdaMultiValueHeadersEnabled bool `pulumi:"lambdaMultiValueHeadersEnabled"`
+	Name string `pulumi:"name"`
+	Port int `pulumi:"port"`
+	Protocol string `pulumi:"protocol"`
+	ProxyProtocolV2 bool `pulumi:"proxyProtocolV2"`
+	SlowStart int `pulumi:"slowStart"`
+	Stickiness GetTargetGroupStickinessResult `pulumi:"stickiness"`
+	Tags map[string]string `pulumi:"tags"`
+	TargetType string `pulumi:"targetType"`
+	VpcId string `pulumi:"vpcId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetTargetGroupHealthCheckResult struct {
+	Enabled bool `pulumi:"enabled"`
+	HealthyThreshold int `pulumi:"healthyThreshold"`
+	Interval int `pulumi:"interval"`
+	Matcher string `pulumi:"matcher"`
+	Path string `pulumi:"path"`
+	Port string `pulumi:"port"`
+	Protocol string `pulumi:"protocol"`
+	Timeout int `pulumi:"timeout"`
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+}
+type GetTargetGroupStickinessResult struct {
+	CookieDuration int `pulumi:"cookieDuration"`
+	Enabled bool `pulumi:"enabled"`
+	Type string `pulumi:"type"`
 }

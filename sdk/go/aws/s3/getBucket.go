@@ -13,51 +13,38 @@ import (
 // Distribution.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
-func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs) (*GetBucketResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["bucket"] = args.Bucket
-	}
-	outputs, err := ctx.Invoke("aws:s3/getBucket:getBucket", inputs)
+func LookupBucket(ctx *pulumi.Context, args *GetBucketArgs, opts ...pulumi.InvokeOption) (*GetBucketResult, error) {
+	var rv GetBucketResult
+	err := ctx.Invoke("aws:s3/getBucket:getBucket", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetBucketResult{
-		Arn: outputs["arn"],
-		Bucket: outputs["bucket"],
-		BucketDomainName: outputs["bucketDomainName"],
-		BucketRegionalDomainName: outputs["bucketRegionalDomainName"],
-		HostedZoneId: outputs["hostedZoneId"],
-		Region: outputs["region"],
-		WebsiteDomain: outputs["websiteDomain"],
-		WebsiteEndpoint: outputs["websiteEndpoint"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getBucket.
 type GetBucketArgs struct {
 	// The name of the bucket
-	Bucket interface{}
+	Bucket string `pulumi:"bucket"`
 }
 
 // A collection of values returned by getBucket.
 type GetBucketResult struct {
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-	Arn interface{}
-	Bucket interface{}
+	Arn string `pulumi:"arn"`
+	Bucket string `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-	BucketDomainName interface{}
+	BucketDomainName string `pulumi:"bucketDomainName"`
 	// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
-	BucketRegionalDomainName interface{}
+	BucketRegionalDomainName string `pulumi:"bucketRegionalDomainName"`
 	// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-	HostedZoneId interface{}
+	HostedZoneId string `pulumi:"hostedZoneId"`
 	// The AWS region this bucket resides in.
-	Region interface{}
+	Region string `pulumi:"region"`
 	// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-	WebsiteDomain interface{}
+	WebsiteDomain string `pulumi:"websiteDomain"`
 	// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-	WebsiteEndpoint interface{}
+	WebsiteEndpoint string `pulumi:"websiteEndpoint"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

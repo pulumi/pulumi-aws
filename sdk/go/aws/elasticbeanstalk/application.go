@@ -4,6 +4,8 @@
 package elasticbeanstalk
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -16,105 +18,167 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
 type Application struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	AppversionLifecycle ApplicationAppversionLifecycleOutput `pulumi:"appversionLifecycle"`
+
+	// The ARN assigned by AWS for this Elastic Beanstalk Application.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Short description of the application
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the application, must be unique within your account
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Key-value mapping of tags for the Elastic Beanstalk Application.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
-	name string, args *ApplicationArgs, opts ...pulumi.ResourceOpt) (*Application, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appversionLifecycle"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["appversionLifecycle"] = args.AppversionLifecycle
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppversionLifecycle; i != nil { inputs["appversionLifecycle"] = i.ToApplicationAppversionLifecycleOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:elasticbeanstalk/application:Application", name, true, inputs, opts...)
+	var resource Application
+	err := ctx.RegisterResource("aws:elasticbeanstalk/application:Application", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
+	return &resource, nil
 }
 
 // GetApplication gets an existing Application resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApplication(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApplicationState, opts ...pulumi.ResourceOpt) (*Application, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appversionLifecycle"] = state.AppversionLifecycle
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.AppversionLifecycle; i != nil { inputs["appversionLifecycle"] = i.ToApplicationAppversionLifecycleOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticbeanstalk/application:Application", name, id, inputs, opts...)
+	var resource Application
+	err := ctx.ReadResource("aws:elasticbeanstalk/application:Application", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Application) AppversionLifecycle() pulumi.Output {
-	return r.s.State["appversionLifecycle"]
-}
-
-// The ARN assigned by AWS for this Elastic Beanstalk Application.
-func (r *Application) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Short description of the application
-func (r *Application) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the application, must be unique within your account
-func (r *Application) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Key-value mapping of tags for the Elastic Beanstalk Application.
-func (r *Application) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
-	AppversionLifecycle interface{}
+	AppversionLifecycle ApplicationAppversionLifecycleInput `pulumi:"appversionLifecycle"`
 	// The ARN assigned by AWS for this Elastic Beanstalk Application.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Short description of the application
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value mapping of tags for the Elastic Beanstalk Application.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	AppversionLifecycle interface{}
+	AppversionLifecycle ApplicationAppversionLifecycleInput `pulumi:"appversionLifecycle"`
 	// Short description of the application
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value mapping of tags for the Elastic Beanstalk Application.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ApplicationAppversionLifecycle struct {
+	// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
+	// The number of days to retain an application version.
+	MaxAgeInDays *int `pulumi:"maxAgeInDays"`
+	// The maximum number of application versions to retain.
+	MaxCount *int `pulumi:"maxCount"`
+	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+	ServiceRole string `pulumi:"serviceRole"`
+}
+var applicationAppversionLifecycleType = reflect.TypeOf((*ApplicationAppversionLifecycle)(nil)).Elem()
+
+type ApplicationAppversionLifecycleInput interface {
+	pulumi.Input
+
+	ToApplicationAppversionLifecycleOutput() ApplicationAppversionLifecycleOutput
+	ToApplicationAppversionLifecycleOutputWithContext(ctx context.Context) ApplicationAppversionLifecycleOutput
+}
+
+type ApplicationAppversionLifecycleArgs struct {
+	// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+	DeleteSourceFromS3 pulumi.BoolInput `pulumi:"deleteSourceFromS3"`
+	// The number of days to retain an application version.
+	MaxAgeInDays pulumi.IntInput `pulumi:"maxAgeInDays"`
+	// The maximum number of application versions to retain.
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
+}
+
+func (ApplicationAppversionLifecycleArgs) ElementType() reflect.Type {
+	return applicationAppversionLifecycleType
+}
+
+func (a ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecycleOutput() ApplicationAppversionLifecycleOutput {
+	return pulumi.ToOutput(a).(ApplicationAppversionLifecycleOutput)
+}
+
+func (a ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecycleOutputWithContext(ctx context.Context) ApplicationAppversionLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationAppversionLifecycleOutput)
+}
+
+type ApplicationAppversionLifecycleOutput struct { *pulumi.OutputState }
+
+// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+func (o ApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationAppversionLifecycle) bool {
+		if v.DeleteSourceFromS3 == nil { return *new(bool) } else { return *v.DeleteSourceFromS3 }
+	}).(pulumi.BoolOutput)
+}
+
+// The number of days to retain an application version.
+func (o ApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationAppversionLifecycle) int {
+		if v.MaxAgeInDays == nil { return *new(int) } else { return *v.MaxAgeInDays }
+	}).(pulumi.IntOutput)
+}
+
+// The maximum number of application versions to retain.
+func (o ApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationAppversionLifecycle) int {
+		if v.MaxCount == nil { return *new(int) } else { return *v.MaxCount }
+	}).(pulumi.IntOutput)
+}
+
+// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+func (o ApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppversionLifecycle) string {
+		return v.ServiceRole
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
+	return applicationAppversionLifecycleType
+}
+
+func (o ApplicationAppversionLifecycleOutput) ToApplicationAppversionLifecycleOutput() ApplicationAppversionLifecycleOutput {
+	return o
+}
+
+func (o ApplicationAppversionLifecycleOutput) ToApplicationAppversionLifecycleOutputWithContext(ctx context.Context) ApplicationAppversionLifecycleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationAppversionLifecycleOutput{}) }
+

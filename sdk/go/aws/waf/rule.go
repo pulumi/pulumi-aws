@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,111 +14,216 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rule.html.markdown.
 type Rule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the WAF rule.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
+	MetricName pulumi.StringOutput `pulumi:"metricName"`
+
+	// The name or description of the rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The objects to include in a rule (documented below).
+	Predicates RulePredicatesArrayOutput `pulumi:"predicates"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
-	name string, args *RuleArgs, opts ...pulumi.ResourceOpt) (*Rule, error) {
+	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
 	if args == nil || args.MetricName == nil {
 		return nil, errors.New("missing required argument 'MetricName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["metricName"] = nil
-		inputs["name"] = nil
-		inputs["predicates"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["metricName"] = args.MetricName
-		inputs["name"] = args.Name
-		inputs["predicates"] = args.Predicates
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Predicates; i != nil { inputs["predicates"] = i.ToRulePredicatesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:waf/rule:Rule", name, true, inputs, opts...)
+	var resource Rule
+	err := ctx.RegisterResource("aws:waf/rule:Rule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Rule{s: s}, nil
+	return &resource, nil
 }
 
 // GetRule gets an existing Rule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RuleState, opts ...pulumi.ResourceOpt) (*Rule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RuleState, opts ...pulumi.ResourceOption) (*Rule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["metricName"] = state.MetricName
-		inputs["name"] = state.Name
-		inputs["predicates"] = state.Predicates
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Predicates; i != nil { inputs["predicates"] = i.ToRulePredicatesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:waf/rule:Rule", name, id, inputs, opts...)
+	var resource Rule
+	err := ctx.ReadResource("aws:waf/rule:Rule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Rule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Rule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Rule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the WAF rule.
-func (r *Rule) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-func (r *Rule) MetricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metricName"])
-}
-
-// The name or description of the rule.
-func (r *Rule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The objects to include in a rule (documented below).
-func (r *Rule) Predicates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["predicates"])
-}
-
-// Key-value mapping of resource tags
-func (r *Rule) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Rule resources.
 type RuleState struct {
 	// The ARN of the WAF rule.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The name or description of the rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
-	Predicates interface{}
+	Predicates RulePredicatesArrayInput `pulumi:"predicates"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
 	// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The name or description of the rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The objects to include in a rule (documented below).
-	Predicates interface{}
+	Predicates RulePredicatesArrayInput `pulumi:"predicates"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RulePredicates struct {
+	// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+	DataId string `pulumi:"dataId"`
+	// Set this to `false` if you want to allow, block, or count requests
+	// based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+	// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+	Negated bool `pulumi:"negated"`
+	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+	Type string `pulumi:"type"`
+}
+var rulePredicatesType = reflect.TypeOf((*RulePredicates)(nil)).Elem()
+
+type RulePredicatesInput interface {
+	pulumi.Input
+
+	ToRulePredicatesOutput() RulePredicatesOutput
+	ToRulePredicatesOutputWithContext(ctx context.Context) RulePredicatesOutput
+}
+
+type RulePredicatesArgs struct {
+	// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+	DataId pulumi.StringInput `pulumi:"dataId"`
+	// Set this to `false` if you want to allow, block, or count requests
+	// based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+	// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+	// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+	Negated pulumi.BoolInput `pulumi:"negated"`
+	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RulePredicatesArgs) ElementType() reflect.Type {
+	return rulePredicatesType
+}
+
+func (a RulePredicatesArgs) ToRulePredicatesOutput() RulePredicatesOutput {
+	return pulumi.ToOutput(a).(RulePredicatesOutput)
+}
+
+func (a RulePredicatesArgs) ToRulePredicatesOutputWithContext(ctx context.Context) RulePredicatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RulePredicatesOutput)
+}
+
+type RulePredicatesOutput struct { *pulumi.OutputState }
+
+// A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+func (o RulePredicatesOutput) DataId() pulumi.StringOutput {
+	return o.Apply(func(v RulePredicates) string {
+		return v.DataId
+	}).(pulumi.StringOutput)
+}
+
+// Set this to `false` if you want to allow, block, or count requests
+// based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+func (o RulePredicatesOutput) Negated() pulumi.BoolOutput {
+	return o.Apply(func(v RulePredicates) bool {
+		return v.Negated
+	}).(pulumi.BoolOutput)
+}
+
+// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+func (o RulePredicatesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v RulePredicates) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (RulePredicatesOutput) ElementType() reflect.Type {
+	return rulePredicatesType
+}
+
+func (o RulePredicatesOutput) ToRulePredicatesOutput() RulePredicatesOutput {
+	return o
+}
+
+func (o RulePredicatesOutput) ToRulePredicatesOutputWithContext(ctx context.Context) RulePredicatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RulePredicatesOutput{}) }
+
+var rulePredicatesArrayType = reflect.TypeOf((*[]RulePredicates)(nil)).Elem()
+
+type RulePredicatesArrayInput interface {
+	pulumi.Input
+
+	ToRulePredicatesArrayOutput() RulePredicatesArrayOutput
+	ToRulePredicatesArrayOutputWithContext(ctx context.Context) RulePredicatesArrayOutput
+}
+
+type RulePredicatesArrayArgs []RulePredicatesInput
+
+func (RulePredicatesArrayArgs) ElementType() reflect.Type {
+	return rulePredicatesArrayType
+}
+
+func (a RulePredicatesArrayArgs) ToRulePredicatesArrayOutput() RulePredicatesArrayOutput {
+	return pulumi.ToOutput(a).(RulePredicatesArrayOutput)
+}
+
+func (a RulePredicatesArrayArgs) ToRulePredicatesArrayOutputWithContext(ctx context.Context) RulePredicatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RulePredicatesArrayOutput)
+}
+
+type RulePredicatesArrayOutput struct { *pulumi.OutputState }
+
+func (o RulePredicatesArrayOutput) Index(i pulumi.IntInput) RulePredicatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RulePredicates {
+		return vs[0].([]RulePredicates)[vs[1].(int)]
+	}).(RulePredicatesOutput)
+}
+
+func (RulePredicatesArrayOutput) ElementType() reflect.Type {
+	return rulePredicatesArrayType
+}
+
+func (o RulePredicatesArrayOutput) ToRulePredicatesArrayOutput() RulePredicatesArrayOutput {
+	return o
+}
+
+func (o RulePredicatesArrayOutput) ToRulePredicatesArrayOutputWithContext(ctx context.Context) RulePredicatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RulePredicatesArrayOutput{}) }
+

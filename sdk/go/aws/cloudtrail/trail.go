@@ -4,6 +4,8 @@
 package cloudtrail
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -16,264 +18,436 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.
 type Trail struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name of the trail.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Specifies a log group name using an Amazon Resource Name (ARN),
+	// that represents the log group to which CloudTrail logs will be delivered.
+	CloudWatchLogsGroupArn pulumi.StringOutput `pulumi:"cloudWatchLogsGroupArn"`
+
+	// Specifies the role for the CloudWatch Logs
+	// endpoint to assume to write to a user’s log group.
+	CloudWatchLogsRoleArn pulumi.StringOutput `pulumi:"cloudWatchLogsRoleArn"`
+
+	// Specifies whether log file integrity validation is enabled.
+	// Defaults to `false`.
+	EnableLogFileValidation pulumi.BoolOutput `pulumi:"enableLogFileValidation"`
+
+	// Enables logging for the trail. Defaults to `true`.
+	// Setting this to `false` will pause logging.
+	EnableLogging pulumi.BoolOutput `pulumi:"enableLogging"`
+
+	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+	EventSelectors TrailEventSelectorsArrayOutput `pulumi:"eventSelectors"`
+
+	// The region in which the trail was created.
+	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
+
+	// Specifies whether the trail is publishing events
+	// from global services such as IAM to the log files. Defaults to `true`.
+	IncludeGlobalServiceEvents pulumi.BoolOutput `pulumi:"includeGlobalServiceEvents"`
+
+	// Specifies whether the trail is created in the current
+	// region or in all regions. Defaults to `false`.
+	IsMultiRegionTrail pulumi.BoolOutput `pulumi:"isMultiRegionTrail"`
+
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	IsOrganizationTrail pulumi.BoolOutput `pulumi:"isOrganizationTrail"`
+
+	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// Specifies the name of the trail.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the S3 bucket designated for publishing log files.
+	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
+
+	// Specifies the S3 key prefix that follows
+	// the name of the bucket you have designated for log file delivery.
+	S3KeyPrefix pulumi.StringOutput `pulumi:"s3KeyPrefix"`
+
+	// Specifies the name of the Amazon SNS topic
+	// defined for notification of log file delivery.
+	SnsTopicName pulumi.StringOutput `pulumi:"snsTopicName"`
+
+	// A mapping of tags to assign to the trail
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewTrail registers a new resource with the given unique name, arguments, and options.
 func NewTrail(ctx *pulumi.Context,
-	name string, args *TrailArgs, opts ...pulumi.ResourceOpt) (*Trail, error) {
+	name string, args *TrailArgs, opts ...pulumi.ResourceOption) (*Trail, error) {
 	if args == nil || args.S3BucketName == nil {
 		return nil, errors.New("missing required argument 'S3BucketName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cloudWatchLogsGroupArn"] = nil
-		inputs["cloudWatchLogsRoleArn"] = nil
-		inputs["enableLogFileValidation"] = nil
-		inputs["enableLogging"] = nil
-		inputs["eventSelectors"] = nil
-		inputs["includeGlobalServiceEvents"] = nil
-		inputs["isMultiRegionTrail"] = nil
-		inputs["isOrganizationTrail"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["name"] = nil
-		inputs["s3BucketName"] = nil
-		inputs["s3KeyPrefix"] = nil
-		inputs["snsTopicName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["cloudWatchLogsGroupArn"] = args.CloudWatchLogsGroupArn
-		inputs["cloudWatchLogsRoleArn"] = args.CloudWatchLogsRoleArn
-		inputs["enableLogFileValidation"] = args.EnableLogFileValidation
-		inputs["enableLogging"] = args.EnableLogging
-		inputs["eventSelectors"] = args.EventSelectors
-		inputs["includeGlobalServiceEvents"] = args.IncludeGlobalServiceEvents
-		inputs["isMultiRegionTrail"] = args.IsMultiRegionTrail
-		inputs["isOrganizationTrail"] = args.IsOrganizationTrail
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["name"] = args.Name
-		inputs["s3BucketName"] = args.S3BucketName
-		inputs["s3KeyPrefix"] = args.S3KeyPrefix
-		inputs["snsTopicName"] = args.SnsTopicName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CloudWatchLogsGroupArn; i != nil { inputs["cloudWatchLogsGroupArn"] = i.ToStringOutput() }
+		if i := args.CloudWatchLogsRoleArn; i != nil { inputs["cloudWatchLogsRoleArn"] = i.ToStringOutput() }
+		if i := args.EnableLogFileValidation; i != nil { inputs["enableLogFileValidation"] = i.ToBoolOutput() }
+		if i := args.EnableLogging; i != nil { inputs["enableLogging"] = i.ToBoolOutput() }
+		if i := args.EventSelectors; i != nil { inputs["eventSelectors"] = i.ToTrailEventSelectorsArrayOutput() }
+		if i := args.IncludeGlobalServiceEvents; i != nil { inputs["includeGlobalServiceEvents"] = i.ToBoolOutput() }
+		if i := args.IsMultiRegionTrail; i != nil { inputs["isMultiRegionTrail"] = i.ToBoolOutput() }
+		if i := args.IsOrganizationTrail; i != nil { inputs["isOrganizationTrail"] = i.ToBoolOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.S3BucketName; i != nil { inputs["s3BucketName"] = i.ToStringOutput() }
+		if i := args.S3KeyPrefix; i != nil { inputs["s3KeyPrefix"] = i.ToStringOutput() }
+		if i := args.SnsTopicName; i != nil { inputs["snsTopicName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["homeRegion"] = nil
-	s, err := ctx.RegisterResource("aws:cloudtrail/trail:Trail", name, true, inputs, opts...)
+	var resource Trail
+	err := ctx.RegisterResource("aws:cloudtrail/trail:Trail", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Trail{s: s}, nil
+	return &resource, nil
 }
 
 // GetTrail gets an existing Trail resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTrail(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TrailState, opts ...pulumi.ResourceOpt) (*Trail, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TrailState, opts ...pulumi.ResourceOption) (*Trail, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["cloudWatchLogsGroupArn"] = state.CloudWatchLogsGroupArn
-		inputs["cloudWatchLogsRoleArn"] = state.CloudWatchLogsRoleArn
-		inputs["enableLogFileValidation"] = state.EnableLogFileValidation
-		inputs["enableLogging"] = state.EnableLogging
-		inputs["eventSelectors"] = state.EventSelectors
-		inputs["homeRegion"] = state.HomeRegion
-		inputs["includeGlobalServiceEvents"] = state.IncludeGlobalServiceEvents
-		inputs["isMultiRegionTrail"] = state.IsMultiRegionTrail
-		inputs["isOrganizationTrail"] = state.IsOrganizationTrail
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["name"] = state.Name
-		inputs["s3BucketName"] = state.S3BucketName
-		inputs["s3KeyPrefix"] = state.S3KeyPrefix
-		inputs["snsTopicName"] = state.SnsTopicName
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CloudWatchLogsGroupArn; i != nil { inputs["cloudWatchLogsGroupArn"] = i.ToStringOutput() }
+		if i := state.CloudWatchLogsRoleArn; i != nil { inputs["cloudWatchLogsRoleArn"] = i.ToStringOutput() }
+		if i := state.EnableLogFileValidation; i != nil { inputs["enableLogFileValidation"] = i.ToBoolOutput() }
+		if i := state.EnableLogging; i != nil { inputs["enableLogging"] = i.ToBoolOutput() }
+		if i := state.EventSelectors; i != nil { inputs["eventSelectors"] = i.ToTrailEventSelectorsArrayOutput() }
+		if i := state.HomeRegion; i != nil { inputs["homeRegion"] = i.ToStringOutput() }
+		if i := state.IncludeGlobalServiceEvents; i != nil { inputs["includeGlobalServiceEvents"] = i.ToBoolOutput() }
+		if i := state.IsMultiRegionTrail; i != nil { inputs["isMultiRegionTrail"] = i.ToBoolOutput() }
+		if i := state.IsOrganizationTrail; i != nil { inputs["isOrganizationTrail"] = i.ToBoolOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.S3BucketName; i != nil { inputs["s3BucketName"] = i.ToStringOutput() }
+		if i := state.S3KeyPrefix; i != nil { inputs["s3KeyPrefix"] = i.ToStringOutput() }
+		if i := state.SnsTopicName; i != nil { inputs["snsTopicName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudtrail/trail:Trail", name, id, inputs, opts...)
+	var resource Trail
+	err := ctx.ReadResource("aws:cloudtrail/trail:Trail", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Trail{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Trail) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Trail) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name of the trail.
-func (r *Trail) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Specifies a log group name using an Amazon Resource Name (ARN),
-// that represents the log group to which CloudTrail logs will be delivered.
-func (r *Trail) CloudWatchLogsGroupArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudWatchLogsGroupArn"])
-}
-
-// Specifies the role for the CloudWatch Logs
-// endpoint to assume to write to a user’s log group.
-func (r *Trail) CloudWatchLogsRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudWatchLogsRoleArn"])
-}
-
-// Specifies whether log file integrity validation is enabled.
-// Defaults to `false`.
-func (r *Trail) EnableLogFileValidation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableLogFileValidation"])
-}
-
-// Enables logging for the trail. Defaults to `true`.
-// Setting this to `false` will pause logging.
-func (r *Trail) EnableLogging() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableLogging"])
-}
-
-// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
-func (r *Trail) EventSelectors() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["eventSelectors"])
-}
-
-// The region in which the trail was created.
-func (r *Trail) HomeRegion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["homeRegion"])
-}
-
-// Specifies whether the trail is publishing events
-// from global services such as IAM to the log files. Defaults to `true`.
-func (r *Trail) IncludeGlobalServiceEvents() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["includeGlobalServiceEvents"])
-}
-
-// Specifies whether the trail is created in the current
-// region or in all regions. Defaults to `false`.
-func (r *Trail) IsMultiRegionTrail() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isMultiRegionTrail"])
-}
-
-// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
-func (r *Trail) IsOrganizationTrail() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isOrganizationTrail"])
-}
-
-// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
-func (r *Trail) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// Specifies the name of the trail.
-func (r *Trail) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the S3 bucket designated for publishing log files.
-func (r *Trail) S3BucketName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3BucketName"])
-}
-
-// Specifies the S3 key prefix that follows
-// the name of the bucket you have designated for log file delivery.
-func (r *Trail) S3KeyPrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3KeyPrefix"])
-}
-
-// Specifies the name of the Amazon SNS topic
-// defined for notification of log file delivery.
-func (r *Trail) SnsTopicName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snsTopicName"])
-}
-
-// A mapping of tags to assign to the trail
-func (r *Trail) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Trail resources.
 type TrailState struct {
 	// The Amazon Resource Name of the trail.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN),
 	// that represents the log group to which CloudTrail logs will be delivered.
-	CloudWatchLogsGroupArn interface{}
+	CloudWatchLogsGroupArn pulumi.StringInput `pulumi:"cloudWatchLogsGroupArn"`
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.
-	CloudWatchLogsRoleArn interface{}
+	CloudWatchLogsRoleArn pulumi.StringInput `pulumi:"cloudWatchLogsRoleArn"`
 	// Specifies whether log file integrity validation is enabled.
 	// Defaults to `false`.
-	EnableLogFileValidation interface{}
+	EnableLogFileValidation pulumi.BoolInput `pulumi:"enableLogFileValidation"`
 	// Enables logging for the trail. Defaults to `true`.
 	// Setting this to `false` will pause logging.
-	EnableLogging interface{}
+	EnableLogging pulumi.BoolInput `pulumi:"enableLogging"`
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
-	EventSelectors interface{}
+	EventSelectors TrailEventSelectorsArrayInput `pulumi:"eventSelectors"`
 	// The region in which the trail was created.
-	HomeRegion interface{}
+	HomeRegion pulumi.StringInput `pulumi:"homeRegion"`
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
-	IncludeGlobalServiceEvents interface{}
+	IncludeGlobalServiceEvents pulumi.BoolInput `pulumi:"includeGlobalServiceEvents"`
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
-	IsMultiRegionTrail interface{}
+	IsMultiRegionTrail pulumi.BoolInput `pulumi:"isMultiRegionTrail"`
 	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
-	IsOrganizationTrail interface{}
+	IsOrganizationTrail pulumi.BoolInput `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Specifies the name of the trail.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the S3 bucket designated for publishing log files.
-	S3BucketName interface{}
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
 	// Specifies the S3 key prefix that follows
 	// the name of the bucket you have designated for log file delivery.
-	S3KeyPrefix interface{}
+	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
-	SnsTopicName interface{}
+	SnsTopicName pulumi.StringInput `pulumi:"snsTopicName"`
 	// A mapping of tags to assign to the trail
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Trail resource.
 type TrailArgs struct {
 	// Specifies a log group name using an Amazon Resource Name (ARN),
 	// that represents the log group to which CloudTrail logs will be delivered.
-	CloudWatchLogsGroupArn interface{}
+	CloudWatchLogsGroupArn pulumi.StringInput `pulumi:"cloudWatchLogsGroupArn"`
 	// Specifies the role for the CloudWatch Logs
 	// endpoint to assume to write to a user’s log group.
-	CloudWatchLogsRoleArn interface{}
+	CloudWatchLogsRoleArn pulumi.StringInput `pulumi:"cloudWatchLogsRoleArn"`
 	// Specifies whether log file integrity validation is enabled.
 	// Defaults to `false`.
-	EnableLogFileValidation interface{}
+	EnableLogFileValidation pulumi.BoolInput `pulumi:"enableLogFileValidation"`
 	// Enables logging for the trail. Defaults to `true`.
 	// Setting this to `false` will pause logging.
-	EnableLogging interface{}
+	EnableLogging pulumi.BoolInput `pulumi:"enableLogging"`
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
-	EventSelectors interface{}
+	EventSelectors TrailEventSelectorsArrayInput `pulumi:"eventSelectors"`
 	// Specifies whether the trail is publishing events
 	// from global services such as IAM to the log files. Defaults to `true`.
-	IncludeGlobalServiceEvents interface{}
+	IncludeGlobalServiceEvents pulumi.BoolInput `pulumi:"includeGlobalServiceEvents"`
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
-	IsMultiRegionTrail interface{}
+	IsMultiRegionTrail pulumi.BoolInput `pulumi:"isMultiRegionTrail"`
 	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
-	IsOrganizationTrail interface{}
+	IsOrganizationTrail pulumi.BoolInput `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Specifies the name of the trail.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the S3 bucket designated for publishing log files.
-	S3BucketName interface{}
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
 	// Specifies the S3 key prefix that follows
 	// the name of the bucket you have designated for log file delivery.
-	S3KeyPrefix interface{}
+	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
 	// Specifies the name of the Amazon SNS topic
 	// defined for notification of log file delivery.
-	SnsTopicName interface{}
+	SnsTopicName pulumi.StringInput `pulumi:"snsTopicName"`
 	// A mapping of tags to assign to the trail
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type TrailEventSelectors struct {
+	// Specifies logging data events. Fields documented below.
+	DataResources *[]TrailEventSelectorsDataResources `pulumi:"dataResources"`
+	// Specify if you want your event selector to include management events for your trail.
+	IncludeManagementEvents *bool `pulumi:"includeManagementEvents"`
+	// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+	ReadWriteType *string `pulumi:"readWriteType"`
+}
+var trailEventSelectorsType = reflect.TypeOf((*TrailEventSelectors)(nil)).Elem()
+
+type TrailEventSelectorsInput interface {
+	pulumi.Input
+
+	ToTrailEventSelectorsOutput() TrailEventSelectorsOutput
+	ToTrailEventSelectorsOutputWithContext(ctx context.Context) TrailEventSelectorsOutput
+}
+
+type TrailEventSelectorsArgs struct {
+	// Specifies logging data events. Fields documented below.
+	DataResources TrailEventSelectorsDataResourcesArrayInput `pulumi:"dataResources"`
+	// Specify if you want your event selector to include management events for your trail.
+	IncludeManagementEvents pulumi.BoolInput `pulumi:"includeManagementEvents"`
+	// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+	ReadWriteType pulumi.StringInput `pulumi:"readWriteType"`
+}
+
+func (TrailEventSelectorsArgs) ElementType() reflect.Type {
+	return trailEventSelectorsType
+}
+
+func (a TrailEventSelectorsArgs) ToTrailEventSelectorsOutput() TrailEventSelectorsOutput {
+	return pulumi.ToOutput(a).(TrailEventSelectorsOutput)
+}
+
+func (a TrailEventSelectorsArgs) ToTrailEventSelectorsOutputWithContext(ctx context.Context) TrailEventSelectorsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TrailEventSelectorsOutput)
+}
+
+type TrailEventSelectorsOutput struct { *pulumi.OutputState }
+
+// Specifies logging data events. Fields documented below.
+func (o TrailEventSelectorsOutput) DataResources() TrailEventSelectorsDataResourcesArrayOutput {
+	return o.Apply(func(v TrailEventSelectors) []TrailEventSelectorsDataResources {
+		if v.DataResources == nil { return *new([]TrailEventSelectorsDataResources) } else { return *v.DataResources }
+	}).(TrailEventSelectorsDataResourcesArrayOutput)
+}
+
+// Specify if you want your event selector to include management events for your trail.
+func (o TrailEventSelectorsOutput) IncludeManagementEvents() pulumi.BoolOutput {
+	return o.Apply(func(v TrailEventSelectors) bool {
+		if v.IncludeManagementEvents == nil { return *new(bool) } else { return *v.IncludeManagementEvents }
+	}).(pulumi.BoolOutput)
+}
+
+// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+func (o TrailEventSelectorsOutput) ReadWriteType() pulumi.StringOutput {
+	return o.Apply(func(v TrailEventSelectors) string {
+		if v.ReadWriteType == nil { return *new(string) } else { return *v.ReadWriteType }
+	}).(pulumi.StringOutput)
+}
+
+func (TrailEventSelectorsOutput) ElementType() reflect.Type {
+	return trailEventSelectorsType
+}
+
+func (o TrailEventSelectorsOutput) ToTrailEventSelectorsOutput() TrailEventSelectorsOutput {
+	return o
+}
+
+func (o TrailEventSelectorsOutput) ToTrailEventSelectorsOutputWithContext(ctx context.Context) TrailEventSelectorsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TrailEventSelectorsOutput{}) }
+
+var trailEventSelectorsArrayType = reflect.TypeOf((*[]TrailEventSelectors)(nil)).Elem()
+
+type TrailEventSelectorsArrayInput interface {
+	pulumi.Input
+
+	ToTrailEventSelectorsArrayOutput() TrailEventSelectorsArrayOutput
+	ToTrailEventSelectorsArrayOutputWithContext(ctx context.Context) TrailEventSelectorsArrayOutput
+}
+
+type TrailEventSelectorsArrayArgs []TrailEventSelectorsInput
+
+func (TrailEventSelectorsArrayArgs) ElementType() reflect.Type {
+	return trailEventSelectorsArrayType
+}
+
+func (a TrailEventSelectorsArrayArgs) ToTrailEventSelectorsArrayOutput() TrailEventSelectorsArrayOutput {
+	return pulumi.ToOutput(a).(TrailEventSelectorsArrayOutput)
+}
+
+func (a TrailEventSelectorsArrayArgs) ToTrailEventSelectorsArrayOutputWithContext(ctx context.Context) TrailEventSelectorsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TrailEventSelectorsArrayOutput)
+}
+
+type TrailEventSelectorsArrayOutput struct { *pulumi.OutputState }
+
+func (o TrailEventSelectorsArrayOutput) Index(i pulumi.IntInput) TrailEventSelectorsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TrailEventSelectors {
+		return vs[0].([]TrailEventSelectors)[vs[1].(int)]
+	}).(TrailEventSelectorsOutput)
+}
+
+func (TrailEventSelectorsArrayOutput) ElementType() reflect.Type {
+	return trailEventSelectorsArrayType
+}
+
+func (o TrailEventSelectorsArrayOutput) ToTrailEventSelectorsArrayOutput() TrailEventSelectorsArrayOutput {
+	return o
+}
+
+func (o TrailEventSelectorsArrayOutput) ToTrailEventSelectorsArrayOutputWithContext(ctx context.Context) TrailEventSelectorsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TrailEventSelectorsArrayOutput{}) }
+
+type TrailEventSelectorsDataResources struct {
+	// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+	Type string `pulumi:"type"`
+	// A list of ARN for the specified S3 buckets and object prefixes..
+	Values []string `pulumi:"values"`
+}
+var trailEventSelectorsDataResourcesType = reflect.TypeOf((*TrailEventSelectorsDataResources)(nil)).Elem()
+
+type TrailEventSelectorsDataResourcesInput interface {
+	pulumi.Input
+
+	ToTrailEventSelectorsDataResourcesOutput() TrailEventSelectorsDataResourcesOutput
+	ToTrailEventSelectorsDataResourcesOutputWithContext(ctx context.Context) TrailEventSelectorsDataResourcesOutput
+}
+
+type TrailEventSelectorsDataResourcesArgs struct {
+	// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+	Type pulumi.StringInput `pulumi:"type"`
+	// A list of ARN for the specified S3 buckets and object prefixes..
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (TrailEventSelectorsDataResourcesArgs) ElementType() reflect.Type {
+	return trailEventSelectorsDataResourcesType
+}
+
+func (a TrailEventSelectorsDataResourcesArgs) ToTrailEventSelectorsDataResourcesOutput() TrailEventSelectorsDataResourcesOutput {
+	return pulumi.ToOutput(a).(TrailEventSelectorsDataResourcesOutput)
+}
+
+func (a TrailEventSelectorsDataResourcesArgs) ToTrailEventSelectorsDataResourcesOutputWithContext(ctx context.Context) TrailEventSelectorsDataResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TrailEventSelectorsDataResourcesOutput)
+}
+
+type TrailEventSelectorsDataResourcesOutput struct { *pulumi.OutputState }
+
+// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+func (o TrailEventSelectorsDataResourcesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v TrailEventSelectorsDataResources) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// A list of ARN for the specified S3 buckets and object prefixes..
+func (o TrailEventSelectorsDataResourcesOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v TrailEventSelectorsDataResources) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (TrailEventSelectorsDataResourcesOutput) ElementType() reflect.Type {
+	return trailEventSelectorsDataResourcesType
+}
+
+func (o TrailEventSelectorsDataResourcesOutput) ToTrailEventSelectorsDataResourcesOutput() TrailEventSelectorsDataResourcesOutput {
+	return o
+}
+
+func (o TrailEventSelectorsDataResourcesOutput) ToTrailEventSelectorsDataResourcesOutputWithContext(ctx context.Context) TrailEventSelectorsDataResourcesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TrailEventSelectorsDataResourcesOutput{}) }
+
+var trailEventSelectorsDataResourcesArrayType = reflect.TypeOf((*[]TrailEventSelectorsDataResources)(nil)).Elem()
+
+type TrailEventSelectorsDataResourcesArrayInput interface {
+	pulumi.Input
+
+	ToTrailEventSelectorsDataResourcesArrayOutput() TrailEventSelectorsDataResourcesArrayOutput
+	ToTrailEventSelectorsDataResourcesArrayOutputWithContext(ctx context.Context) TrailEventSelectorsDataResourcesArrayOutput
+}
+
+type TrailEventSelectorsDataResourcesArrayArgs []TrailEventSelectorsDataResourcesInput
+
+func (TrailEventSelectorsDataResourcesArrayArgs) ElementType() reflect.Type {
+	return trailEventSelectorsDataResourcesArrayType
+}
+
+func (a TrailEventSelectorsDataResourcesArrayArgs) ToTrailEventSelectorsDataResourcesArrayOutput() TrailEventSelectorsDataResourcesArrayOutput {
+	return pulumi.ToOutput(a).(TrailEventSelectorsDataResourcesArrayOutput)
+}
+
+func (a TrailEventSelectorsDataResourcesArrayArgs) ToTrailEventSelectorsDataResourcesArrayOutputWithContext(ctx context.Context) TrailEventSelectorsDataResourcesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TrailEventSelectorsDataResourcesArrayOutput)
+}
+
+type TrailEventSelectorsDataResourcesArrayOutput struct { *pulumi.OutputState }
+
+func (o TrailEventSelectorsDataResourcesArrayOutput) Index(i pulumi.IntInput) TrailEventSelectorsDataResourcesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TrailEventSelectorsDataResources {
+		return vs[0].([]TrailEventSelectorsDataResources)[vs[1].(int)]
+	}).(TrailEventSelectorsDataResourcesOutput)
+}
+
+func (TrailEventSelectorsDataResourcesArrayOutput) ElementType() reflect.Type {
+	return trailEventSelectorsDataResourcesArrayType
+}
+
+func (o TrailEventSelectorsDataResourcesArrayOutput) ToTrailEventSelectorsDataResourcesArrayOutput() TrailEventSelectorsDataResourcesArrayOutput {
+	return o
+}
+
+func (o TrailEventSelectorsDataResourcesArrayOutput) ToTrailEventSelectorsDataResourcesArrayOutputWithContext(ctx context.Context) TrailEventSelectorsDataResourcesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TrailEventSelectorsDataResourcesArrayOutput{}) }
+

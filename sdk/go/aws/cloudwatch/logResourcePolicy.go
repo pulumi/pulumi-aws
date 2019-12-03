@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_resource_policy.html.markdown.
 type LogResourcePolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
+
+	// Name of the resource policy.
+	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 }
 
 // NewLogResourcePolicy registers a new resource with the given unique name, arguments, and options.
 func NewLogResourcePolicy(ctx *pulumi.Context,
-	name string, args *LogResourcePolicyArgs, opts ...pulumi.ResourceOpt) (*LogResourcePolicy, error) {
+	name string, args *LogResourcePolicyArgs, opts ...pulumi.ResourceOption) (*LogResourcePolicy, error) {
 	if args == nil || args.PolicyDocument == nil {
 		return nil, errors.New("missing required argument 'PolicyDocument'")
 	}
 	if args == nil || args.PolicyName == nil {
 		return nil, errors.New("missing required argument 'PolicyName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["policyDocument"] = nil
-		inputs["policyName"] = nil
-	} else {
-		inputs["policyDocument"] = args.PolicyDocument
-		inputs["policyName"] = args.PolicyName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.PolicyDocument; i != nil { inputs["policyDocument"] = i.ToStringOutput() }
+		if i := args.PolicyName; i != nil { inputs["policyName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, true, inputs, opts...)
+	var resource LogResourcePolicy
+	err := ctx.RegisterResource("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogResourcePolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetLogResourcePolicy gets an existing LogResourcePolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLogResourcePolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LogResourcePolicyState, opts ...pulumi.ResourceOpt) (*LogResourcePolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LogResourcePolicyState, opts ...pulumi.ResourceOption) (*LogResourcePolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["policyDocument"] = state.PolicyDocument
-		inputs["policyName"] = state.PolicyName
+		if i := state.PolicyDocument; i != nil { inputs["policyDocument"] = i.ToStringOutput() }
+		if i := state.PolicyName; i != nil { inputs["policyName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, id, inputs, opts...)
+	var resource LogResourcePolicy
+	err := ctx.ReadResource("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogResourcePolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LogResourcePolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LogResourcePolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-func (r *LogResourcePolicy) PolicyDocument() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policyDocument"])
-}
-
-// Name of the resource policy.
-func (r *LogResourcePolicy) PolicyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policyName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LogResourcePolicy resources.
 type LogResourcePolicyState struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-	PolicyDocument interface{}
+	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
 	// Name of the resource policy.
-	PolicyName interface{}
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
 
 // The set of arguments for constructing a LogResourcePolicy resource.
 type LogResourcePolicyArgs struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-	PolicyDocument interface{}
+	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
 	// Name of the resource policy.
-	PolicyName interface{}
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }

@@ -8,28 +8,13 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy_document.html.markdown.
-func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs) (*GetPolicyDocumentResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["overrideJson"] = args.OverrideJson
-		inputs["policyId"] = args.PolicyId
-		inputs["sourceJson"] = args.SourceJson
-		inputs["statements"] = args.Statements
-		inputs["version"] = args.Version
-	}
-	outputs, err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", inputs)
+func LookupPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
+	var rv GetPolicyDocumentResult
+	err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPolicyDocumentResult{
-		Json: outputs["json"],
-		OverrideJson: outputs["overrideJson"],
-		PolicyId: outputs["policyId"],
-		SourceJson: outputs["sourceJson"],
-		Statements: outputs["statements"],
-		Version: outputs["version"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPolicyDocument.
@@ -38,30 +23,152 @@ type GetPolicyDocumentArgs struct {
 	// current policy document.  Statements with non-blank `sid`s in the override
 	// document will overwrite statements with the same `sid` in the current document.
 	// Statements without an `sid` cannot be overwritten.
-	OverrideJson interface{}
+	OverrideJson *string `pulumi:"overrideJson"`
 	// An ID for the policy document.
-	PolicyId interface{}
+	PolicyId *string `pulumi:"policyId"`
 	// An IAM policy document to import as a base for the
 	// current policy document.  Statements with non-blank `sid`s in the current
 	// policy document will overwrite statements with the same `sid` in the source
 	// json.  Statements without an `sid` cannot be overwritten.
-	SourceJson interface{}
+	SourceJson *string `pulumi:"sourceJson"`
 	// A nested configuration block (described below)
 	// configuring one *statement* to be included in the policy document.
-	Statements interface{}
+	Statements *[]GetPolicyDocumentStatementsArgs `pulumi:"statements"`
 	// IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
-	Version interface{}
+	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getPolicyDocument.
 type GetPolicyDocumentResult struct {
 	// The above arguments serialized as a standard JSON policy document.
-	Json interface{}
-	OverrideJson interface{}
-	PolicyId interface{}
-	SourceJson interface{}
-	Statements interface{}
-	Version interface{}
+	Json string `pulumi:"json"`
+	OverrideJson *string `pulumi:"overrideJson"`
+	PolicyId *string `pulumi:"policyId"`
+	SourceJson *string `pulumi:"sourceJson"`
+	Statements *[]GetPolicyDocumentStatementsResult `pulumi:"statements"`
+	Version *string `pulumi:"version"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetPolicyDocumentStatementsArgs struct {
+	// A list of actions that this statement either allows
+	// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+	Actions *[]string `pulumi:"actions"`
+	// A nested configuration block (described below)
+	// that defines a further, possibly-service-specific condition that constrains
+	// whether this statement applies.
+	Conditions *[]GetPolicyDocumentStatementsConditionsArgs `pulumi:"conditions"`
+	// Either "Allow" or "Deny", to specify whether this
+	// statement allows or denies the given actions. The default is "Allow".
+	Effect *string `pulumi:"effect"`
+	// A list of actions that this statement does *not*
+	// apply to. Used to apply a policy statement to all actions *except* those
+	// listed.
+	NotActions *[]string `pulumi:"notActions"`
+	// Like `principals` except gives resources that
+	// the statement does *not* apply to.
+	NotPrincipals *[]GetPolicyDocumentStatementsNotPrincipalsArgs `pulumi:"notPrincipals"`
+	// A list of resource ARNs that this statement
+	// does *not* apply to. Used to apply a policy statement to all resources
+	// *except* those listed.
+	NotResources *[]string `pulumi:"notResources"`
+	// A nested configuration block (described below)
+	// specifying a resource (or resource pattern) to which this statement applies.
+	Principals *[]GetPolicyDocumentStatementsPrincipalsArgs `pulumi:"principals"`
+	// A list of resource ARNs that this statement applies
+	// to. This is required by AWS if used for an IAM policy.
+	Resources *[]string `pulumi:"resources"`
+	// An ID for the policy statement.
+	Sid *string `pulumi:"sid"`
+}
+type GetPolicyDocumentStatementsConditionsArgs struct {
+	// The name of the
+	// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
+	// to evaluate.
+	Test string `pulumi:"test"`
+	// The values to evaluate the condition against. If multiple
+	// values are provided, the condition matches if at least one of them applies.
+	// (That is, the tests are combined with the "OR" boolean operation.)
+	Values []string `pulumi:"values"`
+	// The name of a
+	// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
+	// to apply the condition to. Context variables may either be standard AWS
+	// variables starting with `aws:`, or service-specific variables prefixed with
+	// the service name.
+	Variable string `pulumi:"variable"`
+}
+type GetPolicyDocumentStatementsConditionsResult struct {
+	// The name of the
+	// [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
+	// to evaluate.
+	Test string `pulumi:"test"`
+	// The values to evaluate the condition against. If multiple
+	// values are provided, the condition matches if at least one of them applies.
+	// (That is, the tests are combined with the "OR" boolean operation.)
+	Values []string `pulumi:"values"`
+	// The name of a
+	// [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
+	// to apply the condition to. Context variables may either be standard AWS
+	// variables starting with `aws:`, or service-specific variables prefixed with
+	// the service name.
+	Variable string `pulumi:"variable"`
+}
+type GetPolicyDocumentStatementsNotPrincipalsArgs struct {
+	// List of identifiers for principals. When `type`
+	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
+	Identifiers []string `pulumi:"identifiers"`
+	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+	Type string `pulumi:"type"`
+}
+type GetPolicyDocumentStatementsNotPrincipalsResult struct {
+	// List of identifiers for principals. When `type`
+	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
+	Identifiers []string `pulumi:"identifiers"`
+	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+	Type string `pulumi:"type"`
+}
+type GetPolicyDocumentStatementsPrincipalsArgs struct {
+	// List of identifiers for principals. When `type`
+	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
+	Identifiers []string `pulumi:"identifiers"`
+	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+	Type string `pulumi:"type"`
+}
+type GetPolicyDocumentStatementsPrincipalsResult struct {
+	// List of identifiers for principals. When `type`
+	// is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`.
+	Identifiers []string `pulumi:"identifiers"`
+	// The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service".
+	Type string `pulumi:"type"`
+}
+type GetPolicyDocumentStatementsResult struct {
+	// A list of actions that this statement either allows
+	// or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
+	Actions *[]string `pulumi:"actions"`
+	// A nested configuration block (described below)
+	// that defines a further, possibly-service-specific condition that constrains
+	// whether this statement applies.
+	Conditions *[]GetPolicyDocumentStatementsConditionsResult `pulumi:"conditions"`
+	// Either "Allow" or "Deny", to specify whether this
+	// statement allows or denies the given actions. The default is "Allow".
+	Effect *string `pulumi:"effect"`
+	// A list of actions that this statement does *not*
+	// apply to. Used to apply a policy statement to all actions *except* those
+	// listed.
+	NotActions *[]string `pulumi:"notActions"`
+	// Like `principals` except gives resources that
+	// the statement does *not* apply to.
+	NotPrincipals *[]GetPolicyDocumentStatementsNotPrincipalsResult `pulumi:"notPrincipals"`
+	// A list of resource ARNs that this statement
+	// does *not* apply to. Used to apply a policy statement to all resources
+	// *except* those listed.
+	NotResources *[]string `pulumi:"notResources"`
+	// A nested configuration block (described below)
+	// specifying a resource (or resource pattern) to which this statement applies.
+	Principals *[]GetPolicyDocumentStatementsPrincipalsResult `pulumi:"principals"`
+	// A list of resource ARNs that this statement applies
+	// to. This is required by AWS if used for an IAM policy.
+	Resources *[]string `pulumi:"resources"`
+	// An ID for the policy statement.
+	Sid *string `pulumi:"sid"`
 }

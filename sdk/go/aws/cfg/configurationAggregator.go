@@ -4,6 +4,8 @@
 package cfg
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,108 +13,234 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
 type ConfigurationAggregator struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The account(s) to aggregate config data from as documented below.
+	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourceOutput `pulumi:"accountAggregationSource"`
+
+	// The ARN of the aggregator
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name of the configuration aggregator.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The organization to aggregate config data from as documented below.
+	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourceOutput `pulumi:"organizationAggregationSource"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewConfigurationAggregator registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationAggregator(ctx *pulumi.Context,
-	name string, args *ConfigurationAggregatorArgs, opts ...pulumi.ResourceOpt) (*ConfigurationAggregator, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountAggregationSource"] = nil
-		inputs["name"] = nil
-		inputs["organizationAggregationSource"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["accountAggregationSource"] = args.AccountAggregationSource
-		inputs["name"] = args.Name
-		inputs["organizationAggregationSource"] = args.OrganizationAggregationSource
-		inputs["tags"] = args.Tags
+	name string, args *ConfigurationAggregatorArgs, opts ...pulumi.ResourceOption) (*ConfigurationAggregator, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountAggregationSource; i != nil { inputs["accountAggregationSource"] = i.ToConfigurationAggregatorAccountAggregationSourceOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OrganizationAggregationSource; i != nil { inputs["organizationAggregationSource"] = i.ToConfigurationAggregatorOrganizationAggregationSourceOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, true, inputs, opts...)
+	var resource ConfigurationAggregator
+	err := ctx.RegisterResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConfigurationAggregator{s: s}, nil
+	return &resource, nil
 }
 
 // GetConfigurationAggregator gets an existing ConfigurationAggregator resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConfigurationAggregator(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConfigurationAggregatorState, opts ...pulumi.ResourceOpt) (*ConfigurationAggregator, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConfigurationAggregatorState, opts ...pulumi.ResourceOption) (*ConfigurationAggregator, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountAggregationSource"] = state.AccountAggregationSource
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["organizationAggregationSource"] = state.OrganizationAggregationSource
-		inputs["tags"] = state.Tags
+		if i := state.AccountAggregationSource; i != nil { inputs["accountAggregationSource"] = i.ToConfigurationAggregatorAccountAggregationSourceOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OrganizationAggregationSource; i != nil { inputs["organizationAggregationSource"] = i.ToConfigurationAggregatorOrganizationAggregationSourceOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, id, inputs, opts...)
+	var resource ConfigurationAggregator
+	err := ctx.ReadResource("aws:cfg/configurationAggregator:ConfigurationAggregator", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConfigurationAggregator{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ConfigurationAggregator) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ConfigurationAggregator) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The account(s) to aggregate config data from as documented below.
-func (r *ConfigurationAggregator) AccountAggregationSource() pulumi.Output {
-	return r.s.State["accountAggregationSource"]
-}
-
-// The ARN of the aggregator
-func (r *ConfigurationAggregator) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name of the configuration aggregator.
-func (r *ConfigurationAggregator) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The organization to aggregate config data from as documented below.
-func (r *ConfigurationAggregator) OrganizationAggregationSource() pulumi.Output {
-	return r.s.State["organizationAggregationSource"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ConfigurationAggregator) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ConfigurationAggregator resources.
 type ConfigurationAggregatorState struct {
 	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource interface{}
+	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourceInput `pulumi:"accountAggregationSource"`
 	// The ARN of the aggregator
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name of the configuration aggregator.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
-	OrganizationAggregationSource interface{}
+	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourceInput `pulumi:"organizationAggregationSource"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationAggregator resource.
 type ConfigurationAggregatorArgs struct {
 	// The account(s) to aggregate config data from as documented below.
-	AccountAggregationSource interface{}
+	AccountAggregationSource ConfigurationAggregatorAccountAggregationSourceInput `pulumi:"accountAggregationSource"`
 	// The name of the configuration aggregator.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The organization to aggregate config data from as documented below.
-	OrganizationAggregationSource interface{}
+	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourceInput `pulumi:"organizationAggregationSource"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ConfigurationAggregatorAccountAggregationSource struct {
+	// List of 12-digit account IDs of the account(s) being aggregated.
+	AccountIds []string `pulumi:"accountIds"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions *bool `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions *[]string `pulumi:"regions"`
+}
+var configurationAggregatorAccountAggregationSourceType = reflect.TypeOf((*ConfigurationAggregatorAccountAggregationSource)(nil)).Elem()
+
+type ConfigurationAggregatorAccountAggregationSourceInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorAccountAggregationSourceOutput() ConfigurationAggregatorAccountAggregationSourceOutput
+	ToConfigurationAggregatorAccountAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorAccountAggregationSourceOutput
+}
+
+type ConfigurationAggregatorAccountAggregationSourceArgs struct {
+	// List of 12-digit account IDs of the account(s) being aggregated.
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions pulumi.BoolInput `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (ConfigurationAggregatorAccountAggregationSourceArgs) ElementType() reflect.Type {
+	return configurationAggregatorAccountAggregationSourceType
+}
+
+func (a ConfigurationAggregatorAccountAggregationSourceArgs) ToConfigurationAggregatorAccountAggregationSourceOutput() ConfigurationAggregatorAccountAggregationSourceOutput {
+	return pulumi.ToOutput(a).(ConfigurationAggregatorAccountAggregationSourceOutput)
+}
+
+func (a ConfigurationAggregatorAccountAggregationSourceArgs) ToConfigurationAggregatorAccountAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorAccountAggregationSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConfigurationAggregatorAccountAggregationSourceOutput)
+}
+
+type ConfigurationAggregatorAccountAggregationSourceOutput struct { *pulumi.OutputState }
+
+// List of 12-digit account IDs of the account(s) being aggregated.
+func (o ConfigurationAggregatorAccountAggregationSourceOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ConfigurationAggregatorAccountAggregationSource) []string {
+		return v.AccountIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// If true, aggregate existing AWS Config regions and future regions.
+func (o ConfigurationAggregatorAccountAggregationSourceOutput) AllRegions() pulumi.BoolOutput {
+	return o.Apply(func(v ConfigurationAggregatorAccountAggregationSource) bool {
+		if v.AllRegions == nil { return *new(bool) } else { return *v.AllRegions }
+	}).(pulumi.BoolOutput)
+}
+
+// List of source regions being aggregated.
+func (o ConfigurationAggregatorAccountAggregationSourceOutput) Regions() pulumi.StringArrayOutput {
+	return o.Apply(func(v ConfigurationAggregatorAccountAggregationSource) []string {
+		if v.Regions == nil { return *new([]string) } else { return *v.Regions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ConfigurationAggregatorAccountAggregationSourceOutput) ElementType() reflect.Type {
+	return configurationAggregatorAccountAggregationSourceType
+}
+
+func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAggregatorAccountAggregationSourceOutput() ConfigurationAggregatorAccountAggregationSourceOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAggregatorAccountAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorAccountAggregationSourceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{}) }
+
+type ConfigurationAggregatorOrganizationAggregationSource struct {
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions *bool `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions *[]string `pulumi:"regions"`
+	// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+	RoleArn string `pulumi:"roleArn"`
+}
+var configurationAggregatorOrganizationAggregationSourceType = reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSource)(nil)).Elem()
+
+type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorOrganizationAggregationSourceOutput() ConfigurationAggregatorOrganizationAggregationSourceOutput
+	ToConfigurationAggregatorOrganizationAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorOrganizationAggregationSourceOutput
+}
+
+type ConfigurationAggregatorOrganizationAggregationSourceArgs struct {
+	// If true, aggregate existing AWS Config regions and future regions.
+	AllRegions pulumi.BoolInput `pulumi:"allRegions"`
+	// List of source regions being aggregated.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (ConfigurationAggregatorOrganizationAggregationSourceArgs) ElementType() reflect.Type {
+	return configurationAggregatorOrganizationAggregationSourceType
+}
+
+func (a ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfigurationAggregatorOrganizationAggregationSourceOutput() ConfigurationAggregatorOrganizationAggregationSourceOutput {
+	return pulumi.ToOutput(a).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
+}
+
+func (a ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfigurationAggregatorOrganizationAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorOrganizationAggregationSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
+}
+
+type ConfigurationAggregatorOrganizationAggregationSourceOutput struct { *pulumi.OutputState }
+
+// If true, aggregate existing AWS Config regions and future regions.
+func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AllRegions() pulumi.BoolOutput {
+	return o.Apply(func(v ConfigurationAggregatorOrganizationAggregationSource) bool {
+		if v.AllRegions == nil { return *new(bool) } else { return *v.AllRegions }
+	}).(pulumi.BoolOutput)
+}
+
+// List of source regions being aggregated.
+func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) Regions() pulumi.StringArrayOutput {
+	return o.Apply(func(v ConfigurationAggregatorOrganizationAggregationSource) []string {
+		if v.Regions == nil { return *new([]string) } else { return *v.Regions }
+	}).(pulumi.StringArrayOutput)
+}
+
+// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) RoleArn() pulumi.StringOutput {
+	return o.Apply(func(v ConfigurationAggregatorOrganizationAggregationSource) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (ConfigurationAggregatorOrganizationAggregationSourceOutput) ElementType() reflect.Type {
+	return configurationAggregatorOrganizationAggregationSourceType
+}
+
+func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurationAggregatorOrganizationAggregationSourceOutput() ConfigurationAggregatorOrganizationAggregationSourceOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurationAggregatorOrganizationAggregationSourceOutputWithContext(ctx context.Context) ConfigurationAggregatorOrganizationAggregationSourceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourceOutput{}) }
+

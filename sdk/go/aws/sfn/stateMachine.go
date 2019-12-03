@@ -12,123 +12,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_state_machine.html.markdown.
 type StateMachine struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The date the state machine was created.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+
+	// The Amazon States Language definition of the state machine.
+	Definition pulumi.StringOutput `pulumi:"definition"`
+
+	// The name of the state machine.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// The current status of the state machine. Either "ACTIVE" or "DELETING".
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
 func NewStateMachine(ctx *pulumi.Context,
-	name string, args *StateMachineArgs, opts ...pulumi.ResourceOpt) (*StateMachine, error) {
+	name string, args *StateMachineArgs, opts ...pulumi.ResourceOption) (*StateMachine, error) {
 	if args == nil || args.Definition == nil {
 		return nil, errors.New("missing required argument 'Definition'")
 	}
 	if args == nil || args.RoleArn == nil {
 		return nil, errors.New("missing required argument 'RoleArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["definition"] = nil
-		inputs["name"] = nil
-		inputs["roleArn"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["definition"] = args.Definition
-		inputs["name"] = args.Name
-		inputs["roleArn"] = args.RoleArn
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Definition; i != nil { inputs["definition"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["creationDate"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("aws:sfn/stateMachine:StateMachine", name, true, inputs, opts...)
+	var resource StateMachine
+	err := ctx.RegisterResource("aws:sfn/stateMachine:StateMachine", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StateMachine{s: s}, nil
+	return &resource, nil
 }
 
 // GetStateMachine gets an existing StateMachine resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStateMachine(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StateMachineState, opts ...pulumi.ResourceOpt) (*StateMachine, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StateMachineState, opts ...pulumi.ResourceOption) (*StateMachine, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["creationDate"] = state.CreationDate
-		inputs["definition"] = state.Definition
-		inputs["name"] = state.Name
-		inputs["roleArn"] = state.RoleArn
-		inputs["status"] = state.Status
-		inputs["tags"] = state.Tags
+		if i := state.CreationDate; i != nil { inputs["creationDate"] = i.ToStringOutput() }
+		if i := state.Definition; i != nil { inputs["definition"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:sfn/stateMachine:StateMachine", name, id, inputs, opts...)
+	var resource StateMachine
+	err := ctx.ReadResource("aws:sfn/stateMachine:StateMachine", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StateMachine{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StateMachine) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StateMachine) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The date the state machine was created.
-func (r *StateMachine) CreationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["creationDate"])
-}
-
-// The Amazon States Language definition of the state machine.
-func (r *StateMachine) Definition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["definition"])
-}
-
-// The name of the state machine.
-func (r *StateMachine) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-func (r *StateMachine) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// The current status of the state machine. Either "ACTIVE" or "DELETING".
-func (r *StateMachine) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Key-value mapping of resource tags
-func (r *StateMachine) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StateMachine resources.
 type StateMachineState struct {
 	// The date the state machine was created.
-	CreationDate interface{}
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
 	// The Amazon States Language definition of the state machine.
-	Definition interface{}
+	Definition pulumi.StringInput `pulumi:"definition"`
 	// The name of the state machine.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StateMachine resource.
 type StateMachineArgs struct {
 	// The Amazon States Language definition of the state machine.
-	Definition interface{}
+	Definition pulumi.StringInput `pulumi:"definition"`
 	// The name of the state machine.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

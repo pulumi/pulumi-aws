@@ -11,38 +11,41 @@ import (
 // This data source is only available in a us-east-1 or ap-south-1 provider.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
-func LookupProduct(ctx *pulumi.Context, args *GetProductArgs) (*GetProductResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["serviceCode"] = args.ServiceCode
-	}
-	outputs, err := ctx.Invoke("aws:pricing/getProduct:getProduct", inputs)
+func LookupProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
+	var rv GetProductResult
+	err := ctx.Invoke("aws:pricing/getProduct:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetProductResult{
-		Filters: outputs["filters"],
-		Result: outputs["result"],
-		ServiceCode: outputs["serviceCode"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getProduct.
 type GetProductArgs struct {
 	// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-	Filters interface{}
+	Filters []GetProductFiltersArgs `pulumi:"filters"`
 	// The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-	ServiceCode interface{}
+	ServiceCode string `pulumi:"serviceCode"`
 }
 
 // A collection of values returned by getProduct.
 type GetProductResult struct {
-	Filters interface{}
+	Filters []GetProductFiltersResult `pulumi:"filters"`
 	// Set to the product returned from the API.
-	Result interface{}
-	ServiceCode interface{}
+	Result string `pulumi:"result"`
+	ServiceCode string `pulumi:"serviceCode"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetProductFiltersArgs struct {
+	// The product attribute name that you want to filter on.
+	Field string `pulumi:"field"`
+	// The product attribute value that you want to filter on.
+	Value string `pulumi:"value"`
+}
+type GetProductFiltersResult struct {
+	// The product attribute name that you want to filter on.
+	Field string `pulumi:"field"`
+	// The product attribute value that you want to filter on.
+	Value string `pulumi:"value"`
 }

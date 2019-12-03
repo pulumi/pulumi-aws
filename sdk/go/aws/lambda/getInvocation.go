@@ -12,47 +12,35 @@ import (
 // invocation type.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
-func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs) (*GetInvocationResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["functionName"] = args.FunctionName
-		inputs["input"] = args.Input
-		inputs["qualifier"] = args.Qualifier
-	}
-	outputs, err := ctx.Invoke("aws:lambda/getInvocation:getInvocation", inputs)
+func LookupInvocation(ctx *pulumi.Context, args *GetInvocationArgs, opts ...pulumi.InvokeOption) (*GetInvocationResult, error) {
+	var rv GetInvocationResult
+	err := ctx.Invoke("aws:lambda/getInvocation:getInvocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetInvocationResult{
-		FunctionName: outputs["functionName"],
-		Input: outputs["input"],
-		Qualifier: outputs["qualifier"],
-		Result: outputs["result"],
-		ResultMap: outputs["resultMap"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getInvocation.
 type GetInvocationArgs struct {
 	// The name of the lambda function.
-	FunctionName interface{}
+	FunctionName string `pulumi:"functionName"`
 	// A string in JSON format that is passed as payload to the lambda function.
-	Input interface{}
+	Input string `pulumi:"input"`
 	// The qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
-	Qualifier interface{}
+	Qualifier *string `pulumi:"qualifier"`
 }
 
 // A collection of values returned by getInvocation.
 type GetInvocationResult struct {
-	FunctionName interface{}
-	Input interface{}
-	Qualifier interface{}
+	FunctionName string `pulumi:"functionName"`
+	Input string `pulumi:"input"`
+	Qualifier *string `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result interface{}
+	Result string `pulumi:"result"`
 	// This field is set only if result is a map of primitive types, where the map is string keys and string values.
-	ResultMap interface{}
+	ResultMap map[string]string `pulumi:"resultMap"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

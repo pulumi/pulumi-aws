@@ -14,89 +14,88 @@ import (
 // VPC.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc.html.markdown.
-func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs) (*GetVpcResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["cidrBlock"] = args.CidrBlock
-		inputs["default"] = args.Default
-		inputs["dhcpOptionsId"] = args.DhcpOptionsId
-		inputs["filters"] = args.Filters
-		inputs["id"] = args.Id
-		inputs["state"] = args.State
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getVpc:getVpc", inputs)
+func LookupVpc(ctx *pulumi.Context, args *GetVpcArgs, opts ...pulumi.InvokeOption) (*GetVpcResult, error) {
+	var rv GetVpcResult
+	err := ctx.Invoke("aws:ec2/getVpc:getVpc", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpcResult{
-		Arn: outputs["arn"],
-		CidrBlock: outputs["cidrBlock"],
-		CidrBlockAssociations: outputs["cidrBlockAssociations"],
-		Default: outputs["default"],
-		DhcpOptionsId: outputs["dhcpOptionsId"],
-		EnableDnsHostnames: outputs["enableDnsHostnames"],
-		EnableDnsSupport: outputs["enableDnsSupport"],
-		Filters: outputs["filters"],
-		Id: outputs["id"],
-		InstanceTenancy: outputs["instanceTenancy"],
-		Ipv6AssociationId: outputs["ipv6AssociationId"],
-		Ipv6CidrBlock: outputs["ipv6CidrBlock"],
-		MainRouteTableId: outputs["mainRouteTableId"],
-		OwnerId: outputs["ownerId"],
-		State: outputs["state"],
-		Tags: outputs["tags"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpc.
 type GetVpcArgs struct {
 	// The cidr block of the desired VPC.
-	CidrBlock interface{}
+	CidrBlock *string `pulumi:"cidrBlock"`
 	// Boolean constraint on whether the desired VPC is
 	// the default VPC for the region.
-	Default interface{}
+	Default *bool `pulumi:"default"`
 	// The DHCP options id of the desired VPC.
-	DhcpOptionsId interface{}
+	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetVpcFiltersArgs `pulumi:"filters"`
 	// The id of the specific VPC to retrieve.
-	Id interface{}
+	Id *string `pulumi:"id"`
 	// The current state of the desired VPC.
 	// Can be either `"pending"` or `"available"`.
-	State interface{}
+	State *string `pulumi:"state"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpc.
 type GetVpcResult struct {
 	// Amazon Resource Name (ARN) of VPC
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The CIDR block for the association.
-	CidrBlock interface{}
-	CidrBlockAssociations interface{}
-	Default interface{}
-	DhcpOptionsId interface{}
+	CidrBlock string `pulumi:"cidrBlock"`
+	CidrBlockAssociations []GetVpcCidrBlockAssociationsResult `pulumi:"cidrBlockAssociations"`
+	Default bool `pulumi:"default"`
+	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 	// Whether or not the VPC has DNS hostname support
-	EnableDnsHostnames interface{}
+	EnableDnsHostnames bool `pulumi:"enableDnsHostnames"`
 	// Whether or not the VPC has DNS support
-	EnableDnsSupport interface{}
-	Filters interface{}
-	Id interface{}
+	EnableDnsSupport bool `pulumi:"enableDnsSupport"`
+	Filters *[]GetVpcFiltersResult `pulumi:"filters"`
+	Id string `pulumi:"id"`
 	// The allowed tenancy of instances launched into the
 	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
-	InstanceTenancy interface{}
+	InstanceTenancy string `pulumi:"instanceTenancy"`
 	// The association ID for the IPv6 CIDR block.
-	Ipv6AssociationId interface{}
+	Ipv6AssociationId string `pulumi:"ipv6AssociationId"`
 	// The IPv6 CIDR block.
-	Ipv6CidrBlock interface{}
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
 	// The ID of the main route table associated with this VPC.
-	MainRouteTableId interface{}
+	MainRouteTableId string `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
-	OwnerId interface{}
+	OwnerId string `pulumi:"ownerId"`
 	// The State of the association.
-	State interface{}
-	Tags interface{}
+	State string `pulumi:"state"`
+	Tags map[string]string `pulumi:"tags"`
+}
+type GetVpcCidrBlockAssociationsResult struct {
+	// The association ID for the the IPv4 CIDR block.
+	AssociationId string `pulumi:"associationId"`
+	// The cidr block of the desired VPC.
+	CidrBlock string `pulumi:"cidrBlock"`
+	// The current state of the desired VPC.
+	// Can be either `"pending"` or `"available"`.
+	State string `pulumi:"state"`
+}
+type GetVpcFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetVpcFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

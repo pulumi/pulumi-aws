@@ -12,87 +12,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway.html.markdown.
 type Gateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+
+	// The name of the connection.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// AWS Account ID of the gateway.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
 func NewGateway(ctx *pulumi.Context,
-	name string, args *GatewayArgs, opts ...pulumi.ResourceOpt) (*Gateway, error) {
+	name string, args *GatewayArgs, opts ...pulumi.ResourceOption) (*Gateway, error) {
 	if args == nil || args.AmazonSideAsn == nil {
 		return nil, errors.New("missing required argument 'AmazonSideAsn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["amazonSideAsn"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["amazonSideAsn"] = args.AmazonSideAsn
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AmazonSideAsn; i != nil { inputs["amazonSideAsn"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["ownerAccountId"] = nil
-	s, err := ctx.RegisterResource("aws:directconnect/gateway:Gateway", name, true, inputs, opts...)
+	var resource Gateway
+	err := ctx.RegisterResource("aws:directconnect/gateway:Gateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Gateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetGateway gets an existing Gateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GatewayState, opts ...pulumi.ResourceOpt) (*Gateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GatewayState, opts ...pulumi.ResourceOption) (*Gateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["amazonSideAsn"] = state.AmazonSideAsn
-		inputs["name"] = state.Name
-		inputs["ownerAccountId"] = state.OwnerAccountId
+		if i := state.AmazonSideAsn; i != nil { inputs["amazonSideAsn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OwnerAccountId; i != nil { inputs["ownerAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:directconnect/gateway:Gateway", name, id, inputs, opts...)
+	var resource Gateway
+	err := ctx.ReadResource("aws:directconnect/gateway:Gateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Gateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Gateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Gateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-func (r *Gateway) AmazonSideAsn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["amazonSideAsn"])
-}
-
-// The name of the connection.
-func (r *Gateway) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// AWS Account ID of the gateway.
-func (r *Gateway) OwnerAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerAccountId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Gateway resources.
 type GatewayState struct {
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn interface{}
+	AmazonSideAsn pulumi.StringInput `pulumi:"amazonSideAsn"`
 	// The name of the connection.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// AWS Account ID of the gateway.
-	OwnerAccountId interface{}
+	OwnerAccountId pulumi.StringInput `pulumi:"ownerAccountId"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn interface{}
+	AmazonSideAsn pulumi.StringInput `pulumi:"amazonSideAsn"`
 	// The name of the connection.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

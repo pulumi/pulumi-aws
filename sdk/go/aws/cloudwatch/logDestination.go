@@ -12,102 +12,81 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination.html.markdown.
 type LogDestination struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) specifying the log destination.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A name for the log destination
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// The ARN of the target Amazon Kinesis stream resource for the destination
+	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
 
 // NewLogDestination registers a new resource with the given unique name, arguments, and options.
 func NewLogDestination(ctx *pulumi.Context,
-	name string, args *LogDestinationArgs, opts ...pulumi.ResourceOpt) (*LogDestination, error) {
+	name string, args *LogDestinationArgs, opts ...pulumi.ResourceOption) (*LogDestination, error) {
 	if args == nil || args.RoleArn == nil {
 		return nil, errors.New("missing required argument 'RoleArn'")
 	}
 	if args == nil || args.TargetArn == nil {
 		return nil, errors.New("missing required argument 'TargetArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["roleArn"] = nil
-		inputs["targetArn"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["roleArn"] = args.RoleArn
-		inputs["targetArn"] = args.TargetArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.TargetArn; i != nil { inputs["targetArn"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:cloudwatch/logDestination:LogDestination", name, true, inputs, opts...)
+	var resource LogDestination
+	err := ctx.RegisterResource("aws:cloudwatch/logDestination:LogDestination", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogDestination{s: s}, nil
+	return &resource, nil
 }
 
 // GetLogDestination gets an existing LogDestination resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLogDestination(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LogDestinationState, opts ...pulumi.ResourceOpt) (*LogDestination, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LogDestinationState, opts ...pulumi.ResourceOption) (*LogDestination, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["roleArn"] = state.RoleArn
-		inputs["targetArn"] = state.TargetArn
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.TargetArn; i != nil { inputs["targetArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/logDestination:LogDestination", name, id, inputs, opts...)
+	var resource LogDestination
+	err := ctx.ReadResource("aws:cloudwatch/logDestination:LogDestination", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogDestination{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LogDestination) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LogDestination) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) specifying the log destination.
-func (r *LogDestination) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A name for the log destination
-func (r *LogDestination) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-func (r *LogDestination) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// The ARN of the target Amazon Kinesis stream resource for the destination
-func (r *LogDestination) TargetArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LogDestination resources.
 type LogDestinationState struct {
 	// The Amazon Resource Name (ARN) specifying the log destination.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A name for the log destination
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The ARN of the target Amazon Kinesis stream resource for the destination
-	TargetArn interface{}
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a LogDestination resource.
 type LogDestinationArgs struct {
 	// A name for the log destination
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The ARN of the target Amazon Kinesis stream resource for the destination
-	TargetArn interface{}
+	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }

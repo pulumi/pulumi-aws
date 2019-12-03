@@ -4,6 +4,8 @@
 package ecr
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,126 +13,149 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
 type Repository struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Full ARN of the repository.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	ImageScanningConfiguration RepositoryImageScanningConfigurationOutput `pulumi:"imageScanningConfiguration"`
+
+	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	ImageTagMutability pulumi.StringOutput `pulumi:"imageTagMutability"`
+
+	// Name of the repository.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The registry ID where the repository was created.
+	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+
+	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
 func NewRepository(ctx *pulumi.Context,
-	name string, args *RepositoryArgs, opts ...pulumi.ResourceOpt) (*Repository, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["imageScanningConfiguration"] = nil
-		inputs["imageTagMutability"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["imageScanningConfiguration"] = args.ImageScanningConfiguration
-		inputs["imageTagMutability"] = args.ImageTagMutability
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ImageScanningConfiguration; i != nil { inputs["imageScanningConfiguration"] = i.ToRepositoryImageScanningConfigurationOutput() }
+		if i := args.ImageTagMutability; i != nil { inputs["imageTagMutability"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["registryId"] = nil
-	inputs["repositoryUrl"] = nil
-	s, err := ctx.RegisterResource("aws:ecr/repository:Repository", name, true, inputs, opts...)
+	var resource Repository
+	err := ctx.RegisterResource("aws:ecr/repository:Repository", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Repository{s: s}, nil
+	return &resource, nil
 }
 
 // GetRepository gets an existing Repository resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRepository(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RepositoryState, opts ...pulumi.ResourceOpt) (*Repository, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RepositoryState, opts ...pulumi.ResourceOption) (*Repository, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["imageScanningConfiguration"] = state.ImageScanningConfiguration
-		inputs["imageTagMutability"] = state.ImageTagMutability
-		inputs["name"] = state.Name
-		inputs["registryId"] = state.RegistryId
-		inputs["repositoryUrl"] = state.RepositoryUrl
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ImageScanningConfiguration; i != nil { inputs["imageScanningConfiguration"] = i.ToRepositoryImageScanningConfigurationOutput() }
+		if i := state.ImageTagMutability; i != nil { inputs["imageTagMutability"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RegistryId; i != nil { inputs["registryId"] = i.ToStringOutput() }
+		if i := state.RepositoryUrl; i != nil { inputs["repositoryUrl"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ecr/repository:Repository", name, id, inputs, opts...)
+	var resource Repository
+	err := ctx.ReadResource("aws:ecr/repository:Repository", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Repository{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Repository) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Repository) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Full ARN of the repository.
-func (r *Repository) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-func (r *Repository) ImageScanningConfiguration() pulumi.Output {
-	return r.s.State["imageScanningConfiguration"]
-}
-
-// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-func (r *Repository) ImageTagMutability() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageTagMutability"])
-}
-
-// Name of the repository.
-func (r *Repository) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The registry ID where the repository was created.
-func (r *Repository) RegistryId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["registryId"])
-}
-
-// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
-func (r *Repository) RepositoryUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["repositoryUrl"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Repository) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Repository resources.
 type RepositoryState struct {
 	// Full ARN of the repository.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-	ImageScanningConfiguration interface{}
+	ImageScanningConfiguration RepositoryImageScanningConfigurationInput `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability interface{}
+	ImageTagMutability pulumi.StringInput `pulumi:"imageTagMutability"`
 	// Name of the repository.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The registry ID where the repository was created.
-	RegistryId interface{}
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
-	RepositoryUrl interface{}
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-	ImageScanningConfiguration interface{}
+	ImageScanningConfiguration RepositoryImageScanningConfigurationInput `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability interface{}
+	ImageTagMutability pulumi.StringInput `pulumi:"imageTagMutability"`
 	// Name of the repository.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RepositoryImageScanningConfiguration struct {
+	// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+	ScanOnPush bool `pulumi:"scanOnPush"`
+}
+var repositoryImageScanningConfigurationType = reflect.TypeOf((*RepositoryImageScanningConfiguration)(nil)).Elem()
+
+type RepositoryImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToRepositoryImageScanningConfigurationOutput() RepositoryImageScanningConfigurationOutput
+	ToRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationOutput
+}
+
+type RepositoryImageScanningConfigurationArgs struct {
+	// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
+}
+
+func (RepositoryImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return repositoryImageScanningConfigurationType
+}
+
+func (a RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationOutput() RepositoryImageScanningConfigurationOutput {
+	return pulumi.ToOutput(a).(RepositoryImageScanningConfigurationOutput)
+}
+
+func (a RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RepositoryImageScanningConfigurationOutput)
+}
+
+type RepositoryImageScanningConfigurationOutput struct { *pulumi.OutputState }
+
+// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
+func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
+	return o.Apply(func(v RepositoryImageScanningConfiguration) bool {
+		return v.ScanOnPush
+	}).(pulumi.BoolOutput)
+}
+
+func (RepositoryImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return repositoryImageScanningConfigurationType
+}
+
+func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationOutput() RepositoryImageScanningConfigurationOutput {
+	return o
+}
+
+func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{}) }
+

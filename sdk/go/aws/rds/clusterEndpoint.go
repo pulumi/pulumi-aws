@@ -13,12 +13,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
 type ClusterEndpoint struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of cluster
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
+
+	// The cluster identifier.
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+
+	// The type of the endpoint. One of: READER , ANY .
+	CustomEndpointType pulumi.StringOutput `pulumi:"customEndpointType"`
+
+	// A custom endpoint for the Aurora cluster
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
+	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
+
+	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
+	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
 }
 
 // NewClusterEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewClusterEndpoint(ctx *pulumi.Context,
-	name string, args *ClusterEndpointArgs, opts ...pulumi.ResourceOpt) (*ClusterEndpoint, error) {
+	name string, args *ClusterEndpointArgs, opts ...pulumi.ResourceOption) (*ClusterEndpoint, error) {
 	if args == nil || args.ClusterEndpointIdentifier == nil {
 		return nil, errors.New("missing required argument 'ClusterEndpointIdentifier'")
 	}
@@ -28,123 +49,72 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args == nil || args.CustomEndpointType == nil {
 		return nil, errors.New("missing required argument 'CustomEndpointType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterEndpointIdentifier"] = nil
-		inputs["clusterIdentifier"] = nil
-		inputs["customEndpointType"] = nil
-		inputs["excludedMembers"] = nil
-		inputs["staticMembers"] = nil
-	} else {
-		inputs["clusterEndpointIdentifier"] = args.ClusterEndpointIdentifier
-		inputs["clusterIdentifier"] = args.ClusterIdentifier
-		inputs["customEndpointType"] = args.CustomEndpointType
-		inputs["excludedMembers"] = args.ExcludedMembers
-		inputs["staticMembers"] = args.StaticMembers
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterEndpointIdentifier; i != nil { inputs["clusterEndpointIdentifier"] = i.ToStringOutput() }
+		if i := args.ClusterIdentifier; i != nil { inputs["clusterIdentifier"] = i.ToStringOutput() }
+		if i := args.CustomEndpointType; i != nil { inputs["customEndpointType"] = i.ToStringOutput() }
+		if i := args.ExcludedMembers; i != nil { inputs["excludedMembers"] = i.ToStringArrayOutput() }
+		if i := args.StaticMembers; i != nil { inputs["staticMembers"] = i.ToStringArrayOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["endpoint"] = nil
-	s, err := ctx.RegisterResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, true, inputs, opts...)
+	var resource ClusterEndpoint
+	err := ctx.RegisterResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterEndpoint{s: s}, nil
+	return &resource, nil
 }
 
 // GetClusterEndpoint gets an existing ClusterEndpoint resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetClusterEndpoint(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterEndpointState, opts ...pulumi.ResourceOpt) (*ClusterEndpoint, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterEndpointState, opts ...pulumi.ResourceOption) (*ClusterEndpoint, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["clusterEndpointIdentifier"] = state.ClusterEndpointIdentifier
-		inputs["clusterIdentifier"] = state.ClusterIdentifier
-		inputs["customEndpointType"] = state.CustomEndpointType
-		inputs["endpoint"] = state.Endpoint
-		inputs["excludedMembers"] = state.ExcludedMembers
-		inputs["staticMembers"] = state.StaticMembers
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ClusterEndpointIdentifier; i != nil { inputs["clusterEndpointIdentifier"] = i.ToStringOutput() }
+		if i := state.ClusterIdentifier; i != nil { inputs["clusterIdentifier"] = i.ToStringOutput() }
+		if i := state.CustomEndpointType; i != nil { inputs["customEndpointType"] = i.ToStringOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.ExcludedMembers; i != nil { inputs["excludedMembers"] = i.ToStringArrayOutput() }
+		if i := state.StaticMembers; i != nil { inputs["staticMembers"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, id, inputs, opts...)
+	var resource ClusterEndpoint
+	err := ctx.ReadResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterEndpoint{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterEndpoint) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterEndpoint) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of cluster
-func (r *ClusterEndpoint) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-func (r *ClusterEndpoint) ClusterEndpointIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterEndpointIdentifier"])
-}
-
-// The cluster identifier.
-func (r *ClusterEndpoint) ClusterIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
-}
-
-// The type of the endpoint. One of: READER , ANY .
-func (r *ClusterEndpoint) CustomEndpointType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customEndpointType"])
-}
-
-// A custom endpoint for the Aurora cluster
-func (r *ClusterEndpoint) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
-func (r *ClusterEndpoint) ExcludedMembers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["excludedMembers"])
-}
-
-// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
-func (r *ClusterEndpoint) StaticMembers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["staticMembers"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type ClusterEndpointState struct {
 	// Amazon Resource Name (ARN) of cluster
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-	ClusterEndpointIdentifier interface{}
+	ClusterEndpointIdentifier pulumi.StringInput `pulumi:"clusterEndpointIdentifier"`
 	// The cluster identifier.
-	ClusterIdentifier interface{}
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// The type of the endpoint. One of: READER , ANY .
-	CustomEndpointType interface{}
+	CustomEndpointType pulumi.StringInput `pulumi:"customEndpointType"`
 	// A custom endpoint for the Aurora cluster
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
-	ExcludedMembers interface{}
+	ExcludedMembers pulumi.StringArrayInput `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
-	StaticMembers interface{}
+	StaticMembers pulumi.StringArrayInput `pulumi:"staticMembers"`
 }
 
 // The set of arguments for constructing a ClusterEndpoint resource.
 type ClusterEndpointArgs struct {
 	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-	ClusterEndpointIdentifier interface{}
+	ClusterEndpointIdentifier pulumi.StringInput `pulumi:"clusterEndpointIdentifier"`
 	// The cluster identifier.
-	ClusterIdentifier interface{}
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// The type of the endpoint. One of: READER , ANY .
-	CustomEndpointType interface{}
+	CustomEndpointType pulumi.StringInput `pulumi:"customEndpointType"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
-	ExcludedMembers interface{}
+	ExcludedMembers pulumi.StringArrayInput `pulumi:"excludedMembers"`
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
-	StaticMembers interface{}
+	StaticMembers pulumi.StringArrayInput `pulumi:"staticMembers"`
 }

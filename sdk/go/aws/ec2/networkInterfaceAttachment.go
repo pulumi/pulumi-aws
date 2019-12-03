@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface_attachment.html.markdown.
 type NetworkInterfaceAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ENI Attachment ID.
+	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
+
+	// Network interface index (int).
+	DeviceIndex pulumi.IntOutput `pulumi:"deviceIndex"`
+
+	// Instance ID to attach.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+
+	// ENI ID to attach.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+
+	// The status of the Network Interface Attachment.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
-	name string, args *NetworkInterfaceAttachmentArgs, opts ...pulumi.ResourceOpt) (*NetworkInterfaceAttachment, error) {
+	name string, args *NetworkInterfaceAttachmentArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachment, error) {
 	if args == nil || args.DeviceIndex == nil {
 		return nil, errors.New("missing required argument 'DeviceIndex'")
 	}
@@ -27,99 +42,60 @@ func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
 	if args == nil || args.NetworkInterfaceId == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deviceIndex"] = nil
-		inputs["instanceId"] = nil
-		inputs["networkInterfaceId"] = nil
-	} else {
-		inputs["deviceIndex"] = args.DeviceIndex
-		inputs["instanceId"] = args.InstanceId
-		inputs["networkInterfaceId"] = args.NetworkInterfaceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeviceIndex; i != nil { inputs["deviceIndex"] = i.ToIntOutput() }
+		if i := args.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := args.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
 	}
-	inputs["attachmentId"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, true, inputs, opts...)
+	var resource NetworkInterfaceAttachment
+	err := ctx.RegisterResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterfaceAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkInterfaceAttachment gets an existing NetworkInterfaceAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkInterfaceAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkInterfaceAttachmentState, opts ...pulumi.ResourceOpt) (*NetworkInterfaceAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkInterfaceAttachmentState, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["attachmentId"] = state.AttachmentId
-		inputs["deviceIndex"] = state.DeviceIndex
-		inputs["instanceId"] = state.InstanceId
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
-		inputs["status"] = state.Status
+		if i := state.AttachmentId; i != nil { inputs["attachmentId"] = i.ToStringOutput() }
+		if i := state.DeviceIndex; i != nil { inputs["deviceIndex"] = i.ToIntOutput() }
+		if i := state.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := state.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, id, inputs, opts...)
+	var resource NetworkInterfaceAttachment
+	err := ctx.ReadResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterfaceAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ENI Attachment ID.
-func (r *NetworkInterfaceAttachment) AttachmentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["attachmentId"])
-}
-
-// Network interface index (int).
-func (r *NetworkInterfaceAttachment) DeviceIndex() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["deviceIndex"])
-}
-
-// Instance ID to attach.
-func (r *NetworkInterfaceAttachment) InstanceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceId"])
-}
-
-// ENI ID to attach.
-func (r *NetworkInterfaceAttachment) NetworkInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
-}
-
-// The status of the Network Interface Attachment.
-func (r *NetworkInterfaceAttachment) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
 type NetworkInterfaceAttachmentState struct {
 	// The ENI Attachment ID.
-	AttachmentId interface{}
+	AttachmentId pulumi.StringInput `pulumi:"attachmentId"`
 	// Network interface index (int).
-	DeviceIndex interface{}
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
 	// Instance ID to attach.
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// ENI ID to attach.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The status of the Network Interface Attachment.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceAttachment resource.
 type NetworkInterfaceAttachmentArgs struct {
 	// Network interface index (int).
-	DeviceIndex interface{}
+	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
 	// Instance ID to attach.
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// ENI ID to attach.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }

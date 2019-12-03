@@ -12,123 +12,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/swf_domain.html.markdown.
 type Domain struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The domain description.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the domain. If omitted, this provider will assign a random, unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
+	WorkflowExecutionRetentionPeriodInDays pulumi.StringOutput `pulumi:"workflowExecutionRetentionPeriodInDays"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
-	name string, args *DomainArgs, opts ...pulumi.ResourceOpt) (*Domain, error) {
+	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil || args.WorkflowExecutionRetentionPeriodInDays == nil {
 		return nil, errors.New("missing required argument 'WorkflowExecutionRetentionPeriodInDays'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["tags"] = nil
-		inputs["workflowExecutionRetentionPeriodInDays"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["tags"] = args.Tags
-		inputs["workflowExecutionRetentionPeriodInDays"] = args.WorkflowExecutionRetentionPeriodInDays
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.WorkflowExecutionRetentionPeriodInDays; i != nil { inputs["workflowExecutionRetentionPeriodInDays"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:swf/domain:Domain", name, true, inputs, opts...)
+	var resource Domain
+	err := ctx.RegisterResource("aws:swf/domain:Domain", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{s: s}, nil
+	return &resource, nil
 }
 
 // GetDomain gets an existing Domain resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDomain(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DomainState, opts ...pulumi.ResourceOpt) (*Domain, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["tags"] = state.Tags
-		inputs["workflowExecutionRetentionPeriodInDays"] = state.WorkflowExecutionRetentionPeriodInDays
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.WorkflowExecutionRetentionPeriodInDays; i != nil { inputs["workflowExecutionRetentionPeriodInDays"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:swf/domain:Domain", name, id, inputs, opts...)
+	var resource Domain
+	err := ctx.ReadResource("aws:swf/domain:Domain", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN)
-func (r *Domain) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The domain description.
-func (r *Domain) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the domain. If omitted, this provider will assign a random, unique name.
-func (r *Domain) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Domain) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// Key-value mapping of resource tags
-func (r *Domain) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-func (r *Domain) WorkflowExecutionRetentionPeriodInDays() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workflowExecutionRetentionPeriodInDays"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Domain resources.
 type DomainState struct {
 	// Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The domain description.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-	WorkflowExecutionRetentionPeriodInDays interface{}
+	WorkflowExecutionRetentionPeriodInDays pulumi.StringInput `pulumi:"workflowExecutionRetentionPeriodInDays"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// The domain description.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the domain. If omitted, this provider will assign a random, unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
-	WorkflowExecutionRetentionPeriodInDays interface{}
+	WorkflowExecutionRetentionPeriodInDays pulumi.StringInput `pulumi:"workflowExecutionRetentionPeriodInDays"`
 }

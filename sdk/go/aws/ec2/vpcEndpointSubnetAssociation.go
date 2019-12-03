@@ -18,81 +18,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
 type VpcEndpointSubnetAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the subnet to be associated with the VPC endpoint.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+
+	// The ID of the VPC endpoint with which the subnet will be associated.
+	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
 // NewVpcEndpointSubnetAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointSubnetAssociation(ctx *pulumi.Context,
-	name string, args *VpcEndpointSubnetAssociationArgs, opts ...pulumi.ResourceOpt) (*VpcEndpointSubnetAssociation, error) {
+	name string, args *VpcEndpointSubnetAssociationArgs, opts ...pulumi.ResourceOption) (*VpcEndpointSubnetAssociation, error) {
 	if args == nil || args.SubnetId == nil {
 		return nil, errors.New("missing required argument 'SubnetId'")
 	}
 	if args == nil || args.VpcEndpointId == nil {
 		return nil, errors.New("missing required argument 'VpcEndpointId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["subnetId"] = nil
-		inputs["vpcEndpointId"] = nil
-	} else {
-		inputs["subnetId"] = args.SubnetId
-		inputs["vpcEndpointId"] = args.VpcEndpointId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := args.VpcEndpointId; i != nil { inputs["vpcEndpointId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, true, inputs, opts...)
+	var resource VpcEndpointSubnetAssociation
+	err := ctx.RegisterResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcEndpointSubnetAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpcEndpointSubnetAssociation gets an existing VpcEndpointSubnetAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpcEndpointSubnetAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpcEndpointSubnetAssociationState, opts ...pulumi.ResourceOpt) (*VpcEndpointSubnetAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpcEndpointSubnetAssociationState, opts ...pulumi.ResourceOption) (*VpcEndpointSubnetAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["subnetId"] = state.SubnetId
-		inputs["vpcEndpointId"] = state.VpcEndpointId
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := state.VpcEndpointId; i != nil { inputs["vpcEndpointId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, id, inputs, opts...)
+	var resource VpcEndpointSubnetAssociation
+	err := ctx.ReadResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcEndpointSubnetAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointSubnetAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointSubnetAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the subnet to be associated with the VPC endpoint.
-func (r *VpcEndpointSubnetAssociation) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
-// The ID of the VPC endpoint with which the subnet will be associated.
-func (r *VpcEndpointSubnetAssociation) VpcEndpointId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcEndpointId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.
 type VpcEndpointSubnetAssociationState struct {
 	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The ID of the VPC endpoint with which the subnet will be associated.
-	VpcEndpointId interface{}
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a VpcEndpointSubnetAssociation resource.
 type VpcEndpointSubnetAssociationArgs struct {
 	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The ID of the VPC endpoint with which the subnet will be associated.
-	VpcEndpointId interface{}
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }

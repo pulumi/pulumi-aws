@@ -14,81 +14,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_upload_buffer.html.markdown.
 type UploadBuffer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+	DiskId pulumi.StringOutput `pulumi:"diskId"`
+
+	// The Amazon Resource Name (ARN) of the gateway.
+	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 }
 
 // NewUploadBuffer registers a new resource with the given unique name, arguments, and options.
 func NewUploadBuffer(ctx *pulumi.Context,
-	name string, args *UploadBufferArgs, opts ...pulumi.ResourceOpt) (*UploadBuffer, error) {
+	name string, args *UploadBufferArgs, opts ...pulumi.ResourceOption) (*UploadBuffer, error) {
 	if args == nil || args.DiskId == nil {
 		return nil, errors.New("missing required argument 'DiskId'")
 	}
 	if args == nil || args.GatewayArn == nil {
 		return nil, errors.New("missing required argument 'GatewayArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["diskId"] = nil
-		inputs["gatewayArn"] = nil
-	} else {
-		inputs["diskId"] = args.DiskId
-		inputs["gatewayArn"] = args.GatewayArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DiskId; i != nil { inputs["diskId"] = i.ToStringOutput() }
+		if i := args.GatewayArn; i != nil { inputs["gatewayArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:storagegateway/uploadBuffer:UploadBuffer", name, true, inputs, opts...)
+	var resource UploadBuffer
+	err := ctx.RegisterResource("aws:storagegateway/uploadBuffer:UploadBuffer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UploadBuffer{s: s}, nil
+	return &resource, nil
 }
 
 // GetUploadBuffer gets an existing UploadBuffer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetUploadBuffer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *UploadBufferState, opts ...pulumi.ResourceOpt) (*UploadBuffer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *UploadBufferState, opts ...pulumi.ResourceOption) (*UploadBuffer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["diskId"] = state.DiskId
-		inputs["gatewayArn"] = state.GatewayArn
+		if i := state.DiskId; i != nil { inputs["diskId"] = i.ToStringOutput() }
+		if i := state.GatewayArn; i != nil { inputs["gatewayArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:storagegateway/uploadBuffer:UploadBuffer", name, id, inputs, opts...)
+	var resource UploadBuffer
+	err := ctx.ReadResource("aws:storagegateway/uploadBuffer:UploadBuffer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UploadBuffer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *UploadBuffer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *UploadBuffer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-func (r *UploadBuffer) DiskId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["diskId"])
-}
-
-// The Amazon Resource Name (ARN) of the gateway.
-func (r *UploadBuffer) GatewayArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering UploadBuffer resources.
 type UploadBufferState struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId interface{}
+	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn interface{}
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 }
 
 // The set of arguments for constructing a UploadBuffer resource.
 type UploadBufferArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-	DiskId interface{}
+	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// The Amazon Resource Name (ARN) of the gateway.
-	GatewayArn interface{}
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 }

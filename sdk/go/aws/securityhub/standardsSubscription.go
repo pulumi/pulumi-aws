@@ -14,66 +14,54 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_standards_subscription.html.markdown.
 type StandardsSubscription struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of a standard - see below.
+	StandardsArn pulumi.StringOutput `pulumi:"standardsArn"`
 }
 
 // NewStandardsSubscription registers a new resource with the given unique name, arguments, and options.
 func NewStandardsSubscription(ctx *pulumi.Context,
-	name string, args *StandardsSubscriptionArgs, opts ...pulumi.ResourceOpt) (*StandardsSubscription, error) {
+	name string, args *StandardsSubscriptionArgs, opts ...pulumi.ResourceOption) (*StandardsSubscription, error) {
 	if args == nil || args.StandardsArn == nil {
 		return nil, errors.New("missing required argument 'StandardsArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["standardsArn"] = nil
-	} else {
-		inputs["standardsArn"] = args.StandardsArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.StandardsArn; i != nil { inputs["standardsArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, true, inputs, opts...)
+	var resource StandardsSubscription
+	err := ctx.RegisterResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StandardsSubscription{s: s}, nil
+	return &resource, nil
 }
 
 // GetStandardsSubscription gets an existing StandardsSubscription resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStandardsSubscription(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StandardsSubscriptionState, opts ...pulumi.ResourceOpt) (*StandardsSubscription, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StandardsSubscriptionState, opts ...pulumi.ResourceOption) (*StandardsSubscription, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["standardsArn"] = state.StandardsArn
+		if i := state.StandardsArn; i != nil { inputs["standardsArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, id, inputs, opts...)
+	var resource StandardsSubscription
+	err := ctx.ReadResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StandardsSubscription{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StandardsSubscription) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StandardsSubscription) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of a standard - see below.
-func (r *StandardsSubscription) StandardsArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["standardsArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StandardsSubscription resources.
 type StandardsSubscriptionState struct {
 	// The ARN of a standard - see below.
-	StandardsArn interface{}
+	StandardsArn pulumi.StringInput `pulumi:"standardsArn"`
 }
 
 // The set of arguments for constructing a StandardsSubscription resource.
 type StandardsSubscriptionArgs struct {
 	// The ARN of a standard - see below.
-	StandardsArn interface{}
+	StandardsArn pulumi.StringInput `pulumi:"standardsArn"`
 }

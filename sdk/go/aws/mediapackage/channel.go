@@ -4,6 +4,8 @@
 package mediapackage
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,108 +14,303 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_package_channel.html.markdown.
 type Channel struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the channel
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A unique identifier describing the channel
+	ChannelId pulumi.StringOutput `pulumi:"channelId"`
+
+	// A description of the channel
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A single item list of HLS ingest information
+	HlsIngests ChannelHlsIngestsArrayOutput `pulumi:"hlsIngests"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
-	name string, args *ChannelArgs, opts ...pulumi.ResourceOpt) (*Channel, error) {
+	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
 	if args == nil || args.ChannelId == nil {
 		return nil, errors.New("missing required argument 'ChannelId'")
 	}
-	inputs := make(map[string]interface{})
-	inputs["description"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["channelId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["channelId"] = args.ChannelId
-		inputs["description"] = args.Description
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	inputs["description"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.ChannelId; i != nil { inputs["channelId"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["hlsIngests"] = nil
-	s, err := ctx.RegisterResource("aws:mediapackage/channel:Channel", name, true, inputs, opts...)
+	var resource Channel
+	err := ctx.RegisterResource("aws:mediapackage/channel:Channel", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Channel{s: s}, nil
+	return &resource, nil
 }
 
 // GetChannel gets an existing Channel resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetChannel(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ChannelState, opts ...pulumi.ResourceOpt) (*Channel, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ChannelState, opts ...pulumi.ResourceOption) (*Channel, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["channelId"] = state.ChannelId
-		inputs["description"] = state.Description
-		inputs["hlsIngests"] = state.HlsIngests
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ChannelId; i != nil { inputs["channelId"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.HlsIngests; i != nil { inputs["hlsIngests"] = i.ToChannelHlsIngestsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:mediapackage/channel:Channel", name, id, inputs, opts...)
+	var resource Channel
+	err := ctx.ReadResource("aws:mediapackage/channel:Channel", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Channel{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Channel) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Channel) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the channel
-func (r *Channel) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A unique identifier describing the channel
-func (r *Channel) ChannelId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["channelId"])
-}
-
-// A description of the channel
-func (r *Channel) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A single item list of HLS ingest information
-func (r *Channel) HlsIngests() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["hlsIngests"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Channel) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Channel resources.
 type ChannelState struct {
 	// The ARN of the channel
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A unique identifier describing the channel
-	ChannelId interface{}
+	ChannelId pulumi.StringInput `pulumi:"channelId"`
 	// A description of the channel
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A single item list of HLS ingest information
-	HlsIngests interface{}
+	HlsIngests ChannelHlsIngestsArrayInput `pulumi:"hlsIngests"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
 	// A unique identifier describing the channel
-	ChannelId interface{}
+	ChannelId pulumi.StringInput `pulumi:"channelId"`
 	// A description of the channel
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ChannelHlsIngests struct {
+	// A list of the ingest endpoints
+	IngestEndpoints []ChannelHlsIngestsIngestEndpoints `pulumi:"ingestEndpoints"`
+}
+var channelHlsIngestsType = reflect.TypeOf((*ChannelHlsIngests)(nil)).Elem()
+
+type ChannelHlsIngestsInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestsOutput() ChannelHlsIngestsOutput
+	ToChannelHlsIngestsOutputWithContext(ctx context.Context) ChannelHlsIngestsOutput
+}
+
+type ChannelHlsIngestsArgs struct {
+	// A list of the ingest endpoints
+	IngestEndpoints ChannelHlsIngestsIngestEndpointsArrayInput `pulumi:"ingestEndpoints"`
+}
+
+func (ChannelHlsIngestsArgs) ElementType() reflect.Type {
+	return channelHlsIngestsType
+}
+
+func (a ChannelHlsIngestsArgs) ToChannelHlsIngestsOutput() ChannelHlsIngestsOutput {
+	return pulumi.ToOutput(a).(ChannelHlsIngestsOutput)
+}
+
+func (a ChannelHlsIngestsArgs) ToChannelHlsIngestsOutputWithContext(ctx context.Context) ChannelHlsIngestsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ChannelHlsIngestsOutput)
+}
+
+type ChannelHlsIngestsOutput struct { *pulumi.OutputState }
+
+// A list of the ingest endpoints
+func (o ChannelHlsIngestsOutput) IngestEndpoints() ChannelHlsIngestsIngestEndpointsArrayOutput {
+	return o.Apply(func(v ChannelHlsIngests) []ChannelHlsIngestsIngestEndpoints {
+		return v.IngestEndpoints
+	}).(ChannelHlsIngestsIngestEndpointsArrayOutput)
+}
+
+func (ChannelHlsIngestsOutput) ElementType() reflect.Type {
+	return channelHlsIngestsType
+}
+
+func (o ChannelHlsIngestsOutput) ToChannelHlsIngestsOutput() ChannelHlsIngestsOutput {
+	return o
+}
+
+func (o ChannelHlsIngestsOutput) ToChannelHlsIngestsOutputWithContext(ctx context.Context) ChannelHlsIngestsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ChannelHlsIngestsOutput{}) }
+
+var channelHlsIngestsArrayType = reflect.TypeOf((*[]ChannelHlsIngests)(nil)).Elem()
+
+type ChannelHlsIngestsArrayInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestsArrayOutput() ChannelHlsIngestsArrayOutput
+	ToChannelHlsIngestsArrayOutputWithContext(ctx context.Context) ChannelHlsIngestsArrayOutput
+}
+
+type ChannelHlsIngestsArrayArgs []ChannelHlsIngestsInput
+
+func (ChannelHlsIngestsArrayArgs) ElementType() reflect.Type {
+	return channelHlsIngestsArrayType
+}
+
+func (a ChannelHlsIngestsArrayArgs) ToChannelHlsIngestsArrayOutput() ChannelHlsIngestsArrayOutput {
+	return pulumi.ToOutput(a).(ChannelHlsIngestsArrayOutput)
+}
+
+func (a ChannelHlsIngestsArrayArgs) ToChannelHlsIngestsArrayOutputWithContext(ctx context.Context) ChannelHlsIngestsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ChannelHlsIngestsArrayOutput)
+}
+
+type ChannelHlsIngestsArrayOutput struct { *pulumi.OutputState }
+
+func (o ChannelHlsIngestsArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ChannelHlsIngests {
+		return vs[0].([]ChannelHlsIngests)[vs[1].(int)]
+	}).(ChannelHlsIngestsOutput)
+}
+
+func (ChannelHlsIngestsArrayOutput) ElementType() reflect.Type {
+	return channelHlsIngestsArrayType
+}
+
+func (o ChannelHlsIngestsArrayOutput) ToChannelHlsIngestsArrayOutput() ChannelHlsIngestsArrayOutput {
+	return o
+}
+
+func (o ChannelHlsIngestsArrayOutput) ToChannelHlsIngestsArrayOutputWithContext(ctx context.Context) ChannelHlsIngestsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ChannelHlsIngestsArrayOutput{}) }
+
+type ChannelHlsIngestsIngestEndpoints struct {
+	// The password
+	Password string `pulumi:"password"`
+	// The URL
+	Url string `pulumi:"url"`
+	// The username
+	Username string `pulumi:"username"`
+}
+var channelHlsIngestsIngestEndpointsType = reflect.TypeOf((*ChannelHlsIngestsIngestEndpoints)(nil)).Elem()
+
+type ChannelHlsIngestsIngestEndpointsInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestsIngestEndpointsOutput() ChannelHlsIngestsIngestEndpointsOutput
+	ToChannelHlsIngestsIngestEndpointsOutputWithContext(ctx context.Context) ChannelHlsIngestsIngestEndpointsOutput
+}
+
+type ChannelHlsIngestsIngestEndpointsArgs struct {
+	// The password
+	Password pulumi.StringInput `pulumi:"password"`
+	// The URL
+	Url pulumi.StringInput `pulumi:"url"`
+	// The username
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ChannelHlsIngestsIngestEndpointsArgs) ElementType() reflect.Type {
+	return channelHlsIngestsIngestEndpointsType
+}
+
+func (a ChannelHlsIngestsIngestEndpointsArgs) ToChannelHlsIngestsIngestEndpointsOutput() ChannelHlsIngestsIngestEndpointsOutput {
+	return pulumi.ToOutput(a).(ChannelHlsIngestsIngestEndpointsOutput)
+}
+
+func (a ChannelHlsIngestsIngestEndpointsArgs) ToChannelHlsIngestsIngestEndpointsOutputWithContext(ctx context.Context) ChannelHlsIngestsIngestEndpointsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ChannelHlsIngestsIngestEndpointsOutput)
+}
+
+type ChannelHlsIngestsIngestEndpointsOutput struct { *pulumi.OutputState }
+
+// The password
+func (o ChannelHlsIngestsIngestEndpointsOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v ChannelHlsIngestsIngestEndpoints) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The URL
+func (o ChannelHlsIngestsIngestEndpointsOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v ChannelHlsIngestsIngestEndpoints) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+// The username
+func (o ChannelHlsIngestsIngestEndpointsOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v ChannelHlsIngestsIngestEndpoints) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (ChannelHlsIngestsIngestEndpointsOutput) ElementType() reflect.Type {
+	return channelHlsIngestsIngestEndpointsType
+}
+
+func (o ChannelHlsIngestsIngestEndpointsOutput) ToChannelHlsIngestsIngestEndpointsOutput() ChannelHlsIngestsIngestEndpointsOutput {
+	return o
+}
+
+func (o ChannelHlsIngestsIngestEndpointsOutput) ToChannelHlsIngestsIngestEndpointsOutputWithContext(ctx context.Context) ChannelHlsIngestsIngestEndpointsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ChannelHlsIngestsIngestEndpointsOutput{}) }
+
+var channelHlsIngestsIngestEndpointsArrayType = reflect.TypeOf((*[]ChannelHlsIngestsIngestEndpoints)(nil)).Elem()
+
+type ChannelHlsIngestsIngestEndpointsArrayInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestsIngestEndpointsArrayOutput() ChannelHlsIngestsIngestEndpointsArrayOutput
+	ToChannelHlsIngestsIngestEndpointsArrayOutputWithContext(ctx context.Context) ChannelHlsIngestsIngestEndpointsArrayOutput
+}
+
+type ChannelHlsIngestsIngestEndpointsArrayArgs []ChannelHlsIngestsIngestEndpointsInput
+
+func (ChannelHlsIngestsIngestEndpointsArrayArgs) ElementType() reflect.Type {
+	return channelHlsIngestsIngestEndpointsArrayType
+}
+
+func (a ChannelHlsIngestsIngestEndpointsArrayArgs) ToChannelHlsIngestsIngestEndpointsArrayOutput() ChannelHlsIngestsIngestEndpointsArrayOutput {
+	return pulumi.ToOutput(a).(ChannelHlsIngestsIngestEndpointsArrayOutput)
+}
+
+func (a ChannelHlsIngestsIngestEndpointsArrayArgs) ToChannelHlsIngestsIngestEndpointsArrayOutputWithContext(ctx context.Context) ChannelHlsIngestsIngestEndpointsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ChannelHlsIngestsIngestEndpointsArrayOutput)
+}
+
+type ChannelHlsIngestsIngestEndpointsArrayOutput struct { *pulumi.OutputState }
+
+func (o ChannelHlsIngestsIngestEndpointsArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestsIngestEndpointsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ChannelHlsIngestsIngestEndpoints {
+		return vs[0].([]ChannelHlsIngestsIngestEndpoints)[vs[1].(int)]
+	}).(ChannelHlsIngestsIngestEndpointsOutput)
+}
+
+func (ChannelHlsIngestsIngestEndpointsArrayOutput) ElementType() reflect.Type {
+	return channelHlsIngestsIngestEndpointsArrayType
+}
+
+func (o ChannelHlsIngestsIngestEndpointsArrayOutput) ToChannelHlsIngestsIngestEndpointsArrayOutput() ChannelHlsIngestsIngestEndpointsArrayOutput {
+	return o
+}
+
+func (o ChannelHlsIngestsIngestEndpointsArrayOutput) ToChannelHlsIngestsIngestEndpointsArrayOutputWithContext(ctx context.Context) ChannelHlsIngestsIngestEndpointsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ChannelHlsIngestsIngestEndpointsArrayOutput{}) }
+

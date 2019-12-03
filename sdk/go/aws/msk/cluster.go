@@ -4,6 +4,8 @@
 package msk
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,55 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/msk_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+	BootstrapBrokers pulumi.StringOutput `pulumi:"bootstrapBrokers"`
+
+	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+	BootstrapBrokersTls pulumi.StringOutput `pulumi:"bootstrapBrokersTls"`
+
+	// Configuration block for the broker nodes of the Kafka cluster.
+	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
+
+	// Configuration block for specifying a client authentication. See below.
+	ClientAuthentication ClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
+
+	// Name of the MSK cluster.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+
+	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+	ConfigurationInfo ClusterConfigurationInfoOutput `pulumi:"configurationInfo"`
+
+	// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
+
+	// Configuration block for specifying encryption. See below.
+	EncryptionInfo ClusterEncryptionInfoOutput `pulumi:"encryptionInfo"`
+
+	// Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+	EnhancedMonitoring pulumi.StringOutput `pulumi:"enhancedMonitoring"`
+
+	// Specify the desired Kafka software version.
+	KafkaVersion pulumi.StringOutput `pulumi:"kafkaVersion"`
+
+	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
+
+	// A mapping of tags to assign to the resource
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.BrokerNodeGroupInfo == nil {
 		return nil, errors.New("missing required argument 'BrokerNodeGroupInfo'")
 	}
@@ -30,200 +75,501 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil || args.NumberOfBrokerNodes == nil {
 		return nil, errors.New("missing required argument 'NumberOfBrokerNodes'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["brokerNodeGroupInfo"] = nil
-		inputs["clientAuthentication"] = nil
-		inputs["clusterName"] = nil
-		inputs["configurationInfo"] = nil
-		inputs["encryptionInfo"] = nil
-		inputs["enhancedMonitoring"] = nil
-		inputs["kafkaVersion"] = nil
-		inputs["numberOfBrokerNodes"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["brokerNodeGroupInfo"] = args.BrokerNodeGroupInfo
-		inputs["clientAuthentication"] = args.ClientAuthentication
-		inputs["clusterName"] = args.ClusterName
-		inputs["configurationInfo"] = args.ConfigurationInfo
-		inputs["encryptionInfo"] = args.EncryptionInfo
-		inputs["enhancedMonitoring"] = args.EnhancedMonitoring
-		inputs["kafkaVersion"] = args.KafkaVersion
-		inputs["numberOfBrokerNodes"] = args.NumberOfBrokerNodes
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BrokerNodeGroupInfo; i != nil { inputs["brokerNodeGroupInfo"] = i.ToClusterBrokerNodeGroupInfoOutput() }
+		if i := args.ClientAuthentication; i != nil { inputs["clientAuthentication"] = i.ToClusterClientAuthenticationOutput() }
+		if i := args.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := args.ConfigurationInfo; i != nil { inputs["configurationInfo"] = i.ToClusterConfigurationInfoOutput() }
+		if i := args.EncryptionInfo; i != nil { inputs["encryptionInfo"] = i.ToClusterEncryptionInfoOutput() }
+		if i := args.EnhancedMonitoring; i != nil { inputs["enhancedMonitoring"] = i.ToStringOutput() }
+		if i := args.KafkaVersion; i != nil { inputs["kafkaVersion"] = i.ToStringOutput() }
+		if i := args.NumberOfBrokerNodes; i != nil { inputs["numberOfBrokerNodes"] = i.ToIntOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["bootstrapBrokers"] = nil
-	inputs["bootstrapBrokersTls"] = nil
-	inputs["currentVersion"] = nil
-	inputs["zookeeperConnectString"] = nil
-	s, err := ctx.RegisterResource("aws:msk/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:msk/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["bootstrapBrokers"] = state.BootstrapBrokers
-		inputs["bootstrapBrokersTls"] = state.BootstrapBrokersTls
-		inputs["brokerNodeGroupInfo"] = state.BrokerNodeGroupInfo
-		inputs["clientAuthentication"] = state.ClientAuthentication
-		inputs["clusterName"] = state.ClusterName
-		inputs["configurationInfo"] = state.ConfigurationInfo
-		inputs["currentVersion"] = state.CurrentVersion
-		inputs["encryptionInfo"] = state.EncryptionInfo
-		inputs["enhancedMonitoring"] = state.EnhancedMonitoring
-		inputs["kafkaVersion"] = state.KafkaVersion
-		inputs["numberOfBrokerNodes"] = state.NumberOfBrokerNodes
-		inputs["tags"] = state.Tags
-		inputs["zookeeperConnectString"] = state.ZookeeperConnectString
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.BootstrapBrokers; i != nil { inputs["bootstrapBrokers"] = i.ToStringOutput() }
+		if i := state.BootstrapBrokersTls; i != nil { inputs["bootstrapBrokersTls"] = i.ToStringOutput() }
+		if i := state.BrokerNodeGroupInfo; i != nil { inputs["brokerNodeGroupInfo"] = i.ToClusterBrokerNodeGroupInfoOutput() }
+		if i := state.ClientAuthentication; i != nil { inputs["clientAuthentication"] = i.ToClusterClientAuthenticationOutput() }
+		if i := state.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := state.ConfigurationInfo; i != nil { inputs["configurationInfo"] = i.ToClusterConfigurationInfoOutput() }
+		if i := state.CurrentVersion; i != nil { inputs["currentVersion"] = i.ToStringOutput() }
+		if i := state.EncryptionInfo; i != nil { inputs["encryptionInfo"] = i.ToClusterEncryptionInfoOutput() }
+		if i := state.EnhancedMonitoring; i != nil { inputs["enhancedMonitoring"] = i.ToStringOutput() }
+		if i := state.KafkaVersion; i != nil { inputs["kafkaVersion"] = i.ToStringOutput() }
+		if i := state.NumberOfBrokerNodes; i != nil { inputs["numberOfBrokerNodes"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ZookeeperConnectString; i != nil { inputs["zookeeperConnectString"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:msk/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:msk/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-func (r *Cluster) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
-func (r *Cluster) BootstrapBrokers() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bootstrapBrokers"])
-}
-
-// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
-func (r *Cluster) BootstrapBrokersTls() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bootstrapBrokersTls"])
-}
-
-// Configuration block for the broker nodes of the Kafka cluster.
-func (r *Cluster) BrokerNodeGroupInfo() pulumi.Output {
-	return r.s.State["brokerNodeGroupInfo"]
-}
-
-// Configuration block for specifying a client authentication. See below.
-func (r *Cluster) ClientAuthentication() pulumi.Output {
-	return r.s.State["clientAuthentication"]
-}
-
-// Name of the MSK cluster.
-func (r *Cluster) ClusterName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterName"])
-}
-
-// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-func (r *Cluster) ConfigurationInfo() pulumi.Output {
-	return r.s.State["configurationInfo"]
-}
-
-// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
-// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-func (r *Cluster) CurrentVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["currentVersion"])
-}
-
-// Configuration block for specifying encryption. See below.
-func (r *Cluster) EncryptionInfo() pulumi.Output {
-	return r.s.State["encryptionInfo"]
-}
-
-// Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-func (r *Cluster) EnhancedMonitoring() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["enhancedMonitoring"])
-}
-
-// Specify the desired Kafka software version.
-func (r *Cluster) KafkaVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kafkaVersion"])
-}
-
-// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-func (r *Cluster) NumberOfBrokerNodes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["numberOfBrokerNodes"])
-}
-
-// A mapping of tags to assign to the resource
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
-func (r *Cluster) ZookeeperConnectString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zookeeperConnectString"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
-	BootstrapBrokers interface{}
+	BootstrapBrokers pulumi.StringInput `pulumi:"bootstrapBrokers"`
 	// A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
-	BootstrapBrokersTls interface{}
+	BootstrapBrokersTls pulumi.StringInput `pulumi:"bootstrapBrokersTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
-	BrokerNodeGroupInfo interface{}
+	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoInput `pulumi:"brokerNodeGroupInfo"`
 	// Configuration block for specifying a client authentication. See below.
-	ClientAuthentication interface{}
+	ClientAuthentication ClusterClientAuthenticationInput `pulumi:"clientAuthentication"`
 	// Name of the MSK cluster.
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-	ConfigurationInfo interface{}
+	ConfigurationInfo ClusterConfigurationInfoInput `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
 	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-	CurrentVersion interface{}
+	CurrentVersion pulumi.StringInput `pulumi:"currentVersion"`
 	// Configuration block for specifying encryption. See below.
-	EncryptionInfo interface{}
+	EncryptionInfo ClusterEncryptionInfoInput `pulumi:"encryptionInfo"`
 	// Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-	EnhancedMonitoring interface{}
+	EnhancedMonitoring pulumi.StringInput `pulumi:"enhancedMonitoring"`
 	// Specify the desired Kafka software version.
-	KafkaVersion interface{}
+	KafkaVersion pulumi.StringInput `pulumi:"kafkaVersion"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-	NumberOfBrokerNodes interface{}
+	NumberOfBrokerNodes pulumi.IntInput `pulumi:"numberOfBrokerNodes"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
-	ZookeeperConnectString interface{}
+	ZookeeperConnectString pulumi.StringInput `pulumi:"zookeeperConnectString"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Configuration block for the broker nodes of the Kafka cluster.
-	BrokerNodeGroupInfo interface{}
+	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoInput `pulumi:"brokerNodeGroupInfo"`
 	// Configuration block for specifying a client authentication. See below.
-	ClientAuthentication interface{}
+	ClientAuthentication ClusterClientAuthenticationInput `pulumi:"clientAuthentication"`
 	// Name of the MSK cluster.
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-	ConfigurationInfo interface{}
+	ConfigurationInfo ClusterConfigurationInfoInput `pulumi:"configurationInfo"`
 	// Configuration block for specifying encryption. See below.
-	EncryptionInfo interface{}
+	EncryptionInfo ClusterEncryptionInfoInput `pulumi:"encryptionInfo"`
 	// Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-	EnhancedMonitoring interface{}
+	EnhancedMonitoring pulumi.StringInput `pulumi:"enhancedMonitoring"`
 	// Specify the desired Kafka software version.
-	KafkaVersion interface{}
+	KafkaVersion pulumi.StringInput `pulumi:"kafkaVersion"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-	NumberOfBrokerNodes interface{}
+	NumberOfBrokerNodes pulumi.IntInput `pulumi:"numberOfBrokerNodes"`
 	// A mapping of tags to assign to the resource
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ClusterBrokerNodeGroupInfo struct {
+	// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+	AzDistribution *string `pulumi:"azDistribution"`
+	// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+	ClientSubnets []string `pulumi:"clientSubnets"`
+	// The size in GiB of the EBS volume for the data drive on each broker node.
+	EbsVolumeSize int `pulumi:"ebsVolumeSize"`
+	// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+	InstanceType string `pulumi:"instanceType"`
+	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+	SecurityGroups []string `pulumi:"securityGroups"`
+}
+var clusterBrokerNodeGroupInfoType = reflect.TypeOf((*ClusterBrokerNodeGroupInfo)(nil)).Elem()
+
+type ClusterBrokerNodeGroupInfoInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoOutput() ClusterBrokerNodeGroupInfoOutput
+	ToClusterBrokerNodeGroupInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoOutput
+}
+
+type ClusterBrokerNodeGroupInfoArgs struct {
+	// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+	AzDistribution pulumi.StringInput `pulumi:"azDistribution"`
+	// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
+	// The size in GiB of the EBS volume for the data drive on each broker node.
+	EbsVolumeSize pulumi.IntInput `pulumi:"ebsVolumeSize"`
+	// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+}
+
+func (ClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
+	return clusterBrokerNodeGroupInfoType
+}
+
+func (a ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoOutput() ClusterBrokerNodeGroupInfoOutput {
+	return pulumi.ToOutput(a).(ClusterBrokerNodeGroupInfoOutput)
+}
+
+func (a ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterBrokerNodeGroupInfoOutput)
+}
+
+type ClusterBrokerNodeGroupInfoOutput struct { *pulumi.OutputState }
+
+// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+func (o ClusterBrokerNodeGroupInfoOutput) AzDistribution() pulumi.StringOutput {
+	return o.Apply(func(v ClusterBrokerNodeGroupInfo) string {
+		if v.AzDistribution == nil { return *new(string) } else { return *v.AzDistribution }
+	}).(pulumi.StringOutput)
+}
+
+// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterBrokerNodeGroupInfo) []string {
+		return v.ClientSubnets
+	}).(pulumi.StringArrayOutput)
+}
+
+// The size in GiB of the EBS volume for the data drive on each broker node.
+func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v ClusterBrokerNodeGroupInfo) int {
+		return v.EbsVolumeSize
+	}).(pulumi.IntOutput)
+}
+
+// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v ClusterBrokerNodeGroupInfo) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterBrokerNodeGroupInfo) []string {
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ClusterBrokerNodeGroupInfoOutput) ElementType() reflect.Type {
+	return clusterBrokerNodeGroupInfoType
+}
+
+func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoOutput() ClusterBrokerNodeGroupInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{}) }
+
+type ClusterClientAuthentication struct {
+	// Configuration block for specifying TLS client authentication. See below.
+	Tls *ClusterClientAuthenticationTls `pulumi:"tls"`
+}
+var clusterClientAuthenticationType = reflect.TypeOf((*ClusterClientAuthentication)(nil)).Elem()
+
+type ClusterClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToClusterClientAuthenticationOutput() ClusterClientAuthenticationOutput
+	ToClusterClientAuthenticationOutputWithContext(ctx context.Context) ClusterClientAuthenticationOutput
+}
+
+type ClusterClientAuthenticationArgs struct {
+	// Configuration block for specifying TLS client authentication. See below.
+	Tls ClusterClientAuthenticationTlsInput `pulumi:"tls"`
+}
+
+func (ClusterClientAuthenticationArgs) ElementType() reflect.Type {
+	return clusterClientAuthenticationType
+}
+
+func (a ClusterClientAuthenticationArgs) ToClusterClientAuthenticationOutput() ClusterClientAuthenticationOutput {
+	return pulumi.ToOutput(a).(ClusterClientAuthenticationOutput)
+}
+
+func (a ClusterClientAuthenticationArgs) ToClusterClientAuthenticationOutputWithContext(ctx context.Context) ClusterClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterClientAuthenticationOutput)
+}
+
+type ClusterClientAuthenticationOutput struct { *pulumi.OutputState }
+
+// Configuration block for specifying TLS client authentication. See below.
+func (o ClusterClientAuthenticationOutput) Tls() ClusterClientAuthenticationTlsOutput {
+	return o.Apply(func(v ClusterClientAuthentication) ClusterClientAuthenticationTls {
+		if v.Tls == nil { return *new(ClusterClientAuthenticationTls) } else { return *v.Tls }
+	}).(ClusterClientAuthenticationTlsOutput)
+}
+
+func (ClusterClientAuthenticationOutput) ElementType() reflect.Type {
+	return clusterClientAuthenticationType
+}
+
+func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationOutput() ClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationOutputWithContext(ctx context.Context) ClusterClientAuthenticationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterClientAuthenticationOutput{}) }
+
+type ClusterClientAuthenticationTls struct {
+	// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+	CertificateAuthorityArns *[]string `pulumi:"certificateAuthorityArns"`
+}
+var clusterClientAuthenticationTlsType = reflect.TypeOf((*ClusterClientAuthenticationTls)(nil)).Elem()
+
+type ClusterClientAuthenticationTlsInput interface {
+	pulumi.Input
+
+	ToClusterClientAuthenticationTlsOutput() ClusterClientAuthenticationTlsOutput
+	ToClusterClientAuthenticationTlsOutputWithContext(ctx context.Context) ClusterClientAuthenticationTlsOutput
+}
+
+type ClusterClientAuthenticationTlsArgs struct {
+	// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
+}
+
+func (ClusterClientAuthenticationTlsArgs) ElementType() reflect.Type {
+	return clusterClientAuthenticationTlsType
+}
+
+func (a ClusterClientAuthenticationTlsArgs) ToClusterClientAuthenticationTlsOutput() ClusterClientAuthenticationTlsOutput {
+	return pulumi.ToOutput(a).(ClusterClientAuthenticationTlsOutput)
+}
+
+func (a ClusterClientAuthenticationTlsArgs) ToClusterClientAuthenticationTlsOutputWithContext(ctx context.Context) ClusterClientAuthenticationTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterClientAuthenticationTlsOutput)
+}
+
+type ClusterClientAuthenticationTlsOutput struct { *pulumi.OutputState }
+
+// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+func (o ClusterClientAuthenticationTlsOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterClientAuthenticationTls) []string {
+		if v.CertificateAuthorityArns == nil { return *new([]string) } else { return *v.CertificateAuthorityArns }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ClusterClientAuthenticationTlsOutput) ElementType() reflect.Type {
+	return clusterClientAuthenticationTlsType
+}
+
+func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsOutput() ClusterClientAuthenticationTlsOutput {
+	return o
+}
+
+func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsOutputWithContext(ctx context.Context) ClusterClientAuthenticationTlsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterClientAuthenticationTlsOutput{}) }
+
+type ClusterConfigurationInfo struct {
+	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+	Arn string `pulumi:"arn"`
+	// Revision of the MSK Configuration to use in the cluster.
+	Revision int `pulumi:"revision"`
+}
+var clusterConfigurationInfoType = reflect.TypeOf((*ClusterConfigurationInfo)(nil)).Elem()
+
+type ClusterConfigurationInfoInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationInfoOutput() ClusterConfigurationInfoOutput
+	ToClusterConfigurationInfoOutputWithContext(ctx context.Context) ClusterConfigurationInfoOutput
+}
+
+type ClusterConfigurationInfoArgs struct {
+	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Revision of the MSK Configuration to use in the cluster.
+	Revision pulumi.IntInput `pulumi:"revision"`
+}
+
+func (ClusterConfigurationInfoArgs) ElementType() reflect.Type {
+	return clusterConfigurationInfoType
+}
+
+func (a ClusterConfigurationInfoArgs) ToClusterConfigurationInfoOutput() ClusterConfigurationInfoOutput {
+	return pulumi.ToOutput(a).(ClusterConfigurationInfoOutput)
+}
+
+func (a ClusterConfigurationInfoArgs) ToClusterConfigurationInfoOutputWithContext(ctx context.Context) ClusterConfigurationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterConfigurationInfoOutput)
+}
+
+type ClusterConfigurationInfoOutput struct { *pulumi.OutputState }
+
+// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+func (o ClusterConfigurationInfoOutput) Arn() pulumi.StringOutput {
+	return o.Apply(func(v ClusterConfigurationInfo) string {
+		return v.Arn
+	}).(pulumi.StringOutput)
+}
+
+// Revision of the MSK Configuration to use in the cluster.
+func (o ClusterConfigurationInfoOutput) Revision() pulumi.IntOutput {
+	return o.Apply(func(v ClusterConfigurationInfo) int {
+		return v.Revision
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterConfigurationInfoOutput) ElementType() reflect.Type {
+	return clusterConfigurationInfoType
+}
+
+func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoOutput() ClusterConfigurationInfoOutput {
+	return o
+}
+
+func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoOutputWithContext(ctx context.Context) ClusterConfigurationInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterConfigurationInfoOutput{}) }
+
+type ClusterEncryptionInfo struct {
+	// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+	EncryptionAtRestKmsKeyArn *string `pulumi:"encryptionAtRestKmsKeyArn"`
+	// Configuration block to specify encryption in transit. See below.
+	EncryptionInTransit *ClusterEncryptionInfoEncryptionInTransit `pulumi:"encryptionInTransit"`
+}
+var clusterEncryptionInfoType = reflect.TypeOf((*ClusterEncryptionInfo)(nil)).Elem()
+
+type ClusterEncryptionInfoInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionInfoOutput() ClusterEncryptionInfoOutput
+	ToClusterEncryptionInfoOutputWithContext(ctx context.Context) ClusterEncryptionInfoOutput
+}
+
+type ClusterEncryptionInfoArgs struct {
+	// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+	EncryptionAtRestKmsKeyArn pulumi.StringInput `pulumi:"encryptionAtRestKmsKeyArn"`
+	// Configuration block to specify encryption in transit. See below.
+	EncryptionInTransit ClusterEncryptionInfoEncryptionInTransitInput `pulumi:"encryptionInTransit"`
+}
+
+func (ClusterEncryptionInfoArgs) ElementType() reflect.Type {
+	return clusterEncryptionInfoType
+}
+
+func (a ClusterEncryptionInfoArgs) ToClusterEncryptionInfoOutput() ClusterEncryptionInfoOutput {
+	return pulumi.ToOutput(a).(ClusterEncryptionInfoOutput)
+}
+
+func (a ClusterEncryptionInfoArgs) ToClusterEncryptionInfoOutputWithContext(ctx context.Context) ClusterEncryptionInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterEncryptionInfoOutput)
+}
+
+type ClusterEncryptionInfoOutput struct { *pulumi.OutputState }
+
+// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+func (o ClusterEncryptionInfoOutput) EncryptionAtRestKmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEncryptionInfo) string {
+		if v.EncryptionAtRestKmsKeyArn == nil { return *new(string) } else { return *v.EncryptionAtRestKmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+// Configuration block to specify encryption in transit. See below.
+func (o ClusterEncryptionInfoOutput) EncryptionInTransit() ClusterEncryptionInfoEncryptionInTransitOutput {
+	return o.Apply(func(v ClusterEncryptionInfo) ClusterEncryptionInfoEncryptionInTransit {
+		if v.EncryptionInTransit == nil { return *new(ClusterEncryptionInfoEncryptionInTransit) } else { return *v.EncryptionInTransit }
+	}).(ClusterEncryptionInfoEncryptionInTransitOutput)
+}
+
+func (ClusterEncryptionInfoOutput) ElementType() reflect.Type {
+	return clusterEncryptionInfoType
+}
+
+func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoOutput() ClusterEncryptionInfoOutput {
+	return o
+}
+
+func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoOutputWithContext(ctx context.Context) ClusterEncryptionInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterEncryptionInfoOutput{}) }
+
+type ClusterEncryptionInfoEncryptionInTransit struct {
+	// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+	ClientBroker *string `pulumi:"clientBroker"`
+	// Whether data communication among broker nodes is encrypted. Default value: `true`.
+	InCluster *bool `pulumi:"inCluster"`
+}
+var clusterEncryptionInfoEncryptionInTransitType = reflect.TypeOf((*ClusterEncryptionInfoEncryptionInTransit)(nil)).Elem()
+
+type ClusterEncryptionInfoEncryptionInTransitInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionInfoEncryptionInTransitOutput() ClusterEncryptionInfoEncryptionInTransitOutput
+	ToClusterEncryptionInfoEncryptionInTransitOutputWithContext(ctx context.Context) ClusterEncryptionInfoEncryptionInTransitOutput
+}
+
+type ClusterEncryptionInfoEncryptionInTransitArgs struct {
+	// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+	ClientBroker pulumi.StringInput `pulumi:"clientBroker"`
+	// Whether data communication among broker nodes is encrypted. Default value: `true`.
+	InCluster pulumi.BoolInput `pulumi:"inCluster"`
+}
+
+func (ClusterEncryptionInfoEncryptionInTransitArgs) ElementType() reflect.Type {
+	return clusterEncryptionInfoEncryptionInTransitType
+}
+
+func (a ClusterEncryptionInfoEncryptionInTransitArgs) ToClusterEncryptionInfoEncryptionInTransitOutput() ClusterEncryptionInfoEncryptionInTransitOutput {
+	return pulumi.ToOutput(a).(ClusterEncryptionInfoEncryptionInTransitOutput)
+}
+
+func (a ClusterEncryptionInfoEncryptionInTransitArgs) ToClusterEncryptionInfoEncryptionInTransitOutputWithContext(ctx context.Context) ClusterEncryptionInfoEncryptionInTransitOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterEncryptionInfoEncryptionInTransitOutput)
+}
+
+type ClusterEncryptionInfoEncryptionInTransitOutput struct { *pulumi.OutputState }
+
+// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+func (o ClusterEncryptionInfoEncryptionInTransitOutput) ClientBroker() pulumi.StringOutput {
+	return o.Apply(func(v ClusterEncryptionInfoEncryptionInTransit) string {
+		if v.ClientBroker == nil { return *new(string) } else { return *v.ClientBroker }
+	}).(pulumi.StringOutput)
+}
+
+// Whether data communication among broker nodes is encrypted. Default value: `true`.
+func (o ClusterEncryptionInfoEncryptionInTransitOutput) InCluster() pulumi.BoolOutput {
+	return o.Apply(func(v ClusterEncryptionInfoEncryptionInTransit) bool {
+		if v.InCluster == nil { return *new(bool) } else { return *v.InCluster }
+	}).(pulumi.BoolOutput)
+}
+
+func (ClusterEncryptionInfoEncryptionInTransitOutput) ElementType() reflect.Type {
+	return clusterEncryptionInfoEncryptionInTransitType
+}
+
+func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoEncryptionInTransitOutput() ClusterEncryptionInfoEncryptionInTransitOutput {
+	return o
+}
+
+func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoEncryptionInTransitOutputWithContext(ctx context.Context) ClusterEncryptionInfoEncryptionInTransitOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterEncryptionInfoEncryptionInTransitOutput{}) }
+

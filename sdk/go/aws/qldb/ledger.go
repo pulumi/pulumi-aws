@@ -9,90 +9,69 @@ import (
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/qldb_ledger.html.markdown.
 type Ledger struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the QLDB Ledger
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	DeletionProtection pulumi.BoolOutput `pulumi:"deletionProtection"`
+
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewLedger registers a new resource with the given unique name, arguments, and options.
 func NewLedger(ctx *pulumi.Context,
-	name string, args *LedgerArgs, opts ...pulumi.ResourceOpt) (*Ledger, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deletionProtection"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["deletionProtection"] = args.DeletionProtection
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *LedgerArgs, opts ...pulumi.ResourceOption) (*Ledger, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeletionProtection; i != nil { inputs["deletionProtection"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, true, inputs, opts...)
+	var resource Ledger
+	err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Ledger{s: s}, nil
+	return &resource, nil
 }
 
 // GetLedger gets an existing Ledger resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLedger(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LedgerState, opts ...pulumi.ResourceOpt) (*Ledger, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LedgerState, opts ...pulumi.ResourceOption) (*Ledger, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["deletionProtection"] = state.DeletionProtection
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DeletionProtection; i != nil { inputs["deletionProtection"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:qldb/ledger:Ledger", name, id, inputs, opts...)
+	var resource Ledger
+	err := ctx.ReadResource("aws:qldb/ledger:Ledger", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Ledger{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Ledger) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Ledger) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the QLDB Ledger
-func (r *Ledger) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *Ledger) DeletionProtection() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deletionProtection"])
-}
-
-func (r *Ledger) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Key-value mapping of resource tags
-func (r *Ledger) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Ledger resources.
 type LedgerState struct {
 	// The ARN of the QLDB Ledger
-	Arn interface{}
-	DeletionProtection interface{}
-	Name interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	DeletionProtection pulumi.BoolInput `pulumi:"deletionProtection"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Ledger resource.
 type LedgerArgs struct {
-	DeletionProtection interface{}
-	Name interface{}
+	DeletionProtection pulumi.BoolInput `pulumi:"deletionProtection"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

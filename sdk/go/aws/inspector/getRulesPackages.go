@@ -12,21 +12,19 @@ import (
 // configured in the provider.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/inspector_rules_packages.html.markdown.
-func LookupRulesPackages(ctx *pulumi.Context) (*GetRulesPackagesResult, error) {
-	outputs, err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", nil)
+func LookupRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
+	var rv GetRulesPackagesResult
+	err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRulesPackagesResult{
-		Arns: outputs["arns"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of values returned by getRulesPackages.
 type GetRulesPackagesResult struct {
 	// A list of the AWS Inspector Rules Packages arns available in the AWS region.
-	Arns interface{}
+	Arns []string `pulumi:"arns"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

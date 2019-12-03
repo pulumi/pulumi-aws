@@ -4,170 +4,45 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
 type SecurityGroup struct {
-	s *pulumi.ResourceState
-}
+	pulumi.CustomResourceState
 
-// NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
-func NewSecurityGroup(ctx *pulumi.Context,
-	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
-	inputs := make(map[string]interface{})
-	inputs["description"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["egress"] = nil
-		inputs["ingress"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["revokeRulesOnDelete"] = nil
-		inputs["tags"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["egress"] = args.Egress
-		inputs["ingress"] = args.Ingress
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["revokeRulesOnDelete"] = args.RevokeRulesOnDelete
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
-	}
-	inputs["arn"] = nil
-	inputs["ownerId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/securityGroup:SecurityGroup", name, true, inputs, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return &SecurityGroup{s: s}, nil
-}
-
-// GetSecurityGroup gets an existing SecurityGroup resource's state with the given name, ID, and optional
-// state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetSecurityGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SecurityGroupState, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
-	inputs := make(map[string]interface{})
-	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["egress"] = state.Egress
-		inputs["ingress"] = state.Ingress
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["ownerId"] = state.OwnerId
-		inputs["revokeRulesOnDelete"] = state.RevokeRulesOnDelete
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
-	}
-	s, err := ctx.ReadResource("aws:ec2/securityGroup:SecurityGroup", name, id, inputs, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return &SecurityGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the security group
-func (r *SecurityGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The security group description. Defaults to
-// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
-// `GroupDescription` attribute, for which there is no Update API. If you'd like
-// to classify your security groups in a way that can be updated, use `tags`.
-func (r *SecurityGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Can be specified multiple times for each
-// egress rule. Each egress block supports fields documented below.
-// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *SecurityGroup) Egress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["egress"])
-}
-
-// Can be specified multiple times for each
-// ingress rule. Each ingress block supports fields documented below.
-// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *SecurityGroup) Ingress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ingress"])
-}
-
-// The name of the security group. If omitted, this provider will
-// assign a random, unique name
-func (r *SecurityGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified
-// prefix. Conflicts with `name`.
-func (r *SecurityGroup) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// The owner ID.
-func (r *SecurityGroup) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// Instruct this provider to revoke all of the
-// Security Groups attached ingress and egress rules before deleting the rule
-// itself. This is normally not needed, however certain AWS services such as
-// Elastic Map Reduce may automatically add required rules to security groups used
-// with the service, and those rules may contain a cyclic dependency that prevent
-// the security groups from being destroyed without removing the dependency first.
-// Default `false`
-func (r *SecurityGroup) RevokeRulesOnDelete() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *SecurityGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The VPC ID.
-func (r *SecurityGroup) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
-}
-
-// Input properties used for looking up and filtering SecurityGroup resources.
-type SecurityGroupState struct {
 	// The ARN of the security group
-	Arn interface{}
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
 	// The security group description. Defaults to
 	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
 	// `GroupDescription` attribute, for which there is no Update API. If you'd like
 	// to classify your security groups in a way that can be updated, use `tags`.
-	Description interface{}
+	Description pulumi.StringOutput `pulumi:"description"`
+
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Egress interface{}
+	Egress SecurityGroupEgressArrayOutput `pulumi:"egress"`
+
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Ingress interface{}
+	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
+
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name
-	Name interface{}
+	Name pulumi.StringOutput `pulumi:"name"`
+
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
 	// The owner ID.
-	OwnerId interface{}
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
 	// Instruct this provider to revoke all of the
 	// Security Groups attached ingress and egress rules before deleting the rule
 	// itself. This is normally not needed, however certain AWS services such as
@@ -175,11 +50,100 @@ type SecurityGroupState struct {
 	// with the service, and those rules may contain a cyclic dependency that prevent
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
-	RevokeRulesOnDelete interface{}
+	RevokeRulesOnDelete pulumi.BoolOutput `pulumi:"revokeRulesOnDelete"`
+
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
 	// The VPC ID.
-	VpcId interface{}
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+}
+
+// NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
+func NewSecurityGroup(ctx *pulumi.Context,
+	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
+	inputs["description"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Egress; i != nil { inputs["egress"] = i.ToSecurityGroupEgressArrayOutput() }
+		if i := args.Ingress; i != nil { inputs["ingress"] = i.ToSecurityGroupIngressArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.RevokeRulesOnDelete; i != nil { inputs["revokeRulesOnDelete"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
+	}
+	var resource SecurityGroup
+	err := ctx.RegisterResource("aws:ec2/securityGroup:SecurityGroup", name, inputs, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+// GetSecurityGroup gets an existing SecurityGroup resource's state with the given name, ID, and optional
+// state properties that are used to uniquely qualify the lookup (nil if not required).
+func GetSecurityGroup(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *SecurityGroupState, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
+	if state != nil {
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Egress; i != nil { inputs["egress"] = i.ToSecurityGroupEgressArrayOutput() }
+		if i := state.Ingress; i != nil { inputs["ingress"] = i.ToSecurityGroupIngressArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.RevokeRulesOnDelete; i != nil { inputs["revokeRulesOnDelete"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
+	}
+	var resource SecurityGroup
+	err := ctx.ReadResource("aws:ec2/securityGroup:SecurityGroup", name, id, inputs, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+// Input properties used for looking up and filtering SecurityGroup resources.
+type SecurityGroupState struct {
+	// The ARN of the security group
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The security group description. Defaults to
+	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+	// `GroupDescription` attribute, for which there is no Update API. If you'd like
+	// to classify your security groups in a way that can be updated, use `tags`.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Can be specified multiple times for each
+	// egress rule. Each egress block supports fields documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	Egress SecurityGroupEgressArrayInput `pulumi:"egress"`
+	// Can be specified multiple times for each
+	// ingress rule. Each ingress block supports fields documented below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	Ingress SecurityGroupIngressArrayInput `pulumi:"ingress"`
+	// The name of the security group. If omitted, this provider will
+	// assign a random, unique name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Creates a unique name beginning with the specified
+	// prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
+	// The owner ID.
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	// Instruct this provider to revoke all of the
+	// Security Groups attached ingress and egress rules before deleting the rule
+	// itself. This is normally not needed, however certain AWS services such as
+	// Elastic Map Reduce may automatically add required rules to security groups used
+	// with the service, and those rules may contain a cyclic dependency that prevent
+	// the security groups from being destroyed without removing the dependency first.
+	// Default `false`
+	RevokeRulesOnDelete pulumi.BoolInput `pulumi:"revokeRulesOnDelete"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput `pulumi:"tags"`
+	// The VPC ID.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
@@ -188,21 +152,21 @@ type SecurityGroupArgs struct {
 	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
 	// `GroupDescription` attribute, for which there is no Update API. If you'd like
 	// to classify your security groups in a way that can be updated, use `tags`.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Egress interface{}
+	Egress SecurityGroupEgressArrayInput `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Ingress interface{}
+	Ingress SecurityGroupIngressArrayInput `pulumi:"ingress"`
 	// The name of the security group. If omitted, this provider will
 	// assign a random, unique name
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Instruct this provider to revoke all of the
 	// Security Groups attached ingress and egress rules before deleting the rule
 	// itself. This is normally not needed, however certain AWS services such as
@@ -210,9 +174,351 @@ type SecurityGroupArgs struct {
 	// with the service, and those rules may contain a cyclic dependency that prevent
 	// the security groups from being destroyed without removing the dependency first.
 	// Default `false`
-	RevokeRulesOnDelete interface{}
+	RevokeRulesOnDelete pulumi.BoolInput `pulumi:"revokeRulesOnDelete"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
+type SecurityGroupEgress struct {
+	CidrBlocks *[]string `pulumi:"cidrBlocks"`
+	// The security group description. Defaults to
+	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+	// `GroupDescription` attribute, for which there is no Update API. If you'd like
+	// to classify your security groups in a way that can be updated, use `tags`.
+	Description *string `pulumi:"description"`
+	FromPort int `pulumi:"fromPort"`
+	Ipv6CidrBlocks *[]string `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds *[]string `pulumi:"prefixListIds"`
+	Protocol string `pulumi:"protocol"`
+	SecurityGroups *[]string `pulumi:"securityGroups"`
+	Self *bool `pulumi:"self"`
+	ToPort int `pulumi:"toPort"`
+}
+var securityGroupEgressType = reflect.TypeOf((*SecurityGroupEgress)(nil)).Elem()
+
+type SecurityGroupEgressInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressOutput() SecurityGroupEgressOutput
+	ToSecurityGroupEgressOutputWithContext(ctx context.Context) SecurityGroupEgressOutput
+}
+
+type SecurityGroupEgressArgs struct {
+	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
+	// The security group description. Defaults to
+	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+	// `GroupDescription` attribute, for which there is no Update API. If you'd like
+	// to classify your security groups in a way that can be updated, use `tags`.
+	Description pulumi.StringInput `pulumi:"description"`
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Self pulumi.BoolInput `pulumi:"self"`
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (SecurityGroupEgressArgs) ElementType() reflect.Type {
+	return securityGroupEgressType
+}
+
+func (a SecurityGroupEgressArgs) ToSecurityGroupEgressOutput() SecurityGroupEgressOutput {
+	return pulumi.ToOutput(a).(SecurityGroupEgressOutput)
+}
+
+func (a SecurityGroupEgressArgs) ToSecurityGroupEgressOutputWithContext(ctx context.Context) SecurityGroupEgressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityGroupEgressOutput)
+}
+
+type SecurityGroupEgressOutput struct { *pulumi.OutputState }
+
+func (o SecurityGroupEgressOutput) CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupEgress) []string {
+		if v.CidrBlocks == nil { return *new([]string) } else { return *v.CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The security group description. Defaults to
+// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+// `GroupDescription` attribute, for which there is no Update API. If you'd like
+// to classify your security groups in a way that can be updated, use `tags`.
+func (o SecurityGroupEgressOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupEgress) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v SecurityGroupEgress) int {
+		return v.FromPort
+	}).(pulumi.IntOutput)
+}
+
+func (o SecurityGroupEgressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupEgress) []string {
+		if v.Ipv6CidrBlocks == nil { return *new([]string) } else { return *v.Ipv6CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupEgress) []string {
+		if v.PrefixListIds == nil { return *new([]string) } else { return *v.PrefixListIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupEgress) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupEgress) []string {
+		if v.SecurityGroups == nil { return *new([]string) } else { return *v.SecurityGroups }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SecurityGroupEgressOutput) Self() pulumi.BoolOutput {
+	return o.Apply(func(v SecurityGroupEgress) bool {
+		if v.Self == nil { return *new(bool) } else { return *v.Self }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v SecurityGroupEgress) int {
+		return v.ToPort
+	}).(pulumi.IntOutput)
+}
+
+func (SecurityGroupEgressOutput) ElementType() reflect.Type {
+	return securityGroupEgressType
+}
+
+func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutput() SecurityGroupEgressOutput {
+	return o
+}
+
+func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutputWithContext(ctx context.Context) SecurityGroupEgressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityGroupEgressOutput{}) }
+
+var securityGroupEgressArrayType = reflect.TypeOf((*[]SecurityGroupEgress)(nil)).Elem()
+
+type SecurityGroupEgressArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressArrayOutput() SecurityGroupEgressArrayOutput
+	ToSecurityGroupEgressArrayOutputWithContext(ctx context.Context) SecurityGroupEgressArrayOutput
+}
+
+type SecurityGroupEgressArrayArgs []SecurityGroupEgressInput
+
+func (SecurityGroupEgressArrayArgs) ElementType() reflect.Type {
+	return securityGroupEgressArrayType
+}
+
+func (a SecurityGroupEgressArrayArgs) ToSecurityGroupEgressArrayOutput() SecurityGroupEgressArrayOutput {
+	return pulumi.ToOutput(a).(SecurityGroupEgressArrayOutput)
+}
+
+func (a SecurityGroupEgressArrayArgs) ToSecurityGroupEgressArrayOutputWithContext(ctx context.Context) SecurityGroupEgressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityGroupEgressArrayOutput)
+}
+
+type SecurityGroupEgressArrayOutput struct { *pulumi.OutputState }
+
+func (o SecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) SecurityGroupEgressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SecurityGroupEgress {
+		return vs[0].([]SecurityGroupEgress)[vs[1].(int)]
+	}).(SecurityGroupEgressOutput)
+}
+
+func (SecurityGroupEgressArrayOutput) ElementType() reflect.Type {
+	return securityGroupEgressArrayType
+}
+
+func (o SecurityGroupEgressArrayOutput) ToSecurityGroupEgressArrayOutput() SecurityGroupEgressArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressArrayOutput) ToSecurityGroupEgressArrayOutputWithContext(ctx context.Context) SecurityGroupEgressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityGroupEgressArrayOutput{}) }
+
+type SecurityGroupIngress struct {
+	CidrBlocks *[]string `pulumi:"cidrBlocks"`
+	// The security group description. Defaults to
+	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+	// `GroupDescription` attribute, for which there is no Update API. If you'd like
+	// to classify your security groups in a way that can be updated, use `tags`.
+	Description *string `pulumi:"description"`
+	FromPort int `pulumi:"fromPort"`
+	Ipv6CidrBlocks *[]string `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds *[]string `pulumi:"prefixListIds"`
+	Protocol string `pulumi:"protocol"`
+	SecurityGroups *[]string `pulumi:"securityGroups"`
+	Self *bool `pulumi:"self"`
+	ToPort int `pulumi:"toPort"`
+}
+var securityGroupIngressType = reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
+
+type SecurityGroupIngressInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressOutput() SecurityGroupIngressOutput
+	ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput
+}
+
+type SecurityGroupIngressArgs struct {
+	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
+	// The security group description. Defaults to
+	// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+	// `GroupDescription` attribute, for which there is no Update API. If you'd like
+	// to classify your security groups in a way that can be updated, use `tags`.
+	Description pulumi.StringInput `pulumi:"description"`
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Self pulumi.BoolInput `pulumi:"self"`
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (SecurityGroupIngressArgs) ElementType() reflect.Type {
+	return securityGroupIngressType
+}
+
+func (a SecurityGroupIngressArgs) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
+	return pulumi.ToOutput(a).(SecurityGroupIngressOutput)
+}
+
+func (a SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityGroupIngressOutput)
+}
+
+type SecurityGroupIngressOutput struct { *pulumi.OutputState }
+
+func (o SecurityGroupIngressOutput) CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupIngress) []string {
+		if v.CidrBlocks == nil { return *new([]string) } else { return *v.CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The security group description. Defaults to
+// "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
+// `GroupDescription` attribute, for which there is no Update API. If you'd like
+// to classify your security groups in a way that can be updated, use `tags`.
+func (o SecurityGroupIngressOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupIngress) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v SecurityGroupIngress) int {
+		return v.FromPort
+	}).(pulumi.IntOutput)
+}
+
+func (o SecurityGroupIngressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupIngress) []string {
+		if v.Ipv6CidrBlocks == nil { return *new([]string) } else { return *v.Ipv6CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupIngress) []string {
+		if v.PrefixListIds == nil { return *new([]string) } else { return *v.PrefixListIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupIngress) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v SecurityGroupIngress) []string {
+		if v.SecurityGroups == nil { return *new([]string) } else { return *v.SecurityGroups }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SecurityGroupIngressOutput) Self() pulumi.BoolOutput {
+	return o.Apply(func(v SecurityGroupIngress) bool {
+		if v.Self == nil { return *new(bool) } else { return *v.Self }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SecurityGroupIngressOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v SecurityGroupIngress) int {
+		return v.ToPort
+	}).(pulumi.IntOutput)
+}
+
+func (SecurityGroupIngressOutput) ElementType() reflect.Type {
+	return securityGroupIngressType
+}
+
+func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
+	return o
+}
+
+func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityGroupIngressOutput{}) }
+
+var securityGroupIngressArrayType = reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
+
+type SecurityGroupIngressArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput
+	ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput
+}
+
+type SecurityGroupIngressArrayArgs []SecurityGroupIngressInput
+
+func (SecurityGroupIngressArrayArgs) ElementType() reflect.Type {
+	return securityGroupIngressArrayType
+}
+
+func (a SecurityGroupIngressArrayArgs) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
+	return pulumi.ToOutput(a).(SecurityGroupIngressArrayOutput)
+}
+
+func (a SecurityGroupIngressArrayArgs) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityGroupIngressArrayOutput)
+}
+
+type SecurityGroupIngressArrayOutput struct { *pulumi.OutputState }
+
+func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SecurityGroupIngress {
+		return vs[0].([]SecurityGroupIngress)[vs[1].(int)]
+	}).(SecurityGroupIngressOutput)
+}
+
+func (SecurityGroupIngressArrayOutput) ElementType() reflect.Type {
+	return securityGroupIngressArrayType
+}
+
+func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{}) }
+

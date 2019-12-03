@@ -12,39 +12,46 @@ import (
 // The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
-func LookupVpcs(ctx *pulumi.Context, args *GetVpcsArgs) (*GetVpcsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", inputs)
+func LookupVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
+	var rv GetVpcsResult
+	err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpcsResult{
-		Filters: outputs["filters"],
-		Ids: outputs["ids"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpcs.
 type GetVpcsArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetVpcsFiltersArgs `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcs.
 type GetVpcsResult struct {
-	Filters interface{}
+	Filters *[]GetVpcsFiltersResult `pulumi:"filters"`
 	// A list of all the VPC Ids found. This data source will fail if none are found.
-	Ids interface{}
-	Tags interface{}
+	Ids []string `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetVpcsFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetVpcsFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

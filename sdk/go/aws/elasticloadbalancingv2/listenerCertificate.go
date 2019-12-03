@@ -16,81 +16,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_certificate_legacy.html.markdown.
 type ListenerCertificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the certificate to attach to the listener.
+	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+
+	// The ARN of the listener to which to attach the certificate.
+	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
 }
 
 // NewListenerCertificate registers a new resource with the given unique name, arguments, and options.
 func NewListenerCertificate(ctx *pulumi.Context,
-	name string, args *ListenerCertificateArgs, opts ...pulumi.ResourceOpt) (*ListenerCertificate, error) {
+	name string, args *ListenerCertificateArgs, opts ...pulumi.ResourceOption) (*ListenerCertificate, error) {
 	if args == nil || args.CertificateArn == nil {
 		return nil, errors.New("missing required argument 'CertificateArn'")
 	}
 	if args == nil || args.ListenerArn == nil {
 		return nil, errors.New("missing required argument 'ListenerArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificateArn"] = nil
-		inputs["listenerArn"] = nil
-	} else {
-		inputs["certificateArn"] = args.CertificateArn
-		inputs["listenerArn"] = args.ListenerArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := args.ListenerArn; i != nil { inputs["listenerArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, true, inputs, opts...)
+	var resource ListenerCertificate
+	err := ctx.RegisterResource("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ListenerCertificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetListenerCertificate gets an existing ListenerCertificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetListenerCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ListenerCertificateState, opts ...pulumi.ResourceOpt) (*ListenerCertificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ListenerCertificateState, opts ...pulumi.ResourceOption) (*ListenerCertificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["certificateArn"] = state.CertificateArn
-		inputs["listenerArn"] = state.ListenerArn
+		if i := state.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := state.ListenerArn; i != nil { inputs["listenerArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, id, inputs, opts...)
+	var resource ListenerCertificate
+	err := ctx.ReadResource("aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ListenerCertificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ListenerCertificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ListenerCertificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the certificate to attach to the listener.
-func (r *ListenerCertificate) CertificateArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateArn"])
-}
-
-// The ARN of the listener to which to attach the certificate.
-func (r *ListenerCertificate) ListenerArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["listenerArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ListenerCertificate resources.
 type ListenerCertificateState struct {
 	// The ARN of the certificate to attach to the listener.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
-	ListenerArn interface{}
+	ListenerArn pulumi.StringInput `pulumi:"listenerArn"`
 }
 
 // The set of arguments for constructing a ListenerCertificate resource.
 type ListenerCertificateArgs struct {
 	// The ARN of the certificate to attach to the listener.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
-	ListenerArn interface{}
+	ListenerArn pulumi.StringInput `pulumi:"listenerArn"`
 }

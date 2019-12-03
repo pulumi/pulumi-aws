@@ -10,45 +10,34 @@ import (
 // Get information on an Amazon MSK Configuration.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
-func LookupConfiguration(ctx *pulumi.Context, args *GetConfigurationArgs) (*GetConfigurationResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:msk/getConfiguration:getConfiguration", inputs)
+func LookupConfiguration(ctx *pulumi.Context, args *GetConfigurationArgs, opts ...pulumi.InvokeOption) (*GetConfigurationResult, error) {
+	var rv GetConfigurationResult
+	err := ctx.Invoke("aws:msk/getConfiguration:getConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetConfigurationResult{
-		Arn: outputs["arn"],
-		Description: outputs["description"],
-		KafkaVersions: outputs["kafkaVersions"],
-		LatestRevision: outputs["latestRevision"],
-		Name: outputs["name"],
-		ServerProperties: outputs["serverProperties"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getConfiguration.
 type GetConfigurationArgs struct {
 	// Name of the configuration.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getConfiguration.
 type GetConfigurationResult struct {
 	// Amazon Resource Name (ARN) of the configuration.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Description of the configuration.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// List of Apache Kafka versions which can use this configuration.
-	KafkaVersions interface{}
+	KafkaVersions []string `pulumi:"kafkaVersions"`
 	// Latest revision of the configuration.
-	LatestRevision interface{}
-	Name interface{}
+	LatestRevision int `pulumi:"latestRevision"`
+	Name string `pulumi:"name"`
 	// Contents of the server.properties file.
-	ServerProperties interface{}
+	ServerProperties string `pulumi:"serverProperties"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

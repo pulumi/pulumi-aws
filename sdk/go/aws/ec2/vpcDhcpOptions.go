@@ -19,132 +19,102 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options.html.markdown.
 type VpcDhcpOptions struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+
+	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+	DomainNameServers pulumi.StringArrayOutput `pulumi:"domainNameServers"`
+
+	// List of NETBIOS name servers.
+	NetbiosNameServers pulumi.StringArrayOutput `pulumi:"netbiosNameServers"`
+
+	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+	NetbiosNodeType pulumi.StringOutput `pulumi:"netbiosNodeType"`
+
+	// List of NTP servers to configure.
+	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
+
+	// The ID of the AWS account that owns the DHCP options set.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewVpcDhcpOptions registers a new resource with the given unique name, arguments, and options.
 func NewVpcDhcpOptions(ctx *pulumi.Context,
-	name string, args *VpcDhcpOptionsArgs, opts ...pulumi.ResourceOpt) (*VpcDhcpOptions, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["domainName"] = nil
-		inputs["domainNameServers"] = nil
-		inputs["netbiosNameServers"] = nil
-		inputs["netbiosNodeType"] = nil
-		inputs["ntpServers"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["domainName"] = args.DomainName
-		inputs["domainNameServers"] = args.DomainNameServers
-		inputs["netbiosNameServers"] = args.NetbiosNameServers
-		inputs["netbiosNodeType"] = args.NetbiosNodeType
-		inputs["ntpServers"] = args.NtpServers
-		inputs["tags"] = args.Tags
+	name string, args *VpcDhcpOptionsArgs, opts ...pulumi.ResourceOption) (*VpcDhcpOptions, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := args.DomainNameServers; i != nil { inputs["domainNameServers"] = i.ToStringArrayOutput() }
+		if i := args.NetbiosNameServers; i != nil { inputs["netbiosNameServers"] = i.ToStringArrayOutput() }
+		if i := args.NetbiosNodeType; i != nil { inputs["netbiosNodeType"] = i.ToStringOutput() }
+		if i := args.NtpServers; i != nil { inputs["ntpServers"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["ownerId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, true, inputs, opts...)
+	var resource VpcDhcpOptions
+	err := ctx.RegisterResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcDhcpOptions{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpcDhcpOptions gets an existing VpcDhcpOptions resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpcDhcpOptions(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpcDhcpOptionsState, opts ...pulumi.ResourceOpt) (*VpcDhcpOptions, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpcDhcpOptionsState, opts ...pulumi.ResourceOption) (*VpcDhcpOptions, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["domainName"] = state.DomainName
-		inputs["domainNameServers"] = state.DomainNameServers
-		inputs["netbiosNameServers"] = state.NetbiosNameServers
-		inputs["netbiosNodeType"] = state.NetbiosNodeType
-		inputs["ntpServers"] = state.NtpServers
-		inputs["ownerId"] = state.OwnerId
-		inputs["tags"] = state.Tags
+		if i := state.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := state.DomainNameServers; i != nil { inputs["domainNameServers"] = i.ToStringArrayOutput() }
+		if i := state.NetbiosNameServers; i != nil { inputs["netbiosNameServers"] = i.ToStringArrayOutput() }
+		if i := state.NetbiosNodeType; i != nil { inputs["netbiosNodeType"] = i.ToStringOutput() }
+		if i := state.NtpServers; i != nil { inputs["ntpServers"] = i.ToStringArrayOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, id, inputs, opts...)
+	var resource VpcDhcpOptions
+	err := ctx.ReadResource("aws:ec2/vpcDhcpOptions:VpcDhcpOptions", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcDhcpOptions{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpcDhcpOptions) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpcDhcpOptions) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-func (r *VpcDhcpOptions) DomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainName"])
-}
-
-// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-func (r *VpcDhcpOptions) DomainNameServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["domainNameServers"])
-}
-
-// List of NETBIOS name servers.
-func (r *VpcDhcpOptions) NetbiosNameServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["netbiosNameServers"])
-}
-
-// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-func (r *VpcDhcpOptions) NetbiosNodeType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["netbiosNodeType"])
-}
-
-// List of NTP servers to configure.
-func (r *VpcDhcpOptions) NtpServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ntpServers"])
-}
-
-// The ID of the AWS account that owns the DHCP options set.
-func (r *VpcDhcpOptions) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VpcDhcpOptions) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpcDhcpOptions resources.
 type VpcDhcpOptionsState struct {
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers interface{}
+	DomainNameServers pulumi.StringArrayInput `pulumi:"domainNameServers"`
 	// List of NETBIOS name servers.
-	NetbiosNameServers interface{}
+	NetbiosNameServers pulumi.StringArrayInput `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType interface{}
+	NetbiosNodeType pulumi.StringInput `pulumi:"netbiosNodeType"`
 	// List of NTP servers to configure.
-	NtpServers interface{}
+	NtpServers pulumi.StringArrayInput `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcDhcpOptions resource.
 type VpcDhcpOptionsArgs struct {
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers interface{}
+	DomainNameServers pulumi.StringArrayInput `pulumi:"domainNameServers"`
 	// List of NETBIOS name servers.
-	NetbiosNameServers interface{}
+	NetbiosNameServers pulumi.StringArrayInput `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType interface{}
+	NetbiosNodeType pulumi.StringInput `pulumi:"netbiosNodeType"`
 	// List of NTP servers to configure.
-	NtpServers interface{}
+	NtpServers pulumi.StringArrayInput `pulumi:"ntpServers"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

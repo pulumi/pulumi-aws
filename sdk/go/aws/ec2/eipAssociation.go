@@ -17,150 +17,123 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
 type EipAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The allocation ID. This is required for EC2-VPC.
+	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
+
+	// Whether to allow an Elastic IP to
+	// be re-associated. Defaults to `true` in VPC.
+	AllowReassociation pulumi.BoolOutput `pulumi:"allowReassociation"`
+
+	// The ID of the instance. This is required for
+	// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
+	// network interface ID, but not both. The operation fails if you specify an
+	// instance ID unless exactly one network interface is attached.
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+
+	// The ID of the network interface. If the
+	// instance has more than one network interface, you must specify a network
+	// interface ID.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+
+	// The primary or secondary private IP address
+	// to associate with the Elastic IP address. If no private IP address is
+	// specified, the Elastic IP address is associated with the primary private IP
+	// address.
+	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+
+	// The Elastic IP address. This is required for EC2-Classic.
+	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
 }
 
 // NewEipAssociation registers a new resource with the given unique name, arguments, and options.
 func NewEipAssociation(ctx *pulumi.Context,
-	name string, args *EipAssociationArgs, opts ...pulumi.ResourceOpt) (*EipAssociation, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allocationId"] = nil
-		inputs["allowReassociation"] = nil
-		inputs["instanceId"] = nil
-		inputs["networkInterfaceId"] = nil
-		inputs["privateIpAddress"] = nil
-		inputs["publicIp"] = nil
-	} else {
-		inputs["allocationId"] = args.AllocationId
-		inputs["allowReassociation"] = args.AllowReassociation
-		inputs["instanceId"] = args.InstanceId
-		inputs["networkInterfaceId"] = args.NetworkInterfaceId
-		inputs["privateIpAddress"] = args.PrivateIpAddress
-		inputs["publicIp"] = args.PublicIp
+	name string, args *EipAssociationArgs, opts ...pulumi.ResourceOption) (*EipAssociation, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllocationId; i != nil { inputs["allocationId"] = i.ToStringOutput() }
+		if i := args.AllowReassociation; i != nil { inputs["allowReassociation"] = i.ToBoolOutput() }
+		if i := args.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := args.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := args.PrivateIpAddress; i != nil { inputs["privateIpAddress"] = i.ToStringOutput() }
+		if i := args.PublicIp; i != nil { inputs["publicIp"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/eipAssociation:EipAssociation", name, true, inputs, opts...)
+	var resource EipAssociation
+	err := ctx.RegisterResource("aws:ec2/eipAssociation:EipAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EipAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetEipAssociation gets an existing EipAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEipAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EipAssociationState, opts ...pulumi.ResourceOpt) (*EipAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EipAssociationState, opts ...pulumi.ResourceOption) (*EipAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allocationId"] = state.AllocationId
-		inputs["allowReassociation"] = state.AllowReassociation
-		inputs["instanceId"] = state.InstanceId
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
-		inputs["privateIpAddress"] = state.PrivateIpAddress
-		inputs["publicIp"] = state.PublicIp
+		if i := state.AllocationId; i != nil { inputs["allocationId"] = i.ToStringOutput() }
+		if i := state.AllowReassociation; i != nil { inputs["allowReassociation"] = i.ToBoolOutput() }
+		if i := state.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := state.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
+		if i := state.PrivateIpAddress; i != nil { inputs["privateIpAddress"] = i.ToStringOutput() }
+		if i := state.PublicIp; i != nil { inputs["publicIp"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/eipAssociation:EipAssociation", name, id, inputs, opts...)
+	var resource EipAssociation
+	err := ctx.ReadResource("aws:ec2/eipAssociation:EipAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EipAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EipAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EipAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The allocation ID. This is required for EC2-VPC.
-func (r *EipAssociation) AllocationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["allocationId"])
-}
-
-// Whether to allow an Elastic IP to
-// be re-associated. Defaults to `true` in VPC.
-func (r *EipAssociation) AllowReassociation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowReassociation"])
-}
-
-// The ID of the instance. This is required for
-// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-// network interface ID, but not both. The operation fails if you specify an
-// instance ID unless exactly one network interface is attached.
-func (r *EipAssociation) InstanceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceId"])
-}
-
-// The ID of the network interface. If the
-// instance has more than one network interface, you must specify a network
-// interface ID.
-func (r *EipAssociation) NetworkInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
-}
-
-// The primary or secondary private IP address
-// to associate with the Elastic IP address. If no private IP address is
-// specified, the Elastic IP address is associated with the primary private IP
-// address.
-func (r *EipAssociation) PrivateIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
-}
-
-// The Elastic IP address. This is required for EC2-Classic.
-func (r *EipAssociation) PublicIp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicIp"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EipAssociation resources.
 type EipAssociationState struct {
 	// The allocation ID. This is required for EC2-VPC.
-	AllocationId interface{}
+	AllocationId pulumi.StringInput `pulumi:"allocationId"`
 	// Whether to allow an Elastic IP to
 	// be re-associated. Defaults to `true` in VPC.
-	AllowReassociation interface{}
+	AllowReassociation pulumi.BoolInput `pulumi:"allowReassociation"`
 	// The ID of the instance. This is required for
 	// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
 	// network interface ID, but not both. The operation fails if you specify an
 	// instance ID unless exactly one network interface is attached.
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// The ID of the network interface. If the
 	// instance has more than one network interface, you must specify a network
 	// interface ID.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The primary or secondary private IP address
 	// to associate with the Elastic IP address. If no private IP address is
 	// specified, the Elastic IP address is associated with the primary private IP
 	// address.
-	PrivateIpAddress interface{}
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// The Elastic IP address. This is required for EC2-Classic.
-	PublicIp interface{}
+	PublicIp pulumi.StringInput `pulumi:"publicIp"`
 }
 
 // The set of arguments for constructing a EipAssociation resource.
 type EipAssociationArgs struct {
 	// The allocation ID. This is required for EC2-VPC.
-	AllocationId interface{}
+	AllocationId pulumi.StringInput `pulumi:"allocationId"`
 	// Whether to allow an Elastic IP to
 	// be re-associated. Defaults to `true` in VPC.
-	AllowReassociation interface{}
+	AllowReassociation pulumi.BoolInput `pulumi:"allowReassociation"`
 	// The ID of the instance. This is required for
 	// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
 	// network interface ID, but not both. The operation fails if you specify an
 	// instance ID unless exactly one network interface is attached.
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// The ID of the network interface. If the
 	// instance has more than one network interface, you must specify a network
 	// interface ID.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 	// The primary or secondary private IP address
 	// to associate with the Elastic IP address. If no private IP address is
 	// specified, the Elastic IP address is associated with the primary private IP
 	// address.
-	PrivateIpAddress interface{}
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// The Elastic IP address. This is required for EC2-Classic.
-	PublicIp interface{}
+	PublicIp pulumi.StringInput `pulumi:"publicIp"`
 }

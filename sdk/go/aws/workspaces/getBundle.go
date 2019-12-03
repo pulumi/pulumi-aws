@@ -10,48 +10,48 @@ import (
 // Use this data source to get information about a Workspaces Bundle.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
-func LookupBundle(ctx *pulumi.Context, args *GetBundleArgs) (*GetBundleResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["bundleId"] = args.BundleId
-	}
-	outputs, err := ctx.Invoke("aws:workspaces/getBundle:getBundle", inputs)
+func LookupBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOption) (*GetBundleResult, error) {
+	var rv GetBundleResult
+	err := ctx.Invoke("aws:workspaces/getBundle:getBundle", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetBundleResult{
-		BundleId: outputs["bundleId"],
-		ComputeTypes: outputs["computeTypes"],
-		Description: outputs["description"],
-		Name: outputs["name"],
-		Owner: outputs["owner"],
-		RootStorages: outputs["rootStorages"],
-		UserStorages: outputs["userStorages"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getBundle.
 type GetBundleArgs struct {
 	// The ID of the bundle.
-	BundleId interface{}
+	BundleId string `pulumi:"bundleId"`
 }
 
 // A collection of values returned by getBundle.
 type GetBundleResult struct {
-	BundleId interface{}
+	BundleId string `pulumi:"bundleId"`
 	// The compute type. See supported fields below.
-	ComputeTypes interface{}
+	ComputeTypes []GetBundleComputeTypesResult `pulumi:"computeTypes"`
 	// The description of the bundle.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// The name of the compute type.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The owner of the bundle.
-	Owner interface{}
+	Owner string `pulumi:"owner"`
 	// The root volume. See supported fields below.
-	RootStorages interface{}
+	RootStorages []GetBundleRootStoragesResult `pulumi:"rootStorages"`
 	// The user storage. See supported fields below.
-	UserStorages interface{}
+	UserStorages []GetBundleUserStoragesResult `pulumi:"userStorages"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetBundleComputeTypesResult struct {
+	// The name of the compute type.
+	Name string `pulumi:"name"`
+}
+type GetBundleRootStoragesResult struct {
+	// The size of the user storage.
+	Capacity string `pulumi:"capacity"`
+}
+type GetBundleUserStoragesResult struct {
+	// The size of the user storage.
+	Capacity string `pulumi:"capacity"`
 }

@@ -11,111 +11,87 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
 type CatalogDatabase struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+
+	// Description of the database.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The location of the database (for example, an HDFS path).
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+
+	// The name of the database.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of key-value pairs that define parameters and properties of the database.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 }
 
 // NewCatalogDatabase registers a new resource with the given unique name, arguments, and options.
 func NewCatalogDatabase(ctx *pulumi.Context,
-	name string, args *CatalogDatabaseArgs, opts ...pulumi.ResourceOpt) (*CatalogDatabase, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["catalogId"] = nil
-		inputs["description"] = nil
-		inputs["locationUri"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-	} else {
-		inputs["catalogId"] = args.CatalogId
-		inputs["description"] = args.Description
-		inputs["locationUri"] = args.LocationUri
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
+	name string, args *CatalogDatabaseArgs, opts ...pulumi.ResourceOption) (*CatalogDatabase, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CatalogId; i != nil { inputs["catalogId"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.LocationUri; i != nil { inputs["locationUri"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:glue/catalogDatabase:CatalogDatabase", name, true, inputs, opts...)
+	var resource CatalogDatabase
+	err := ctx.RegisterResource("aws:glue/catalogDatabase:CatalogDatabase", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CatalogDatabase{s: s}, nil
+	return &resource, nil
 }
 
 // GetCatalogDatabase gets an existing CatalogDatabase resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCatalogDatabase(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CatalogDatabaseState, opts ...pulumi.ResourceOpt) (*CatalogDatabase, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CatalogDatabaseState, opts ...pulumi.ResourceOption) (*CatalogDatabase, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["catalogId"] = state.CatalogId
-		inputs["description"] = state.Description
-		inputs["locationUri"] = state.LocationUri
-		inputs["name"] = state.Name
-		inputs["parameters"] = state.Parameters
+		if i := state.CatalogId; i != nil { inputs["catalogId"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.LocationUri; i != nil { inputs["locationUri"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glue/catalogDatabase:CatalogDatabase", name, id, inputs, opts...)
+	var resource CatalogDatabase
+	err := ctx.ReadResource("aws:glue/catalogDatabase:CatalogDatabase", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CatalogDatabase{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CatalogDatabase) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CatalogDatabase) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-func (r *CatalogDatabase) CatalogId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["catalogId"])
-}
-
-// Description of the database.
-func (r *CatalogDatabase) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The location of the database (for example, an HDFS path).
-func (r *CatalogDatabase) LocationUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["locationUri"])
-}
-
-// The name of the database.
-func (r *CatalogDatabase) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of key-value pairs that define parameters and properties of the database.
-func (r *CatalogDatabase) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CatalogDatabase resources.
 type CatalogDatabaseState struct {
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-	CatalogId interface{}
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Description of the database.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The location of the database (for example, an HDFS path).
-	LocationUri interface{}
+	LocationUri pulumi.StringInput `pulumi:"locationUri"`
 	// The name of the database.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of key-value pairs that define parameters and properties of the database.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }
 
 // The set of arguments for constructing a CatalogDatabase resource.
 type CatalogDatabaseArgs struct {
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-	CatalogId interface{}
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Description of the database.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The location of the database (for example, an HDFS path).
-	LocationUri interface{}
+	LocationUri pulumi.StringInput `pulumi:"locationUri"`
 	// The name of the database.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of key-value pairs that define parameters and properties of the database.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }

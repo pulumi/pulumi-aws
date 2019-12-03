@@ -11,113 +11,86 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/servicecatalog_portfolio.html.markdown.
 type Portfolio struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+
+	// Description of the portfolio
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the portfolio.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Name of the person or organization who owns the portfolio.
+	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+
+	// Tags to apply to the connection.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPortfolio registers a new resource with the given unique name, arguments, and options.
 func NewPortfolio(ctx *pulumi.Context,
-	name string, args *PortfolioArgs, opts ...pulumi.ResourceOpt) (*Portfolio, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["providerName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["providerName"] = args.ProviderName
-		inputs["tags"] = args.Tags
+	name string, args *PortfolioArgs, opts ...pulumi.ResourceOption) (*Portfolio, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ProviderName; i != nil { inputs["providerName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdTime"] = nil
-	s, err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, true, inputs, opts...)
+	var resource Portfolio
+	err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Portfolio{s: s}, nil
+	return &resource, nil
 }
 
 // GetPortfolio gets an existing Portfolio resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPortfolio(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PortfolioState, opts ...pulumi.ResourceOpt) (*Portfolio, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PortfolioState, opts ...pulumi.ResourceOption) (*Portfolio, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["createdTime"] = state.CreatedTime
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["providerName"] = state.ProviderName
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CreatedTime; i != nil { inputs["createdTime"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ProviderName; i != nil { inputs["providerName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:servicecatalog/portfolio:Portfolio", name, id, inputs, opts...)
+	var resource Portfolio
+	err := ctx.ReadResource("aws:servicecatalog/portfolio:Portfolio", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Portfolio{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Portfolio) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Portfolio) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Portfolio) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *Portfolio) CreatedTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdTime"])
-}
-
-// Description of the portfolio
-func (r *Portfolio) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the portfolio.
-func (r *Portfolio) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Name of the person or organization who owns the portfolio.
-func (r *Portfolio) ProviderName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["providerName"])
-}
-
-// Tags to apply to the connection.
-func (r *Portfolio) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Portfolio resources.
 type PortfolioState struct {
-	Arn interface{}
-	CreatedTime interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// Description of the portfolio
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the portfolio.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
-	ProviderName interface{}
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portfolio resource.
 type PortfolioArgs struct {
 	// Description of the portfolio
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the portfolio.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
-	ProviderName interface{}
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

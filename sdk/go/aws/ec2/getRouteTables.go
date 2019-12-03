@@ -10,44 +10,49 @@ import (
 // This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
-func LookupRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs) (*GetRouteTablesResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getRouteTables:getRouteTables", inputs)
+func LookupRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetRouteTablesResult, error) {
+	var rv GetRouteTablesResult
+	err := ctx.Invoke("aws:ec2/getRouteTables:getRouteTables", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRouteTablesResult{
-		Filters: outputs["filters"],
-		Ids: outputs["ids"],
-		Tags: outputs["tags"],
-		VpcId: outputs["vpcId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRouteTables.
 type GetRouteTablesArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetRouteTablesFiltersArgs `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 	// The VPC ID that you want to filter from.
-	VpcId interface{}
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getRouteTables.
 type GetRouteTablesResult struct {
-	Filters interface{}
+	Filters *[]GetRouteTablesFiltersResult `pulumi:"filters"`
 	// A list of all the route table ids found. This data source will fail if none are found.
-	Ids interface{}
-	Tags interface{}
-	VpcId interface{}
+	Ids []string `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
+	VpcId *string `pulumi:"vpcId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetRouteTablesFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetRouteTablesFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

@@ -4,6 +4,8 @@
 package ses
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,222 +14,1066 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_rule.html.markdown.
 type ReceiptRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A list of Add Header Action blocks. Documented below.
+	AddHeaderActions ReceiptRuleAddHeaderActionsArrayOutput `pulumi:"addHeaderActions"`
+
+	// The name of the rule to place this rule after
+	After pulumi.StringOutput `pulumi:"after"`
+
+	// A list of Bounce Action blocks. Documented below.
+	BounceActions ReceiptRuleBounceActionsArrayOutput `pulumi:"bounceActions"`
+
+	// If true, the rule will be enabled
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// A list of Lambda Action blocks. Documented below.
+	LambdaActions ReceiptRuleLambdaActionsArrayOutput `pulumi:"lambdaActions"`
+
+	// The name of the rule
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of email addresses
+	Recipients pulumi.StringArrayOutput `pulumi:"recipients"`
+
+	// The name of the rule set
+	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
+
+	// A list of S3 Action blocks. Documented below.
+	S3Actions ReceiptRuleS3ActionsArrayOutput `pulumi:"s3Actions"`
+
+	// If true, incoming emails will be scanned for spam and viruses
+	ScanEnabled pulumi.BoolOutput `pulumi:"scanEnabled"`
+
+	// A list of SNS Action blocks. Documented below.
+	SnsActions ReceiptRuleSnsActionsArrayOutput `pulumi:"snsActions"`
+
+	// A list of Stop Action blocks. Documented below.
+	StopActions ReceiptRuleStopActionsArrayOutput `pulumi:"stopActions"`
+
+	// Require or Optional
+	TlsPolicy pulumi.StringOutput `pulumi:"tlsPolicy"`
+
+	// A list of WorkMail Action blocks. Documented below.
+	WorkmailActions ReceiptRuleWorkmailActionsArrayOutput `pulumi:"workmailActions"`
 }
 
 // NewReceiptRule registers a new resource with the given unique name, arguments, and options.
 func NewReceiptRule(ctx *pulumi.Context,
-	name string, args *ReceiptRuleArgs, opts ...pulumi.ResourceOpt) (*ReceiptRule, error) {
+	name string, args *ReceiptRuleArgs, opts ...pulumi.ResourceOption) (*ReceiptRule, error) {
 	if args == nil || args.RuleSetName == nil {
 		return nil, errors.New("missing required argument 'RuleSetName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addHeaderActions"] = nil
-		inputs["after"] = nil
-		inputs["bounceActions"] = nil
-		inputs["enabled"] = nil
-		inputs["lambdaActions"] = nil
-		inputs["name"] = nil
-		inputs["recipients"] = nil
-		inputs["ruleSetName"] = nil
-		inputs["s3Actions"] = nil
-		inputs["scanEnabled"] = nil
-		inputs["snsActions"] = nil
-		inputs["stopActions"] = nil
-		inputs["tlsPolicy"] = nil
-		inputs["workmailActions"] = nil
-	} else {
-		inputs["addHeaderActions"] = args.AddHeaderActions
-		inputs["after"] = args.After
-		inputs["bounceActions"] = args.BounceActions
-		inputs["enabled"] = args.Enabled
-		inputs["lambdaActions"] = args.LambdaActions
-		inputs["name"] = args.Name
-		inputs["recipients"] = args.Recipients
-		inputs["ruleSetName"] = args.RuleSetName
-		inputs["s3Actions"] = args.S3Actions
-		inputs["scanEnabled"] = args.ScanEnabled
-		inputs["snsActions"] = args.SnsActions
-		inputs["stopActions"] = args.StopActions
-		inputs["tlsPolicy"] = args.TlsPolicy
-		inputs["workmailActions"] = args.WorkmailActions
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddHeaderActions; i != nil { inputs["addHeaderActions"] = i.ToReceiptRuleAddHeaderActionsArrayOutput() }
+		if i := args.After; i != nil { inputs["after"] = i.ToStringOutput() }
+		if i := args.BounceActions; i != nil { inputs["bounceActions"] = i.ToReceiptRuleBounceActionsArrayOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.LambdaActions; i != nil { inputs["lambdaActions"] = i.ToReceiptRuleLambdaActionsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Recipients; i != nil { inputs["recipients"] = i.ToStringArrayOutput() }
+		if i := args.RuleSetName; i != nil { inputs["ruleSetName"] = i.ToStringOutput() }
+		if i := args.S3Actions; i != nil { inputs["s3Actions"] = i.ToReceiptRuleS3ActionsArrayOutput() }
+		if i := args.ScanEnabled; i != nil { inputs["scanEnabled"] = i.ToBoolOutput() }
+		if i := args.SnsActions; i != nil { inputs["snsActions"] = i.ToReceiptRuleSnsActionsArrayOutput() }
+		if i := args.StopActions; i != nil { inputs["stopActions"] = i.ToReceiptRuleStopActionsArrayOutput() }
+		if i := args.TlsPolicy; i != nil { inputs["tlsPolicy"] = i.ToStringOutput() }
+		if i := args.WorkmailActions; i != nil { inputs["workmailActions"] = i.ToReceiptRuleWorkmailActionsArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ses/receiptRule:ReceiptRule", name, true, inputs, opts...)
+	var resource ReceiptRule
+	err := ctx.RegisterResource("aws:ses/receiptRule:ReceiptRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReceiptRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetReceiptRule gets an existing ReceiptRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetReceiptRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ReceiptRuleState, opts ...pulumi.ResourceOpt) (*ReceiptRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ReceiptRuleState, opts ...pulumi.ResourceOption) (*ReceiptRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addHeaderActions"] = state.AddHeaderActions
-		inputs["after"] = state.After
-		inputs["bounceActions"] = state.BounceActions
-		inputs["enabled"] = state.Enabled
-		inputs["lambdaActions"] = state.LambdaActions
-		inputs["name"] = state.Name
-		inputs["recipients"] = state.Recipients
-		inputs["ruleSetName"] = state.RuleSetName
-		inputs["s3Actions"] = state.S3Actions
-		inputs["scanEnabled"] = state.ScanEnabled
-		inputs["snsActions"] = state.SnsActions
-		inputs["stopActions"] = state.StopActions
-		inputs["tlsPolicy"] = state.TlsPolicy
-		inputs["workmailActions"] = state.WorkmailActions
+		if i := state.AddHeaderActions; i != nil { inputs["addHeaderActions"] = i.ToReceiptRuleAddHeaderActionsArrayOutput() }
+		if i := state.After; i != nil { inputs["after"] = i.ToStringOutput() }
+		if i := state.BounceActions; i != nil { inputs["bounceActions"] = i.ToReceiptRuleBounceActionsArrayOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.LambdaActions; i != nil { inputs["lambdaActions"] = i.ToReceiptRuleLambdaActionsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Recipients; i != nil { inputs["recipients"] = i.ToStringArrayOutput() }
+		if i := state.RuleSetName; i != nil { inputs["ruleSetName"] = i.ToStringOutput() }
+		if i := state.S3Actions; i != nil { inputs["s3Actions"] = i.ToReceiptRuleS3ActionsArrayOutput() }
+		if i := state.ScanEnabled; i != nil { inputs["scanEnabled"] = i.ToBoolOutput() }
+		if i := state.SnsActions; i != nil { inputs["snsActions"] = i.ToReceiptRuleSnsActionsArrayOutput() }
+		if i := state.StopActions; i != nil { inputs["stopActions"] = i.ToReceiptRuleStopActionsArrayOutput() }
+		if i := state.TlsPolicy; i != nil { inputs["tlsPolicy"] = i.ToStringOutput() }
+		if i := state.WorkmailActions; i != nil { inputs["workmailActions"] = i.ToReceiptRuleWorkmailActionsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/receiptRule:ReceiptRule", name, id, inputs, opts...)
+	var resource ReceiptRule
+	err := ctx.ReadResource("aws:ses/receiptRule:ReceiptRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReceiptRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ReceiptRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ReceiptRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A list of Add Header Action blocks. Documented below.
-func (r *ReceiptRule) AddHeaderActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["addHeaderActions"])
-}
-
-// The name of the rule to place this rule after
-func (r *ReceiptRule) After() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["after"])
-}
-
-// A list of Bounce Action blocks. Documented below.
-func (r *ReceiptRule) BounceActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["bounceActions"])
-}
-
-// If true, the rule will be enabled
-func (r *ReceiptRule) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// A list of Lambda Action blocks. Documented below.
-func (r *ReceiptRule) LambdaActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["lambdaActions"])
-}
-
-// The name of the rule
-func (r *ReceiptRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of email addresses
-func (r *ReceiptRule) Recipients() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["recipients"])
-}
-
-// The name of the rule set
-func (r *ReceiptRule) RuleSetName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ruleSetName"])
-}
-
-// A list of S3 Action blocks. Documented below.
-func (r *ReceiptRule) S3Actions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["s3Actions"])
-}
-
-// If true, incoming emails will be scanned for spam and viruses
-func (r *ReceiptRule) ScanEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["scanEnabled"])
-}
-
-// A list of SNS Action blocks. Documented below.
-func (r *ReceiptRule) SnsActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["snsActions"])
-}
-
-// A list of Stop Action blocks. Documented below.
-func (r *ReceiptRule) StopActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["stopActions"])
-}
-
-// Require or Optional
-func (r *ReceiptRule) TlsPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tlsPolicy"])
-}
-
-// A list of WorkMail Action blocks. Documented below.
-func (r *ReceiptRule) WorkmailActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["workmailActions"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ReceiptRule resources.
 type ReceiptRuleState struct {
 	// A list of Add Header Action blocks. Documented below.
-	AddHeaderActions interface{}
+	AddHeaderActions ReceiptRuleAddHeaderActionsArrayInput `pulumi:"addHeaderActions"`
 	// The name of the rule to place this rule after
-	After interface{}
+	After pulumi.StringInput `pulumi:"after"`
 	// A list of Bounce Action blocks. Documented below.
-	BounceActions interface{}
+	BounceActions ReceiptRuleBounceActionsArrayInput `pulumi:"bounceActions"`
 	// If true, the rule will be enabled
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A list of Lambda Action blocks. Documented below.
-	LambdaActions interface{}
+	LambdaActions ReceiptRuleLambdaActionsArrayInput `pulumi:"lambdaActions"`
 	// The name of the rule
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of email addresses
-	Recipients interface{}
+	Recipients pulumi.StringArrayInput `pulumi:"recipients"`
 	// The name of the rule set
-	RuleSetName interface{}
+	RuleSetName pulumi.StringInput `pulumi:"ruleSetName"`
 	// A list of S3 Action blocks. Documented below.
-	S3Actions interface{}
+	S3Actions ReceiptRuleS3ActionsArrayInput `pulumi:"s3Actions"`
 	// If true, incoming emails will be scanned for spam and viruses
-	ScanEnabled interface{}
+	ScanEnabled pulumi.BoolInput `pulumi:"scanEnabled"`
 	// A list of SNS Action blocks. Documented below.
-	SnsActions interface{}
+	SnsActions ReceiptRuleSnsActionsArrayInput `pulumi:"snsActions"`
 	// A list of Stop Action blocks. Documented below.
-	StopActions interface{}
+	StopActions ReceiptRuleStopActionsArrayInput `pulumi:"stopActions"`
 	// Require or Optional
-	TlsPolicy interface{}
+	TlsPolicy pulumi.StringInput `pulumi:"tlsPolicy"`
 	// A list of WorkMail Action blocks. Documented below.
-	WorkmailActions interface{}
+	WorkmailActions ReceiptRuleWorkmailActionsArrayInput `pulumi:"workmailActions"`
 }
 
 // The set of arguments for constructing a ReceiptRule resource.
 type ReceiptRuleArgs struct {
 	// A list of Add Header Action blocks. Documented below.
-	AddHeaderActions interface{}
+	AddHeaderActions ReceiptRuleAddHeaderActionsArrayInput `pulumi:"addHeaderActions"`
 	// The name of the rule to place this rule after
-	After interface{}
+	After pulumi.StringInput `pulumi:"after"`
 	// A list of Bounce Action blocks. Documented below.
-	BounceActions interface{}
+	BounceActions ReceiptRuleBounceActionsArrayInput `pulumi:"bounceActions"`
 	// If true, the rule will be enabled
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A list of Lambda Action blocks. Documented below.
-	LambdaActions interface{}
+	LambdaActions ReceiptRuleLambdaActionsArrayInput `pulumi:"lambdaActions"`
 	// The name of the rule
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of email addresses
-	Recipients interface{}
+	Recipients pulumi.StringArrayInput `pulumi:"recipients"`
 	// The name of the rule set
-	RuleSetName interface{}
+	RuleSetName pulumi.StringInput `pulumi:"ruleSetName"`
 	// A list of S3 Action blocks. Documented below.
-	S3Actions interface{}
+	S3Actions ReceiptRuleS3ActionsArrayInput `pulumi:"s3Actions"`
 	// If true, incoming emails will be scanned for spam and viruses
-	ScanEnabled interface{}
+	ScanEnabled pulumi.BoolInput `pulumi:"scanEnabled"`
 	// A list of SNS Action blocks. Documented below.
-	SnsActions interface{}
+	SnsActions ReceiptRuleSnsActionsArrayInput `pulumi:"snsActions"`
 	// A list of Stop Action blocks. Documented below.
-	StopActions interface{}
+	StopActions ReceiptRuleStopActionsArrayInput `pulumi:"stopActions"`
 	// Require or Optional
-	TlsPolicy interface{}
+	TlsPolicy pulumi.StringInput `pulumi:"tlsPolicy"`
 	// A list of WorkMail Action blocks. Documented below.
-	WorkmailActions interface{}
+	WorkmailActions ReceiptRuleWorkmailActionsArrayInput `pulumi:"workmailActions"`
 }
+type ReceiptRuleAddHeaderActions struct {
+	// The name of the header to add
+	HeaderName string `pulumi:"headerName"`
+	// The value of the header to add
+	HeaderValue string `pulumi:"headerValue"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+}
+var receiptRuleAddHeaderActionsType = reflect.TypeOf((*ReceiptRuleAddHeaderActions)(nil)).Elem()
+
+type ReceiptRuleAddHeaderActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleAddHeaderActionsOutput() ReceiptRuleAddHeaderActionsOutput
+	ToReceiptRuleAddHeaderActionsOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionsOutput
+}
+
+type ReceiptRuleAddHeaderActionsArgs struct {
+	// The name of the header to add
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// The value of the header to add
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+}
+
+func (ReceiptRuleAddHeaderActionsArgs) ElementType() reflect.Type {
+	return receiptRuleAddHeaderActionsType
+}
+
+func (a ReceiptRuleAddHeaderActionsArgs) ToReceiptRuleAddHeaderActionsOutput() ReceiptRuleAddHeaderActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleAddHeaderActionsOutput)
+}
+
+func (a ReceiptRuleAddHeaderActionsArgs) ToReceiptRuleAddHeaderActionsOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleAddHeaderActionsOutput)
+}
+
+type ReceiptRuleAddHeaderActionsOutput struct { *pulumi.OutputState }
+
+// The name of the header to add
+func (o ReceiptRuleAddHeaderActionsOutput) HeaderName() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleAddHeaderActions) string {
+		return v.HeaderName
+	}).(pulumi.StringOutput)
+}
+
+// The value of the header to add
+func (o ReceiptRuleAddHeaderActionsOutput) HeaderValue() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleAddHeaderActions) string {
+		return v.HeaderValue
+	}).(pulumi.StringOutput)
+}
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleAddHeaderActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleAddHeaderActions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+func (ReceiptRuleAddHeaderActionsOutput) ElementType() reflect.Type {
+	return receiptRuleAddHeaderActionsType
+}
+
+func (o ReceiptRuleAddHeaderActionsOutput) ToReceiptRuleAddHeaderActionsOutput() ReceiptRuleAddHeaderActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionsOutput) ToReceiptRuleAddHeaderActionsOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionsOutput{}) }
+
+var receiptRuleAddHeaderActionsArrayType = reflect.TypeOf((*[]ReceiptRuleAddHeaderActions)(nil)).Elem()
+
+type ReceiptRuleAddHeaderActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleAddHeaderActionsArrayOutput() ReceiptRuleAddHeaderActionsArrayOutput
+	ToReceiptRuleAddHeaderActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionsArrayOutput
+}
+
+type ReceiptRuleAddHeaderActionsArrayArgs []ReceiptRuleAddHeaderActionsInput
+
+func (ReceiptRuleAddHeaderActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleAddHeaderActionsArrayType
+}
+
+func (a ReceiptRuleAddHeaderActionsArrayArgs) ToReceiptRuleAddHeaderActionsArrayOutput() ReceiptRuleAddHeaderActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleAddHeaderActionsArrayOutput)
+}
+
+func (a ReceiptRuleAddHeaderActionsArrayArgs) ToReceiptRuleAddHeaderActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleAddHeaderActionsArrayOutput)
+}
+
+type ReceiptRuleAddHeaderActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleAddHeaderActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleAddHeaderActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleAddHeaderActions {
+		return vs[0].([]ReceiptRuleAddHeaderActions)[vs[1].(int)]
+	}).(ReceiptRuleAddHeaderActionsOutput)
+}
+
+func (ReceiptRuleAddHeaderActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleAddHeaderActionsArrayType
+}
+
+func (o ReceiptRuleAddHeaderActionsArrayOutput) ToReceiptRuleAddHeaderActionsArrayOutput() ReceiptRuleAddHeaderActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionsArrayOutput) ToReceiptRuleAddHeaderActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionsArrayOutput{}) }
+
+type ReceiptRuleBounceActions struct {
+	// The message to send
+	Message string `pulumi:"message"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The email address of the sender
+	Sender string `pulumi:"sender"`
+	// The RFC 5321 SMTP reply code
+	SmtpReplyCode string `pulumi:"smtpReplyCode"`
+	// The RFC 3463 SMTP enhanced status code
+	StatusCode *string `pulumi:"statusCode"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
+}
+var receiptRuleBounceActionsType = reflect.TypeOf((*ReceiptRuleBounceActions)(nil)).Elem()
+
+type ReceiptRuleBounceActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleBounceActionsOutput() ReceiptRuleBounceActionsOutput
+	ToReceiptRuleBounceActionsOutputWithContext(ctx context.Context) ReceiptRuleBounceActionsOutput
+}
+
+type ReceiptRuleBounceActionsArgs struct {
+	// The message to send
+	Message pulumi.StringInput `pulumi:"message"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The email address of the sender
+	Sender pulumi.StringInput `pulumi:"sender"`
+	// The RFC 5321 SMTP reply code
+	SmtpReplyCode pulumi.StringInput `pulumi:"smtpReplyCode"`
+	// The RFC 3463 SMTP enhanced status code
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleBounceActionsArgs) ElementType() reflect.Type {
+	return receiptRuleBounceActionsType
+}
+
+func (a ReceiptRuleBounceActionsArgs) ToReceiptRuleBounceActionsOutput() ReceiptRuleBounceActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleBounceActionsOutput)
+}
+
+func (a ReceiptRuleBounceActionsArgs) ToReceiptRuleBounceActionsOutputWithContext(ctx context.Context) ReceiptRuleBounceActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleBounceActionsOutput)
+}
+
+type ReceiptRuleBounceActionsOutput struct { *pulumi.OutputState }
+
+// The message to send
+func (o ReceiptRuleBounceActionsOutput) Message() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleBounceActions) string {
+		return v.Message
+	}).(pulumi.StringOutput)
+}
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleBounceActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleBounceActions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+// The email address of the sender
+func (o ReceiptRuleBounceActionsOutput) Sender() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleBounceActions) string {
+		return v.Sender
+	}).(pulumi.StringOutput)
+}
+
+// The RFC 5321 SMTP reply code
+func (o ReceiptRuleBounceActionsOutput) SmtpReplyCode() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleBounceActions) string {
+		return v.SmtpReplyCode
+	}).(pulumi.StringOutput)
+}
+
+// The RFC 3463 SMTP enhanced status code
+func (o ReceiptRuleBounceActionsOutput) StatusCode() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleBounceActions) string {
+		if v.StatusCode == nil { return *new(string) } else { return *v.StatusCode }
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of an SNS topic to notify
+func (o ReceiptRuleBounceActionsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleBounceActions) string {
+		if v.TopicArn == nil { return *new(string) } else { return *v.TopicArn }
+	}).(pulumi.StringOutput)
+}
+
+func (ReceiptRuleBounceActionsOutput) ElementType() reflect.Type {
+	return receiptRuleBounceActionsType
+}
+
+func (o ReceiptRuleBounceActionsOutput) ToReceiptRuleBounceActionsOutput() ReceiptRuleBounceActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionsOutput) ToReceiptRuleBounceActionsOutputWithContext(ctx context.Context) ReceiptRuleBounceActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleBounceActionsOutput{}) }
+
+var receiptRuleBounceActionsArrayType = reflect.TypeOf((*[]ReceiptRuleBounceActions)(nil)).Elem()
+
+type ReceiptRuleBounceActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleBounceActionsArrayOutput() ReceiptRuleBounceActionsArrayOutput
+	ToReceiptRuleBounceActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleBounceActionsArrayOutput
+}
+
+type ReceiptRuleBounceActionsArrayArgs []ReceiptRuleBounceActionsInput
+
+func (ReceiptRuleBounceActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleBounceActionsArrayType
+}
+
+func (a ReceiptRuleBounceActionsArrayArgs) ToReceiptRuleBounceActionsArrayOutput() ReceiptRuleBounceActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleBounceActionsArrayOutput)
+}
+
+func (a ReceiptRuleBounceActionsArrayArgs) ToReceiptRuleBounceActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleBounceActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleBounceActionsArrayOutput)
+}
+
+type ReceiptRuleBounceActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleBounceActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleBounceActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleBounceActions {
+		return vs[0].([]ReceiptRuleBounceActions)[vs[1].(int)]
+	}).(ReceiptRuleBounceActionsOutput)
+}
+
+func (ReceiptRuleBounceActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleBounceActionsArrayType
+}
+
+func (o ReceiptRuleBounceActionsArrayOutput) ToReceiptRuleBounceActionsArrayOutput() ReceiptRuleBounceActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionsArrayOutput) ToReceiptRuleBounceActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleBounceActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleBounceActionsArrayOutput{}) }
+
+type ReceiptRuleLambdaActions struct {
+	// The ARN of the Lambda function to invoke
+	FunctionArn string `pulumi:"functionArn"`
+	// Event or RequestResponse
+	InvocationType *string `pulumi:"invocationType"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
+}
+var receiptRuleLambdaActionsType = reflect.TypeOf((*ReceiptRuleLambdaActions)(nil)).Elem()
+
+type ReceiptRuleLambdaActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleLambdaActionsOutput() ReceiptRuleLambdaActionsOutput
+	ToReceiptRuleLambdaActionsOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionsOutput
+}
+
+type ReceiptRuleLambdaActionsArgs struct {
+	// The ARN of the Lambda function to invoke
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// Event or RequestResponse
+	InvocationType pulumi.StringInput `pulumi:"invocationType"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleLambdaActionsArgs) ElementType() reflect.Type {
+	return receiptRuleLambdaActionsType
+}
+
+func (a ReceiptRuleLambdaActionsArgs) ToReceiptRuleLambdaActionsOutput() ReceiptRuleLambdaActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleLambdaActionsOutput)
+}
+
+func (a ReceiptRuleLambdaActionsArgs) ToReceiptRuleLambdaActionsOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleLambdaActionsOutput)
+}
+
+type ReceiptRuleLambdaActionsOutput struct { *pulumi.OutputState }
+
+// The ARN of the Lambda function to invoke
+func (o ReceiptRuleLambdaActionsOutput) FunctionArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleLambdaActions) string {
+		return v.FunctionArn
+	}).(pulumi.StringOutput)
+}
+
+// Event or RequestResponse
+func (o ReceiptRuleLambdaActionsOutput) InvocationType() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleLambdaActions) string {
+		if v.InvocationType == nil { return *new(string) } else { return *v.InvocationType }
+	}).(pulumi.StringOutput)
+}
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleLambdaActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleLambdaActions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+// The ARN of an SNS topic to notify
+func (o ReceiptRuleLambdaActionsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleLambdaActions) string {
+		if v.TopicArn == nil { return *new(string) } else { return *v.TopicArn }
+	}).(pulumi.StringOutput)
+}
+
+func (ReceiptRuleLambdaActionsOutput) ElementType() reflect.Type {
+	return receiptRuleLambdaActionsType
+}
+
+func (o ReceiptRuleLambdaActionsOutput) ToReceiptRuleLambdaActionsOutput() ReceiptRuleLambdaActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionsOutput) ToReceiptRuleLambdaActionsOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleLambdaActionsOutput{}) }
+
+var receiptRuleLambdaActionsArrayType = reflect.TypeOf((*[]ReceiptRuleLambdaActions)(nil)).Elem()
+
+type ReceiptRuleLambdaActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleLambdaActionsArrayOutput() ReceiptRuleLambdaActionsArrayOutput
+	ToReceiptRuleLambdaActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionsArrayOutput
+}
+
+type ReceiptRuleLambdaActionsArrayArgs []ReceiptRuleLambdaActionsInput
+
+func (ReceiptRuleLambdaActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleLambdaActionsArrayType
+}
+
+func (a ReceiptRuleLambdaActionsArrayArgs) ToReceiptRuleLambdaActionsArrayOutput() ReceiptRuleLambdaActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleLambdaActionsArrayOutput)
+}
+
+func (a ReceiptRuleLambdaActionsArrayArgs) ToReceiptRuleLambdaActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleLambdaActionsArrayOutput)
+}
+
+type ReceiptRuleLambdaActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleLambdaActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleLambdaActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleLambdaActions {
+		return vs[0].([]ReceiptRuleLambdaActions)[vs[1].(int)]
+	}).(ReceiptRuleLambdaActionsOutput)
+}
+
+func (ReceiptRuleLambdaActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleLambdaActionsArrayType
+}
+
+func (o ReceiptRuleLambdaActionsArrayOutput) ToReceiptRuleLambdaActionsArrayOutput() ReceiptRuleLambdaActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionsArrayOutput) ToReceiptRuleLambdaActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleLambdaActionsArrayOutput{}) }
+
+type ReceiptRuleS3Actions struct {
+	// The name of the S3 bucket
+	BucketName string `pulumi:"bucketName"`
+	// The ARN of the KMS key
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The key prefix of the S3 bucket
+	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
+}
+var receiptRuleS3ActionsType = reflect.TypeOf((*ReceiptRuleS3Actions)(nil)).Elem()
+
+type ReceiptRuleS3ActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleS3ActionsOutput() ReceiptRuleS3ActionsOutput
+	ToReceiptRuleS3ActionsOutputWithContext(ctx context.Context) ReceiptRuleS3ActionsOutput
+}
+
+type ReceiptRuleS3ActionsArgs struct {
+	// The name of the S3 bucket
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The ARN of the KMS key
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// The key prefix of the S3 bucket
+	ObjectKeyPrefix pulumi.StringInput `pulumi:"objectKeyPrefix"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleS3ActionsArgs) ElementType() reflect.Type {
+	return receiptRuleS3ActionsType
+}
+
+func (a ReceiptRuleS3ActionsArgs) ToReceiptRuleS3ActionsOutput() ReceiptRuleS3ActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleS3ActionsOutput)
+}
+
+func (a ReceiptRuleS3ActionsArgs) ToReceiptRuleS3ActionsOutputWithContext(ctx context.Context) ReceiptRuleS3ActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleS3ActionsOutput)
+}
+
+type ReceiptRuleS3ActionsOutput struct { *pulumi.OutputState }
+
+// The name of the S3 bucket
+func (o ReceiptRuleS3ActionsOutput) BucketName() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleS3Actions) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the KMS key
+func (o ReceiptRuleS3ActionsOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleS3Actions) string {
+		if v.KmsKeyArn == nil { return *new(string) } else { return *v.KmsKeyArn }
+	}).(pulumi.StringOutput)
+}
+
+// The key prefix of the S3 bucket
+func (o ReceiptRuleS3ActionsOutput) ObjectKeyPrefix() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleS3Actions) string {
+		if v.ObjectKeyPrefix == nil { return *new(string) } else { return *v.ObjectKeyPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleS3ActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleS3Actions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+// The ARN of an SNS topic to notify
+func (o ReceiptRuleS3ActionsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleS3Actions) string {
+		if v.TopicArn == nil { return *new(string) } else { return *v.TopicArn }
+	}).(pulumi.StringOutput)
+}
+
+func (ReceiptRuleS3ActionsOutput) ElementType() reflect.Type {
+	return receiptRuleS3ActionsType
+}
+
+func (o ReceiptRuleS3ActionsOutput) ToReceiptRuleS3ActionsOutput() ReceiptRuleS3ActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionsOutput) ToReceiptRuleS3ActionsOutputWithContext(ctx context.Context) ReceiptRuleS3ActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleS3ActionsOutput{}) }
+
+var receiptRuleS3ActionsArrayType = reflect.TypeOf((*[]ReceiptRuleS3Actions)(nil)).Elem()
+
+type ReceiptRuleS3ActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleS3ActionsArrayOutput() ReceiptRuleS3ActionsArrayOutput
+	ToReceiptRuleS3ActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleS3ActionsArrayOutput
+}
+
+type ReceiptRuleS3ActionsArrayArgs []ReceiptRuleS3ActionsInput
+
+func (ReceiptRuleS3ActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleS3ActionsArrayType
+}
+
+func (a ReceiptRuleS3ActionsArrayArgs) ToReceiptRuleS3ActionsArrayOutput() ReceiptRuleS3ActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleS3ActionsArrayOutput)
+}
+
+func (a ReceiptRuleS3ActionsArrayArgs) ToReceiptRuleS3ActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleS3ActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleS3ActionsArrayOutput)
+}
+
+type ReceiptRuleS3ActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleS3ActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleS3ActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleS3Actions {
+		return vs[0].([]ReceiptRuleS3Actions)[vs[1].(int)]
+	}).(ReceiptRuleS3ActionsOutput)
+}
+
+func (ReceiptRuleS3ActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleS3ActionsArrayType
+}
+
+func (o ReceiptRuleS3ActionsArrayOutput) ToReceiptRuleS3ActionsArrayOutput() ReceiptRuleS3ActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionsArrayOutput) ToReceiptRuleS3ActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleS3ActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleS3ActionsArrayOutput{}) }
+
+type ReceiptRuleSnsActions struct {
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn string `pulumi:"topicArn"`
+}
+var receiptRuleSnsActionsType = reflect.TypeOf((*ReceiptRuleSnsActions)(nil)).Elem()
+
+type ReceiptRuleSnsActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSnsActionsOutput() ReceiptRuleSnsActionsOutput
+	ToReceiptRuleSnsActionsOutputWithContext(ctx context.Context) ReceiptRuleSnsActionsOutput
+}
+
+type ReceiptRuleSnsActionsArgs struct {
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleSnsActionsArgs) ElementType() reflect.Type {
+	return receiptRuleSnsActionsType
+}
+
+func (a ReceiptRuleSnsActionsArgs) ToReceiptRuleSnsActionsOutput() ReceiptRuleSnsActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleSnsActionsOutput)
+}
+
+func (a ReceiptRuleSnsActionsArgs) ToReceiptRuleSnsActionsOutputWithContext(ctx context.Context) ReceiptRuleSnsActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleSnsActionsOutput)
+}
+
+type ReceiptRuleSnsActionsOutput struct { *pulumi.OutputState }
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleSnsActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleSnsActions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+// The ARN of an SNS topic to notify
+func (o ReceiptRuleSnsActionsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleSnsActions) string {
+		return v.TopicArn
+	}).(pulumi.StringOutput)
+}
+
+func (ReceiptRuleSnsActionsOutput) ElementType() reflect.Type {
+	return receiptRuleSnsActionsType
+}
+
+func (o ReceiptRuleSnsActionsOutput) ToReceiptRuleSnsActionsOutput() ReceiptRuleSnsActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleSnsActionsOutput) ToReceiptRuleSnsActionsOutputWithContext(ctx context.Context) ReceiptRuleSnsActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleSnsActionsOutput{}) }
+
+var receiptRuleSnsActionsArrayType = reflect.TypeOf((*[]ReceiptRuleSnsActions)(nil)).Elem()
+
+type ReceiptRuleSnsActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSnsActionsArrayOutput() ReceiptRuleSnsActionsArrayOutput
+	ToReceiptRuleSnsActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleSnsActionsArrayOutput
+}
+
+type ReceiptRuleSnsActionsArrayArgs []ReceiptRuleSnsActionsInput
+
+func (ReceiptRuleSnsActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleSnsActionsArrayType
+}
+
+func (a ReceiptRuleSnsActionsArrayArgs) ToReceiptRuleSnsActionsArrayOutput() ReceiptRuleSnsActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleSnsActionsArrayOutput)
+}
+
+func (a ReceiptRuleSnsActionsArrayArgs) ToReceiptRuleSnsActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleSnsActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleSnsActionsArrayOutput)
+}
+
+type ReceiptRuleSnsActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleSnsActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSnsActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleSnsActions {
+		return vs[0].([]ReceiptRuleSnsActions)[vs[1].(int)]
+	}).(ReceiptRuleSnsActionsOutput)
+}
+
+func (ReceiptRuleSnsActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleSnsActionsArrayType
+}
+
+func (o ReceiptRuleSnsActionsArrayOutput) ToReceiptRuleSnsActionsArrayOutput() ReceiptRuleSnsActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleSnsActionsArrayOutput) ToReceiptRuleSnsActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleSnsActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleSnsActionsArrayOutput{}) }
+
+type ReceiptRuleStopActions struct {
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The scope to apply
+	Scope string `pulumi:"scope"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
+}
+var receiptRuleStopActionsType = reflect.TypeOf((*ReceiptRuleStopActions)(nil)).Elem()
+
+type ReceiptRuleStopActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleStopActionsOutput() ReceiptRuleStopActionsOutput
+	ToReceiptRuleStopActionsOutputWithContext(ctx context.Context) ReceiptRuleStopActionsOutput
+}
+
+type ReceiptRuleStopActionsArgs struct {
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The scope to apply
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleStopActionsArgs) ElementType() reflect.Type {
+	return receiptRuleStopActionsType
+}
+
+func (a ReceiptRuleStopActionsArgs) ToReceiptRuleStopActionsOutput() ReceiptRuleStopActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleStopActionsOutput)
+}
+
+func (a ReceiptRuleStopActionsArgs) ToReceiptRuleStopActionsOutputWithContext(ctx context.Context) ReceiptRuleStopActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleStopActionsOutput)
+}
+
+type ReceiptRuleStopActionsOutput struct { *pulumi.OutputState }
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleStopActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleStopActions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+// The scope to apply
+func (o ReceiptRuleStopActionsOutput) Scope() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleStopActions) string {
+		return v.Scope
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of an SNS topic to notify
+func (o ReceiptRuleStopActionsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleStopActions) string {
+		if v.TopicArn == nil { return *new(string) } else { return *v.TopicArn }
+	}).(pulumi.StringOutput)
+}
+
+func (ReceiptRuleStopActionsOutput) ElementType() reflect.Type {
+	return receiptRuleStopActionsType
+}
+
+func (o ReceiptRuleStopActionsOutput) ToReceiptRuleStopActionsOutput() ReceiptRuleStopActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionsOutput) ToReceiptRuleStopActionsOutputWithContext(ctx context.Context) ReceiptRuleStopActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleStopActionsOutput{}) }
+
+var receiptRuleStopActionsArrayType = reflect.TypeOf((*[]ReceiptRuleStopActions)(nil)).Elem()
+
+type ReceiptRuleStopActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleStopActionsArrayOutput() ReceiptRuleStopActionsArrayOutput
+	ToReceiptRuleStopActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleStopActionsArrayOutput
+}
+
+type ReceiptRuleStopActionsArrayArgs []ReceiptRuleStopActionsInput
+
+func (ReceiptRuleStopActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleStopActionsArrayType
+}
+
+func (a ReceiptRuleStopActionsArrayArgs) ToReceiptRuleStopActionsArrayOutput() ReceiptRuleStopActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleStopActionsArrayOutput)
+}
+
+func (a ReceiptRuleStopActionsArrayArgs) ToReceiptRuleStopActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleStopActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleStopActionsArrayOutput)
+}
+
+type ReceiptRuleStopActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleStopActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleStopActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleStopActions {
+		return vs[0].([]ReceiptRuleStopActions)[vs[1].(int)]
+	}).(ReceiptRuleStopActionsOutput)
+}
+
+func (ReceiptRuleStopActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleStopActionsArrayType
+}
+
+func (o ReceiptRuleStopActionsArrayOutput) ToReceiptRuleStopActionsArrayOutput() ReceiptRuleStopActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionsArrayOutput) ToReceiptRuleStopActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleStopActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleStopActionsArrayOutput{}) }
+
+type ReceiptRuleWorkmailActions struct {
+	// The ARN of the WorkMail organization
+	OrganizationArn string `pulumi:"organizationArn"`
+	// The position of the action in the receipt rule
+	Position int `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn *string `pulumi:"topicArn"`
+}
+var receiptRuleWorkmailActionsType = reflect.TypeOf((*ReceiptRuleWorkmailActions)(nil)).Elem()
+
+type ReceiptRuleWorkmailActionsInput interface {
+	pulumi.Input
+
+	ToReceiptRuleWorkmailActionsOutput() ReceiptRuleWorkmailActionsOutput
+	ToReceiptRuleWorkmailActionsOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionsOutput
+}
+
+type ReceiptRuleWorkmailActionsArgs struct {
+	// The ARN of the WorkMail organization
+	OrganizationArn pulumi.StringInput `pulumi:"organizationArn"`
+	// The position of the action in the receipt rule
+	Position pulumi.IntInput `pulumi:"position"`
+	// The ARN of an SNS topic to notify
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleWorkmailActionsArgs) ElementType() reflect.Type {
+	return receiptRuleWorkmailActionsType
+}
+
+func (a ReceiptRuleWorkmailActionsArgs) ToReceiptRuleWorkmailActionsOutput() ReceiptRuleWorkmailActionsOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleWorkmailActionsOutput)
+}
+
+func (a ReceiptRuleWorkmailActionsArgs) ToReceiptRuleWorkmailActionsOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleWorkmailActionsOutput)
+}
+
+type ReceiptRuleWorkmailActionsOutput struct { *pulumi.OutputState }
+
+// The ARN of the WorkMail organization
+func (o ReceiptRuleWorkmailActionsOutput) OrganizationArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleWorkmailActions) string {
+		return v.OrganizationArn
+	}).(pulumi.StringOutput)
+}
+
+// The position of the action in the receipt rule
+func (o ReceiptRuleWorkmailActionsOutput) Position() pulumi.IntOutput {
+	return o.Apply(func(v ReceiptRuleWorkmailActions) int {
+		return v.Position
+	}).(pulumi.IntOutput)
+}
+
+// The ARN of an SNS topic to notify
+func (o ReceiptRuleWorkmailActionsOutput) TopicArn() pulumi.StringOutput {
+	return o.Apply(func(v ReceiptRuleWorkmailActions) string {
+		if v.TopicArn == nil { return *new(string) } else { return *v.TopicArn }
+	}).(pulumi.StringOutput)
+}
+
+func (ReceiptRuleWorkmailActionsOutput) ElementType() reflect.Type {
+	return receiptRuleWorkmailActionsType
+}
+
+func (o ReceiptRuleWorkmailActionsOutput) ToReceiptRuleWorkmailActionsOutput() ReceiptRuleWorkmailActionsOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionsOutput) ToReceiptRuleWorkmailActionsOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleWorkmailActionsOutput{}) }
+
+var receiptRuleWorkmailActionsArrayType = reflect.TypeOf((*[]ReceiptRuleWorkmailActions)(nil)).Elem()
+
+type ReceiptRuleWorkmailActionsArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleWorkmailActionsArrayOutput() ReceiptRuleWorkmailActionsArrayOutput
+	ToReceiptRuleWorkmailActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionsArrayOutput
+}
+
+type ReceiptRuleWorkmailActionsArrayArgs []ReceiptRuleWorkmailActionsInput
+
+func (ReceiptRuleWorkmailActionsArrayArgs) ElementType() reflect.Type {
+	return receiptRuleWorkmailActionsArrayType
+}
+
+func (a ReceiptRuleWorkmailActionsArrayArgs) ToReceiptRuleWorkmailActionsArrayOutput() ReceiptRuleWorkmailActionsArrayOutput {
+	return pulumi.ToOutput(a).(ReceiptRuleWorkmailActionsArrayOutput)
+}
+
+func (a ReceiptRuleWorkmailActionsArrayArgs) ToReceiptRuleWorkmailActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReceiptRuleWorkmailActionsArrayOutput)
+}
+
+type ReceiptRuleWorkmailActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ReceiptRuleWorkmailActionsArrayOutput) Index(i pulumi.IntInput) ReceiptRuleWorkmailActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReceiptRuleWorkmailActions {
+		return vs[0].([]ReceiptRuleWorkmailActions)[vs[1].(int)]
+	}).(ReceiptRuleWorkmailActionsOutput)
+}
+
+func (ReceiptRuleWorkmailActionsArrayOutput) ElementType() reflect.Type {
+	return receiptRuleWorkmailActionsArrayType
+}
+
+func (o ReceiptRuleWorkmailActionsArrayOutput) ToReceiptRuleWorkmailActionsArrayOutput() ReceiptRuleWorkmailActionsArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionsArrayOutput) ToReceiptRuleWorkmailActionsArrayOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReceiptRuleWorkmailActionsArrayOutput{}) }
+

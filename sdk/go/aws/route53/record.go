@@ -4,6 +4,8 @@
 package route53
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,237 +14,717 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
 type Record struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// An alias block. Conflicts with `ttl` & `records`.
+	// Alias record documented below.
+	Aliases RecordAliasesArrayOutput `pulumi:"aliases"`
+
+	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
+
+	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+	FailoverRoutingPolicies RecordFailoverRoutingPoliciesArrayOutput `pulumi:"failoverRoutingPolicies"`
+
+	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+	GeolocationRoutingPolicies RecordGeolocationRoutingPoliciesArrayOutput `pulumi:"geolocationRoutingPolicies"`
+
+	// The health check the record should be associated with.
+	HealthCheckId pulumi.StringOutput `pulumi:"healthCheckId"`
+
+	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+	LatencyRoutingPolicies RecordLatencyRoutingPoliciesArrayOutput `pulumi:"latencyRoutingPolicies"`
+
+	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+	MultivalueAnswerRoutingPolicy pulumi.BoolOutput `pulumi:"multivalueAnswerRoutingPolicy"`
+
+	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
+	Records pulumi.StringArrayOutput `pulumi:"records"`
+
+	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
+	SetIdentifier pulumi.StringOutput `pulumi:"setIdentifier"`
+
+	// The TTL of the record.
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+	WeightedRoutingPolicies RecordWeightedRoutingPoliciesArrayOutput `pulumi:"weightedRoutingPolicies"`
+
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
 
 // NewRecord registers a new resource with the given unique name, arguments, and options.
 func NewRecord(ctx *pulumi.Context,
-	name string, args *RecordArgs, opts ...pulumi.ResourceOpt) (*Record, error) {
+	name string, args *RecordArgs, opts ...pulumi.ResourceOption) (*Record, error) {
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
 	if args == nil || args.ZoneId == nil {
 		return nil, errors.New("missing required argument 'ZoneId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["aliases"] = nil
-		inputs["allowOverwrite"] = nil
-		inputs["failoverRoutingPolicies"] = nil
-		inputs["geolocationRoutingPolicies"] = nil
-		inputs["healthCheckId"] = nil
-		inputs["latencyRoutingPolicies"] = nil
-		inputs["multivalueAnswerRoutingPolicy"] = nil
-		inputs["name"] = nil
-		inputs["records"] = nil
-		inputs["setIdentifier"] = nil
-		inputs["ttl"] = nil
-		inputs["type"] = nil
-		inputs["weightedRoutingPolicies"] = nil
-		inputs["zoneId"] = nil
-	} else {
-		inputs["aliases"] = args.Aliases
-		inputs["allowOverwrite"] = args.AllowOverwrite
-		inputs["failoverRoutingPolicies"] = args.FailoverRoutingPolicies
-		inputs["geolocationRoutingPolicies"] = args.GeolocationRoutingPolicies
-		inputs["healthCheckId"] = args.HealthCheckId
-		inputs["latencyRoutingPolicies"] = args.LatencyRoutingPolicies
-		inputs["multivalueAnswerRoutingPolicy"] = args.MultivalueAnswerRoutingPolicy
-		inputs["name"] = args.Name
-		inputs["records"] = args.Records
-		inputs["setIdentifier"] = args.SetIdentifier
-		inputs["ttl"] = args.Ttl
-		inputs["type"] = args.Type
-		inputs["weightedRoutingPolicies"] = args.WeightedRoutingPolicies
-		inputs["zoneId"] = args.ZoneId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Aliases; i != nil { inputs["aliases"] = i.ToRecordAliasesArrayOutput() }
+		if i := args.AllowOverwrite; i != nil { inputs["allowOverwrite"] = i.ToBoolOutput() }
+		if i := args.FailoverRoutingPolicies; i != nil { inputs["failoverRoutingPolicies"] = i.ToRecordFailoverRoutingPoliciesArrayOutput() }
+		if i := args.GeolocationRoutingPolicies; i != nil { inputs["geolocationRoutingPolicies"] = i.ToRecordGeolocationRoutingPoliciesArrayOutput() }
+		if i := args.HealthCheckId; i != nil { inputs["healthCheckId"] = i.ToStringOutput() }
+		if i := args.LatencyRoutingPolicies; i != nil { inputs["latencyRoutingPolicies"] = i.ToRecordLatencyRoutingPoliciesArrayOutput() }
+		if i := args.MultivalueAnswerRoutingPolicy; i != nil { inputs["multivalueAnswerRoutingPolicy"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Records; i != nil { inputs["records"] = i.ToStringArrayOutput() }
+		if i := args.SetIdentifier; i != nil { inputs["setIdentifier"] = i.ToStringOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.WeightedRoutingPolicies; i != nil { inputs["weightedRoutingPolicies"] = i.ToRecordWeightedRoutingPoliciesArrayOutput() }
+		if i := args.ZoneId; i != nil { inputs["zoneId"] = i.ToStringOutput() }
 	}
-	inputs["fqdn"] = nil
-	s, err := ctx.RegisterResource("aws:route53/record:Record", name, true, inputs, opts...)
+	var resource Record
+	err := ctx.RegisterResource("aws:route53/record:Record", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Record{s: s}, nil
+	return &resource, nil
 }
 
 // GetRecord gets an existing Record resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RecordState, opts ...pulumi.ResourceOpt) (*Record, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RecordState, opts ...pulumi.ResourceOption) (*Record, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["aliases"] = state.Aliases
-		inputs["allowOverwrite"] = state.AllowOverwrite
-		inputs["failoverRoutingPolicies"] = state.FailoverRoutingPolicies
-		inputs["fqdn"] = state.Fqdn
-		inputs["geolocationRoutingPolicies"] = state.GeolocationRoutingPolicies
-		inputs["healthCheckId"] = state.HealthCheckId
-		inputs["latencyRoutingPolicies"] = state.LatencyRoutingPolicies
-		inputs["multivalueAnswerRoutingPolicy"] = state.MultivalueAnswerRoutingPolicy
-		inputs["name"] = state.Name
-		inputs["records"] = state.Records
-		inputs["setIdentifier"] = state.SetIdentifier
-		inputs["ttl"] = state.Ttl
-		inputs["type"] = state.Type
-		inputs["weightedRoutingPolicies"] = state.WeightedRoutingPolicies
-		inputs["zoneId"] = state.ZoneId
+		if i := state.Aliases; i != nil { inputs["aliases"] = i.ToRecordAliasesArrayOutput() }
+		if i := state.AllowOverwrite; i != nil { inputs["allowOverwrite"] = i.ToBoolOutput() }
+		if i := state.FailoverRoutingPolicies; i != nil { inputs["failoverRoutingPolicies"] = i.ToRecordFailoverRoutingPoliciesArrayOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.GeolocationRoutingPolicies; i != nil { inputs["geolocationRoutingPolicies"] = i.ToRecordGeolocationRoutingPoliciesArrayOutput() }
+		if i := state.HealthCheckId; i != nil { inputs["healthCheckId"] = i.ToStringOutput() }
+		if i := state.LatencyRoutingPolicies; i != nil { inputs["latencyRoutingPolicies"] = i.ToRecordLatencyRoutingPoliciesArrayOutput() }
+		if i := state.MultivalueAnswerRoutingPolicy; i != nil { inputs["multivalueAnswerRoutingPolicy"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Records; i != nil { inputs["records"] = i.ToStringArrayOutput() }
+		if i := state.SetIdentifier; i != nil { inputs["setIdentifier"] = i.ToStringOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.WeightedRoutingPolicies; i != nil { inputs["weightedRoutingPolicies"] = i.ToRecordWeightedRoutingPoliciesArrayOutput() }
+		if i := state.ZoneId; i != nil { inputs["zoneId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:route53/record:Record", name, id, inputs, opts...)
+	var resource Record
+	err := ctx.ReadResource("aws:route53/record:Record", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Record{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Record) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Record) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// An alias block. Conflicts with `ttl` & `records`.
-// Alias record documented below.
-func (r *Record) Aliases() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["aliases"])
-}
-
-// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-func (r *Record) AllowOverwrite() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowOverwrite"])
-}
-
-// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-func (r *Record) FailoverRoutingPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["failoverRoutingPolicies"])
-}
-
-// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-func (r *Record) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-func (r *Record) GeolocationRoutingPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["geolocationRoutingPolicies"])
-}
-
-// The health check the record should be associated with.
-func (r *Record) HealthCheckId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["healthCheckId"])
-}
-
-// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-func (r *Record) LatencyRoutingPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["latencyRoutingPolicies"])
-}
-
-// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-func (r *Record) MultivalueAnswerRoutingPolicy() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["multivalueAnswerRoutingPolicy"])
-}
-
-// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-func (r *Record) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-func (r *Record) Records() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["records"])
-}
-
-// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
-func (r *Record) SetIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["setIdentifier"])
-}
-
-// The TTL of the record.
-func (r *Record) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-func (r *Record) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-func (r *Record) WeightedRoutingPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["weightedRoutingPolicies"])
-}
-
-// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
-func (r *Record) ZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Record resources.
 type RecordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Alias record documented below.
-	Aliases interface{}
+	Aliases RecordAliasesArrayInput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-	AllowOverwrite interface{}
+	AllowOverwrite pulumi.BoolInput `pulumi:"allowOverwrite"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies interface{}
+	FailoverRoutingPolicies RecordFailoverRoutingPoliciesArrayInput `pulumi:"failoverRoutingPolicies"`
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies interface{}
+	GeolocationRoutingPolicies RecordGeolocationRoutingPoliciesArrayInput `pulumi:"geolocationRoutingPolicies"`
 	// The health check the record should be associated with.
-	HealthCheckId interface{}
+	HealthCheckId pulumi.StringInput `pulumi:"healthCheckId"`
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies interface{}
+	LatencyRoutingPolicies RecordLatencyRoutingPoliciesArrayInput `pulumi:"latencyRoutingPolicies"`
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-	MultivalueAnswerRoutingPolicy interface{}
+	MultivalueAnswerRoutingPolicy pulumi.BoolInput `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-	Records interface{}
+	Records pulumi.StringArrayInput `pulumi:"records"`
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
-	SetIdentifier interface{}
+	SetIdentifier pulumi.StringInput `pulumi:"setIdentifier"`
 	// The TTL of the record.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies interface{}
+	WeightedRoutingPolicies RecordWeightedRoutingPoliciesArrayInput `pulumi:"weightedRoutingPolicies"`
 	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
-	ZoneId interface{}
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a Record resource.
 type RecordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Alias record documented below.
-	Aliases interface{}
+	Aliases RecordAliasesArrayInput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-	AllowOverwrite interface{}
+	AllowOverwrite pulumi.BoolInput `pulumi:"allowOverwrite"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies interface{}
+	FailoverRoutingPolicies RecordFailoverRoutingPoliciesArrayInput `pulumi:"failoverRoutingPolicies"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies interface{}
+	GeolocationRoutingPolicies RecordGeolocationRoutingPoliciesArrayInput `pulumi:"geolocationRoutingPolicies"`
 	// The health check the record should be associated with.
-	HealthCheckId interface{}
+	HealthCheckId pulumi.StringInput `pulumi:"healthCheckId"`
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies interface{}
+	LatencyRoutingPolicies RecordLatencyRoutingPoliciesArrayInput `pulumi:"latencyRoutingPolicies"`
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-	MultivalueAnswerRoutingPolicy interface{}
+	MultivalueAnswerRoutingPolicy pulumi.BoolInput `pulumi:"multivalueAnswerRoutingPolicy"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
-	Records interface{}
+	Records pulumi.StringArrayInput `pulumi:"records"`
 	// Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, or `weighted` routing policies documented below.
-	SetIdentifier interface{}
+	SetIdentifier pulumi.StringInput `pulumi:"setIdentifier"`
 	// The TTL of the record.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies interface{}
+	WeightedRoutingPolicies RecordWeightedRoutingPoliciesArrayInput `pulumi:"weightedRoutingPolicies"`
 	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
-	ZoneId interface{}
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
+type RecordAliases struct {
+	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
+	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+	Name string `pulumi:"name"`
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	ZoneId string `pulumi:"zoneId"`
+}
+var recordAliasesType = reflect.TypeOf((*RecordAliases)(nil)).Elem()
+
+type RecordAliasesInput interface {
+	pulumi.Input
+
+	ToRecordAliasesOutput() RecordAliasesOutput
+	ToRecordAliasesOutputWithContext(ctx context.Context) RecordAliasesOutput
+}
+
+type RecordAliasesArgs struct {
+	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+	EvaluateTargetHealth pulumi.BoolInput `pulumi:"evaluateTargetHealth"`
+	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
+}
+
+func (RecordAliasesArgs) ElementType() reflect.Type {
+	return recordAliasesType
+}
+
+func (a RecordAliasesArgs) ToRecordAliasesOutput() RecordAliasesOutput {
+	return pulumi.ToOutput(a).(RecordAliasesOutput)
+}
+
+func (a RecordAliasesArgs) ToRecordAliasesOutputWithContext(ctx context.Context) RecordAliasesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordAliasesOutput)
+}
+
+type RecordAliasesOutput struct { *pulumi.OutputState }
+
+// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+func (o RecordAliasesOutput) EvaluateTargetHealth() pulumi.BoolOutput {
+	return o.Apply(func(v RecordAliases) bool {
+		return v.EvaluateTargetHealth
+	}).(pulumi.BoolOutput)
+}
+
+// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+func (o RecordAliasesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v RecordAliases) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+func (o RecordAliasesOutput) ZoneId() pulumi.StringOutput {
+	return o.Apply(func(v RecordAliases) string {
+		return v.ZoneId
+	}).(pulumi.StringOutput)
+}
+
+func (RecordAliasesOutput) ElementType() reflect.Type {
+	return recordAliasesType
+}
+
+func (o RecordAliasesOutput) ToRecordAliasesOutput() RecordAliasesOutput {
+	return o
+}
+
+func (o RecordAliasesOutput) ToRecordAliasesOutputWithContext(ctx context.Context) RecordAliasesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordAliasesOutput{}) }
+
+var recordAliasesArrayType = reflect.TypeOf((*[]RecordAliases)(nil)).Elem()
+
+type RecordAliasesArrayInput interface {
+	pulumi.Input
+
+	ToRecordAliasesArrayOutput() RecordAliasesArrayOutput
+	ToRecordAliasesArrayOutputWithContext(ctx context.Context) RecordAliasesArrayOutput
+}
+
+type RecordAliasesArrayArgs []RecordAliasesInput
+
+func (RecordAliasesArrayArgs) ElementType() reflect.Type {
+	return recordAliasesArrayType
+}
+
+func (a RecordAliasesArrayArgs) ToRecordAliasesArrayOutput() RecordAliasesArrayOutput {
+	return pulumi.ToOutput(a).(RecordAliasesArrayOutput)
+}
+
+func (a RecordAliasesArrayArgs) ToRecordAliasesArrayOutputWithContext(ctx context.Context) RecordAliasesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordAliasesArrayOutput)
+}
+
+type RecordAliasesArrayOutput struct { *pulumi.OutputState }
+
+func (o RecordAliasesArrayOutput) Index(i pulumi.IntInput) RecordAliasesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RecordAliases {
+		return vs[0].([]RecordAliases)[vs[1].(int)]
+	}).(RecordAliasesOutput)
+}
+
+func (RecordAliasesArrayOutput) ElementType() reflect.Type {
+	return recordAliasesArrayType
+}
+
+func (o RecordAliasesArrayOutput) ToRecordAliasesArrayOutput() RecordAliasesArrayOutput {
+	return o
+}
+
+func (o RecordAliasesArrayOutput) ToRecordAliasesArrayOutputWithContext(ctx context.Context) RecordAliasesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordAliasesArrayOutput{}) }
+
+type RecordFailoverRoutingPolicies struct {
+	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+	Type string `pulumi:"type"`
+}
+var recordFailoverRoutingPoliciesType = reflect.TypeOf((*RecordFailoverRoutingPolicies)(nil)).Elem()
+
+type RecordFailoverRoutingPoliciesInput interface {
+	pulumi.Input
+
+	ToRecordFailoverRoutingPoliciesOutput() RecordFailoverRoutingPoliciesOutput
+	ToRecordFailoverRoutingPoliciesOutputWithContext(ctx context.Context) RecordFailoverRoutingPoliciesOutput
+}
+
+type RecordFailoverRoutingPoliciesArgs struct {
+	// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RecordFailoverRoutingPoliciesArgs) ElementType() reflect.Type {
+	return recordFailoverRoutingPoliciesType
+}
+
+func (a RecordFailoverRoutingPoliciesArgs) ToRecordFailoverRoutingPoliciesOutput() RecordFailoverRoutingPoliciesOutput {
+	return pulumi.ToOutput(a).(RecordFailoverRoutingPoliciesOutput)
+}
+
+func (a RecordFailoverRoutingPoliciesArgs) ToRecordFailoverRoutingPoliciesOutputWithContext(ctx context.Context) RecordFailoverRoutingPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordFailoverRoutingPoliciesOutput)
+}
+
+type RecordFailoverRoutingPoliciesOutput struct { *pulumi.OutputState }
+
+// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+func (o RecordFailoverRoutingPoliciesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v RecordFailoverRoutingPolicies) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (RecordFailoverRoutingPoliciesOutput) ElementType() reflect.Type {
+	return recordFailoverRoutingPoliciesType
+}
+
+func (o RecordFailoverRoutingPoliciesOutput) ToRecordFailoverRoutingPoliciesOutput() RecordFailoverRoutingPoliciesOutput {
+	return o
+}
+
+func (o RecordFailoverRoutingPoliciesOutput) ToRecordFailoverRoutingPoliciesOutputWithContext(ctx context.Context) RecordFailoverRoutingPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordFailoverRoutingPoliciesOutput{}) }
+
+var recordFailoverRoutingPoliciesArrayType = reflect.TypeOf((*[]RecordFailoverRoutingPolicies)(nil)).Elem()
+
+type RecordFailoverRoutingPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToRecordFailoverRoutingPoliciesArrayOutput() RecordFailoverRoutingPoliciesArrayOutput
+	ToRecordFailoverRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordFailoverRoutingPoliciesArrayOutput
+}
+
+type RecordFailoverRoutingPoliciesArrayArgs []RecordFailoverRoutingPoliciesInput
+
+func (RecordFailoverRoutingPoliciesArrayArgs) ElementType() reflect.Type {
+	return recordFailoverRoutingPoliciesArrayType
+}
+
+func (a RecordFailoverRoutingPoliciesArrayArgs) ToRecordFailoverRoutingPoliciesArrayOutput() RecordFailoverRoutingPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(RecordFailoverRoutingPoliciesArrayOutput)
+}
+
+func (a RecordFailoverRoutingPoliciesArrayArgs) ToRecordFailoverRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordFailoverRoutingPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordFailoverRoutingPoliciesArrayOutput)
+}
+
+type RecordFailoverRoutingPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o RecordFailoverRoutingPoliciesArrayOutput) Index(i pulumi.IntInput) RecordFailoverRoutingPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RecordFailoverRoutingPolicies {
+		return vs[0].([]RecordFailoverRoutingPolicies)[vs[1].(int)]
+	}).(RecordFailoverRoutingPoliciesOutput)
+}
+
+func (RecordFailoverRoutingPoliciesArrayOutput) ElementType() reflect.Type {
+	return recordFailoverRoutingPoliciesArrayType
+}
+
+func (o RecordFailoverRoutingPoliciesArrayOutput) ToRecordFailoverRoutingPoliciesArrayOutput() RecordFailoverRoutingPoliciesArrayOutput {
+	return o
+}
+
+func (o RecordFailoverRoutingPoliciesArrayOutput) ToRecordFailoverRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordFailoverRoutingPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordFailoverRoutingPoliciesArrayOutput{}) }
+
+type RecordGeolocationRoutingPolicies struct {
+	// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+	Continent *string `pulumi:"continent"`
+	// A two-character country code or `*` to indicate a default resource record set.
+	Country *string `pulumi:"country"`
+	// A subdivision code for a country.
+	Subdivision *string `pulumi:"subdivision"`
+}
+var recordGeolocationRoutingPoliciesType = reflect.TypeOf((*RecordGeolocationRoutingPolicies)(nil)).Elem()
+
+type RecordGeolocationRoutingPoliciesInput interface {
+	pulumi.Input
+
+	ToRecordGeolocationRoutingPoliciesOutput() RecordGeolocationRoutingPoliciesOutput
+	ToRecordGeolocationRoutingPoliciesOutputWithContext(ctx context.Context) RecordGeolocationRoutingPoliciesOutput
+}
+
+type RecordGeolocationRoutingPoliciesArgs struct {
+	// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+	Continent pulumi.StringInput `pulumi:"continent"`
+	// A two-character country code or `*` to indicate a default resource record set.
+	Country pulumi.StringInput `pulumi:"country"`
+	// A subdivision code for a country.
+	Subdivision pulumi.StringInput `pulumi:"subdivision"`
+}
+
+func (RecordGeolocationRoutingPoliciesArgs) ElementType() reflect.Type {
+	return recordGeolocationRoutingPoliciesType
+}
+
+func (a RecordGeolocationRoutingPoliciesArgs) ToRecordGeolocationRoutingPoliciesOutput() RecordGeolocationRoutingPoliciesOutput {
+	return pulumi.ToOutput(a).(RecordGeolocationRoutingPoliciesOutput)
+}
+
+func (a RecordGeolocationRoutingPoliciesArgs) ToRecordGeolocationRoutingPoliciesOutputWithContext(ctx context.Context) RecordGeolocationRoutingPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordGeolocationRoutingPoliciesOutput)
+}
+
+type RecordGeolocationRoutingPoliciesOutput struct { *pulumi.OutputState }
+
+// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+func (o RecordGeolocationRoutingPoliciesOutput) Continent() pulumi.StringOutput {
+	return o.Apply(func(v RecordGeolocationRoutingPolicies) string {
+		if v.Continent == nil { return *new(string) } else { return *v.Continent }
+	}).(pulumi.StringOutput)
+}
+
+// A two-character country code or `*` to indicate a default resource record set.
+func (o RecordGeolocationRoutingPoliciesOutput) Country() pulumi.StringOutput {
+	return o.Apply(func(v RecordGeolocationRoutingPolicies) string {
+		if v.Country == nil { return *new(string) } else { return *v.Country }
+	}).(pulumi.StringOutput)
+}
+
+// A subdivision code for a country.
+func (o RecordGeolocationRoutingPoliciesOutput) Subdivision() pulumi.StringOutput {
+	return o.Apply(func(v RecordGeolocationRoutingPolicies) string {
+		if v.Subdivision == nil { return *new(string) } else { return *v.Subdivision }
+	}).(pulumi.StringOutput)
+}
+
+func (RecordGeolocationRoutingPoliciesOutput) ElementType() reflect.Type {
+	return recordGeolocationRoutingPoliciesType
+}
+
+func (o RecordGeolocationRoutingPoliciesOutput) ToRecordGeolocationRoutingPoliciesOutput() RecordGeolocationRoutingPoliciesOutput {
+	return o
+}
+
+func (o RecordGeolocationRoutingPoliciesOutput) ToRecordGeolocationRoutingPoliciesOutputWithContext(ctx context.Context) RecordGeolocationRoutingPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordGeolocationRoutingPoliciesOutput{}) }
+
+var recordGeolocationRoutingPoliciesArrayType = reflect.TypeOf((*[]RecordGeolocationRoutingPolicies)(nil)).Elem()
+
+type RecordGeolocationRoutingPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToRecordGeolocationRoutingPoliciesArrayOutput() RecordGeolocationRoutingPoliciesArrayOutput
+	ToRecordGeolocationRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordGeolocationRoutingPoliciesArrayOutput
+}
+
+type RecordGeolocationRoutingPoliciesArrayArgs []RecordGeolocationRoutingPoliciesInput
+
+func (RecordGeolocationRoutingPoliciesArrayArgs) ElementType() reflect.Type {
+	return recordGeolocationRoutingPoliciesArrayType
+}
+
+func (a RecordGeolocationRoutingPoliciesArrayArgs) ToRecordGeolocationRoutingPoliciesArrayOutput() RecordGeolocationRoutingPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(RecordGeolocationRoutingPoliciesArrayOutput)
+}
+
+func (a RecordGeolocationRoutingPoliciesArrayArgs) ToRecordGeolocationRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordGeolocationRoutingPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordGeolocationRoutingPoliciesArrayOutput)
+}
+
+type RecordGeolocationRoutingPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o RecordGeolocationRoutingPoliciesArrayOutput) Index(i pulumi.IntInput) RecordGeolocationRoutingPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RecordGeolocationRoutingPolicies {
+		return vs[0].([]RecordGeolocationRoutingPolicies)[vs[1].(int)]
+	}).(RecordGeolocationRoutingPoliciesOutput)
+}
+
+func (RecordGeolocationRoutingPoliciesArrayOutput) ElementType() reflect.Type {
+	return recordGeolocationRoutingPoliciesArrayType
+}
+
+func (o RecordGeolocationRoutingPoliciesArrayOutput) ToRecordGeolocationRoutingPoliciesArrayOutput() RecordGeolocationRoutingPoliciesArrayOutput {
+	return o
+}
+
+func (o RecordGeolocationRoutingPoliciesArrayOutput) ToRecordGeolocationRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordGeolocationRoutingPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordGeolocationRoutingPoliciesArrayOutput{}) }
+
+type RecordLatencyRoutingPolicies struct {
+	// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
+	Region string `pulumi:"region"`
+}
+var recordLatencyRoutingPoliciesType = reflect.TypeOf((*RecordLatencyRoutingPolicies)(nil)).Elem()
+
+type RecordLatencyRoutingPoliciesInput interface {
+	pulumi.Input
+
+	ToRecordLatencyRoutingPoliciesOutput() RecordLatencyRoutingPoliciesOutput
+	ToRecordLatencyRoutingPoliciesOutputWithContext(ctx context.Context) RecordLatencyRoutingPoliciesOutput
+}
+
+type RecordLatencyRoutingPoliciesArgs struct {
+	// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (RecordLatencyRoutingPoliciesArgs) ElementType() reflect.Type {
+	return recordLatencyRoutingPoliciesType
+}
+
+func (a RecordLatencyRoutingPoliciesArgs) ToRecordLatencyRoutingPoliciesOutput() RecordLatencyRoutingPoliciesOutput {
+	return pulumi.ToOutput(a).(RecordLatencyRoutingPoliciesOutput)
+}
+
+func (a RecordLatencyRoutingPoliciesArgs) ToRecordLatencyRoutingPoliciesOutputWithContext(ctx context.Context) RecordLatencyRoutingPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordLatencyRoutingPoliciesOutput)
+}
+
+type RecordLatencyRoutingPoliciesOutput struct { *pulumi.OutputState }
+
+// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
+func (o RecordLatencyRoutingPoliciesOutput) Region() pulumi.StringOutput {
+	return o.Apply(func(v RecordLatencyRoutingPolicies) string {
+		return v.Region
+	}).(pulumi.StringOutput)
+}
+
+func (RecordLatencyRoutingPoliciesOutput) ElementType() reflect.Type {
+	return recordLatencyRoutingPoliciesType
+}
+
+func (o RecordLatencyRoutingPoliciesOutput) ToRecordLatencyRoutingPoliciesOutput() RecordLatencyRoutingPoliciesOutput {
+	return o
+}
+
+func (o RecordLatencyRoutingPoliciesOutput) ToRecordLatencyRoutingPoliciesOutputWithContext(ctx context.Context) RecordLatencyRoutingPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordLatencyRoutingPoliciesOutput{}) }
+
+var recordLatencyRoutingPoliciesArrayType = reflect.TypeOf((*[]RecordLatencyRoutingPolicies)(nil)).Elem()
+
+type RecordLatencyRoutingPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToRecordLatencyRoutingPoliciesArrayOutput() RecordLatencyRoutingPoliciesArrayOutput
+	ToRecordLatencyRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordLatencyRoutingPoliciesArrayOutput
+}
+
+type RecordLatencyRoutingPoliciesArrayArgs []RecordLatencyRoutingPoliciesInput
+
+func (RecordLatencyRoutingPoliciesArrayArgs) ElementType() reflect.Type {
+	return recordLatencyRoutingPoliciesArrayType
+}
+
+func (a RecordLatencyRoutingPoliciesArrayArgs) ToRecordLatencyRoutingPoliciesArrayOutput() RecordLatencyRoutingPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(RecordLatencyRoutingPoliciesArrayOutput)
+}
+
+func (a RecordLatencyRoutingPoliciesArrayArgs) ToRecordLatencyRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordLatencyRoutingPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordLatencyRoutingPoliciesArrayOutput)
+}
+
+type RecordLatencyRoutingPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o RecordLatencyRoutingPoliciesArrayOutput) Index(i pulumi.IntInput) RecordLatencyRoutingPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RecordLatencyRoutingPolicies {
+		return vs[0].([]RecordLatencyRoutingPolicies)[vs[1].(int)]
+	}).(RecordLatencyRoutingPoliciesOutput)
+}
+
+func (RecordLatencyRoutingPoliciesArrayOutput) ElementType() reflect.Type {
+	return recordLatencyRoutingPoliciesArrayType
+}
+
+func (o RecordLatencyRoutingPoliciesArrayOutput) ToRecordLatencyRoutingPoliciesArrayOutput() RecordLatencyRoutingPoliciesArrayOutput {
+	return o
+}
+
+func (o RecordLatencyRoutingPoliciesArrayOutput) ToRecordLatencyRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordLatencyRoutingPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordLatencyRoutingPoliciesArrayOutput{}) }
+
+type RecordWeightedRoutingPolicies struct {
+	// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+	Weight int `pulumi:"weight"`
+}
+var recordWeightedRoutingPoliciesType = reflect.TypeOf((*RecordWeightedRoutingPolicies)(nil)).Elem()
+
+type RecordWeightedRoutingPoliciesInput interface {
+	pulumi.Input
+
+	ToRecordWeightedRoutingPoliciesOutput() RecordWeightedRoutingPoliciesOutput
+	ToRecordWeightedRoutingPoliciesOutputWithContext(ctx context.Context) RecordWeightedRoutingPoliciesOutput
+}
+
+type RecordWeightedRoutingPoliciesArgs struct {
+	// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (RecordWeightedRoutingPoliciesArgs) ElementType() reflect.Type {
+	return recordWeightedRoutingPoliciesType
+}
+
+func (a RecordWeightedRoutingPoliciesArgs) ToRecordWeightedRoutingPoliciesOutput() RecordWeightedRoutingPoliciesOutput {
+	return pulumi.ToOutput(a).(RecordWeightedRoutingPoliciesOutput)
+}
+
+func (a RecordWeightedRoutingPoliciesArgs) ToRecordWeightedRoutingPoliciesOutputWithContext(ctx context.Context) RecordWeightedRoutingPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordWeightedRoutingPoliciesOutput)
+}
+
+type RecordWeightedRoutingPoliciesOutput struct { *pulumi.OutputState }
+
+// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+func (o RecordWeightedRoutingPoliciesOutput) Weight() pulumi.IntOutput {
+	return o.Apply(func(v RecordWeightedRoutingPolicies) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+func (RecordWeightedRoutingPoliciesOutput) ElementType() reflect.Type {
+	return recordWeightedRoutingPoliciesType
+}
+
+func (o RecordWeightedRoutingPoliciesOutput) ToRecordWeightedRoutingPoliciesOutput() RecordWeightedRoutingPoliciesOutput {
+	return o
+}
+
+func (o RecordWeightedRoutingPoliciesOutput) ToRecordWeightedRoutingPoliciesOutputWithContext(ctx context.Context) RecordWeightedRoutingPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordWeightedRoutingPoliciesOutput{}) }
+
+var recordWeightedRoutingPoliciesArrayType = reflect.TypeOf((*[]RecordWeightedRoutingPolicies)(nil)).Elem()
+
+type RecordWeightedRoutingPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToRecordWeightedRoutingPoliciesArrayOutput() RecordWeightedRoutingPoliciesArrayOutput
+	ToRecordWeightedRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordWeightedRoutingPoliciesArrayOutput
+}
+
+type RecordWeightedRoutingPoliciesArrayArgs []RecordWeightedRoutingPoliciesInput
+
+func (RecordWeightedRoutingPoliciesArrayArgs) ElementType() reflect.Type {
+	return recordWeightedRoutingPoliciesArrayType
+}
+
+func (a RecordWeightedRoutingPoliciesArrayArgs) ToRecordWeightedRoutingPoliciesArrayOutput() RecordWeightedRoutingPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(RecordWeightedRoutingPoliciesArrayOutput)
+}
+
+func (a RecordWeightedRoutingPoliciesArrayArgs) ToRecordWeightedRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordWeightedRoutingPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecordWeightedRoutingPoliciesArrayOutput)
+}
+
+type RecordWeightedRoutingPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o RecordWeightedRoutingPoliciesArrayOutput) Index(i pulumi.IntInput) RecordWeightedRoutingPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RecordWeightedRoutingPolicies {
+		return vs[0].([]RecordWeightedRoutingPolicies)[vs[1].(int)]
+	}).(RecordWeightedRoutingPoliciesOutput)
+}
+
+func (RecordWeightedRoutingPoliciesArrayOutput) ElementType() reflect.Type {
+	return recordWeightedRoutingPoliciesArrayType
+}
+
+func (o RecordWeightedRoutingPoliciesArrayOutput) ToRecordWeightedRoutingPoliciesArrayOutput() RecordWeightedRoutingPoliciesArrayOutput {
+	return o
+}
+
+func (o RecordWeightedRoutingPoliciesArrayOutput) ToRecordWeightedRoutingPoliciesArrayOutputWithContext(ctx context.Context) RecordWeightedRoutingPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecordWeightedRoutingPoliciesArrayOutput{}) }
+

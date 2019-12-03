@@ -4,6 +4,8 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,196 +13,201 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
 type RestApi struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
+	ApiKeySource pulumi.StringOutput `pulumi:"apiKeySource"`
+
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+	BinaryMediaTypes pulumi.StringArrayOutput `pulumi:"binaryMediaTypes"`
+
+	// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
+	Body pulumi.StringOutput `pulumi:"body"`
+
+	// The creation date of the REST API
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The description of the REST API
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
+	EndpointConfiguration RestApiEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
+
+	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// when allowing API Gateway to invoke a Lambda function,
+	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
+
+	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
+	MinimumCompressionSize pulumi.IntOutput `pulumi:"minimumCompressionSize"`
+
+	// The name of the REST API
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// The resource ID of the REST API's root
+	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRestApi registers a new resource with the given unique name, arguments, and options.
 func NewRestApi(ctx *pulumi.Context,
-	name string, args *RestApiArgs, opts ...pulumi.ResourceOpt) (*RestApi, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiKeySource"] = nil
-		inputs["binaryMediaTypes"] = nil
-		inputs["body"] = nil
-		inputs["description"] = nil
-		inputs["endpointConfiguration"] = nil
-		inputs["minimumCompressionSize"] = nil
-		inputs["name"] = nil
-		inputs["policy"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["apiKeySource"] = args.ApiKeySource
-		inputs["binaryMediaTypes"] = args.BinaryMediaTypes
-		inputs["body"] = args.Body
-		inputs["description"] = args.Description
-		inputs["endpointConfiguration"] = args.EndpointConfiguration
-		inputs["minimumCompressionSize"] = args.MinimumCompressionSize
-		inputs["name"] = args.Name
-		inputs["policy"] = args.Policy
-		inputs["tags"] = args.Tags
+	name string, args *RestApiArgs, opts ...pulumi.ResourceOption) (*RestApi, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiKeySource; i != nil { inputs["apiKeySource"] = i.ToStringOutput() }
+		if i := args.BinaryMediaTypes; i != nil { inputs["binaryMediaTypes"] = i.ToStringArrayOutput() }
+		if i := args.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EndpointConfiguration; i != nil { inputs["endpointConfiguration"] = i.ToRestApiEndpointConfigurationOutput() }
+		if i := args.MinimumCompressionSize; i != nil { inputs["minimumCompressionSize"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["executionArn"] = nil
-	inputs["rootResourceId"] = nil
-	s, err := ctx.RegisterResource("aws:apigateway/restApi:RestApi", name, true, inputs, opts...)
+	var resource RestApi
+	err := ctx.RegisterResource("aws:apigateway/restApi:RestApi", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RestApi{s: s}, nil
+	return &resource, nil
 }
 
 // GetRestApi gets an existing RestApi resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRestApi(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RestApiState, opts ...pulumi.ResourceOpt) (*RestApi, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RestApiState, opts ...pulumi.ResourceOption) (*RestApi, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiKeySource"] = state.ApiKeySource
-		inputs["arn"] = state.Arn
-		inputs["binaryMediaTypes"] = state.BinaryMediaTypes
-		inputs["body"] = state.Body
-		inputs["createdDate"] = state.CreatedDate
-		inputs["description"] = state.Description
-		inputs["endpointConfiguration"] = state.EndpointConfiguration
-		inputs["executionArn"] = state.ExecutionArn
-		inputs["minimumCompressionSize"] = state.MinimumCompressionSize
-		inputs["name"] = state.Name
-		inputs["policy"] = state.Policy
-		inputs["rootResourceId"] = state.RootResourceId
-		inputs["tags"] = state.Tags
+		if i := state.ApiKeySource; i != nil { inputs["apiKeySource"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.BinaryMediaTypes; i != nil { inputs["binaryMediaTypes"] = i.ToStringArrayOutput() }
+		if i := state.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EndpointConfiguration; i != nil { inputs["endpointConfiguration"] = i.ToRestApiEndpointConfigurationOutput() }
+		if i := state.ExecutionArn; i != nil { inputs["executionArn"] = i.ToStringOutput() }
+		if i := state.MinimumCompressionSize; i != nil { inputs["minimumCompressionSize"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.RootResourceId; i != nil { inputs["rootResourceId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/restApi:RestApi", name, id, inputs, opts...)
+	var resource RestApi
+	err := ctx.ReadResource("aws:apigateway/restApi:RestApi", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RestApi{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RestApi) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RestApi) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
-func (r *RestApi) ApiKeySource() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiKeySource"])
-}
-
-// Amazon Resource Name (ARN)
-func (r *RestApi) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
-func (r *RestApi) BinaryMediaTypes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["binaryMediaTypes"])
-}
-
-// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
-func (r *RestApi) Body() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["body"])
-}
-
-// The creation date of the REST API
-func (r *RestApi) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The description of the REST API
-func (r *RestApi) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Nested argument defining API endpoint configuration including endpoint type. Defined below.
-func (r *RestApi) EndpointConfiguration() pulumi.Output {
-	return r.s.State["endpointConfiguration"]
-}
-
-// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
-// when allowing API Gateway to invoke a Lambda function,
-// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
-func (r *RestApi) ExecutionArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["executionArn"])
-}
-
-// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
-func (r *RestApi) MinimumCompressionSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["minimumCompressionSize"])
-}
-
-// The name of the REST API
-func (r *RestApi) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *RestApi) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// The resource ID of the REST API's root
-func (r *RestApi) RootResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootResourceId"])
-}
-
-// Key-value mapping of resource tags
-func (r *RestApi) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RestApi resources.
 type RestApiState struct {
 	// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
-	ApiKeySource interface{}
+	ApiKeySource pulumi.StringInput `pulumi:"apiKeySource"`
 	// Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
-	BinaryMediaTypes interface{}
+	BinaryMediaTypes pulumi.StringArrayInput `pulumi:"binaryMediaTypes"`
 	// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// The creation date of the REST API
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The description of the REST API
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
-	EndpointConfiguration interface{}
+	EndpointConfiguration RestApiEndpointConfigurationInput `pulumi:"endpointConfiguration"`
 	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
-	ExecutionArn interface{}
+	ExecutionArn pulumi.StringInput `pulumi:"executionArn"`
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
-	MinimumCompressionSize interface{}
+	MinimumCompressionSize pulumi.IntInput `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name interface{}
-	Policy interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The resource ID of the REST API's root
-	RootResourceId interface{}
+	RootResourceId pulumi.StringInput `pulumi:"rootResourceId"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestApi resource.
 type RestApiArgs struct {
 	// The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
-	ApiKeySource interface{}
+	ApiKeySource pulumi.StringInput `pulumi:"apiKeySource"`
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
-	BinaryMediaTypes interface{}
+	BinaryMediaTypes pulumi.StringArrayInput `pulumi:"binaryMediaTypes"`
 	// An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// The description of the REST API
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
-	EndpointConfiguration interface{}
+	EndpointConfiguration RestApiEndpointConfigurationInput `pulumi:"endpointConfiguration"`
 	// Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
-	MinimumCompressionSize interface{}
+	MinimumCompressionSize pulumi.IntInput `pulumi:"minimumCompressionSize"`
 	// The name of the REST API
-	Name interface{}
-	Policy interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RestApiEndpointConfiguration struct {
+	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	Types string `pulumi:"types"`
+}
+var restApiEndpointConfigurationType = reflect.TypeOf((*RestApiEndpointConfiguration)(nil)).Elem()
+
+type RestApiEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput
+	ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput
+}
+
+type RestApiEndpointConfigurationArgs struct {
+	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	Types pulumi.StringInput `pulumi:"types"`
+}
+
+func (RestApiEndpointConfigurationArgs) ElementType() reflect.Type {
+	return restApiEndpointConfigurationType
+}
+
+func (a RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput {
+	return pulumi.ToOutput(a).(RestApiEndpointConfigurationOutput)
+}
+
+func (a RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RestApiEndpointConfigurationOutput)
+}
+
+type RestApiEndpointConfigurationOutput struct { *pulumi.OutputState }
+
+// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringOutput {
+	return o.Apply(func(v RestApiEndpointConfiguration) string {
+		return v.Types
+	}).(pulumi.StringOutput)
+}
+
+func (RestApiEndpointConfigurationOutput) ElementType() reflect.Type {
+	return restApiEndpointConfigurationType
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{}) }
+

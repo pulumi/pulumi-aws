@@ -4,6 +4,8 @@
 package wafregional
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,75 +13,175 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_geo_match_set.html.markdown.
 type GeoMatchSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+	GeoMatchConstraints GeoMatchSetGeoMatchConstraintsArrayOutput `pulumi:"geoMatchConstraints"`
+
+	// The name or description of the Geo Match Set.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewGeoMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewGeoMatchSet(ctx *pulumi.Context,
-	name string, args *GeoMatchSetArgs, opts ...pulumi.ResourceOpt) (*GeoMatchSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["geoMatchConstraints"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["geoMatchConstraints"] = args.GeoMatchConstraints
-		inputs["name"] = args.Name
+	name string, args *GeoMatchSetArgs, opts ...pulumi.ResourceOption) (*GeoMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.GeoMatchConstraints; i != nil { inputs["geoMatchConstraints"] = i.ToGeoMatchSetGeoMatchConstraintsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:wafregional/geoMatchSet:GeoMatchSet", name, true, inputs, opts...)
+	var resource GeoMatchSet
+	err := ctx.RegisterResource("aws:wafregional/geoMatchSet:GeoMatchSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GeoMatchSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetGeoMatchSet gets an existing GeoMatchSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGeoMatchSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GeoMatchSetState, opts ...pulumi.ResourceOpt) (*GeoMatchSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GeoMatchSetState, opts ...pulumi.ResourceOption) (*GeoMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["geoMatchConstraints"] = state.GeoMatchConstraints
-		inputs["name"] = state.Name
+		if i := state.GeoMatchConstraints; i != nil { inputs["geoMatchConstraints"] = i.ToGeoMatchSetGeoMatchConstraintsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:wafregional/geoMatchSet:GeoMatchSet", name, id, inputs, opts...)
+	var resource GeoMatchSet
+	err := ctx.ReadResource("aws:wafregional/geoMatchSet:GeoMatchSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GeoMatchSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *GeoMatchSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *GeoMatchSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-func (r *GeoMatchSet) GeoMatchConstraints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["geoMatchConstraints"])
-}
-
-// The name or description of the Geo Match Set.
-func (r *GeoMatchSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering GeoMatchSet resources.
 type GeoMatchSetState struct {
 	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-	GeoMatchConstraints interface{}
+	GeoMatchConstraints GeoMatchSetGeoMatchConstraintsArrayInput `pulumi:"geoMatchConstraints"`
 	// The name or description of the Geo Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a GeoMatchSet resource.
 type GeoMatchSetArgs struct {
 	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
-	GeoMatchConstraints interface{}
+	GeoMatchConstraints GeoMatchSetGeoMatchConstraintsArrayInput `pulumi:"geoMatchConstraints"`
 	// The name or description of the Geo Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type GeoMatchSetGeoMatchConstraints struct {
+	// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+	Type string `pulumi:"type"`
+	// The country that you want AWS WAF to search for.
+	// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+	Value string `pulumi:"value"`
+}
+var geoMatchSetGeoMatchConstraintsType = reflect.TypeOf((*GeoMatchSetGeoMatchConstraints)(nil)).Elem()
+
+type GeoMatchSetGeoMatchConstraintsInput interface {
+	pulumi.Input
+
+	ToGeoMatchSetGeoMatchConstraintsOutput() GeoMatchSetGeoMatchConstraintsOutput
+	ToGeoMatchSetGeoMatchConstraintsOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintsOutput
+}
+
+type GeoMatchSetGeoMatchConstraintsArgs struct {
+	// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The country that you want AWS WAF to search for.
+	// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GeoMatchSetGeoMatchConstraintsArgs) ElementType() reflect.Type {
+	return geoMatchSetGeoMatchConstraintsType
+}
+
+func (a GeoMatchSetGeoMatchConstraintsArgs) ToGeoMatchSetGeoMatchConstraintsOutput() GeoMatchSetGeoMatchConstraintsOutput {
+	return pulumi.ToOutput(a).(GeoMatchSetGeoMatchConstraintsOutput)
+}
+
+func (a GeoMatchSetGeoMatchConstraintsArgs) ToGeoMatchSetGeoMatchConstraintsOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GeoMatchSetGeoMatchConstraintsOutput)
+}
+
+type GeoMatchSetGeoMatchConstraintsOutput struct { *pulumi.OutputState }
+
+// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+func (o GeoMatchSetGeoMatchConstraintsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v GeoMatchSetGeoMatchConstraints) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The country that you want AWS WAF to search for.
+// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+func (o GeoMatchSetGeoMatchConstraintsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v GeoMatchSetGeoMatchConstraints) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (GeoMatchSetGeoMatchConstraintsOutput) ElementType() reflect.Type {
+	return geoMatchSetGeoMatchConstraintsType
+}
+
+func (o GeoMatchSetGeoMatchConstraintsOutput) ToGeoMatchSetGeoMatchConstraintsOutput() GeoMatchSetGeoMatchConstraintsOutput {
+	return o
+}
+
+func (o GeoMatchSetGeoMatchConstraintsOutput) ToGeoMatchSetGeoMatchConstraintsOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GeoMatchSetGeoMatchConstraintsOutput{}) }
+
+var geoMatchSetGeoMatchConstraintsArrayType = reflect.TypeOf((*[]GeoMatchSetGeoMatchConstraints)(nil)).Elem()
+
+type GeoMatchSetGeoMatchConstraintsArrayInput interface {
+	pulumi.Input
+
+	ToGeoMatchSetGeoMatchConstraintsArrayOutput() GeoMatchSetGeoMatchConstraintsArrayOutput
+	ToGeoMatchSetGeoMatchConstraintsArrayOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintsArrayOutput
+}
+
+type GeoMatchSetGeoMatchConstraintsArrayArgs []GeoMatchSetGeoMatchConstraintsInput
+
+func (GeoMatchSetGeoMatchConstraintsArrayArgs) ElementType() reflect.Type {
+	return geoMatchSetGeoMatchConstraintsArrayType
+}
+
+func (a GeoMatchSetGeoMatchConstraintsArrayArgs) ToGeoMatchSetGeoMatchConstraintsArrayOutput() GeoMatchSetGeoMatchConstraintsArrayOutput {
+	return pulumi.ToOutput(a).(GeoMatchSetGeoMatchConstraintsArrayOutput)
+}
+
+func (a GeoMatchSetGeoMatchConstraintsArrayArgs) ToGeoMatchSetGeoMatchConstraintsArrayOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GeoMatchSetGeoMatchConstraintsArrayOutput)
+}
+
+type GeoMatchSetGeoMatchConstraintsArrayOutput struct { *pulumi.OutputState }
+
+func (o GeoMatchSetGeoMatchConstraintsArrayOutput) Index(i pulumi.IntInput) GeoMatchSetGeoMatchConstraintsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GeoMatchSetGeoMatchConstraints {
+		return vs[0].([]GeoMatchSetGeoMatchConstraints)[vs[1].(int)]
+	}).(GeoMatchSetGeoMatchConstraintsOutput)
+}
+
+func (GeoMatchSetGeoMatchConstraintsArrayOutput) ElementType() reflect.Type {
+	return geoMatchSetGeoMatchConstraintsArrayType
+}
+
+func (o GeoMatchSetGeoMatchConstraintsArrayOutput) ToGeoMatchSetGeoMatchConstraintsArrayOutput() GeoMatchSetGeoMatchConstraintsArrayOutput {
+	return o
+}
+
+func (o GeoMatchSetGeoMatchConstraintsArrayOutput) ToGeoMatchSetGeoMatchConstraintsArrayOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GeoMatchSetGeoMatchConstraintsArrayOutput{}) }
+

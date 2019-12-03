@@ -18,12 +18,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
 type NetworkAclRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+
+	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+	Egress pulumi.BoolOutput `pulumi:"egress"`
+
+	// The from port to match.
+	FromPort pulumi.IntOutput `pulumi:"fromPort"`
+
+	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+	IcmpCode pulumi.StringOutput `pulumi:"icmpCode"`
+
+	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+	IcmpType pulumi.StringOutput `pulumi:"icmpType"`
+
+	// The IPv6 CIDR block to allow or deny.
+	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+
+	// The ID of the network ACL.
+	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
+
+	// The protocol. A value of -1 means all protocols.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+
+	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+	RuleAction pulumi.StringOutput `pulumi:"ruleAction"`
+
+	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+	RuleNumber pulumi.IntOutput `pulumi:"ruleNumber"`
+
+	// The to port to match.
+	ToPort pulumi.IntOutput `pulumi:"toPort"`
 }
 
 // NewNetworkAclRule registers a new resource with the given unique name, arguments, and options.
 func NewNetworkAclRule(ctx *pulumi.Context,
-	name string, args *NetworkAclRuleArgs, opts ...pulumi.ResourceOpt) (*NetworkAclRule, error) {
+	name string, args *NetworkAclRuleArgs, opts ...pulumi.ResourceOption) (*NetworkAclRule, error) {
 	if args == nil || args.NetworkAclId == nil {
 		return nil, errors.New("missing required argument 'NetworkAclId'")
 	}
@@ -36,177 +69,102 @@ func NewNetworkAclRule(ctx *pulumi.Context,
 	if args == nil || args.RuleNumber == nil {
 		return nil, errors.New("missing required argument 'RuleNumber'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cidrBlock"] = nil
-		inputs["egress"] = nil
-		inputs["fromPort"] = nil
-		inputs["icmpCode"] = nil
-		inputs["icmpType"] = nil
-		inputs["ipv6CidrBlock"] = nil
-		inputs["networkAclId"] = nil
-		inputs["protocol"] = nil
-		inputs["ruleAction"] = nil
-		inputs["ruleNumber"] = nil
-		inputs["toPort"] = nil
-	} else {
-		inputs["cidrBlock"] = args.CidrBlock
-		inputs["egress"] = args.Egress
-		inputs["fromPort"] = args.FromPort
-		inputs["icmpCode"] = args.IcmpCode
-		inputs["icmpType"] = args.IcmpType
-		inputs["ipv6CidrBlock"] = args.Ipv6CidrBlock
-		inputs["networkAclId"] = args.NetworkAclId
-		inputs["protocol"] = args.Protocol
-		inputs["ruleAction"] = args.RuleAction
-		inputs["ruleNumber"] = args.RuleNumber
-		inputs["toPort"] = args.ToPort
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CidrBlock; i != nil { inputs["cidrBlock"] = i.ToStringOutput() }
+		if i := args.Egress; i != nil { inputs["egress"] = i.ToBoolOutput() }
+		if i := args.FromPort; i != nil { inputs["fromPort"] = i.ToIntOutput() }
+		if i := args.IcmpCode; i != nil { inputs["icmpCode"] = i.ToStringOutput() }
+		if i := args.IcmpType; i != nil { inputs["icmpType"] = i.ToStringOutput() }
+		if i := args.Ipv6CidrBlock; i != nil { inputs["ipv6CidrBlock"] = i.ToStringOutput() }
+		if i := args.NetworkAclId; i != nil { inputs["networkAclId"] = i.ToStringOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := args.RuleAction; i != nil { inputs["ruleAction"] = i.ToStringOutput() }
+		if i := args.RuleNumber; i != nil { inputs["ruleNumber"] = i.ToIntOutput() }
+		if i := args.ToPort; i != nil { inputs["toPort"] = i.ToIntOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/networkAclRule:NetworkAclRule", name, true, inputs, opts...)
+	var resource NetworkAclRule
+	err := ctx.RegisterResource("aws:ec2/networkAclRule:NetworkAclRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkAclRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkAclRule gets an existing NetworkAclRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkAclRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkAclRuleState, opts ...pulumi.ResourceOpt) (*NetworkAclRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkAclRuleState, opts ...pulumi.ResourceOption) (*NetworkAclRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["cidrBlock"] = state.CidrBlock
-		inputs["egress"] = state.Egress
-		inputs["fromPort"] = state.FromPort
-		inputs["icmpCode"] = state.IcmpCode
-		inputs["icmpType"] = state.IcmpType
-		inputs["ipv6CidrBlock"] = state.Ipv6CidrBlock
-		inputs["networkAclId"] = state.NetworkAclId
-		inputs["protocol"] = state.Protocol
-		inputs["ruleAction"] = state.RuleAction
-		inputs["ruleNumber"] = state.RuleNumber
-		inputs["toPort"] = state.ToPort
+		if i := state.CidrBlock; i != nil { inputs["cidrBlock"] = i.ToStringOutput() }
+		if i := state.Egress; i != nil { inputs["egress"] = i.ToBoolOutput() }
+		if i := state.FromPort; i != nil { inputs["fromPort"] = i.ToIntOutput() }
+		if i := state.IcmpCode; i != nil { inputs["icmpCode"] = i.ToStringOutput() }
+		if i := state.IcmpType; i != nil { inputs["icmpType"] = i.ToStringOutput() }
+		if i := state.Ipv6CidrBlock; i != nil { inputs["ipv6CidrBlock"] = i.ToStringOutput() }
+		if i := state.NetworkAclId; i != nil { inputs["networkAclId"] = i.ToStringOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := state.RuleAction; i != nil { inputs["ruleAction"] = i.ToStringOutput() }
+		if i := state.RuleNumber; i != nil { inputs["ruleNumber"] = i.ToIntOutput() }
+		if i := state.ToPort; i != nil { inputs["toPort"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/networkAclRule:NetworkAclRule", name, id, inputs, opts...)
+	var resource NetworkAclRule
+	err := ctx.ReadResource("aws:ec2/networkAclRule:NetworkAclRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkAclRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkAclRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkAclRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-func (r *NetworkAclRule) CidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cidrBlock"])
-}
-
-// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-func (r *NetworkAclRule) Egress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["egress"])
-}
-
-// The from port to match.
-func (r *NetworkAclRule) FromPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["fromPort"])
-}
-
-// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-func (r *NetworkAclRule) IcmpCode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["icmpCode"])
-}
-
-// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
-func (r *NetworkAclRule) IcmpType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["icmpType"])
-}
-
-// The IPv6 CIDR block to allow or deny.
-func (r *NetworkAclRule) Ipv6CidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipv6CidrBlock"])
-}
-
-// The ID of the network ACL.
-func (r *NetworkAclRule) NetworkAclId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkAclId"])
-}
-
-// The protocol. A value of -1 means all protocols.
-func (r *NetworkAclRule) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
-}
-
-// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-func (r *NetworkAclRule) RuleAction() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ruleAction"])
-}
-
-// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-func (r *NetworkAclRule) RuleNumber() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ruleNumber"])
-}
-
-// The to port to match.
-func (r *NetworkAclRule) ToPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["toPort"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkAclRule resources.
 type NetworkAclRuleState struct {
 	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock interface{}
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress interface{}
+	Egress pulumi.BoolInput `pulumi:"egress"`
 	// The from port to match.
-	FromPort interface{}
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-	IcmpCode interface{}
+	IcmpCode pulumi.StringInput `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
-	IcmpType interface{}
+	IcmpType pulumi.StringInput `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
-	Ipv6CidrBlock interface{}
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
 	// The ID of the network ACL.
-	NetworkAclId interface{}
+	NetworkAclId pulumi.StringInput `pulumi:"networkAclId"`
 	// The protocol. A value of -1 means all protocols.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction interface{}
+	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
 	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber interface{}
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
 	// The to port to match.
-	ToPort interface{}
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
 // The set of arguments for constructing a NetworkAclRule resource.
 type NetworkAclRuleArgs struct {
 	// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-	CidrBlock interface{}
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-	Egress interface{}
+	Egress pulumi.BoolInput `pulumi:"egress"`
 	// The from port to match.
-	FromPort interface{}
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-	IcmpCode interface{}
+	IcmpCode pulumi.StringInput `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
-	IcmpType interface{}
+	IcmpType pulumi.StringInput `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
-	Ipv6CidrBlock interface{}
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
 	// The ID of the network ACL.
-	NetworkAclId interface{}
+	NetworkAclId pulumi.StringInput `pulumi:"networkAclId"`
 	// The protocol. A value of -1 means all protocols.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-	RuleAction interface{}
+	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
 	// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-	RuleNumber interface{}
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
 	// The to port to match.
-	ToPort interface{}
+	ToPort pulumi.IntInput `pulumi:"toPort"`
 }

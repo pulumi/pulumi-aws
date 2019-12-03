@@ -10,71 +10,63 @@ import (
 // Get information on an EC2 Transit Gateway.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway.html.markdown.
-func LookupTransitGateway(ctx *pulumi.Context, args *GetTransitGatewayArgs) (*GetTransitGatewayResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["id"] = args.Id
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", inputs)
+func LookupTransitGateway(ctx *pulumi.Context, args *GetTransitGatewayArgs, opts ...pulumi.InvokeOption) (*GetTransitGatewayResult, error) {
+	var rv GetTransitGatewayResult
+	err := ctx.Invoke("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetTransitGatewayResult{
-		AmazonSideAsn: outputs["amazonSideAsn"],
-		Arn: outputs["arn"],
-		AssociationDefaultRouteTableId: outputs["associationDefaultRouteTableId"],
-		AutoAcceptSharedAttachments: outputs["autoAcceptSharedAttachments"],
-		DefaultRouteTableAssociation: outputs["defaultRouteTableAssociation"],
-		DefaultRouteTablePropagation: outputs["defaultRouteTablePropagation"],
-		Description: outputs["description"],
-		DnsSupport: outputs["dnsSupport"],
-		Filters: outputs["filters"],
-		Id: outputs["id"],
-		OwnerId: outputs["ownerId"],
-		PropagationDefaultRouteTableId: outputs["propagationDefaultRouteTableId"],
-		Tags: outputs["tags"],
-		VpnEcmpSupport: outputs["vpnEcmpSupport"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getTransitGateway.
 type GetTransitGatewayArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
-	Filters interface{}
+	Filters *[]GetTransitGatewayFiltersArgs `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway.
-	Id interface{}
-	Tags interface{}
+	Id *string `pulumi:"id"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTransitGateway.
 type GetTransitGatewayResult struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session
-	AmazonSideAsn interface{}
+	AmazonSideAsn int `pulumi:"amazonSideAsn"`
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Identifier of the default association route table
-	AssociationDefaultRouteTableId interface{}
+	AssociationDefaultRouteTableId string `pulumi:"associationDefaultRouteTableId"`
 	// Whether resource attachment requests are automatically accepted.
-	AutoAcceptSharedAttachments interface{}
+	AutoAcceptSharedAttachments string `pulumi:"autoAcceptSharedAttachments"`
 	// Whether resource attachments are automatically associated with the default association route table.
-	DefaultRouteTableAssociation interface{}
+	DefaultRouteTableAssociation string `pulumi:"defaultRouteTableAssociation"`
 	// Whether resource attachments automatically propagate routes to the default propagation route table.
-	DefaultRouteTablePropagation interface{}
+	DefaultRouteTablePropagation string `pulumi:"defaultRouteTablePropagation"`
 	// Description of the EC2 Transit Gateway
-	Description interface{}
+	Description string `pulumi:"description"`
 	// Whether DNS support is enabled.
-	DnsSupport interface{}
-	Filters interface{}
+	DnsSupport string `pulumi:"dnsSupport"`
+	Filters *[]GetTransitGatewayFiltersResult `pulumi:"filters"`
 	// EC2 Transit Gateway identifier
-	Id interface{}
+	Id *string `pulumi:"id"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
-	OwnerId interface{}
+	OwnerId string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table.
-	PropagationDefaultRouteTableId interface{}
+	PropagationDefaultRouteTableId string `pulumi:"propagationDefaultRouteTableId"`
 	// Key-value tags for the EC2 Transit Gateway
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled.
-	VpnEcmpSupport interface{}
+	VpnEcmpSupport string `pulumi:"vpnEcmpSupport"`
+}
+type GetTransitGatewayFiltersArgs struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+type GetTransitGatewayFiltersResult struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
 }

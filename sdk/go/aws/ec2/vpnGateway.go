@@ -11,99 +11,78 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway.html.markdown.
 type VpnGateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+
+	// The Availability Zone for the virtual private gateway.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The VPC ID to create in.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVpnGateway registers a new resource with the given unique name, arguments, and options.
 func NewVpnGateway(ctx *pulumi.Context,
-	name string, args *VpnGatewayArgs, opts ...pulumi.ResourceOpt) (*VpnGateway, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["amazonSideAsn"] = nil
-		inputs["availabilityZone"] = nil
-		inputs["tags"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["amazonSideAsn"] = args.AmazonSideAsn
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
+	name string, args *VpnGatewayArgs, opts ...pulumi.ResourceOption) (*VpnGateway, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AmazonSideAsn; i != nil { inputs["amazonSideAsn"] = i.ToStringOutput() }
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/vpnGateway:VpnGateway", name, true, inputs, opts...)
+	var resource VpnGateway
+	err := ctx.RegisterResource("aws:ec2/vpnGateway:VpnGateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpnGateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpnGateway gets an existing VpnGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpnGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpnGatewayState, opts ...pulumi.ResourceOpt) (*VpnGateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpnGatewayState, opts ...pulumi.ResourceOption) (*VpnGateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["amazonSideAsn"] = state.AmazonSideAsn
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.AmazonSideAsn; i != nil { inputs["amazonSideAsn"] = i.ToStringOutput() }
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpnGateway:VpnGateway", name, id, inputs, opts...)
+	var resource VpnGateway
+	err := ctx.ReadResource("aws:ec2/vpnGateway:VpnGateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpnGateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpnGateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpnGateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-func (r *VpnGateway) AmazonSideAsn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["amazonSideAsn"])
-}
-
-// The Availability Zone for the virtual private gateway.
-func (r *VpnGateway) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VpnGateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The VPC ID to create in.
-func (r *VpnGateway) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpnGateway resources.
 type VpnGatewayState struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn interface{}
+	AmazonSideAsn pulumi.StringInput `pulumi:"amazonSideAsn"`
 	// The Availability Zone for the virtual private gateway.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID to create in.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpnGateway resource.
 type VpnGatewayArgs struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-	AmazonSideAsn interface{}
+	AmazonSideAsn pulumi.StringInput `pulumi:"amazonSideAsn"`
 	// The Availability Zone for the virtual private gateway.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID to create in.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

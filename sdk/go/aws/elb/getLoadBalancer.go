@@ -16,66 +16,62 @@ import (
 // with it, etc.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb.html.markdown.
-func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoadBalancerResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:elb/getLoadBalancer:getLoadBalancer", inputs)
+func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs, opts ...pulumi.InvokeOption) (*GetLoadBalancerResult, error) {
+	var rv GetLoadBalancerResult
+	err := ctx.Invoke("aws:elb/getLoadBalancer:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLoadBalancerResult{
-		AccessLogs: outputs["accessLogs"],
-		AvailabilityZones: outputs["availabilityZones"],
-		ConnectionDraining: outputs["connectionDraining"],
-		ConnectionDrainingTimeout: outputs["connectionDrainingTimeout"],
-		CrossZoneLoadBalancing: outputs["crossZoneLoadBalancing"],
-		DnsName: outputs["dnsName"],
-		HealthCheck: outputs["healthCheck"],
-		IdleTimeout: outputs["idleTimeout"],
-		Instances: outputs["instances"],
-		Internal: outputs["internal"],
-		Listeners: outputs["listeners"],
-		Name: outputs["name"],
-		SecurityGroups: outputs["securityGroups"],
-		SourceSecurityGroup: outputs["sourceSecurityGroup"],
-		SourceSecurityGroupId: outputs["sourceSecurityGroupId"],
-		Subnets: outputs["subnets"],
-		Tags: outputs["tags"],
-		ZoneId: outputs["zoneId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLoadBalancer.
 type GetLoadBalancerArgs struct {
 	// The unique name of the load balancer.
-	Name interface{}
-	Tags interface{}
+	Name string `pulumi:"name"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLoadBalancer.
 type GetLoadBalancerResult struct {
-	AccessLogs interface{}
-	AvailabilityZones interface{}
-	ConnectionDraining interface{}
-	ConnectionDrainingTimeout interface{}
-	CrossZoneLoadBalancing interface{}
-	DnsName interface{}
-	HealthCheck interface{}
-	IdleTimeout interface{}
-	Instances interface{}
-	Internal interface{}
-	Listeners interface{}
-	Name interface{}
-	SecurityGroups interface{}
-	SourceSecurityGroup interface{}
-	SourceSecurityGroupId interface{}
-	Subnets interface{}
-	Tags interface{}
-	ZoneId interface{}
+	AccessLogs GetLoadBalancerAccessLogsResult `pulumi:"accessLogs"`
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	ConnectionDraining bool `pulumi:"connectionDraining"`
+	ConnectionDrainingTimeout int `pulumi:"connectionDrainingTimeout"`
+	CrossZoneLoadBalancing bool `pulumi:"crossZoneLoadBalancing"`
+	DnsName string `pulumi:"dnsName"`
+	HealthCheck GetLoadBalancerHealthCheckResult `pulumi:"healthCheck"`
+	IdleTimeout int `pulumi:"idleTimeout"`
+	Instances []string `pulumi:"instances"`
+	Internal bool `pulumi:"internal"`
+	Listeners []GetLoadBalancerListenersResult `pulumi:"listeners"`
+	Name string `pulumi:"name"`
+	SecurityGroups []string `pulumi:"securityGroups"`
+	SourceSecurityGroup string `pulumi:"sourceSecurityGroup"`
+	SourceSecurityGroupId string `pulumi:"sourceSecurityGroupId"`
+	Subnets []string `pulumi:"subnets"`
+	Tags map[string]string `pulumi:"tags"`
+	ZoneId string `pulumi:"zoneId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetLoadBalancerAccessLogsResult struct {
+	Bucket string `pulumi:"bucket"`
+	BucketPrefix string `pulumi:"bucketPrefix"`
+	Enabled bool `pulumi:"enabled"`
+	Interval int `pulumi:"interval"`
+}
+type GetLoadBalancerHealthCheckResult struct {
+	HealthyThreshold int `pulumi:"healthyThreshold"`
+	Interval int `pulumi:"interval"`
+	Target string `pulumi:"target"`
+	Timeout int `pulumi:"timeout"`
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+}
+type GetLoadBalancerListenersResult struct {
+	InstancePort int `pulumi:"instancePort"`
+	InstanceProtocol string `pulumi:"instanceProtocol"`
+	LbPort int `pulumi:"lbPort"`
+	LbProtocol string `pulumi:"lbProtocol"`
+	SslCertificateId string `pulumi:"sslCertificateId"`
 }

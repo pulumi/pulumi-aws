@@ -12,78 +12,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_store_container_policy.html.markdown.
 type ContainerPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the container.
+	ContainerName pulumi.StringOutput `pulumi:"containerName"`
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewContainerPolicy registers a new resource with the given unique name, arguments, and options.
 func NewContainerPolicy(ctx *pulumi.Context,
-	name string, args *ContainerPolicyArgs, opts ...pulumi.ResourceOpt) (*ContainerPolicy, error) {
+	name string, args *ContainerPolicyArgs, opts ...pulumi.ResourceOption) (*ContainerPolicy, error) {
 	if args == nil || args.ContainerName == nil {
 		return nil, errors.New("missing required argument 'ContainerName'")
 	}
 	if args == nil || args.Policy == nil {
 		return nil, errors.New("missing required argument 'Policy'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["containerName"] = nil
-		inputs["policy"] = nil
-	} else {
-		inputs["containerName"] = args.ContainerName
-		inputs["policy"] = args.Policy
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ContainerName; i != nil { inputs["containerName"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:mediastore/containerPolicy:ContainerPolicy", name, true, inputs, opts...)
+	var resource ContainerPolicy
+	err := ctx.RegisterResource("aws:mediastore/containerPolicy:ContainerPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ContainerPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetContainerPolicy gets an existing ContainerPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetContainerPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ContainerPolicyState, opts ...pulumi.ResourceOpt) (*ContainerPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ContainerPolicyState, opts ...pulumi.ResourceOption) (*ContainerPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["containerName"] = state.ContainerName
-		inputs["policy"] = state.Policy
+		if i := state.ContainerName; i != nil { inputs["containerName"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:mediastore/containerPolicy:ContainerPolicy", name, id, inputs, opts...)
+	var resource ContainerPolicy
+	err := ctx.ReadResource("aws:mediastore/containerPolicy:ContainerPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ContainerPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ContainerPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ContainerPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the container.
-func (r *ContainerPolicy) ContainerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["containerName"])
-}
-
-func (r *ContainerPolicy) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ContainerPolicy resources.
 type ContainerPolicyState struct {
 	// The name of the container.
-	ContainerName interface{}
-	Policy interface{}
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a ContainerPolicy resource.
 type ContainerPolicyArgs struct {
 	// The name of the container.
-	ContainerName interface{}
-	Policy interface{}
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 }

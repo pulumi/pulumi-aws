@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
 type RouteTableAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the routing table to associate with.
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+
+	// The subnet ID to create an association.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewRouteTableAssociation(ctx *pulumi.Context,
-	name string, args *RouteTableAssociationArgs, opts ...pulumi.ResourceOpt) (*RouteTableAssociation, error) {
+	name string, args *RouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*RouteTableAssociation, error) {
 	if args == nil || args.RouteTableId == nil {
 		return nil, errors.New("missing required argument 'RouteTableId'")
 	}
 	if args == nil || args.SubnetId == nil {
 		return nil, errors.New("missing required argument 'SubnetId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["routeTableId"] = nil
-		inputs["subnetId"] = nil
-	} else {
-		inputs["routeTableId"] = args.RouteTableId
-		inputs["subnetId"] = args.SubnetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/routeTableAssociation:RouteTableAssociation", name, true, inputs, opts...)
+	var resource RouteTableAssociation
+	err := ctx.RegisterResource("aws:ec2/routeTableAssociation:RouteTableAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RouteTableAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetRouteTableAssociation gets an existing RouteTableAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRouteTableAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteTableAssociationState, opts ...pulumi.ResourceOpt) (*RouteTableAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteTableAssociationState, opts ...pulumi.ResourceOption) (*RouteTableAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["routeTableId"] = state.RouteTableId
-		inputs["subnetId"] = state.SubnetId
+		if i := state.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/routeTableAssociation:RouteTableAssociation", name, id, inputs, opts...)
+	var resource RouteTableAssociation
+	err := ctx.ReadResource("aws:ec2/routeTableAssociation:RouteTableAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RouteTableAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RouteTableAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RouteTableAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the routing table to associate with.
-func (r *RouteTableAssociation) RouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["routeTableId"])
-}
-
-// The subnet ID to create an association.
-func (r *RouteTableAssociation) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type RouteTableAssociationState struct {
 	// The ID of the routing table to associate with.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// The subnet ID to create an association.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
 	// The ID of the routing table to associate with.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// The subnet ID to create an association.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }

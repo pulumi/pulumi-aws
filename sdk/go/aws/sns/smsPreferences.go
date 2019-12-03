@@ -11,123 +11,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
 type SmsPreferences struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A string, such as your business brand, that is displayed as the sender on the receiving device.
+	DefaultSenderId pulumi.StringOutput `pulumi:"defaultSenderId"`
+
+	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
+	DefaultSmsType pulumi.StringOutput `pulumi:"defaultSmsType"`
+
+	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
+	DeliveryStatusIamRoleArn pulumi.StringOutput `pulumi:"deliveryStatusIamRoleArn"`
+
+	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
+	DeliveryStatusSuccessSamplingRate pulumi.StringOutput `pulumi:"deliveryStatusSuccessSamplingRate"`
+
+	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
+	MonthlySpendLimit pulumi.StringOutput `pulumi:"monthlySpendLimit"`
+
+	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
+	UsageReportS3Bucket pulumi.StringOutput `pulumi:"usageReportS3Bucket"`
 }
 
 // NewSmsPreferences registers a new resource with the given unique name, arguments, and options.
 func NewSmsPreferences(ctx *pulumi.Context,
-	name string, args *SmsPreferencesArgs, opts ...pulumi.ResourceOpt) (*SmsPreferences, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["defaultSenderId"] = nil
-		inputs["defaultSmsType"] = nil
-		inputs["deliveryStatusIamRoleArn"] = nil
-		inputs["deliveryStatusSuccessSamplingRate"] = nil
-		inputs["monthlySpendLimit"] = nil
-		inputs["usageReportS3Bucket"] = nil
-	} else {
-		inputs["defaultSenderId"] = args.DefaultSenderId
-		inputs["defaultSmsType"] = args.DefaultSmsType
-		inputs["deliveryStatusIamRoleArn"] = args.DeliveryStatusIamRoleArn
-		inputs["deliveryStatusSuccessSamplingRate"] = args.DeliveryStatusSuccessSamplingRate
-		inputs["monthlySpendLimit"] = args.MonthlySpendLimit
-		inputs["usageReportS3Bucket"] = args.UsageReportS3Bucket
+	name string, args *SmsPreferencesArgs, opts ...pulumi.ResourceOption) (*SmsPreferences, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DefaultSenderId; i != nil { inputs["defaultSenderId"] = i.ToStringOutput() }
+		if i := args.DefaultSmsType; i != nil { inputs["defaultSmsType"] = i.ToStringOutput() }
+		if i := args.DeliveryStatusIamRoleArn; i != nil { inputs["deliveryStatusIamRoleArn"] = i.ToStringOutput() }
+		if i := args.DeliveryStatusSuccessSamplingRate; i != nil { inputs["deliveryStatusSuccessSamplingRate"] = i.ToStringOutput() }
+		if i := args.MonthlySpendLimit; i != nil { inputs["monthlySpendLimit"] = i.ToStringOutput() }
+		if i := args.UsageReportS3Bucket; i != nil { inputs["usageReportS3Bucket"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:sns/smsPreferences:SmsPreferences", name, true, inputs, opts...)
+	var resource SmsPreferences
+	err := ctx.RegisterResource("aws:sns/smsPreferences:SmsPreferences", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SmsPreferences{s: s}, nil
+	return &resource, nil
 }
 
 // GetSmsPreferences gets an existing SmsPreferences resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSmsPreferences(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SmsPreferencesState, opts ...pulumi.ResourceOpt) (*SmsPreferences, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SmsPreferencesState, opts ...pulumi.ResourceOption) (*SmsPreferences, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["defaultSenderId"] = state.DefaultSenderId
-		inputs["defaultSmsType"] = state.DefaultSmsType
-		inputs["deliveryStatusIamRoleArn"] = state.DeliveryStatusIamRoleArn
-		inputs["deliveryStatusSuccessSamplingRate"] = state.DeliveryStatusSuccessSamplingRate
-		inputs["monthlySpendLimit"] = state.MonthlySpendLimit
-		inputs["usageReportS3Bucket"] = state.UsageReportS3Bucket
+		if i := state.DefaultSenderId; i != nil { inputs["defaultSenderId"] = i.ToStringOutput() }
+		if i := state.DefaultSmsType; i != nil { inputs["defaultSmsType"] = i.ToStringOutput() }
+		if i := state.DeliveryStatusIamRoleArn; i != nil { inputs["deliveryStatusIamRoleArn"] = i.ToStringOutput() }
+		if i := state.DeliveryStatusSuccessSamplingRate; i != nil { inputs["deliveryStatusSuccessSamplingRate"] = i.ToStringOutput() }
+		if i := state.MonthlySpendLimit; i != nil { inputs["monthlySpendLimit"] = i.ToStringOutput() }
+		if i := state.UsageReportS3Bucket; i != nil { inputs["usageReportS3Bucket"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:sns/smsPreferences:SmsPreferences", name, id, inputs, opts...)
+	var resource SmsPreferences
+	err := ctx.ReadResource("aws:sns/smsPreferences:SmsPreferences", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SmsPreferences{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SmsPreferences) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SmsPreferences) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A string, such as your business brand, that is displayed as the sender on the receiving device.
-func (r *SmsPreferences) DefaultSenderId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSenderId"])
-}
-
-// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-func (r *SmsPreferences) DefaultSmsType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSmsType"])
-}
-
-// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-func (r *SmsPreferences) DeliveryStatusIamRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deliveryStatusIamRoleArn"])
-}
-
-// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-func (r *SmsPreferences) DeliveryStatusSuccessSamplingRate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deliveryStatusSuccessSamplingRate"])
-}
-
-// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-func (r *SmsPreferences) MonthlySpendLimit() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["monthlySpendLimit"])
-}
-
-// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-func (r *SmsPreferences) UsageReportS3Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["usageReportS3Bucket"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SmsPreferences resources.
 type SmsPreferencesState struct {
 	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId interface{}
+	DefaultSenderId pulumi.StringInput `pulumi:"defaultSenderId"`
 	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType interface{}
+	DefaultSmsType pulumi.StringInput `pulumi:"defaultSmsType"`
 	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn interface{}
+	DeliveryStatusIamRoleArn pulumi.StringInput `pulumi:"deliveryStatusIamRoleArn"`
 	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-	DeliveryStatusSuccessSamplingRate interface{}
+	DeliveryStatusSuccessSamplingRate pulumi.StringInput `pulumi:"deliveryStatusSuccessSamplingRate"`
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit interface{}
+	MonthlySpendLimit pulumi.StringInput `pulumi:"monthlySpendLimit"`
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket interface{}
+	UsageReportS3Bucket pulumi.StringInput `pulumi:"usageReportS3Bucket"`
 }
 
 // The set of arguments for constructing a SmsPreferences resource.
 type SmsPreferencesArgs struct {
 	// A string, such as your business brand, that is displayed as the sender on the receiving device.
-	DefaultSenderId interface{}
+	DefaultSenderId pulumi.StringInput `pulumi:"defaultSenderId"`
 	// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-	DefaultSmsType interface{}
+	DefaultSmsType pulumi.StringInput `pulumi:"defaultSmsType"`
 	// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-	DeliveryStatusIamRoleArn interface{}
+	DeliveryStatusIamRoleArn pulumi.StringInput `pulumi:"deliveryStatusIamRoleArn"`
 	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-	DeliveryStatusSuccessSamplingRate interface{}
+	DeliveryStatusSuccessSamplingRate pulumi.StringInput `pulumi:"deliveryStatusSuccessSamplingRate"`
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit interface{}
+	MonthlySpendLimit pulumi.StringInput `pulumi:"monthlySpendLimit"`
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-	UsageReportS3Bucket interface{}
+	UsageReportS3Bucket pulumi.StringInput `pulumi:"usageReportS3Bucket"`
 }

@@ -4,6 +4,8 @@
 package appmesh
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,114 +13,193 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_mesh.html.markdown.
 type Mesh struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the service mesh.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The creation date of the service mesh.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The last update date of the service mesh.
+	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
+
+	// The name to use for the service mesh.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The service mesh specification to apply.
+	Spec MeshSpecOutput `pulumi:"spec"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewMesh registers a new resource with the given unique name, arguments, and options.
 func NewMesh(ctx *pulumi.Context,
-	name string, args *MeshArgs, opts ...pulumi.ResourceOpt) (*Mesh, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["spec"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["spec"] = args.Spec
-		inputs["tags"] = args.Tags
+	name string, args *MeshArgs, opts ...pulumi.ResourceOption) (*Mesh, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Spec; i != nil { inputs["spec"] = i.ToMeshSpecOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["lastUpdatedDate"] = nil
-	s, err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, true, inputs, opts...)
+	var resource Mesh
+	err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Mesh{s: s}, nil
+	return &resource, nil
 }
 
 // GetMesh gets an existing Mesh resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMesh(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MeshState, opts ...pulumi.ResourceOpt) (*Mesh, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MeshState, opts ...pulumi.ResourceOption) (*Mesh, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["createdDate"] = state.CreatedDate
-		inputs["lastUpdatedDate"] = state.LastUpdatedDate
-		inputs["name"] = state.Name
-		inputs["spec"] = state.Spec
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.LastUpdatedDate; i != nil { inputs["lastUpdatedDate"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Spec; i != nil { inputs["spec"] = i.ToMeshSpecOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appmesh/mesh:Mesh", name, id, inputs, opts...)
+	var resource Mesh
+	err := ctx.ReadResource("aws:appmesh/mesh:Mesh", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Mesh{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Mesh) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Mesh) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the service mesh.
-func (r *Mesh) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The creation date of the service mesh.
-func (r *Mesh) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The last update date of the service mesh.
-func (r *Mesh) LastUpdatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastUpdatedDate"])
-}
-
-// The name to use for the service mesh.
-func (r *Mesh) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The service mesh specification to apply.
-func (r *Mesh) Spec() pulumi.Output {
-	return r.s.State["spec"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Mesh) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Mesh resources.
 type MeshState struct {
 	// The ARN of the service mesh.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The creation date of the service mesh.
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The last update date of the service mesh.
-	LastUpdatedDate interface{}
+	LastUpdatedDate pulumi.StringInput `pulumi:"lastUpdatedDate"`
 	// The name to use for the service mesh.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The service mesh specification to apply.
-	Spec interface{}
+	Spec MeshSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Mesh resource.
 type MeshArgs struct {
 	// The name to use for the service mesh.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The service mesh specification to apply.
-	Spec interface{}
+	Spec MeshSpecInput `pulumi:"spec"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type MeshSpec struct {
+	EgressFilter *MeshSpecEgressFilter `pulumi:"egressFilter"`
+}
+var meshSpecType = reflect.TypeOf((*MeshSpec)(nil)).Elem()
+
+type MeshSpecInput interface {
+	pulumi.Input
+
+	ToMeshSpecOutput() MeshSpecOutput
+	ToMeshSpecOutputWithContext(ctx context.Context) MeshSpecOutput
+}
+
+type MeshSpecArgs struct {
+	EgressFilter MeshSpecEgressFilterInput `pulumi:"egressFilter"`
+}
+
+func (MeshSpecArgs) ElementType() reflect.Type {
+	return meshSpecType
+}
+
+func (a MeshSpecArgs) ToMeshSpecOutput() MeshSpecOutput {
+	return pulumi.ToOutput(a).(MeshSpecOutput)
+}
+
+func (a MeshSpecArgs) ToMeshSpecOutputWithContext(ctx context.Context) MeshSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MeshSpecOutput)
+}
+
+type MeshSpecOutput struct { *pulumi.OutputState }
+
+func (o MeshSpecOutput) EgressFilter() MeshSpecEgressFilterOutput {
+	return o.Apply(func(v MeshSpec) MeshSpecEgressFilter {
+		if v.EgressFilter == nil { return *new(MeshSpecEgressFilter) } else { return *v.EgressFilter }
+	}).(MeshSpecEgressFilterOutput)
+}
+
+func (MeshSpecOutput) ElementType() reflect.Type {
+	return meshSpecType
+}
+
+func (o MeshSpecOutput) ToMeshSpecOutput() MeshSpecOutput {
+	return o
+}
+
+func (o MeshSpecOutput) ToMeshSpecOutputWithContext(ctx context.Context) MeshSpecOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MeshSpecOutput{}) }
+
+type MeshSpecEgressFilter struct {
+	// The egress filter type. By default, the type is `DROP_ALL`.
+	// Valid values are `ALLOW_ALL` and `DROP_ALL`.
+	Type *string `pulumi:"type"`
+}
+var meshSpecEgressFilterType = reflect.TypeOf((*MeshSpecEgressFilter)(nil)).Elem()
+
+type MeshSpecEgressFilterInput interface {
+	pulumi.Input
+
+	ToMeshSpecEgressFilterOutput() MeshSpecEgressFilterOutput
+	ToMeshSpecEgressFilterOutputWithContext(ctx context.Context) MeshSpecEgressFilterOutput
+}
+
+type MeshSpecEgressFilterArgs struct {
+	// The egress filter type. By default, the type is `DROP_ALL`.
+	// Valid values are `ALLOW_ALL` and `DROP_ALL`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MeshSpecEgressFilterArgs) ElementType() reflect.Type {
+	return meshSpecEgressFilterType
+}
+
+func (a MeshSpecEgressFilterArgs) ToMeshSpecEgressFilterOutput() MeshSpecEgressFilterOutput {
+	return pulumi.ToOutput(a).(MeshSpecEgressFilterOutput)
+}
+
+func (a MeshSpecEgressFilterArgs) ToMeshSpecEgressFilterOutputWithContext(ctx context.Context) MeshSpecEgressFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MeshSpecEgressFilterOutput)
+}
+
+type MeshSpecEgressFilterOutput struct { *pulumi.OutputState }
+
+// The egress filter type. By default, the type is `DROP_ALL`.
+// Valid values are `ALLOW_ALL` and `DROP_ALL`.
+func (o MeshSpecEgressFilterOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v MeshSpecEgressFilter) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (MeshSpecEgressFilterOutput) ElementType() reflect.Type {
+	return meshSpecEgressFilterType
+}
+
+func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterOutput() MeshSpecEgressFilterOutput {
+	return o
+}
+
+func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterOutputWithContext(ctx context.Context) MeshSpecEgressFilterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MeshSpecEgressFilterOutput{}) }
+

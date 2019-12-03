@@ -16,138 +16,105 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_repository.html.markdown.
 type Repository struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the repository
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The URL to use for cloning the repository over HTTPS.
+	CloneUrlHttp pulumi.StringOutput `pulumi:"cloneUrlHttp"`
+
+	// The URL to use for cloning the repository over SSH.
+	CloneUrlSsh pulumi.StringOutput `pulumi:"cloneUrlSsh"`
+
+	// The default branch of the repository. The branch specified here needs to exist.
+	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
+
+	// The description of the repository. This needs to be less than 1000 characters
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The ID of the repository
+	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
+
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
 func NewRepository(ctx *pulumi.Context,
-	name string, args *RepositoryArgs, opts ...pulumi.ResourceOpt) (*Repository, error) {
+	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
 	if args == nil || args.RepositoryName == nil {
 		return nil, errors.New("missing required argument 'RepositoryName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["defaultBranch"] = nil
-		inputs["description"] = nil
-		inputs["repositoryName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["defaultBranch"] = args.DefaultBranch
-		inputs["description"] = args.Description
-		inputs["repositoryName"] = args.RepositoryName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DefaultBranch; i != nil { inputs["defaultBranch"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.RepositoryName; i != nil { inputs["repositoryName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["cloneUrlHttp"] = nil
-	inputs["cloneUrlSsh"] = nil
-	inputs["repositoryId"] = nil
-	s, err := ctx.RegisterResource("aws:codecommit/repository:Repository", name, true, inputs, opts...)
+	var resource Repository
+	err := ctx.RegisterResource("aws:codecommit/repository:Repository", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Repository{s: s}, nil
+	return &resource, nil
 }
 
 // GetRepository gets an existing Repository resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRepository(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RepositoryState, opts ...pulumi.ResourceOpt) (*Repository, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RepositoryState, opts ...pulumi.ResourceOption) (*Repository, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["cloneUrlHttp"] = state.CloneUrlHttp
-		inputs["cloneUrlSsh"] = state.CloneUrlSsh
-		inputs["defaultBranch"] = state.DefaultBranch
-		inputs["description"] = state.Description
-		inputs["repositoryId"] = state.RepositoryId
-		inputs["repositoryName"] = state.RepositoryName
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CloneUrlHttp; i != nil { inputs["cloneUrlHttp"] = i.ToStringOutput() }
+		if i := state.CloneUrlSsh; i != nil { inputs["cloneUrlSsh"] = i.ToStringOutput() }
+		if i := state.DefaultBranch; i != nil { inputs["defaultBranch"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.RepositoryId; i != nil { inputs["repositoryId"] = i.ToStringOutput() }
+		if i := state.RepositoryName; i != nil { inputs["repositoryName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:codecommit/repository:Repository", name, id, inputs, opts...)
+	var resource Repository
+	err := ctx.ReadResource("aws:codecommit/repository:Repository", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Repository{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Repository) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Repository) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the repository
-func (r *Repository) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The URL to use for cloning the repository over HTTPS.
-func (r *Repository) CloneUrlHttp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloneUrlHttp"])
-}
-
-// The URL to use for cloning the repository over SSH.
-func (r *Repository) CloneUrlSsh() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloneUrlSsh"])
-}
-
-// The default branch of the repository. The branch specified here needs to exist.
-func (r *Repository) DefaultBranch() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultBranch"])
-}
-
-// The description of the repository. This needs to be less than 1000 characters
-func (r *Repository) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The ID of the repository
-func (r *Repository) RepositoryId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["repositoryId"])
-}
-
-// The name for the repository. This needs to be less than 100 characters.
-func (r *Repository) RepositoryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["repositoryName"])
-}
-
-// Key-value mapping of resource tags
-func (r *Repository) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Repository resources.
 type RepositoryState struct {
 	// The ARN of the repository
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp interface{}
+	CloneUrlHttp pulumi.StringInput `pulumi:"cloneUrlHttp"`
 	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh interface{}
+	CloneUrlSsh pulumi.StringInput `pulumi:"cloneUrlSsh"`
 	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch interface{}
+	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
 	// The description of the repository. This needs to be less than 1000 characters
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The ID of the repository
-	RepositoryId interface{}
+	RepositoryId pulumi.StringInput `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName interface{}
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
 	// The default branch of the repository. The branch specified here needs to exist.
-	DefaultBranch interface{}
+	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
 	// The description of the repository. This needs to be less than 1000 characters
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName interface{}
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

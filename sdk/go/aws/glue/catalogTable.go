@@ -4,6 +4,8 @@
 package glue
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,198 +14,826 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_table.html.markdown.
 type CatalogTable struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+
+	// Description of the table.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Name of the SerDe.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Owner of the table.
+	Owner pulumi.StringOutput `pulumi:"owner"`
+
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+
+	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+	PartitionKeys CatalogTablePartitionKeysArrayOutput `pulumi:"partitionKeys"`
+
+	// Retention time for this table.
+	Retention pulumi.IntOutput `pulumi:"retention"`
+
+	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+	StorageDescriptor CatalogTableStorageDescriptorOutput `pulumi:"storageDescriptor"`
+
+	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
+	TableType pulumi.StringOutput `pulumi:"tableType"`
+
+	// If the table is a view, the expanded text of the view; otherwise null.
+	ViewExpandedText pulumi.StringOutput `pulumi:"viewExpandedText"`
+
+	// If the table is a view, the original text of the view; otherwise null.
+	ViewOriginalText pulumi.StringOutput `pulumi:"viewOriginalText"`
 }
 
 // NewCatalogTable registers a new resource with the given unique name, arguments, and options.
 func NewCatalogTable(ctx *pulumi.Context,
-	name string, args *CatalogTableArgs, opts ...pulumi.ResourceOpt) (*CatalogTable, error) {
+	name string, args *CatalogTableArgs, opts ...pulumi.ResourceOption) (*CatalogTable, error) {
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["catalogId"] = nil
-		inputs["databaseName"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["owner"] = nil
-		inputs["parameters"] = nil
-		inputs["partitionKeys"] = nil
-		inputs["retention"] = nil
-		inputs["storageDescriptor"] = nil
-		inputs["tableType"] = nil
-		inputs["viewExpandedText"] = nil
-		inputs["viewOriginalText"] = nil
-	} else {
-		inputs["catalogId"] = args.CatalogId
-		inputs["databaseName"] = args.DatabaseName
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["owner"] = args.Owner
-		inputs["parameters"] = args.Parameters
-		inputs["partitionKeys"] = args.PartitionKeys
-		inputs["retention"] = args.Retention
-		inputs["storageDescriptor"] = args.StorageDescriptor
-		inputs["tableType"] = args.TableType
-		inputs["viewExpandedText"] = args.ViewExpandedText
-		inputs["viewOriginalText"] = args.ViewOriginalText
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CatalogId; i != nil { inputs["catalogId"] = i.ToStringOutput() }
+		if i := args.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Owner; i != nil { inputs["owner"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := args.PartitionKeys; i != nil { inputs["partitionKeys"] = i.ToCatalogTablePartitionKeysArrayOutput() }
+		if i := args.Retention; i != nil { inputs["retention"] = i.ToIntOutput() }
+		if i := args.StorageDescriptor; i != nil { inputs["storageDescriptor"] = i.ToCatalogTableStorageDescriptorOutput() }
+		if i := args.TableType; i != nil { inputs["tableType"] = i.ToStringOutput() }
+		if i := args.ViewExpandedText; i != nil { inputs["viewExpandedText"] = i.ToStringOutput() }
+		if i := args.ViewOriginalText; i != nil { inputs["viewOriginalText"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:glue/catalogTable:CatalogTable", name, true, inputs, opts...)
+	var resource CatalogTable
+	err := ctx.RegisterResource("aws:glue/catalogTable:CatalogTable", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CatalogTable{s: s}, nil
+	return &resource, nil
 }
 
 // GetCatalogTable gets an existing CatalogTable resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCatalogTable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CatalogTableState, opts ...pulumi.ResourceOpt) (*CatalogTable, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CatalogTableState, opts ...pulumi.ResourceOption) (*CatalogTable, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["catalogId"] = state.CatalogId
-		inputs["databaseName"] = state.DatabaseName
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["owner"] = state.Owner
-		inputs["parameters"] = state.Parameters
-		inputs["partitionKeys"] = state.PartitionKeys
-		inputs["retention"] = state.Retention
-		inputs["storageDescriptor"] = state.StorageDescriptor
-		inputs["tableType"] = state.TableType
-		inputs["viewExpandedText"] = state.ViewExpandedText
-		inputs["viewOriginalText"] = state.ViewOriginalText
+		if i := state.CatalogId; i != nil { inputs["catalogId"] = i.ToStringOutput() }
+		if i := state.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Owner; i != nil { inputs["owner"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := state.PartitionKeys; i != nil { inputs["partitionKeys"] = i.ToCatalogTablePartitionKeysArrayOutput() }
+		if i := state.Retention; i != nil { inputs["retention"] = i.ToIntOutput() }
+		if i := state.StorageDescriptor; i != nil { inputs["storageDescriptor"] = i.ToCatalogTableStorageDescriptorOutput() }
+		if i := state.TableType; i != nil { inputs["tableType"] = i.ToStringOutput() }
+		if i := state.ViewExpandedText; i != nil { inputs["viewExpandedText"] = i.ToStringOutput() }
+		if i := state.ViewOriginalText; i != nil { inputs["viewOriginalText"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glue/catalogTable:CatalogTable", name, id, inputs, opts...)
+	var resource CatalogTable
+	err := ctx.ReadResource("aws:glue/catalogTable:CatalogTable", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CatalogTable{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CatalogTable) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CatalogTable) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-func (r *CatalogTable) CatalogId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["catalogId"])
-}
-
-// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-func (r *CatalogTable) DatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["databaseName"])
-}
-
-// Description of the table.
-func (r *CatalogTable) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Name of the SerDe.
-func (r *CatalogTable) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Owner of the table.
-func (r *CatalogTable) Owner() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["owner"])
-}
-
-// A map of initialization parameters for the SerDe, in key-value form.
-func (r *CatalogTable) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
-}
-
-// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-func (r *CatalogTable) PartitionKeys() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["partitionKeys"])
-}
-
-// Retention time for this table.
-func (r *CatalogTable) Retention() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["retention"])
-}
-
-// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-func (r *CatalogTable) StorageDescriptor() pulumi.Output {
-	return r.s.State["storageDescriptor"]
-}
-
-// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
-func (r *CatalogTable) TableType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tableType"])
-}
-
-// If the table is a view, the expanded text of the view; otherwise null.
-func (r *CatalogTable) ViewExpandedText() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["viewExpandedText"])
-}
-
-// If the table is a view, the original text of the view; otherwise null.
-func (r *CatalogTable) ViewOriginalText() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["viewOriginalText"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CatalogTable resources.
 type CatalogTableState struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId interface{}
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Description of the table.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name of the SerDe.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Owner of the table.
-	Owner interface{}
+	Owner pulumi.StringInput `pulumi:"owner"`
 	// A map of initialization parameters for the SerDe, in key-value form.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-	PartitionKeys interface{}
+	PartitionKeys CatalogTablePartitionKeysArrayInput `pulumi:"partitionKeys"`
 	// Retention time for this table.
-	Retention interface{}
+	Retention pulumi.IntInput `pulumi:"retention"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-	StorageDescriptor interface{}
+	StorageDescriptor CatalogTableStorageDescriptorInput `pulumi:"storageDescriptor"`
 	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
-	TableType interface{}
+	TableType pulumi.StringInput `pulumi:"tableType"`
 	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText interface{}
+	ViewExpandedText pulumi.StringInput `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText interface{}
+	ViewOriginalText pulumi.StringInput `pulumi:"viewOriginalText"`
 }
 
 // The set of arguments for constructing a CatalogTable resource.
 type CatalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
-	CatalogId interface{}
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Description of the table.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Name of the SerDe.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Owner of the table.
-	Owner interface{}
+	Owner pulumi.StringInput `pulumi:"owner"`
 	// A map of initialization parameters for the SerDe, in key-value form.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-	PartitionKeys interface{}
+	PartitionKeys CatalogTablePartitionKeysArrayInput `pulumi:"partitionKeys"`
 	// Retention time for this table.
-	Retention interface{}
+	Retention pulumi.IntInput `pulumi:"retention"`
 	// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
-	StorageDescriptor interface{}
+	StorageDescriptor CatalogTableStorageDescriptorInput `pulumi:"storageDescriptor"`
 	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
-	TableType interface{}
+	TableType pulumi.StringInput `pulumi:"tableType"`
 	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText interface{}
+	ViewExpandedText pulumi.StringInput `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText interface{}
+	ViewOriginalText pulumi.StringInput `pulumi:"viewOriginalText"`
 }
+type CatalogTablePartitionKeys struct {
+	// Free-form text comment.
+	Comment *string `pulumi:"comment"`
+	// Name of the SerDe.
+	Name string `pulumi:"name"`
+	// The datatype of data in the Column.
+	Type *string `pulumi:"type"`
+}
+var catalogTablePartitionKeysType = reflect.TypeOf((*CatalogTablePartitionKeys)(nil)).Elem()
+
+type CatalogTablePartitionKeysInput interface {
+	pulumi.Input
+
+	ToCatalogTablePartitionKeysOutput() CatalogTablePartitionKeysOutput
+	ToCatalogTablePartitionKeysOutputWithContext(ctx context.Context) CatalogTablePartitionKeysOutput
+}
+
+type CatalogTablePartitionKeysArgs struct {
+	// Free-form text comment.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Name of the SerDe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The datatype of data in the Column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CatalogTablePartitionKeysArgs) ElementType() reflect.Type {
+	return catalogTablePartitionKeysType
+}
+
+func (a CatalogTablePartitionKeysArgs) ToCatalogTablePartitionKeysOutput() CatalogTablePartitionKeysOutput {
+	return pulumi.ToOutput(a).(CatalogTablePartitionKeysOutput)
+}
+
+func (a CatalogTablePartitionKeysArgs) ToCatalogTablePartitionKeysOutputWithContext(ctx context.Context) CatalogTablePartitionKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTablePartitionKeysOutput)
+}
+
+type CatalogTablePartitionKeysOutput struct { *pulumi.OutputState }
+
+// Free-form text comment.
+func (o CatalogTablePartitionKeysOutput) Comment() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTablePartitionKeys) string {
+		if v.Comment == nil { return *new(string) } else { return *v.Comment }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the SerDe.
+func (o CatalogTablePartitionKeysOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTablePartitionKeys) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The datatype of data in the Column.
+func (o CatalogTablePartitionKeysOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTablePartitionKeys) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (CatalogTablePartitionKeysOutput) ElementType() reflect.Type {
+	return catalogTablePartitionKeysType
+}
+
+func (o CatalogTablePartitionKeysOutput) ToCatalogTablePartitionKeysOutput() CatalogTablePartitionKeysOutput {
+	return o
+}
+
+func (o CatalogTablePartitionKeysOutput) ToCatalogTablePartitionKeysOutputWithContext(ctx context.Context) CatalogTablePartitionKeysOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTablePartitionKeysOutput{}) }
+
+var catalogTablePartitionKeysArrayType = reflect.TypeOf((*[]CatalogTablePartitionKeys)(nil)).Elem()
+
+type CatalogTablePartitionKeysArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTablePartitionKeysArrayOutput() CatalogTablePartitionKeysArrayOutput
+	ToCatalogTablePartitionKeysArrayOutputWithContext(ctx context.Context) CatalogTablePartitionKeysArrayOutput
+}
+
+type CatalogTablePartitionKeysArrayArgs []CatalogTablePartitionKeysInput
+
+func (CatalogTablePartitionKeysArrayArgs) ElementType() reflect.Type {
+	return catalogTablePartitionKeysArrayType
+}
+
+func (a CatalogTablePartitionKeysArrayArgs) ToCatalogTablePartitionKeysArrayOutput() CatalogTablePartitionKeysArrayOutput {
+	return pulumi.ToOutput(a).(CatalogTablePartitionKeysArrayOutput)
+}
+
+func (a CatalogTablePartitionKeysArrayArgs) ToCatalogTablePartitionKeysArrayOutputWithContext(ctx context.Context) CatalogTablePartitionKeysArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTablePartitionKeysArrayOutput)
+}
+
+type CatalogTablePartitionKeysArrayOutput struct { *pulumi.OutputState }
+
+func (o CatalogTablePartitionKeysArrayOutput) Index(i pulumi.IntInput) CatalogTablePartitionKeysOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CatalogTablePartitionKeys {
+		return vs[0].([]CatalogTablePartitionKeys)[vs[1].(int)]
+	}).(CatalogTablePartitionKeysOutput)
+}
+
+func (CatalogTablePartitionKeysArrayOutput) ElementType() reflect.Type {
+	return catalogTablePartitionKeysArrayType
+}
+
+func (o CatalogTablePartitionKeysArrayOutput) ToCatalogTablePartitionKeysArrayOutput() CatalogTablePartitionKeysArrayOutput {
+	return o
+}
+
+func (o CatalogTablePartitionKeysArrayOutput) ToCatalogTablePartitionKeysArrayOutputWithContext(ctx context.Context) CatalogTablePartitionKeysArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTablePartitionKeysArrayOutput{}) }
+
+type CatalogTableStorageDescriptor struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns *[]string `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns *[]CatalogTableStorageDescriptorColumns `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed *bool `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat *string `pulumi:"inputFormat"`
+	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location *string `pulumi:"location"`
+	// Must be specified if the table contains any dimension columns.
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat *string `pulumi:"outputFormat"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters *map[string]string `pulumi:"parameters"`
+	// Serialization/deserialization (SerDe) information.
+	SerDeInfo *CatalogTableStorageDescriptorSerDeInfo `pulumi:"serDeInfo"`
+	// Information about values that appear very frequently in a column (skewed values).
+	SkewedInfo *CatalogTableStorageDescriptorSkewedInfo `pulumi:"skewedInfo"`
+	// A list of Order objects specifying the sort order of each bucket in the table.
+	SortColumns *[]CatalogTableStorageDescriptorSortColumns `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
+}
+var catalogTableStorageDescriptorType = reflect.TypeOf((*CatalogTableStorageDescriptor)(nil)).Elem()
+
+type CatalogTableStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorOutput() CatalogTableStorageDescriptorOutput
+	ToCatalogTableStorageDescriptorOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorOutput
+}
+
+type CatalogTableStorageDescriptorArgs struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns CatalogTableStorageDescriptorColumnsArrayInput `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed pulumi.BoolInput `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
+	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Must be specified if the table contains any dimension columns.
+	NumberOfBuckets pulumi.IntInput `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat pulumi.StringInput `pulumi:"outputFormat"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Serialization/deserialization (SerDe) information.
+	SerDeInfo CatalogTableStorageDescriptorSerDeInfoInput `pulumi:"serDeInfo"`
+	// Information about values that appear very frequently in a column (skewed values).
+	SkewedInfo CatalogTableStorageDescriptorSkewedInfoInput `pulumi:"skewedInfo"`
+	// A list of Order objects specifying the sort order of each bucket in the table.
+	SortColumns CatalogTableStorageDescriptorSortColumnsArrayInput `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories pulumi.BoolInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (CatalogTableStorageDescriptorArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorType
+}
+
+func (a CatalogTableStorageDescriptorArgs) ToCatalogTableStorageDescriptorOutput() CatalogTableStorageDescriptorOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorOutput)
+}
+
+func (a CatalogTableStorageDescriptorArgs) ToCatalogTableStorageDescriptorOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorOutput)
+}
+
+type CatalogTableStorageDescriptorOutput struct { *pulumi.OutputState }
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o CatalogTableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) []string {
+		if v.BucketColumns == nil { return *new([]string) } else { return *v.BucketColumns }
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o CatalogTableStorageDescriptorOutput) Columns() CatalogTableStorageDescriptorColumnsArrayOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorColumns {
+		if v.Columns == nil { return *new([]CatalogTableStorageDescriptorColumns) } else { return *v.Columns }
+	}).(CatalogTableStorageDescriptorColumnsArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o CatalogTableStorageDescriptorOutput) Compressed() pulumi.BoolOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) bool {
+		if v.Compressed == nil { return *new(bool) } else { return *v.Compressed }
+	}).(pulumi.BoolOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o CatalogTableStorageDescriptorOutput) InputFormat() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) string {
+		if v.InputFormat == nil { return *new(string) } else { return *v.InputFormat }
+	}).(pulumi.StringOutput)
+}
+
+// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o CatalogTableStorageDescriptorOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) string {
+		if v.Location == nil { return *new(string) } else { return *v.Location }
+	}).(pulumi.StringOutput)
+}
+
+// Must be specified if the table contains any dimension columns.
+func (o CatalogTableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) int {
+		if v.NumberOfBuckets == nil { return *new(int) } else { return *v.NumberOfBuckets }
+	}).(pulumi.IntOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o CatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) string {
+		if v.OutputFormat == nil { return *new(string) } else { return *v.OutputFormat }
+	}).(pulumi.StringOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o CatalogTableStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) map[string]string {
+		if v.Parameters == nil { return *new(map[string]string) } else { return *v.Parameters }
+	}).(pulumi.StringMapOutput)
+}
+
+// Serialization/deserialization (SerDe) information.
+func (o CatalogTableStorageDescriptorOutput) SerDeInfo() CatalogTableStorageDescriptorSerDeInfoOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) CatalogTableStorageDescriptorSerDeInfo {
+		if v.SerDeInfo == nil { return *new(CatalogTableStorageDescriptorSerDeInfo) } else { return *v.SerDeInfo }
+	}).(CatalogTableStorageDescriptorSerDeInfoOutput)
+}
+
+// Information about values that appear very frequently in a column (skewed values).
+func (o CatalogTableStorageDescriptorOutput) SkewedInfo() CatalogTableStorageDescriptorSkewedInfoOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) CatalogTableStorageDescriptorSkewedInfo {
+		if v.SkewedInfo == nil { return *new(CatalogTableStorageDescriptorSkewedInfo) } else { return *v.SkewedInfo }
+	}).(CatalogTableStorageDescriptorSkewedInfoOutput)
+}
+
+// A list of Order objects specifying the sort order of each bucket in the table.
+func (o CatalogTableStorageDescriptorOutput) SortColumns() CatalogTableStorageDescriptorSortColumnsArrayOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) []CatalogTableStorageDescriptorSortColumns {
+		if v.SortColumns == nil { return *new([]CatalogTableStorageDescriptorSortColumns) } else { return *v.SortColumns }
+	}).(CatalogTableStorageDescriptorSortColumnsArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o CatalogTableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptor) bool {
+		if v.StoredAsSubDirectories == nil { return *new(bool) } else { return *v.StoredAsSubDirectories }
+	}).(pulumi.BoolOutput)
+}
+
+func (CatalogTableStorageDescriptorOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorType
+}
+
+func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorOutput() CatalogTableStorageDescriptorOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorOutput{}) }
+
+type CatalogTableStorageDescriptorColumns struct {
+	// Free-form text comment.
+	Comment *string `pulumi:"comment"`
+	// Name of the SerDe.
+	Name string `pulumi:"name"`
+	// The datatype of data in the Column.
+	Type *string `pulumi:"type"`
+}
+var catalogTableStorageDescriptorColumnsType = reflect.TypeOf((*CatalogTableStorageDescriptorColumns)(nil)).Elem()
+
+type CatalogTableStorageDescriptorColumnsInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorColumnsOutput() CatalogTableStorageDescriptorColumnsOutput
+	ToCatalogTableStorageDescriptorColumnsOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorColumnsOutput
+}
+
+type CatalogTableStorageDescriptorColumnsArgs struct {
+	// Free-form text comment.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Name of the SerDe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The datatype of data in the Column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CatalogTableStorageDescriptorColumnsArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorColumnsType
+}
+
+func (a CatalogTableStorageDescriptorColumnsArgs) ToCatalogTableStorageDescriptorColumnsOutput() CatalogTableStorageDescriptorColumnsOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorColumnsOutput)
+}
+
+func (a CatalogTableStorageDescriptorColumnsArgs) ToCatalogTableStorageDescriptorColumnsOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorColumnsOutput)
+}
+
+type CatalogTableStorageDescriptorColumnsOutput struct { *pulumi.OutputState }
+
+// Free-form text comment.
+func (o CatalogTableStorageDescriptorColumnsOutput) Comment() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorColumns) string {
+		if v.Comment == nil { return *new(string) } else { return *v.Comment }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the SerDe.
+func (o CatalogTableStorageDescriptorColumnsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorColumns) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The datatype of data in the Column.
+func (o CatalogTableStorageDescriptorColumnsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorColumns) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (CatalogTableStorageDescriptorColumnsOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorColumnsType
+}
+
+func (o CatalogTableStorageDescriptorColumnsOutput) ToCatalogTableStorageDescriptorColumnsOutput() CatalogTableStorageDescriptorColumnsOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorColumnsOutput) ToCatalogTableStorageDescriptorColumnsOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorColumnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorColumnsOutput{}) }
+
+var catalogTableStorageDescriptorColumnsArrayType = reflect.TypeOf((*[]CatalogTableStorageDescriptorColumns)(nil)).Elem()
+
+type CatalogTableStorageDescriptorColumnsArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorColumnsArrayOutput() CatalogTableStorageDescriptorColumnsArrayOutput
+	ToCatalogTableStorageDescriptorColumnsArrayOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorColumnsArrayOutput
+}
+
+type CatalogTableStorageDescriptorColumnsArrayArgs []CatalogTableStorageDescriptorColumnsInput
+
+func (CatalogTableStorageDescriptorColumnsArrayArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorColumnsArrayType
+}
+
+func (a CatalogTableStorageDescriptorColumnsArrayArgs) ToCatalogTableStorageDescriptorColumnsArrayOutput() CatalogTableStorageDescriptorColumnsArrayOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorColumnsArrayOutput)
+}
+
+func (a CatalogTableStorageDescriptorColumnsArrayArgs) ToCatalogTableStorageDescriptorColumnsArrayOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorColumnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorColumnsArrayOutput)
+}
+
+type CatalogTableStorageDescriptorColumnsArrayOutput struct { *pulumi.OutputState }
+
+func (o CatalogTableStorageDescriptorColumnsArrayOutput) Index(i pulumi.IntInput) CatalogTableStorageDescriptorColumnsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CatalogTableStorageDescriptorColumns {
+		return vs[0].([]CatalogTableStorageDescriptorColumns)[vs[1].(int)]
+	}).(CatalogTableStorageDescriptorColumnsOutput)
+}
+
+func (CatalogTableStorageDescriptorColumnsArrayOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorColumnsArrayType
+}
+
+func (o CatalogTableStorageDescriptorColumnsArrayOutput) ToCatalogTableStorageDescriptorColumnsArrayOutput() CatalogTableStorageDescriptorColumnsArrayOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorColumnsArrayOutput) ToCatalogTableStorageDescriptorColumnsArrayOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorColumnsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorColumnsArrayOutput{}) }
+
+type CatalogTableStorageDescriptorSerDeInfo struct {
+	// Name of the SerDe.
+	Name *string `pulumi:"name"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters *map[string]string `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
+}
+var catalogTableStorageDescriptorSerDeInfoType = reflect.TypeOf((*CatalogTableStorageDescriptorSerDeInfo)(nil)).Elem()
+
+type CatalogTableStorageDescriptorSerDeInfoInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSerDeInfoOutput() CatalogTableStorageDescriptorSerDeInfoOutput
+	ToCatalogTableStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSerDeInfoOutput
+}
+
+type CatalogTableStorageDescriptorSerDeInfoArgs struct {
+	// Name of the SerDe.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of initialization parameters for the SerDe, in key-value form.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary pulumi.StringInput `pulumi:"serializationLibrary"`
+}
+
+func (CatalogTableStorageDescriptorSerDeInfoArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSerDeInfoType
+}
+
+func (a CatalogTableStorageDescriptorSerDeInfoArgs) ToCatalogTableStorageDescriptorSerDeInfoOutput() CatalogTableStorageDescriptorSerDeInfoOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorSerDeInfoOutput)
+}
+
+func (a CatalogTableStorageDescriptorSerDeInfoArgs) ToCatalogTableStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSerDeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorSerDeInfoOutput)
+}
+
+type CatalogTableStorageDescriptorSerDeInfoOutput struct { *pulumi.OutputState }
+
+// Name of the SerDe.
+func (o CatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSerDeInfo) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+// A map of initialization parameters for the SerDe, in key-value form.
+func (o CatalogTableStorageDescriptorSerDeInfoOutput) Parameters() pulumi.StringMapOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSerDeInfo) map[string]string {
+		if v.Parameters == nil { return *new(map[string]string) } else { return *v.Parameters }
+	}).(pulumi.StringMapOutput)
+}
+
+// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o CatalogTableStorageDescriptorSerDeInfoOutput) SerializationLibrary() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSerDeInfo) string {
+		if v.SerializationLibrary == nil { return *new(string) } else { return *v.SerializationLibrary }
+	}).(pulumi.StringOutput)
+}
+
+func (CatalogTableStorageDescriptorSerDeInfoOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSerDeInfoType
+}
+
+func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescriptorSerDeInfoOutput() CatalogTableStorageDescriptorSerDeInfoOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescriptorSerDeInfoOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSerDeInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorSerDeInfoOutput{}) }
+
+type CatalogTableStorageDescriptorSkewedInfo struct {
+	// A list of names of columns that contain skewed values.
+	SkewedColumnNames *[]string `pulumi:"skewedColumnNames"`
+	// A list of values that appear so frequently as to be considered skewed.
+	SkewedColumnValueLocationMaps *map[string]string `pulumi:"skewedColumnValueLocationMaps"`
+	// A mapping of skewed values to the columns that contain them.
+	SkewedColumnValues *[]string `pulumi:"skewedColumnValues"`
+}
+var catalogTableStorageDescriptorSkewedInfoType = reflect.TypeOf((*CatalogTableStorageDescriptorSkewedInfo)(nil)).Elem()
+
+type CatalogTableStorageDescriptorSkewedInfoInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSkewedInfoOutput() CatalogTableStorageDescriptorSkewedInfoOutput
+	ToCatalogTableStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSkewedInfoOutput
+}
+
+type CatalogTableStorageDescriptorSkewedInfoArgs struct {
+	// A list of names of columns that contain skewed values.
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// A list of values that appear so frequently as to be considered skewed.
+	SkewedColumnValueLocationMaps pulumi.StringMapInput `pulumi:"skewedColumnValueLocationMaps"`
+	// A mapping of skewed values to the columns that contain them.
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (CatalogTableStorageDescriptorSkewedInfoArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSkewedInfoType
+}
+
+func (a CatalogTableStorageDescriptorSkewedInfoArgs) ToCatalogTableStorageDescriptorSkewedInfoOutput() CatalogTableStorageDescriptorSkewedInfoOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorSkewedInfoOutput)
+}
+
+func (a CatalogTableStorageDescriptorSkewedInfoArgs) ToCatalogTableStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorSkewedInfoOutput)
+}
+
+type CatalogTableStorageDescriptorSkewedInfoOutput struct { *pulumi.OutputState }
+
+// A list of names of columns that contain skewed values.
+func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSkewedInfo) []string {
+		if v.SkewedColumnNames == nil { return *new([]string) } else { return *v.SkewedColumnNames }
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of values that appear so frequently as to be considered skewed.
+func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSkewedInfo) map[string]string {
+		if v.SkewedColumnValueLocationMaps == nil { return *new(map[string]string) } else { return *v.SkewedColumnValueLocationMaps }
+	}).(pulumi.StringMapOutput)
+}
+
+// A mapping of skewed values to the columns that contain them.
+func (o CatalogTableStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSkewedInfo) []string {
+		if v.SkewedColumnValues == nil { return *new([]string) } else { return *v.SkewedColumnValues }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (CatalogTableStorageDescriptorSkewedInfoOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSkewedInfoType
+}
+
+func (o CatalogTableStorageDescriptorSkewedInfoOutput) ToCatalogTableStorageDescriptorSkewedInfoOutput() CatalogTableStorageDescriptorSkewedInfoOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSkewedInfoOutput) ToCatalogTableStorageDescriptorSkewedInfoOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSkewedInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorSkewedInfoOutput{}) }
+
+type CatalogTableStorageDescriptorSortColumns struct {
+	// The name of the column.
+	Column string `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	SortOrder int `pulumi:"sortOrder"`
+}
+var catalogTableStorageDescriptorSortColumnsType = reflect.TypeOf((*CatalogTableStorageDescriptorSortColumns)(nil)).Elem()
+
+type CatalogTableStorageDescriptorSortColumnsInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSortColumnsOutput() CatalogTableStorageDescriptorSortColumnsOutput
+	ToCatalogTableStorageDescriptorSortColumnsOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSortColumnsOutput
+}
+
+type CatalogTableStorageDescriptorSortColumnsArgs struct {
+	// The name of the column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
+}
+
+func (CatalogTableStorageDescriptorSortColumnsArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSortColumnsType
+}
+
+func (a CatalogTableStorageDescriptorSortColumnsArgs) ToCatalogTableStorageDescriptorSortColumnsOutput() CatalogTableStorageDescriptorSortColumnsOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorSortColumnsOutput)
+}
+
+func (a CatalogTableStorageDescriptorSortColumnsArgs) ToCatalogTableStorageDescriptorSortColumnsOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSortColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorSortColumnsOutput)
+}
+
+type CatalogTableStorageDescriptorSortColumnsOutput struct { *pulumi.OutputState }
+
+// The name of the column.
+func (o CatalogTableStorageDescriptorSortColumnsOutput) Column() pulumi.StringOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSortColumns) string {
+		return v.Column
+	}).(pulumi.StringOutput)
+}
+
+// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+func (o CatalogTableStorageDescriptorSortColumnsOutput) SortOrder() pulumi.IntOutput {
+	return o.Apply(func(v CatalogTableStorageDescriptorSortColumns) int {
+		return v.SortOrder
+	}).(pulumi.IntOutput)
+}
+
+func (CatalogTableStorageDescriptorSortColumnsOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSortColumnsType
+}
+
+func (o CatalogTableStorageDescriptorSortColumnsOutput) ToCatalogTableStorageDescriptorSortColumnsOutput() CatalogTableStorageDescriptorSortColumnsOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSortColumnsOutput) ToCatalogTableStorageDescriptorSortColumnsOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSortColumnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorSortColumnsOutput{}) }
+
+var catalogTableStorageDescriptorSortColumnsArrayType = reflect.TypeOf((*[]CatalogTableStorageDescriptorSortColumns)(nil)).Elem()
+
+type CatalogTableStorageDescriptorSortColumnsArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTableStorageDescriptorSortColumnsArrayOutput() CatalogTableStorageDescriptorSortColumnsArrayOutput
+	ToCatalogTableStorageDescriptorSortColumnsArrayOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSortColumnsArrayOutput
+}
+
+type CatalogTableStorageDescriptorSortColumnsArrayArgs []CatalogTableStorageDescriptorSortColumnsInput
+
+func (CatalogTableStorageDescriptorSortColumnsArrayArgs) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSortColumnsArrayType
+}
+
+func (a CatalogTableStorageDescriptorSortColumnsArrayArgs) ToCatalogTableStorageDescriptorSortColumnsArrayOutput() CatalogTableStorageDescriptorSortColumnsArrayOutput {
+	return pulumi.ToOutput(a).(CatalogTableStorageDescriptorSortColumnsArrayOutput)
+}
+
+func (a CatalogTableStorageDescriptorSortColumnsArrayArgs) ToCatalogTableStorageDescriptorSortColumnsArrayOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSortColumnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CatalogTableStorageDescriptorSortColumnsArrayOutput)
+}
+
+type CatalogTableStorageDescriptorSortColumnsArrayOutput struct { *pulumi.OutputState }
+
+func (o CatalogTableStorageDescriptorSortColumnsArrayOutput) Index(i pulumi.IntInput) CatalogTableStorageDescriptorSortColumnsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CatalogTableStorageDescriptorSortColumns {
+		return vs[0].([]CatalogTableStorageDescriptorSortColumns)[vs[1].(int)]
+	}).(CatalogTableStorageDescriptorSortColumnsOutput)
+}
+
+func (CatalogTableStorageDescriptorSortColumnsArrayOutput) ElementType() reflect.Type {
+	return catalogTableStorageDescriptorSortColumnsArrayType
+}
+
+func (o CatalogTableStorageDescriptorSortColumnsArrayOutput) ToCatalogTableStorageDescriptorSortColumnsArrayOutput() CatalogTableStorageDescriptorSortColumnsArrayOutput {
+	return o
+}
+
+func (o CatalogTableStorageDescriptorSortColumnsArrayOutput) ToCatalogTableStorageDescriptorSortColumnsArrayOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSortColumnsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CatalogTableStorageDescriptorSortColumnsArrayOutput{}) }
+

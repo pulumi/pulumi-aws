@@ -12,12 +12,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_provider.html.markdown.
 type IdentityProvider struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+	AttributeMapping pulumi.MapOutput `pulumi:"attributeMapping"`
+
+	// The list of identity providers.
+	IdpIdentifiers pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
+
+	// The map of identity details, such as access token
+	ProviderDetails pulumi.MapOutput `pulumi:"providerDetails"`
+
+	// The provider name
+	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+
+	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+
+	// The user pool id
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
 func NewIdentityProvider(ctx *pulumi.Context,
-	name string, args *IdentityProviderArgs, opts ...pulumi.ResourceOpt) (*IdentityProvider, error) {
+	name string, args *IdentityProviderArgs, opts ...pulumi.ResourceOption) (*IdentityProvider, error) {
 	if args == nil || args.ProviderDetails == nil {
 		return nil, errors.New("missing required argument 'ProviderDetails'")
 	}
@@ -30,117 +48,72 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	if args == nil || args.UserPoolId == nil {
 		return nil, errors.New("missing required argument 'UserPoolId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["attributeMapping"] = nil
-		inputs["idpIdentifiers"] = nil
-		inputs["providerDetails"] = nil
-		inputs["providerName"] = nil
-		inputs["providerType"] = nil
-		inputs["userPoolId"] = nil
-	} else {
-		inputs["attributeMapping"] = args.AttributeMapping
-		inputs["idpIdentifiers"] = args.IdpIdentifiers
-		inputs["providerDetails"] = args.ProviderDetails
-		inputs["providerName"] = args.ProviderName
-		inputs["providerType"] = args.ProviderType
-		inputs["userPoolId"] = args.UserPoolId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AttributeMapping; i != nil { inputs["attributeMapping"] = i.ToMapOutput() }
+		if i := args.IdpIdentifiers; i != nil { inputs["idpIdentifiers"] = i.ToStringArrayOutput() }
+		if i := args.ProviderDetails; i != nil { inputs["providerDetails"] = i.ToMapOutput() }
+		if i := args.ProviderName; i != nil { inputs["providerName"] = i.ToStringOutput() }
+		if i := args.ProviderType; i != nil { inputs["providerType"] = i.ToStringOutput() }
+		if i := args.UserPoolId; i != nil { inputs["userPoolId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cognito/identityProvider:IdentityProvider", name, true, inputs, opts...)
+	var resource IdentityProvider
+	err := ctx.RegisterResource("aws:cognito/identityProvider:IdentityProvider", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IdentityProvider{s: s}, nil
+	return &resource, nil
 }
 
 // GetIdentityProvider gets an existing IdentityProvider resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIdentityProvider(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IdentityProviderState, opts ...pulumi.ResourceOpt) (*IdentityProvider, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IdentityProviderState, opts ...pulumi.ResourceOption) (*IdentityProvider, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["attributeMapping"] = state.AttributeMapping
-		inputs["idpIdentifiers"] = state.IdpIdentifiers
-		inputs["providerDetails"] = state.ProviderDetails
-		inputs["providerName"] = state.ProviderName
-		inputs["providerType"] = state.ProviderType
-		inputs["userPoolId"] = state.UserPoolId
+		if i := state.AttributeMapping; i != nil { inputs["attributeMapping"] = i.ToMapOutput() }
+		if i := state.IdpIdentifiers; i != nil { inputs["idpIdentifiers"] = i.ToStringArrayOutput() }
+		if i := state.ProviderDetails; i != nil { inputs["providerDetails"] = i.ToMapOutput() }
+		if i := state.ProviderName; i != nil { inputs["providerName"] = i.ToStringOutput() }
+		if i := state.ProviderType; i != nil { inputs["providerType"] = i.ToStringOutput() }
+		if i := state.UserPoolId; i != nil { inputs["userPoolId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cognito/identityProvider:IdentityProvider", name, id, inputs, opts...)
+	var resource IdentityProvider
+	err := ctx.ReadResource("aws:cognito/identityProvider:IdentityProvider", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IdentityProvider{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityProvider) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityProvider) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-func (r *IdentityProvider) AttributeMapping() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["attributeMapping"])
-}
-
-// The list of identity providers.
-func (r *IdentityProvider) IdpIdentifiers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["idpIdentifiers"])
-}
-
-// The map of identity details, such as access token
-func (r *IdentityProvider) ProviderDetails() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["providerDetails"])
-}
-
-// The provider name
-func (r *IdentityProvider) ProviderName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["providerName"])
-}
-
-// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-func (r *IdentityProvider) ProviderType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["providerType"])
-}
-
-// The user pool id
-func (r *IdentityProvider) UserPoolId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userPoolId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IdentityProvider resources.
 type IdentityProviderState struct {
 	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-	AttributeMapping interface{}
+	AttributeMapping pulumi.MapInput `pulumi:"attributeMapping"`
 	// The list of identity providers.
-	IdpIdentifiers interface{}
+	IdpIdentifiers pulumi.StringArrayInput `pulumi:"idpIdentifiers"`
 	// The map of identity details, such as access token
-	ProviderDetails interface{}
+	ProviderDetails pulumi.MapInput `pulumi:"providerDetails"`
 	// The provider name
-	ProviderName interface{}
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType interface{}
+	ProviderType pulumi.StringInput `pulumi:"providerType"`
 	// The user pool id
-	UserPoolId interface{}
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
 type IdentityProviderArgs struct {
 	// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-	AttributeMapping interface{}
+	AttributeMapping pulumi.MapInput `pulumi:"attributeMapping"`
 	// The list of identity providers.
-	IdpIdentifiers interface{}
+	IdpIdentifiers pulumi.StringArrayInput `pulumi:"idpIdentifiers"`
 	// The map of identity details, such as access token
-	ProviderDetails interface{}
+	ProviderDetails pulumi.MapInput `pulumi:"providerDetails"`
 	// The provider name
-	ProviderName interface{}
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-	ProviderType interface{}
+	ProviderType pulumi.StringInput `pulumi:"providerType"`
 	// The user pool id
-	UserPoolId interface{}
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }

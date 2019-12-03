@@ -13,31 +13,25 @@ import (
 // error if there is more than one match.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
-func LookupVpcLink(ctx *pulumi.Context, args *GetVpcLinkArgs) (*GetVpcLinkResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:apigateway/getVpcLink:getVpcLink", inputs)
+func LookupVpcLink(ctx *pulumi.Context, args *GetVpcLinkArgs, opts ...pulumi.InvokeOption) (*GetVpcLinkResult, error) {
+	var rv GetVpcLinkResult
+	err := ctx.Invoke("aws:apigateway/getVpcLink:getVpcLink", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpcLinkResult{
-		Id: outputs["id"],
-		Name: outputs["name"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpcLink.
 type GetVpcLinkArgs struct {
 	// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
 	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getVpcLink.
 type GetVpcLinkResult struct {
 	// Set to the ID of the found API Gateway VPC Link.
-	Id interface{}
-	Name interface{}
+	Id string `pulumi:"id"`
+	Name string `pulumi:"name"`
 }

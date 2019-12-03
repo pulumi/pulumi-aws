@@ -14,12 +14,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_ipset.html.markdown.
 type IPSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether GuardDuty is to start using the uploaded IPSet.
+	Activate pulumi.BoolOutput `pulumi:"activate"`
+
+	// The detector ID of the GuardDuty.
+	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
+
+	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+	Format pulumi.StringOutput `pulumi:"format"`
+
+	// The URI of the file that contains the IPSet.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The friendly name to identify the IPSet.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
 func NewIPSet(ctx *pulumi.Context,
-	name string, args *IPSetArgs, opts ...pulumi.ResourceOpt) (*IPSet, error) {
+	name string, args *IPSetArgs, opts ...pulumi.ResourceOption) (*IPSet, error) {
 	if args == nil || args.Activate == nil {
 		return nil, errors.New("missing required argument 'Activate'")
 	}
@@ -32,105 +47,66 @@ func NewIPSet(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["activate"] = nil
-		inputs["detectorId"] = nil
-		inputs["format"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["activate"] = args.Activate
-		inputs["detectorId"] = args.DetectorId
-		inputs["format"] = args.Format
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Activate; i != nil { inputs["activate"] = i.ToBoolOutput() }
+		if i := args.DetectorId; i != nil { inputs["detectorId"] = i.ToStringOutput() }
+		if i := args.Format; i != nil { inputs["format"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:guardduty/iPSet:IPSet", name, true, inputs, opts...)
+	var resource IPSet
+	err := ctx.RegisterResource("aws:guardduty/iPSet:IPSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IPSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetIPSet gets an existing IPSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIPSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IPSetState, opts ...pulumi.ResourceOpt) (*IPSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IPSetState, opts ...pulumi.ResourceOption) (*IPSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activate"] = state.Activate
-		inputs["detectorId"] = state.DetectorId
-		inputs["format"] = state.Format
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
+		if i := state.Activate; i != nil { inputs["activate"] = i.ToBoolOutput() }
+		if i := state.DetectorId; i != nil { inputs["detectorId"] = i.ToStringOutput() }
+		if i := state.Format; i != nil { inputs["format"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:guardduty/iPSet:IPSet", name, id, inputs, opts...)
+	var resource IPSet
+	err := ctx.ReadResource("aws:guardduty/iPSet:IPSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IPSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IPSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IPSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether GuardDuty is to start using the uploaded IPSet.
-func (r *IPSet) Activate() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["activate"])
-}
-
-// The detector ID of the GuardDuty.
-func (r *IPSet) DetectorId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["detectorId"])
-}
-
-// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-func (r *IPSet) Format() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["format"])
-}
-
-// The URI of the file that contains the IPSet.
-func (r *IPSet) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The friendly name to identify the IPSet.
-func (r *IPSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IPSet resources.
 type IPSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate interface{}
+	Activate pulumi.BoolInput `pulumi:"activate"`
 	// The detector ID of the GuardDuty.
-	DetectorId interface{}
+	DetectorId pulumi.StringInput `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format interface{}
+	Format pulumi.StringInput `pulumi:"format"`
 	// The URI of the file that contains the IPSet.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The friendly name to identify the IPSet.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IPSet resource.
 type IPSetArgs struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate interface{}
+	Activate pulumi.BoolInput `pulumi:"activate"`
 	// The detector ID of the GuardDuty.
-	DetectorId interface{}
+	DetectorId pulumi.StringInput `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format interface{}
+	Format pulumi.StringInput `pulumi:"format"`
 	// The URI of the file that contains the IPSet.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The friendly name to identify the IPSet.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

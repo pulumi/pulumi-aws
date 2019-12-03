@@ -4,6 +4,8 @@
 package elasticbeanstalk
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -23,135 +25,230 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
 type ConfigurationTemplate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// name of the application to associate with this configuration template
+	Application pulumi.StringOutput `pulumi:"application"`
+
+	// Short description of the Template
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The ID of the environment used with this configuration template
+	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+
+	// A unique name for this Template.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Option settings to configure the new Environment. These
+	// override specific values that are set as defaults. The format is detailed
+	// below in Option Settings
+	Settings ConfigurationTemplateSettingsArrayOutput `pulumi:"settings"`
+
+	// A solution stack to base your Template
+	// off of. Example stacks can be found in the [Amazon API documentation][1]
+	SolutionStackName pulumi.StringOutput `pulumi:"solutionStackName"`
 }
 
 // NewConfigurationTemplate registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationTemplate(ctx *pulumi.Context,
-	name string, args *ConfigurationTemplateArgs, opts ...pulumi.ResourceOpt) (*ConfigurationTemplate, error) {
+	name string, args *ConfigurationTemplateArgs, opts ...pulumi.ResourceOption) (*ConfigurationTemplate, error) {
 	if args == nil || args.Application == nil {
 		return nil, errors.New("missing required argument 'Application'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["application"] = nil
-		inputs["description"] = nil
-		inputs["environmentId"] = nil
-		inputs["name"] = nil
-		inputs["settings"] = nil
-		inputs["solutionStackName"] = nil
-	} else {
-		inputs["application"] = args.Application
-		inputs["description"] = args.Description
-		inputs["environmentId"] = args.EnvironmentId
-		inputs["name"] = args.Name
-		inputs["settings"] = args.Settings
-		inputs["solutionStackName"] = args.SolutionStackName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Application; i != nil { inputs["application"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EnvironmentId; i != nil { inputs["environmentId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Settings; i != nil { inputs["settings"] = i.ToConfigurationTemplateSettingsArrayOutput() }
+		if i := args.SolutionStackName; i != nil { inputs["solutionStackName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, true, inputs, opts...)
+	var resource ConfigurationTemplate
+	err := ctx.RegisterResource("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConfigurationTemplate{s: s}, nil
+	return &resource, nil
 }
 
 // GetConfigurationTemplate gets an existing ConfigurationTemplate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConfigurationTemplate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConfigurationTemplateState, opts ...pulumi.ResourceOpt) (*ConfigurationTemplate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConfigurationTemplateState, opts ...pulumi.ResourceOption) (*ConfigurationTemplate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["application"] = state.Application
-		inputs["description"] = state.Description
-		inputs["environmentId"] = state.EnvironmentId
-		inputs["name"] = state.Name
-		inputs["settings"] = state.Settings
-		inputs["solutionStackName"] = state.SolutionStackName
+		if i := state.Application; i != nil { inputs["application"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EnvironmentId; i != nil { inputs["environmentId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Settings; i != nil { inputs["settings"] = i.ToConfigurationTemplateSettingsArrayOutput() }
+		if i := state.SolutionStackName; i != nil { inputs["solutionStackName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, id, inputs, opts...)
+	var resource ConfigurationTemplate
+	err := ctx.ReadResource("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConfigurationTemplate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ConfigurationTemplate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ConfigurationTemplate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// name of the application to associate with this configuration template
-func (r *ConfigurationTemplate) Application() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["application"])
-}
-
-// Short description of the Template
-func (r *ConfigurationTemplate) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The ID of the environment used with this configuration template
-func (r *ConfigurationTemplate) EnvironmentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["environmentId"])
-}
-
-// A unique name for this Template.
-func (r *ConfigurationTemplate) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Option settings to configure the new Environment. These
-// override specific values that are set as defaults. The format is detailed
-// below in Option Settings
-func (r *ConfigurationTemplate) Settings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["settings"])
-}
-
-// A solution stack to base your Template
-// off of. Example stacks can be found in the [Amazon API documentation][1]
-func (r *ConfigurationTemplate) SolutionStackName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["solutionStackName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ConfigurationTemplate resources.
 type ConfigurationTemplateState struct {
 	// name of the application to associate with this configuration template
-	Application interface{}
+	Application pulumi.StringInput `pulumi:"application"`
 	// Short description of the Template
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The ID of the environment used with this configuration template
-	EnvironmentId interface{}
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
 	// A unique name for this Template.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
-	Settings interface{}
+	Settings ConfigurationTemplateSettingsArrayInput `pulumi:"settings"`
 	// A solution stack to base your Template
 	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName interface{}
+	SolutionStackName pulumi.StringInput `pulumi:"solutionStackName"`
 }
 
 // The set of arguments for constructing a ConfigurationTemplate resource.
 type ConfigurationTemplateArgs struct {
 	// name of the application to associate with this configuration template
-	Application interface{}
+	Application pulumi.StringInput `pulumi:"application"`
 	// Short description of the Template
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The ID of the environment used with this configuration template
-	EnvironmentId interface{}
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
 	// A unique name for this Template.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
-	Settings interface{}
+	Settings ConfigurationTemplateSettingsArrayInput `pulumi:"settings"`
 	// A solution stack to base your Template
 	// off of. Example stacks can be found in the [Amazon API documentation][1]
-	SolutionStackName interface{}
+	SolutionStackName pulumi.StringInput `pulumi:"solutionStackName"`
 }
+type ConfigurationTemplateSettings struct {
+	// A unique name for this Template.
+	Name string `pulumi:"name"`
+	Namespace string `pulumi:"namespace"`
+	Resource *string `pulumi:"resource"`
+	Value string `pulumi:"value"`
+}
+var configurationTemplateSettingsType = reflect.TypeOf((*ConfigurationTemplateSettings)(nil)).Elem()
+
+type ConfigurationTemplateSettingsInput interface {
+	pulumi.Input
+
+	ToConfigurationTemplateSettingsOutput() ConfigurationTemplateSettingsOutput
+	ToConfigurationTemplateSettingsOutputWithContext(ctx context.Context) ConfigurationTemplateSettingsOutput
+}
+
+type ConfigurationTemplateSettingsArgs struct {
+	// A unique name for this Template.
+	Name pulumi.StringInput `pulumi:"name"`
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Resource pulumi.StringInput `pulumi:"resource"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConfigurationTemplateSettingsArgs) ElementType() reflect.Type {
+	return configurationTemplateSettingsType
+}
+
+func (a ConfigurationTemplateSettingsArgs) ToConfigurationTemplateSettingsOutput() ConfigurationTemplateSettingsOutput {
+	return pulumi.ToOutput(a).(ConfigurationTemplateSettingsOutput)
+}
+
+func (a ConfigurationTemplateSettingsArgs) ToConfigurationTemplateSettingsOutputWithContext(ctx context.Context) ConfigurationTemplateSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConfigurationTemplateSettingsOutput)
+}
+
+type ConfigurationTemplateSettingsOutput struct { *pulumi.OutputState }
+
+// A unique name for this Template.
+func (o ConfigurationTemplateSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ConfigurationTemplateSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationTemplateSettingsOutput) Namespace() pulumi.StringOutput {
+	return o.Apply(func(v ConfigurationTemplateSettings) string {
+		return v.Namespace
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationTemplateSettingsOutput) Resource() pulumi.StringOutput {
+	return o.Apply(func(v ConfigurationTemplateSettings) string {
+		if v.Resource == nil { return *new(string) } else { return *v.Resource }
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationTemplateSettingsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ConfigurationTemplateSettings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ConfigurationTemplateSettingsOutput) ElementType() reflect.Type {
+	return configurationTemplateSettingsType
+}
+
+func (o ConfigurationTemplateSettingsOutput) ToConfigurationTemplateSettingsOutput() ConfigurationTemplateSettingsOutput {
+	return o
+}
+
+func (o ConfigurationTemplateSettingsOutput) ToConfigurationTemplateSettingsOutputWithContext(ctx context.Context) ConfigurationTemplateSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConfigurationTemplateSettingsOutput{}) }
+
+var configurationTemplateSettingsArrayType = reflect.TypeOf((*[]ConfigurationTemplateSettings)(nil)).Elem()
+
+type ConfigurationTemplateSettingsArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationTemplateSettingsArrayOutput() ConfigurationTemplateSettingsArrayOutput
+	ToConfigurationTemplateSettingsArrayOutputWithContext(ctx context.Context) ConfigurationTemplateSettingsArrayOutput
+}
+
+type ConfigurationTemplateSettingsArrayArgs []ConfigurationTemplateSettingsInput
+
+func (ConfigurationTemplateSettingsArrayArgs) ElementType() reflect.Type {
+	return configurationTemplateSettingsArrayType
+}
+
+func (a ConfigurationTemplateSettingsArrayArgs) ToConfigurationTemplateSettingsArrayOutput() ConfigurationTemplateSettingsArrayOutput {
+	return pulumi.ToOutput(a).(ConfigurationTemplateSettingsArrayOutput)
+}
+
+func (a ConfigurationTemplateSettingsArrayArgs) ToConfigurationTemplateSettingsArrayOutputWithContext(ctx context.Context) ConfigurationTemplateSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConfigurationTemplateSettingsArrayOutput)
+}
+
+type ConfigurationTemplateSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o ConfigurationTemplateSettingsArrayOutput) Index(i pulumi.IntInput) ConfigurationTemplateSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ConfigurationTemplateSettings {
+		return vs[0].([]ConfigurationTemplateSettings)[vs[1].(int)]
+	}).(ConfigurationTemplateSettingsOutput)
+}
+
+func (ConfigurationTemplateSettingsArrayOutput) ElementType() reflect.Type {
+	return configurationTemplateSettingsArrayType
+}
+
+func (o ConfigurationTemplateSettingsArrayOutput) ToConfigurationTemplateSettingsArrayOutput() ConfigurationTemplateSettingsArrayOutput {
+	return o
+}
+
+func (o ConfigurationTemplateSettingsArrayOutput) ToConfigurationTemplateSettingsArrayOutputWithContext(ctx context.Context) ConfigurationTemplateSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConfigurationTemplateSettingsArrayOutput{}) }
+

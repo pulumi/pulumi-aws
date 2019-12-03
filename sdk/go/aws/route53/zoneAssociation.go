@@ -16,93 +16,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_zone_association.html.markdown.
 type ZoneAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The VPC to associate with the private hosted zone.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+
+	// The VPC's region. Defaults to the region of the AWS provider.
+	VpcRegion pulumi.StringOutput `pulumi:"vpcRegion"`
+
+	// The private hosted zone to associate.
+	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
 
 // NewZoneAssociation registers a new resource with the given unique name, arguments, and options.
 func NewZoneAssociation(ctx *pulumi.Context,
-	name string, args *ZoneAssociationArgs, opts ...pulumi.ResourceOpt) (*ZoneAssociation, error) {
+	name string, args *ZoneAssociationArgs, opts ...pulumi.ResourceOption) (*ZoneAssociation, error) {
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
 	if args == nil || args.ZoneId == nil {
 		return nil, errors.New("missing required argument 'ZoneId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["vpcId"] = nil
-		inputs["vpcRegion"] = nil
-		inputs["zoneId"] = nil
-	} else {
-		inputs["vpcId"] = args.VpcId
-		inputs["vpcRegion"] = args.VpcRegion
-		inputs["zoneId"] = args.ZoneId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
+		if i := args.VpcRegion; i != nil { inputs["vpcRegion"] = i.ToStringOutput() }
+		if i := args.ZoneId; i != nil { inputs["zoneId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:route53/zoneAssociation:ZoneAssociation", name, true, inputs, opts...)
+	var resource ZoneAssociation
+	err := ctx.RegisterResource("aws:route53/zoneAssociation:ZoneAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ZoneAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetZoneAssociation gets an existing ZoneAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetZoneAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ZoneAssociationState, opts ...pulumi.ResourceOpt) (*ZoneAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ZoneAssociationState, opts ...pulumi.ResourceOption) (*ZoneAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["vpcId"] = state.VpcId
-		inputs["vpcRegion"] = state.VpcRegion
-		inputs["zoneId"] = state.ZoneId
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
+		if i := state.VpcRegion; i != nil { inputs["vpcRegion"] = i.ToStringOutput() }
+		if i := state.ZoneId; i != nil { inputs["zoneId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:route53/zoneAssociation:ZoneAssociation", name, id, inputs, opts...)
+	var resource ZoneAssociation
+	err := ctx.ReadResource("aws:route53/zoneAssociation:ZoneAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ZoneAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ZoneAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ZoneAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The VPC to associate with the private hosted zone.
-func (r *ZoneAssociation) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
-}
-
-// The VPC's region. Defaults to the region of the AWS provider.
-func (r *ZoneAssociation) VpcRegion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcRegion"])
-}
-
-// The private hosted zone to associate.
-func (r *ZoneAssociation) ZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ZoneAssociation resources.
 type ZoneAssociationState struct {
 	// The VPC to associate with the private hosted zone.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 	// The VPC's region. Defaults to the region of the AWS provider.
-	VpcRegion interface{}
+	VpcRegion pulumi.StringInput `pulumi:"vpcRegion"`
 	// The private hosted zone to associate.
-	ZoneId interface{}
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a ZoneAssociation resource.
 type ZoneAssociationArgs struct {
 	// The VPC to associate with the private hosted zone.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 	// The VPC's region. Defaults to the region of the AWS provider.
-	VpcRegion interface{}
+	VpcRegion pulumi.StringInput `pulumi:"vpcRegion"`
 	// The private hosted zone to associate.
-	ZoneId interface{}
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }

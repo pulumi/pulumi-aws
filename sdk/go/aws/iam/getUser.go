@@ -12,43 +12,33 @@ import (
 // properties without having to hard code ARNs or unique IDs as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
-func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["userName"] = args.UserName
-	}
-	outputs, err := ctx.Invoke("aws:iam/getUser:getUser", inputs)
+func LookupUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption) (*GetUserResult, error) {
+	var rv GetUserResult
+	err := ctx.Invoke("aws:iam/getUser:getUser", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetUserResult{
-		Arn: outputs["arn"],
-		Path: outputs["path"],
-		PermissionsBoundary: outputs["permissionsBoundary"],
-		UserId: outputs["userId"],
-		UserName: outputs["userName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getUser.
 type GetUserArgs struct {
 	// The friendly IAM user name to match.
-	UserName interface{}
+	UserName string `pulumi:"userName"`
 }
 
 // A collection of values returned by getUser.
 type GetUserResult struct {
 	// The Amazon Resource Name (ARN) assigned by AWS for this user.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Path in which this user was created.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary interface{}
+	PermissionsBoundary string `pulumi:"permissionsBoundary"`
 	// The unique ID assigned by AWS for this user.
-	UserId interface{}
+	UserId string `pulumi:"userId"`
 	// The name associated to this User
-	UserName interface{}
+	UserName string `pulumi:"userName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

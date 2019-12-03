@@ -12,105 +12,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route.html.markdown.
 type Route struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Indicates whether to drop traffic that matches this route (default to `false`).
+	Blackhole pulumi.BoolOutput `pulumi:"blackhole"`
+
+	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+
+	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
+	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+
+	// Identifier of EC2 Transit Gateway Route Table.
+	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
-	name string, args *RouteArgs, opts ...pulumi.ResourceOpt) (*Route, error) {
+	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
 	if args == nil || args.DestinationCidrBlock == nil {
 		return nil, errors.New("missing required argument 'DestinationCidrBlock'")
 	}
 	if args == nil || args.TransitGatewayRouteTableId == nil {
 		return nil, errors.New("missing required argument 'TransitGatewayRouteTableId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["blackhole"] = nil
-		inputs["destinationCidrBlock"] = nil
-		inputs["transitGatewayAttachmentId"] = nil
-		inputs["transitGatewayRouteTableId"] = nil
-	} else {
-		inputs["blackhole"] = args.Blackhole
-		inputs["destinationCidrBlock"] = args.DestinationCidrBlock
-		inputs["transitGatewayAttachmentId"] = args.TransitGatewayAttachmentId
-		inputs["transitGatewayRouteTableId"] = args.TransitGatewayRouteTableId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Blackhole; i != nil { inputs["blackhole"] = i.ToBoolOutput() }
+		if i := args.DestinationCidrBlock; i != nil { inputs["destinationCidrBlock"] = i.ToStringOutput() }
+		if i := args.TransitGatewayAttachmentId; i != nil { inputs["transitGatewayAttachmentId"] = i.ToStringOutput() }
+		if i := args.TransitGatewayRouteTableId; i != nil { inputs["transitGatewayRouteTableId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2transitgateway/route:Route", name, true, inputs, opts...)
+	var resource Route
+	err := ctx.RegisterResource("aws:ec2transitgateway/route:Route", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
+	return &resource, nil
 }
 
 // GetRoute gets an existing Route resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRoute(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteState, opts ...pulumi.ResourceOpt) (*Route, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["blackhole"] = state.Blackhole
-		inputs["destinationCidrBlock"] = state.DestinationCidrBlock
-		inputs["transitGatewayAttachmentId"] = state.TransitGatewayAttachmentId
-		inputs["transitGatewayRouteTableId"] = state.TransitGatewayRouteTableId
+		if i := state.Blackhole; i != nil { inputs["blackhole"] = i.ToBoolOutput() }
+		if i := state.DestinationCidrBlock; i != nil { inputs["destinationCidrBlock"] = i.ToStringOutput() }
+		if i := state.TransitGatewayAttachmentId; i != nil { inputs["transitGatewayAttachmentId"] = i.ToStringOutput() }
+		if i := state.TransitGatewayRouteTableId; i != nil { inputs["transitGatewayRouteTableId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2transitgateway/route:Route", name, id, inputs, opts...)
+	var resource Route
+	err := ctx.ReadResource("aws:ec2transitgateway/route:Route", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Indicates whether to drop traffic that matches this route (default to `false`).
-func (r *Route) Blackhole() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["blackhole"])
-}
-
-// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-func (r *Route) DestinationCidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["destinationCidrBlock"])
-}
-
-// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-func (r *Route) TransitGatewayAttachmentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
-}
-
-// Identifier of EC2 Transit Gateway Route Table.
-func (r *Route) TransitGatewayRouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["transitGatewayRouteTableId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Route resources.
 type RouteState struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
-	Blackhole interface{}
+	Blackhole pulumi.BoolInput `pulumi:"blackhole"`
 	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock interface{}
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-	TransitGatewayAttachmentId interface{}
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
-	TransitGatewayRouteTableId interface{}
+	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	// Indicates whether to drop traffic that matches this route (default to `false`).
-	Blackhole interface{}
+	Blackhole pulumi.BoolInput `pulumi:"blackhole"`
 	// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
-	DestinationCidrBlock interface{}
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
 	// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-	TransitGatewayAttachmentId interface{}
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
-	TransitGatewayRouteTableId interface{}
+	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }

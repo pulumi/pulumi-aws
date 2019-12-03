@@ -12,12 +12,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_function.html.markdown.
 type Function struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the associated AppSync API.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+
+	// The ARN of the Function object.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The Function DataSource name.
+	DataSource pulumi.StringOutput `pulumi:"dataSource"`
+
+	// The Function description.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A unique ID representing the Function object.
+	FunctionId pulumi.StringOutput `pulumi:"functionId"`
+
+	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
+	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
+
+	// The Function name. The function name does not have to be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+	RequestMappingTemplate pulumi.StringOutput `pulumi:"requestMappingTemplate"`
+
+	// The Function response mapping template.
+	ResponseMappingTemplate pulumi.StringOutput `pulumi:"responseMappingTemplate"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
 func NewFunction(ctx *pulumi.Context,
-	name string, args *FunctionArgs, opts ...pulumi.ResourceOpt) (*Function, error) {
+	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
@@ -30,147 +57,84 @@ func NewFunction(ctx *pulumi.Context,
 	if args == nil || args.ResponseMappingTemplate == nil {
 		return nil, errors.New("missing required argument 'ResponseMappingTemplate'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiId"] = nil
-		inputs["dataSource"] = nil
-		inputs["description"] = nil
-		inputs["functionVersion"] = nil
-		inputs["name"] = nil
-		inputs["requestMappingTemplate"] = nil
-		inputs["responseMappingTemplate"] = nil
-	} else {
-		inputs["apiId"] = args.ApiId
-		inputs["dataSource"] = args.DataSource
-		inputs["description"] = args.Description
-		inputs["functionVersion"] = args.FunctionVersion
-		inputs["name"] = args.Name
-		inputs["requestMappingTemplate"] = args.RequestMappingTemplate
-		inputs["responseMappingTemplate"] = args.ResponseMappingTemplate
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := args.DataSource; i != nil { inputs["dataSource"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.FunctionVersion; i != nil { inputs["functionVersion"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RequestMappingTemplate; i != nil { inputs["requestMappingTemplate"] = i.ToStringOutput() }
+		if i := args.ResponseMappingTemplate; i != nil { inputs["responseMappingTemplate"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["functionId"] = nil
-	s, err := ctx.RegisterResource("aws:appsync/function:Function", name, true, inputs, opts...)
+	var resource Function
+	err := ctx.RegisterResource("aws:appsync/function:Function", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Function{s: s}, nil
+	return &resource, nil
 }
 
 // GetFunction gets an existing Function resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFunction(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FunctionState, opts ...pulumi.ResourceOpt) (*Function, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FunctionState, opts ...pulumi.ResourceOption) (*Function, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiId"] = state.ApiId
-		inputs["arn"] = state.Arn
-		inputs["dataSource"] = state.DataSource
-		inputs["description"] = state.Description
-		inputs["functionId"] = state.FunctionId
-		inputs["functionVersion"] = state.FunctionVersion
-		inputs["name"] = state.Name
-		inputs["requestMappingTemplate"] = state.RequestMappingTemplate
-		inputs["responseMappingTemplate"] = state.ResponseMappingTemplate
+		if i := state.ApiId; i != nil { inputs["apiId"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DataSource; i != nil { inputs["dataSource"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.FunctionId; i != nil { inputs["functionId"] = i.ToStringOutput() }
+		if i := state.FunctionVersion; i != nil { inputs["functionVersion"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RequestMappingTemplate; i != nil { inputs["requestMappingTemplate"] = i.ToStringOutput() }
+		if i := state.ResponseMappingTemplate; i != nil { inputs["responseMappingTemplate"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:appsync/function:Function", name, id, inputs, opts...)
+	var resource Function
+	err := ctx.ReadResource("aws:appsync/function:Function", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Function{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Function) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Function) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the associated AppSync API.
-func (r *Function) ApiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiId"])
-}
-
-// The ARN of the Function object.
-func (r *Function) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The Function DataSource name.
-func (r *Function) DataSource() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataSource"])
-}
-
-// The Function description.
-func (r *Function) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A unique ID representing the Function object.
-func (r *Function) FunctionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["functionId"])
-}
-
-// The version of the request mapping template. Currently the supported value is `2018-05-29`.
-func (r *Function) FunctionVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["functionVersion"])
-}
-
-// The Function name. The function name does not have to be unique.
-func (r *Function) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-func (r *Function) RequestMappingTemplate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["requestMappingTemplate"])
-}
-
-// The Function response mapping template.
-func (r *Function) ResponseMappingTemplate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["responseMappingTemplate"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Function resources.
 type FunctionState struct {
 	// The ID of the associated AppSync API.
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The ARN of the Function object.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The Function DataSource name.
-	DataSource interface{}
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The Function description.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A unique ID representing the Function object.
-	FunctionId interface{}
+	FunctionId pulumi.StringInput `pulumi:"functionId"`
 	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
-	FunctionVersion interface{}
+	FunctionVersion pulumi.StringInput `pulumi:"functionVersion"`
 	// The Function name. The function name does not have to be unique.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate interface{}
+	RequestMappingTemplate pulumi.StringInput `pulumi:"requestMappingTemplate"`
 	// The Function response mapping template.
-	ResponseMappingTemplate interface{}
+	ResponseMappingTemplate pulumi.StringInput `pulumi:"responseMappingTemplate"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	// The ID of the associated AppSync API.
-	ApiId interface{}
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// The Function DataSource name.
-	DataSource interface{}
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The Function description.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The version of the request mapping template. Currently the supported value is `2018-05-29`.
-	FunctionVersion interface{}
+	FunctionVersion pulumi.StringInput `pulumi:"functionVersion"`
 	// The Function name. The function name does not have to be unique.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate interface{}
+	RequestMappingTemplate pulumi.StringInput `pulumi:"requestMappingTemplate"`
 	// The Function response mapping template.
-	ResponseMappingTemplate interface{}
+	ResponseMappingTemplate pulumi.StringInput `pulumi:"responseMappingTemplate"`
 }

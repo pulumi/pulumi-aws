@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,75 +13,257 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_sql_injection_match_set.html.markdown.
 type SqlInjectionMatchSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name or description of the SQL Injection Match Set.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput `pulumi:"sqlInjectionMatchTuples"`
 }
 
 // NewSqlInjectionMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewSqlInjectionMatchSet(ctx *pulumi.Context,
-	name string, args *SqlInjectionMatchSetArgs, opts ...pulumi.ResourceOpt) (*SqlInjectionMatchSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["sqlInjectionMatchTuples"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["sqlInjectionMatchTuples"] = args.SqlInjectionMatchTuples
+	name string, args *SqlInjectionMatchSetArgs, opts ...pulumi.ResourceOption) (*SqlInjectionMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.SqlInjectionMatchTuples; i != nil { inputs["sqlInjectionMatchTuples"] = i.ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", name, true, inputs, opts...)
+	var resource SqlInjectionMatchSet
+	err := ctx.RegisterResource("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlInjectionMatchSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetSqlInjectionMatchSet gets an existing SqlInjectionMatchSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSqlInjectionMatchSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SqlInjectionMatchSetState, opts ...pulumi.ResourceOpt) (*SqlInjectionMatchSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SqlInjectionMatchSetState, opts ...pulumi.ResourceOption) (*SqlInjectionMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["sqlInjectionMatchTuples"] = state.SqlInjectionMatchTuples
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.SqlInjectionMatchTuples; i != nil { inputs["sqlInjectionMatchTuples"] = i.ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", name, id, inputs, opts...)
+	var resource SqlInjectionMatchSet
+	err := ctx.ReadResource("aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlInjectionMatchSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SqlInjectionMatchSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SqlInjectionMatchSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name or description of the SQL Injection Match Set.
-func (r *SqlInjectionMatchSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-func (r *SqlInjectionMatchSet) SqlInjectionMatchTuples() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["sqlInjectionMatchTuples"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SqlInjectionMatchSet resources.
 type SqlInjectionMatchSetState struct {
 	// The name or description of the SQL Injection Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-	SqlInjectionMatchTuples interface{}
+	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTuplesArrayInput `pulumi:"sqlInjectionMatchTuples"`
 }
 
 // The set of arguments for constructing a SqlInjectionMatchSet resource.
 type SqlInjectionMatchSetArgs struct {
 	// The name or description of the SQL Injection Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-	SqlInjectionMatchTuples interface{}
+	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTuplesArrayInput `pulumi:"sqlInjectionMatchTuples"`
 }
+type SqlInjectionMatchSetSqlInjectionMatchTuples struct {
+	// Specifies where in a web request to look for snippets of malicious SQL code.
+	FieldToMatch SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatch `pulumi:"fieldToMatch"`
+	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+	// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
+	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
+	// for all supported values.
+	TextTransformation string `pulumi:"textTransformation"`
+}
+var sqlInjectionMatchSetSqlInjectionMatchTuplesType = reflect.TypeOf((*SqlInjectionMatchSetSqlInjectionMatchTuples)(nil)).Elem()
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetSqlInjectionMatchTuplesOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesOutput
+	ToSqlInjectionMatchSetSqlInjectionMatchTuplesOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesOutput
+}
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesArgs struct {
+	// Specifies where in a web request to look for snippets of malicious SQL code.
+	FieldToMatch SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchInput `pulumi:"fieldToMatch"`
+	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+	// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
+	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
+	// for all supported values.
+	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
+}
+
+func (SqlInjectionMatchSetSqlInjectionMatchTuplesArgs) ElementType() reflect.Type {
+	return sqlInjectionMatchSetSqlInjectionMatchTuplesType
+}
+
+func (a SqlInjectionMatchSetSqlInjectionMatchTuplesArgs) ToSqlInjectionMatchSetSqlInjectionMatchTuplesOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesOutput {
+	return pulumi.ToOutput(a).(SqlInjectionMatchSetSqlInjectionMatchTuplesOutput)
+}
+
+func (a SqlInjectionMatchSetSqlInjectionMatchTuplesArgs) ToSqlInjectionMatchSetSqlInjectionMatchTuplesOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SqlInjectionMatchSetSqlInjectionMatchTuplesOutput)
+}
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesOutput struct { *pulumi.OutputState }
+
+// Specifies where in a web request to look for snippets of malicious SQL code.
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesOutput) FieldToMatch() SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput {
+	return o.Apply(func(v SqlInjectionMatchSetSqlInjectionMatchTuples) SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatch {
+		return v.FieldToMatch
+	}).(SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput)
+}
+
+// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+// If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
+// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
+// for all supported values.
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesOutput) TextTransformation() pulumi.StringOutput {
+	return o.Apply(func(v SqlInjectionMatchSetSqlInjectionMatchTuples) string {
+		return v.TextTransformation
+	}).(pulumi.StringOutput)
+}
+
+func (SqlInjectionMatchSetSqlInjectionMatchTuplesOutput) ElementType() reflect.Type {
+	return sqlInjectionMatchSetSqlInjectionMatchTuplesType
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesOutput) ToSqlInjectionMatchSetSqlInjectionMatchTuplesOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesOutput) ToSqlInjectionMatchSetSqlInjectionMatchTuplesOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTuplesOutput{}) }
+
+var sqlInjectionMatchSetSqlInjectionMatchTuplesArrayType = reflect.TypeOf((*[]SqlInjectionMatchSetSqlInjectionMatchTuples)(nil)).Elem()
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesArrayInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput
+	ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput
+}
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesArrayArgs []SqlInjectionMatchSetSqlInjectionMatchTuplesInput
+
+func (SqlInjectionMatchSetSqlInjectionMatchTuplesArrayArgs) ElementType() reflect.Type {
+	return sqlInjectionMatchSetSqlInjectionMatchTuplesArrayType
+}
+
+func (a SqlInjectionMatchSetSqlInjectionMatchTuplesArrayArgs) ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput {
+	return pulumi.ToOutput(a).(SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput)
+}
+
+func (a SqlInjectionMatchSetSqlInjectionMatchTuplesArrayArgs) ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput)
+}
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput struct { *pulumi.OutputState }
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput) Index(i pulumi.IntInput) SqlInjectionMatchSetSqlInjectionMatchTuplesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SqlInjectionMatchSetSqlInjectionMatchTuples {
+		return vs[0].([]SqlInjectionMatchSetSqlInjectionMatchTuples)[vs[1].(int)]
+	}).(SqlInjectionMatchSetSqlInjectionMatchTuplesOutput)
+}
+
+func (SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput) ElementType() reflect.Type {
+	return sqlInjectionMatchSetSqlInjectionMatchTuplesArrayType
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput) ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput) ToSqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTuplesArrayOutput{}) }
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatch struct {
+	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+	// If `type` is any other value, omit this field.
+	Data *string `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string.
+	// e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+	// for all supported values.
+	Type string `pulumi:"type"`
+}
+var sqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchType = reflect.TypeOf((*SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatch)(nil)).Elem()
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchInput interface {
+	pulumi.Input
+
+	ToSqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput
+	ToSqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput
+}
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchArgs struct {
+	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+	// If `type` is any other value, omit this field.
+	Data pulumi.StringInput `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string.
+	// e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+	// for all supported values.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchArgs) ElementType() reflect.Type {
+	return sqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchType
+}
+
+func (a SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchArgs) ToSqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutput(a).(SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput)
+}
+
+func (a SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchArgs) ToSqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput)
+}
+
+type SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput struct { *pulumi.OutputState }
+
+// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+// If `type` is any other value, omit this field.
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatch) string {
+		if v.Data == nil { return *new(string) } else { return *v.Data }
+	}).(pulumi.StringOutput)
+}
+
+// The part of the web request that you want AWS WAF to search for a specified string.
+// e.g. `HEADER`, `METHOD` or `BODY`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+// for all supported values.
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatch) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput) ElementType() reflect.Type {
+	return sqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchType
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput) ToSqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput() SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput) ToSqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTuplesFieldToMatchOutput{}) }
+

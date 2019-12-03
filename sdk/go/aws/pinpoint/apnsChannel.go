@@ -15,171 +15,135 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_channel.html.markdown.
 type ApnsChannel struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+
+	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+	BundleId pulumi.StringOutput `pulumi:"bundleId"`
+
+	// The pem encoded TLS Certificate from Apple.
+	Certificate pulumi.StringOutput `pulumi:"certificate"`
+
+	// The default authentication method used for APNs. 
+	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	DefaultAuthenticationMethod pulumi.StringOutput `pulumi:"defaultAuthenticationMethod"`
+
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The Certificate Private Key file (ie. `.key` file).
+	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
+
+	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+	TeamId pulumi.StringOutput `pulumi:"teamId"`
+
+	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+	TokenKey pulumi.StringOutput `pulumi:"tokenKey"`
+
+	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+	TokenKeyId pulumi.StringOutput `pulumi:"tokenKeyId"`
 }
 
 // NewApnsChannel registers a new resource with the given unique name, arguments, and options.
 func NewApnsChannel(ctx *pulumi.Context,
-	name string, args *ApnsChannelArgs, opts ...pulumi.ResourceOpt) (*ApnsChannel, error) {
+	name string, args *ApnsChannelArgs, opts ...pulumi.ResourceOption) (*ApnsChannel, error) {
 	if args == nil || args.ApplicationId == nil {
 		return nil, errors.New("missing required argument 'ApplicationId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationId"] = nil
-		inputs["bundleId"] = nil
-		inputs["certificate"] = nil
-		inputs["defaultAuthenticationMethod"] = nil
-		inputs["enabled"] = nil
-		inputs["privateKey"] = nil
-		inputs["teamId"] = nil
-		inputs["tokenKey"] = nil
-		inputs["tokenKeyId"] = nil
-	} else {
-		inputs["applicationId"] = args.ApplicationId
-		inputs["bundleId"] = args.BundleId
-		inputs["certificate"] = args.Certificate
-		inputs["defaultAuthenticationMethod"] = args.DefaultAuthenticationMethod
-		inputs["enabled"] = args.Enabled
-		inputs["privateKey"] = args.PrivateKey
-		inputs["teamId"] = args.TeamId
-		inputs["tokenKey"] = args.TokenKey
-		inputs["tokenKeyId"] = args.TokenKeyId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := args.BundleId; i != nil { inputs["bundleId"] = i.ToStringOutput() }
+		if i := args.Certificate; i != nil { inputs["certificate"] = i.ToStringOutput() }
+		if i := args.DefaultAuthenticationMethod; i != nil { inputs["defaultAuthenticationMethod"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.PrivateKey; i != nil { inputs["privateKey"] = i.ToStringOutput() }
+		if i := args.TeamId; i != nil { inputs["teamId"] = i.ToStringOutput() }
+		if i := args.TokenKey; i != nil { inputs["tokenKey"] = i.ToStringOutput() }
+		if i := args.TokenKeyId; i != nil { inputs["tokenKeyId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:pinpoint/apnsChannel:ApnsChannel", name, true, inputs, opts...)
+	var resource ApnsChannel
+	err := ctx.RegisterResource("aws:pinpoint/apnsChannel:ApnsChannel", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApnsChannel{s: s}, nil
+	return &resource, nil
 }
 
 // GetApnsChannel gets an existing ApnsChannel resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApnsChannel(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApnsChannelState, opts ...pulumi.ResourceOpt) (*ApnsChannel, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApnsChannelState, opts ...pulumi.ResourceOption) (*ApnsChannel, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationId"] = state.ApplicationId
-		inputs["bundleId"] = state.BundleId
-		inputs["certificate"] = state.Certificate
-		inputs["defaultAuthenticationMethod"] = state.DefaultAuthenticationMethod
-		inputs["enabled"] = state.Enabled
-		inputs["privateKey"] = state.PrivateKey
-		inputs["teamId"] = state.TeamId
-		inputs["tokenKey"] = state.TokenKey
-		inputs["tokenKeyId"] = state.TokenKeyId
+		if i := state.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := state.BundleId; i != nil { inputs["bundleId"] = i.ToStringOutput() }
+		if i := state.Certificate; i != nil { inputs["certificate"] = i.ToStringOutput() }
+		if i := state.DefaultAuthenticationMethod; i != nil { inputs["defaultAuthenticationMethod"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.PrivateKey; i != nil { inputs["privateKey"] = i.ToStringOutput() }
+		if i := state.TeamId; i != nil { inputs["teamId"] = i.ToStringOutput() }
+		if i := state.TokenKey; i != nil { inputs["tokenKey"] = i.ToStringOutput() }
+		if i := state.TokenKeyId; i != nil { inputs["tokenKeyId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:pinpoint/apnsChannel:ApnsChannel", name, id, inputs, opts...)
+	var resource ApnsChannel
+	err := ctx.ReadResource("aws:pinpoint/apnsChannel:ApnsChannel", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApnsChannel{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApnsChannel) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApnsChannel) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The application ID.
-func (r *ApnsChannel) ApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationId"])
-}
-
-// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-func (r *ApnsChannel) BundleId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bundleId"])
-}
-
-// The pem encoded TLS Certificate from Apple.
-func (r *ApnsChannel) Certificate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificate"])
-}
-
-// The default authentication method used for APNs. 
-// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-func (r *ApnsChannel) DefaultAuthenticationMethod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultAuthenticationMethod"])
-}
-
-// Whether the channel is enabled or disabled. Defaults to `true`.
-func (r *ApnsChannel) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The Certificate Private Key file (ie. `.key` file).
-func (r *ApnsChannel) PrivateKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateKey"])
-}
-
-// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-func (r *ApnsChannel) TeamId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["teamId"])
-}
-
-// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
-func (r *ApnsChannel) TokenKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tokenKey"])
-}
-
-// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-func (r *ApnsChannel) TokenKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tokenKeyId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApnsChannel resources.
 type ApnsChannelState struct {
 	// The application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId interface{}
+	BundleId pulumi.StringInput `pulumi:"bundleId"`
 	// The pem encoded TLS Certificate from Apple.
-	Certificate interface{}
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The default authentication method used for APNs. 
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	DefaultAuthenticationMethod interface{}
+	DefaultAuthenticationMethod pulumi.StringInput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
-	PrivateKey interface{}
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId interface{}
+	TeamId pulumi.StringInput `pulumi:"teamId"`
 	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
-	TokenKey interface{}
+	TokenKey pulumi.StringInput `pulumi:"tokenKey"`
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId interface{}
+	TokenKeyId pulumi.StringInput `pulumi:"tokenKeyId"`
 }
 
 // The set of arguments for constructing a ApnsChannel resource.
 type ApnsChannelArgs struct {
 	// The application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
-	BundleId interface{}
+	BundleId pulumi.StringInput `pulumi:"bundleId"`
 	// The pem encoded TLS Certificate from Apple.
-	Certificate interface{}
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The default authentication method used for APNs. 
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-	DefaultAuthenticationMethod interface{}
+	DefaultAuthenticationMethod pulumi.StringInput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
-	PrivateKey interface{}
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-	TeamId interface{}
+	TeamId pulumi.StringInput `pulumi:"teamId"`
 	// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
-	TokenKey interface{}
+	TokenKey pulumi.StringInput `pulumi:"tokenKey"`
 	// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-	TokenKeyId interface{}
+	TokenKeyId pulumi.StringInput `pulumi:"tokenKeyId"`
 }

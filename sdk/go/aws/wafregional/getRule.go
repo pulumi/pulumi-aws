@@ -10,30 +10,24 @@ import (
 // `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rule.html.markdown.
-func LookupRule(ctx *pulumi.Context, args *GetRuleArgs) (*GetRuleResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:wafregional/getRule:getRule", inputs)
+func LookupRule(ctx *pulumi.Context, args *GetRuleArgs, opts ...pulumi.InvokeOption) (*GetRuleResult, error) {
+	var rv GetRuleResult
+	err := ctx.Invoke("aws:wafregional/getRule:getRule", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRuleResult{
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRule.
 type GetRuleArgs struct {
 	// The name of the WAF Regional rule.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getRule.
 type GetRuleResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

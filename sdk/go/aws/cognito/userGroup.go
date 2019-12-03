@@ -12,114 +12,90 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_group.html.markdown.
 type UserGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The description of the user group.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the user group.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The precedence of the user group.
+	Precedence pulumi.IntOutput `pulumi:"precedence"`
+
+	// The ARN of the IAM role to be associated with the user group.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// The user pool ID.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewUserGroup registers a new resource with the given unique name, arguments, and options.
 func NewUserGroup(ctx *pulumi.Context,
-	name string, args *UserGroupArgs, opts ...pulumi.ResourceOpt) (*UserGroup, error) {
+	name string, args *UserGroupArgs, opts ...pulumi.ResourceOption) (*UserGroup, error) {
 	if args == nil || args.UserPoolId == nil {
 		return nil, errors.New("missing required argument 'UserPoolId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["precedence"] = nil
-		inputs["roleArn"] = nil
-		inputs["userPoolId"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["precedence"] = args.Precedence
-		inputs["roleArn"] = args.RoleArn
-		inputs["userPoolId"] = args.UserPoolId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Precedence; i != nil { inputs["precedence"] = i.ToIntOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.UserPoolId; i != nil { inputs["userPoolId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cognito/userGroup:UserGroup", name, true, inputs, opts...)
+	var resource UserGroup
+	err := ctx.RegisterResource("aws:cognito/userGroup:UserGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UserGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetUserGroup gets an existing UserGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetUserGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *UserGroupState, opts ...pulumi.ResourceOpt) (*UserGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *UserGroupState, opts ...pulumi.ResourceOption) (*UserGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["precedence"] = state.Precedence
-		inputs["roleArn"] = state.RoleArn
-		inputs["userPoolId"] = state.UserPoolId
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Precedence; i != nil { inputs["precedence"] = i.ToIntOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.UserPoolId; i != nil { inputs["userPoolId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cognito/userGroup:UserGroup", name, id, inputs, opts...)
+	var resource UserGroup
+	err := ctx.ReadResource("aws:cognito/userGroup:UserGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UserGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *UserGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *UserGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The description of the user group.
-func (r *UserGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the user group.
-func (r *UserGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The precedence of the user group.
-func (r *UserGroup) Precedence() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["precedence"])
-}
-
-// The ARN of the IAM role to be associated with the user group.
-func (r *UserGroup) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// The user pool ID.
-func (r *UserGroup) UserPoolId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userPoolId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering UserGroup resources.
 type UserGroupState struct {
 	// The description of the user group.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the user group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The precedence of the user group.
-	Precedence interface{}
+	Precedence pulumi.IntInput `pulumi:"precedence"`
 	// The ARN of the IAM role to be associated with the user group.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The user pool ID.
-	UserPoolId interface{}
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
 	// The description of the user group.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the user group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The precedence of the user group.
-	Precedence interface{}
+	Precedence pulumi.IntInput `pulumi:"precedence"`
 	// The ARN of the IAM role to be associated with the user group.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The user pool ID.
-	UserPoolId interface{}
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }

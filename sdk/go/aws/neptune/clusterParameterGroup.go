@@ -4,6 +4,8 @@
 package neptune
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,135 +14,225 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_parameter_group.html.markdown.
 type ClusterParameterGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the neptune cluster parameter group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The family of the neptune cluster parameter group.
+	Family pulumi.StringOutput `pulumi:"family"`
+
+	// The name of the neptune parameter.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// A list of neptune parameters to apply.
+	Parameters ClusterParameterGroupParametersArrayOutput `pulumi:"parameters"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewClusterParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewClusterParameterGroup(ctx *pulumi.Context,
-	name string, args *ClusterParameterGroupArgs, opts ...pulumi.ResourceOpt) (*ClusterParameterGroup, error) {
+	name string, args *ClusterParameterGroupArgs, opts ...pulumi.ResourceOption) (*ClusterParameterGroup, error) {
 	if args == nil || args.Family == nil {
 		return nil, errors.New("missing required argument 'Family'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["family"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["parameters"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["family"] = args.Family
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["parameters"] = args.Parameters
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Family; i != nil { inputs["family"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToClusterParameterGroupParametersArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:neptune/clusterParameterGroup:ClusterParameterGroup", name, true, inputs, opts...)
+	var resource ClusterParameterGroup
+	err := ctx.RegisterResource("aws:neptune/clusterParameterGroup:ClusterParameterGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterParameterGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetClusterParameterGroup gets an existing ClusterParameterGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetClusterParameterGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterParameterGroupState, opts ...pulumi.ResourceOpt) (*ClusterParameterGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterParameterGroupState, opts ...pulumi.ResourceOption) (*ClusterParameterGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["family"] = state.Family
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["parameters"] = state.Parameters
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Family; i != nil { inputs["family"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToClusterParameterGroupParametersArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:neptune/clusterParameterGroup:ClusterParameterGroup", name, id, inputs, opts...)
+	var resource ClusterParameterGroup
+	err := ctx.ReadResource("aws:neptune/clusterParameterGroup:ClusterParameterGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterParameterGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterParameterGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterParameterGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the neptune cluster parameter group.
-func (r *ClusterParameterGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
-func (r *ClusterParameterGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The family of the neptune cluster parameter group.
-func (r *ClusterParameterGroup) Family() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["family"])
-}
-
-// The name of the neptune parameter.
-func (r *ClusterParameterGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *ClusterParameterGroup) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// A list of neptune parameters to apply.
-func (r *ClusterParameterGroup) Parameters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["parameters"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ClusterParameterGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ClusterParameterGroup resources.
 type ClusterParameterGroupState struct {
 	// The ARN of the neptune cluster parameter group.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The family of the neptune cluster parameter group.
-	Family interface{}
+	Family pulumi.StringInput `pulumi:"family"`
 	// The name of the neptune parameter.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// A list of neptune parameters to apply.
-	Parameters interface{}
+	Parameters ClusterParameterGroupParametersArrayInput `pulumi:"parameters"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
 type ClusterParameterGroupArgs struct {
 	// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The family of the neptune cluster parameter group.
-	Family interface{}
+	Family pulumi.StringInput `pulumi:"family"`
 	// The name of the neptune parameter.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// A list of neptune parameters to apply.
-	Parameters interface{}
+	Parameters ClusterParameterGroupParametersArrayInput `pulumi:"parameters"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ClusterParameterGroupParameters struct {
+	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+	ApplyMethod *string `pulumi:"applyMethod"`
+	// The name of the neptune parameter.
+	Name string `pulumi:"name"`
+	// The value of the neptune parameter.
+	Value string `pulumi:"value"`
+}
+var clusterParameterGroupParametersType = reflect.TypeOf((*ClusterParameterGroupParameters)(nil)).Elem()
+
+type ClusterParameterGroupParametersInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupParametersOutput() ClusterParameterGroupParametersOutput
+	ToClusterParameterGroupParametersOutputWithContext(ctx context.Context) ClusterParameterGroupParametersOutput
+}
+
+type ClusterParameterGroupParametersArgs struct {
+	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+	ApplyMethod pulumi.StringInput `pulumi:"applyMethod"`
+	// The name of the neptune parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the neptune parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterParameterGroupParametersArgs) ElementType() reflect.Type {
+	return clusterParameterGroupParametersType
+}
+
+func (a ClusterParameterGroupParametersArgs) ToClusterParameterGroupParametersOutput() ClusterParameterGroupParametersOutput {
+	return pulumi.ToOutput(a).(ClusterParameterGroupParametersOutput)
+}
+
+func (a ClusterParameterGroupParametersArgs) ToClusterParameterGroupParametersOutputWithContext(ctx context.Context) ClusterParameterGroupParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterParameterGroupParametersOutput)
+}
+
+type ClusterParameterGroupParametersOutput struct { *pulumi.OutputState }
+
+// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+func (o ClusterParameterGroupParametersOutput) ApplyMethod() pulumi.StringOutput {
+	return o.Apply(func(v ClusterParameterGroupParameters) string {
+		if v.ApplyMethod == nil { return *new(string) } else { return *v.ApplyMethod }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the neptune parameter.
+func (o ClusterParameterGroupParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterParameterGroupParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The value of the neptune parameter.
+func (o ClusterParameterGroupParametersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ClusterParameterGroupParameters) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterParameterGroupParametersOutput) ElementType() reflect.Type {
+	return clusterParameterGroupParametersType
+}
+
+func (o ClusterParameterGroupParametersOutput) ToClusterParameterGroupParametersOutput() ClusterParameterGroupParametersOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParametersOutput) ToClusterParameterGroupParametersOutputWithContext(ctx context.Context) ClusterParameterGroupParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterParameterGroupParametersOutput{}) }
+
+var clusterParameterGroupParametersArrayType = reflect.TypeOf((*[]ClusterParameterGroupParameters)(nil)).Elem()
+
+type ClusterParameterGroupParametersArrayInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupParametersArrayOutput() ClusterParameterGroupParametersArrayOutput
+	ToClusterParameterGroupParametersArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParametersArrayOutput
+}
+
+type ClusterParameterGroupParametersArrayArgs []ClusterParameterGroupParametersInput
+
+func (ClusterParameterGroupParametersArrayArgs) ElementType() reflect.Type {
+	return clusterParameterGroupParametersArrayType
+}
+
+func (a ClusterParameterGroupParametersArrayArgs) ToClusterParameterGroupParametersArrayOutput() ClusterParameterGroupParametersArrayOutput {
+	return pulumi.ToOutput(a).(ClusterParameterGroupParametersArrayOutput)
+}
+
+func (a ClusterParameterGroupParametersArrayArgs) ToClusterParameterGroupParametersArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterParameterGroupParametersArrayOutput)
+}
+
+type ClusterParameterGroupParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterParameterGroupParametersArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterParameterGroupParameters {
+		return vs[0].([]ClusterParameterGroupParameters)[vs[1].(int)]
+	}).(ClusterParameterGroupParametersOutput)
+}
+
+func (ClusterParameterGroupParametersArrayOutput) ElementType() reflect.Type {
+	return clusterParameterGroupParametersArrayType
+}
+
+func (o ClusterParameterGroupParametersArrayOutput) ToClusterParameterGroupParametersArrayOutput() ClusterParameterGroupParametersArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParametersArrayOutput) ToClusterParameterGroupParametersArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterParameterGroupParametersArrayOutput{}) }
+

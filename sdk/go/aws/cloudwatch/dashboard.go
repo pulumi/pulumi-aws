@@ -12,90 +12,72 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_dashboard.html.markdown.
 type Dashboard struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the dashboard.
+	DashboardArn pulumi.StringOutput `pulumi:"dashboardArn"`
+
+	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+	DashboardBody pulumi.StringOutput `pulumi:"dashboardBody"`
+
+	// The name of the dashboard.
+	DashboardName pulumi.StringOutput `pulumi:"dashboardName"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
 func NewDashboard(ctx *pulumi.Context,
-	name string, args *DashboardArgs, opts ...pulumi.ResourceOpt) (*Dashboard, error) {
+	name string, args *DashboardArgs, opts ...pulumi.ResourceOption) (*Dashboard, error) {
 	if args == nil || args.DashboardBody == nil {
 		return nil, errors.New("missing required argument 'DashboardBody'")
 	}
 	if args == nil || args.DashboardName == nil {
 		return nil, errors.New("missing required argument 'DashboardName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dashboardBody"] = nil
-		inputs["dashboardName"] = nil
-	} else {
-		inputs["dashboardBody"] = args.DashboardBody
-		inputs["dashboardName"] = args.DashboardName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DashboardBody; i != nil { inputs["dashboardBody"] = i.ToStringOutput() }
+		if i := args.DashboardName; i != nil { inputs["dashboardName"] = i.ToStringOutput() }
 	}
-	inputs["dashboardArn"] = nil
-	s, err := ctx.RegisterResource("aws:cloudwatch/dashboard:Dashboard", name, true, inputs, opts...)
+	var resource Dashboard
+	err := ctx.RegisterResource("aws:cloudwatch/dashboard:Dashboard", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Dashboard{s: s}, nil
+	return &resource, nil
 }
 
 // GetDashboard gets an existing Dashboard resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDashboard(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DashboardState, opts ...pulumi.ResourceOpt) (*Dashboard, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DashboardState, opts ...pulumi.ResourceOption) (*Dashboard, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dashboardArn"] = state.DashboardArn
-		inputs["dashboardBody"] = state.DashboardBody
-		inputs["dashboardName"] = state.DashboardName
+		if i := state.DashboardArn; i != nil { inputs["dashboardArn"] = i.ToStringOutput() }
+		if i := state.DashboardBody; i != nil { inputs["dashboardBody"] = i.ToStringOutput() }
+		if i := state.DashboardName; i != nil { inputs["dashboardName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/dashboard:Dashboard", name, id, inputs, opts...)
+	var resource Dashboard
+	err := ctx.ReadResource("aws:cloudwatch/dashboard:Dashboard", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Dashboard{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Dashboard) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Dashboard) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the dashboard.
-func (r *Dashboard) DashboardArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dashboardArn"])
-}
-
-// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-func (r *Dashboard) DashboardBody() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dashboardBody"])
-}
-
-// The name of the dashboard.
-func (r *Dashboard) DashboardName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dashboardName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Dashboard resources.
 type DashboardState struct {
 	// The Amazon Resource Name (ARN) of the dashboard.
-	DashboardArn interface{}
+	DashboardArn pulumi.StringInput `pulumi:"dashboardArn"`
 	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-	DashboardBody interface{}
+	DashboardBody pulumi.StringInput `pulumi:"dashboardBody"`
 	// The name of the dashboard.
-	DashboardName interface{}
+	DashboardName pulumi.StringInput `pulumi:"dashboardName"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
 	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-	DashboardBody interface{}
+	DashboardBody pulumi.StringInput `pulumi:"dashboardBody"`
 	// The name of the dashboard.
-	DashboardName interface{}
+	DashboardName pulumi.StringInput `pulumi:"dashboardName"`
 }

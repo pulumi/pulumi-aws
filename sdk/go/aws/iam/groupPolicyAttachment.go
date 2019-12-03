@@ -14,81 +14,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy_attachment.html.markdown.
 type GroupPolicyAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The group the policy should be applied to
+	Group pulumi.StringOutput `pulumi:"group"`
+
+	// The ARN of the policy you want to apply
+	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 }
 
 // NewGroupPolicyAttachment registers a new resource with the given unique name, arguments, and options.
 func NewGroupPolicyAttachment(ctx *pulumi.Context,
-	name string, args *GroupPolicyAttachmentArgs, opts ...pulumi.ResourceOpt) (*GroupPolicyAttachment, error) {
+	name string, args *GroupPolicyAttachmentArgs, opts ...pulumi.ResourceOption) (*GroupPolicyAttachment, error) {
 	if args == nil || args.Group == nil {
 		return nil, errors.New("missing required argument 'Group'")
 	}
 	if args == nil || args.PolicyArn == nil {
 		return nil, errors.New("missing required argument 'PolicyArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["group"] = nil
-		inputs["policyArn"] = nil
-	} else {
-		inputs["group"] = args.Group
-		inputs["policyArn"] = args.PolicyArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Group; i != nil { inputs["group"] = i.ToStringOutput() }
+		if i := args.PolicyArn; i != nil { inputs["policyArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, true, inputs, opts...)
+	var resource GroupPolicyAttachment
+	err := ctx.RegisterResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GroupPolicyAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetGroupPolicyAttachment gets an existing GroupPolicyAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGroupPolicyAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GroupPolicyAttachmentState, opts ...pulumi.ResourceOpt) (*GroupPolicyAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GroupPolicyAttachmentState, opts ...pulumi.ResourceOption) (*GroupPolicyAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["group"] = state.Group
-		inputs["policyArn"] = state.PolicyArn
+		if i := state.Group; i != nil { inputs["group"] = i.ToStringOutput() }
+		if i := state.PolicyArn; i != nil { inputs["policyArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, id, inputs, opts...)
+	var resource GroupPolicyAttachment
+	err := ctx.ReadResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GroupPolicyAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *GroupPolicyAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *GroupPolicyAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The group the policy should be applied to
-func (r *GroupPolicyAttachment) Group() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["group"])
-}
-
-// The ARN of the policy you want to apply
-func (r *GroupPolicyAttachment) PolicyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policyArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering GroupPolicyAttachment resources.
 type GroupPolicyAttachmentState struct {
 	// The group the policy should be applied to
-	Group interface{}
+	Group pulumi.StringInput `pulumi:"group"`
 	// The ARN of the policy you want to apply
-	PolicyArn interface{}
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
 }
 
 // The set of arguments for constructing a GroupPolicyAttachment resource.
 type GroupPolicyAttachmentArgs struct {
 	// The group the policy should be applied to
-	Group interface{}
+	Group pulumi.StringInput `pulumi:"group"`
 	// The ARN of the policy you want to apply
-	PolicyArn interface{}
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
 }

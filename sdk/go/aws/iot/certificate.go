@@ -12,126 +12,99 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_certificate.html.markdown.
 type Certificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Boolean flag to indicate if the certificate should be active
+	Active pulumi.BoolOutput `pulumi:"active"`
+
+	// The ARN of the created certificate.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The certificate data, in PEM format.
+	CertificatePem pulumi.StringOutput `pulumi:"certificatePem"`
+
+	// The certificate signing request. Review
+	// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+	// for more information on generating a certificate from a certificate signing request (CSR).
+	// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+	// for more information on generating keys and a certificate.
+	Csr pulumi.StringOutput `pulumi:"csr"`
+
+	// When no CSR is provided, the private key.
+	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
+
+	// When no CSR is provided, the public key.
+	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
-	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
+	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	if args == nil || args.Active == nil {
 		return nil, errors.New("missing required argument 'Active'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["active"] = nil
-		inputs["csr"] = nil
-	} else {
-		inputs["active"] = args.Active
-		inputs["csr"] = args.Csr
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Active; i != nil { inputs["active"] = i.ToBoolOutput() }
+		if i := args.Csr; i != nil { inputs["csr"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["certificatePem"] = nil
-	inputs["privateKey"] = nil
-	inputs["publicKey"] = nil
-	s, err := ctx.RegisterResource("aws:iot/certificate:Certificate", name, true, inputs, opts...)
+	var resource Certificate
+	err := ctx.RegisterResource("aws:iot/certificate:Certificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificate gets an existing Certificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateState, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["active"] = state.Active
-		inputs["arn"] = state.Arn
-		inputs["certificatePem"] = state.CertificatePem
-		inputs["csr"] = state.Csr
-		inputs["privateKey"] = state.PrivateKey
-		inputs["publicKey"] = state.PublicKey
+		if i := state.Active; i != nil { inputs["active"] = i.ToBoolOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CertificatePem; i != nil { inputs["certificatePem"] = i.ToStringOutput() }
+		if i := state.Csr; i != nil { inputs["csr"] = i.ToStringOutput() }
+		if i := state.PrivateKey; i != nil { inputs["privateKey"] = i.ToStringOutput() }
+		if i := state.PublicKey; i != nil { inputs["publicKey"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iot/certificate:Certificate", name, id, inputs, opts...)
+	var resource Certificate
+	err := ctx.ReadResource("aws:iot/certificate:Certificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Boolean flag to indicate if the certificate should be active
-func (r *Certificate) Active() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["active"])
-}
-
-// The ARN of the created certificate.
-func (r *Certificate) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The certificate data, in PEM format.
-func (r *Certificate) CertificatePem() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificatePem"])
-}
-
-// The certificate signing request. Review
-// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-// for more information on generating a certificate from a certificate signing request (CSR).
-// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-// for more information on generating keys and a certificate.
-func (r *Certificate) Csr() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["csr"])
-}
-
-// When no CSR is provided, the private key.
-func (r *Certificate) PrivateKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateKey"])
-}
-
-// When no CSR is provided, the public key.
-func (r *Certificate) PublicKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicKey"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Certificate resources.
 type CertificateState struct {
 	// Boolean flag to indicate if the certificate should be active
-	Active interface{}
+	Active pulumi.BoolInput `pulumi:"active"`
 	// The ARN of the created certificate.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The certificate data, in PEM format.
-	CertificatePem interface{}
+	CertificatePem pulumi.StringInput `pulumi:"certificatePem"`
 	// The certificate signing request. Review
 	// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
 	// for more information on generating a certificate from a certificate signing request (CSR).
 	// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
 	// for more information on generating keys and a certificate.
-	Csr interface{}
+	Csr pulumi.StringInput `pulumi:"csr"`
 	// When no CSR is provided, the private key.
-	PrivateKey interface{}
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
 	// When no CSR is provided, the public key.
-	PublicKey interface{}
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// Boolean flag to indicate if the certificate should be active
-	Active interface{}
+	Active pulumi.BoolInput `pulumi:"active"`
 	// The certificate signing request. Review
 	// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
 	// for more information on generating a certificate from a certificate signing request (CSR).
 	// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
 	// for more information on generating keys and a certificate.
-	Csr interface{}
+	Csr pulumi.StringInput `pulumi:"csr"`
 }

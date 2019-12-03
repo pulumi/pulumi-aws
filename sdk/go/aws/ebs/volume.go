@@ -12,159 +12,123 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
 type Volume struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The AZ where the EBS volume will exist.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	// If true, the disk will be encrypted.
+	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+
+	// The amount of IOPS to provision for the disk.
+	Iops pulumi.IntOutput `pulumi:"iops"`
+
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// The size of the drive in GiBs.
+	Size pulumi.IntOutput `pulumi:"size"`
+
+	// A snapshot to base the EBS volume off of.
+	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
 func NewVolume(ctx *pulumi.Context,
-	name string, args *VolumeArgs, opts ...pulumi.ResourceOpt) (*Volume, error) {
+	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
 	if args == nil || args.AvailabilityZone == nil {
 		return nil, errors.New("missing required argument 'AvailabilityZone'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["availabilityZone"] = nil
-		inputs["encrypted"] = nil
-		inputs["iops"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["size"] = nil
-		inputs["snapshotId"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["encrypted"] = args.Encrypted
-		inputs["iops"] = args.Iops
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["size"] = args.Size
-		inputs["snapshotId"] = args.SnapshotId
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := args.Iops; i != nil { inputs["iops"] = i.ToIntOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.Size; i != nil { inputs["size"] = i.ToIntOutput() }
+		if i := args.SnapshotId; i != nil { inputs["snapshotId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:ebs/volume:Volume", name, true, inputs, opts...)
+	var resource Volume
+	err := ctx.RegisterResource("aws:ebs/volume:Volume", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Volume{s: s}, nil
+	return &resource, nil
 }
 
 // GetVolume gets an existing Volume resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVolume(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VolumeState, opts ...pulumi.ResourceOpt) (*Volume, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VolumeState, opts ...pulumi.ResourceOption) (*Volume, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["encrypted"] = state.Encrypted
-		inputs["iops"] = state.Iops
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["size"] = state.Size
-		inputs["snapshotId"] = state.SnapshotId
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := state.Iops; i != nil { inputs["iops"] = i.ToIntOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.Size; i != nil { inputs["size"] = i.ToIntOutput() }
+		if i := state.SnapshotId; i != nil { inputs["snapshotId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ebs/volume:Volume", name, id, inputs, opts...)
+	var resource Volume
+	err := ctx.ReadResource("aws:ebs/volume:Volume", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Volume{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Volume) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Volume) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-func (r *Volume) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The AZ where the EBS volume will exist.
-func (r *Volume) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// If true, the disk will be encrypted.
-func (r *Volume) Encrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["encrypted"])
-}
-
-// The amount of IOPS to provision for the disk.
-func (r *Volume) Iops() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["iops"])
-}
-
-// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-func (r *Volume) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// The size of the drive in GiBs.
-func (r *Volume) Size() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["size"])
-}
-
-// A snapshot to base the EBS volume off of.
-func (r *Volume) SnapshotId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snapshotId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Volume) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-func (r *Volume) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Volume resources.
 type VolumeState struct {
 	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The AZ where the EBS volume will exist.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The amount of IOPS to provision for the disk.
-	Iops interface{}
+	Iops pulumi.IntInput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The size of the drive in GiBs.
-	Size interface{}
+	Size pulumi.IntInput `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
-	SnapshotId interface{}
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The AZ where the EBS volume will exist.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The amount of IOPS to provision for the disk.
-	Iops interface{}
+	Iops pulumi.IntInput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The size of the drive in GiBs.
-	Size interface{}
+	Size pulumi.IntInput `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
-	SnapshotId interface{}
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }

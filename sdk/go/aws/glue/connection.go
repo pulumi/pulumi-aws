@@ -4,6 +4,8 @@
 package glue
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,138 +14,183 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_connection.html.markdown.
 type Connection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
+
+	// A map of key-value pairs used as parameters for this connection.
+	ConnectionProperties pulumi.MapOutput `pulumi:"connectionProperties"`
+
+	// The type of the connection. Defaults to `JBDC`.
+	ConnectionType pulumi.StringOutput `pulumi:"connectionType"`
+
+	// Description of the connection.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A list of criteria that can be used in selecting this connection.
+	MatchCriterias pulumi.StringArrayOutput `pulumi:"matchCriterias"`
+
+	// The name of the connection.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsOutput `pulumi:"physicalConnectionRequirements"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
 func NewConnection(ctx *pulumi.Context,
-	name string, args *ConnectionArgs, opts ...pulumi.ResourceOpt) (*Connection, error) {
+	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
 	if args == nil || args.ConnectionProperties == nil {
 		return nil, errors.New("missing required argument 'ConnectionProperties'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["catalogId"] = nil
-		inputs["connectionProperties"] = nil
-		inputs["connectionType"] = nil
-		inputs["description"] = nil
-		inputs["matchCriterias"] = nil
-		inputs["name"] = nil
-		inputs["physicalConnectionRequirements"] = nil
-	} else {
-		inputs["catalogId"] = args.CatalogId
-		inputs["connectionProperties"] = args.ConnectionProperties
-		inputs["connectionType"] = args.ConnectionType
-		inputs["description"] = args.Description
-		inputs["matchCriterias"] = args.MatchCriterias
-		inputs["name"] = args.Name
-		inputs["physicalConnectionRequirements"] = args.PhysicalConnectionRequirements
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CatalogId; i != nil { inputs["catalogId"] = i.ToStringOutput() }
+		if i := args.ConnectionProperties; i != nil { inputs["connectionProperties"] = i.ToMapOutput() }
+		if i := args.ConnectionType; i != nil { inputs["connectionType"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.MatchCriterias; i != nil { inputs["matchCriterias"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PhysicalConnectionRequirements; i != nil { inputs["physicalConnectionRequirements"] = i.ToConnectionPhysicalConnectionRequirementsOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:glue/connection:Connection", name, true, inputs, opts...)
+	var resource Connection
+	err := ctx.RegisterResource("aws:glue/connection:Connection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Connection{s: s}, nil
+	return &resource, nil
 }
 
 // GetConnection gets an existing Connection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConnection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConnectionState, opts ...pulumi.ResourceOpt) (*Connection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConnectionState, opts ...pulumi.ResourceOption) (*Connection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["catalogId"] = state.CatalogId
-		inputs["connectionProperties"] = state.ConnectionProperties
-		inputs["connectionType"] = state.ConnectionType
-		inputs["description"] = state.Description
-		inputs["matchCriterias"] = state.MatchCriterias
-		inputs["name"] = state.Name
-		inputs["physicalConnectionRequirements"] = state.PhysicalConnectionRequirements
+		if i := state.CatalogId; i != nil { inputs["catalogId"] = i.ToStringOutput() }
+		if i := state.ConnectionProperties; i != nil { inputs["connectionProperties"] = i.ToMapOutput() }
+		if i := state.ConnectionType; i != nil { inputs["connectionType"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.MatchCriterias; i != nil { inputs["matchCriterias"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PhysicalConnectionRequirements; i != nil { inputs["physicalConnectionRequirements"] = i.ToConnectionPhysicalConnectionRequirementsOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glue/connection:Connection", name, id, inputs, opts...)
+	var resource Connection
+	err := ctx.ReadResource("aws:glue/connection:Connection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Connection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Connection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Connection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-func (r *Connection) CatalogId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["catalogId"])
-}
-
-// A map of key-value pairs used as parameters for this connection.
-func (r *Connection) ConnectionProperties() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["connectionProperties"])
-}
-
-// The type of the connection. Defaults to `JBDC`.
-func (r *Connection) ConnectionType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["connectionType"])
-}
-
-// Description of the connection.
-func (r *Connection) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A list of criteria that can be used in selecting this connection.
-func (r *Connection) MatchCriterias() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["matchCriterias"])
-}
-
-// The name of the connection.
-func (r *Connection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
-func (r *Connection) PhysicalConnectionRequirements() pulumi.Output {
-	return r.s.State["physicalConnectionRequirements"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Connection resources.
 type ConnectionState struct {
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId interface{}
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties interface{}
+	ConnectionProperties pulumi.MapInput `pulumi:"connectionProperties"`
 	// The type of the connection. Defaults to `JBDC`.
-	ConnectionType interface{}
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
 	// Description of the connection.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias interface{}
+	MatchCriterias pulumi.StringArrayInput `pulumi:"matchCriterias"`
 	// The name of the connection.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
-	PhysicalConnectionRequirements interface{}
+	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsInput `pulumi:"physicalConnectionRequirements"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId interface{}
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties interface{}
+	ConnectionProperties pulumi.MapInput `pulumi:"connectionProperties"`
 	// The type of the connection. Defaults to `JBDC`.
-	ConnectionType interface{}
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
 	// Description of the connection.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias interface{}
+	MatchCriterias pulumi.StringArrayInput `pulumi:"matchCriterias"`
 	// The name of the connection.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
-	PhysicalConnectionRequirements interface{}
+	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsInput `pulumi:"physicalConnectionRequirements"`
 }
+type ConnectionPhysicalConnectionRequirements struct {
+	// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The security group ID list used by the connection.
+	SecurityGroupIdLists *[]string `pulumi:"securityGroupIdLists"`
+	// The subnet ID used by the connection.
+	SubnetId *string `pulumi:"subnetId"`
+}
+var connectionPhysicalConnectionRequirementsType = reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+
+type ConnectionPhysicalConnectionRequirementsInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput
+	ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput
+}
+
+type ConnectionPhysicalConnectionRequirementsArgs struct {
+	// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// The security group ID list used by the connection.
+	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
+	// The subnet ID used by the connection.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ConnectionPhysicalConnectionRequirementsArgs) ElementType() reflect.Type {
+	return connectionPhysicalConnectionRequirementsType
+}
+
+func (a ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return pulumi.ToOutput(a).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+func (a ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+type ConnectionPhysicalConnectionRequirementsOutput struct { *pulumi.OutputState }
+
+// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+func (o ConnectionPhysicalConnectionRequirementsOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.Apply(func(v ConnectionPhysicalConnectionRequirements) string {
+		if v.AvailabilityZone == nil { return *new(string) } else { return *v.AvailabilityZone }
+	}).(pulumi.StringOutput)
+}
+
+// The security group ID list used by the connection.
+func (o ConnectionPhysicalConnectionRequirementsOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
+	return o.Apply(func(v ConnectionPhysicalConnectionRequirements) []string {
+		if v.SecurityGroupIdLists == nil { return *new([]string) } else { return *v.SecurityGroupIdLists }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnet ID used by the connection.
+func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v ConnectionPhysicalConnectionRequirements) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (ConnectionPhysicalConnectionRequirementsOutput) ElementType() reflect.Type {
+	return connectionPhysicalConnectionRequirementsType
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{}) }
+

@@ -4,6 +4,8 @@
 package opsworks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,279 +14,345 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_php_app_layer.html.markdown.
 type PhpAppLayer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolOutput `pulumi:"autoAssignElasticIps"`
+
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolOutput `pulumi:"autoAssignPublicIps"`
+
+	// Whether to enable auto-healing for the layer.
+	AutoHealing pulumi.BoolOutput `pulumi:"autoHealing"`
+
+	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
+
+	CustomDeployRecipes pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn pulumi.StringOutput `pulumi:"customInstanceProfileArn"`
+
+	// Custom JSON attributes to apply to the layer.
+	CustomJson pulumi.StringOutput `pulumi:"customJson"`
+
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
+
+	CustomSetupRecipes pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+
+	CustomShutdownRecipes pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+
+	CustomUndeployRecipes pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolOutput `pulumi:"drainElbOnShutdown"`
+
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes PhpAppLayerEbsVolumesArrayOutput `pulumi:"ebsVolumes"`
+
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringOutput `pulumi:"elasticLoadBalancer"`
+
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolOutput `pulumi:"installUpdatesOnBoot"`
+
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntOutput `pulumi:"instanceShutdownTimeout"`
+
+	// A human-readable name for the layer.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The id of the stack the layer will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances pulumi.BoolOutput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // NewPhpAppLayer registers a new resource with the given unique name, arguments, and options.
 func NewPhpAppLayer(ctx *pulumi.Context,
-	name string, args *PhpAppLayerArgs, opts ...pulumi.ResourceOpt) (*PhpAppLayer, error) {
+	name string, args *PhpAppLayerArgs, opts ...pulumi.ResourceOption) (*PhpAppLayer, error) {
 	if args == nil || args.StackId == nil {
 		return nil, errors.New("missing required argument 'StackId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoAssignElasticIps"] = nil
-		inputs["autoAssignPublicIps"] = nil
-		inputs["autoHealing"] = nil
-		inputs["customConfigureRecipes"] = nil
-		inputs["customDeployRecipes"] = nil
-		inputs["customInstanceProfileArn"] = nil
-		inputs["customJson"] = nil
-		inputs["customSecurityGroupIds"] = nil
-		inputs["customSetupRecipes"] = nil
-		inputs["customShutdownRecipes"] = nil
-		inputs["customUndeployRecipes"] = nil
-		inputs["drainElbOnShutdown"] = nil
-		inputs["ebsVolumes"] = nil
-		inputs["elasticLoadBalancer"] = nil
-		inputs["installUpdatesOnBoot"] = nil
-		inputs["instanceShutdownTimeout"] = nil
-		inputs["name"] = nil
-		inputs["stackId"] = nil
-		inputs["systemPackages"] = nil
-		inputs["useEbsOptimizedInstances"] = nil
-	} else {
-		inputs["autoAssignElasticIps"] = args.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = args.AutoAssignPublicIps
-		inputs["autoHealing"] = args.AutoHealing
-		inputs["customConfigureRecipes"] = args.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = args.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = args.CustomInstanceProfileArn
-		inputs["customJson"] = args.CustomJson
-		inputs["customSecurityGroupIds"] = args.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = args.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = args.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = args.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = args.DrainElbOnShutdown
-		inputs["ebsVolumes"] = args.EbsVolumes
-		inputs["elasticLoadBalancer"] = args.ElasticLoadBalancer
-		inputs["installUpdatesOnBoot"] = args.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = args.InstanceShutdownTimeout
-		inputs["name"] = args.Name
-		inputs["stackId"] = args.StackId
-		inputs["systemPackages"] = args.SystemPackages
-		inputs["useEbsOptimizedInstances"] = args.UseEbsOptimizedInstances
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := args.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := args.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := args.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := args.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := args.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := args.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToPhpAppLayerEbsVolumesArrayOutput() }
+		if i := args.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := args.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := args.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := args.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := args.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, true, inputs, opts...)
+	var resource PhpAppLayer
+	err := ctx.RegisterResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PhpAppLayer{s: s}, nil
+	return &resource, nil
 }
 
 // GetPhpAppLayer gets an existing PhpAppLayer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPhpAppLayer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PhpAppLayerState, opts ...pulumi.ResourceOpt) (*PhpAppLayer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PhpAppLayerState, opts ...pulumi.ResourceOption) (*PhpAppLayer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoAssignElasticIps"] = state.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = state.AutoAssignPublicIps
-		inputs["autoHealing"] = state.AutoHealing
-		inputs["customConfigureRecipes"] = state.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = state.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = state.CustomInstanceProfileArn
-		inputs["customJson"] = state.CustomJson
-		inputs["customSecurityGroupIds"] = state.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = state.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = state.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = state.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = state.DrainElbOnShutdown
-		inputs["ebsVolumes"] = state.EbsVolumes
-		inputs["elasticLoadBalancer"] = state.ElasticLoadBalancer
-		inputs["installUpdatesOnBoot"] = state.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = state.InstanceShutdownTimeout
-		inputs["name"] = state.Name
-		inputs["stackId"] = state.StackId
-		inputs["systemPackages"] = state.SystemPackages
-		inputs["useEbsOptimizedInstances"] = state.UseEbsOptimizedInstances
+		if i := state.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := state.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := state.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := state.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := state.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := state.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := state.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToPhpAppLayerEbsVolumesArrayOutput() }
+		if i := state.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := state.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := state.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := state.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, id, inputs, opts...)
+	var resource PhpAppLayer
+	err := ctx.ReadResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PhpAppLayer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PhpAppLayer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PhpAppLayer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *PhpAppLayer) AutoAssignElasticIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
-}
-
-// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *PhpAppLayer) AutoAssignPublicIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
-}
-
-// Whether to enable auto-healing for the layer.
-func (r *PhpAppLayer) AutoHealing() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
-}
-
-func (r *PhpAppLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
-}
-
-func (r *PhpAppLayer) CustomDeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
-}
-
-// The ARN of an IAM profile that will be used for the layer's instances.
-func (r *PhpAppLayer) CustomInstanceProfileArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
-}
-
-// Custom JSON attributes to apply to the layer.
-func (r *PhpAppLayer) CustomJson() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customJson"])
-}
-
-// Ids for a set of security groups to apply to the layer's instances.
-func (r *PhpAppLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
-}
-
-func (r *PhpAppLayer) CustomSetupRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
-}
-
-func (r *PhpAppLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
-}
-
-func (r *PhpAppLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
-}
-
-// Whether to enable Elastic Load Balancing connection draining.
-func (r *PhpAppLayer) DrainElbOnShutdown() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
-}
-
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *PhpAppLayer) EbsVolumes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
-}
-
-// Name of an Elastic Load Balancer to attach to this layer
-func (r *PhpAppLayer) ElasticLoadBalancer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
-}
-
-// Whether to install OS and package updates on each instance when it boots.
-func (r *PhpAppLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
-}
-
-// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *PhpAppLayer) InstanceShutdownTimeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
-}
-
-// A human-readable name for the layer.
-func (r *PhpAppLayer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The id of the stack the layer will belong to.
-func (r *PhpAppLayer) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// Names of a set of system packages to install on the layer's instances.
-func (r *PhpAppLayer) SystemPackages() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
-}
-
-// Whether to use EBS-optimized instances.
-func (r *PhpAppLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PhpAppLayer resources.
 type PhpAppLayerState struct {
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes PhpAppLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // The set of arguments for constructing a PhpAppLayer resource.
 type PhpAppLayerArgs struct {
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes PhpAppLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 }
+type PhpAppLayerEbsVolumes struct {
+	Iops *int `pulumi:"iops"`
+	MountPoint string `pulumi:"mountPoint"`
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	RaidLevel *string `pulumi:"raidLevel"`
+	Size int `pulumi:"size"`
+	Type *string `pulumi:"type"`
+}
+var phpAppLayerEbsVolumesType = reflect.TypeOf((*PhpAppLayerEbsVolumes)(nil)).Elem()
+
+type PhpAppLayerEbsVolumesInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerEbsVolumesOutput() PhpAppLayerEbsVolumesOutput
+	ToPhpAppLayerEbsVolumesOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumesOutput
+}
+
+type PhpAppLayerEbsVolumesArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	RaidLevel pulumi.StringInput `pulumi:"raidLevel"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PhpAppLayerEbsVolumesArgs) ElementType() reflect.Type {
+	return phpAppLayerEbsVolumesType
+}
+
+func (a PhpAppLayerEbsVolumesArgs) ToPhpAppLayerEbsVolumesOutput() PhpAppLayerEbsVolumesOutput {
+	return pulumi.ToOutput(a).(PhpAppLayerEbsVolumesOutput)
+}
+
+func (a PhpAppLayerEbsVolumesArgs) ToPhpAppLayerEbsVolumesOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PhpAppLayerEbsVolumesOutput)
+}
+
+type PhpAppLayerEbsVolumesOutput struct { *pulumi.OutputState }
+
+func (o PhpAppLayerEbsVolumesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v PhpAppLayerEbsVolumes) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o PhpAppLayerEbsVolumesOutput) MountPoint() pulumi.StringOutput {
+	return o.Apply(func(v PhpAppLayerEbsVolumes) string {
+		return v.MountPoint
+	}).(pulumi.StringOutput)
+}
+
+func (o PhpAppLayerEbsVolumesOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.Apply(func(v PhpAppLayerEbsVolumes) int {
+		return v.NumberOfDisks
+	}).(pulumi.IntOutput)
+}
+
+func (o PhpAppLayerEbsVolumesOutput) RaidLevel() pulumi.StringOutput {
+	return o.Apply(func(v PhpAppLayerEbsVolumes) string {
+		if v.RaidLevel == nil { return *new(string) } else { return *v.RaidLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o PhpAppLayerEbsVolumesOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v PhpAppLayerEbsVolumes) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o PhpAppLayerEbsVolumesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v PhpAppLayerEbsVolumes) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (PhpAppLayerEbsVolumesOutput) ElementType() reflect.Type {
+	return phpAppLayerEbsVolumesType
+}
+
+func (o PhpAppLayerEbsVolumesOutput) ToPhpAppLayerEbsVolumesOutput() PhpAppLayerEbsVolumesOutput {
+	return o
+}
+
+func (o PhpAppLayerEbsVolumesOutput) ToPhpAppLayerEbsVolumesOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PhpAppLayerEbsVolumesOutput{}) }
+
+var phpAppLayerEbsVolumesArrayType = reflect.TypeOf((*[]PhpAppLayerEbsVolumes)(nil)).Elem()
+
+type PhpAppLayerEbsVolumesArrayInput interface {
+	pulumi.Input
+
+	ToPhpAppLayerEbsVolumesArrayOutput() PhpAppLayerEbsVolumesArrayOutput
+	ToPhpAppLayerEbsVolumesArrayOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumesArrayOutput
+}
+
+type PhpAppLayerEbsVolumesArrayArgs []PhpAppLayerEbsVolumesInput
+
+func (PhpAppLayerEbsVolumesArrayArgs) ElementType() reflect.Type {
+	return phpAppLayerEbsVolumesArrayType
+}
+
+func (a PhpAppLayerEbsVolumesArrayArgs) ToPhpAppLayerEbsVolumesArrayOutput() PhpAppLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutput(a).(PhpAppLayerEbsVolumesArrayOutput)
+}
+
+func (a PhpAppLayerEbsVolumesArrayArgs) ToPhpAppLayerEbsVolumesArrayOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PhpAppLayerEbsVolumesArrayOutput)
+}
+
+type PhpAppLayerEbsVolumesArrayOutput struct { *pulumi.OutputState }
+
+func (o PhpAppLayerEbsVolumesArrayOutput) Index(i pulumi.IntInput) PhpAppLayerEbsVolumesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PhpAppLayerEbsVolumes {
+		return vs[0].([]PhpAppLayerEbsVolumes)[vs[1].(int)]
+	}).(PhpAppLayerEbsVolumesOutput)
+}
+
+func (PhpAppLayerEbsVolumesArrayOutput) ElementType() reflect.Type {
+	return phpAppLayerEbsVolumesArrayType
+}
+
+func (o PhpAppLayerEbsVolumesArrayOutput) ToPhpAppLayerEbsVolumesArrayOutput() PhpAppLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func (o PhpAppLayerEbsVolumesArrayOutput) ToPhpAppLayerEbsVolumesArrayOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PhpAppLayerEbsVolumesArrayOutput{}) }
+

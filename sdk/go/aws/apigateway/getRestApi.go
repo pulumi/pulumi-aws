@@ -13,34 +13,27 @@ import (
 // error if there is more than one match.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
-func LookupRestApi(ctx *pulumi.Context, args *GetRestApiArgs) (*GetRestApiResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:apigateway/getRestApi:getRestApi", inputs)
+func LookupRestApi(ctx *pulumi.Context, args *GetRestApiArgs, opts ...pulumi.InvokeOption) (*GetRestApiResult, error) {
+	var rv GetRestApiResult
+	err := ctx.Invoke("aws:apigateway/getRestApi:getRestApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRestApiResult{
-		Name: outputs["name"],
-		RootResourceId: outputs["rootResourceId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRestApi.
 type GetRestApiArgs struct {
 	// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
 	// If multiple REST APIs are found with this name, an error will be returned.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getRestApi.
 type GetRestApiResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
-	RootResourceId interface{}
+	RootResourceId string `pulumi:"rootResourceId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

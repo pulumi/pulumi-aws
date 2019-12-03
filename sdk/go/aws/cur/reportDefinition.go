@@ -16,12 +16,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cur_report_definition.html.markdown.
 type ReportDefinition struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
+	AdditionalArtifacts pulumi.StringArrayOutput `pulumi:"additionalArtifacts"`
+
+	// A list of schema elements. Valid values are: RESOURCES.
+	AdditionalSchemaElements pulumi.StringArrayOutput `pulumi:"additionalSchemaElements"`
+
+	// Compression format for report. Valid values are: GZIP, ZIP.
+	Compression pulumi.StringOutput `pulumi:"compression"`
+
+	// Format for report. Valid values are: textORcsv.
+	Format pulumi.StringOutput `pulumi:"format"`
+
+	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+	ReportName pulumi.StringOutput `pulumi:"reportName"`
+
+	// Name of the existing S3 bucket to hold generated reports.
+	S3Bucket pulumi.StringOutput `pulumi:"s3Bucket"`
+
+	// Report path prefix. Limited to 256 characters.
+	S3Prefix pulumi.StringOutput `pulumi:"s3Prefix"`
+
+	// Region of the existing S3 bucket to hold generated reports.
+	S3Region pulumi.StringOutput `pulumi:"s3Region"`
+
+	// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
 
 // NewReportDefinition registers a new resource with the given unique name, arguments, and options.
 func NewReportDefinition(ctx *pulumi.Context,
-	name string, args *ReportDefinitionArgs, opts ...pulumi.ResourceOpt) (*ReportDefinition, error) {
+	name string, args *ReportDefinitionArgs, opts ...pulumi.ResourceOption) (*ReportDefinition, error) {
 	if args == nil || args.AdditionalSchemaElements == nil {
 		return nil, errors.New("missing required argument 'AdditionalSchemaElements'")
 	}
@@ -43,153 +70,90 @@ func NewReportDefinition(ctx *pulumi.Context,
 	if args == nil || args.TimeUnit == nil {
 		return nil, errors.New("missing required argument 'TimeUnit'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["additionalArtifacts"] = nil
-		inputs["additionalSchemaElements"] = nil
-		inputs["compression"] = nil
-		inputs["format"] = nil
-		inputs["reportName"] = nil
-		inputs["s3Bucket"] = nil
-		inputs["s3Prefix"] = nil
-		inputs["s3Region"] = nil
-		inputs["timeUnit"] = nil
-	} else {
-		inputs["additionalArtifacts"] = args.AdditionalArtifacts
-		inputs["additionalSchemaElements"] = args.AdditionalSchemaElements
-		inputs["compression"] = args.Compression
-		inputs["format"] = args.Format
-		inputs["reportName"] = args.ReportName
-		inputs["s3Bucket"] = args.S3Bucket
-		inputs["s3Prefix"] = args.S3Prefix
-		inputs["s3Region"] = args.S3Region
-		inputs["timeUnit"] = args.TimeUnit
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdditionalArtifacts; i != nil { inputs["additionalArtifacts"] = i.ToStringArrayOutput() }
+		if i := args.AdditionalSchemaElements; i != nil { inputs["additionalSchemaElements"] = i.ToStringArrayOutput() }
+		if i := args.Compression; i != nil { inputs["compression"] = i.ToStringOutput() }
+		if i := args.Format; i != nil { inputs["format"] = i.ToStringOutput() }
+		if i := args.ReportName; i != nil { inputs["reportName"] = i.ToStringOutput() }
+		if i := args.S3Bucket; i != nil { inputs["s3Bucket"] = i.ToStringOutput() }
+		if i := args.S3Prefix; i != nil { inputs["s3Prefix"] = i.ToStringOutput() }
+		if i := args.S3Region; i != nil { inputs["s3Region"] = i.ToStringOutput() }
+		if i := args.TimeUnit; i != nil { inputs["timeUnit"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cur/reportDefinition:ReportDefinition", name, true, inputs, opts...)
+	var resource ReportDefinition
+	err := ctx.RegisterResource("aws:cur/reportDefinition:ReportDefinition", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReportDefinition{s: s}, nil
+	return &resource, nil
 }
 
 // GetReportDefinition gets an existing ReportDefinition resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetReportDefinition(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ReportDefinitionState, opts ...pulumi.ResourceOpt) (*ReportDefinition, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ReportDefinitionState, opts ...pulumi.ResourceOption) (*ReportDefinition, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["additionalArtifacts"] = state.AdditionalArtifacts
-		inputs["additionalSchemaElements"] = state.AdditionalSchemaElements
-		inputs["compression"] = state.Compression
-		inputs["format"] = state.Format
-		inputs["reportName"] = state.ReportName
-		inputs["s3Bucket"] = state.S3Bucket
-		inputs["s3Prefix"] = state.S3Prefix
-		inputs["s3Region"] = state.S3Region
-		inputs["timeUnit"] = state.TimeUnit
+		if i := state.AdditionalArtifacts; i != nil { inputs["additionalArtifacts"] = i.ToStringArrayOutput() }
+		if i := state.AdditionalSchemaElements; i != nil { inputs["additionalSchemaElements"] = i.ToStringArrayOutput() }
+		if i := state.Compression; i != nil { inputs["compression"] = i.ToStringOutput() }
+		if i := state.Format; i != nil { inputs["format"] = i.ToStringOutput() }
+		if i := state.ReportName; i != nil { inputs["reportName"] = i.ToStringOutput() }
+		if i := state.S3Bucket; i != nil { inputs["s3Bucket"] = i.ToStringOutput() }
+		if i := state.S3Prefix; i != nil { inputs["s3Prefix"] = i.ToStringOutput() }
+		if i := state.S3Region; i != nil { inputs["s3Region"] = i.ToStringOutput() }
+		if i := state.TimeUnit; i != nil { inputs["timeUnit"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cur/reportDefinition:ReportDefinition", name, id, inputs, opts...)
+	var resource ReportDefinition
+	err := ctx.ReadResource("aws:cur/reportDefinition:ReportDefinition", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReportDefinition{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ReportDefinition) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ReportDefinition) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
-func (r *ReportDefinition) AdditionalArtifacts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["additionalArtifacts"])
-}
-
-// A list of schema elements. Valid values are: RESOURCES.
-func (r *ReportDefinition) AdditionalSchemaElements() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["additionalSchemaElements"])
-}
-
-// Compression format for report. Valid values are: GZIP, ZIP.
-func (r *ReportDefinition) Compression() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["compression"])
-}
-
-// Format for report. Valid values are: textORcsv.
-func (r *ReportDefinition) Format() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["format"])
-}
-
-// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
-func (r *ReportDefinition) ReportName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reportName"])
-}
-
-// Name of the existing S3 bucket to hold generated reports.
-func (r *ReportDefinition) S3Bucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Bucket"])
-}
-
-// Report path prefix. Limited to 256 characters.
-func (r *ReportDefinition) S3Prefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Prefix"])
-}
-
-// Region of the existing S3 bucket to hold generated reports.
-func (r *ReportDefinition) S3Region() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3Region"])
-}
-
-// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
-func (r *ReportDefinition) TimeUnit() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timeUnit"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ReportDefinition resources.
 type ReportDefinitionState struct {
 	// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
-	AdditionalArtifacts interface{}
+	AdditionalArtifacts pulumi.StringArrayInput `pulumi:"additionalArtifacts"`
 	// A list of schema elements. Valid values are: RESOURCES.
-	AdditionalSchemaElements interface{}
+	AdditionalSchemaElements pulumi.StringArrayInput `pulumi:"additionalSchemaElements"`
 	// Compression format for report. Valid values are: GZIP, ZIP.
-	Compression interface{}
+	Compression pulumi.StringInput `pulumi:"compression"`
 	// Format for report. Valid values are: textORcsv.
-	Format interface{}
+	Format pulumi.StringInput `pulumi:"format"`
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
-	ReportName interface{}
+	ReportName pulumi.StringInput `pulumi:"reportName"`
 	// Name of the existing S3 bucket to hold generated reports.
-	S3Bucket interface{}
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// Report path prefix. Limited to 256 characters.
-	S3Prefix interface{}
+	S3Prefix pulumi.StringInput `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
-	S3Region interface{}
+	S3Region pulumi.StringInput `pulumi:"s3Region"`
 	// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
-	TimeUnit interface{}
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
 }
 
 // The set of arguments for constructing a ReportDefinition resource.
 type ReportDefinitionArgs struct {
 	// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
-	AdditionalArtifacts interface{}
+	AdditionalArtifacts pulumi.StringArrayInput `pulumi:"additionalArtifacts"`
 	// A list of schema elements. Valid values are: RESOURCES.
-	AdditionalSchemaElements interface{}
+	AdditionalSchemaElements pulumi.StringArrayInput `pulumi:"additionalSchemaElements"`
 	// Compression format for report. Valid values are: GZIP, ZIP.
-	Compression interface{}
+	Compression pulumi.StringInput `pulumi:"compression"`
 	// Format for report. Valid values are: textORcsv.
-	Format interface{}
+	Format pulumi.StringInput `pulumi:"format"`
 	// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
-	ReportName interface{}
+	ReportName pulumi.StringInput `pulumi:"reportName"`
 	// Name of the existing S3 bucket to hold generated reports.
-	S3Bucket interface{}
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// Report path prefix. Limited to 256 characters.
-	S3Prefix interface{}
+	S3Prefix pulumi.StringInput `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
-	S3Region interface{}
+	S3Region pulumi.StringInput `pulumi:"s3Region"`
 	// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
-	TimeUnit interface{}
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
 }

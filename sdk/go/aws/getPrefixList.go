@@ -16,40 +16,31 @@ import (
 // rules.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
-func LookupPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs) (*GetPrefixListResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["prefixListId"] = args.PrefixListId
-	}
-	outputs, err := ctx.Invoke("aws:index/getPrefixList:getPrefixList", inputs)
+func LookupPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
+	var rv GetPrefixListResult
+	err := ctx.Invoke("aws:index/getPrefixList:getPrefixList", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPrefixListResult{
-		CidrBlocks: outputs["cidrBlocks"],
-		Name: outputs["name"],
-		PrefixListId: outputs["prefixListId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPrefixList.
 type GetPrefixListArgs struct {
 	// The name of the prefix list to select.
-	Name interface{}
+	Name *string `pulumi:"name"`
 	// The ID of the prefix list to select.
-	PrefixListId interface{}
+	PrefixListId *string `pulumi:"prefixListId"`
 }
 
 // A collection of values returned by getPrefixList.
 type GetPrefixListResult struct {
 	// The list of CIDR blocks for the AWS service associated
 	// with the prefix list.
-	CidrBlocks interface{}
+	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The name of the selected prefix list.
-	Name interface{}
-	PrefixListId interface{}
+	Name string `pulumi:"name"`
+	PrefixListId *string `pulumi:"prefixListId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

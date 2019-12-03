@@ -11,41 +11,31 @@ import (
 // To fetch the Resource, you must provide the REST API id as well as the full path.  
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
-func LookupResource(ctx *pulumi.Context, args *GetResourceArgs) (*GetResourceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["path"] = args.Path
-		inputs["restApiId"] = args.RestApiId
-	}
-	outputs, err := ctx.Invoke("aws:apigateway/getResource:getResource", inputs)
+func LookupResource(ctx *pulumi.Context, args *GetResourceArgs, opts ...pulumi.InvokeOption) (*GetResourceResult, error) {
+	var rv GetResourceResult
+	err := ctx.Invoke("aws:apigateway/getResource:getResource", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetResourceResult{
-		ParentId: outputs["parentId"],
-		Path: outputs["path"],
-		PathPart: outputs["pathPart"],
-		RestApiId: outputs["restApiId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getResource.
 type GetResourceArgs struct {
 	// The full path of the resource.  If no path is found, an error will be returned.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// The REST API id that owns the resource. If no REST API is found, an error will be returned.
-	RestApiId interface{}
+	RestApiId string `pulumi:"restApiId"`
 }
 
 // A collection of values returned by getResource.
 type GetResourceResult struct {
 	// Set to the ID of the parent Resource.
-	ParentId interface{}
-	Path interface{}
+	ParentId string `pulumi:"parentId"`
+	Path string `pulumi:"path"`
 	// Set to the path relative to the parent Resource.
-	PathPart interface{}
-	RestApiId interface{}
+	PathPart string `pulumi:"pathPart"`
+	RestApiId string `pulumi:"restApiId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

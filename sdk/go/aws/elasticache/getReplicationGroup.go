@@ -10,64 +10,47 @@ import (
 // Use this data source to get information about an Elasticache Replication Group.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
-func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs) (*GetReplicationGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["replicationGroupId"] = args.ReplicationGroupId
-	}
-	outputs, err := ctx.Invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", inputs)
+func LookupReplicationGroup(ctx *pulumi.Context, args *GetReplicationGroupArgs, opts ...pulumi.InvokeOption) (*GetReplicationGroupResult, error) {
+	var rv GetReplicationGroupResult
+	err := ctx.Invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetReplicationGroupResult{
-		AuthTokenEnabled: outputs["authTokenEnabled"],
-		AutomaticFailoverEnabled: outputs["automaticFailoverEnabled"],
-		ConfigurationEndpointAddress: outputs["configurationEndpointAddress"],
-		MemberClusters: outputs["memberClusters"],
-		NodeType: outputs["nodeType"],
-		NumberCacheClusters: outputs["numberCacheClusters"],
-		Port: outputs["port"],
-		PrimaryEndpointAddress: outputs["primaryEndpointAddress"],
-		ReplicationGroupDescription: outputs["replicationGroupDescription"],
-		ReplicationGroupId: outputs["replicationGroupId"],
-		SnapshotRetentionLimit: outputs["snapshotRetentionLimit"],
-		SnapshotWindow: outputs["snapshotWindow"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getReplicationGroup.
 type GetReplicationGroupArgs struct {
 	// The identifier for the replication group.
-	ReplicationGroupId interface{}
+	ReplicationGroupId string `pulumi:"replicationGroupId"`
 }
 
 // A collection of values returned by getReplicationGroup.
 type GetReplicationGroupResult struct {
 	// A flag that enables using an AuthToken (password) when issuing Redis commands.
-	AuthTokenEnabled interface{}
+	AuthTokenEnabled bool `pulumi:"authTokenEnabled"`
 	// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
-	AutomaticFailoverEnabled interface{}
+	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
 	// The configuration endpoint address to allow host discovery.
-	ConfigurationEndpointAddress interface{}
+	ConfigurationEndpointAddress string `pulumi:"configurationEndpointAddress"`
 	// The identifiers of all the nodes that are part of this replication group.
-	MemberClusters interface{}
+	MemberClusters []string `pulumi:"memberClusters"`
 	// The cluster node type.
-	NodeType interface{}
+	NodeType string `pulumi:"nodeType"`
 	// The number of cache clusters that the replication group has.
-	NumberCacheClusters interface{}
+	NumberCacheClusters int `pulumi:"numberCacheClusters"`
 	// The port number on which the configuration endpoint will accept connections.
-	Port interface{}
+	Port int `pulumi:"port"`
 	// The endpoint of the primary node in this node group (shard).
-	PrimaryEndpointAddress interface{}
+	PrimaryEndpointAddress string `pulumi:"primaryEndpointAddress"`
 	// The description of the replication group.
-	ReplicationGroupDescription interface{}
+	ReplicationGroupDescription string `pulumi:"replicationGroupDescription"`
 	// The identifier for the replication group.
-	ReplicationGroupId interface{}
+	ReplicationGroupId string `pulumi:"replicationGroupId"`
 	// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
-	SnapshotRetentionLimit interface{}
+	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-	SnapshotWindow interface{}
+	SnapshotWindow string `pulumi:"snapshotWindow"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

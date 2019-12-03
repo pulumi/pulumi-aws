@@ -12,42 +12,42 @@ import (
 // properties without having to hard code ARNs as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
-func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["groupName"] = args.GroupName
-	}
-	outputs, err := ctx.Invoke("aws:iam/getGroup:getGroup", inputs)
+func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs, opts ...pulumi.InvokeOption) (*GetGroupResult, error) {
+	var rv GetGroupResult
+	err := ctx.Invoke("aws:iam/getGroup:getGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetGroupResult{
-		Arn: outputs["arn"],
-		GroupId: outputs["groupId"],
-		GroupName: outputs["groupName"],
-		Path: outputs["path"],
-		Users: outputs["users"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getGroup.
 type GetGroupArgs struct {
 	// The friendly IAM group name to match.
-	GroupName interface{}
+	GroupName string `pulumi:"groupName"`
 }
 
 // A collection of values returned by getGroup.
 type GetGroupResult struct {
 	// The Amazon Resource Name (ARN) specifying the iam user.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The stable and unique string identifying the group.
-	GroupId interface{}
-	GroupName interface{}
+	GroupId string `pulumi:"groupId"`
+	GroupName string `pulumi:"groupName"`
 	// The path to the iam user.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// List of objects containing group member information. See supported fields below.
-	Users interface{}
+	Users []GetGroupUsersResult `pulumi:"users"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetGroupUsersResult struct {
+	// The Amazon Resource Name (ARN) specifying the iam user.
+	Arn string `pulumi:"arn"`
+	// The path to the iam user.
+	Path string `pulumi:"path"`
+	// The stable and unique string identifying the iam user.
+	UserId string `pulumi:"userId"`
+	// The name of the iam user.
+	UserName string `pulumi:"userName"`
 }

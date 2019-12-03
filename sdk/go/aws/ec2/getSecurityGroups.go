@@ -11,23 +11,13 @@ import (
 // outside of this provider.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
-func LookupSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs) (*GetSecurityGroupsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getSecurityGroups:getSecurityGroups", inputs)
+func LookupSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupsResult, error) {
+	var rv GetSecurityGroupsResult
+	err := ctx.Invoke("aws:ec2/getSecurityGroups:getSecurityGroups", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSecurityGroupsResult{
-		Filters: outputs["filters"],
-		Ids: outputs["ids"],
-		Tags: outputs["tags"],
-		VpcIds: outputs["vpcIds"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSecurityGroups.
@@ -35,21 +25,29 @@ type GetSecurityGroupsArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [describe-security-groups in the AWS CLI reference][1].
-	Filters interface{}
+	Filters *[]GetSecurityGroupsFiltersArgs `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match for
 	// desired security groups.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecurityGroups.
 type GetSecurityGroupsResult struct {
-	Filters interface{}
+	Filters *[]GetSecurityGroupsFiltersResult `pulumi:"filters"`
 	// IDs of the matches security groups.
-	Ids interface{}
-	Tags interface{}
+	Ids []string `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
 	// unless the `vpc-id` filter is also used.
-	VpcIds interface{}
+	VpcIds []string `pulumi:"vpcIds"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSecurityGroupsFiltersArgs struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetSecurityGroupsFiltersResult struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
 }

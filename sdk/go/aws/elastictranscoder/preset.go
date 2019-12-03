@@ -4,6 +4,8 @@
 package elastictranscoder
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,178 +14,831 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_preset.html.markdown.
 type Preset struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Audio parameters object (documented below).
+	Audio PresetAudioOutput `pulumi:"audio"`
+
+	// Codec options for the audio parameters (documented below)
+	AudioCodecOptions PresetAudioCodecOptionsOutput `pulumi:"audioCodecOptions"`
+
+	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+	Container pulumi.StringOutput `pulumi:"container"`
+
+	// A description of the preset (maximum 255 characters)
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the preset. (maximum 40 characters)
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Thumbnail parameters object (documented below)
+	Thumbnails PresetThumbnailsOutput `pulumi:"thumbnails"`
+
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// Video parameters object (documented below)
+	Video PresetVideoOutput `pulumi:"video"`
+
+	VideoCodecOptions pulumi.MapOutput `pulumi:"videoCodecOptions"`
+
+	// Watermark parameters for the video parameters (documented below)
+	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
+	VideoWatermarks PresetVideoWatermarksArrayOutput `pulumi:"videoWatermarks"`
 }
 
 // NewPreset registers a new resource with the given unique name, arguments, and options.
 func NewPreset(ctx *pulumi.Context,
-	name string, args *PresetArgs, opts ...pulumi.ResourceOpt) (*Preset, error) {
+	name string, args *PresetArgs, opts ...pulumi.ResourceOption) (*Preset, error) {
 	if args == nil || args.Container == nil {
 		return nil, errors.New("missing required argument 'Container'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["audio"] = nil
-		inputs["audioCodecOptions"] = nil
-		inputs["container"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["thumbnails"] = nil
-		inputs["type"] = nil
-		inputs["video"] = nil
-		inputs["videoCodecOptions"] = nil
-		inputs["videoWatermarks"] = nil
-	} else {
-		inputs["audio"] = args.Audio
-		inputs["audioCodecOptions"] = args.AudioCodecOptions
-		inputs["container"] = args.Container
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["thumbnails"] = args.Thumbnails
-		inputs["type"] = args.Type
-		inputs["video"] = args.Video
-		inputs["videoCodecOptions"] = args.VideoCodecOptions
-		inputs["videoWatermarks"] = args.VideoWatermarks
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Audio; i != nil { inputs["audio"] = i.ToPresetAudioOutput() }
+		if i := args.AudioCodecOptions; i != nil { inputs["audioCodecOptions"] = i.ToPresetAudioCodecOptionsOutput() }
+		if i := args.Container; i != nil { inputs["container"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Thumbnails; i != nil { inputs["thumbnails"] = i.ToPresetThumbnailsOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.Video; i != nil { inputs["video"] = i.ToPresetVideoOutput() }
+		if i := args.VideoCodecOptions; i != nil { inputs["videoCodecOptions"] = i.ToMapOutput() }
+		if i := args.VideoWatermarks; i != nil { inputs["videoWatermarks"] = i.ToPresetVideoWatermarksArrayOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:elastictranscoder/preset:Preset", name, true, inputs, opts...)
+	var resource Preset
+	err := ctx.RegisterResource("aws:elastictranscoder/preset:Preset", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Preset{s: s}, nil
+	return &resource, nil
 }
 
 // GetPreset gets an existing Preset resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPreset(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PresetState, opts ...pulumi.ResourceOpt) (*Preset, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PresetState, opts ...pulumi.ResourceOption) (*Preset, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["audio"] = state.Audio
-		inputs["audioCodecOptions"] = state.AudioCodecOptions
-		inputs["container"] = state.Container
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["thumbnails"] = state.Thumbnails
-		inputs["type"] = state.Type
-		inputs["video"] = state.Video
-		inputs["videoCodecOptions"] = state.VideoCodecOptions
-		inputs["videoWatermarks"] = state.VideoWatermarks
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Audio; i != nil { inputs["audio"] = i.ToPresetAudioOutput() }
+		if i := state.AudioCodecOptions; i != nil { inputs["audioCodecOptions"] = i.ToPresetAudioCodecOptionsOutput() }
+		if i := state.Container; i != nil { inputs["container"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Thumbnails; i != nil { inputs["thumbnails"] = i.ToPresetThumbnailsOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.Video; i != nil { inputs["video"] = i.ToPresetVideoOutput() }
+		if i := state.VideoCodecOptions; i != nil { inputs["videoCodecOptions"] = i.ToMapOutput() }
+		if i := state.VideoWatermarks; i != nil { inputs["videoWatermarks"] = i.ToPresetVideoWatermarksArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elastictranscoder/preset:Preset", name, id, inputs, opts...)
+	var resource Preset
+	err := ctx.ReadResource("aws:elastictranscoder/preset:Preset", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Preset{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Preset) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Preset) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Preset) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Audio parameters object (documented below).
-func (r *Preset) Audio() pulumi.Output {
-	return r.s.State["audio"]
-}
-
-// Codec options for the audio parameters (documented below)
-func (r *Preset) AudioCodecOptions() pulumi.Output {
-	return r.s.State["audioCodecOptions"]
-}
-
-// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-func (r *Preset) Container() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["container"])
-}
-
-// A description of the preset (maximum 255 characters)
-func (r *Preset) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the preset. (maximum 40 characters)
-func (r *Preset) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Thumbnail parameters object (documented below)
-func (r *Preset) Thumbnails() pulumi.Output {
-	return r.s.State["thumbnails"]
-}
-
-func (r *Preset) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// Video parameters object (documented below)
-func (r *Preset) Video() pulumi.Output {
-	return r.s.State["video"]
-}
-
-func (r *Preset) VideoCodecOptions() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["videoCodecOptions"])
-}
-
-// Watermark parameters for the video parameters (documented below)
-// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
-func (r *Preset) VideoWatermarks() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["videoWatermarks"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Preset resources.
 type PresetState struct {
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Audio parameters object (documented below).
-	Audio interface{}
+	Audio PresetAudioInput `pulumi:"audio"`
 	// Codec options for the audio parameters (documented below)
-	AudioCodecOptions interface{}
+	AudioCodecOptions PresetAudioCodecOptionsInput `pulumi:"audioCodecOptions"`
 	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container interface{}
+	Container pulumi.StringInput `pulumi:"container"`
 	// A description of the preset (maximum 255 characters)
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Thumbnail parameters object (documented below)
-	Thumbnails interface{}
-	Type interface{}
+	Thumbnails PresetThumbnailsInput `pulumi:"thumbnails"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// Video parameters object (documented below)
-	Video interface{}
-	VideoCodecOptions interface{}
+	Video PresetVideoInput `pulumi:"video"`
+	VideoCodecOptions pulumi.MapInput `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
-	VideoWatermarks interface{}
+	VideoWatermarks PresetVideoWatermarksArrayInput `pulumi:"videoWatermarks"`
 }
 
 // The set of arguments for constructing a Preset resource.
 type PresetArgs struct {
 	// Audio parameters object (documented below).
-	Audio interface{}
+	Audio PresetAudioInput `pulumi:"audio"`
 	// Codec options for the audio parameters (documented below)
-	AudioCodecOptions interface{}
+	AudioCodecOptions PresetAudioCodecOptionsInput `pulumi:"audioCodecOptions"`
 	// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-	Container interface{}
+	Container pulumi.StringInput `pulumi:"container"`
 	// A description of the preset (maximum 255 characters)
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Thumbnail parameters object (documented below)
-	Thumbnails interface{}
-	Type interface{}
+	Thumbnails PresetThumbnailsInput `pulumi:"thumbnails"`
+	Type pulumi.StringInput `pulumi:"type"`
 	// Video parameters object (documented below)
-	Video interface{}
-	VideoCodecOptions interface{}
+	Video PresetVideoInput `pulumi:"video"`
+	VideoCodecOptions pulumi.MapInput `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	// * `videoCodecOptions` (Optional, Forces new resource) Codec options for the video parameters
-	VideoWatermarks interface{}
+	VideoWatermarks PresetVideoWatermarksArrayInput `pulumi:"videoWatermarks"`
 }
+type PresetAudio struct {
+	// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
+	AudioPackingMode *string `pulumi:"audioPackingMode"`
+	// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+	BitRate *string `pulumi:"bitRate"`
+	// The number of audio channels in the output file
+	Channels *string `pulumi:"channels"`
+	// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+	Codec *string `pulumi:"codec"`
+	// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
+	SampleRate *string `pulumi:"sampleRate"`
+}
+var presetAudioType = reflect.TypeOf((*PresetAudio)(nil)).Elem()
+
+type PresetAudioInput interface {
+	pulumi.Input
+
+	ToPresetAudioOutput() PresetAudioOutput
+	ToPresetAudioOutputWithContext(ctx context.Context) PresetAudioOutput
+}
+
+type PresetAudioArgs struct {
+	// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
+	AudioPackingMode pulumi.StringInput `pulumi:"audioPackingMode"`
+	// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+	BitRate pulumi.StringInput `pulumi:"bitRate"`
+	// The number of audio channels in the output file
+	Channels pulumi.StringInput `pulumi:"channels"`
+	// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+	Codec pulumi.StringInput `pulumi:"codec"`
+	// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
+	SampleRate pulumi.StringInput `pulumi:"sampleRate"`
+}
+
+func (PresetAudioArgs) ElementType() reflect.Type {
+	return presetAudioType
+}
+
+func (a PresetAudioArgs) ToPresetAudioOutput() PresetAudioOutput {
+	return pulumi.ToOutput(a).(PresetAudioOutput)
+}
+
+func (a PresetAudioArgs) ToPresetAudioOutputWithContext(ctx context.Context) PresetAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PresetAudioOutput)
+}
+
+type PresetAudioOutput struct { *pulumi.OutputState }
+
+// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
+func (o PresetAudioOutput) AudioPackingMode() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudio) string {
+		if v.AudioPackingMode == nil { return *new(string) } else { return *v.AudioPackingMode }
+	}).(pulumi.StringOutput)
+}
+
+// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+func (o PresetAudioOutput) BitRate() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudio) string {
+		if v.BitRate == nil { return *new(string) } else { return *v.BitRate }
+	}).(pulumi.StringOutput)
+}
+
+// The number of audio channels in the output file
+func (o PresetAudioOutput) Channels() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudio) string {
+		if v.Channels == nil { return *new(string) } else { return *v.Channels }
+	}).(pulumi.StringOutput)
+}
+
+// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+func (o PresetAudioOutput) Codec() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudio) string {
+		if v.Codec == nil { return *new(string) } else { return *v.Codec }
+	}).(pulumi.StringOutput)
+}
+
+// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
+func (o PresetAudioOutput) SampleRate() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudio) string {
+		if v.SampleRate == nil { return *new(string) } else { return *v.SampleRate }
+	}).(pulumi.StringOutput)
+}
+
+func (PresetAudioOutput) ElementType() reflect.Type {
+	return presetAudioType
+}
+
+func (o PresetAudioOutput) ToPresetAudioOutput() PresetAudioOutput {
+	return o
+}
+
+func (o PresetAudioOutput) ToPresetAudioOutputWithContext(ctx context.Context) PresetAudioOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PresetAudioOutput{}) }
+
+type PresetAudioCodecOptions struct {
+	// The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
+	BitDepth *string `pulumi:"bitDepth"`
+	// The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
+	BitOrder *string `pulumi:"bitOrder"`
+	// If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
+	Profile *string `pulumi:"profile"`
+	// Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
+	Signed *string `pulumi:"signed"`
+}
+var presetAudioCodecOptionsType = reflect.TypeOf((*PresetAudioCodecOptions)(nil)).Elem()
+
+type PresetAudioCodecOptionsInput interface {
+	pulumi.Input
+
+	ToPresetAudioCodecOptionsOutput() PresetAudioCodecOptionsOutput
+	ToPresetAudioCodecOptionsOutputWithContext(ctx context.Context) PresetAudioCodecOptionsOutput
+}
+
+type PresetAudioCodecOptionsArgs struct {
+	// The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
+	BitDepth pulumi.StringInput `pulumi:"bitDepth"`
+	// The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
+	BitOrder pulumi.StringInput `pulumi:"bitOrder"`
+	// If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
+	Profile pulumi.StringInput `pulumi:"profile"`
+	// Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
+	Signed pulumi.StringInput `pulumi:"signed"`
+}
+
+func (PresetAudioCodecOptionsArgs) ElementType() reflect.Type {
+	return presetAudioCodecOptionsType
+}
+
+func (a PresetAudioCodecOptionsArgs) ToPresetAudioCodecOptionsOutput() PresetAudioCodecOptionsOutput {
+	return pulumi.ToOutput(a).(PresetAudioCodecOptionsOutput)
+}
+
+func (a PresetAudioCodecOptionsArgs) ToPresetAudioCodecOptionsOutputWithContext(ctx context.Context) PresetAudioCodecOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PresetAudioCodecOptionsOutput)
+}
+
+type PresetAudioCodecOptionsOutput struct { *pulumi.OutputState }
+
+// The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
+func (o PresetAudioCodecOptionsOutput) BitDepth() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudioCodecOptions) string {
+		if v.BitDepth == nil { return *new(string) } else { return *v.BitDepth }
+	}).(pulumi.StringOutput)
+}
+
+// The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
+func (o PresetAudioCodecOptionsOutput) BitOrder() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudioCodecOptions) string {
+		if v.BitOrder == nil { return *new(string) } else { return *v.BitOrder }
+	}).(pulumi.StringOutput)
+}
+
+// If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
+func (o PresetAudioCodecOptionsOutput) Profile() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudioCodecOptions) string {
+		if v.Profile == nil { return *new(string) } else { return *v.Profile }
+	}).(pulumi.StringOutput)
+}
+
+// Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
+func (o PresetAudioCodecOptionsOutput) Signed() pulumi.StringOutput {
+	return o.Apply(func(v PresetAudioCodecOptions) string {
+		if v.Signed == nil { return *new(string) } else { return *v.Signed }
+	}).(pulumi.StringOutput)
+}
+
+func (PresetAudioCodecOptionsOutput) ElementType() reflect.Type {
+	return presetAudioCodecOptionsType
+}
+
+func (o PresetAudioCodecOptionsOutput) ToPresetAudioCodecOptionsOutput() PresetAudioCodecOptionsOutput {
+	return o
+}
+
+func (o PresetAudioCodecOptionsOutput) ToPresetAudioCodecOptionsOutputWithContext(ctx context.Context) PresetAudioCodecOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PresetAudioCodecOptionsOutput{}) }
+
+type PresetThumbnails struct {
+	// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+	AspectRatio *string `pulumi:"aspectRatio"`
+	// The format of thumbnails, if any. Valid formats are jpg and png.
+	Format *string `pulumi:"format"`
+	// The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
+	Interval *string `pulumi:"interval"`
+	// The maximum height of the watermark.
+	MaxHeight *string `pulumi:"maxHeight"`
+	// The maximum width of the watermark.
+	MaxWidth *string `pulumi:"maxWidth"`
+	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+	PaddingPolicy *string `pulumi:"paddingPolicy"`
+	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+	Resolution *string `pulumi:"resolution"`
+	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	SizingPolicy *string `pulumi:"sizingPolicy"`
+}
+var presetThumbnailsType = reflect.TypeOf((*PresetThumbnails)(nil)).Elem()
+
+type PresetThumbnailsInput interface {
+	pulumi.Input
+
+	ToPresetThumbnailsOutput() PresetThumbnailsOutput
+	ToPresetThumbnailsOutputWithContext(ctx context.Context) PresetThumbnailsOutput
+}
+
+type PresetThumbnailsArgs struct {
+	// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+	AspectRatio pulumi.StringInput `pulumi:"aspectRatio"`
+	// The format of thumbnails, if any. Valid formats are jpg and png.
+	Format pulumi.StringInput `pulumi:"format"`
+	// The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// The maximum height of the watermark.
+	MaxHeight pulumi.StringInput `pulumi:"maxHeight"`
+	// The maximum width of the watermark.
+	MaxWidth pulumi.StringInput `pulumi:"maxWidth"`
+	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+	PaddingPolicy pulumi.StringInput `pulumi:"paddingPolicy"`
+	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+	Resolution pulumi.StringInput `pulumi:"resolution"`
+	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	SizingPolicy pulumi.StringInput `pulumi:"sizingPolicy"`
+}
+
+func (PresetThumbnailsArgs) ElementType() reflect.Type {
+	return presetThumbnailsType
+}
+
+func (a PresetThumbnailsArgs) ToPresetThumbnailsOutput() PresetThumbnailsOutput {
+	return pulumi.ToOutput(a).(PresetThumbnailsOutput)
+}
+
+func (a PresetThumbnailsArgs) ToPresetThumbnailsOutputWithContext(ctx context.Context) PresetThumbnailsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PresetThumbnailsOutput)
+}
+
+type PresetThumbnailsOutput struct { *pulumi.OutputState }
+
+// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+func (o PresetThumbnailsOutput) AspectRatio() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.AspectRatio == nil { return *new(string) } else { return *v.AspectRatio }
+	}).(pulumi.StringOutput)
+}
+
+// The format of thumbnails, if any. Valid formats are jpg and png.
+func (o PresetThumbnailsOutput) Format() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.Format == nil { return *new(string) } else { return *v.Format }
+	}).(pulumi.StringOutput)
+}
+
+// The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
+func (o PresetThumbnailsOutput) Interval() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.Interval == nil { return *new(string) } else { return *v.Interval }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum height of the watermark.
+func (o PresetThumbnailsOutput) MaxHeight() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.MaxHeight == nil { return *new(string) } else { return *v.MaxHeight }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum width of the watermark.
+func (o PresetThumbnailsOutput) MaxWidth() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.MaxWidth == nil { return *new(string) } else { return *v.MaxWidth }
+	}).(pulumi.StringOutput)
+}
+
+// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+func (o PresetThumbnailsOutput) PaddingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.PaddingPolicy == nil { return *new(string) } else { return *v.PaddingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+func (o PresetThumbnailsOutput) Resolution() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.Resolution == nil { return *new(string) } else { return *v.Resolution }
+	}).(pulumi.StringOutput)
+}
+
+// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+func (o PresetThumbnailsOutput) SizingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v PresetThumbnails) string {
+		if v.SizingPolicy == nil { return *new(string) } else { return *v.SizingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+func (PresetThumbnailsOutput) ElementType() reflect.Type {
+	return presetThumbnailsType
+}
+
+func (o PresetThumbnailsOutput) ToPresetThumbnailsOutput() PresetThumbnailsOutput {
+	return o
+}
+
+func (o PresetThumbnailsOutput) ToPresetThumbnailsOutputWithContext(ctx context.Context) PresetThumbnailsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PresetThumbnailsOutput{}) }
+
+type PresetVideo struct {
+	// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+	AspectRatio *string `pulumi:"aspectRatio"`
+	// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+	BitRate *string `pulumi:"bitRate"`
+	// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+	Codec *string `pulumi:"codec"`
+	// The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
+	DisplayAspectRatio *string `pulumi:"displayAspectRatio"`
+	// Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
+	FixedGop *string `pulumi:"fixedGop"`
+	// The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
+	FrameRate *string `pulumi:"frameRate"`
+	// The maximum number of frames between key frames. Not applicable for containers of type gif.
+	KeyframesMaxDist *string `pulumi:"keyframesMaxDist"`
+	// If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
+	MaxFrameRate *string `pulumi:"maxFrameRate"`
+	// The maximum height of the watermark.
+	MaxHeight *string `pulumi:"maxHeight"`
+	// The maximum width of the watermark.
+	MaxWidth *string `pulumi:"maxWidth"`
+	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+	PaddingPolicy *string `pulumi:"paddingPolicy"`
+	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+	Resolution *string `pulumi:"resolution"`
+	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	SizingPolicy *string `pulumi:"sizingPolicy"`
+}
+var presetVideoType = reflect.TypeOf((*PresetVideo)(nil)).Elem()
+
+type PresetVideoInput interface {
+	pulumi.Input
+
+	ToPresetVideoOutput() PresetVideoOutput
+	ToPresetVideoOutputWithContext(ctx context.Context) PresetVideoOutput
+}
+
+type PresetVideoArgs struct {
+	// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+	AspectRatio pulumi.StringInput `pulumi:"aspectRatio"`
+	// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+	BitRate pulumi.StringInput `pulumi:"bitRate"`
+	// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+	Codec pulumi.StringInput `pulumi:"codec"`
+	// The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
+	DisplayAspectRatio pulumi.StringInput `pulumi:"displayAspectRatio"`
+	// Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
+	FixedGop pulumi.StringInput `pulumi:"fixedGop"`
+	// The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
+	FrameRate pulumi.StringInput `pulumi:"frameRate"`
+	// The maximum number of frames between key frames. Not applicable for containers of type gif.
+	KeyframesMaxDist pulumi.StringInput `pulumi:"keyframesMaxDist"`
+	// If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
+	MaxFrameRate pulumi.StringInput `pulumi:"maxFrameRate"`
+	// The maximum height of the watermark.
+	MaxHeight pulumi.StringInput `pulumi:"maxHeight"`
+	// The maximum width of the watermark.
+	MaxWidth pulumi.StringInput `pulumi:"maxWidth"`
+	// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+	PaddingPolicy pulumi.StringInput `pulumi:"paddingPolicy"`
+	// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+	Resolution pulumi.StringInput `pulumi:"resolution"`
+	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	SizingPolicy pulumi.StringInput `pulumi:"sizingPolicy"`
+}
+
+func (PresetVideoArgs) ElementType() reflect.Type {
+	return presetVideoType
+}
+
+func (a PresetVideoArgs) ToPresetVideoOutput() PresetVideoOutput {
+	return pulumi.ToOutput(a).(PresetVideoOutput)
+}
+
+func (a PresetVideoArgs) ToPresetVideoOutputWithContext(ctx context.Context) PresetVideoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PresetVideoOutput)
+}
+
+type PresetVideoOutput struct { *pulumi.OutputState }
+
+// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
+func (o PresetVideoOutput) AspectRatio() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.AspectRatio == nil { return *new(string) } else { return *v.AspectRatio }
+	}).(pulumi.StringOutput)
+}
+
+// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
+func (o PresetVideoOutput) BitRate() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.BitRate == nil { return *new(string) } else { return *v.BitRate }
+	}).(pulumi.StringOutput)
+}
+
+// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
+func (o PresetVideoOutput) Codec() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.Codec == nil { return *new(string) } else { return *v.Codec }
+	}).(pulumi.StringOutput)
+}
+
+// The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
+func (o PresetVideoOutput) DisplayAspectRatio() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.DisplayAspectRatio == nil { return *new(string) } else { return *v.DisplayAspectRatio }
+	}).(pulumi.StringOutput)
+}
+
+// Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
+func (o PresetVideoOutput) FixedGop() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.FixedGop == nil { return *new(string) } else { return *v.FixedGop }
+	}).(pulumi.StringOutput)
+}
+
+// The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
+func (o PresetVideoOutput) FrameRate() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.FrameRate == nil { return *new(string) } else { return *v.FrameRate }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum number of frames between key frames. Not applicable for containers of type gif.
+func (o PresetVideoOutput) KeyframesMaxDist() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.KeyframesMaxDist == nil { return *new(string) } else { return *v.KeyframesMaxDist }
+	}).(pulumi.StringOutput)
+}
+
+// If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
+func (o PresetVideoOutput) MaxFrameRate() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.MaxFrameRate == nil { return *new(string) } else { return *v.MaxFrameRate }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum height of the watermark.
+func (o PresetVideoOutput) MaxHeight() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.MaxHeight == nil { return *new(string) } else { return *v.MaxHeight }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum width of the watermark.
+func (o PresetVideoOutput) MaxWidth() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.MaxWidth == nil { return *new(string) } else { return *v.MaxWidth }
+	}).(pulumi.StringOutput)
+}
+
+// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
+func (o PresetVideoOutput) PaddingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.PaddingPolicy == nil { return *new(string) } else { return *v.PaddingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
+func (o PresetVideoOutput) Resolution() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.Resolution == nil { return *new(string) } else { return *v.Resolution }
+	}).(pulumi.StringOutput)
+}
+
+// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+func (o PresetVideoOutput) SizingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideo) string {
+		if v.SizingPolicy == nil { return *new(string) } else { return *v.SizingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+func (PresetVideoOutput) ElementType() reflect.Type {
+	return presetVideoType
+}
+
+func (o PresetVideoOutput) ToPresetVideoOutput() PresetVideoOutput {
+	return o
+}
+
+func (o PresetVideoOutput) ToPresetVideoOutputWithContext(ctx context.Context) PresetVideoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PresetVideoOutput{}) }
+
+type PresetVideoWatermarks struct {
+	// The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
+	HorizontalAlign *string `pulumi:"horizontalAlign"`
+	// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
+	HorizontalOffset *string `pulumi:"horizontalOffset"`
+	// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+	Id *string `pulumi:"id"`
+	// The maximum height of the watermark.
+	MaxHeight *string `pulumi:"maxHeight"`
+	// The maximum width of the watermark.
+	MaxWidth *string `pulumi:"maxWidth"`
+	// A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
+	Opacity *string `pulumi:"opacity"`
+	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	SizingPolicy *string `pulumi:"sizingPolicy"`
+	// A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
+	Target *string `pulumi:"target"`
+	// The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
+	VerticalAlign *string `pulumi:"verticalAlign"`
+	// The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
+	VerticalOffset *string `pulumi:"verticalOffset"`
+}
+var presetVideoWatermarksType = reflect.TypeOf((*PresetVideoWatermarks)(nil)).Elem()
+
+type PresetVideoWatermarksInput interface {
+	pulumi.Input
+
+	ToPresetVideoWatermarksOutput() PresetVideoWatermarksOutput
+	ToPresetVideoWatermarksOutputWithContext(ctx context.Context) PresetVideoWatermarksOutput
+}
+
+type PresetVideoWatermarksArgs struct {
+	// The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
+	HorizontalAlign pulumi.StringInput `pulumi:"horizontalAlign"`
+	// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
+	HorizontalOffset pulumi.StringInput `pulumi:"horizontalOffset"`
+	// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The maximum height of the watermark.
+	MaxHeight pulumi.StringInput `pulumi:"maxHeight"`
+	// The maximum width of the watermark.
+	MaxWidth pulumi.StringInput `pulumi:"maxWidth"`
+	// A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
+	Opacity pulumi.StringInput `pulumi:"opacity"`
+	// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+	SizingPolicy pulumi.StringInput `pulumi:"sizingPolicy"`
+	// A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
+	Target pulumi.StringInput `pulumi:"target"`
+	// The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
+	VerticalAlign pulumi.StringInput `pulumi:"verticalAlign"`
+	// The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
+	VerticalOffset pulumi.StringInput `pulumi:"verticalOffset"`
+}
+
+func (PresetVideoWatermarksArgs) ElementType() reflect.Type {
+	return presetVideoWatermarksType
+}
+
+func (a PresetVideoWatermarksArgs) ToPresetVideoWatermarksOutput() PresetVideoWatermarksOutput {
+	return pulumi.ToOutput(a).(PresetVideoWatermarksOutput)
+}
+
+func (a PresetVideoWatermarksArgs) ToPresetVideoWatermarksOutputWithContext(ctx context.Context) PresetVideoWatermarksOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PresetVideoWatermarksOutput)
+}
+
+type PresetVideoWatermarksOutput struct { *pulumi.OutputState }
+
+// The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
+func (o PresetVideoWatermarksOutput) HorizontalAlign() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.HorizontalAlign == nil { return *new(string) } else { return *v.HorizontalAlign }
+	}).(pulumi.StringOutput)
+}
+
+// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
+func (o PresetVideoWatermarksOutput) HorizontalOffset() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.HorizontalOffset == nil { return *new(string) } else { return *v.HorizontalOffset }
+	}).(pulumi.StringOutput)
+}
+
+// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+func (o PresetVideoWatermarksOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum height of the watermark.
+func (o PresetVideoWatermarksOutput) MaxHeight() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.MaxHeight == nil { return *new(string) } else { return *v.MaxHeight }
+	}).(pulumi.StringOutput)
+}
+
+// The maximum width of the watermark.
+func (o PresetVideoWatermarksOutput) MaxWidth() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.MaxWidth == nil { return *new(string) } else { return *v.MaxWidth }
+	}).(pulumi.StringOutput)
+}
+
+// A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
+func (o PresetVideoWatermarksOutput) Opacity() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.Opacity == nil { return *new(string) } else { return *v.Opacity }
+	}).(pulumi.StringOutput)
+}
+
+// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
+func (o PresetVideoWatermarksOutput) SizingPolicy() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.SizingPolicy == nil { return *new(string) } else { return *v.SizingPolicy }
+	}).(pulumi.StringOutput)
+}
+
+// A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
+func (o PresetVideoWatermarksOutput) Target() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.Target == nil { return *new(string) } else { return *v.Target }
+	}).(pulumi.StringOutput)
+}
+
+// The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
+func (o PresetVideoWatermarksOutput) VerticalAlign() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.VerticalAlign == nil { return *new(string) } else { return *v.VerticalAlign }
+	}).(pulumi.StringOutput)
+}
+
+// The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
+func (o PresetVideoWatermarksOutput) VerticalOffset() pulumi.StringOutput {
+	return o.Apply(func(v PresetVideoWatermarks) string {
+		if v.VerticalOffset == nil { return *new(string) } else { return *v.VerticalOffset }
+	}).(pulumi.StringOutput)
+}
+
+func (PresetVideoWatermarksOutput) ElementType() reflect.Type {
+	return presetVideoWatermarksType
+}
+
+func (o PresetVideoWatermarksOutput) ToPresetVideoWatermarksOutput() PresetVideoWatermarksOutput {
+	return o
+}
+
+func (o PresetVideoWatermarksOutput) ToPresetVideoWatermarksOutputWithContext(ctx context.Context) PresetVideoWatermarksOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PresetVideoWatermarksOutput{}) }
+
+var presetVideoWatermarksArrayType = reflect.TypeOf((*[]PresetVideoWatermarks)(nil)).Elem()
+
+type PresetVideoWatermarksArrayInput interface {
+	pulumi.Input
+
+	ToPresetVideoWatermarksArrayOutput() PresetVideoWatermarksArrayOutput
+	ToPresetVideoWatermarksArrayOutputWithContext(ctx context.Context) PresetVideoWatermarksArrayOutput
+}
+
+type PresetVideoWatermarksArrayArgs []PresetVideoWatermarksInput
+
+func (PresetVideoWatermarksArrayArgs) ElementType() reflect.Type {
+	return presetVideoWatermarksArrayType
+}
+
+func (a PresetVideoWatermarksArrayArgs) ToPresetVideoWatermarksArrayOutput() PresetVideoWatermarksArrayOutput {
+	return pulumi.ToOutput(a).(PresetVideoWatermarksArrayOutput)
+}
+
+func (a PresetVideoWatermarksArrayArgs) ToPresetVideoWatermarksArrayOutputWithContext(ctx context.Context) PresetVideoWatermarksArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PresetVideoWatermarksArrayOutput)
+}
+
+type PresetVideoWatermarksArrayOutput struct { *pulumi.OutputState }
+
+func (o PresetVideoWatermarksArrayOutput) Index(i pulumi.IntInput) PresetVideoWatermarksOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PresetVideoWatermarks {
+		return vs[0].([]PresetVideoWatermarks)[vs[1].(int)]
+	}).(PresetVideoWatermarksOutput)
+}
+
+func (PresetVideoWatermarksArrayOutput) ElementType() reflect.Type {
+	return presetVideoWatermarksArrayType
+}
+
+func (o PresetVideoWatermarksArrayOutput) ToPresetVideoWatermarksArrayOutput() PresetVideoWatermarksArrayOutput {
+	return o
+}
+
+func (o PresetVideoWatermarksArrayOutput) ToPresetVideoWatermarksArrayOutputWithContext(ctx context.Context) PresetVideoWatermarksArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PresetVideoWatermarksArrayOutput{}) }
+

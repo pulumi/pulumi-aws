@@ -15,81 +15,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_ipv4_cidr_block_association.html.markdown.
 type VpcIpv4CidrBlockAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The additional IPv4 CIDR block to associate with the VPC.
+	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+
+	// The ID of the VPC to make the association with.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVpcIpv4CidrBlockAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcIpv4CidrBlockAssociation(ctx *pulumi.Context,
-	name string, args *VpcIpv4CidrBlockAssociationArgs, opts ...pulumi.ResourceOpt) (*VpcIpv4CidrBlockAssociation, error) {
+	name string, args *VpcIpv4CidrBlockAssociationArgs, opts ...pulumi.ResourceOption) (*VpcIpv4CidrBlockAssociation, error) {
 	if args == nil || args.CidrBlock == nil {
 		return nil, errors.New("missing required argument 'CidrBlock'")
 	}
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cidrBlock"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["cidrBlock"] = args.CidrBlock
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CidrBlock; i != nil { inputs["cidrBlock"] = i.ToStringOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, true, inputs, opts...)
+	var resource VpcIpv4CidrBlockAssociation
+	err := ctx.RegisterResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcIpv4CidrBlockAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpcIpv4CidrBlockAssociation gets an existing VpcIpv4CidrBlockAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpcIpv4CidrBlockAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpcIpv4CidrBlockAssociationState, opts ...pulumi.ResourceOpt) (*VpcIpv4CidrBlockAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpcIpv4CidrBlockAssociationState, opts ...pulumi.ResourceOption) (*VpcIpv4CidrBlockAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["cidrBlock"] = state.CidrBlock
-		inputs["vpcId"] = state.VpcId
+		if i := state.CidrBlock; i != nil { inputs["cidrBlock"] = i.ToStringOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, id, inputs, opts...)
+	var resource VpcIpv4CidrBlockAssociation
+	err := ctx.ReadResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcIpv4CidrBlockAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpcIpv4CidrBlockAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpcIpv4CidrBlockAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The additional IPv4 CIDR block to associate with the VPC.
-func (r *VpcIpv4CidrBlockAssociation) CidrBlock() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cidrBlock"])
-}
-
-// The ID of the VPC to make the association with.
-func (r *VpcIpv4CidrBlockAssociation) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpcIpv4CidrBlockAssociation resources.
 type VpcIpv4CidrBlockAssociationState struct {
 	// The additional IPv4 CIDR block to associate with the VPC.
-	CidrBlock interface{}
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// The ID of the VPC to make the association with.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcIpv4CidrBlockAssociation resource.
 type VpcIpv4CidrBlockAssociationArgs struct {
 	// The additional IPv4 CIDR block to associate with the VPC.
-	CidrBlock interface{}
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
 	// The ID of the VPC to make the association with.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

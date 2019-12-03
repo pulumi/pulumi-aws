@@ -4,6 +4,8 @@
 package datasync
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,29 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
 type S3Location struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the DataSync Location.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Amazon Resource Name (ARN) of the S3 Bucket.
+	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
+
+	// Configuration block containing information for connecting to S3.
+	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
+
+	// Prefix to perform actions as source or destination.
+	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+
+	// Key-value pairs of resource tags to assign to the DataSync Location.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+
+	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewS3Location registers a new resource with the given unique name, arguments, and options.
 func NewS3Location(ctx *pulumi.Context,
-	name string, args *S3LocationArgs, opts ...pulumi.ResourceOpt) (*S3Location, error) {
+	name string, args *S3LocationArgs, opts ...pulumi.ResourceOption) (*S3Location, error) {
 	if args == nil || args.S3BucketArn == nil {
 		return nil, errors.New("missing required argument 'S3BucketArn'")
 	}
@@ -27,109 +46,118 @@ func NewS3Location(ctx *pulumi.Context,
 	if args == nil || args.Subdirectory == nil {
 		return nil, errors.New("missing required argument 'Subdirectory'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["s3BucketArn"] = nil
-		inputs["s3Config"] = nil
-		inputs["subdirectory"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["s3BucketArn"] = args.S3BucketArn
-		inputs["s3Config"] = args.S3Config
-		inputs["subdirectory"] = args.Subdirectory
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.S3BucketArn; i != nil { inputs["s3BucketArn"] = i.ToStringOutput() }
+		if i := args.S3Config; i != nil { inputs["s3Config"] = i.ToS3LocationS3ConfigOutput() }
+		if i := args.Subdirectory; i != nil { inputs["subdirectory"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["uri"] = nil
-	s, err := ctx.RegisterResource("aws:datasync/s3Location:S3Location", name, true, inputs, opts...)
+	var resource S3Location
+	err := ctx.RegisterResource("aws:datasync/s3Location:S3Location", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &S3Location{s: s}, nil
+	return &resource, nil
 }
 
 // GetS3Location gets an existing S3Location resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetS3Location(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *S3LocationState, opts ...pulumi.ResourceOpt) (*S3Location, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *S3LocationState, opts ...pulumi.ResourceOption) (*S3Location, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["s3BucketArn"] = state.S3BucketArn
-		inputs["s3Config"] = state.S3Config
-		inputs["subdirectory"] = state.Subdirectory
-		inputs["tags"] = state.Tags
-		inputs["uri"] = state.Uri
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.S3BucketArn; i != nil { inputs["s3BucketArn"] = i.ToStringOutput() }
+		if i := state.S3Config; i != nil { inputs["s3Config"] = i.ToS3LocationS3ConfigOutput() }
+		if i := state.Subdirectory; i != nil { inputs["subdirectory"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
+		if i := state.Uri; i != nil { inputs["uri"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:datasync/s3Location:S3Location", name, id, inputs, opts...)
+	var resource S3Location
+	err := ctx.ReadResource("aws:datasync/s3Location:S3Location", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &S3Location{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *S3Location) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *S3Location) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the DataSync Location.
-func (r *S3Location) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Amazon Resource Name (ARN) of the S3 Bucket.
-func (r *S3Location) S3BucketArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["s3BucketArn"])
-}
-
-// Configuration block containing information for connecting to S3.
-func (r *S3Location) S3Config() pulumi.Output {
-	return r.s.State["s3Config"]
-}
-
-// Prefix to perform actions as source or destination.
-func (r *S3Location) Subdirectory() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subdirectory"])
-}
-
-// Key-value pairs of resource tags to assign to the DataSync Location.
-func (r *S3Location) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *S3Location) Uri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uri"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering S3Location resources.
 type S3LocationState struct {
 	// Amazon Resource Name (ARN) of the DataSync Location.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn interface{}
+	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
-	S3Config interface{}
+	S3Config S3LocationS3ConfigInput `pulumi:"s3Config"`
 	// Prefix to perform actions as source or destination.
-	Subdirectory interface{}
+	Subdirectory pulumi.StringInput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags interface{}
-	Uri interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a S3Location resource.
 type S3LocationArgs struct {
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn interface{}
+	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
-	S3Config interface{}
+	S3Config S3LocationS3ConfigInput `pulumi:"s3Config"`
 	// Prefix to perform actions as source or destination.
-	Subdirectory interface{}
+	Subdirectory pulumi.StringInput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
+type S3LocationS3Config struct {
+	// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
+}
+var s3LocationS3ConfigType = reflect.TypeOf((*S3LocationS3Config)(nil)).Elem()
+
+type S3LocationS3ConfigInput interface {
+	pulumi.Input
+
+	ToS3LocationS3ConfigOutput() S3LocationS3ConfigOutput
+	ToS3LocationS3ConfigOutputWithContext(ctx context.Context) S3LocationS3ConfigOutput
+}
+
+type S3LocationS3ConfigArgs struct {
+	// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
+}
+
+func (S3LocationS3ConfigArgs) ElementType() reflect.Type {
+	return s3LocationS3ConfigType
+}
+
+func (a S3LocationS3ConfigArgs) ToS3LocationS3ConfigOutput() S3LocationS3ConfigOutput {
+	return pulumi.ToOutput(a).(S3LocationS3ConfigOutput)
+}
+
+func (a S3LocationS3ConfigArgs) ToS3LocationS3ConfigOutputWithContext(ctx context.Context) S3LocationS3ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(S3LocationS3ConfigOutput)
+}
+
+type S3LocationS3ConfigOutput struct { *pulumi.OutputState }
+
+// Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
+func (o S3LocationS3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
+	return o.Apply(func(v S3LocationS3Config) string {
+		return v.BucketAccessRoleArn
+	}).(pulumi.StringOutput)
+}
+
+func (S3LocationS3ConfigOutput) ElementType() reflect.Type {
+	return s3LocationS3ConfigType
+}
+
+func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigOutput() S3LocationS3ConfigOutput {
+	return o
+}
+
+func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigOutputWithContext(ctx context.Context) S3LocationS3ConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(S3LocationS3ConfigOutput{}) }
+

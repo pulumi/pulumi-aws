@@ -4,6 +4,8 @@
 package rds
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -16,150 +18,380 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_option_group.html.markdown.
 type OptionGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the db option group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Specifies the name of the engine that this option group should be associated with.
+	EngineName pulumi.StringOutput `pulumi:"engineName"`
+
+	// Specifies the major version of the engine that this option group should be associated with.
+	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
+
+	// The Name of the setting.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// A list of Options to apply.
+	Options OptionGroupOptionsArrayOutput `pulumi:"options"`
+
+	// The description of the option group. Defaults to "Managed by Pulumi".
+	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
 func NewOptionGroup(ctx *pulumi.Context,
-	name string, args *OptionGroupArgs, opts ...pulumi.ResourceOpt) (*OptionGroup, error) {
+	name string, args *OptionGroupArgs, opts ...pulumi.ResourceOption) (*OptionGroup, error) {
 	if args == nil || args.EngineName == nil {
 		return nil, errors.New("missing required argument 'EngineName'")
 	}
 	if args == nil || args.MajorEngineVersion == nil {
 		return nil, errors.New("missing required argument 'MajorEngineVersion'")
 	}
-	inputs := make(map[string]interface{})
-	inputs["optionGroupDescription"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["engineName"] = nil
-		inputs["majorEngineVersion"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["options"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["engineName"] = args.EngineName
-		inputs["majorEngineVersion"] = args.MajorEngineVersion
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["options"] = args.Options
-		inputs["optionGroupDescription"] = args.OptionGroupDescription
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	inputs["optionGroupDescription"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.EngineName; i != nil { inputs["engineName"] = i.ToStringOutput() }
+		if i := args.MajorEngineVersion; i != nil { inputs["majorEngineVersion"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.Options; i != nil { inputs["options"] = i.ToOptionGroupOptionsArrayOutput() }
+		if i := args.OptionGroupDescription; i != nil { inputs["optionGroupDescription"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:rds/optionGroup:OptionGroup", name, true, inputs, opts...)
+	var resource OptionGroup
+	err := ctx.RegisterResource("aws:rds/optionGroup:OptionGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OptionGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetOptionGroup gets an existing OptionGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOptionGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OptionGroupState, opts ...pulumi.ResourceOpt) (*OptionGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OptionGroupState, opts ...pulumi.ResourceOption) (*OptionGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["engineName"] = state.EngineName
-		inputs["majorEngineVersion"] = state.MajorEngineVersion
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["options"] = state.Options
-		inputs["optionGroupDescription"] = state.OptionGroupDescription
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.EngineName; i != nil { inputs["engineName"] = i.ToStringOutput() }
+		if i := state.MajorEngineVersion; i != nil { inputs["majorEngineVersion"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.Options; i != nil { inputs["options"] = i.ToOptionGroupOptionsArrayOutput() }
+		if i := state.OptionGroupDescription; i != nil { inputs["optionGroupDescription"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:rds/optionGroup:OptionGroup", name, id, inputs, opts...)
+	var resource OptionGroup
+	err := ctx.ReadResource("aws:rds/optionGroup:OptionGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OptionGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OptionGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OptionGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the db option group.
-func (r *OptionGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Specifies the name of the engine that this option group should be associated with.
-func (r *OptionGroup) EngineName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineName"])
-}
-
-// Specifies the major version of the engine that this option group should be associated with.
-func (r *OptionGroup) MajorEngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["majorEngineVersion"])
-}
-
-// The Name of the setting.
-func (r *OptionGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-func (r *OptionGroup) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// A list of Options to apply.
-func (r *OptionGroup) Options() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["options"])
-}
-
-// The description of the option group. Defaults to "Managed by Pulumi".
-func (r *OptionGroup) OptionGroupDescription() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["optionGroupDescription"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *OptionGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OptionGroup resources.
 type OptionGroupState struct {
 	// The ARN of the db option group.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Specifies the name of the engine that this option group should be associated with.
-	EngineName interface{}
+	EngineName pulumi.StringInput `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion interface{}
+	MajorEngineVersion pulumi.StringInput `pulumi:"majorEngineVersion"`
 	// The Name of the setting.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// A list of Options to apply.
-	Options interface{}
+	Options OptionGroupOptionsArrayInput `pulumi:"options"`
 	// The description of the option group. Defaults to "Managed by Pulumi".
-	OptionGroupDescription interface{}
+	OptionGroupDescription pulumi.StringInput `pulumi:"optionGroupDescription"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
 type OptionGroupArgs struct {
 	// Specifies the name of the engine that this option group should be associated with.
-	EngineName interface{}
+	EngineName pulumi.StringInput `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
-	MajorEngineVersion interface{}
+	MajorEngineVersion pulumi.StringInput `pulumi:"majorEngineVersion"`
 	// The Name of the setting.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// A list of Options to apply.
-	Options interface{}
+	Options OptionGroupOptionsArrayInput `pulumi:"options"`
 	// The description of the option group. Defaults to "Managed by Pulumi".
-	OptionGroupDescription interface{}
+	OptionGroupDescription pulumi.StringInput `pulumi:"optionGroupDescription"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type OptionGroupOptions struct {
+	// A list of DB Security Groups for which the option is enabled.
+	DbSecurityGroupMemberships *[]string `pulumi:"dbSecurityGroupMemberships"`
+	// The Name of the Option (e.g. MEMCACHED).
+	OptionName string `pulumi:"optionName"`
+	// A list of option settings to apply.
+	OptionSettings *[]OptionGroupOptionsOptionSettings `pulumi:"optionSettings"`
+	// The Port number when connecting to the Option (e.g. 11211).
+	Port *int `pulumi:"port"`
+	// The version of the option (e.g. 13.1.0.0).
+	Version *string `pulumi:"version"`
+	// A list of VPC Security Groups for which the option is enabled.
+	VpcSecurityGroupMemberships *[]string `pulumi:"vpcSecurityGroupMemberships"`
+}
+var optionGroupOptionsType = reflect.TypeOf((*OptionGroupOptions)(nil)).Elem()
+
+type OptionGroupOptionsInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionsOutput() OptionGroupOptionsOutput
+	ToOptionGroupOptionsOutputWithContext(ctx context.Context) OptionGroupOptionsOutput
+}
+
+type OptionGroupOptionsArgs struct {
+	// A list of DB Security Groups for which the option is enabled.
+	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
+	// The Name of the Option (e.g. MEMCACHED).
+	OptionName pulumi.StringInput `pulumi:"optionName"`
+	// A list of option settings to apply.
+	OptionSettings OptionGroupOptionsOptionSettingsArrayInput `pulumi:"optionSettings"`
+	// The Port number when connecting to the Option (e.g. 11211).
+	Port pulumi.IntInput `pulumi:"port"`
+	// The version of the option (e.g. 13.1.0.0).
+	Version pulumi.StringInput `pulumi:"version"`
+	// A list of VPC Security Groups for which the option is enabled.
+	VpcSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"vpcSecurityGroupMemberships"`
+}
+
+func (OptionGroupOptionsArgs) ElementType() reflect.Type {
+	return optionGroupOptionsType
+}
+
+func (a OptionGroupOptionsArgs) ToOptionGroupOptionsOutput() OptionGroupOptionsOutput {
+	return pulumi.ToOutput(a).(OptionGroupOptionsOutput)
+}
+
+func (a OptionGroupOptionsArgs) ToOptionGroupOptionsOutputWithContext(ctx context.Context) OptionGroupOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OptionGroupOptionsOutput)
+}
+
+type OptionGroupOptionsOutput struct { *pulumi.OutputState }
+
+// A list of DB Security Groups for which the option is enabled.
+func (o OptionGroupOptionsOutput) DbSecurityGroupMemberships() pulumi.StringArrayOutput {
+	return o.Apply(func(v OptionGroupOptions) []string {
+		if v.DbSecurityGroupMemberships == nil { return *new([]string) } else { return *v.DbSecurityGroupMemberships }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Name of the Option (e.g. MEMCACHED).
+func (o OptionGroupOptionsOutput) OptionName() pulumi.StringOutput {
+	return o.Apply(func(v OptionGroupOptions) string {
+		return v.OptionName
+	}).(pulumi.StringOutput)
+}
+
+// A list of option settings to apply.
+func (o OptionGroupOptionsOutput) OptionSettings() OptionGroupOptionsOptionSettingsArrayOutput {
+	return o.Apply(func(v OptionGroupOptions) []OptionGroupOptionsOptionSettings {
+		if v.OptionSettings == nil { return *new([]OptionGroupOptionsOptionSettings) } else { return *v.OptionSettings }
+	}).(OptionGroupOptionsOptionSettingsArrayOutput)
+}
+
+// The Port number when connecting to the Option (e.g. 11211).
+func (o OptionGroupOptionsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v OptionGroupOptions) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+// The version of the option (e.g. 13.1.0.0).
+func (o OptionGroupOptionsOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v OptionGroupOptions) string {
+		if v.Version == nil { return *new(string) } else { return *v.Version }
+	}).(pulumi.StringOutput)
+}
+
+// A list of VPC Security Groups for which the option is enabled.
+func (o OptionGroupOptionsOutput) VpcSecurityGroupMemberships() pulumi.StringArrayOutput {
+	return o.Apply(func(v OptionGroupOptions) []string {
+		if v.VpcSecurityGroupMemberships == nil { return *new([]string) } else { return *v.VpcSecurityGroupMemberships }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (OptionGroupOptionsOutput) ElementType() reflect.Type {
+	return optionGroupOptionsType
+}
+
+func (o OptionGroupOptionsOutput) ToOptionGroupOptionsOutput() OptionGroupOptionsOutput {
+	return o
+}
+
+func (o OptionGroupOptionsOutput) ToOptionGroupOptionsOutputWithContext(ctx context.Context) OptionGroupOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OptionGroupOptionsOutput{}) }
+
+var optionGroupOptionsArrayType = reflect.TypeOf((*[]OptionGroupOptions)(nil)).Elem()
+
+type OptionGroupOptionsArrayInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionsArrayOutput() OptionGroupOptionsArrayOutput
+	ToOptionGroupOptionsArrayOutputWithContext(ctx context.Context) OptionGroupOptionsArrayOutput
+}
+
+type OptionGroupOptionsArrayArgs []OptionGroupOptionsInput
+
+func (OptionGroupOptionsArrayArgs) ElementType() reflect.Type {
+	return optionGroupOptionsArrayType
+}
+
+func (a OptionGroupOptionsArrayArgs) ToOptionGroupOptionsArrayOutput() OptionGroupOptionsArrayOutput {
+	return pulumi.ToOutput(a).(OptionGroupOptionsArrayOutput)
+}
+
+func (a OptionGroupOptionsArrayArgs) ToOptionGroupOptionsArrayOutputWithContext(ctx context.Context) OptionGroupOptionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OptionGroupOptionsArrayOutput)
+}
+
+type OptionGroupOptionsArrayOutput struct { *pulumi.OutputState }
+
+func (o OptionGroupOptionsArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) OptionGroupOptions {
+		return vs[0].([]OptionGroupOptions)[vs[1].(int)]
+	}).(OptionGroupOptionsOutput)
+}
+
+func (OptionGroupOptionsArrayOutput) ElementType() reflect.Type {
+	return optionGroupOptionsArrayType
+}
+
+func (o OptionGroupOptionsArrayOutput) ToOptionGroupOptionsArrayOutput() OptionGroupOptionsArrayOutput {
+	return o
+}
+
+func (o OptionGroupOptionsArrayOutput) ToOptionGroupOptionsArrayOutputWithContext(ctx context.Context) OptionGroupOptionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OptionGroupOptionsArrayOutput{}) }
+
+type OptionGroupOptionsOptionSettings struct {
+	// The Name of the setting.
+	Name string `pulumi:"name"`
+	// The Value of the setting.
+	Value string `pulumi:"value"`
+}
+var optionGroupOptionsOptionSettingsType = reflect.TypeOf((*OptionGroupOptionsOptionSettings)(nil)).Elem()
+
+type OptionGroupOptionsOptionSettingsInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionsOptionSettingsOutput() OptionGroupOptionsOptionSettingsOutput
+	ToOptionGroupOptionsOptionSettingsOutputWithContext(ctx context.Context) OptionGroupOptionsOptionSettingsOutput
+}
+
+type OptionGroupOptionsOptionSettingsArgs struct {
+	// The Name of the setting.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Value of the setting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (OptionGroupOptionsOptionSettingsArgs) ElementType() reflect.Type {
+	return optionGroupOptionsOptionSettingsType
+}
+
+func (a OptionGroupOptionsOptionSettingsArgs) ToOptionGroupOptionsOptionSettingsOutput() OptionGroupOptionsOptionSettingsOutput {
+	return pulumi.ToOutput(a).(OptionGroupOptionsOptionSettingsOutput)
+}
+
+func (a OptionGroupOptionsOptionSettingsArgs) ToOptionGroupOptionsOptionSettingsOutputWithContext(ctx context.Context) OptionGroupOptionsOptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OptionGroupOptionsOptionSettingsOutput)
+}
+
+type OptionGroupOptionsOptionSettingsOutput struct { *pulumi.OutputState }
+
+// The Name of the setting.
+func (o OptionGroupOptionsOptionSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v OptionGroupOptionsOptionSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The Value of the setting.
+func (o OptionGroupOptionsOptionSettingsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v OptionGroupOptionsOptionSettings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (OptionGroupOptionsOptionSettingsOutput) ElementType() reflect.Type {
+	return optionGroupOptionsOptionSettingsType
+}
+
+func (o OptionGroupOptionsOptionSettingsOutput) ToOptionGroupOptionsOptionSettingsOutput() OptionGroupOptionsOptionSettingsOutput {
+	return o
+}
+
+func (o OptionGroupOptionsOptionSettingsOutput) ToOptionGroupOptionsOptionSettingsOutputWithContext(ctx context.Context) OptionGroupOptionsOptionSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OptionGroupOptionsOptionSettingsOutput{}) }
+
+var optionGroupOptionsOptionSettingsArrayType = reflect.TypeOf((*[]OptionGroupOptionsOptionSettings)(nil)).Elem()
+
+type OptionGroupOptionsOptionSettingsArrayInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionsOptionSettingsArrayOutput() OptionGroupOptionsOptionSettingsArrayOutput
+	ToOptionGroupOptionsOptionSettingsArrayOutputWithContext(ctx context.Context) OptionGroupOptionsOptionSettingsArrayOutput
+}
+
+type OptionGroupOptionsOptionSettingsArrayArgs []OptionGroupOptionsOptionSettingsInput
+
+func (OptionGroupOptionsOptionSettingsArrayArgs) ElementType() reflect.Type {
+	return optionGroupOptionsOptionSettingsArrayType
+}
+
+func (a OptionGroupOptionsOptionSettingsArrayArgs) ToOptionGroupOptionsOptionSettingsArrayOutput() OptionGroupOptionsOptionSettingsArrayOutput {
+	return pulumi.ToOutput(a).(OptionGroupOptionsOptionSettingsArrayOutput)
+}
+
+func (a OptionGroupOptionsOptionSettingsArrayArgs) ToOptionGroupOptionsOptionSettingsArrayOutputWithContext(ctx context.Context) OptionGroupOptionsOptionSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OptionGroupOptionsOptionSettingsArrayOutput)
+}
+
+type OptionGroupOptionsOptionSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o OptionGroupOptionsOptionSettingsArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionsOptionSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) OptionGroupOptionsOptionSettings {
+		return vs[0].([]OptionGroupOptionsOptionSettings)[vs[1].(int)]
+	}).(OptionGroupOptionsOptionSettingsOutput)
+}
+
+func (OptionGroupOptionsOptionSettingsArrayOutput) ElementType() reflect.Type {
+	return optionGroupOptionsOptionSettingsArrayType
+}
+
+func (o OptionGroupOptionsOptionSettingsArrayOutput) ToOptionGroupOptionsOptionSettingsArrayOutput() OptionGroupOptionsOptionSettingsArrayOutput {
+	return o
+}
+
+func (o OptionGroupOptionsOptionSettingsArrayOutput) ToOptionGroupOptionsOptionSettingsArrayOutputWithContext(ctx context.Context) OptionGroupOptionsOptionSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OptionGroupOptionsOptionSettingsArrayOutput{}) }
+

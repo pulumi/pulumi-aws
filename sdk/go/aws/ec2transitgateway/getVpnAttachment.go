@@ -10,40 +10,30 @@ import (
 // Get information on an EC2 Transit Gateway VPN Attachment.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_vpn_attachment.html.markdown.
-func LookupVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs) (*GetVpnAttachmentResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["tags"] = args.Tags
-		inputs["transitGatewayId"] = args.TransitGatewayId
-		inputs["vpnConnectionId"] = args.VpnConnectionId
-	}
-	outputs, err := ctx.Invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", inputs)
+func LookupVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*GetVpnAttachmentResult, error) {
+	var rv GetVpnAttachmentResult
+	err := ctx.Invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVpnAttachmentResult{
-		Tags: outputs["tags"],
-		TransitGatewayId: outputs["transitGatewayId"],
-		VpnConnectionId: outputs["vpnConnectionId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVpnAttachment.
 type GetVpnAttachmentArgs struct {
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId string `pulumi:"transitGatewayId"`
 	// Identifier of the EC2 VPN Connection.
-	VpnConnectionId interface{}
+	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
 // A collection of values returned by getVpnAttachment.
 type GetVpnAttachmentResult struct {
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
-	Tags interface{}
-	TransitGatewayId interface{}
-	VpnConnectionId interface{}
+	Tags map[string]string `pulumi:"tags"`
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+	VpnConnectionId string `pulumi:"vpnConnectionId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

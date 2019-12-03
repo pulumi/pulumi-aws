@@ -4,6 +4,8 @@
 package rds
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -15,111 +17,222 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
 type SecurityGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The arn of the DB security group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The description of the DB security group. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A list of ingress rules.
+	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
+
+	// The name of the DB security group.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewSecurityGroup(ctx *pulumi.Context,
-	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
+	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
 	if args == nil || args.Ingress == nil {
 		return nil, errors.New("missing required argument 'Ingress'")
 	}
-	inputs := make(map[string]interface{})
-	inputs["description"] = "Managed by Pulumi"
-	if args == nil {
-		inputs["ingress"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["ingress"] = args.Ingress
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	inputs["description"] = pulumi.Any("Managed by Pulumi")
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Ingress; i != nil { inputs["ingress"] = i.ToSecurityGroupIngressArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:rds/securityGroup:SecurityGroup", name, true, inputs, opts...)
+	var resource SecurityGroup
+	err := ctx.RegisterResource("aws:rds/securityGroup:SecurityGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SecurityGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetSecurityGroup gets an existing SecurityGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSecurityGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SecurityGroupState, opts ...pulumi.ResourceOpt) (*SecurityGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SecurityGroupState, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["ingress"] = state.Ingress
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Ingress; i != nil { inputs["ingress"] = i.ToSecurityGroupIngressArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:rds/securityGroup:SecurityGroup", name, id, inputs, opts...)
+	var resource SecurityGroup
+	err := ctx.ReadResource("aws:rds/securityGroup:SecurityGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SecurityGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SecurityGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SecurityGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The arn of the DB security group.
-func (r *SecurityGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The description of the DB security group. Defaults to "Managed by Pulumi".
-func (r *SecurityGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A list of ingress rules.
-func (r *SecurityGroup) Ingress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ingress"])
-}
-
-// The name of the DB security group.
-func (r *SecurityGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *SecurityGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type SecurityGroupState struct {
 	// The arn of the DB security group.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The description of the DB security group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A list of ingress rules.
-	Ingress interface{}
+	Ingress SecurityGroupIngressArrayInput `pulumi:"ingress"`
 	// The name of the DB security group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
 	// The description of the DB security group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A list of ingress rules.
-	Ingress interface{}
+	Ingress SecurityGroupIngressArrayInput `pulumi:"ingress"`
 	// The name of the DB security group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type SecurityGroupIngress struct {
+	// The CIDR block to accept
+	Cidr *string `pulumi:"cidr"`
+	// The ID of the security group to authorize
+	SecurityGroupId *string `pulumi:"securityGroupId"`
+	// The name of the security group to authorize
+	SecurityGroupName *string `pulumi:"securityGroupName"`
+	// The owner Id of the security group provided
+	// by `securityGroupName`.
+	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
+}
+var securityGroupIngressType = reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
+
+type SecurityGroupIngressInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressOutput() SecurityGroupIngressOutput
+	ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput
+}
+
+type SecurityGroupIngressArgs struct {
+	// The CIDR block to accept
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// The ID of the security group to authorize
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
+	// The name of the security group to authorize
+	SecurityGroupName pulumi.StringInput `pulumi:"securityGroupName"`
+	// The owner Id of the security group provided
+	// by `securityGroupName`.
+	SecurityGroupOwnerId pulumi.StringInput `pulumi:"securityGroupOwnerId"`
+}
+
+func (SecurityGroupIngressArgs) ElementType() reflect.Type {
+	return securityGroupIngressType
+}
+
+func (a SecurityGroupIngressArgs) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
+	return pulumi.ToOutput(a).(SecurityGroupIngressOutput)
+}
+
+func (a SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityGroupIngressOutput)
+}
+
+type SecurityGroupIngressOutput struct { *pulumi.OutputState }
+
+// The CIDR block to accept
+func (o SecurityGroupIngressOutput) Cidr() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupIngress) string {
+		if v.Cidr == nil { return *new(string) } else { return *v.Cidr }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the security group to authorize
+func (o SecurityGroupIngressOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupIngress) string {
+		if v.SecurityGroupId == nil { return *new(string) } else { return *v.SecurityGroupId }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the security group to authorize
+func (o SecurityGroupIngressOutput) SecurityGroupName() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupIngress) string {
+		if v.SecurityGroupName == nil { return *new(string) } else { return *v.SecurityGroupName }
+	}).(pulumi.StringOutput)
+}
+
+// The owner Id of the security group provided
+// by `securityGroupName`.
+func (o SecurityGroupIngressOutput) SecurityGroupOwnerId() pulumi.StringOutput {
+	return o.Apply(func(v SecurityGroupIngress) string {
+		if v.SecurityGroupOwnerId == nil { return *new(string) } else { return *v.SecurityGroupOwnerId }
+	}).(pulumi.StringOutput)
+}
+
+func (SecurityGroupIngressOutput) ElementType() reflect.Type {
+	return securityGroupIngressType
+}
+
+func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
+	return o
+}
+
+func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityGroupIngressOutput{}) }
+
+var securityGroupIngressArrayType = reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
+
+type SecurityGroupIngressArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput
+	ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput
+}
+
+type SecurityGroupIngressArrayArgs []SecurityGroupIngressInput
+
+func (SecurityGroupIngressArrayArgs) ElementType() reflect.Type {
+	return securityGroupIngressArrayType
+}
+
+func (a SecurityGroupIngressArrayArgs) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
+	return pulumi.ToOutput(a).(SecurityGroupIngressArrayOutput)
+}
+
+func (a SecurityGroupIngressArrayArgs) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecurityGroupIngressArrayOutput)
+}
+
+type SecurityGroupIngressArrayOutput struct { *pulumi.OutputState }
+
+func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SecurityGroupIngress {
+		return vs[0].([]SecurityGroupIngress)[vs[1].(int)]
+	}).(SecurityGroupIngressOutput)
+}
+
+func (SecurityGroupIngressArrayOutput) ElementType() reflect.Type {
+	return securityGroupIngressArrayType
+}
+
+func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{}) }
+

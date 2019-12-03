@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -13,12 +15,86 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
 type SpotFleetRequest struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Indicates how to allocate the target capacity across
+	// the Spot pools specified by the Spot fleet request. The default is
+	// `lowestPrice`.
+	AllocationStrategy pulumi.StringOutput `pulumi:"allocationStrategy"`
+
+	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
+
+	// Indicates whether running Spot
+	// instances should be terminated if the target capacity of the Spot fleet
+	// request is decreased below the current size of the Spot fleet.
+	ExcessCapacityTerminationPolicy pulumi.StringOutput `pulumi:"excessCapacityTerminationPolicy"`
+
+	// The type of fleet request. Indicates whether the Spot Fleet only requests the target
+	// capacity or also attempts to maintain it. Default is `maintain`.
+	FleetType pulumi.StringOutput `pulumi:"fleetType"`
+
+	// Grants the Spot fleet permission to terminate
+	// Spot instances on your behalf when you cancel its Spot fleet request using
+	// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+	// terminateInstancesWithExpiration.
+	IamFleetRole pulumi.StringOutput `pulumi:"iamFleetRole"`
+
+	// Indicates whether a Spot
+	// instance stops or terminates when it is interrupted. Default is
+	// `terminate`.
+	InstanceInterruptionBehaviour pulumi.StringOutput `pulumi:"instanceInterruptionBehaviour"`
+
+	// 
+	// The number of Spot pools across which to allocate your target Spot capacity.
+	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
+	// the cheapest Spot pools and evenly allocates your target Spot capacity across
+	// the number of Spot pools that you specify.
+	InstancePoolsToUseCount pulumi.IntOutput `pulumi:"instancePoolsToUseCount"`
+
+	// Used to define the launch configuration of the
+	// spot-fleet request. Can be specified multiple times to define different bids
+	// across different markets and instance types.
+	LaunchSpecifications SpotFleetRequestLaunchSpecificationsArrayOutput `pulumi:"launchSpecifications"`
+
+	// A list of elastic load balancer names to add to the Spot fleet.
+	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
+
+	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+	ReplaceUnhealthyInstances pulumi.BoolOutput `pulumi:"replaceUnhealthyInstances"`
+
+	// The maximum bid price per unit hour.
+	SpotPrice pulumi.StringOutput `pulumi:"spotPrice"`
+
+	// The state of the Spot fleet request.
+	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
+
+	// The number of units to request. You can choose to set the
+	// target capacity in terms of instances or a performance characteristic that is
+	// important to your application workload, such as vCPUs, memory, or I/O.
+	TargetCapacity pulumi.IntOutput `pulumi:"targetCapacity"`
+
+	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
+	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
+
+	// Indicates whether running Spot
+	// instances should be terminated when the Spot fleet request expires.
+	TerminateInstancesWithExpiration pulumi.BoolOutput `pulumi:"terminateInstancesWithExpiration"`
+
+	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+	ValidFrom pulumi.StringOutput `pulumi:"validFrom"`
+
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	ValidUntil pulumi.StringOutput `pulumi:"validUntil"`
+
+	// If set, this provider will
+	// wait for the Spot Request to be fulfilled, and will throw an error if the
+	// timeout of 10m is reached.
+	WaitForFulfillment pulumi.BoolOutput `pulumi:"waitForFulfillment"`
 }
 
 // NewSpotFleetRequest registers a new resource with the given unique name, arguments, and options.
 func NewSpotFleetRequest(ctx *pulumi.Context,
-	name string, args *SpotFleetRequestArgs, opts ...pulumi.ResourceOpt) (*SpotFleetRequest, error) {
+	name string, args *SpotFleetRequestArgs, opts ...pulumi.ResourceOption) (*SpotFleetRequest, error) {
 	if args == nil || args.IamFleetRole == nil {
 		return nil, errors.New("missing required argument 'IamFleetRole'")
 	}
@@ -28,201 +104,64 @@ func NewSpotFleetRequest(ctx *pulumi.Context,
 	if args == nil || args.TargetCapacity == nil {
 		return nil, errors.New("missing required argument 'TargetCapacity'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allocationStrategy"] = nil
-		inputs["excessCapacityTerminationPolicy"] = nil
-		inputs["fleetType"] = nil
-		inputs["iamFleetRole"] = nil
-		inputs["instanceInterruptionBehaviour"] = nil
-		inputs["instancePoolsToUseCount"] = nil
-		inputs["launchSpecifications"] = nil
-		inputs["loadBalancers"] = nil
-		inputs["replaceUnhealthyInstances"] = nil
-		inputs["spotPrice"] = nil
-		inputs["targetCapacity"] = nil
-		inputs["targetGroupArns"] = nil
-		inputs["terminateInstancesWithExpiration"] = nil
-		inputs["validFrom"] = nil
-		inputs["validUntil"] = nil
-		inputs["waitForFulfillment"] = nil
-	} else {
-		inputs["allocationStrategy"] = args.AllocationStrategy
-		inputs["excessCapacityTerminationPolicy"] = args.ExcessCapacityTerminationPolicy
-		inputs["fleetType"] = args.FleetType
-		inputs["iamFleetRole"] = args.IamFleetRole
-		inputs["instanceInterruptionBehaviour"] = args.InstanceInterruptionBehaviour
-		inputs["instancePoolsToUseCount"] = args.InstancePoolsToUseCount
-		inputs["launchSpecifications"] = args.LaunchSpecifications
-		inputs["loadBalancers"] = args.LoadBalancers
-		inputs["replaceUnhealthyInstances"] = args.ReplaceUnhealthyInstances
-		inputs["spotPrice"] = args.SpotPrice
-		inputs["targetCapacity"] = args.TargetCapacity
-		inputs["targetGroupArns"] = args.TargetGroupArns
-		inputs["terminateInstancesWithExpiration"] = args.TerminateInstancesWithExpiration
-		inputs["validFrom"] = args.ValidFrom
-		inputs["validUntil"] = args.ValidUntil
-		inputs["waitForFulfillment"] = args.WaitForFulfillment
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllocationStrategy; i != nil { inputs["allocationStrategy"] = i.ToStringOutput() }
+		if i := args.ExcessCapacityTerminationPolicy; i != nil { inputs["excessCapacityTerminationPolicy"] = i.ToStringOutput() }
+		if i := args.FleetType; i != nil { inputs["fleetType"] = i.ToStringOutput() }
+		if i := args.IamFleetRole; i != nil { inputs["iamFleetRole"] = i.ToStringOutput() }
+		if i := args.InstanceInterruptionBehaviour; i != nil { inputs["instanceInterruptionBehaviour"] = i.ToStringOutput() }
+		if i := args.InstancePoolsToUseCount; i != nil { inputs["instancePoolsToUseCount"] = i.ToIntOutput() }
+		if i := args.LaunchSpecifications; i != nil { inputs["launchSpecifications"] = i.ToSpotFleetRequestLaunchSpecificationsArrayOutput() }
+		if i := args.LoadBalancers; i != nil { inputs["loadBalancers"] = i.ToStringArrayOutput() }
+		if i := args.ReplaceUnhealthyInstances; i != nil { inputs["replaceUnhealthyInstances"] = i.ToBoolOutput() }
+		if i := args.SpotPrice; i != nil { inputs["spotPrice"] = i.ToStringOutput() }
+		if i := args.TargetCapacity; i != nil { inputs["targetCapacity"] = i.ToIntOutput() }
+		if i := args.TargetGroupArns; i != nil { inputs["targetGroupArns"] = i.ToStringArrayOutput() }
+		if i := args.TerminateInstancesWithExpiration; i != nil { inputs["terminateInstancesWithExpiration"] = i.ToBoolOutput() }
+		if i := args.ValidFrom; i != nil { inputs["validFrom"] = i.ToStringOutput() }
+		if i := args.ValidUntil; i != nil { inputs["validUntil"] = i.ToStringOutput() }
+		if i := args.WaitForFulfillment; i != nil { inputs["waitForFulfillment"] = i.ToBoolOutput() }
 	}
-	inputs["clientToken"] = nil
-	inputs["spotRequestState"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, true, inputs, opts...)
+	var resource SpotFleetRequest
+	err := ctx.RegisterResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SpotFleetRequest{s: s}, nil
+	return &resource, nil
 }
 
 // GetSpotFleetRequest gets an existing SpotFleetRequest resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSpotFleetRequest(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SpotFleetRequestState, opts ...pulumi.ResourceOpt) (*SpotFleetRequest, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SpotFleetRequestState, opts ...pulumi.ResourceOption) (*SpotFleetRequest, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allocationStrategy"] = state.AllocationStrategy
-		inputs["clientToken"] = state.ClientToken
-		inputs["excessCapacityTerminationPolicy"] = state.ExcessCapacityTerminationPolicy
-		inputs["fleetType"] = state.FleetType
-		inputs["iamFleetRole"] = state.IamFleetRole
-		inputs["instanceInterruptionBehaviour"] = state.InstanceInterruptionBehaviour
-		inputs["instancePoolsToUseCount"] = state.InstancePoolsToUseCount
-		inputs["launchSpecifications"] = state.LaunchSpecifications
-		inputs["loadBalancers"] = state.LoadBalancers
-		inputs["replaceUnhealthyInstances"] = state.ReplaceUnhealthyInstances
-		inputs["spotPrice"] = state.SpotPrice
-		inputs["spotRequestState"] = state.SpotRequestState
-		inputs["targetCapacity"] = state.TargetCapacity
-		inputs["targetGroupArns"] = state.TargetGroupArns
-		inputs["terminateInstancesWithExpiration"] = state.TerminateInstancesWithExpiration
-		inputs["validFrom"] = state.ValidFrom
-		inputs["validUntil"] = state.ValidUntil
-		inputs["waitForFulfillment"] = state.WaitForFulfillment
+		if i := state.AllocationStrategy; i != nil { inputs["allocationStrategy"] = i.ToStringOutput() }
+		if i := state.ClientToken; i != nil { inputs["clientToken"] = i.ToStringOutput() }
+		if i := state.ExcessCapacityTerminationPolicy; i != nil { inputs["excessCapacityTerminationPolicy"] = i.ToStringOutput() }
+		if i := state.FleetType; i != nil { inputs["fleetType"] = i.ToStringOutput() }
+		if i := state.IamFleetRole; i != nil { inputs["iamFleetRole"] = i.ToStringOutput() }
+		if i := state.InstanceInterruptionBehaviour; i != nil { inputs["instanceInterruptionBehaviour"] = i.ToStringOutput() }
+		if i := state.InstancePoolsToUseCount; i != nil { inputs["instancePoolsToUseCount"] = i.ToIntOutput() }
+		if i := state.LaunchSpecifications; i != nil { inputs["launchSpecifications"] = i.ToSpotFleetRequestLaunchSpecificationsArrayOutput() }
+		if i := state.LoadBalancers; i != nil { inputs["loadBalancers"] = i.ToStringArrayOutput() }
+		if i := state.ReplaceUnhealthyInstances; i != nil { inputs["replaceUnhealthyInstances"] = i.ToBoolOutput() }
+		if i := state.SpotPrice; i != nil { inputs["spotPrice"] = i.ToStringOutput() }
+		if i := state.SpotRequestState; i != nil { inputs["spotRequestState"] = i.ToStringOutput() }
+		if i := state.TargetCapacity; i != nil { inputs["targetCapacity"] = i.ToIntOutput() }
+		if i := state.TargetGroupArns; i != nil { inputs["targetGroupArns"] = i.ToStringArrayOutput() }
+		if i := state.TerminateInstancesWithExpiration; i != nil { inputs["terminateInstancesWithExpiration"] = i.ToBoolOutput() }
+		if i := state.ValidFrom; i != nil { inputs["validFrom"] = i.ToStringOutput() }
+		if i := state.ValidUntil; i != nil { inputs["validUntil"] = i.ToStringOutput() }
+		if i := state.WaitForFulfillment; i != nil { inputs["waitForFulfillment"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, id, inputs, opts...)
+	var resource SpotFleetRequest
+	err := ctx.ReadResource("aws:ec2/spotFleetRequest:SpotFleetRequest", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SpotFleetRequest{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SpotFleetRequest) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SpotFleetRequest) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Indicates how to allocate the target capacity across
-// the Spot pools specified by the Spot fleet request. The default is
-// `lowestPrice`.
-func (r *SpotFleetRequest) AllocationStrategy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["allocationStrategy"])
-}
-
-func (r *SpotFleetRequest) ClientToken() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientToken"])
-}
-
-// Indicates whether running Spot
-// instances should be terminated if the target capacity of the Spot fleet
-// request is decreased below the current size of the Spot fleet.
-func (r *SpotFleetRequest) ExcessCapacityTerminationPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["excessCapacityTerminationPolicy"])
-}
-
-// The type of fleet request. Indicates whether the Spot Fleet only requests the target
-// capacity or also attempts to maintain it. Default is `maintain`.
-func (r *SpotFleetRequest) FleetType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fleetType"])
-}
-
-// Grants the Spot fleet permission to terminate
-// Spot instances on your behalf when you cancel its Spot fleet request using
-// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
-// terminateInstancesWithExpiration.
-func (r *SpotFleetRequest) IamFleetRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamFleetRole"])
-}
-
-// Indicates whether a Spot
-// instance stops or terminates when it is interrupted. Default is
-// `terminate`.
-func (r *SpotFleetRequest) InstanceInterruptionBehaviour() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceInterruptionBehaviour"])
-}
-
-// 
-// The number of Spot pools across which to allocate your target Spot capacity.
-// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
-// the cheapest Spot pools and evenly allocates your target Spot capacity across
-// the number of Spot pools that you specify.
-func (r *SpotFleetRequest) InstancePoolsToUseCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["instancePoolsToUseCount"])
-}
-
-// Used to define the launch configuration of the
-// spot-fleet request. Can be specified multiple times to define different bids
-// across different markets and instance types.
-func (r *SpotFleetRequest) LaunchSpecifications() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["launchSpecifications"])
-}
-
-// A list of elastic load balancer names to add to the Spot fleet.
-func (r *SpotFleetRequest) LoadBalancers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
-}
-
-// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-func (r *SpotFleetRequest) ReplaceUnhealthyInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["replaceUnhealthyInstances"])
-}
-
-// The maximum bid price per unit hour.
-func (r *SpotFleetRequest) SpotPrice() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["spotPrice"])
-}
-
-// The state of the Spot fleet request.
-func (r *SpotFleetRequest) SpotRequestState() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["spotRequestState"])
-}
-
-// The number of units to request. You can choose to set the
-// target capacity in terms of instances or a performance characteristic that is
-// important to your application workload, such as vCPUs, memory, or I/O.
-func (r *SpotFleetRequest) TargetCapacity() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["targetCapacity"])
-}
-
-// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-func (r *SpotFleetRequest) TargetGroupArns() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["targetGroupArns"])
-}
-
-// Indicates whether running Spot
-// instances should be terminated when the Spot fleet request expires.
-func (r *SpotFleetRequest) TerminateInstancesWithExpiration() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["terminateInstancesWithExpiration"])
-}
-
-// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-func (r *SpotFleetRequest) ValidFrom() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["validFrom"])
-}
-
-// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
-func (r *SpotFleetRequest) ValidUntil() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["validUntil"])
-}
-
-// If set, this provider will
-// wait for the Spot Request to be fulfilled, and will throw an error if the
-// timeout of 10m is reached.
-func (r *SpotFleetRequest) WaitForFulfillment() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["waitForFulfillment"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SpotFleetRequest resources.
@@ -230,59 +169,59 @@ type SpotFleetRequestState struct {
 	// Indicates how to allocate the target capacity across
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
-	AllocationStrategy interface{}
-	ClientToken interface{}
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	ClientToken pulumi.StringInput `pulumi:"clientToken"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
-	ExcessCapacityTerminationPolicy interface{}
+	ExcessCapacityTerminationPolicy pulumi.StringInput `pulumi:"excessCapacityTerminationPolicy"`
 	// The type of fleet request. Indicates whether the Spot Fleet only requests the target
 	// capacity or also attempts to maintain it. Default is `maintain`.
-	FleetType interface{}
+	FleetType pulumi.StringInput `pulumi:"fleetType"`
 	// Grants the Spot fleet permission to terminate
 	// Spot instances on your behalf when you cancel its Spot fleet request using
 	// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
 	// terminateInstancesWithExpiration.
-	IamFleetRole interface{}
+	IamFleetRole pulumi.StringInput `pulumi:"iamFleetRole"`
 	// Indicates whether a Spot
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
-	InstanceInterruptionBehaviour interface{}
+	InstanceInterruptionBehaviour pulumi.StringInput `pulumi:"instanceInterruptionBehaviour"`
 	// 
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
 	// the number of Spot pools that you specify.
-	InstancePoolsToUseCount interface{}
+	InstancePoolsToUseCount pulumi.IntInput `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types.
-	LaunchSpecifications interface{}
+	LaunchSpecifications SpotFleetRequestLaunchSpecificationsArrayInput `pulumi:"launchSpecifications"`
 	// A list of elastic load balancer names to add to the Spot fleet.
-	LoadBalancers interface{}
+	LoadBalancers pulumi.StringArrayInput `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-	ReplaceUnhealthyInstances interface{}
+	ReplaceUnhealthyInstances pulumi.BoolInput `pulumi:"replaceUnhealthyInstances"`
 	// The maximum bid price per unit hour.
-	SpotPrice interface{}
+	SpotPrice pulumi.StringInput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
-	SpotRequestState interface{}
+	SpotRequestState pulumi.StringInput `pulumi:"spotRequestState"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
-	TargetCapacity interface{}
+	TargetCapacity pulumi.IntInput `pulumi:"targetCapacity"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-	TargetGroupArns interface{}
+	TargetGroupArns pulumi.StringArrayInput `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
-	TerminateInstancesWithExpiration interface{}
+	TerminateInstancesWithExpiration pulumi.BoolInput `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-	ValidFrom interface{}
+	ValidFrom pulumi.StringInput `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
-	ValidUntil interface{}
+	ValidUntil pulumi.StringInput `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
 	// timeout of 10m is reached.
-	WaitForFulfillment interface{}
+	WaitForFulfillment pulumi.BoolInput `pulumi:"waitForFulfillment"`
 }
 
 // The set of arguments for constructing a SpotFleetRequest resource.
@@ -290,54 +229,696 @@ type SpotFleetRequestArgs struct {
 	// Indicates how to allocate the target capacity across
 	// the Spot pools specified by the Spot fleet request. The default is
 	// `lowestPrice`.
-	AllocationStrategy interface{}
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
-	ExcessCapacityTerminationPolicy interface{}
+	ExcessCapacityTerminationPolicy pulumi.StringInput `pulumi:"excessCapacityTerminationPolicy"`
 	// The type of fleet request. Indicates whether the Spot Fleet only requests the target
 	// capacity or also attempts to maintain it. Default is `maintain`.
-	FleetType interface{}
+	FleetType pulumi.StringInput `pulumi:"fleetType"`
 	// Grants the Spot fleet permission to terminate
 	// Spot instances on your behalf when you cancel its Spot fleet request using
 	// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
 	// terminateInstancesWithExpiration.
-	IamFleetRole interface{}
+	IamFleetRole pulumi.StringInput `pulumi:"iamFleetRole"`
 	// Indicates whether a Spot
 	// instance stops or terminates when it is interrupted. Default is
 	// `terminate`.
-	InstanceInterruptionBehaviour interface{}
+	InstanceInterruptionBehaviour pulumi.StringInput `pulumi:"instanceInterruptionBehaviour"`
 	// 
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
 	// the number of Spot pools that you specify.
-	InstancePoolsToUseCount interface{}
+	InstancePoolsToUseCount pulumi.IntInput `pulumi:"instancePoolsToUseCount"`
 	// Used to define the launch configuration of the
 	// spot-fleet request. Can be specified multiple times to define different bids
 	// across different markets and instance types.
-	LaunchSpecifications interface{}
+	LaunchSpecifications SpotFleetRequestLaunchSpecificationsArrayInput `pulumi:"launchSpecifications"`
 	// A list of elastic load balancer names to add to the Spot fleet.
-	LoadBalancers interface{}
+	LoadBalancers pulumi.StringArrayInput `pulumi:"loadBalancers"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-	ReplaceUnhealthyInstances interface{}
+	ReplaceUnhealthyInstances pulumi.BoolInput `pulumi:"replaceUnhealthyInstances"`
 	// The maximum bid price per unit hour.
-	SpotPrice interface{}
+	SpotPrice pulumi.StringInput `pulumi:"spotPrice"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
-	TargetCapacity interface{}
+	TargetCapacity pulumi.IntInput `pulumi:"targetCapacity"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
-	TargetGroupArns interface{}
+	TargetGroupArns pulumi.StringArrayInput `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
-	TerminateInstancesWithExpiration interface{}
+	TerminateInstancesWithExpiration pulumi.BoolInput `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-	ValidFrom interface{}
+	ValidFrom pulumi.StringInput `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
-	ValidUntil interface{}
+	ValidUntil pulumi.StringInput `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
 	// timeout of 10m is reached.
-	WaitForFulfillment interface{}
+	WaitForFulfillment pulumi.BoolInput `pulumi:"waitForFulfillment"`
 }
+type SpotFleetRequestLaunchSpecifications struct {
+	Ami string `pulumi:"ami"`
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	EbsBlockDevices *[]SpotFleetRequestLaunchSpecificationsEbsBlockDevices `pulumi:"ebsBlockDevices"`
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	EphemeralBlockDevices *[]SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices `pulumi:"ephemeralBlockDevices"`
+	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfileArn *string `pulumi:"iamInstanceProfileArn"`
+	InstanceType string `pulumi:"instanceType"`
+	KeyName *string `pulumi:"keyName"`
+	Monitoring *bool `pulumi:"monitoring"`
+	PlacementGroup *string `pulumi:"placementGroup"`
+	PlacementTenancy *string `pulumi:"placementTenancy"`
+	RootBlockDevices *[]SpotFleetRequestLaunchSpecificationsRootBlockDevices `pulumi:"rootBlockDevices"`
+	// The maximum bid price per unit hour.
+	SpotPrice *string `pulumi:"spotPrice"`
+	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags *map[string]string `pulumi:"tags"`
+	UserData *string `pulumi:"userData"`
+	VpcSecurityGroupIds *[]string `pulumi:"vpcSecurityGroupIds"`
+	WeightedCapacity *string `pulumi:"weightedCapacity"`
+}
+var spotFleetRequestLaunchSpecificationsType = reflect.TypeOf((*SpotFleetRequestLaunchSpecifications)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsOutput() SpotFleetRequestLaunchSpecificationsOutput
+	ToSpotFleetRequestLaunchSpecificationsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsArgs struct {
+	Ami pulumi.StringInput `pulumi:"ami"`
+	AssociatePublicIpAddress pulumi.BoolInput `pulumi:"associatePublicIpAddress"`
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	EbsBlockDevices SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
+	EphemeralBlockDevices SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
+	IamInstanceProfile pulumi.StringInput `pulumi:"iamInstanceProfile"`
+	IamInstanceProfileArn pulumi.StringInput `pulumi:"iamInstanceProfileArn"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	Monitoring pulumi.BoolInput `pulumi:"monitoring"`
+	PlacementGroup pulumi.StringInput `pulumi:"placementGroup"`
+	PlacementTenancy pulumi.StringInput `pulumi:"placementTenancy"`
+	RootBlockDevices SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayInput `pulumi:"rootBlockDevices"`
+	// The maximum bid price per unit hour.
+	SpotPrice pulumi.StringInput `pulumi:"spotPrice"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapInput `pulumi:"tags"`
+	UserData pulumi.StringInput `pulumi:"userData"`
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
+	WeightedCapacity pulumi.StringInput `pulumi:"weightedCapacity"`
+}
+
+func (SpotFleetRequestLaunchSpecificationsArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsArgs) ToSpotFleetRequestLaunchSpecificationsOutput() SpotFleetRequestLaunchSpecificationsOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsArgs) ToSpotFleetRequestLaunchSpecificationsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) Ami() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		return v.Ami
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) AssociatePublicIpAddress() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) bool {
+		if v.AssociatePublicIpAddress == nil { return *new(bool) } else { return *v.AssociatePublicIpAddress }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.AvailabilityZone == nil { return *new(string) } else { return *v.AvailabilityZone }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) EbsBlockDevices() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) []SpotFleetRequestLaunchSpecificationsEbsBlockDevices {
+		if v.EbsBlockDevices == nil { return *new([]SpotFleetRequestLaunchSpecificationsEbsBlockDevices) } else { return *v.EbsBlockDevices }
+	}).(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) EbsOptimized() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) bool {
+		if v.EbsOptimized == nil { return *new(bool) } else { return *v.EbsOptimized }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) EphemeralBlockDevices() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) []SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices {
+		if v.EphemeralBlockDevices == nil { return *new([]SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices) } else { return *v.EphemeralBlockDevices }
+	}).(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) IamInstanceProfile() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.IamInstanceProfile == nil { return *new(string) } else { return *v.IamInstanceProfile }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) IamInstanceProfileArn() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.IamInstanceProfileArn == nil { return *new(string) } else { return *v.IamInstanceProfileArn }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) KeyName() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.KeyName == nil { return *new(string) } else { return *v.KeyName }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) Monitoring() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) bool {
+		if v.Monitoring == nil { return *new(bool) } else { return *v.Monitoring }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) PlacementGroup() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.PlacementGroup == nil { return *new(string) } else { return *v.PlacementGroup }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) PlacementTenancy() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.PlacementTenancy == nil { return *new(string) } else { return *v.PlacementTenancy }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) RootBlockDevices() SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) []SpotFleetRequestLaunchSpecificationsRootBlockDevices {
+		if v.RootBlockDevices == nil { return *new([]SpotFleetRequestLaunchSpecificationsRootBlockDevices) } else { return *v.RootBlockDevices }
+	}).(SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput)
+}
+
+// The maximum bid price per unit hour.
+func (o SpotFleetRequestLaunchSpecificationsOutput) SpotPrice() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.SpotPrice == nil { return *new(string) } else { return *v.SpotPrice }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o SpotFleetRequestLaunchSpecificationsOutput) Tags() pulumi.MapOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) map[string]string {
+		if v.Tags == nil { return *new(map[string]string) } else { return *v.Tags }
+	}).(pulumi.MapOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) UserData() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.UserData == nil { return *new(string) } else { return *v.UserData }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) []string {
+		if v.VpcSecurityGroupIds == nil { return *new([]string) } else { return *v.VpcSecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) WeightedCapacity() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecifications) string {
+		if v.WeightedCapacity == nil { return *new(string) } else { return *v.WeightedCapacity }
+	}).(pulumi.StringOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) ToSpotFleetRequestLaunchSpecificationsOutput() SpotFleetRequestLaunchSpecificationsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsOutput) ToSpotFleetRequestLaunchSpecificationsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsOutput{}) }
+
+var spotFleetRequestLaunchSpecificationsArrayType = reflect.TypeOf((*[]SpotFleetRequestLaunchSpecifications)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsArrayOutput() SpotFleetRequestLaunchSpecificationsArrayOutput
+	ToSpotFleetRequestLaunchSpecificationsArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsArrayOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsArrayArgs []SpotFleetRequestLaunchSpecificationsInput
+
+func (SpotFleetRequestLaunchSpecificationsArrayArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsArrayType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsArrayArgs) ToSpotFleetRequestLaunchSpecificationsArrayOutput() SpotFleetRequestLaunchSpecificationsArrayOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsArrayOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsArrayArgs) ToSpotFleetRequestLaunchSpecificationsArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsArrayOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsArrayOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchSpecificationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SpotFleetRequestLaunchSpecifications {
+		return vs[0].([]SpotFleetRequestLaunchSpecifications)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchSpecificationsOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsArrayOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsArrayType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsArrayOutput) ToSpotFleetRequestLaunchSpecificationsArrayOutput() SpotFleetRequestLaunchSpecificationsArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsArrayOutput) ToSpotFleetRequestLaunchSpecificationsArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsArrayOutput{}) }
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeviceName string `pulumi:"deviceName"`
+	Encrypted *bool `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var spotFleetRequestLaunchSpecificationsEbsBlockDevicesType = reflect.TypeOf((*SpotFleetRequestLaunchSpecificationsEbsBlockDevices)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevicesInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput
+	ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEbsBlockDevicesType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArgs) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) Encrypted() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) bool {
+		if v.Encrypted == nil { return *new(bool) } else { return *v.Encrypted }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) KmsKeyId() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) string {
+		if v.KmsKeyId == nil { return *new(string) } else { return *v.KmsKeyId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) SnapshotId() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) string {
+		if v.SnapshotId == nil { return *new(string) } else { return *v.SnapshotId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEbsBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEbsBlockDevicesType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput{}) }
+
+var spotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayType = reflect.TypeOf((*[]SpotFleetRequestLaunchSpecificationsEbsBlockDevices)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput
+	ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayArgs []SpotFleetRequestLaunchSpecificationsEbsBlockDevicesInput
+
+func (SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayArgs) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayArgs) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SpotFleetRequestLaunchSpecificationsEbsBlockDevices {
+		return vs[0].([]SpotFleetRequestLaunchSpecificationsEbsBlockDevices)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput) ToSpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsEbsBlockDevicesArrayOutput{}) }
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices struct {
+	DeviceName string `pulumi:"deviceName"`
+	VirtualName string `pulumi:"virtualName"`
+}
+var spotFleetRequestLaunchSpecificationsEphemeralBlockDevicesType = reflect.TypeOf((*SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput
+	ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs struct {
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEphemeralBlockDevicesType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArgs) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput) VirtualName() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices) string {
+		return v.VirtualName
+	}).(pulumi.StringOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEphemeralBlockDevicesType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput{}) }
+
+var spotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayType = reflect.TypeOf((*[]SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput
+	ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayArgs []SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesInput
+
+func (SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayArgs) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayArgs) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices {
+		return vs[0].([]SpotFleetRequestLaunchSpecificationsEphemeralBlockDevices)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput) ToSpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsEphemeralBlockDevicesArrayOutput{}) }
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	Encrypted *bool `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var spotFleetRequestLaunchSpecificationsRootBlockDevicesType = reflect.TypeOf((*SpotFleetRequestLaunchSpecificationsRootBlockDevices)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevicesInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput
+	ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsRootBlockDevicesType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsRootBlockDevicesArgs) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsRootBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) Encrypted() pulumi.BoolOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsRootBlockDevices) bool {
+		if v.Encrypted == nil { return *new(bool) } else { return *v.Encrypted }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsRootBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) KmsKeyId() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsRootBlockDevices) string {
+		if v.KmsKeyId == nil { return *new(string) } else { return *v.KmsKeyId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsRootBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v SpotFleetRequestLaunchSpecificationsRootBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsRootBlockDevicesType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput() SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput{}) }
+
+var spotFleetRequestLaunchSpecificationsRootBlockDevicesArrayType = reflect.TypeOf((*[]SpotFleetRequestLaunchSpecificationsRootBlockDevices)(nil)).Elem()
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput
+	ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput
+}
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayArgs []SpotFleetRequestLaunchSpecificationsRootBlockDevicesInput
+
+func (SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsRootBlockDevicesArrayType
+}
+
+func (a SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayArgs) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput)
+}
+
+func (a SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayArgs) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput)
+}
+
+type SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SpotFleetRequestLaunchSpecificationsRootBlockDevices {
+		return vs[0].([]SpotFleetRequestLaunchSpecificationsRootBlockDevices)[vs[1].(int)]
+	}).(SpotFleetRequestLaunchSpecificationsRootBlockDevicesOutput)
+}
+
+func (SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return spotFleetRequestLaunchSpecificationsRootBlockDevicesArrayType
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput() SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput) ToSpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutputWithContext(ctx context.Context) SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SpotFleetRequestLaunchSpecificationsRootBlockDevicesArrayOutput{}) }
+

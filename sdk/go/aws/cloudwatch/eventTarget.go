@@ -4,6 +4,8 @@
 package cloudwatch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,204 +14,707 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_event_target.html.markdown.
 type EventTarget struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) associated of the target.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+	BatchTarget EventTargetBatchTargetOutput `pulumi:"batchTarget"`
+
+	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+	EcsTarget EventTargetEcsTargetOutput `pulumi:"ecsTarget"`
+
+	// Valid JSON text passed to the target.
+	Input pulumi.StringOutput `pulumi:"input"`
+
+	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
+	// that is used for extracting part of the matched event when passing it to the target.
+	InputPath pulumi.StringOutput `pulumi:"inputPath"`
+
+	// Parameters used when you are providing a custom input to a target based on certain event data.
+	InputTransformer EventTargetInputTransformerOutput `pulumi:"inputTransformer"`
+
+	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+	KinesisTarget EventTargetKinesisTargetOutput `pulumi:"kinesisTarget"`
+
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// The name of the rule you want to add targets to.
+	Rule pulumi.StringOutput `pulumi:"rule"`
+
+	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+	RunCommandTargets EventTargetRunCommandTargetsArrayOutput `pulumi:"runCommandTargets"`
+
+	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
+	SqsTarget EventTargetSqsTargetOutput `pulumi:"sqsTarget"`
+
+	// The unique target assignment ID.  If missing, will generate a random, unique id.
+	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
 
 // NewEventTarget registers a new resource with the given unique name, arguments, and options.
 func NewEventTarget(ctx *pulumi.Context,
-	name string, args *EventTargetArgs, opts ...pulumi.ResourceOpt) (*EventTarget, error) {
+	name string, args *EventTargetArgs, opts ...pulumi.ResourceOption) (*EventTarget, error) {
 	if args == nil || args.Arn == nil {
 		return nil, errors.New("missing required argument 'Arn'")
 	}
 	if args == nil || args.Rule == nil {
 		return nil, errors.New("missing required argument 'Rule'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["arn"] = nil
-		inputs["batchTarget"] = nil
-		inputs["ecsTarget"] = nil
-		inputs["input"] = nil
-		inputs["inputPath"] = nil
-		inputs["inputTransformer"] = nil
-		inputs["kinesisTarget"] = nil
-		inputs["roleArn"] = nil
-		inputs["rule"] = nil
-		inputs["runCommandTargets"] = nil
-		inputs["sqsTarget"] = nil
-		inputs["targetId"] = nil
-	} else {
-		inputs["arn"] = args.Arn
-		inputs["batchTarget"] = args.BatchTarget
-		inputs["ecsTarget"] = args.EcsTarget
-		inputs["input"] = args.Input
-		inputs["inputPath"] = args.InputPath
-		inputs["inputTransformer"] = args.InputTransformer
-		inputs["kinesisTarget"] = args.KinesisTarget
-		inputs["roleArn"] = args.RoleArn
-		inputs["rule"] = args.Rule
-		inputs["runCommandTargets"] = args.RunCommandTargets
-		inputs["sqsTarget"] = args.SqsTarget
-		inputs["targetId"] = args.TargetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := args.BatchTarget; i != nil { inputs["batchTarget"] = i.ToEventTargetBatchTargetOutput() }
+		if i := args.EcsTarget; i != nil { inputs["ecsTarget"] = i.ToEventTargetEcsTargetOutput() }
+		if i := args.Input; i != nil { inputs["input"] = i.ToStringOutput() }
+		if i := args.InputPath; i != nil { inputs["inputPath"] = i.ToStringOutput() }
+		if i := args.InputTransformer; i != nil { inputs["inputTransformer"] = i.ToEventTargetInputTransformerOutput() }
+		if i := args.KinesisTarget; i != nil { inputs["kinesisTarget"] = i.ToEventTargetKinesisTargetOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.Rule; i != nil { inputs["rule"] = i.ToStringOutput() }
+		if i := args.RunCommandTargets; i != nil { inputs["runCommandTargets"] = i.ToEventTargetRunCommandTargetsArrayOutput() }
+		if i := args.SqsTarget; i != nil { inputs["sqsTarget"] = i.ToEventTargetSqsTargetOutput() }
+		if i := args.TargetId; i != nil { inputs["targetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cloudwatch/eventTarget:EventTarget", name, true, inputs, opts...)
+	var resource EventTarget
+	err := ctx.RegisterResource("aws:cloudwatch/eventTarget:EventTarget", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventTarget{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventTarget gets an existing EventTarget resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventTarget(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventTargetState, opts ...pulumi.ResourceOpt) (*EventTarget, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventTargetState, opts ...pulumi.ResourceOption) (*EventTarget, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["batchTarget"] = state.BatchTarget
-		inputs["ecsTarget"] = state.EcsTarget
-		inputs["input"] = state.Input
-		inputs["inputPath"] = state.InputPath
-		inputs["inputTransformer"] = state.InputTransformer
-		inputs["kinesisTarget"] = state.KinesisTarget
-		inputs["roleArn"] = state.RoleArn
-		inputs["rule"] = state.Rule
-		inputs["runCommandTargets"] = state.RunCommandTargets
-		inputs["sqsTarget"] = state.SqsTarget
-		inputs["targetId"] = state.TargetId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.BatchTarget; i != nil { inputs["batchTarget"] = i.ToEventTargetBatchTargetOutput() }
+		if i := state.EcsTarget; i != nil { inputs["ecsTarget"] = i.ToEventTargetEcsTargetOutput() }
+		if i := state.Input; i != nil { inputs["input"] = i.ToStringOutput() }
+		if i := state.InputPath; i != nil { inputs["inputPath"] = i.ToStringOutput() }
+		if i := state.InputTransformer; i != nil { inputs["inputTransformer"] = i.ToEventTargetInputTransformerOutput() }
+		if i := state.KinesisTarget; i != nil { inputs["kinesisTarget"] = i.ToEventTargetKinesisTargetOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.Rule; i != nil { inputs["rule"] = i.ToStringOutput() }
+		if i := state.RunCommandTargets; i != nil { inputs["runCommandTargets"] = i.ToEventTargetRunCommandTargetsArrayOutput() }
+		if i := state.SqsTarget; i != nil { inputs["sqsTarget"] = i.ToEventTargetSqsTargetOutput() }
+		if i := state.TargetId; i != nil { inputs["targetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/eventTarget:EventTarget", name, id, inputs, opts...)
+	var resource EventTarget
+	err := ctx.ReadResource("aws:cloudwatch/eventTarget:EventTarget", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventTarget{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventTarget) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventTarget) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) associated of the target.
-func (r *EventTarget) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) BatchTarget() pulumi.Output {
-	return r.s.State["batchTarget"]
-}
-
-// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) EcsTarget() pulumi.Output {
-	return r.s.State["ecsTarget"]
-}
-
-// Valid JSON text passed to the target.
-func (r *EventTarget) Input() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["input"])
-}
-
-// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-// that is used for extracting part of the matched event when passing it to the target.
-func (r *EventTarget) InputPath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["inputPath"])
-}
-
-// Parameters used when you are providing a custom input to a target based on certain event data.
-func (r *EventTarget) InputTransformer() pulumi.Output {
-	return r.s.State["inputTransformer"]
-}
-
-// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) KinesisTarget() pulumi.Output {
-	return r.s.State["kinesisTarget"]
-}
-
-// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
-func (r *EventTarget) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// The name of the rule you want to add targets to.
-func (r *EventTarget) Rule() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rule"])
-}
-
-// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-func (r *EventTarget) RunCommandTargets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["runCommandTargets"])
-}
-
-// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-func (r *EventTarget) SqsTarget() pulumi.Output {
-	return r.s.State["sqsTarget"]
-}
-
-// The unique target assignment ID.  If missing, will generate a random, unique id.
-func (r *EventTarget) TargetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventTarget resources.
 type EventTargetState struct {
 	// The Amazon Resource Name (ARN) associated of the target.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-	BatchTarget interface{}
+	BatchTarget EventTargetBatchTargetInput `pulumi:"batchTarget"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-	EcsTarget interface{}
+	EcsTarget EventTargetEcsTargetInput `pulumi:"ecsTarget"`
 	// Valid JSON text passed to the target.
-	Input interface{}
+	Input pulumi.StringInput `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
 	// that is used for extracting part of the matched event when passing it to the target.
-	InputPath interface{}
+	InputPath pulumi.StringInput `pulumi:"inputPath"`
 	// Parameters used when you are providing a custom input to a target based on certain event data.
-	InputTransformer interface{}
+	InputTransformer EventTargetInputTransformerInput `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-	KinesisTarget interface{}
+	KinesisTarget EventTargetKinesisTargetInput `pulumi:"kinesisTarget"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
-	Rule interface{}
+	Rule pulumi.StringInput `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-	RunCommandTargets interface{}
+	RunCommandTargets EventTargetRunCommandTargetsArrayInput `pulumi:"runCommandTargets"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-	SqsTarget interface{}
+	SqsTarget EventTargetSqsTargetInput `pulumi:"sqsTarget"`
 	// The unique target assignment ID.  If missing, will generate a random, unique id.
-	TargetId interface{}
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a EventTarget resource.
 type EventTargetArgs struct {
 	// The Amazon Resource Name (ARN) associated of the target.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-	BatchTarget interface{}
+	BatchTarget EventTargetBatchTargetInput `pulumi:"batchTarget"`
 	// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-	EcsTarget interface{}
+	EcsTarget EventTargetEcsTargetInput `pulumi:"ecsTarget"`
 	// Valid JSON text passed to the target.
-	Input interface{}
+	Input pulumi.StringInput `pulumi:"input"`
 	// The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
 	// that is used for extracting part of the matched event when passing it to the target.
-	InputPath interface{}
+	InputPath pulumi.StringInput `pulumi:"inputPath"`
 	// Parameters used when you are providing a custom input to a target based on certain event data.
-	InputTransformer interface{}
+	InputTransformer EventTargetInputTransformerInput `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-	KinesisTarget interface{}
+	KinesisTarget EventTargetKinesisTargetInput `pulumi:"kinesisTarget"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
-	Rule interface{}
+	Rule pulumi.StringInput `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-	RunCommandTargets interface{}
+	RunCommandTargets EventTargetRunCommandTargetsArrayInput `pulumi:"runCommandTargets"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-	SqsTarget interface{}
+	SqsTarget EventTargetSqsTargetInput `pulumi:"sqsTarget"`
 	// The unique target assignment ID.  If missing, will generate a random, unique id.
-	TargetId interface{}
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
+type EventTargetBatchTarget struct {
+	// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+	ArraySize *int `pulumi:"arraySize"`
+	// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+	JobAttempts *int `pulumi:"jobAttempts"`
+	// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+	JobDefinition string `pulumi:"jobDefinition"`
+	// The name to use for this execution of the job, if the target is an AWS Batch job.
+	JobName string `pulumi:"jobName"`
+}
+var eventTargetBatchTargetType = reflect.TypeOf((*EventTargetBatchTarget)(nil)).Elem()
+
+type EventTargetBatchTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetBatchTargetOutput() EventTargetBatchTargetOutput
+	ToEventTargetBatchTargetOutputWithContext(ctx context.Context) EventTargetBatchTargetOutput
+}
+
+type EventTargetBatchTargetArgs struct {
+	// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+	ArraySize pulumi.IntInput `pulumi:"arraySize"`
+	// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+	JobAttempts pulumi.IntInput `pulumi:"jobAttempts"`
+	// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+	JobDefinition pulumi.StringInput `pulumi:"jobDefinition"`
+	// The name to use for this execution of the job, if the target is an AWS Batch job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+}
+
+func (EventTargetBatchTargetArgs) ElementType() reflect.Type {
+	return eventTargetBatchTargetType
+}
+
+func (a EventTargetBatchTargetArgs) ToEventTargetBatchTargetOutput() EventTargetBatchTargetOutput {
+	return pulumi.ToOutput(a).(EventTargetBatchTargetOutput)
+}
+
+func (a EventTargetBatchTargetArgs) ToEventTargetBatchTargetOutputWithContext(ctx context.Context) EventTargetBatchTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetBatchTargetOutput)
+}
+
+type EventTargetBatchTargetOutput struct { *pulumi.OutputState }
+
+// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+func (o EventTargetBatchTargetOutput) ArraySize() pulumi.IntOutput {
+	return o.Apply(func(v EventTargetBatchTarget) int {
+		if v.ArraySize == nil { return *new(int) } else { return *v.ArraySize }
+	}).(pulumi.IntOutput)
+}
+
+// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+func (o EventTargetBatchTargetOutput) JobAttempts() pulumi.IntOutput {
+	return o.Apply(func(v EventTargetBatchTarget) int {
+		if v.JobAttempts == nil { return *new(int) } else { return *v.JobAttempts }
+	}).(pulumi.IntOutput)
+}
+
+// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+func (o EventTargetBatchTargetOutput) JobDefinition() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetBatchTarget) string {
+		return v.JobDefinition
+	}).(pulumi.StringOutput)
+}
+
+// The name to use for this execution of the job, if the target is an AWS Batch job.
+func (o EventTargetBatchTargetOutput) JobName() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetBatchTarget) string {
+		return v.JobName
+	}).(pulumi.StringOutput)
+}
+
+func (EventTargetBatchTargetOutput) ElementType() reflect.Type {
+	return eventTargetBatchTargetType
+}
+
+func (o EventTargetBatchTargetOutput) ToEventTargetBatchTargetOutput() EventTargetBatchTargetOutput {
+	return o
+}
+
+func (o EventTargetBatchTargetOutput) ToEventTargetBatchTargetOutputWithContext(ctx context.Context) EventTargetBatchTargetOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetBatchTargetOutput{}) }
+
+type EventTargetEcsTarget struct {
+	// Specifies an ECS task group for the task. The maximum length is 255 characters.
+	Group *string `pulumi:"group"`
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+	LaunchType *string `pulumi:"launchType"`
+	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
+	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	PlatformVersion *string `pulumi:"platformVersion"`
+	// The number of tasks to create based on the TaskDefinition. The default is 1.
+	TaskCount *int `pulumi:"taskCount"`
+	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
+}
+var eventTargetEcsTargetType = reflect.TypeOf((*EventTargetEcsTarget)(nil)).Elem()
+
+type EventTargetEcsTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetOutput() EventTargetEcsTargetOutput
+	ToEventTargetEcsTargetOutputWithContext(ctx context.Context) EventTargetEcsTargetOutput
+}
+
+type EventTargetEcsTargetArgs struct {
+	// Specifies an ECS task group for the task. The maximum length is 255 characters.
+	Group pulumi.StringInput `pulumi:"group"`
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+	LaunchType pulumi.StringInput `pulumi:"launchType"`
+	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationInput `pulumi:"networkConfiguration"`
+	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	PlatformVersion pulumi.StringInput `pulumi:"platformVersion"`
+	// The number of tasks to create based on the TaskDefinition. The default is 1.
+	TaskCount pulumi.IntInput `pulumi:"taskCount"`
+	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
+}
+
+func (EventTargetEcsTargetArgs) ElementType() reflect.Type {
+	return eventTargetEcsTargetType
+}
+
+func (a EventTargetEcsTargetArgs) ToEventTargetEcsTargetOutput() EventTargetEcsTargetOutput {
+	return pulumi.ToOutput(a).(EventTargetEcsTargetOutput)
+}
+
+func (a EventTargetEcsTargetArgs) ToEventTargetEcsTargetOutputWithContext(ctx context.Context) EventTargetEcsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetEcsTargetOutput)
+}
+
+type EventTargetEcsTargetOutput struct { *pulumi.OutputState }
+
+// Specifies an ECS task group for the task. The maximum length is 255 characters.
+func (o EventTargetEcsTargetOutput) Group() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetEcsTarget) string {
+		if v.Group == nil { return *new(string) } else { return *v.Group }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
+func (o EventTargetEcsTargetOutput) LaunchType() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetEcsTarget) string {
+		if v.LaunchType == nil { return *new(string) } else { return *v.LaunchType }
+	}).(pulumi.StringOutput)
+}
+
+// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
+func (o EventTargetEcsTargetOutput) NetworkConfiguration() EventTargetEcsTargetNetworkConfigurationOutput {
+	return o.Apply(func(v EventTargetEcsTarget) EventTargetEcsTargetNetworkConfiguration {
+		if v.NetworkConfiguration == nil { return *new(EventTargetEcsTargetNetworkConfiguration) } else { return *v.NetworkConfiguration }
+	}).(EventTargetEcsTargetNetworkConfigurationOutput)
+}
+
+// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+func (o EventTargetEcsTargetOutput) PlatformVersion() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetEcsTarget) string {
+		if v.PlatformVersion == nil { return *new(string) } else { return *v.PlatformVersion }
+	}).(pulumi.StringOutput)
+}
+
+// The number of tasks to create based on the TaskDefinition. The default is 1.
+func (o EventTargetEcsTargetOutput) TaskCount() pulumi.IntOutput {
+	return o.Apply(func(v EventTargetEcsTarget) int {
+		if v.TaskCount == nil { return *new(int) } else { return *v.TaskCount }
+	}).(pulumi.IntOutput)
+}
+
+// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+func (o EventTargetEcsTargetOutput) TaskDefinitionArn() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetEcsTarget) string {
+		return v.TaskDefinitionArn
+	}).(pulumi.StringOutput)
+}
+
+func (EventTargetEcsTargetOutput) ElementType() reflect.Type {
+	return eventTargetEcsTargetType
+}
+
+func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetOutput() EventTargetEcsTargetOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetOutputWithContext(ctx context.Context) EventTargetEcsTargetOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetEcsTargetOutput{}) }
+
+type EventTargetEcsTargetNetworkConfiguration struct {
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp *bool `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+	SecurityGroups *[]string `pulumi:"securityGroups"`
+	// The subnets associated with the task or service.
+	Subnets []string `pulumi:"subnets"`
+}
+var eventTargetEcsTargetNetworkConfigurationType = reflect.TypeOf((*EventTargetEcsTargetNetworkConfiguration)(nil)).Elem()
+
+type EventTargetEcsTargetNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetNetworkConfigurationOutput() EventTargetEcsTargetNetworkConfigurationOutput
+	ToEventTargetEcsTargetNetworkConfigurationOutputWithContext(ctx context.Context) EventTargetEcsTargetNetworkConfigurationOutput
+}
+
+type EventTargetEcsTargetNetworkConfigurationArgs struct {
+	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp pulumi.BoolInput `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The subnets associated with the task or service.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (EventTargetEcsTargetNetworkConfigurationArgs) ElementType() reflect.Type {
+	return eventTargetEcsTargetNetworkConfigurationType
+}
+
+func (a EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetworkConfigurationOutput() EventTargetEcsTargetNetworkConfigurationOutput {
+	return pulumi.ToOutput(a).(EventTargetEcsTargetNetworkConfigurationOutput)
+}
+
+func (a EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetworkConfigurationOutputWithContext(ctx context.Context) EventTargetEcsTargetNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetEcsTargetNetworkConfigurationOutput)
+}
+
+type EventTargetEcsTargetNetworkConfigurationOutput struct { *pulumi.OutputState }
+
+// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+func (o EventTargetEcsTargetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolOutput {
+	return o.Apply(func(v EventTargetEcsTargetNetworkConfiguration) bool {
+		if v.AssignPublicIp == nil { return *new(bool) } else { return *v.AssignPublicIp }
+	}).(pulumi.BoolOutput)
+}
+
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+func (o EventTargetEcsTargetNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v EventTargetEcsTargetNetworkConfiguration) []string {
+		if v.SecurityGroups == nil { return *new([]string) } else { return *v.SecurityGroups }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnets associated with the task or service.
+func (o EventTargetEcsTargetNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.Apply(func(v EventTargetEcsTargetNetworkConfiguration) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (EventTargetEcsTargetNetworkConfigurationOutput) ElementType() reflect.Type {
+	return eventTargetEcsTargetNetworkConfigurationType
+}
+
+func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNetworkConfigurationOutput() EventTargetEcsTargetNetworkConfigurationOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNetworkConfigurationOutputWithContext(ctx context.Context) EventTargetEcsTargetNetworkConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationOutput{}) }
+
+type EventTargetInputTransformer struct {
+	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+	InputPaths *map[string]string `pulumi:"inputPaths"`
+	// Structure containing the template body.
+	InputTemplate string `pulumi:"inputTemplate"`
+}
+var eventTargetInputTransformerType = reflect.TypeOf((*EventTargetInputTransformer)(nil)).Elem()
+
+type EventTargetInputTransformerInput interface {
+	pulumi.Input
+
+	ToEventTargetInputTransformerOutput() EventTargetInputTransformerOutput
+	ToEventTargetInputTransformerOutputWithContext(ctx context.Context) EventTargetInputTransformerOutput
+}
+
+type EventTargetInputTransformerArgs struct {
+	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+	InputPaths pulumi.MapInput `pulumi:"inputPaths"`
+	// Structure containing the template body.
+	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
+}
+
+func (EventTargetInputTransformerArgs) ElementType() reflect.Type {
+	return eventTargetInputTransformerType
+}
+
+func (a EventTargetInputTransformerArgs) ToEventTargetInputTransformerOutput() EventTargetInputTransformerOutput {
+	return pulumi.ToOutput(a).(EventTargetInputTransformerOutput)
+}
+
+func (a EventTargetInputTransformerArgs) ToEventTargetInputTransformerOutputWithContext(ctx context.Context) EventTargetInputTransformerOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetInputTransformerOutput)
+}
+
+type EventTargetInputTransformerOutput struct { *pulumi.OutputState }
+
+// Key value pairs specified in the form of JSONPath (for example, time = $.time)
+func (o EventTargetInputTransformerOutput) InputPaths() pulumi.MapOutput {
+	return o.Apply(func(v EventTargetInputTransformer) map[string]string {
+		if v.InputPaths == nil { return *new(map[string]string) } else { return *v.InputPaths }
+	}).(pulumi.MapOutput)
+}
+
+// Structure containing the template body.
+func (o EventTargetInputTransformerOutput) InputTemplate() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetInputTransformer) string {
+		return v.InputTemplate
+	}).(pulumi.StringOutput)
+}
+
+func (EventTargetInputTransformerOutput) ElementType() reflect.Type {
+	return eventTargetInputTransformerType
+}
+
+func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerOutput() EventTargetInputTransformerOutput {
+	return o
+}
+
+func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerOutputWithContext(ctx context.Context) EventTargetInputTransformerOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetInputTransformerOutput{}) }
+
+type EventTargetKinesisTarget struct {
+	// The JSON path to be extracted from the event and used as the partition key.
+	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+}
+var eventTargetKinesisTargetType = reflect.TypeOf((*EventTargetKinesisTarget)(nil)).Elem()
+
+type EventTargetKinesisTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetKinesisTargetOutput() EventTargetKinesisTargetOutput
+	ToEventTargetKinesisTargetOutputWithContext(ctx context.Context) EventTargetKinesisTargetOutput
+}
+
+type EventTargetKinesisTargetArgs struct {
+	// The JSON path to be extracted from the event and used as the partition key.
+	PartitionKeyPath pulumi.StringInput `pulumi:"partitionKeyPath"`
+}
+
+func (EventTargetKinesisTargetArgs) ElementType() reflect.Type {
+	return eventTargetKinesisTargetType
+}
+
+func (a EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetOutput() EventTargetKinesisTargetOutput {
+	return pulumi.ToOutput(a).(EventTargetKinesisTargetOutput)
+}
+
+func (a EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetOutputWithContext(ctx context.Context) EventTargetKinesisTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetKinesisTargetOutput)
+}
+
+type EventTargetKinesisTargetOutput struct { *pulumi.OutputState }
+
+// The JSON path to be extracted from the event and used as the partition key.
+func (o EventTargetKinesisTargetOutput) PartitionKeyPath() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetKinesisTarget) string {
+		if v.PartitionKeyPath == nil { return *new(string) } else { return *v.PartitionKeyPath }
+	}).(pulumi.StringOutput)
+}
+
+func (EventTargetKinesisTargetOutput) ElementType() reflect.Type {
+	return eventTargetKinesisTargetType
+}
+
+func (o EventTargetKinesisTargetOutput) ToEventTargetKinesisTargetOutput() EventTargetKinesisTargetOutput {
+	return o
+}
+
+func (o EventTargetKinesisTargetOutput) ToEventTargetKinesisTargetOutputWithContext(ctx context.Context) EventTargetKinesisTargetOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetKinesisTargetOutput{}) }
+
+type EventTargetRunCommandTargets struct {
+	// Can be either `tag:tag-key` or `InstanceIds`.
+	Key string `pulumi:"key"`
+	// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
+	Values []string `pulumi:"values"`
+}
+var eventTargetRunCommandTargetsType = reflect.TypeOf((*EventTargetRunCommandTargets)(nil)).Elem()
+
+type EventTargetRunCommandTargetsInput interface {
+	pulumi.Input
+
+	ToEventTargetRunCommandTargetsOutput() EventTargetRunCommandTargetsOutput
+	ToEventTargetRunCommandTargetsOutputWithContext(ctx context.Context) EventTargetRunCommandTargetsOutput
+}
+
+type EventTargetRunCommandTargetsArgs struct {
+	// Can be either `tag:tag-key` or `InstanceIds`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EventTargetRunCommandTargetsArgs) ElementType() reflect.Type {
+	return eventTargetRunCommandTargetsType
+}
+
+func (a EventTargetRunCommandTargetsArgs) ToEventTargetRunCommandTargetsOutput() EventTargetRunCommandTargetsOutput {
+	return pulumi.ToOutput(a).(EventTargetRunCommandTargetsOutput)
+}
+
+func (a EventTargetRunCommandTargetsArgs) ToEventTargetRunCommandTargetsOutputWithContext(ctx context.Context) EventTargetRunCommandTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetRunCommandTargetsOutput)
+}
+
+type EventTargetRunCommandTargetsOutput struct { *pulumi.OutputState }
+
+// Can be either `tag:tag-key` or `InstanceIds`.
+func (o EventTargetRunCommandTargetsOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetRunCommandTargets) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
+func (o EventTargetRunCommandTargetsOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v EventTargetRunCommandTargets) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (EventTargetRunCommandTargetsOutput) ElementType() reflect.Type {
+	return eventTargetRunCommandTargetsType
+}
+
+func (o EventTargetRunCommandTargetsOutput) ToEventTargetRunCommandTargetsOutput() EventTargetRunCommandTargetsOutput {
+	return o
+}
+
+func (o EventTargetRunCommandTargetsOutput) ToEventTargetRunCommandTargetsOutputWithContext(ctx context.Context) EventTargetRunCommandTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetRunCommandTargetsOutput{}) }
+
+var eventTargetRunCommandTargetsArrayType = reflect.TypeOf((*[]EventTargetRunCommandTargets)(nil)).Elem()
+
+type EventTargetRunCommandTargetsArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetRunCommandTargetsArrayOutput() EventTargetRunCommandTargetsArrayOutput
+	ToEventTargetRunCommandTargetsArrayOutputWithContext(ctx context.Context) EventTargetRunCommandTargetsArrayOutput
+}
+
+type EventTargetRunCommandTargetsArrayArgs []EventTargetRunCommandTargetsInput
+
+func (EventTargetRunCommandTargetsArrayArgs) ElementType() reflect.Type {
+	return eventTargetRunCommandTargetsArrayType
+}
+
+func (a EventTargetRunCommandTargetsArrayArgs) ToEventTargetRunCommandTargetsArrayOutput() EventTargetRunCommandTargetsArrayOutput {
+	return pulumi.ToOutput(a).(EventTargetRunCommandTargetsArrayOutput)
+}
+
+func (a EventTargetRunCommandTargetsArrayArgs) ToEventTargetRunCommandTargetsArrayOutputWithContext(ctx context.Context) EventTargetRunCommandTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetRunCommandTargetsArrayOutput)
+}
+
+type EventTargetRunCommandTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o EventTargetRunCommandTargetsArrayOutput) Index(i pulumi.IntInput) EventTargetRunCommandTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) EventTargetRunCommandTargets {
+		return vs[0].([]EventTargetRunCommandTargets)[vs[1].(int)]
+	}).(EventTargetRunCommandTargetsOutput)
+}
+
+func (EventTargetRunCommandTargetsArrayOutput) ElementType() reflect.Type {
+	return eventTargetRunCommandTargetsArrayType
+}
+
+func (o EventTargetRunCommandTargetsArrayOutput) ToEventTargetRunCommandTargetsArrayOutput() EventTargetRunCommandTargetsArrayOutput {
+	return o
+}
+
+func (o EventTargetRunCommandTargetsArrayOutput) ToEventTargetRunCommandTargetsArrayOutputWithContext(ctx context.Context) EventTargetRunCommandTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetRunCommandTargetsArrayOutput{}) }
+
+type EventTargetSqsTarget struct {
+	// The FIFO message group ID to use as the target.
+	MessageGroupId *string `pulumi:"messageGroupId"`
+}
+var eventTargetSqsTargetType = reflect.TypeOf((*EventTargetSqsTarget)(nil)).Elem()
+
+type EventTargetSqsTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetSqsTargetOutput() EventTargetSqsTargetOutput
+	ToEventTargetSqsTargetOutputWithContext(ctx context.Context) EventTargetSqsTargetOutput
+}
+
+type EventTargetSqsTargetArgs struct {
+	// The FIFO message group ID to use as the target.
+	MessageGroupId pulumi.StringInput `pulumi:"messageGroupId"`
+}
+
+func (EventTargetSqsTargetArgs) ElementType() reflect.Type {
+	return eventTargetSqsTargetType
+}
+
+func (a EventTargetSqsTargetArgs) ToEventTargetSqsTargetOutput() EventTargetSqsTargetOutput {
+	return pulumi.ToOutput(a).(EventTargetSqsTargetOutput)
+}
+
+func (a EventTargetSqsTargetArgs) ToEventTargetSqsTargetOutputWithContext(ctx context.Context) EventTargetSqsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventTargetSqsTargetOutput)
+}
+
+type EventTargetSqsTargetOutput struct { *pulumi.OutputState }
+
+// The FIFO message group ID to use as the target.
+func (o EventTargetSqsTargetOutput) MessageGroupId() pulumi.StringOutput {
+	return o.Apply(func(v EventTargetSqsTarget) string {
+		if v.MessageGroupId == nil { return *new(string) } else { return *v.MessageGroupId }
+	}).(pulumi.StringOutput)
+}
+
+func (EventTargetSqsTargetOutput) ElementType() reflect.Type {
+	return eventTargetSqsTargetType
+}
+
+func (o EventTargetSqsTargetOutput) ToEventTargetSqsTargetOutput() EventTargetSqsTargetOutput {
+	return o
+}
+
+func (o EventTargetSqsTargetOutput) ToEventTargetSqsTargetOutputWithContext(ctx context.Context) EventTargetSqsTargetOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventTargetSqsTargetOutput{}) }
+

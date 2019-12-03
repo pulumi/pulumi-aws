@@ -11,36 +11,40 @@ import (
 // ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
-func LookupAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs) (*GetAutoscalingGroupsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-	}
-	outputs, err := ctx.Invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", inputs)
+func LookupAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs, opts ...pulumi.InvokeOption) (*GetAutoscalingGroupsResult, error) {
+	var rv GetAutoscalingGroupsResult
+	err := ctx.Invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAutoscalingGroupsResult{
-		Arns: outputs["arns"],
-		Filters: outputs["filters"],
-		Names: outputs["names"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAutoscalingGroups.
 type GetAutoscalingGroupsArgs struct {
 	// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-	Filters interface{}
+	Filters *[]GetAutoscalingGroupsFiltersArgs `pulumi:"filters"`
 }
 
 // A collection of values returned by getAutoscalingGroups.
 type GetAutoscalingGroupsResult struct {
 	// A list of the Autoscaling Groups Arns in the current region.
-	Arns interface{}
-	Filters interface{}
+	Arns []string `pulumi:"arns"`
+	Filters *[]GetAutoscalingGroupsFiltersResult `pulumi:"filters"`
 	// A list of the Autoscaling Groups in the current region.
-	Names interface{}
+	Names []string `pulumi:"names"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAutoscalingGroupsFiltersArgs struct {
+	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+	Name string `pulumi:"name"`
+	// The value of the filter.
+	Values []string `pulumi:"values"`
+}
+type GetAutoscalingGroupsFiltersResult struct {
+	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+	Name string `pulumi:"name"`
+	// The value of the filter.
+	Values []string `pulumi:"values"`
 }

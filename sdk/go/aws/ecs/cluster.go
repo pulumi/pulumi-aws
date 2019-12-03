@@ -4,6 +4,8 @@
 package ecs
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -18,96 +20,181 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) that identifies the cluster
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
+	Settings ClusterSettingsArrayOutput `pulumi:"settings"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["settings"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["settings"] = args.Settings
-		inputs["tags"] = args.Tags
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Settings; i != nil { inputs["settings"] = i.ToClusterSettingsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:ecs/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:ecs/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["settings"] = state.Settings
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Settings; i != nil { inputs["settings"] = i.ToClusterSettingsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ecs/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:ecs/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) that identifies the cluster
-func (r *Cluster) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-func (r *Cluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
-func (r *Cluster) Settings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["settings"])
-}
-
-// Key-value mapping of resource tags
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// The Amazon Resource Name (ARN) that identifies the cluster
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
-	Settings interface{}
+	Settings ClusterSettingsArrayInput `pulumi:"settings"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
-	Settings interface{}
+	Settings ClusterSettingsArrayInput `pulumi:"settings"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ClusterSettings struct {
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	Name string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+var clusterSettingsType = reflect.TypeOf((*ClusterSettings)(nil)).Elem()
+
+type ClusterSettingsInput interface {
+	pulumi.Input
+
+	ToClusterSettingsOutput() ClusterSettingsOutput
+	ToClusterSettingsOutputWithContext(ctx context.Context) ClusterSettingsOutput
+}
+
+type ClusterSettingsArgs struct {
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	Name pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterSettingsArgs) ElementType() reflect.Type {
+	return clusterSettingsType
+}
+
+func (a ClusterSettingsArgs) ToClusterSettingsOutput() ClusterSettingsOutput {
+	return pulumi.ToOutput(a).(ClusterSettingsOutput)
+}
+
+func (a ClusterSettingsArgs) ToClusterSettingsOutputWithContext(ctx context.Context) ClusterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterSettingsOutput)
+}
+
+type ClusterSettingsOutput struct { *pulumi.OutputState }
+
+// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+func (o ClusterSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterSettingsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ClusterSettings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterSettingsOutput) ElementType() reflect.Type {
+	return clusterSettingsType
+}
+
+func (o ClusterSettingsOutput) ToClusterSettingsOutput() ClusterSettingsOutput {
+	return o
+}
+
+func (o ClusterSettingsOutput) ToClusterSettingsOutputWithContext(ctx context.Context) ClusterSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterSettingsOutput{}) }
+
+var clusterSettingsArrayType = reflect.TypeOf((*[]ClusterSettings)(nil)).Elem()
+
+type ClusterSettingsArrayInput interface {
+	pulumi.Input
+
+	ToClusterSettingsArrayOutput() ClusterSettingsArrayOutput
+	ToClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterSettingsArrayOutput
+}
+
+type ClusterSettingsArrayArgs []ClusterSettingsInput
+
+func (ClusterSettingsArrayArgs) ElementType() reflect.Type {
+	return clusterSettingsArrayType
+}
+
+func (a ClusterSettingsArrayArgs) ToClusterSettingsArrayOutput() ClusterSettingsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterSettingsArrayOutput)
+}
+
+func (a ClusterSettingsArrayArgs) ToClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterSettingsArrayOutput)
+}
+
+type ClusterSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterSettings {
+		return vs[0].([]ClusterSettings)[vs[1].(int)]
+	}).(ClusterSettingsOutput)
+}
+
+func (ClusterSettingsArrayOutput) ElementType() reflect.Type {
+	return clusterSettingsArrayType
+}
+
+func (o ClusterSettingsArrayOutput) ToClusterSettingsArrayOutput() ClusterSettingsArrayOutput {
+	return o
+}
+
+func (o ClusterSettingsArrayOutput) ToClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterSettingsArrayOutput{}) }
+

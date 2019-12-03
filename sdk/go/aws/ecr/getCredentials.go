@@ -7,35 +7,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-func LookupCredentials(ctx *pulumi.Context, args *GetCredentialsArgs) (*GetCredentialsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["registryId"] = args.RegistryId
-	}
-	outputs, err := ctx.Invoke("aws:ecr/getCredentials:getCredentials", inputs)
+func LookupCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulumi.InvokeOption) (*GetCredentialsResult, error) {
+	var rv GetCredentialsResult
+	err := ctx.Invoke("aws:ecr/getCredentials:getCredentials", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetCredentialsResult{
-		AuthorizationToken: outputs["authorizationToken"],
-		ExpiresAt: outputs["expiresAt"],
-		ProxyEndpoint: outputs["proxyEndpoint"],
-		RegistryId: outputs["registryId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCredentials.
 type GetCredentialsArgs struct {
-	RegistryId interface{}
+	RegistryId string `pulumi:"registryId"`
 }
 
 // A collection of values returned by getCredentials.
 type GetCredentialsResult struct {
-	AuthorizationToken interface{}
-	ExpiresAt interface{}
-	ProxyEndpoint interface{}
-	RegistryId interface{}
+	AuthorizationToken string `pulumi:"authorizationToken"`
+	ExpiresAt string `pulumi:"expiresAt"`
+	ProxyEndpoint string `pulumi:"proxyEndpoint"`
+	RegistryId string `pulumi:"registryId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

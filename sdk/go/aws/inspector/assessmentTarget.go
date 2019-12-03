@@ -11,84 +11,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_assessment_target.html.markdown.
 type AssessmentTarget struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The target assessment ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name of the assessment target.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+	ResourceGroupArn pulumi.StringOutput `pulumi:"resourceGroupArn"`
 }
 
 // NewAssessmentTarget registers a new resource with the given unique name, arguments, and options.
 func NewAssessmentTarget(ctx *pulumi.Context,
-	name string, args *AssessmentTargetArgs, opts ...pulumi.ResourceOpt) (*AssessmentTarget, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["resourceGroupArn"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["resourceGroupArn"] = args.ResourceGroupArn
+	name string, args *AssessmentTargetArgs, opts ...pulumi.ResourceOption) (*AssessmentTarget, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupArn; i != nil { inputs["resourceGroupArn"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:inspector/assessmentTarget:AssessmentTarget", name, true, inputs, opts...)
+	var resource AssessmentTarget
+	err := ctx.RegisterResource("aws:inspector/assessmentTarget:AssessmentTarget", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AssessmentTarget{s: s}, nil
+	return &resource, nil
 }
 
 // GetAssessmentTarget gets an existing AssessmentTarget resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAssessmentTarget(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AssessmentTargetState, opts ...pulumi.ResourceOpt) (*AssessmentTarget, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AssessmentTargetState, opts ...pulumi.ResourceOption) (*AssessmentTarget, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["resourceGroupArn"] = state.ResourceGroupArn
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupArn; i != nil { inputs["resourceGroupArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:inspector/assessmentTarget:AssessmentTarget", name, id, inputs, opts...)
+	var resource AssessmentTarget
+	err := ctx.ReadResource("aws:inspector/assessmentTarget:AssessmentTarget", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AssessmentTarget{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AssessmentTarget) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AssessmentTarget) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The target assessment ARN.
-func (r *AssessmentTarget) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name of the assessment target.
-func (r *AssessmentTarget) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-func (r *AssessmentTarget) ResourceGroupArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AssessmentTarget resources.
 type AssessmentTargetState struct {
 	// The target assessment ARN.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name of the assessment target.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-	ResourceGroupArn interface{}
+	ResourceGroupArn pulumi.StringInput `pulumi:"resourceGroupArn"`
 }
 
 // The set of arguments for constructing a AssessmentTarget resource.
 type AssessmentTargetArgs struct {
 	// The name of the assessment target.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-	ResourceGroupArn interface{}
+	ResourceGroupArn pulumi.StringInput `pulumi:"resourceGroupArn"`
 }

@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
 type PatchGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the patch baseline to register the patch group with.
+	BaselineId pulumi.StringOutput `pulumi:"baselineId"`
+
+	// The name of the patch group that should be registered with the patch baseline.
+	PatchGroup pulumi.StringOutput `pulumi:"patchGroup"`
 }
 
 // NewPatchGroup registers a new resource with the given unique name, arguments, and options.
 func NewPatchGroup(ctx *pulumi.Context,
-	name string, args *PatchGroupArgs, opts ...pulumi.ResourceOpt) (*PatchGroup, error) {
+	name string, args *PatchGroupArgs, opts ...pulumi.ResourceOption) (*PatchGroup, error) {
 	if args == nil || args.BaselineId == nil {
 		return nil, errors.New("missing required argument 'BaselineId'")
 	}
 	if args == nil || args.PatchGroup == nil {
 		return nil, errors.New("missing required argument 'PatchGroup'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["baselineId"] = nil
-		inputs["patchGroup"] = nil
-	} else {
-		inputs["baselineId"] = args.BaselineId
-		inputs["patchGroup"] = args.PatchGroup
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BaselineId; i != nil { inputs["baselineId"] = i.ToStringOutput() }
+		if i := args.PatchGroup; i != nil { inputs["patchGroup"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ssm/patchGroup:PatchGroup", name, true, inputs, opts...)
+	var resource PatchGroup
+	err := ctx.RegisterResource("aws:ssm/patchGroup:PatchGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PatchGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetPatchGroup gets an existing PatchGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPatchGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PatchGroupState, opts ...pulumi.ResourceOpt) (*PatchGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PatchGroupState, opts ...pulumi.ResourceOption) (*PatchGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["baselineId"] = state.BaselineId
-		inputs["patchGroup"] = state.PatchGroup
+		if i := state.BaselineId; i != nil { inputs["baselineId"] = i.ToStringOutput() }
+		if i := state.PatchGroup; i != nil { inputs["patchGroup"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/patchGroup:PatchGroup", name, id, inputs, opts...)
+	var resource PatchGroup
+	err := ctx.ReadResource("aws:ssm/patchGroup:PatchGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PatchGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PatchGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PatchGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the patch baseline to register the patch group with.
-func (r *PatchGroup) BaselineId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["baselineId"])
-}
-
-// The name of the patch group that should be registered with the patch baseline.
-func (r *PatchGroup) PatchGroup() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["patchGroup"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PatchGroup resources.
 type PatchGroupState struct {
 	// The ID of the patch baseline to register the patch group with.
-	BaselineId interface{}
+	BaselineId pulumi.StringInput `pulumi:"baselineId"`
 	// The name of the patch group that should be registered with the patch baseline.
-	PatchGroup interface{}
+	PatchGroup pulumi.StringInput `pulumi:"patchGroup"`
 }
 
 // The set of arguments for constructing a PatchGroup resource.
 type PatchGroupArgs struct {
 	// The ID of the patch baseline to register the patch group with.
-	BaselineId interface{}
+	BaselineId pulumi.StringInput `pulumi:"baselineId"`
 	// The name of the patch group that should be registered with the patch baseline.
-	PatchGroup interface{}
+	PatchGroup pulumi.StringInput `pulumi:"patchGroup"`
 }

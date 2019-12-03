@@ -14,111 +14,87 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
 type Alias struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the key alias.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates an unique alias beginning with the specified prefix.
+	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// The Amazon Resource Name (ARN) of the target key identifier.
+	TargetKeyArn pulumi.StringOutput `pulumi:"targetKeyArn"`
+
+	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
+	TargetKeyId pulumi.StringOutput `pulumi:"targetKeyId"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
 func NewAlias(ctx *pulumi.Context,
-	name string, args *AliasArgs, opts ...pulumi.ResourceOpt) (*Alias, error) {
+	name string, args *AliasArgs, opts ...pulumi.ResourceOption) (*Alias, error) {
 	if args == nil || args.TargetKeyId == nil {
 		return nil, errors.New("missing required argument 'TargetKeyId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["targetKeyId"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["targetKeyId"] = args.TargetKeyId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.TargetKeyId; i != nil { inputs["targetKeyId"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["targetKeyArn"] = nil
-	s, err := ctx.RegisterResource("aws:kms/alias:Alias", name, true, inputs, opts...)
+	var resource Alias
+	err := ctx.RegisterResource("aws:kms/alias:Alias", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Alias{s: s}, nil
+	return &resource, nil
 }
 
 // GetAlias gets an existing Alias resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAlias(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AliasState, opts ...pulumi.ResourceOpt) (*Alias, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AliasState, opts ...pulumi.ResourceOption) (*Alias, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["targetKeyArn"] = state.TargetKeyArn
-		inputs["targetKeyId"] = state.TargetKeyId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.TargetKeyArn; i != nil { inputs["targetKeyArn"] = i.ToStringOutput() }
+		if i := state.TargetKeyId; i != nil { inputs["targetKeyId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:kms/alias:Alias", name, id, inputs, opts...)
+	var resource Alias
+	err := ctx.ReadResource("aws:kms/alias:Alias", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Alias{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Alias) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Alias) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the key alias.
-func (r *Alias) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-func (r *Alias) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates an unique alias beginning with the specified prefix.
-// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-func (r *Alias) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// The Amazon Resource Name (ARN) of the target key identifier.
-func (r *Alias) TargetKeyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetKeyArn"])
-}
-
-// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-func (r *Alias) TargetKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetKeyId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Alias resources.
 type AliasState struct {
 	// The Amazon Resource Name (ARN) of the key alias.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) of the target key identifier.
-	TargetKeyArn interface{}
+	TargetKeyArn pulumi.StringInput `pulumi:"targetKeyArn"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-	TargetKeyId interface{}
+	TargetKeyId pulumi.StringInput `pulumi:"targetKeyId"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
 	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
-	TargetKeyId interface{}
+	TargetKeyId pulumi.StringInput `pulumi:"targetKeyId"`
 }

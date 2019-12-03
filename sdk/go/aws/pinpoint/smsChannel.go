@@ -12,120 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.html.markdown.
 type SmsChannel struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+
+	// Whether the channel is enabled or disabled. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Promotional messages per second that can be sent.
+	PromotionalMessagesPerSecond pulumi.IntOutput `pulumi:"promotionalMessagesPerSecond"`
+
+	// Sender identifier of your messages.
+	SenderId pulumi.StringOutput `pulumi:"senderId"`
+
+	// The Short Code registered with the phone provider.
+	ShortCode pulumi.StringOutput `pulumi:"shortCode"`
+
+	// Transactional messages per second that can be sent.
+	TransactionalMessagesPerSecond pulumi.IntOutput `pulumi:"transactionalMessagesPerSecond"`
 }
 
 // NewSmsChannel registers a new resource with the given unique name, arguments, and options.
 func NewSmsChannel(ctx *pulumi.Context,
-	name string, args *SmsChannelArgs, opts ...pulumi.ResourceOpt) (*SmsChannel, error) {
+	name string, args *SmsChannelArgs, opts ...pulumi.ResourceOption) (*SmsChannel, error) {
 	if args == nil || args.ApplicationId == nil {
 		return nil, errors.New("missing required argument 'ApplicationId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationId"] = nil
-		inputs["enabled"] = nil
-		inputs["senderId"] = nil
-		inputs["shortCode"] = nil
-	} else {
-		inputs["applicationId"] = args.ApplicationId
-		inputs["enabled"] = args.Enabled
-		inputs["senderId"] = args.SenderId
-		inputs["shortCode"] = args.ShortCode
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.SenderId; i != nil { inputs["senderId"] = i.ToStringOutput() }
+		if i := args.ShortCode; i != nil { inputs["shortCode"] = i.ToStringOutput() }
 	}
-	inputs["promotionalMessagesPerSecond"] = nil
-	inputs["transactionalMessagesPerSecond"] = nil
-	s, err := ctx.RegisterResource("aws:pinpoint/smsChannel:SmsChannel", name, true, inputs, opts...)
+	var resource SmsChannel
+	err := ctx.RegisterResource("aws:pinpoint/smsChannel:SmsChannel", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SmsChannel{s: s}, nil
+	return &resource, nil
 }
 
 // GetSmsChannel gets an existing SmsChannel resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSmsChannel(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SmsChannelState, opts ...pulumi.ResourceOpt) (*SmsChannel, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SmsChannelState, opts ...pulumi.ResourceOption) (*SmsChannel, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationId"] = state.ApplicationId
-		inputs["enabled"] = state.Enabled
-		inputs["promotionalMessagesPerSecond"] = state.PromotionalMessagesPerSecond
-		inputs["senderId"] = state.SenderId
-		inputs["shortCode"] = state.ShortCode
-		inputs["transactionalMessagesPerSecond"] = state.TransactionalMessagesPerSecond
+		if i := state.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.PromotionalMessagesPerSecond; i != nil { inputs["promotionalMessagesPerSecond"] = i.ToIntOutput() }
+		if i := state.SenderId; i != nil { inputs["senderId"] = i.ToStringOutput() }
+		if i := state.ShortCode; i != nil { inputs["shortCode"] = i.ToStringOutput() }
+		if i := state.TransactionalMessagesPerSecond; i != nil { inputs["transactionalMessagesPerSecond"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("aws:pinpoint/smsChannel:SmsChannel", name, id, inputs, opts...)
+	var resource SmsChannel
+	err := ctx.ReadResource("aws:pinpoint/smsChannel:SmsChannel", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SmsChannel{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SmsChannel) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SmsChannel) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The application ID.
-func (r *SmsChannel) ApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationId"])
-}
-
-// Whether the channel is enabled or disabled. Defaults to `true`.
-func (r *SmsChannel) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Promotional messages per second that can be sent.
-func (r *SmsChannel) PromotionalMessagesPerSecond() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["promotionalMessagesPerSecond"])
-}
-
-// Sender identifier of your messages.
-func (r *SmsChannel) SenderId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["senderId"])
-}
-
-// The Short Code registered with the phone provider.
-func (r *SmsChannel) ShortCode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["shortCode"])
-}
-
-// Transactional messages per second that can be sent.
-func (r *SmsChannel) TransactionalMessagesPerSecond() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["transactionalMessagesPerSecond"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SmsChannel resources.
 type SmsChannelState struct {
 	// The application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Promotional messages per second that can be sent.
-	PromotionalMessagesPerSecond interface{}
+	PromotionalMessagesPerSecond pulumi.IntInput `pulumi:"promotionalMessagesPerSecond"`
 	// Sender identifier of your messages.
-	SenderId interface{}
+	SenderId pulumi.StringInput `pulumi:"senderId"`
 	// The Short Code registered with the phone provider.
-	ShortCode interface{}
+	ShortCode pulumi.StringInput `pulumi:"shortCode"`
 	// Transactional messages per second that can be sent.
-	TransactionalMessagesPerSecond interface{}
+	TransactionalMessagesPerSecond pulumi.IntInput `pulumi:"transactionalMessagesPerSecond"`
 }
 
 // The set of arguments for constructing a SmsChannel resource.
 type SmsChannelArgs struct {
 	// The application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Sender identifier of your messages.
-	SenderId interface{}
+	SenderId pulumi.StringInput `pulumi:"senderId"`
 	// The Short Code registered with the phone provider.
-	ShortCode interface{}
+	ShortCode pulumi.StringInput `pulumi:"shortCode"`
 }

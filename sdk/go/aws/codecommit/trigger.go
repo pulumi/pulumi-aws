@@ -4,6 +4,8 @@
 package codecommit
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -16,85 +18,209 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
 type Trigger struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
+
+	// The name for the repository. This needs to be less than 100 characters.
+	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
+
+	Triggers TriggerTriggersArrayOutput `pulumi:"triggers"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
 func NewTrigger(ctx *pulumi.Context,
-	name string, args *TriggerArgs, opts ...pulumi.ResourceOpt) (*Trigger, error) {
+	name string, args *TriggerArgs, opts ...pulumi.ResourceOption) (*Trigger, error) {
 	if args == nil || args.RepositoryName == nil {
 		return nil, errors.New("missing required argument 'RepositoryName'")
 	}
 	if args == nil || args.Triggers == nil {
 		return nil, errors.New("missing required argument 'Triggers'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["repositoryName"] = nil
-		inputs["triggers"] = nil
-	} else {
-		inputs["repositoryName"] = args.RepositoryName
-		inputs["triggers"] = args.Triggers
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.RepositoryName; i != nil { inputs["repositoryName"] = i.ToStringOutput() }
+		if i := args.Triggers; i != nil { inputs["triggers"] = i.ToTriggerTriggersArrayOutput() }
 	}
-	inputs["configurationId"] = nil
-	s, err := ctx.RegisterResource("aws:codecommit/trigger:Trigger", name, true, inputs, opts...)
+	var resource Trigger
+	err := ctx.RegisterResource("aws:codecommit/trigger:Trigger", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Trigger{s: s}, nil
+	return &resource, nil
 }
 
 // GetTrigger gets an existing Trigger resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTrigger(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TriggerState, opts ...pulumi.ResourceOpt) (*Trigger, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TriggerState, opts ...pulumi.ResourceOption) (*Trigger, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["configurationId"] = state.ConfigurationId
-		inputs["repositoryName"] = state.RepositoryName
-		inputs["triggers"] = state.Triggers
+		if i := state.ConfigurationId; i != nil { inputs["configurationId"] = i.ToStringOutput() }
+		if i := state.RepositoryName; i != nil { inputs["repositoryName"] = i.ToStringOutput() }
+		if i := state.Triggers; i != nil { inputs["triggers"] = i.ToTriggerTriggersArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:codecommit/trigger:Trigger", name, id, inputs, opts...)
+	var resource Trigger
+	err := ctx.ReadResource("aws:codecommit/trigger:Trigger", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Trigger{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Trigger) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Trigger) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Trigger) ConfigurationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configurationId"])
-}
-
-// The name for the repository. This needs to be less than 100 characters.
-func (r *Trigger) RepositoryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["repositoryName"])
-}
-
-func (r *Trigger) Triggers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["triggers"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Trigger resources.
 type TriggerState struct {
-	ConfigurationId interface{}
+	ConfigurationId pulumi.StringInput `pulumi:"configurationId"`
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName interface{}
-	Triggers interface{}
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	Triggers TriggerTriggersArrayInput `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName interface{}
-	Triggers interface{}
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	Triggers TriggerTriggersArrayInput `pulumi:"triggers"`
 }
+type TriggerTriggers struct {
+	// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+	Branches *[]string `pulumi:"branches"`
+	// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
+	CustomData *string `pulumi:"customData"`
+	// The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+	DestinationArn string `pulumi:"destinationArn"`
+	// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
+	Events []string `pulumi:"events"`
+	// The name of the trigger.
+	Name string `pulumi:"name"`
+}
+var triggerTriggersType = reflect.TypeOf((*TriggerTriggers)(nil)).Elem()
+
+type TriggerTriggersInput interface {
+	pulumi.Input
+
+	ToTriggerTriggersOutput() TriggerTriggersOutput
+	ToTriggerTriggersOutputWithContext(ctx context.Context) TriggerTriggersOutput
+}
+
+type TriggerTriggersArgs struct {
+	// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+	Branches pulumi.StringArrayInput `pulumi:"branches"`
+	// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
+	CustomData pulumi.StringInput `pulumi:"customData"`
+	// The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// The name of the trigger.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (TriggerTriggersArgs) ElementType() reflect.Type {
+	return triggerTriggersType
+}
+
+func (a TriggerTriggersArgs) ToTriggerTriggersOutput() TriggerTriggersOutput {
+	return pulumi.ToOutput(a).(TriggerTriggersOutput)
+}
+
+func (a TriggerTriggersArgs) ToTriggerTriggersOutputWithContext(ctx context.Context) TriggerTriggersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerTriggersOutput)
+}
+
+type TriggerTriggersOutput struct { *pulumi.OutputState }
+
+// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+func (o TriggerTriggersOutput) Branches() pulumi.StringArrayOutput {
+	return o.Apply(func(v TriggerTriggers) []string {
+		if v.Branches == nil { return *new([]string) } else { return *v.Branches }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
+func (o TriggerTriggersOutput) CustomData() pulumi.StringOutput {
+	return o.Apply(func(v TriggerTriggers) string {
+		if v.CustomData == nil { return *new(string) } else { return *v.CustomData }
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+func (o TriggerTriggersOutput) DestinationArn() pulumi.StringOutput {
+	return o.Apply(func(v TriggerTriggers) string {
+		return v.DestinationArn
+	}).(pulumi.StringOutput)
+}
+
+// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
+func (o TriggerTriggersOutput) Events() pulumi.StringArrayOutput {
+	return o.Apply(func(v TriggerTriggers) []string {
+		return v.Events
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the trigger.
+func (o TriggerTriggersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v TriggerTriggers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (TriggerTriggersOutput) ElementType() reflect.Type {
+	return triggerTriggersType
+}
+
+func (o TriggerTriggersOutput) ToTriggerTriggersOutput() TriggerTriggersOutput {
+	return o
+}
+
+func (o TriggerTriggersOutput) ToTriggerTriggersOutputWithContext(ctx context.Context) TriggerTriggersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerTriggersOutput{}) }
+
+var triggerTriggersArrayType = reflect.TypeOf((*[]TriggerTriggers)(nil)).Elem()
+
+type TriggerTriggersArrayInput interface {
+	pulumi.Input
+
+	ToTriggerTriggersArrayOutput() TriggerTriggersArrayOutput
+	ToTriggerTriggersArrayOutputWithContext(ctx context.Context) TriggerTriggersArrayOutput
+}
+
+type TriggerTriggersArrayArgs []TriggerTriggersInput
+
+func (TriggerTriggersArrayArgs) ElementType() reflect.Type {
+	return triggerTriggersArrayType
+}
+
+func (a TriggerTriggersArrayArgs) ToTriggerTriggersArrayOutput() TriggerTriggersArrayOutput {
+	return pulumi.ToOutput(a).(TriggerTriggersArrayOutput)
+}
+
+func (a TriggerTriggersArrayArgs) ToTriggerTriggersArrayOutputWithContext(ctx context.Context) TriggerTriggersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerTriggersArrayOutput)
+}
+
+type TriggerTriggersArrayOutput struct { *pulumi.OutputState }
+
+func (o TriggerTriggersArrayOutput) Index(i pulumi.IntInput) TriggerTriggersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TriggerTriggers {
+		return vs[0].([]TriggerTriggers)[vs[1].(int)]
+	}).(TriggerTriggersOutput)
+}
+
+func (TriggerTriggersArrayOutput) ElementType() reflect.Type {
+	return triggerTriggersArrayType
+}
+
+func (o TriggerTriggersArrayOutput) ToTriggerTriggersArrayOutput() TriggerTriggersArrayOutput {
+	return o
+}
+
+func (o TriggerTriggersArrayOutput) ToTriggerTriggersArrayOutputWithContext(ctx context.Context) TriggerTriggersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerTriggersArrayOutput{}) }
+

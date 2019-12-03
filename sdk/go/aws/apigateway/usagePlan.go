@@ -4,6 +4,8 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,123 +13,344 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_usage_plan.html.markdown.
 type UsagePlan struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The associated API stages of the usage plan.
+	ApiStages UsagePlanApiStagesArrayOutput `pulumi:"apiStages"`
+
+	// The description of a usage plan.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the usage plan.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+	ProductCode pulumi.StringOutput `pulumi:"productCode"`
+
+	// The quota settings of the usage plan.
+	QuotaSettings UsagePlanQuotaSettingsOutput `pulumi:"quotaSettings"`
+
+	// The throttling limits of the usage plan.
+	ThrottleSettings UsagePlanThrottleSettingsOutput `pulumi:"throttleSettings"`
 }
 
 // NewUsagePlan registers a new resource with the given unique name, arguments, and options.
 func NewUsagePlan(ctx *pulumi.Context,
-	name string, args *UsagePlanArgs, opts ...pulumi.ResourceOpt) (*UsagePlan, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiStages"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["productCode"] = nil
-		inputs["quotaSettings"] = nil
-		inputs["throttleSettings"] = nil
-	} else {
-		inputs["apiStages"] = args.ApiStages
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["productCode"] = args.ProductCode
-		inputs["quotaSettings"] = args.QuotaSettings
-		inputs["throttleSettings"] = args.ThrottleSettings
+	name string, args *UsagePlanArgs, opts ...pulumi.ResourceOption) (*UsagePlan, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiStages; i != nil { inputs["apiStages"] = i.ToUsagePlanApiStagesArrayOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ProductCode; i != nil { inputs["productCode"] = i.ToStringOutput() }
+		if i := args.QuotaSettings; i != nil { inputs["quotaSettings"] = i.ToUsagePlanQuotaSettingsOutput() }
+		if i := args.ThrottleSettings; i != nil { inputs["throttleSettings"] = i.ToUsagePlanThrottleSettingsOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:apigateway/usagePlan:UsagePlan", name, true, inputs, opts...)
+	var resource UsagePlan
+	err := ctx.RegisterResource("aws:apigateway/usagePlan:UsagePlan", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UsagePlan{s: s}, nil
+	return &resource, nil
 }
 
 // GetUsagePlan gets an existing UsagePlan resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetUsagePlan(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *UsagePlanState, opts ...pulumi.ResourceOpt) (*UsagePlan, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *UsagePlanState, opts ...pulumi.ResourceOption) (*UsagePlan, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiStages"] = state.ApiStages
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["productCode"] = state.ProductCode
-		inputs["quotaSettings"] = state.QuotaSettings
-		inputs["throttleSettings"] = state.ThrottleSettings
+		if i := state.ApiStages; i != nil { inputs["apiStages"] = i.ToUsagePlanApiStagesArrayOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ProductCode; i != nil { inputs["productCode"] = i.ToStringOutput() }
+		if i := state.QuotaSettings; i != nil { inputs["quotaSettings"] = i.ToUsagePlanQuotaSettingsOutput() }
+		if i := state.ThrottleSettings; i != nil { inputs["throttleSettings"] = i.ToUsagePlanThrottleSettingsOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/usagePlan:UsagePlan", name, id, inputs, opts...)
+	var resource UsagePlan
+	err := ctx.ReadResource("aws:apigateway/usagePlan:UsagePlan", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &UsagePlan{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *UsagePlan) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *UsagePlan) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The associated API stages of the usage plan.
-func (r *UsagePlan) ApiStages() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["apiStages"])
-}
-
-// The description of a usage plan.
-func (r *UsagePlan) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the usage plan.
-func (r *UsagePlan) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-func (r *UsagePlan) ProductCode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["productCode"])
-}
-
-// The quota settings of the usage plan.
-func (r *UsagePlan) QuotaSettings() pulumi.Output {
-	return r.s.State["quotaSettings"]
-}
-
-// The throttling limits of the usage plan.
-func (r *UsagePlan) ThrottleSettings() pulumi.Output {
-	return r.s.State["throttleSettings"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering UsagePlan resources.
 type UsagePlanState struct {
 	// The associated API stages of the usage plan.
-	ApiStages interface{}
+	ApiStages UsagePlanApiStagesArrayInput `pulumi:"apiStages"`
 	// The description of a usage plan.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the usage plan.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-	ProductCode interface{}
+	ProductCode pulumi.StringInput `pulumi:"productCode"`
 	// The quota settings of the usage plan.
-	QuotaSettings interface{}
+	QuotaSettings UsagePlanQuotaSettingsInput `pulumi:"quotaSettings"`
 	// The throttling limits of the usage plan.
-	ThrottleSettings interface{}
+	ThrottleSettings UsagePlanThrottleSettingsInput `pulumi:"throttleSettings"`
 }
 
 // The set of arguments for constructing a UsagePlan resource.
 type UsagePlanArgs struct {
 	// The associated API stages of the usage plan.
-	ApiStages interface{}
+	ApiStages UsagePlanApiStagesArrayInput `pulumi:"apiStages"`
 	// The description of a usage plan.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the usage plan.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-	ProductCode interface{}
+	ProductCode pulumi.StringInput `pulumi:"productCode"`
 	// The quota settings of the usage plan.
-	QuotaSettings interface{}
+	QuotaSettings UsagePlanQuotaSettingsInput `pulumi:"quotaSettings"`
 	// The throttling limits of the usage plan.
-	ThrottleSettings interface{}
+	ThrottleSettings UsagePlanThrottleSettingsInput `pulumi:"throttleSettings"`
 }
+type UsagePlanApiStages struct {
+	// API Id of the associated API stage in a usage plan.
+	ApiId string `pulumi:"apiId"`
+	// API stage name of the associated API stage in a usage plan.
+	Stage string `pulumi:"stage"`
+}
+var usagePlanApiStagesType = reflect.TypeOf((*UsagePlanApiStages)(nil)).Elem()
+
+type UsagePlanApiStagesInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStagesOutput() UsagePlanApiStagesOutput
+	ToUsagePlanApiStagesOutputWithContext(ctx context.Context) UsagePlanApiStagesOutput
+}
+
+type UsagePlanApiStagesArgs struct {
+	// API Id of the associated API stage in a usage plan.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// API stage name of the associated API stage in a usage plan.
+	Stage pulumi.StringInput `pulumi:"stage"`
+}
+
+func (UsagePlanApiStagesArgs) ElementType() reflect.Type {
+	return usagePlanApiStagesType
+}
+
+func (a UsagePlanApiStagesArgs) ToUsagePlanApiStagesOutput() UsagePlanApiStagesOutput {
+	return pulumi.ToOutput(a).(UsagePlanApiStagesOutput)
+}
+
+func (a UsagePlanApiStagesArgs) ToUsagePlanApiStagesOutputWithContext(ctx context.Context) UsagePlanApiStagesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UsagePlanApiStagesOutput)
+}
+
+type UsagePlanApiStagesOutput struct { *pulumi.OutputState }
+
+// API Id of the associated API stage in a usage plan.
+func (o UsagePlanApiStagesOutput) ApiId() pulumi.StringOutput {
+	return o.Apply(func(v UsagePlanApiStages) string {
+		return v.ApiId
+	}).(pulumi.StringOutput)
+}
+
+// API stage name of the associated API stage in a usage plan.
+func (o UsagePlanApiStagesOutput) Stage() pulumi.StringOutput {
+	return o.Apply(func(v UsagePlanApiStages) string {
+		return v.Stage
+	}).(pulumi.StringOutput)
+}
+
+func (UsagePlanApiStagesOutput) ElementType() reflect.Type {
+	return usagePlanApiStagesType
+}
+
+func (o UsagePlanApiStagesOutput) ToUsagePlanApiStagesOutput() UsagePlanApiStagesOutput {
+	return o
+}
+
+func (o UsagePlanApiStagesOutput) ToUsagePlanApiStagesOutputWithContext(ctx context.Context) UsagePlanApiStagesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UsagePlanApiStagesOutput{}) }
+
+var usagePlanApiStagesArrayType = reflect.TypeOf((*[]UsagePlanApiStages)(nil)).Elem()
+
+type UsagePlanApiStagesArrayInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStagesArrayOutput() UsagePlanApiStagesArrayOutput
+	ToUsagePlanApiStagesArrayOutputWithContext(ctx context.Context) UsagePlanApiStagesArrayOutput
+}
+
+type UsagePlanApiStagesArrayArgs []UsagePlanApiStagesInput
+
+func (UsagePlanApiStagesArrayArgs) ElementType() reflect.Type {
+	return usagePlanApiStagesArrayType
+}
+
+func (a UsagePlanApiStagesArrayArgs) ToUsagePlanApiStagesArrayOutput() UsagePlanApiStagesArrayOutput {
+	return pulumi.ToOutput(a).(UsagePlanApiStagesArrayOutput)
+}
+
+func (a UsagePlanApiStagesArrayArgs) ToUsagePlanApiStagesArrayOutputWithContext(ctx context.Context) UsagePlanApiStagesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UsagePlanApiStagesArrayOutput)
+}
+
+type UsagePlanApiStagesArrayOutput struct { *pulumi.OutputState }
+
+func (o UsagePlanApiStagesArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStagesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) UsagePlanApiStages {
+		return vs[0].([]UsagePlanApiStages)[vs[1].(int)]
+	}).(UsagePlanApiStagesOutput)
+}
+
+func (UsagePlanApiStagesArrayOutput) ElementType() reflect.Type {
+	return usagePlanApiStagesArrayType
+}
+
+func (o UsagePlanApiStagesArrayOutput) ToUsagePlanApiStagesArrayOutput() UsagePlanApiStagesArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStagesArrayOutput) ToUsagePlanApiStagesArrayOutputWithContext(ctx context.Context) UsagePlanApiStagesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UsagePlanApiStagesArrayOutput{}) }
+
+type UsagePlanQuotaSettings struct {
+	// The maximum number of requests that can be made in a given time period.
+	Limit int `pulumi:"limit"`
+	// The number of requests subtracted from the given limit in the initial time period.
+	Offset *int `pulumi:"offset"`
+	// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+	Period string `pulumi:"period"`
+}
+var usagePlanQuotaSettingsType = reflect.TypeOf((*UsagePlanQuotaSettings)(nil)).Elem()
+
+type UsagePlanQuotaSettingsInput interface {
+	pulumi.Input
+
+	ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput
+	ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput
+}
+
+type UsagePlanQuotaSettingsArgs struct {
+	// The maximum number of requests that can be made in a given time period.
+	Limit pulumi.IntInput `pulumi:"limit"`
+	// The number of requests subtracted from the given limit in the initial time period.
+	Offset pulumi.IntInput `pulumi:"offset"`
+	// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+	Period pulumi.StringInput `pulumi:"period"`
+}
+
+func (UsagePlanQuotaSettingsArgs) ElementType() reflect.Type {
+	return usagePlanQuotaSettingsType
+}
+
+func (a UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput {
+	return pulumi.ToOutput(a).(UsagePlanQuotaSettingsOutput)
+}
+
+func (a UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UsagePlanQuotaSettingsOutput)
+}
+
+type UsagePlanQuotaSettingsOutput struct { *pulumi.OutputState }
+
+// The maximum number of requests that can be made in a given time period.
+func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntOutput {
+	return o.Apply(func(v UsagePlanQuotaSettings) int {
+		return v.Limit
+	}).(pulumi.IntOutput)
+}
+
+// The number of requests subtracted from the given limit in the initial time period.
+func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntOutput {
+	return o.Apply(func(v UsagePlanQuotaSettings) int {
+		if v.Offset == nil { return *new(int) } else { return *v.Offset }
+	}).(pulumi.IntOutput)
+}
+
+// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringOutput {
+	return o.Apply(func(v UsagePlanQuotaSettings) string {
+		return v.Period
+	}).(pulumi.StringOutput)
+}
+
+func (UsagePlanQuotaSettingsOutput) ElementType() reflect.Type {
+	return usagePlanQuotaSettingsType
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UsagePlanQuotaSettingsOutput{}) }
+
+type UsagePlanThrottleSettings struct {
+	// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	BurstLimit *int `pulumi:"burstLimit"`
+	// The API request steady-state rate limit.
+	RateLimit *float64 `pulumi:"rateLimit"`
+}
+var usagePlanThrottleSettingsType = reflect.TypeOf((*UsagePlanThrottleSettings)(nil)).Elem()
+
+type UsagePlanThrottleSettingsInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput
+	ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput
+}
+
+type UsagePlanThrottleSettingsArgs struct {
+	// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	BurstLimit pulumi.IntInput `pulumi:"burstLimit"`
+	// The API request steady-state rate limit.
+	RateLimit pulumi.Float64Input `pulumi:"rateLimit"`
+}
+
+func (UsagePlanThrottleSettingsArgs) ElementType() reflect.Type {
+	return usagePlanThrottleSettingsType
+}
+
+func (a UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput {
+	return pulumi.ToOutput(a).(UsagePlanThrottleSettingsOutput)
+}
+
+func (a UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(UsagePlanThrottleSettingsOutput)
+}
+
+type UsagePlanThrottleSettingsOutput struct { *pulumi.OutputState }
+
+// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntOutput {
+	return o.Apply(func(v UsagePlanThrottleSettings) int {
+		if v.BurstLimit == nil { return *new(int) } else { return *v.BurstLimit }
+	}).(pulumi.IntOutput)
+}
+
+// The API request steady-state rate limit.
+func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64Output {
+	return o.Apply(func(v UsagePlanThrottleSettings) float64 {
+		if v.RateLimit == nil { return *new(float64) } else { return *v.RateLimit }
+	}).(pulumi.Float64Output)
+}
+
+func (UsagePlanThrottleSettingsOutput) ElementType() reflect.Type {
+	return usagePlanThrottleSettingsType
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{}) }
+

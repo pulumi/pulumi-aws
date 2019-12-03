@@ -19,253 +19,178 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
 type ClusterInstance struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether any database modifications
+	// are applied immediately, or during the next maintenance window. Default is`false`.
+	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+
+	// Amazon Resource Name (ARN) of cluster instance
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
+
+	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+
+	// The DB subnet group to associate with this DB instance.
+	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+
+	// The region-unique, immutable identifier for the DB instance.
+	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
+
+	// The DNS address for this instance. May not be writable
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+	Engine pulumi.StringOutput `pulumi:"engine"`
+
+	// The database engine version
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+
+	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+	Identifier pulumi.StringOutput `pulumi:"identifier"`
+
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
+	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
+
+	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
+	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
+	// - db.r4.large
+	// - db.r4.xlarge
+	// - db.r4.2xlarge
+	// - db.r4.4xlarge
+	// - db.r4.8xlarge
+	// - db.r4.16xlarge
+	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
+
+	// The ARN for the KMS encryption key if one is set to the cluster.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// The database port
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// The daily time range during which automated backups are created if automated backups are enabled.
+	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
+
+	// The window to perform maintenance in.
+	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+
+	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+	PromotionTier pulumi.IntOutput `pulumi:"promotionTier"`
+
+	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
+
+	// Specifies whether the DB cluster is encrypted.
+	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+
+	// A mapping of tags to assign to the instance.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+	Writer pulumi.BoolOutput `pulumi:"writer"`
 }
 
 // NewClusterInstance registers a new resource with the given unique name, arguments, and options.
 func NewClusterInstance(ctx *pulumi.Context,
-	name string, args *ClusterInstanceArgs, opts ...pulumi.ResourceOpt) (*ClusterInstance, error) {
+	name string, args *ClusterInstanceArgs, opts ...pulumi.ResourceOption) (*ClusterInstance, error) {
 	if args == nil || args.ClusterIdentifier == nil {
 		return nil, errors.New("missing required argument 'ClusterIdentifier'")
 	}
 	if args == nil || args.InstanceClass == nil {
 		return nil, errors.New("missing required argument 'InstanceClass'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applyImmediately"] = nil
-		inputs["autoMinorVersionUpgrade"] = nil
-		inputs["availabilityZone"] = nil
-		inputs["clusterIdentifier"] = nil
-		inputs["engine"] = nil
-		inputs["identifier"] = nil
-		inputs["identifierPrefix"] = nil
-		inputs["instanceClass"] = nil
-		inputs["preferredMaintenanceWindow"] = nil
-		inputs["promotionTier"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["applyImmediately"] = args.ApplyImmediately
-		inputs["autoMinorVersionUpgrade"] = args.AutoMinorVersionUpgrade
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["clusterIdentifier"] = args.ClusterIdentifier
-		inputs["engine"] = args.Engine
-		inputs["identifier"] = args.Identifier
-		inputs["identifierPrefix"] = args.IdentifierPrefix
-		inputs["instanceClass"] = args.InstanceClass
-		inputs["preferredMaintenanceWindow"] = args.PreferredMaintenanceWindow
-		inputs["promotionTier"] = args.PromotionTier
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := args.AutoMinorVersionUpgrade; i != nil { inputs["autoMinorVersionUpgrade"] = i.ToBoolOutput() }
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.ClusterIdentifier; i != nil { inputs["clusterIdentifier"] = i.ToStringOutput() }
+		if i := args.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := args.Identifier; i != nil { inputs["identifier"] = i.ToStringOutput() }
+		if i := args.IdentifierPrefix; i != nil { inputs["identifierPrefix"] = i.ToStringOutput() }
+		if i := args.InstanceClass; i != nil { inputs["instanceClass"] = i.ToStringOutput() }
+		if i := args.PreferredMaintenanceWindow; i != nil { inputs["preferredMaintenanceWindow"] = i.ToStringOutput() }
+		if i := args.PromotionTier; i != nil { inputs["promotionTier"] = i.ToIntOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["dbSubnetGroupName"] = nil
-	inputs["dbiResourceId"] = nil
-	inputs["endpoint"] = nil
-	inputs["engineVersion"] = nil
-	inputs["kmsKeyId"] = nil
-	inputs["port"] = nil
-	inputs["preferredBackupWindow"] = nil
-	inputs["publiclyAccessible"] = nil
-	inputs["storageEncrypted"] = nil
-	inputs["writer"] = nil
-	s, err := ctx.RegisterResource("aws:docdb/clusterInstance:ClusterInstance", name, true, inputs, opts...)
+	var resource ClusterInstance
+	err := ctx.RegisterResource("aws:docdb/clusterInstance:ClusterInstance", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterInstance{s: s}, nil
+	return &resource, nil
 }
 
 // GetClusterInstance gets an existing ClusterInstance resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetClusterInstance(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterInstanceState, opts ...pulumi.ResourceOpt) (*ClusterInstance, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterInstanceState, opts ...pulumi.ResourceOption) (*ClusterInstance, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applyImmediately"] = state.ApplyImmediately
-		inputs["arn"] = state.Arn
-		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["clusterIdentifier"] = state.ClusterIdentifier
-		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
-		inputs["dbiResourceId"] = state.DbiResourceId
-		inputs["endpoint"] = state.Endpoint
-		inputs["engine"] = state.Engine
-		inputs["engineVersion"] = state.EngineVersion
-		inputs["identifier"] = state.Identifier
-		inputs["identifierPrefix"] = state.IdentifierPrefix
-		inputs["instanceClass"] = state.InstanceClass
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["port"] = state.Port
-		inputs["preferredBackupWindow"] = state.PreferredBackupWindow
-		inputs["preferredMaintenanceWindow"] = state.PreferredMaintenanceWindow
-		inputs["promotionTier"] = state.PromotionTier
-		inputs["publiclyAccessible"] = state.PubliclyAccessible
-		inputs["storageEncrypted"] = state.StorageEncrypted
-		inputs["tags"] = state.Tags
-		inputs["writer"] = state.Writer
+		if i := state.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AutoMinorVersionUpgrade; i != nil { inputs["autoMinorVersionUpgrade"] = i.ToBoolOutput() }
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.ClusterIdentifier; i != nil { inputs["clusterIdentifier"] = i.ToStringOutput() }
+		if i := state.DbSubnetGroupName; i != nil { inputs["dbSubnetGroupName"] = i.ToStringOutput() }
+		if i := state.DbiResourceId; i != nil { inputs["dbiResourceId"] = i.ToStringOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Engine; i != nil { inputs["engine"] = i.ToStringOutput() }
+		if i := state.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := state.Identifier; i != nil { inputs["identifier"] = i.ToStringOutput() }
+		if i := state.IdentifierPrefix; i != nil { inputs["identifierPrefix"] = i.ToStringOutput() }
+		if i := state.InstanceClass; i != nil { inputs["instanceClass"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.PreferredBackupWindow; i != nil { inputs["preferredBackupWindow"] = i.ToStringOutput() }
+		if i := state.PreferredMaintenanceWindow; i != nil { inputs["preferredMaintenanceWindow"] = i.ToStringOutput() }
+		if i := state.PromotionTier; i != nil { inputs["promotionTier"] = i.ToIntOutput() }
+		if i := state.PubliclyAccessible; i != nil { inputs["publiclyAccessible"] = i.ToBoolOutput() }
+		if i := state.StorageEncrypted; i != nil { inputs["storageEncrypted"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Writer; i != nil { inputs["writer"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:docdb/clusterInstance:ClusterInstance", name, id, inputs, opts...)
+	var resource ClusterInstance
+	err := ctx.ReadResource("aws:docdb/clusterInstance:ClusterInstance", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClusterInstance{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ClusterInstance) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ClusterInstance) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether any database modifications
-// are applied immediately, or during the next maintenance window. Default is`false`.
-func (r *ClusterInstance) ApplyImmediately() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
-}
-
-// Amazon Resource Name (ARN) of cluster instance
-func (r *ClusterInstance) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
-func (r *ClusterInstance) AutoMinorVersionUpgrade() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
-}
-
-// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-func (r *ClusterInstance) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
-func (r *ClusterInstance) ClusterIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterIdentifier"])
-}
-
-// The DB subnet group to associate with this DB instance.
-func (r *ClusterInstance) DbSubnetGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbSubnetGroupName"])
-}
-
-// The region-unique, immutable identifier for the DB instance.
-func (r *ClusterInstance) DbiResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dbiResourceId"])
-}
-
-// The DNS address for this instance. May not be writable
-func (r *ClusterInstance) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-func (r *ClusterInstance) Engine() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engine"])
-}
-
-// The database engine version
-func (r *ClusterInstance) EngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineVersion"])
-}
-
-// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
-func (r *ClusterInstance) Identifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["identifier"])
-}
-
-// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
-func (r *ClusterInstance) IdentifierPrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["identifierPrefix"])
-}
-
-// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
-// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
-// - db.r4.large
-// - db.r4.xlarge
-// - db.r4.2xlarge
-// - db.r4.4xlarge
-// - db.r4.8xlarge
-// - db.r4.16xlarge
-func (r *ClusterInstance) InstanceClass() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceClass"])
-}
-
-// The ARN for the KMS encryption key if one is set to the cluster.
-func (r *ClusterInstance) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// The database port
-func (r *ClusterInstance) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// The daily time range during which automated backups are created if automated backups are enabled.
-func (r *ClusterInstance) PreferredBackupWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["preferredBackupWindow"])
-}
-
-// The window to perform maintenance in.
-// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-func (r *ClusterInstance) PreferredMaintenanceWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["preferredMaintenanceWindow"])
-}
-
-// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-func (r *ClusterInstance) PromotionTier() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["promotionTier"])
-}
-
-func (r *ClusterInstance) PubliclyAccessible() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
-}
-
-// Specifies whether the DB cluster is encrypted.
-func (r *ClusterInstance) StorageEncrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["storageEncrypted"])
-}
-
-// A mapping of tags to assign to the instance.
-func (r *ClusterInstance) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-func (r *ClusterInstance) Writer() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["writer"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ClusterInstance resources.
 type ClusterInstanceState struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster instance
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
-	AutoMinorVersionUpgrade interface{}
+	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
-	ClusterIdentifier interface{}
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// The DB subnet group to associate with this DB instance.
-	DbSubnetGroupName interface{}
+	DbSubnetGroupName pulumi.StringInput `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
-	DbiResourceId interface{}
+	DbiResourceId pulumi.StringInput `pulumi:"dbiResourceId"`
 	// The DNS address for this instance. May not be writable
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// The database engine version
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
-	Identifier interface{}
+	Identifier pulumi.StringInput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
-	IdentifierPrefix interface{}
+	IdentifierPrefix pulumi.StringInput `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
 	// - db.r4.large
@@ -274,44 +199,44 @@ type ClusterInstanceState struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
-	InstanceClass interface{}
+	InstanceClass pulumi.StringInput `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// The database port
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
-	PreferredBackupWindow interface{}
+	PreferredBackupWindow pulumi.StringInput `pulumi:"preferredBackupWindow"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-	PreferredMaintenanceWindow interface{}
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-	PromotionTier interface{}
-	PubliclyAccessible interface{}
+	PromotionTier pulumi.IntInput `pulumi:"promotionTier"`
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
-	StorageEncrypted interface{}
+	StorageEncrypted pulumi.BoolInput `pulumi:"storageEncrypted"`
 	// A mapping of tags to assign to the instance.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-	Writer interface{}
+	Writer pulumi.BoolInput `pulumi:"writer"`
 }
 
 // The set of arguments for constructing a ClusterInstance resource.
 type ClusterInstanceArgs struct {
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
-	AutoMinorVersionUpgrade interface{}
+	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
-	ClusterIdentifier interface{}
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-	Engine interface{}
+	Engine pulumi.StringInput `pulumi:"engine"`
 	// The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
-	Identifier interface{}
+	Identifier pulumi.StringInput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
-	IdentifierPrefix interface{}
+	IdentifierPrefix pulumi.StringInput `pulumi:"identifierPrefix"`
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances][2]. DocDB currently
 	// supports the below instance classes. Please see [AWS Documentation][4] for complete details.
 	// - db.r4.large
@@ -320,12 +245,12 @@ type ClusterInstanceArgs struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
-	InstanceClass interface{}
+	InstanceClass pulumi.StringInput `pulumi:"instanceClass"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-	PreferredMaintenanceWindow interface{}
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
 	// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-	PromotionTier interface{}
+	PromotionTier pulumi.IntInput `pulumi:"promotionTier"`
 	// A mapping of tags to assign to the instance.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

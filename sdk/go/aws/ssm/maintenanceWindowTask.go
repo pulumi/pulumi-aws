@@ -4,6 +4,8 @@
 package ssm
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
 type MaintenanceWindowTask struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The description of the maintenance window task.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
+	LoggingInfo MaintenanceWindowTaskLoggingInfoOutput `pulumi:"loggingInfo"`
+
+	// The maximum number of targets this task can be run for in parallel.
+	MaxConcurrency pulumi.StringOutput `pulumi:"maxConcurrency"`
+
+	// The maximum number of errors allowed before this task stops being scheduled.
+	MaxErrors pulumi.StringOutput `pulumi:"maxErrors"`
+
+	// The parameter name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+
+	// The IAM service role to assume during task execution.
+	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
+
+	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+	Targets MaintenanceWindowTaskTargetsArrayOutput `pulumi:"targets"`
+
+	// The ARN of the task to execute.
+	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
+
+	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
+	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersOutput `pulumi:"taskInvocationParameters"`
+
+	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
+	TaskParameters MaintenanceWindowTaskTaskParametersArrayOutput `pulumi:"taskParameters"`
+
+	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
+	TaskType pulumi.StringOutput `pulumi:"taskType"`
+
+	// The Id of the maintenance window to register the task with.
+	WindowId pulumi.StringOutput `pulumi:"windowId"`
 }
 
 // NewMaintenanceWindowTask registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindowTask(ctx *pulumi.Context,
-	name string, args *MaintenanceWindowTaskArgs, opts ...pulumi.ResourceOpt) (*MaintenanceWindowTask, error) {
+	name string, args *MaintenanceWindowTaskArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindowTask, error) {
 	if args == nil || args.MaxConcurrency == nil {
 		return nil, errors.New("missing required argument 'MaxConcurrency'")
 	}
@@ -39,201 +80,1118 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	if args == nil || args.WindowId == nil {
 		return nil, errors.New("missing required argument 'WindowId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["loggingInfo"] = nil
-		inputs["maxConcurrency"] = nil
-		inputs["maxErrors"] = nil
-		inputs["name"] = nil
-		inputs["priority"] = nil
-		inputs["serviceRoleArn"] = nil
-		inputs["targets"] = nil
-		inputs["taskArn"] = nil
-		inputs["taskInvocationParameters"] = nil
-		inputs["taskParameters"] = nil
-		inputs["taskType"] = nil
-		inputs["windowId"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["loggingInfo"] = args.LoggingInfo
-		inputs["maxConcurrency"] = args.MaxConcurrency
-		inputs["maxErrors"] = args.MaxErrors
-		inputs["name"] = args.Name
-		inputs["priority"] = args.Priority
-		inputs["serviceRoleArn"] = args.ServiceRoleArn
-		inputs["targets"] = args.Targets
-		inputs["taskArn"] = args.TaskArn
-		inputs["taskInvocationParameters"] = args.TaskInvocationParameters
-		inputs["taskParameters"] = args.TaskParameters
-		inputs["taskType"] = args.TaskType
-		inputs["windowId"] = args.WindowId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.LoggingInfo; i != nil { inputs["loggingInfo"] = i.ToMaintenanceWindowTaskLoggingInfoOutput() }
+		if i := args.MaxConcurrency; i != nil { inputs["maxConcurrency"] = i.ToStringOutput() }
+		if i := args.MaxErrors; i != nil { inputs["maxErrors"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Priority; i != nil { inputs["priority"] = i.ToIntOutput() }
+		if i := args.ServiceRoleArn; i != nil { inputs["serviceRoleArn"] = i.ToStringOutput() }
+		if i := args.Targets; i != nil { inputs["targets"] = i.ToMaintenanceWindowTaskTargetsArrayOutput() }
+		if i := args.TaskArn; i != nil { inputs["taskArn"] = i.ToStringOutput() }
+		if i := args.TaskInvocationParameters; i != nil { inputs["taskInvocationParameters"] = i.ToMaintenanceWindowTaskTaskInvocationParametersOutput() }
+		if i := args.TaskParameters; i != nil { inputs["taskParameters"] = i.ToMaintenanceWindowTaskTaskParametersArrayOutput() }
+		if i := args.TaskType; i != nil { inputs["taskType"] = i.ToStringOutput() }
+		if i := args.WindowId; i != nil { inputs["windowId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, true, inputs, opts...)
+	var resource MaintenanceWindowTask
+	err := ctx.RegisterResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MaintenanceWindowTask{s: s}, nil
+	return &resource, nil
 }
 
 // GetMaintenanceWindowTask gets an existing MaintenanceWindowTask resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMaintenanceWindowTask(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MaintenanceWindowTaskState, opts ...pulumi.ResourceOpt) (*MaintenanceWindowTask, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MaintenanceWindowTaskState, opts ...pulumi.ResourceOption) (*MaintenanceWindowTask, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["loggingInfo"] = state.LoggingInfo
-		inputs["maxConcurrency"] = state.MaxConcurrency
-		inputs["maxErrors"] = state.MaxErrors
-		inputs["name"] = state.Name
-		inputs["priority"] = state.Priority
-		inputs["serviceRoleArn"] = state.ServiceRoleArn
-		inputs["targets"] = state.Targets
-		inputs["taskArn"] = state.TaskArn
-		inputs["taskInvocationParameters"] = state.TaskInvocationParameters
-		inputs["taskParameters"] = state.TaskParameters
-		inputs["taskType"] = state.TaskType
-		inputs["windowId"] = state.WindowId
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.LoggingInfo; i != nil { inputs["loggingInfo"] = i.ToMaintenanceWindowTaskLoggingInfoOutput() }
+		if i := state.MaxConcurrency; i != nil { inputs["maxConcurrency"] = i.ToStringOutput() }
+		if i := state.MaxErrors; i != nil { inputs["maxErrors"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Priority; i != nil { inputs["priority"] = i.ToIntOutput() }
+		if i := state.ServiceRoleArn; i != nil { inputs["serviceRoleArn"] = i.ToStringOutput() }
+		if i := state.Targets; i != nil { inputs["targets"] = i.ToMaintenanceWindowTaskTargetsArrayOutput() }
+		if i := state.TaskArn; i != nil { inputs["taskArn"] = i.ToStringOutput() }
+		if i := state.TaskInvocationParameters; i != nil { inputs["taskInvocationParameters"] = i.ToMaintenanceWindowTaskTaskInvocationParametersOutput() }
+		if i := state.TaskParameters; i != nil { inputs["taskParameters"] = i.ToMaintenanceWindowTaskTaskParametersArrayOutput() }
+		if i := state.TaskType; i != nil { inputs["taskType"] = i.ToStringOutput() }
+		if i := state.WindowId; i != nil { inputs["windowId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, id, inputs, opts...)
+	var resource MaintenanceWindowTask
+	err := ctx.ReadResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MaintenanceWindowTask{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MaintenanceWindowTask) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MaintenanceWindowTask) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The description of the maintenance window task.
-func (r *MaintenanceWindowTask) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
-func (r *MaintenanceWindowTask) LoggingInfo() pulumi.Output {
-	return r.s.State["loggingInfo"]
-}
-
-// The maximum number of targets this task can be run for in parallel.
-func (r *MaintenanceWindowTask) MaxConcurrency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["maxConcurrency"])
-}
-
-// The maximum number of errors allowed before this task stops being scheduled.
-func (r *MaintenanceWindowTask) MaxErrors() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["maxErrors"])
-}
-
-// The parameter name.
-func (r *MaintenanceWindowTask) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-func (r *MaintenanceWindowTask) Priority() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["priority"])
-}
-
-// The IAM service role to assume during task execution.
-func (r *MaintenanceWindowTask) ServiceRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceRoleArn"])
-}
-
-// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-func (r *MaintenanceWindowTask) Targets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["targets"])
-}
-
-// The ARN of the task to execute.
-func (r *MaintenanceWindowTask) TaskArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["taskArn"])
-}
-
-// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
-func (r *MaintenanceWindowTask) TaskInvocationParameters() pulumi.Output {
-	return r.s.State["taskInvocationParameters"]
-}
-
-// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
-func (r *MaintenanceWindowTask) TaskParameters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["taskParameters"])
-}
-
-// The type of task being registered. The only allowed value is `RUN_COMMAND`.
-func (r *MaintenanceWindowTask) TaskType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["taskType"])
-}
-
-// The Id of the maintenance window to register the task with.
-func (r *MaintenanceWindowTask) WindowId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["windowId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MaintenanceWindowTask resources.
 type MaintenanceWindowTaskState struct {
 	// The description of the maintenance window task.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
-	LoggingInfo interface{}
+	LoggingInfo MaintenanceWindowTaskLoggingInfoInput `pulumi:"loggingInfo"`
 	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency interface{}
+	MaxConcurrency pulumi.StringInput `pulumi:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors interface{}
+	MaxErrors pulumi.StringInput `pulumi:"maxErrors"`
 	// The parameter name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority interface{}
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// The IAM service role to assume during task execution.
-	ServiceRoleArn interface{}
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets interface{}
+	Targets MaintenanceWindowTaskTargetsArrayInput `pulumi:"targets"`
 	// The ARN of the task to execute.
-	TaskArn interface{}
+	TaskArn pulumi.StringInput `pulumi:"taskArn"`
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
-	TaskInvocationParameters interface{}
+	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersInput `pulumi:"taskInvocationParameters"`
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
-	TaskParameters interface{}
+	TaskParameters MaintenanceWindowTaskTaskParametersArrayInput `pulumi:"taskParameters"`
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
-	TaskType interface{}
+	TaskType pulumi.StringInput `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
-	WindowId interface{}
+	WindowId pulumi.StringInput `pulumi:"windowId"`
 }
 
 // The set of arguments for constructing a MaintenanceWindowTask resource.
 type MaintenanceWindowTaskArgs struct {
 	// The description of the maintenance window task.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `taskInvocationParameters` configuration block `runCommandParameters` configuration block `output_s3_*` arguments instead. Conflicts with `taskInvocationParameters`. Documented below.
-	LoggingInfo interface{}
+	LoggingInfo MaintenanceWindowTaskLoggingInfoInput `pulumi:"loggingInfo"`
 	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency interface{}
+	MaxConcurrency pulumi.StringInput `pulumi:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors interface{}
+	MaxErrors pulumi.StringInput `pulumi:"maxErrors"`
 	// The parameter name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority interface{}
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// The IAM service role to assume during task execution.
-	ServiceRoleArn interface{}
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
 	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets interface{}
+	Targets MaintenanceWindowTaskTargetsArrayInput `pulumi:"targets"`
 	// The ARN of the task to execute.
-	TaskArn interface{}
+	TaskArn pulumi.StringInput `pulumi:"taskArn"`
 	// The parameters for task execution. This argument is conflict with `taskParameters` and `loggingInfo`.
-	TaskInvocationParameters interface{}
+	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersInput `pulumi:"taskInvocationParameters"`
 	// A structure containing information about parameters required by the particular `taskArn`. Use `parameter` configuration blocks under the `taskInvocationParameters` configuration block instead. Conflicts with `taskInvocationParameters`. Documented below.
-	TaskParameters interface{}
+	TaskParameters MaintenanceWindowTaskTaskParametersArrayInput `pulumi:"taskParameters"`
 	// The type of task being registered. The only allowed value is `RUN_COMMAND`.
-	TaskType interface{}
+	TaskType pulumi.StringInput `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
-	WindowId interface{}
+	WindowId pulumi.StringInput `pulumi:"windowId"`
 }
+type MaintenanceWindowTaskLoggingInfo struct {
+	S3BucketName string `pulumi:"s3BucketName"`
+	S3BucketPrefix *string `pulumi:"s3BucketPrefix"`
+	S3Region string `pulumi:"s3Region"`
+}
+var maintenanceWindowTaskLoggingInfoType = reflect.TypeOf((*MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+
+type MaintenanceWindowTaskLoggingInfoInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput
+	ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput
+}
+
+type MaintenanceWindowTaskLoggingInfoArgs struct {
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	S3BucketPrefix pulumi.StringInput `pulumi:"s3BucketPrefix"`
+	S3Region pulumi.StringInput `pulumi:"s3Region"`
+}
+
+func (MaintenanceWindowTaskLoggingInfoArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskLoggingInfoType
+}
+
+func (a MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskLoggingInfoOutput)
+}
+
+func (a MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskLoggingInfoOutput)
+}
+
+type MaintenanceWindowTaskLoggingInfoOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3BucketName() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskLoggingInfo) string {
+		return v.S3BucketName
+	}).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3BucketPrefix() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskLoggingInfo) string {
+		if v.S3BucketPrefix == nil { return *new(string) } else { return *v.S3BucketPrefix }
+	}).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3Region() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskLoggingInfo) string {
+		return v.S3Region
+	}).(pulumi.StringOutput)
+}
+
+func (MaintenanceWindowTaskLoggingInfoOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskLoggingInfoType
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoOutput{}) }
+
+type MaintenanceWindowTaskTargets struct {
+	Key string `pulumi:"key"`
+	// The array of strings.
+	Values []string `pulumi:"values"`
+}
+var maintenanceWindowTaskTargetsType = reflect.TypeOf((*MaintenanceWindowTaskTargets)(nil)).Elem()
+
+type MaintenanceWindowTaskTargetsInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTargetsOutput() MaintenanceWindowTaskTargetsOutput
+	ToMaintenanceWindowTaskTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetsOutput
+}
+
+type MaintenanceWindowTaskTargetsArgs struct {
+	Key pulumi.StringInput `pulumi:"key"`
+	// The array of strings.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTaskTargetsArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTargetsType
+}
+
+func (a MaintenanceWindowTaskTargetsArgs) ToMaintenanceWindowTaskTargetsOutput() MaintenanceWindowTaskTargetsOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTargetsOutput)
+}
+
+func (a MaintenanceWindowTaskTargetsArgs) ToMaintenanceWindowTaskTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTargetsOutput)
+}
+
+type MaintenanceWindowTaskTargetsOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTaskTargetsOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTargets) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+// The array of strings.
+func (o MaintenanceWindowTaskTargetsOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTargets) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (MaintenanceWindowTaskTargetsOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTargetsType
+}
+
+func (o MaintenanceWindowTaskTargetsOutput) ToMaintenanceWindowTaskTargetsOutput() MaintenanceWindowTaskTargetsOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetsOutput) ToMaintenanceWindowTaskTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTargetsOutput{}) }
+
+var maintenanceWindowTaskTargetsArrayType = reflect.TypeOf((*[]MaintenanceWindowTaskTargets)(nil)).Elem()
+
+type MaintenanceWindowTaskTargetsArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTargetsArrayOutput() MaintenanceWindowTaskTargetsArrayOutput
+	ToMaintenanceWindowTaskTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetsArrayOutput
+}
+
+type MaintenanceWindowTaskTargetsArrayArgs []MaintenanceWindowTaskTargetsInput
+
+func (MaintenanceWindowTaskTargetsArrayArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTargetsArrayType
+}
+
+func (a MaintenanceWindowTaskTargetsArrayArgs) ToMaintenanceWindowTaskTargetsArrayOutput() MaintenanceWindowTaskTargetsArrayOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTargetsArrayOutput)
+}
+
+func (a MaintenanceWindowTaskTargetsArrayArgs) ToMaintenanceWindowTaskTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTargetsArrayOutput)
+}
+
+type MaintenanceWindowTaskTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTaskTargetsArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MaintenanceWindowTaskTargets {
+		return vs[0].([]MaintenanceWindowTaskTargets)[vs[1].(int)]
+	}).(MaintenanceWindowTaskTargetsOutput)
+}
+
+func (MaintenanceWindowTaskTargetsArrayOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTargetsArrayType
+}
+
+func (o MaintenanceWindowTaskTargetsArrayOutput) ToMaintenanceWindowTaskTargetsArrayOutput() MaintenanceWindowTaskTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetsArrayOutput) ToMaintenanceWindowTaskTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTargetsArrayOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParameters struct {
+	// The parameters for an AUTOMATION task type. Documented below.
+	AutomationParameters *MaintenanceWindowTaskTaskInvocationParametersAutomationParameters `pulumi:"automationParameters"`
+	// The parameters for a LAMBDA task type. Documented below.
+	LambdaParameters *MaintenanceWindowTaskTaskInvocationParametersLambdaParameters `pulumi:"lambdaParameters"`
+	// The parameters for a RUN_COMMAND task type. Documented below.
+	RunCommandParameters *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters `pulumi:"runCommandParameters"`
+	// The parameters for a STEP_FUNCTIONS task type. Documented below.
+	StepFunctionsParameters *MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters `pulumi:"stepFunctionsParameters"`
+}
+var maintenanceWindowTaskTaskInvocationParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersArgs struct {
+	// The parameters for an AUTOMATION task type. Documented below.
+	AutomationParameters MaintenanceWindowTaskTaskInvocationParametersAutomationParametersInput `pulumi:"automationParameters"`
+	// The parameters for a LAMBDA task type. Documented below.
+	LambdaParameters MaintenanceWindowTaskTaskInvocationParametersLambdaParametersInput `pulumi:"lambdaParameters"`
+	// The parameters for a RUN_COMMAND task type. Documented below.
+	RunCommandParameters MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput `pulumi:"runCommandParameters"`
+	// The parameters for a STEP_FUNCTIONS task type. Documented below.
+	StepFunctionsParameters MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput `pulumi:"stepFunctionsParameters"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersOutput struct { *pulumi.OutputState }
+
+// The parameters for an AUTOMATION task type. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) AutomationParameters() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
+		if v.AutomationParameters == nil { return *new(MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) } else { return *v.AutomationParameters }
+	}).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
+}
+
+// The parameters for a LAMBDA task type. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) LambdaParameters() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParametersLambdaParameters {
+		if v.LambdaParameters == nil { return *new(MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) } else { return *v.LambdaParameters }
+	}).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput)
+}
+
+// The parameters for a RUN_COMMAND task type. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) RunCommandParameters() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
+		if v.RunCommandParameters == nil { return *new(MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) } else { return *v.RunCommandParameters }
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
+}
+
+// The parameters for a STEP_FUNCTIONS task type. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) StepFunctionsParameters() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters {
+		if v.StepFunctionsParameters == nil { return *new(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) } else { return *v.StepFunctionsParameters }
+	}).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParameters struct {
+	// The version of an Automation document to use during task execution.
+	DocumentVersion *string `pulumi:"documentVersion"`
+	// The parameters for the RUN_COMMAND task execution. Documented below.
+	Parameters *[]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters `pulumi:"parameters"`
+}
+var maintenanceWindowTaskTaskInvocationParametersAutomationParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersAutomationParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs struct {
+	// The version of an Automation document to use during task execution.
+	DocumentVersion pulumi.StringInput `pulumi:"documentVersion"`
+	// The parameters for the RUN_COMMAND task execution. Documented below.
+	Parameters MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayInput `pulumi:"parameters"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersAutomationParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput struct { *pulumi.OutputState }
+
+// The version of an Automation document to use during task execution.
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) DocumentVersion() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) string {
+		if v.DocumentVersion == nil { return *new(string) } else { return *v.DocumentVersion }
+	}).(pulumi.StringOutput)
+}
+
+// The parameters for the RUN_COMMAND task execution. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) Parameters() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) []MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters {
+		if v.Parameters == nil { return *new([]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters) } else { return *v.Parameters }
+	}).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersAutomationParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters struct {
+	// The parameter name.
+	Name string `pulumi:"name"`
+	// The array of strings.
+	Values []string `pulumi:"values"`
+}
+var maintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs struct {
+	// The parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The array of strings.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput struct { *pulumi.OutputState }
+
+// The parameter name.
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The array of strings.
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput{}) }
+
+var maintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayType = reflect.TypeOf((*[]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayArgs []MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersInput
+
+func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters {
+		return vs[0].([]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameters)[vs[1].(int)]
+	}).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParametersArrayOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersLambdaParameters struct {
+	// Pass client-specific information to the Lambda function that you are invoking.
+	ClientContext *string `pulumi:"clientContext"`
+	// JSON to provide to your Lambda function as input.
+	Payload *string `pulumi:"payload"`
+	// Specify a Lambda function version or alias name.
+	Qualifier *string `pulumi:"qualifier"`
+}
+var maintenanceWindowTaskTaskInvocationParametersLambdaParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersLambdaParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersLambdaParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs struct {
+	// Pass client-specific information to the Lambda function that you are invoking.
+	ClientContext pulumi.StringInput `pulumi:"clientContext"`
+	// JSON to provide to your Lambda function as input.
+	Payload pulumi.StringInput `pulumi:"payload"`
+	// Specify a Lambda function version or alias name.
+	Qualifier pulumi.StringInput `pulumi:"qualifier"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersLambdaParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput struct { *pulumi.OutputState }
+
+// Pass client-specific information to the Lambda function that you are invoking.
+func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ClientContext() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) string {
+		if v.ClientContext == nil { return *new(string) } else { return *v.ClientContext }
+	}).(pulumi.StringOutput)
+}
+
+// JSON to provide to your Lambda function as input.
+func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) Payload() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) string {
+		if v.Payload == nil { return *new(string) } else { return *v.Payload }
+	}).(pulumi.StringOutput)
+}
+
+// Specify a Lambda function version or alias name.
+func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) Qualifier() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) string {
+		if v.Qualifier == nil { return *new(string) } else { return *v.Qualifier }
+	}).(pulumi.StringOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersLambdaParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
+	// Information about the command(s) to execute.
+	Comment *string `pulumi:"comment"`
+	// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+	DocumentHash *string `pulumi:"documentHash"`
+	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+	DocumentHashType *string `pulumi:"documentHashType"`
+	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
+	NotificationConfig *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig `pulumi:"notificationConfig"`
+	// The name of the Amazon S3 bucket.
+	OutputS3Bucket *string `pulumi:"outputS3Bucket"`
+	// The Amazon S3 bucket subfolder.
+	OutputS3KeyPrefix *string `pulumi:"outputS3KeyPrefix"`
+	// The parameters for the RUN_COMMAND task execution. Documented below.
+	Parameters *[]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters `pulumi:"parameters"`
+	// The IAM service role to assume during task execution.
+	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
+	// If this time is reached and the command has not already started executing, it doesn't run.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+var maintenanceWindowTaskTaskInvocationParametersRunCommandParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs struct {
+	// Information about the command(s) to execute.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+	DocumentHash pulumi.StringInput `pulumi:"documentHash"`
+	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+	DocumentHashType pulumi.StringInput `pulumi:"documentHashType"`
+	// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
+	NotificationConfig MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigInput `pulumi:"notificationConfig"`
+	// The name of the Amazon S3 bucket.
+	OutputS3Bucket pulumi.StringInput `pulumi:"outputS3Bucket"`
+	// The Amazon S3 bucket subfolder.
+	OutputS3KeyPrefix pulumi.StringInput `pulumi:"outputS3KeyPrefix"`
+	// The parameters for the RUN_COMMAND task execution. Documented below.
+	Parameters MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayInput `pulumi:"parameters"`
+	// The IAM service role to assume during task execution.
+	ServiceRoleArn pulumi.StringInput `pulumi:"serviceRoleArn"`
+	// If this time is reached and the command has not already started executing, it doesn't run.
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput struct { *pulumi.OutputState }
+
+// Information about the command(s) to execute.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) Comment() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) string {
+		if v.Comment == nil { return *new(string) } else { return *v.Comment }
+	}).(pulumi.StringOutput)
+}
+
+// The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) DocumentHash() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) string {
+		if v.DocumentHash == nil { return *new(string) } else { return *v.DocumentHash }
+	}).(pulumi.StringOutput)
+}
+
+// SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) DocumentHashType() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) string {
+		if v.DocumentHashType == nil { return *new(string) } else { return *v.DocumentHashType }
+	}).(pulumi.StringOutput)
+}
+
+// Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) NotificationConfig() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
+		if v.NotificationConfig == nil { return *new(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) } else { return *v.NotificationConfig }
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput)
+}
+
+// The name of the Amazon S3 bucket.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) OutputS3Bucket() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) string {
+		if v.OutputS3Bucket == nil { return *new(string) } else { return *v.OutputS3Bucket }
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon S3 bucket subfolder.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) OutputS3KeyPrefix() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) string {
+		if v.OutputS3KeyPrefix == nil { return *new(string) } else { return *v.OutputS3KeyPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// The parameters for the RUN_COMMAND task execution. Documented below.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) Parameters() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) []MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters {
+		if v.Parameters == nil { return *new([]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters) } else { return *v.Parameters }
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput)
+}
+
+// The IAM service role to assume during task execution.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ServiceRoleArn() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) string {
+		if v.ServiceRoleArn == nil { return *new(string) } else { return *v.ServiceRoleArn }
+	}).(pulumi.StringOutput)
+}
+
+// If this time is reached and the command has not already started executing, it doesn't run.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) TimeoutSeconds() pulumi.IntOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) int {
+		if v.TimeoutSeconds == nil { return *new(int) } else { return *v.TimeoutSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig struct {
+	// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+	NotificationArn *string `pulumi:"notificationArn"`
+	// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
+	NotificationEvents *[]string `pulumi:"notificationEvents"`
+	// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
+	NotificationType *string `pulumi:"notificationType"`
+}
+var maintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs struct {
+	// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+	NotificationArn pulumi.StringInput `pulumi:"notificationArn"`
+	// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
+	NotificationEvents pulumi.StringArrayInput `pulumi:"notificationEvents"`
+	// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput struct { *pulumi.OutputState }
+
+// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) NotificationArn() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) string {
+		if v.NotificationArn == nil { return *new(string) } else { return *v.NotificationArn }
+	}).(pulumi.StringOutput)
+}
+
+// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) NotificationEvents() pulumi.StringArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) []string {
+		if v.NotificationEvents == nil { return *new([]string) } else { return *v.NotificationEvents }
+	}).(pulumi.StringArrayOutput)
+}
+
+// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) NotificationType() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) string {
+		if v.NotificationType == nil { return *new(string) } else { return *v.NotificationType }
+	}).(pulumi.StringOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters struct {
+	// The parameter name.
+	Name string `pulumi:"name"`
+	// The array of strings.
+	Values []string `pulumi:"values"`
+}
+var maintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs struct {
+	// The parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The array of strings.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput struct { *pulumi.OutputState }
+
+// The parameter name.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The array of strings.
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput{}) }
+
+var maintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayType = reflect.TypeOf((*[]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayArgs []MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersInput
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters {
+		return vs[0].([]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameters)[vs[1].(int)]
+	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParametersArrayOutput{}) }
+
+type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters struct {
+	// The inputs for the STEP_FUNCTION task.
+	Input *string `pulumi:"input"`
+	// The parameter name.
+	Name *string `pulumi:"name"`
+}
+var maintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs struct {
+	// The inputs for the STEP_FUNCTION task.
+	Input pulumi.StringInput `pulumi:"input"`
+	// The parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersType
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput struct { *pulumi.OutputState }
+
+// The inputs for the STEP_FUNCTION task.
+func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) Input() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) string {
+		if v.Input == nil { return *new(string) } else { return *v.Input }
+	}).(pulumi.StringOutput)
+}
+
+// The parameter name.
+func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersType
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput{}) }
+
+type MaintenanceWindowTaskTaskParameters struct {
+	// The parameter name.
+	Name string `pulumi:"name"`
+	// The array of strings.
+	Values []string `pulumi:"values"`
+}
+var maintenanceWindowTaskTaskParametersType = reflect.TypeOf((*MaintenanceWindowTaskTaskParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskParametersOutput() MaintenanceWindowTaskTaskParametersOutput
+	ToMaintenanceWindowTaskTaskParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskParametersOutput
+}
+
+type MaintenanceWindowTaskTaskParametersArgs struct {
+	// The parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The array of strings.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTaskTaskParametersArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskParametersType
+}
+
+func (a MaintenanceWindowTaskTaskParametersArgs) ToMaintenanceWindowTaskTaskParametersOutput() MaintenanceWindowTaskTaskParametersOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskParametersOutput)
+}
+
+func (a MaintenanceWindowTaskTaskParametersArgs) ToMaintenanceWindowTaskTaskParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskParametersOutput)
+}
+
+type MaintenanceWindowTaskTaskParametersOutput struct { *pulumi.OutputState }
+
+// The parameter name.
+func (o MaintenanceWindowTaskTaskParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The array of strings.
+func (o MaintenanceWindowTaskTaskParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v MaintenanceWindowTaskTaskParameters) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (MaintenanceWindowTaskTaskParametersOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskParametersType
+}
+
+func (o MaintenanceWindowTaskTaskParametersOutput) ToMaintenanceWindowTaskTaskParametersOutput() MaintenanceWindowTaskTaskParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskParametersOutput) ToMaintenanceWindowTaskTaskParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskParametersOutput{}) }
+
+var maintenanceWindowTaskTaskParametersArrayType = reflect.TypeOf((*[]MaintenanceWindowTaskTaskParameters)(nil)).Elem()
+
+type MaintenanceWindowTaskTaskParametersArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskParametersArrayOutput() MaintenanceWindowTaskTaskParametersArrayOutput
+	ToMaintenanceWindowTaskTaskParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskParametersArrayOutput
+}
+
+type MaintenanceWindowTaskTaskParametersArrayArgs []MaintenanceWindowTaskTaskParametersInput
+
+func (MaintenanceWindowTaskTaskParametersArrayArgs) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskParametersArrayType
+}
+
+func (a MaintenanceWindowTaskTaskParametersArrayArgs) ToMaintenanceWindowTaskTaskParametersArrayOutput() MaintenanceWindowTaskTaskParametersArrayOutput {
+	return pulumi.ToOutput(a).(MaintenanceWindowTaskTaskParametersArrayOutput)
+}
+
+func (a MaintenanceWindowTaskTaskParametersArrayArgs) ToMaintenanceWindowTaskTaskParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MaintenanceWindowTaskTaskParametersArrayOutput)
+}
+
+type MaintenanceWindowTaskTaskParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o MaintenanceWindowTaskTaskParametersArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTaskParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MaintenanceWindowTaskTaskParameters {
+		return vs[0].([]MaintenanceWindowTaskTaskParameters)[vs[1].(int)]
+	}).(MaintenanceWindowTaskTaskParametersOutput)
+}
+
+func (MaintenanceWindowTaskTaskParametersArrayOutput) ElementType() reflect.Type {
+	return maintenanceWindowTaskTaskParametersArrayType
+}
+
+func (o MaintenanceWindowTaskTaskParametersArrayOutput) ToMaintenanceWindowTaskTaskParametersArrayOutput() MaintenanceWindowTaskTaskParametersArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskParametersArrayOutput) ToMaintenanceWindowTaskTaskParametersArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MaintenanceWindowTaskTaskParametersArrayOutput{}) }
+

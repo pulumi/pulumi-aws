@@ -10,89 +10,137 @@ import (
 // Use this data source to get information about an Elasticsearch Domain
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
-func LookupDomain(ctx *pulumi.Context, args *GetDomainArgs) (*GetDomainResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["domainName"] = args.DomainName
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:elasticsearch/getDomain:getDomain", inputs)
+func LookupDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
+	var rv GetDomainResult
+	err := ctx.Invoke("aws:elasticsearch/getDomain:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetDomainResult{
-		AccessPolicies: outputs["accessPolicies"],
-		AdvancedOptions: outputs["advancedOptions"],
-		Arn: outputs["arn"],
-		ClusterConfigs: outputs["clusterConfigs"],
-		CognitoOptions: outputs["cognitoOptions"],
-		Created: outputs["created"],
-		Deleted: outputs["deleted"],
-		DomainId: outputs["domainId"],
-		DomainName: outputs["domainName"],
-		EbsOptions: outputs["ebsOptions"],
-		ElasticsearchVersion: outputs["elasticsearchVersion"],
-		EncryptionAtRests: outputs["encryptionAtRests"],
-		Endpoint: outputs["endpoint"],
-		KibanaEndpoint: outputs["kibanaEndpoint"],
-		LogPublishingOptions: outputs["logPublishingOptions"],
-		NodeToNodeEncryptions: outputs["nodeToNodeEncryptions"],
-		Processing: outputs["processing"],
-		SnapshotOptions: outputs["snapshotOptions"],
-		Tags: outputs["tags"],
-		VpcOptions: outputs["vpcOptions"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getDomain.
 type GetDomainArgs struct {
 	// Name of the domain.
-	DomainName interface{}
-	Tags interface{}
+	DomainName string `pulumi:"domainName"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDomain.
 type GetDomainResult struct {
 	// The policy document attached to the domain.
-	AccessPolicies interface{}
+	AccessPolicies string `pulumi:"accessPolicies"`
 	// Key-value string pairs to specify advanced configuration options.
-	AdvancedOptions interface{}
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// The Amazon Resource Name (ARN) of the domain.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// Cluster configuration of the domain.
-	ClusterConfigs interface{}
+	ClusterConfigs []GetDomainClusterConfigsResult `pulumi:"clusterConfigs"`
 	// Domain Amazon Cognito Authentication options for Kibana.
-	CognitoOptions interface{}
+	CognitoOptions []GetDomainCognitoOptionsResult `pulumi:"cognitoOptions"`
 	// Status of the creation of the domain.
-	Created interface{}
+	Created bool `pulumi:"created"`
 	// Status of the deletion of the domain.
-	Deleted interface{}
+	Deleted bool `pulumi:"deleted"`
 	// Unique identifier for the domain.
-	DomainId interface{}
-	DomainName interface{}
+	DomainId string `pulumi:"domainId"`
+	DomainName string `pulumi:"domainName"`
 	// EBS Options for the instances in the domain.
-	EbsOptions interface{}
+	EbsOptions []GetDomainEbsOptionsResult `pulumi:"ebsOptions"`
 	// ElasticSearch version for the domain.
-	ElasticsearchVersion interface{}
+	ElasticsearchVersion string `pulumi:"elasticsearchVersion"`
 	// Domain encryption at rest related options.
-	EncryptionAtRests interface{}
+	EncryptionAtRests []GetDomainEncryptionAtRestsResult `pulumi:"encryptionAtRests"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
-	Endpoint interface{}
+	Endpoint string `pulumi:"endpoint"`
 	// Domain-specific endpoint used to access the Kibana application.
-	KibanaEndpoint interface{}
+	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
-	LogPublishingOptions interface{}
+	LogPublishingOptions []GetDomainLogPublishingOptionsResult `pulumi:"logPublishingOptions"`
 	// Domain in transit encryption related options.
-	NodeToNodeEncryptions interface{}
+	NodeToNodeEncryptions []GetDomainNodeToNodeEncryptionsResult `pulumi:"nodeToNodeEncryptions"`
 	// Status of a configuration change in the domain.
 	// * `snapshotOptions` – Domain snapshot related options.
-	Processing interface{}
-	SnapshotOptions interface{}
+	Processing string `pulumi:"processing"`
+	SnapshotOptions []GetDomainSnapshotOptionsResult `pulumi:"snapshotOptions"`
 	// The tags assigned to the domain.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// VPC Options for private Elasticsearch domains.
-	VpcOptions interface{}
+	VpcOptions []GetDomainVpcOptionsResult `pulumi:"vpcOptions"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetDomainClusterConfigsResult struct {
+	// Number of dedicated master nodes in the cluster.
+	DedicatedMasterCount int `pulumi:"dedicatedMasterCount"`
+	// Indicates whether dedicated master nodes are enabled for the cluster.
+	DedicatedMasterEnabled bool `pulumi:"dedicatedMasterEnabled"`
+	// Instance type of the dedicated master nodes in the cluster.
+	DedicatedMasterType string `pulumi:"dedicatedMasterType"`
+	// Number of instances in the cluster.
+	InstanceCount int `pulumi:"instanceCount"`
+	// Instance type of data nodes in the cluster.
+	InstanceType string `pulumi:"instanceType"`
+	// Configuration block containing zone awareness settings.
+	ZoneAwarenessConfigs []GetDomainClusterConfigsZoneAwarenessConfigsResult `pulumi:"zoneAwarenessConfigs"`
+	// Indicates whether zone awareness is enabled.
+	ZoneAwarenessEnabled bool `pulumi:"zoneAwarenessEnabled"`
+}
+type GetDomainClusterConfigsZoneAwarenessConfigsResult struct {
+	// Number of availability zones used.
+	AvailabilityZoneCount int `pulumi:"availabilityZoneCount"`
+}
+type GetDomainCognitoOptionsResult struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The Cognito Identity pool used by the domain.
+	IdentityPoolId string `pulumi:"identityPoolId"`
+	// The IAM Role with the AmazonESCognitoAccess policy attached.
+	RoleArn string `pulumi:"roleArn"`
+	// The Cognito User pool used by the domain.
+	UserPoolId string `pulumi:"userPoolId"`
+}
+type GetDomainEbsOptionsResult struct {
+	// Whether EBS volumes are attached to data nodes in the domain.
+	EbsEnabled bool `pulumi:"ebsEnabled"`
+	// The baseline input/output (I/O) performance of EBS volumes
+	// attached to data nodes.
+	Iops int `pulumi:"iops"`
+	// The size of EBS volumes attached to data nodes (in GB).
+	VolumeSize int `pulumi:"volumeSize"`
+	// The type of EBS volumes attached to data nodes.
+	VolumeType string `pulumi:"volumeType"`
+}
+type GetDomainEncryptionAtRestsResult struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The KMS key id used to encrypt data at rest.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+}
+type GetDomainLogPublishingOptionsResult struct {
+	// The CloudWatch Log Group where the logs are published.
+	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The type of Elasticsearch log being published.
+	LogType string `pulumi:"logType"`
+}
+type GetDomainNodeToNodeEncryptionsResult struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+type GetDomainSnapshotOptionsResult struct {
+	// Hour during which the service takes an automated daily
+	// snapshot of the indices in the domain.
+	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
+}
+type GetDomainVpcOptionsResult struct {
+	// The availability zones used by the domain.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The security groups used by the domain.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnets used by the domain.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The VPC used by the domain.
+	VpcId string `pulumi:"vpcId"`
 }

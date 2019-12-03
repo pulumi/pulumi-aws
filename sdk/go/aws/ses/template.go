@@ -11,99 +11,78 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_template.html.markdown.
 type Template struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+	Html pulumi.StringOutput `pulumi:"html"`
+
+	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The subject line of the email.
+	Subject pulumi.StringOutput `pulumi:"subject"`
+
+	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+	Text pulumi.StringOutput `pulumi:"text"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
 func NewTemplate(ctx *pulumi.Context,
-	name string, args *TemplateArgs, opts ...pulumi.ResourceOpt) (*Template, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["html"] = nil
-		inputs["name"] = nil
-		inputs["subject"] = nil
-		inputs["text"] = nil
-	} else {
-		inputs["html"] = args.Html
-		inputs["name"] = args.Name
-		inputs["subject"] = args.Subject
-		inputs["text"] = args.Text
+	name string, args *TemplateArgs, opts ...pulumi.ResourceOption) (*Template, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Html; i != nil { inputs["html"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Subject; i != nil { inputs["subject"] = i.ToStringOutput() }
+		if i := args.Text; i != nil { inputs["text"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ses/template:Template", name, true, inputs, opts...)
+	var resource Template
+	err := ctx.RegisterResource("aws:ses/template:Template", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Template{s: s}, nil
+	return &resource, nil
 }
 
 // GetTemplate gets an existing Template resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTemplate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TemplateState, opts ...pulumi.ResourceOpt) (*Template, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TemplateState, opts ...pulumi.ResourceOption) (*Template, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["html"] = state.Html
-		inputs["name"] = state.Name
-		inputs["subject"] = state.Subject
-		inputs["text"] = state.Text
+		if i := state.Html; i != nil { inputs["html"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Subject; i != nil { inputs["subject"] = i.ToStringOutput() }
+		if i := state.Text; i != nil { inputs["text"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/template:Template", name, id, inputs, opts...)
+	var resource Template
+	err := ctx.ReadResource("aws:ses/template:Template", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Template{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Template) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Template) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-func (r *Template) Html() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["html"])
-}
-
-// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-func (r *Template) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The subject line of the email.
-func (r *Template) Subject() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subject"])
-}
-
-// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-func (r *Template) Text() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["text"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Template resources.
 type TemplateState struct {
 	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-	Html interface{}
+	Html pulumi.StringInput `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The subject line of the email.
-	Subject interface{}
+	Subject pulumi.StringInput `pulumi:"subject"`
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-	Text interface{}
+	Text pulumi.StringInput `pulumi:"text"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
 	// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-	Html interface{}
+	Html pulumi.StringInput `pulumi:"html"`
 	// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The subject line of the email.
-	Subject interface{}
+	Subject pulumi.StringInput `pulumi:"subject"`
 	// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-	Text interface{}
+	Text pulumi.StringInput `pulumi:"text"`
 }

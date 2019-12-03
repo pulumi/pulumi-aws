@@ -4,6 +4,8 @@
 package neptune
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,123 +14,216 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
 type ParameterGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Neptune parameter group Amazon Resource Name (ARN).
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The family of the Neptune parameter group.
+	Family pulumi.StringOutput `pulumi:"family"`
+
+	// The name of the Neptune parameter.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of Neptune parameters to apply.
+	Parameters ParameterGroupParametersArrayOutput `pulumi:"parameters"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
 func NewParameterGroup(ctx *pulumi.Context,
-	name string, args *ParameterGroupArgs, opts ...pulumi.ResourceOpt) (*ParameterGroup, error) {
+	name string, args *ParameterGroupArgs, opts ...pulumi.ResourceOption) (*ParameterGroup, error) {
 	if args == nil || args.Family == nil {
 		return nil, errors.New("missing required argument 'Family'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["family"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["family"] = args.Family
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Family; i != nil { inputs["family"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToParameterGroupParametersArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:neptune/parameterGroup:ParameterGroup", name, true, inputs, opts...)
+	var resource ParameterGroup
+	err := ctx.RegisterResource("aws:neptune/parameterGroup:ParameterGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ParameterGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetParameterGroup gets an existing ParameterGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetParameterGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ParameterGroupState, opts ...pulumi.ResourceOpt) (*ParameterGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ParameterGroupState, opts ...pulumi.ResourceOption) (*ParameterGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["family"] = state.Family
-		inputs["name"] = state.Name
-		inputs["parameters"] = state.Parameters
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Family; i != nil { inputs["family"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToParameterGroupParametersArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:neptune/parameterGroup:ParameterGroup", name, id, inputs, opts...)
+	var resource ParameterGroup
+	err := ctx.ReadResource("aws:neptune/parameterGroup:ParameterGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ParameterGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ParameterGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ParameterGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Neptune parameter group Amazon Resource Name (ARN).
-func (r *ParameterGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
-func (r *ParameterGroup) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The family of the Neptune parameter group.
-func (r *ParameterGroup) Family() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["family"])
-}
-
-// The name of the Neptune parameter.
-func (r *ParameterGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of Neptune parameters to apply.
-func (r *ParameterGroup) Parameters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["parameters"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ParameterGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type ParameterGroupState struct {
 	// The Neptune parameter group Amazon Resource Name (ARN).
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The family of the Neptune parameter group.
-	Family interface{}
+	Family pulumi.StringInput `pulumi:"family"`
 	// The name of the Neptune parameter.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of Neptune parameters to apply.
-	Parameters interface{}
+	Parameters ParameterGroupParametersArrayInput `pulumi:"parameters"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
 	// The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The family of the Neptune parameter group.
-	Family interface{}
+	Family pulumi.StringInput `pulumi:"family"`
 	// The name of the Neptune parameter.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of Neptune parameters to apply.
-	Parameters interface{}
+	Parameters ParameterGroupParametersArrayInput `pulumi:"parameters"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ParameterGroupParameters struct {
+	// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+	ApplyMethod *string `pulumi:"applyMethod"`
+	// The name of the Neptune parameter.
+	Name string `pulumi:"name"`
+	// The value of the Neptune parameter.
+	Value string `pulumi:"value"`
+}
+var parameterGroupParametersType = reflect.TypeOf((*ParameterGroupParameters)(nil)).Elem()
+
+type ParameterGroupParametersInput interface {
+	pulumi.Input
+
+	ToParameterGroupParametersOutput() ParameterGroupParametersOutput
+	ToParameterGroupParametersOutputWithContext(ctx context.Context) ParameterGroupParametersOutput
+}
+
+type ParameterGroupParametersArgs struct {
+	// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+	ApplyMethod pulumi.StringInput `pulumi:"applyMethod"`
+	// The name of the Neptune parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the Neptune parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ParameterGroupParametersArgs) ElementType() reflect.Type {
+	return parameterGroupParametersType
+}
+
+func (a ParameterGroupParametersArgs) ToParameterGroupParametersOutput() ParameterGroupParametersOutput {
+	return pulumi.ToOutput(a).(ParameterGroupParametersOutput)
+}
+
+func (a ParameterGroupParametersArgs) ToParameterGroupParametersOutputWithContext(ctx context.Context) ParameterGroupParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ParameterGroupParametersOutput)
+}
+
+type ParameterGroupParametersOutput struct { *pulumi.OutputState }
+
+// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+func (o ParameterGroupParametersOutput) ApplyMethod() pulumi.StringOutput {
+	return o.Apply(func(v ParameterGroupParameters) string {
+		if v.ApplyMethod == nil { return *new(string) } else { return *v.ApplyMethod }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Neptune parameter.
+func (o ParameterGroupParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ParameterGroupParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The value of the Neptune parameter.
+func (o ParameterGroupParametersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ParameterGroupParameters) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ParameterGroupParametersOutput) ElementType() reflect.Type {
+	return parameterGroupParametersType
+}
+
+func (o ParameterGroupParametersOutput) ToParameterGroupParametersOutput() ParameterGroupParametersOutput {
+	return o
+}
+
+func (o ParameterGroupParametersOutput) ToParameterGroupParametersOutputWithContext(ctx context.Context) ParameterGroupParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ParameterGroupParametersOutput{}) }
+
+var parameterGroupParametersArrayType = reflect.TypeOf((*[]ParameterGroupParameters)(nil)).Elem()
+
+type ParameterGroupParametersArrayInput interface {
+	pulumi.Input
+
+	ToParameterGroupParametersArrayOutput() ParameterGroupParametersArrayOutput
+	ToParameterGroupParametersArrayOutputWithContext(ctx context.Context) ParameterGroupParametersArrayOutput
+}
+
+type ParameterGroupParametersArrayArgs []ParameterGroupParametersInput
+
+func (ParameterGroupParametersArrayArgs) ElementType() reflect.Type {
+	return parameterGroupParametersArrayType
+}
+
+func (a ParameterGroupParametersArrayArgs) ToParameterGroupParametersArrayOutput() ParameterGroupParametersArrayOutput {
+	return pulumi.ToOutput(a).(ParameterGroupParametersArrayOutput)
+}
+
+func (a ParameterGroupParametersArrayArgs) ToParameterGroupParametersArrayOutputWithContext(ctx context.Context) ParameterGroupParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ParameterGroupParametersArrayOutput)
+}
+
+type ParameterGroupParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ParameterGroupParametersArrayOutput) Index(i pulumi.IntInput) ParameterGroupParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ParameterGroupParameters {
+		return vs[0].([]ParameterGroupParameters)[vs[1].(int)]
+	}).(ParameterGroupParametersOutput)
+}
+
+func (ParameterGroupParametersArrayOutput) ElementType() reflect.Type {
+	return parameterGroupParametersArrayType
+}
+
+func (o ParameterGroupParametersArrayOutput) ToParameterGroupParametersArrayOutput() ParameterGroupParametersArrayOutput {
+	return o
+}
+
+func (o ParameterGroupParametersArrayOutput) ToParameterGroupParametersArrayOutputWithContext(ctx context.Context) ParameterGroupParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ParameterGroupParametersArrayOutput{}) }
+

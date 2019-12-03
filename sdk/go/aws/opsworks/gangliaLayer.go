@@ -4,6 +4,8 @@
 package opsworks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,318 +14,375 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_ganglia_layer.html.markdown.
 type GangliaLayer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolOutput `pulumi:"autoAssignElasticIps"`
+
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolOutput `pulumi:"autoAssignPublicIps"`
+
+	// Whether to enable auto-healing for the layer.
+	AutoHealing pulumi.BoolOutput `pulumi:"autoHealing"`
+
+	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
+
+	CustomDeployRecipes pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn pulumi.StringOutput `pulumi:"customInstanceProfileArn"`
+
+	// Custom JSON attributes to apply to the layer.
+	CustomJson pulumi.StringOutput `pulumi:"customJson"`
+
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
+
+	CustomSetupRecipes pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+
+	CustomShutdownRecipes pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+
+	CustomUndeployRecipes pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolOutput `pulumi:"drainElbOnShutdown"`
+
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes GangliaLayerEbsVolumesArrayOutput `pulumi:"ebsVolumes"`
+
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringOutput `pulumi:"elasticLoadBalancer"`
+
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolOutput `pulumi:"installUpdatesOnBoot"`
+
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntOutput `pulumi:"instanceShutdownTimeout"`
+
+	// A human-readable name for the layer.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The password to use for Ganglia.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The id of the stack the layer will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+
+	// The URL path to use for Ganglia. Defaults to "/ganglia".
+	Url pulumi.StringOutput `pulumi:"url"`
+
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances pulumi.BoolOutput `pulumi:"useEbsOptimizedInstances"`
+
+	// The username to use for Ganglia. Defaults to "opsworks".
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewGangliaLayer registers a new resource with the given unique name, arguments, and options.
 func NewGangliaLayer(ctx *pulumi.Context,
-	name string, args *GangliaLayerArgs, opts ...pulumi.ResourceOpt) (*GangliaLayer, error) {
+	name string, args *GangliaLayerArgs, opts ...pulumi.ResourceOption) (*GangliaLayer, error) {
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
 	}
 	if args == nil || args.StackId == nil {
 		return nil, errors.New("missing required argument 'StackId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoAssignElasticIps"] = nil
-		inputs["autoAssignPublicIps"] = nil
-		inputs["autoHealing"] = nil
-		inputs["customConfigureRecipes"] = nil
-		inputs["customDeployRecipes"] = nil
-		inputs["customInstanceProfileArn"] = nil
-		inputs["customJson"] = nil
-		inputs["customSecurityGroupIds"] = nil
-		inputs["customSetupRecipes"] = nil
-		inputs["customShutdownRecipes"] = nil
-		inputs["customUndeployRecipes"] = nil
-		inputs["drainElbOnShutdown"] = nil
-		inputs["ebsVolumes"] = nil
-		inputs["elasticLoadBalancer"] = nil
-		inputs["installUpdatesOnBoot"] = nil
-		inputs["instanceShutdownTimeout"] = nil
-		inputs["name"] = nil
-		inputs["password"] = nil
-		inputs["stackId"] = nil
-		inputs["systemPackages"] = nil
-		inputs["url"] = nil
-		inputs["useEbsOptimizedInstances"] = nil
-		inputs["username"] = nil
-	} else {
-		inputs["autoAssignElasticIps"] = args.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = args.AutoAssignPublicIps
-		inputs["autoHealing"] = args.AutoHealing
-		inputs["customConfigureRecipes"] = args.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = args.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = args.CustomInstanceProfileArn
-		inputs["customJson"] = args.CustomJson
-		inputs["customSecurityGroupIds"] = args.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = args.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = args.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = args.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = args.DrainElbOnShutdown
-		inputs["ebsVolumes"] = args.EbsVolumes
-		inputs["elasticLoadBalancer"] = args.ElasticLoadBalancer
-		inputs["installUpdatesOnBoot"] = args.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = args.InstanceShutdownTimeout
-		inputs["name"] = args.Name
-		inputs["password"] = args.Password
-		inputs["stackId"] = args.StackId
-		inputs["systemPackages"] = args.SystemPackages
-		inputs["url"] = args.Url
-		inputs["useEbsOptimizedInstances"] = args.UseEbsOptimizedInstances
-		inputs["username"] = args.Username
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := args.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := args.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := args.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := args.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := args.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := args.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToGangliaLayerEbsVolumesArrayOutput() }
+		if i := args.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := args.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := args.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := args.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := args.Url; i != nil { inputs["url"] = i.ToStringOutput() }
+		if i := args.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
+		if i := args.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:opsworks/gangliaLayer:GangliaLayer", name, true, inputs, opts...)
+	var resource GangliaLayer
+	err := ctx.RegisterResource("aws:opsworks/gangliaLayer:GangliaLayer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GangliaLayer{s: s}, nil
+	return &resource, nil
 }
 
 // GetGangliaLayer gets an existing GangliaLayer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGangliaLayer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GangliaLayerState, opts ...pulumi.ResourceOpt) (*GangliaLayer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GangliaLayerState, opts ...pulumi.ResourceOption) (*GangliaLayer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoAssignElasticIps"] = state.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = state.AutoAssignPublicIps
-		inputs["autoHealing"] = state.AutoHealing
-		inputs["customConfigureRecipes"] = state.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = state.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = state.CustomInstanceProfileArn
-		inputs["customJson"] = state.CustomJson
-		inputs["customSecurityGroupIds"] = state.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = state.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = state.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = state.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = state.DrainElbOnShutdown
-		inputs["ebsVolumes"] = state.EbsVolumes
-		inputs["elasticLoadBalancer"] = state.ElasticLoadBalancer
-		inputs["installUpdatesOnBoot"] = state.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = state.InstanceShutdownTimeout
-		inputs["name"] = state.Name
-		inputs["password"] = state.Password
-		inputs["stackId"] = state.StackId
-		inputs["systemPackages"] = state.SystemPackages
-		inputs["url"] = state.Url
-		inputs["useEbsOptimizedInstances"] = state.UseEbsOptimizedInstances
-		inputs["username"] = state.Username
+		if i := state.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := state.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := state.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := state.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := state.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := state.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := state.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToGangliaLayerEbsVolumesArrayOutput() }
+		if i := state.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := state.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := state.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := state.Url; i != nil { inputs["url"] = i.ToStringOutput() }
+		if i := state.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
+		if i := state.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:opsworks/gangliaLayer:GangliaLayer", name, id, inputs, opts...)
+	var resource GangliaLayer
+	err := ctx.ReadResource("aws:opsworks/gangliaLayer:GangliaLayer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GangliaLayer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *GangliaLayer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *GangliaLayer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *GangliaLayer) AutoAssignElasticIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
-}
-
-// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *GangliaLayer) AutoAssignPublicIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
-}
-
-// Whether to enable auto-healing for the layer.
-func (r *GangliaLayer) AutoHealing() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
-}
-
-func (r *GangliaLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
-}
-
-func (r *GangliaLayer) CustomDeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
-}
-
-// The ARN of an IAM profile that will be used for the layer's instances.
-func (r *GangliaLayer) CustomInstanceProfileArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
-}
-
-// Custom JSON attributes to apply to the layer.
-func (r *GangliaLayer) CustomJson() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customJson"])
-}
-
-// Ids for a set of security groups to apply to the layer's instances.
-func (r *GangliaLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
-}
-
-func (r *GangliaLayer) CustomSetupRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
-}
-
-func (r *GangliaLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
-}
-
-func (r *GangliaLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
-}
-
-// Whether to enable Elastic Load Balancing connection draining.
-func (r *GangliaLayer) DrainElbOnShutdown() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
-}
-
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *GangliaLayer) EbsVolumes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
-}
-
-// Name of an Elastic Load Balancer to attach to this layer
-func (r *GangliaLayer) ElasticLoadBalancer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
-}
-
-// Whether to install OS and package updates on each instance when it boots.
-func (r *GangliaLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
-}
-
-// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *GangliaLayer) InstanceShutdownTimeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
-}
-
-// A human-readable name for the layer.
-func (r *GangliaLayer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The password to use for Ganglia.
-func (r *GangliaLayer) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The id of the stack the layer will belong to.
-func (r *GangliaLayer) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// Names of a set of system packages to install on the layer's instances.
-func (r *GangliaLayer) SystemPackages() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
-}
-
-// The URL path to use for Ganglia. Defaults to "/ganglia".
-func (r *GangliaLayer) Url() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["url"])
-}
-
-// Whether to use EBS-optimized instances.
-func (r *GangliaLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
-}
-
-// The username to use for Ganglia. Defaults to "opsworks".
-func (r *GangliaLayer) Username() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["username"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering GangliaLayer resources.
 type GangliaLayerState struct {
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes GangliaLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password to use for Ganglia.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 	// The username to use for Ganglia. Defaults to "opsworks".
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 // The set of arguments for constructing a GangliaLayer resource.
 type GangliaLayerArgs struct {
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes GangliaLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password to use for Ganglia.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 	// The username to use for Ganglia. Defaults to "opsworks".
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
+type GangliaLayerEbsVolumes struct {
+	Iops *int `pulumi:"iops"`
+	MountPoint string `pulumi:"mountPoint"`
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	RaidLevel *string `pulumi:"raidLevel"`
+	Size int `pulumi:"size"`
+	Type *string `pulumi:"type"`
+}
+var gangliaLayerEbsVolumesType = reflect.TypeOf((*GangliaLayerEbsVolumes)(nil)).Elem()
+
+type GangliaLayerEbsVolumesInput interface {
+	pulumi.Input
+
+	ToGangliaLayerEbsVolumesOutput() GangliaLayerEbsVolumesOutput
+	ToGangliaLayerEbsVolumesOutputWithContext(ctx context.Context) GangliaLayerEbsVolumesOutput
+}
+
+type GangliaLayerEbsVolumesArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	RaidLevel pulumi.StringInput `pulumi:"raidLevel"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GangliaLayerEbsVolumesArgs) ElementType() reflect.Type {
+	return gangliaLayerEbsVolumesType
+}
+
+func (a GangliaLayerEbsVolumesArgs) ToGangliaLayerEbsVolumesOutput() GangliaLayerEbsVolumesOutput {
+	return pulumi.ToOutput(a).(GangliaLayerEbsVolumesOutput)
+}
+
+func (a GangliaLayerEbsVolumesArgs) ToGangliaLayerEbsVolumesOutputWithContext(ctx context.Context) GangliaLayerEbsVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GangliaLayerEbsVolumesOutput)
+}
+
+type GangliaLayerEbsVolumesOutput struct { *pulumi.OutputState }
+
+func (o GangliaLayerEbsVolumesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v GangliaLayerEbsVolumes) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o GangliaLayerEbsVolumesOutput) MountPoint() pulumi.StringOutput {
+	return o.Apply(func(v GangliaLayerEbsVolumes) string {
+		return v.MountPoint
+	}).(pulumi.StringOutput)
+}
+
+func (o GangliaLayerEbsVolumesOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.Apply(func(v GangliaLayerEbsVolumes) int {
+		return v.NumberOfDisks
+	}).(pulumi.IntOutput)
+}
+
+func (o GangliaLayerEbsVolumesOutput) RaidLevel() pulumi.StringOutput {
+	return o.Apply(func(v GangliaLayerEbsVolumes) string {
+		if v.RaidLevel == nil { return *new(string) } else { return *v.RaidLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o GangliaLayerEbsVolumesOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v GangliaLayerEbsVolumes) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o GangliaLayerEbsVolumesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v GangliaLayerEbsVolumes) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (GangliaLayerEbsVolumesOutput) ElementType() reflect.Type {
+	return gangliaLayerEbsVolumesType
+}
+
+func (o GangliaLayerEbsVolumesOutput) ToGangliaLayerEbsVolumesOutput() GangliaLayerEbsVolumesOutput {
+	return o
+}
+
+func (o GangliaLayerEbsVolumesOutput) ToGangliaLayerEbsVolumesOutputWithContext(ctx context.Context) GangliaLayerEbsVolumesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GangliaLayerEbsVolumesOutput{}) }
+
+var gangliaLayerEbsVolumesArrayType = reflect.TypeOf((*[]GangliaLayerEbsVolumes)(nil)).Elem()
+
+type GangliaLayerEbsVolumesArrayInput interface {
+	pulumi.Input
+
+	ToGangliaLayerEbsVolumesArrayOutput() GangliaLayerEbsVolumesArrayOutput
+	ToGangliaLayerEbsVolumesArrayOutputWithContext(ctx context.Context) GangliaLayerEbsVolumesArrayOutput
+}
+
+type GangliaLayerEbsVolumesArrayArgs []GangliaLayerEbsVolumesInput
+
+func (GangliaLayerEbsVolumesArrayArgs) ElementType() reflect.Type {
+	return gangliaLayerEbsVolumesArrayType
+}
+
+func (a GangliaLayerEbsVolumesArrayArgs) ToGangliaLayerEbsVolumesArrayOutput() GangliaLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutput(a).(GangliaLayerEbsVolumesArrayOutput)
+}
+
+func (a GangliaLayerEbsVolumesArrayArgs) ToGangliaLayerEbsVolumesArrayOutputWithContext(ctx context.Context) GangliaLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GangliaLayerEbsVolumesArrayOutput)
+}
+
+type GangliaLayerEbsVolumesArrayOutput struct { *pulumi.OutputState }
+
+func (o GangliaLayerEbsVolumesArrayOutput) Index(i pulumi.IntInput) GangliaLayerEbsVolumesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GangliaLayerEbsVolumes {
+		return vs[0].([]GangliaLayerEbsVolumes)[vs[1].(int)]
+	}).(GangliaLayerEbsVolumesOutput)
+}
+
+func (GangliaLayerEbsVolumesArrayOutput) ElementType() reflect.Type {
+	return gangliaLayerEbsVolumesArrayType
+}
+
+func (o GangliaLayerEbsVolumesArrayOutput) ToGangliaLayerEbsVolumesArrayOutput() GangliaLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func (o GangliaLayerEbsVolumesArrayOutput) ToGangliaLayerEbsVolumesArrayOutputWithContext(ctx context.Context) GangliaLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GangliaLayerEbsVolumesArrayOutput{}) }
+

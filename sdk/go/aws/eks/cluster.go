@@ -4,6 +4,8 @@
 package eks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,190 +14,499 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of the cluster.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Nested attribute containing `certificate-authority-data` for your cluster.
+	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
+
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+
+	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
+	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
+
+	// The endpoint for your Kubernetes API server.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
+	Identities ClusterIdentitiesArrayOutput `pulumi:"identities"`
+
+	// Name of the cluster.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The platform version for the cluster.
+	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
+
+	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Key-value mapping of resource tags.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
+	Version pulumi.StringOutput `pulumi:"version"`
+
+	// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
+	VpcConfig ClusterVpcConfigOutput `pulumi:"vpcConfig"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.RoleArn == nil {
 		return nil, errors.New("missing required argument 'RoleArn'")
 	}
 	if args == nil || args.VpcConfig == nil {
 		return nil, errors.New("missing required argument 'VpcConfig'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["enabledClusterLogTypes"] = nil
-		inputs["name"] = nil
-		inputs["roleArn"] = nil
-		inputs["tags"] = nil
-		inputs["version"] = nil
-		inputs["vpcConfig"] = nil
-	} else {
-		inputs["enabledClusterLogTypes"] = args.EnabledClusterLogTypes
-		inputs["name"] = args.Name
-		inputs["roleArn"] = args.RoleArn
-		inputs["tags"] = args.Tags
-		inputs["version"] = args.Version
-		inputs["vpcConfig"] = args.VpcConfig
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EnabledClusterLogTypes; i != nil { inputs["enabledClusterLogTypes"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := args.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToClusterVpcConfigOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["certificateAuthority"] = nil
-	inputs["createdAt"] = nil
-	inputs["endpoint"] = nil
-	inputs["identities"] = nil
-	inputs["platformVersion"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["certificateAuthority"] = state.CertificateAuthority
-		inputs["createdAt"] = state.CreatedAt
-		inputs["enabledClusterLogTypes"] = state.EnabledClusterLogTypes
-		inputs["endpoint"] = state.Endpoint
-		inputs["identities"] = state.Identities
-		inputs["name"] = state.Name
-		inputs["platformVersion"] = state.PlatformVersion
-		inputs["roleArn"] = state.RoleArn
-		inputs["status"] = state.Status
-		inputs["tags"] = state.Tags
-		inputs["version"] = state.Version
-		inputs["vpcConfig"] = state.VpcConfig
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CertificateAuthority; i != nil { inputs["certificateAuthority"] = i.ToClusterCertificateAuthorityOutput() }
+		if i := state.CreatedAt; i != nil { inputs["createdAt"] = i.ToStringOutput() }
+		if i := state.EnabledClusterLogTypes; i != nil { inputs["enabledClusterLogTypes"] = i.ToStringArrayOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Identities; i != nil { inputs["identities"] = i.ToClusterIdentitiesArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PlatformVersion; i != nil { inputs["platformVersion"] = i.ToStringOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := state.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToClusterVpcConfigOutput() }
 	}
-	s, err := ctx.ReadResource("aws:eks/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("aws:eks/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of the cluster.
-func (r *Cluster) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Nested attribute containing `certificate-authority-data` for your cluster.
-func (r *Cluster) CertificateAuthority() pulumi.Output {
-	return r.s.State["certificateAuthority"]
-}
-
-func (r *Cluster) CreatedAt() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdAt"])
-}
-
-// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
-func (r *Cluster) EnabledClusterLogTypes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["enabledClusterLogTypes"])
-}
-
-// The endpoint for your Kubernetes API server.
-func (r *Cluster) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-func (r *Cluster) Identities() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["identities"])
-}
-
-// Name of the cluster.
-func (r *Cluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The platform version for the cluster.
-func (r *Cluster) PlatformVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["platformVersion"])
-}
-
-// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-func (r *Cluster) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
-func (r *Cluster) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Key-value mapping of resource tags.
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-func (r *Cluster) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
-}
-
-// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
-func (r *Cluster) VpcConfig() pulumi.Output {
-	return r.s.State["vpcConfig"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// The Amazon Resource Name (ARN) of the cluster.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
-	CertificateAuthority interface{}
-	CreatedAt interface{}
+	CertificateAuthority ClusterCertificateAuthorityInput `pulumi:"certificateAuthority"`
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
-	EnabledClusterLogTypes interface{}
+	EnabledClusterLogTypes pulumi.StringArrayInput `pulumi:"enabledClusterLogTypes"`
 	// The endpoint for your Kubernetes API server.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-	Identities interface{}
+	Identities ClusterIdentitiesArrayInput `pulumi:"identities"`
 	// Name of the cluster.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The platform version for the cluster.
-	PlatformVersion interface{}
+	PlatformVersion pulumi.StringInput `pulumi:"platformVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
-	VpcConfig interface{}
+	VpcConfig ClusterVpcConfigInput `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)
-	EnabledClusterLogTypes interface{}
+	EnabledClusterLogTypes pulumi.StringArrayInput `pulumi:"enabledClusterLogTypes"`
 	// Name of the cluster.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// Nested argument for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Configuration detailed below.
-	VpcConfig interface{}
+	VpcConfig ClusterVpcConfigInput `pulumi:"vpcConfig"`
 }
+type ClusterCertificateAuthority struct {
+	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+	Data string `pulumi:"data"`
+}
+var clusterCertificateAuthorityType = reflect.TypeOf((*ClusterCertificateAuthority)(nil)).Elem()
+
+type ClusterCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput
+	ToClusterCertificateAuthorityOutputWithContext(ctx context.Context) ClusterCertificateAuthorityOutput
+}
+
+type ClusterCertificateAuthorityArgs struct {
+	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+	Data pulumi.StringInput `pulumi:"data"`
+}
+
+func (ClusterCertificateAuthorityArgs) ElementType() reflect.Type {
+	return clusterCertificateAuthorityType
+}
+
+func (a ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput {
+	return pulumi.ToOutput(a).(ClusterCertificateAuthorityOutput)
+}
+
+func (a ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutputWithContext(ctx context.Context) ClusterCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCertificateAuthorityOutput)
+}
+
+type ClusterCertificateAuthorityOutput struct { *pulumi.OutputState }
+
+// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+func (o ClusterCertificateAuthorityOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificateAuthority) string {
+		return v.Data
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterCertificateAuthorityOutput) ElementType() reflect.Type {
+	return clusterCertificateAuthorityType
+}
+
+func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput {
+	return o
+}
+
+func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityOutputWithContext(ctx context.Context) ClusterCertificateAuthorityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{}) }
+
+type ClusterIdentities struct {
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+	Oidcs []ClusterIdentitiesOidcs `pulumi:"oidcs"`
+}
+var clusterIdentitiesType = reflect.TypeOf((*ClusterIdentities)(nil)).Elem()
+
+type ClusterIdentitiesInput interface {
+	pulumi.Input
+
+	ToClusterIdentitiesOutput() ClusterIdentitiesOutput
+	ToClusterIdentitiesOutputWithContext(ctx context.Context) ClusterIdentitiesOutput
+}
+
+type ClusterIdentitiesArgs struct {
+	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+	Oidcs ClusterIdentitiesOidcsArrayInput `pulumi:"oidcs"`
+}
+
+func (ClusterIdentitiesArgs) ElementType() reflect.Type {
+	return clusterIdentitiesType
+}
+
+func (a ClusterIdentitiesArgs) ToClusterIdentitiesOutput() ClusterIdentitiesOutput {
+	return pulumi.ToOutput(a).(ClusterIdentitiesOutput)
+}
+
+func (a ClusterIdentitiesArgs) ToClusterIdentitiesOutputWithContext(ctx context.Context) ClusterIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterIdentitiesOutput)
+}
+
+type ClusterIdentitiesOutput struct { *pulumi.OutputState }
+
+// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+func (o ClusterIdentitiesOutput) Oidcs() ClusterIdentitiesOidcsArrayOutput {
+	return o.Apply(func(v ClusterIdentities) []ClusterIdentitiesOidcs {
+		return v.Oidcs
+	}).(ClusterIdentitiesOidcsArrayOutput)
+}
+
+func (ClusterIdentitiesOutput) ElementType() reflect.Type {
+	return clusterIdentitiesType
+}
+
+func (o ClusterIdentitiesOutput) ToClusterIdentitiesOutput() ClusterIdentitiesOutput {
+	return o
+}
+
+func (o ClusterIdentitiesOutput) ToClusterIdentitiesOutputWithContext(ctx context.Context) ClusterIdentitiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterIdentitiesOutput{}) }
+
+var clusterIdentitiesArrayType = reflect.TypeOf((*[]ClusterIdentities)(nil)).Elem()
+
+type ClusterIdentitiesArrayInput interface {
+	pulumi.Input
+
+	ToClusterIdentitiesArrayOutput() ClusterIdentitiesArrayOutput
+	ToClusterIdentitiesArrayOutputWithContext(ctx context.Context) ClusterIdentitiesArrayOutput
+}
+
+type ClusterIdentitiesArrayArgs []ClusterIdentitiesInput
+
+func (ClusterIdentitiesArrayArgs) ElementType() reflect.Type {
+	return clusterIdentitiesArrayType
+}
+
+func (a ClusterIdentitiesArrayArgs) ToClusterIdentitiesArrayOutput() ClusterIdentitiesArrayOutput {
+	return pulumi.ToOutput(a).(ClusterIdentitiesArrayOutput)
+}
+
+func (a ClusterIdentitiesArrayArgs) ToClusterIdentitiesArrayOutputWithContext(ctx context.Context) ClusterIdentitiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterIdentitiesArrayOutput)
+}
+
+type ClusterIdentitiesArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterIdentitiesArrayOutput) Index(i pulumi.IntInput) ClusterIdentitiesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterIdentities {
+		return vs[0].([]ClusterIdentities)[vs[1].(int)]
+	}).(ClusterIdentitiesOutput)
+}
+
+func (ClusterIdentitiesArrayOutput) ElementType() reflect.Type {
+	return clusterIdentitiesArrayType
+}
+
+func (o ClusterIdentitiesArrayOutput) ToClusterIdentitiesArrayOutput() ClusterIdentitiesArrayOutput {
+	return o
+}
+
+func (o ClusterIdentitiesArrayOutput) ToClusterIdentitiesArrayOutputWithContext(ctx context.Context) ClusterIdentitiesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterIdentitiesArrayOutput{}) }
+
+type ClusterIdentitiesOidcs struct {
+	// Issuer URL for the OpenID Connect identity provider.
+	Issuer string `pulumi:"issuer"`
+}
+var clusterIdentitiesOidcsType = reflect.TypeOf((*ClusterIdentitiesOidcs)(nil)).Elem()
+
+type ClusterIdentitiesOidcsInput interface {
+	pulumi.Input
+
+	ToClusterIdentitiesOidcsOutput() ClusterIdentitiesOidcsOutput
+	ToClusterIdentitiesOidcsOutputWithContext(ctx context.Context) ClusterIdentitiesOidcsOutput
+}
+
+type ClusterIdentitiesOidcsArgs struct {
+	// Issuer URL for the OpenID Connect identity provider.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (ClusterIdentitiesOidcsArgs) ElementType() reflect.Type {
+	return clusterIdentitiesOidcsType
+}
+
+func (a ClusterIdentitiesOidcsArgs) ToClusterIdentitiesOidcsOutput() ClusterIdentitiesOidcsOutput {
+	return pulumi.ToOutput(a).(ClusterIdentitiesOidcsOutput)
+}
+
+func (a ClusterIdentitiesOidcsArgs) ToClusterIdentitiesOidcsOutputWithContext(ctx context.Context) ClusterIdentitiesOidcsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterIdentitiesOidcsOutput)
+}
+
+type ClusterIdentitiesOidcsOutput struct { *pulumi.OutputState }
+
+// Issuer URL for the OpenID Connect identity provider.
+func (o ClusterIdentitiesOidcsOutput) Issuer() pulumi.StringOutput {
+	return o.Apply(func(v ClusterIdentitiesOidcs) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterIdentitiesOidcsOutput) ElementType() reflect.Type {
+	return clusterIdentitiesOidcsType
+}
+
+func (o ClusterIdentitiesOidcsOutput) ToClusterIdentitiesOidcsOutput() ClusterIdentitiesOidcsOutput {
+	return o
+}
+
+func (o ClusterIdentitiesOidcsOutput) ToClusterIdentitiesOidcsOutputWithContext(ctx context.Context) ClusterIdentitiesOidcsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterIdentitiesOidcsOutput{}) }
+
+var clusterIdentitiesOidcsArrayType = reflect.TypeOf((*[]ClusterIdentitiesOidcs)(nil)).Elem()
+
+type ClusterIdentitiesOidcsArrayInput interface {
+	pulumi.Input
+
+	ToClusterIdentitiesOidcsArrayOutput() ClusterIdentitiesOidcsArrayOutput
+	ToClusterIdentitiesOidcsArrayOutputWithContext(ctx context.Context) ClusterIdentitiesOidcsArrayOutput
+}
+
+type ClusterIdentitiesOidcsArrayArgs []ClusterIdentitiesOidcsInput
+
+func (ClusterIdentitiesOidcsArrayArgs) ElementType() reflect.Type {
+	return clusterIdentitiesOidcsArrayType
+}
+
+func (a ClusterIdentitiesOidcsArrayArgs) ToClusterIdentitiesOidcsArrayOutput() ClusterIdentitiesOidcsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterIdentitiesOidcsArrayOutput)
+}
+
+func (a ClusterIdentitiesOidcsArrayArgs) ToClusterIdentitiesOidcsArrayOutputWithContext(ctx context.Context) ClusterIdentitiesOidcsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterIdentitiesOidcsArrayOutput)
+}
+
+type ClusterIdentitiesOidcsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterIdentitiesOidcsArrayOutput) Index(i pulumi.IntInput) ClusterIdentitiesOidcsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterIdentitiesOidcs {
+		return vs[0].([]ClusterIdentitiesOidcs)[vs[1].(int)]
+	}).(ClusterIdentitiesOidcsOutput)
+}
+
+func (ClusterIdentitiesOidcsArrayOutput) ElementType() reflect.Type {
+	return clusterIdentitiesOidcsArrayType
+}
+
+func (o ClusterIdentitiesOidcsArrayOutput) ToClusterIdentitiesOidcsArrayOutput() ClusterIdentitiesOidcsArrayOutput {
+	return o
+}
+
+func (o ClusterIdentitiesOidcsArrayOutput) ToClusterIdentitiesOidcsArrayOutputWithContext(ctx context.Context) ClusterIdentitiesOidcsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterIdentitiesOidcsArrayOutput{}) }
+
+type ClusterVpcConfig struct {
+	// The cluster security group that was created by Amazon EKS for the cluster.
+	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
+	// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
+	// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+	EndpointPublicAccess *bool `pulumi:"endpointPublicAccess"`
+	// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+	SecurityGroupIds *[]string `pulumi:"securityGroupIds"`
+	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The VPC associated with your cluster.
+	VpcId *string `pulumi:"vpcId"`
+}
+var clusterVpcConfigType = reflect.TypeOf((*ClusterVpcConfig)(nil)).Elem()
+
+type ClusterVpcConfigInput interface {
+	pulumi.Input
+
+	ToClusterVpcConfigOutput() ClusterVpcConfigOutput
+	ToClusterVpcConfigOutputWithContext(ctx context.Context) ClusterVpcConfigOutput
+}
+
+type ClusterVpcConfigArgs struct {
+	// The cluster security group that was created by Amazon EKS for the cluster.
+	ClusterSecurityGroupId pulumi.StringInput `pulumi:"clusterSecurityGroupId"`
+	// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+	EndpointPrivateAccess pulumi.BoolInput `pulumi:"endpointPrivateAccess"`
+	// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+	EndpointPublicAccess pulumi.BoolInput `pulumi:"endpointPublicAccess"`
+	// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The VPC associated with your cluster.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (ClusterVpcConfigArgs) ElementType() reflect.Type {
+	return clusterVpcConfigType
+}
+
+func (a ClusterVpcConfigArgs) ToClusterVpcConfigOutput() ClusterVpcConfigOutput {
+	return pulumi.ToOutput(a).(ClusterVpcConfigOutput)
+}
+
+func (a ClusterVpcConfigArgs) ToClusterVpcConfigOutputWithContext(ctx context.Context) ClusterVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterVpcConfigOutput)
+}
+
+type ClusterVpcConfigOutput struct { *pulumi.OutputState }
+
+// The cluster security group that was created by Amazon EKS for the cluster.
+func (o ClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringOutput {
+	return o.Apply(func(v ClusterVpcConfig) string {
+		if v.ClusterSecurityGroupId == nil { return *new(string) } else { return *v.ClusterSecurityGroupId }
+	}).(pulumi.StringOutput)
+}
+
+// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
+func (o ClusterVpcConfigOutput) EndpointPrivateAccess() pulumi.BoolOutput {
+	return o.Apply(func(v ClusterVpcConfig) bool {
+		if v.EndpointPrivateAccess == nil { return *new(bool) } else { return *v.EndpointPrivateAccess }
+	}).(pulumi.BoolOutput)
+}
+
+// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+func (o ClusterVpcConfigOutput) EndpointPublicAccess() pulumi.BoolOutput {
+	return o.Apply(func(v ClusterVpcConfig) bool {
+		if v.EndpointPublicAccess == nil { return *new(bool) } else { return *v.EndpointPublicAccess }
+	}).(pulumi.BoolOutput)
+}
+
+// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+func (o ClusterVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterVpcConfig) []string {
+		if v.SecurityGroupIds == nil { return *new([]string) } else { return *v.SecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+func (o ClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ClusterVpcConfig) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The VPC associated with your cluster.
+func (o ClusterVpcConfigOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v ClusterVpcConfig) string {
+		if v.VpcId == nil { return *new(string) } else { return *v.VpcId }
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterVpcConfigOutput) ElementType() reflect.Type {
+	return clusterVpcConfigType
+}
+
+func (o ClusterVpcConfigOutput) ToClusterVpcConfigOutput() ClusterVpcConfigOutput {
+	return o
+}
+
+func (o ClusterVpcConfigOutput) ToClusterVpcConfigOutputWithContext(ctx context.Context) ClusterVpcConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterVpcConfigOutput{}) }
+

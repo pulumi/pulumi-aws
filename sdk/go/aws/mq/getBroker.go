@@ -10,71 +10,76 @@ import (
 // Provides information about a MQ Broker.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
-func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs) (*GetBrokerResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["brokerId"] = args.BrokerId
-		inputs["brokerName"] = args.BrokerName
-		inputs["logs"] = args.Logs
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:mq/getBroker:getBroker", inputs)
+func LookupBroker(ctx *pulumi.Context, args *GetBrokerArgs, opts ...pulumi.InvokeOption) (*GetBrokerResult, error) {
+	var rv GetBrokerResult
+	err := ctx.Invoke("aws:mq/getBroker:getBroker", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetBrokerResult{
-		Arn: outputs["arn"],
-		AutoMinorVersionUpgrade: outputs["autoMinorVersionUpgrade"],
-		BrokerId: outputs["brokerId"],
-		BrokerName: outputs["brokerName"],
-		Configuration: outputs["configuration"],
-		DeploymentMode: outputs["deploymentMode"],
-		EncryptionOptions: outputs["encryptionOptions"],
-		EngineType: outputs["engineType"],
-		EngineVersion: outputs["engineVersion"],
-		HostInstanceType: outputs["hostInstanceType"],
-		Instances: outputs["instances"],
-		Logs: outputs["logs"],
-		MaintenanceWindowStartTime: outputs["maintenanceWindowStartTime"],
-		PubliclyAccessible: outputs["publiclyAccessible"],
-		SecurityGroups: outputs["securityGroups"],
-		SubnetIds: outputs["subnetIds"],
-		Tags: outputs["tags"],
-		Users: outputs["users"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getBroker.
 type GetBrokerArgs struct {
 	// The unique id of the mq broker.
-	BrokerId interface{}
+	BrokerId *string `pulumi:"brokerId"`
 	// The unique name of the mq broker.
-	BrokerName interface{}
-	Logs interface{}
-	Tags interface{}
+	BrokerName *string `pulumi:"brokerName"`
+	Logs *GetBrokerLogsArgs `pulumi:"logs"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getBroker.
 type GetBrokerResult struct {
-	Arn interface{}
-	AutoMinorVersionUpgrade interface{}
-	BrokerId interface{}
-	BrokerName interface{}
-	Configuration interface{}
-	DeploymentMode interface{}
-	EncryptionOptions interface{}
-	EngineType interface{}
-	EngineVersion interface{}
-	HostInstanceType interface{}
-	Instances interface{}
-	Logs interface{}
-	MaintenanceWindowStartTime interface{}
-	PubliclyAccessible interface{}
-	SecurityGroups interface{}
-	SubnetIds interface{}
-	Tags interface{}
-	Users interface{}
+	Arn string `pulumi:"arn"`
+	AutoMinorVersionUpgrade bool `pulumi:"autoMinorVersionUpgrade"`
+	BrokerId string `pulumi:"brokerId"`
+	BrokerName string `pulumi:"brokerName"`
+	Configuration GetBrokerConfigurationResult `pulumi:"configuration"`
+	DeploymentMode string `pulumi:"deploymentMode"`
+	EncryptionOptions []GetBrokerEncryptionOptionsResult `pulumi:"encryptionOptions"`
+	EngineType string `pulumi:"engineType"`
+	EngineVersion string `pulumi:"engineVersion"`
+	HostInstanceType string `pulumi:"hostInstanceType"`
+	Instances []GetBrokerInstancesResult `pulumi:"instances"`
+	Logs *GetBrokerLogsResult `pulumi:"logs"`
+	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTimeResult `pulumi:"maintenanceWindowStartTime"`
+	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	SecurityGroups []string `pulumi:"securityGroups"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	Tags map[string]string `pulumi:"tags"`
+	Users []GetBrokerUsersResult `pulumi:"users"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetBrokerConfigurationResult struct {
+	Id string `pulumi:"id"`
+	Revision int `pulumi:"revision"`
+}
+type GetBrokerEncryptionOptionsResult struct {
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	UseAwsOwnedKey bool `pulumi:"useAwsOwnedKey"`
+}
+type GetBrokerInstancesResult struct {
+	ConsoleUrl string `pulumi:"consoleUrl"`
+	Endpoints []string `pulumi:"endpoints"`
+	IpAddress string `pulumi:"ipAddress"`
+}
+type GetBrokerLogsArgs struct {
+	Audit *bool `pulumi:"audit"`
+	General *bool `pulumi:"general"`
+}
+type GetBrokerLogsResult struct {
+	Audit bool `pulumi:"audit"`
+	General bool `pulumi:"general"`
+}
+type GetBrokerMaintenanceWindowStartTimeResult struct {
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	TimeOfDay string `pulumi:"timeOfDay"`
+	TimeZone string `pulumi:"timeZone"`
+}
+type GetBrokerUsersResult struct {
+	ConsoleAccess bool `pulumi:"consoleAccess"`
+	Groups []string `pulumi:"groups"`
+	Username string `pulumi:"username"`
 }

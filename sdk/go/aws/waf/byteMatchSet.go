@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,63 +13,48 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.
 type ByteMatchSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the bytes (typically a string that corresponds
+	// with ASCII characters) that you want to search for in web requests,
+	// the location in requests that you want to search, and other settings.
+	ByteMatchTuples ByteMatchSetByteMatchTuplesArrayOutput `pulumi:"byteMatchTuples"`
+
+	// The name or description of the Byte Match Set.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewByteMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewByteMatchSet(ctx *pulumi.Context,
-	name string, args *ByteMatchSetArgs, opts ...pulumi.ResourceOpt) (*ByteMatchSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["byteMatchTuples"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["byteMatchTuples"] = args.ByteMatchTuples
-		inputs["name"] = args.Name
+	name string, args *ByteMatchSetArgs, opts ...pulumi.ResourceOption) (*ByteMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ByteMatchTuples; i != nil { inputs["byteMatchTuples"] = i.ToByteMatchSetByteMatchTuplesArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:waf/byteMatchSet:ByteMatchSet", name, true, inputs, opts...)
+	var resource ByteMatchSet
+	err := ctx.RegisterResource("aws:waf/byteMatchSet:ByteMatchSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ByteMatchSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetByteMatchSet gets an existing ByteMatchSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetByteMatchSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ByteMatchSetState, opts ...pulumi.ResourceOpt) (*ByteMatchSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ByteMatchSetState, opts ...pulumi.ResourceOption) (*ByteMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["byteMatchTuples"] = state.ByteMatchTuples
-		inputs["name"] = state.Name
+		if i := state.ByteMatchTuples; i != nil { inputs["byteMatchTuples"] = i.ToByteMatchSetByteMatchTuplesArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:waf/byteMatchSet:ByteMatchSet", name, id, inputs, opts...)
+	var resource ByteMatchSet
+	err := ctx.ReadResource("aws:waf/byteMatchSet:ByteMatchSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ByteMatchSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ByteMatchSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ByteMatchSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the bytes (typically a string that corresponds
-// with ASCII characters) that you want to search for in web requests,
-// the location in requests that you want to search, and other settings.
-func (r *ByteMatchSet) ByteMatchTuples() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["byteMatchTuples"])
-}
-
-// The name or description of the Byte Match Set.
-func (r *ByteMatchSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ByteMatchSet resources.
@@ -75,9 +62,9 @@ type ByteMatchSetState struct {
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
 	// the location in requests that you want to search, and other settings.
-	ByteMatchTuples interface{}
+	ByteMatchTuples ByteMatchSetByteMatchTuplesArrayInput `pulumi:"byteMatchTuples"`
 	// The name or description of the Byte Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ByteMatchSet resource.
@@ -85,7 +72,244 @@ type ByteMatchSetArgs struct {
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
 	// the location in requests that you want to search, and other settings.
-	ByteMatchTuples interface{}
+	ByteMatchTuples ByteMatchSetByteMatchTuplesArrayInput `pulumi:"byteMatchTuples"`
 	// The name or description of the Byte Match Set.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type ByteMatchSetByteMatchTuples struct {
+	// The part of a web request that you want to search, such as a specified header or a query string.
+	FieldToMatch ByteMatchSetByteMatchTuplesFieldToMatch `pulumi:"fieldToMatch"`
+	// Within the portion of a web request that you want to search
+	// (for example, in the query string, if any), specify where you want to search.
+	// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
+	// for all supported values.
+	PositionalConstraint string `pulumi:"positionalConstraint"`
+	// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+	// for all supported values.
+	TargetString *string `pulumi:"targetString"`
+	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+	// If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
+	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+	// for all supported values.
+	TextTransformation string `pulumi:"textTransformation"`
+}
+var byteMatchSetByteMatchTuplesType = reflect.TypeOf((*ByteMatchSetByteMatchTuples)(nil)).Elem()
+
+type ByteMatchSetByteMatchTuplesInput interface {
+	pulumi.Input
+
+	ToByteMatchSetByteMatchTuplesOutput() ByteMatchSetByteMatchTuplesOutput
+	ToByteMatchSetByteMatchTuplesOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesOutput
+}
+
+type ByteMatchSetByteMatchTuplesArgs struct {
+	// The part of a web request that you want to search, such as a specified header or a query string.
+	FieldToMatch ByteMatchSetByteMatchTuplesFieldToMatchInput `pulumi:"fieldToMatch"`
+	// Within the portion of a web request that you want to search
+	// (for example, in the query string, if any), specify where you want to search.
+	// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
+	// for all supported values.
+	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
+	// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+	// for all supported values.
+	TargetString pulumi.StringInput `pulumi:"targetString"`
+	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+	// If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
+	// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+	// for all supported values.
+	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
+}
+
+func (ByteMatchSetByteMatchTuplesArgs) ElementType() reflect.Type {
+	return byteMatchSetByteMatchTuplesType
+}
+
+func (a ByteMatchSetByteMatchTuplesArgs) ToByteMatchSetByteMatchTuplesOutput() ByteMatchSetByteMatchTuplesOutput {
+	return pulumi.ToOutput(a).(ByteMatchSetByteMatchTuplesOutput)
+}
+
+func (a ByteMatchSetByteMatchTuplesArgs) ToByteMatchSetByteMatchTuplesOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ByteMatchSetByteMatchTuplesOutput)
+}
+
+type ByteMatchSetByteMatchTuplesOutput struct { *pulumi.OutputState }
+
+// The part of a web request that you want to search, such as a specified header or a query string.
+func (o ByteMatchSetByteMatchTuplesOutput) FieldToMatch() ByteMatchSetByteMatchTuplesFieldToMatchOutput {
+	return o.Apply(func(v ByteMatchSetByteMatchTuples) ByteMatchSetByteMatchTuplesFieldToMatch {
+		return v.FieldToMatch
+	}).(ByteMatchSetByteMatchTuplesFieldToMatchOutput)
+}
+
+// Within the portion of a web request that you want to search
+// (for example, in the query string, if any), specify where you want to search.
+// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
+// for all supported values.
+func (o ByteMatchSetByteMatchTuplesOutput) PositionalConstraint() pulumi.StringOutput {
+	return o.Apply(func(v ByteMatchSetByteMatchTuples) string {
+		return v.PositionalConstraint
+	}).(pulumi.StringOutput)
+}
+
+// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+// for all supported values.
+func (o ByteMatchSetByteMatchTuplesOutput) TargetString() pulumi.StringOutput {
+	return o.Apply(func(v ByteMatchSetByteMatchTuples) string {
+		if v.TargetString == nil { return *new(string) } else { return *v.TargetString }
+	}).(pulumi.StringOutput)
+}
+
+// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+// If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
+// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+// for all supported values.
+func (o ByteMatchSetByteMatchTuplesOutput) TextTransformation() pulumi.StringOutput {
+	return o.Apply(func(v ByteMatchSetByteMatchTuples) string {
+		return v.TextTransformation
+	}).(pulumi.StringOutput)
+}
+
+func (ByteMatchSetByteMatchTuplesOutput) ElementType() reflect.Type {
+	return byteMatchSetByteMatchTuplesType
+}
+
+func (o ByteMatchSetByteMatchTuplesOutput) ToByteMatchSetByteMatchTuplesOutput() ByteMatchSetByteMatchTuplesOutput {
+	return o
+}
+
+func (o ByteMatchSetByteMatchTuplesOutput) ToByteMatchSetByteMatchTuplesOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ByteMatchSetByteMatchTuplesOutput{}) }
+
+var byteMatchSetByteMatchTuplesArrayType = reflect.TypeOf((*[]ByteMatchSetByteMatchTuples)(nil)).Elem()
+
+type ByteMatchSetByteMatchTuplesArrayInput interface {
+	pulumi.Input
+
+	ToByteMatchSetByteMatchTuplesArrayOutput() ByteMatchSetByteMatchTuplesArrayOutput
+	ToByteMatchSetByteMatchTuplesArrayOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesArrayOutput
+}
+
+type ByteMatchSetByteMatchTuplesArrayArgs []ByteMatchSetByteMatchTuplesInput
+
+func (ByteMatchSetByteMatchTuplesArrayArgs) ElementType() reflect.Type {
+	return byteMatchSetByteMatchTuplesArrayType
+}
+
+func (a ByteMatchSetByteMatchTuplesArrayArgs) ToByteMatchSetByteMatchTuplesArrayOutput() ByteMatchSetByteMatchTuplesArrayOutput {
+	return pulumi.ToOutput(a).(ByteMatchSetByteMatchTuplesArrayOutput)
+}
+
+func (a ByteMatchSetByteMatchTuplesArrayArgs) ToByteMatchSetByteMatchTuplesArrayOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ByteMatchSetByteMatchTuplesArrayOutput)
+}
+
+type ByteMatchSetByteMatchTuplesArrayOutput struct { *pulumi.OutputState }
+
+func (o ByteMatchSetByteMatchTuplesArrayOutput) Index(i pulumi.IntInput) ByteMatchSetByteMatchTuplesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ByteMatchSetByteMatchTuples {
+		return vs[0].([]ByteMatchSetByteMatchTuples)[vs[1].(int)]
+	}).(ByteMatchSetByteMatchTuplesOutput)
+}
+
+func (ByteMatchSetByteMatchTuplesArrayOutput) ElementType() reflect.Type {
+	return byteMatchSetByteMatchTuplesArrayType
+}
+
+func (o ByteMatchSetByteMatchTuplesArrayOutput) ToByteMatchSetByteMatchTuplesArrayOutput() ByteMatchSetByteMatchTuplesArrayOutput {
+	return o
+}
+
+func (o ByteMatchSetByteMatchTuplesArrayOutput) ToByteMatchSetByteMatchTuplesArrayOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ByteMatchSetByteMatchTuplesArrayOutput{}) }
+
+type ByteMatchSetByteMatchTuplesFieldToMatch struct {
+	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+	// If `type` is any other value, omit this field.
+	Data *string `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string.
+	// e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+	// for all supported values.
+	Type string `pulumi:"type"`
+}
+var byteMatchSetByteMatchTuplesFieldToMatchType = reflect.TypeOf((*ByteMatchSetByteMatchTuplesFieldToMatch)(nil)).Elem()
+
+type ByteMatchSetByteMatchTuplesFieldToMatchInput interface {
+	pulumi.Input
+
+	ToByteMatchSetByteMatchTuplesFieldToMatchOutput() ByteMatchSetByteMatchTuplesFieldToMatchOutput
+	ToByteMatchSetByteMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesFieldToMatchOutput
+}
+
+type ByteMatchSetByteMatchTuplesFieldToMatchArgs struct {
+	// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+	// If `type` is any other value, omit this field.
+	Data pulumi.StringInput `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string.
+	// e.g. `HEADER`, `METHOD` or `BODY`.
+	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+	// for all supported values.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ByteMatchSetByteMatchTuplesFieldToMatchArgs) ElementType() reflect.Type {
+	return byteMatchSetByteMatchTuplesFieldToMatchType
+}
+
+func (a ByteMatchSetByteMatchTuplesFieldToMatchArgs) ToByteMatchSetByteMatchTuplesFieldToMatchOutput() ByteMatchSetByteMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutput(a).(ByteMatchSetByteMatchTuplesFieldToMatchOutput)
+}
+
+func (a ByteMatchSetByteMatchTuplesFieldToMatchArgs) ToByteMatchSetByteMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ByteMatchSetByteMatchTuplesFieldToMatchOutput)
+}
+
+type ByteMatchSetByteMatchTuplesFieldToMatchOutput struct { *pulumi.OutputState }
+
+// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+// If `type` is any other value, omit this field.
+func (o ByteMatchSetByteMatchTuplesFieldToMatchOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v ByteMatchSetByteMatchTuplesFieldToMatch) string {
+		if v.Data == nil { return *new(string) } else { return *v.Data }
+	}).(pulumi.StringOutput)
+}
+
+// The part of the web request that you want AWS WAF to search for a specified string.
+// e.g. `HEADER`, `METHOD` or `BODY`.
+// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+// for all supported values.
+func (o ByteMatchSetByteMatchTuplesFieldToMatchOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ByteMatchSetByteMatchTuplesFieldToMatch) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ByteMatchSetByteMatchTuplesFieldToMatchOutput) ElementType() reflect.Type {
+	return byteMatchSetByteMatchTuplesFieldToMatchType
+}
+
+func (o ByteMatchSetByteMatchTuplesFieldToMatchOutput) ToByteMatchSetByteMatchTuplesFieldToMatchOutput() ByteMatchSetByteMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func (o ByteMatchSetByteMatchTuplesFieldToMatchOutput) ToByteMatchSetByteMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ByteMatchSetByteMatchTuplesFieldToMatchOutput{}) }
+

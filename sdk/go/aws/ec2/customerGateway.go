@@ -12,12 +12,25 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
 type CustomerGateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+
+	// The IP address of the gateway's Internet-routable external interface.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+
+	// Tags to apply to the gateway.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The type of customer gateway. The only type AWS
+	// supports at this time is "ipsec.1".
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewCustomerGateway registers a new resource with the given unique name, arguments, and options.
 func NewCustomerGateway(ctx *pulumi.Context,
-	name string, args *CustomerGatewayArgs, opts ...pulumi.ResourceOpt) (*CustomerGateway, error) {
+	name string, args *CustomerGatewayArgs, opts ...pulumi.ResourceOption) (*CustomerGateway, error) {
 	if args == nil || args.BgpAsn == nil {
 		return nil, errors.New("missing required argument 'BgpAsn'")
 	}
@@ -27,96 +40,62 @@ func NewCustomerGateway(ctx *pulumi.Context,
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["bgpAsn"] = nil
-		inputs["ipAddress"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["bgpAsn"] = args.BgpAsn
-		inputs["ipAddress"] = args.IpAddress
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BgpAsn; i != nil { inputs["bgpAsn"] = i.ToIntOutput() }
+		if i := args.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/customerGateway:CustomerGateway", name, true, inputs, opts...)
+	var resource CustomerGateway
+	err := ctx.RegisterResource("aws:ec2/customerGateway:CustomerGateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CustomerGateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetCustomerGateway gets an existing CustomerGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCustomerGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CustomerGatewayState, opts ...pulumi.ResourceOpt) (*CustomerGateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CustomerGatewayState, opts ...pulumi.ResourceOption) (*CustomerGateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["bgpAsn"] = state.BgpAsn
-		inputs["ipAddress"] = state.IpAddress
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
+		if i := state.BgpAsn; i != nil { inputs["bgpAsn"] = i.ToIntOutput() }
+		if i := state.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/customerGateway:CustomerGateway", name, id, inputs, opts...)
+	var resource CustomerGateway
+	err := ctx.ReadResource("aws:ec2/customerGateway:CustomerGateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CustomerGateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CustomerGateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CustomerGateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-func (r *CustomerGateway) BgpAsn() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["bgpAsn"])
-}
-
-// The IP address of the gateway's Internet-routable external interface.
-func (r *CustomerGateway) IpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddress"])
-}
-
-// Tags to apply to the gateway.
-func (r *CustomerGateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The type of customer gateway. The only type AWS
-// supports at this time is "ipsec.1".
-func (r *CustomerGateway) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CustomerGateway resources.
 type CustomerGatewayState struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn interface{}
+	BgpAsn pulumi.IntInput `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn interface{}
+	BgpAsn pulumi.IntInput `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }

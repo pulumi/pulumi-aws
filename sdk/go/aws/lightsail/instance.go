@@ -99,12 +99,61 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
 type Instance struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the Lightsail instance (matches `id`).
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The Availability Zone in which to create your
+	// instance (see list below)
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	// The ID for a virtual private server image
+	// (see list below)
+	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
+
+	// The bundle of specification information (see list below)
+	BundleId pulumi.StringOutput `pulumi:"bundleId"`
+
+	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
+
+	// The timestamp when the instance was created.
+	// * `availabilityZone`
+	// * `blueprintId`
+	// * `bundleId`
+	// * `keyPairName`
+	// * `userData`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+
+	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
+
+	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
+
+	// The name of your key pair. Created in the
+	// Lightsail console (cannot use `ec2.KeyPair` at this time)
+	KeyPairName pulumi.StringOutput `pulumi:"keyPairName"`
+
+	// The name of the Lightsail Instance
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+
+	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
+
+	RamSize pulumi.IntOutput `pulumi:"ramSize"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// launch script to configure server with additional user data
+	UserData pulumi.StringOutput `pulumi:"userData"`
+
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
 func NewInstance(ctx *pulumi.Context,
-	name string, args *InstanceArgs, opts ...pulumi.ResourceOpt) (*Instance, error) {
+	name string, args *InstanceArgs, opts ...pulumi.ResourceOption) (*Instance, error) {
 	if args == nil || args.AvailabilityZone == nil {
 		return nil, errors.New("missing required argument 'AvailabilityZone'")
 	}
@@ -114,215 +163,109 @@ func NewInstance(ctx *pulumi.Context,
 	if args == nil || args.BundleId == nil {
 		return nil, errors.New("missing required argument 'BundleId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["availabilityZone"] = nil
-		inputs["blueprintId"] = nil
-		inputs["bundleId"] = nil
-		inputs["keyPairName"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-		inputs["userData"] = nil
-	} else {
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["blueprintId"] = args.BlueprintId
-		inputs["bundleId"] = args.BundleId
-		inputs["keyPairName"] = args.KeyPairName
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
-		inputs["userData"] = args.UserData
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.BlueprintId; i != nil { inputs["blueprintId"] = i.ToStringOutput() }
+		if i := args.BundleId; i != nil { inputs["bundleId"] = i.ToStringOutput() }
+		if i := args.KeyPairName; i != nil { inputs["keyPairName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.UserData; i != nil { inputs["userData"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["cpuCount"] = nil
-	inputs["createdAt"] = nil
-	inputs["ipv6Address"] = nil
-	inputs["isStaticIp"] = nil
-	inputs["privateIpAddress"] = nil
-	inputs["publicIpAddress"] = nil
-	inputs["ramSize"] = nil
-	inputs["username"] = nil
-	s, err := ctx.RegisterResource("aws:lightsail/instance:Instance", name, true, inputs, opts...)
+	var resource Instance
+	err := ctx.RegisterResource("aws:lightsail/instance:Instance", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Instance{s: s}, nil
+	return &resource, nil
 }
 
 // GetInstance gets an existing Instance resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInstance(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InstanceState, opts ...pulumi.ResourceOpt) (*Instance, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InstanceState, opts ...pulumi.ResourceOption) (*Instance, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["blueprintId"] = state.BlueprintId
-		inputs["bundleId"] = state.BundleId
-		inputs["cpuCount"] = state.CpuCount
-		inputs["createdAt"] = state.CreatedAt
-		inputs["ipv6Address"] = state.Ipv6Address
-		inputs["isStaticIp"] = state.IsStaticIp
-		inputs["keyPairName"] = state.KeyPairName
-		inputs["name"] = state.Name
-		inputs["privateIpAddress"] = state.PrivateIpAddress
-		inputs["publicIpAddress"] = state.PublicIpAddress
-		inputs["ramSize"] = state.RamSize
-		inputs["tags"] = state.Tags
-		inputs["userData"] = state.UserData
-		inputs["username"] = state.Username
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.BlueprintId; i != nil { inputs["blueprintId"] = i.ToStringOutput() }
+		if i := state.BundleId; i != nil { inputs["bundleId"] = i.ToStringOutput() }
+		if i := state.CpuCount; i != nil { inputs["cpuCount"] = i.ToIntOutput() }
+		if i := state.CreatedAt; i != nil { inputs["createdAt"] = i.ToStringOutput() }
+		if i := state.Ipv6Address; i != nil { inputs["ipv6Address"] = i.ToStringOutput() }
+		if i := state.IsStaticIp; i != nil { inputs["isStaticIp"] = i.ToBoolOutput() }
+		if i := state.KeyPairName; i != nil { inputs["keyPairName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrivateIpAddress; i != nil { inputs["privateIpAddress"] = i.ToStringOutput() }
+		if i := state.PublicIpAddress; i != nil { inputs["publicIpAddress"] = i.ToStringOutput() }
+		if i := state.RamSize; i != nil { inputs["ramSize"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UserData; i != nil { inputs["userData"] = i.ToStringOutput() }
+		if i := state.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:lightsail/instance:Instance", name, id, inputs, opts...)
+	var resource Instance
+	err := ctx.ReadResource("aws:lightsail/instance:Instance", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Instance{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Instance) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Instance) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the Lightsail instance (matches `id`).
-func (r *Instance) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The Availability Zone in which to create your
-// instance (see list below)
-func (r *Instance) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// The ID for a virtual private server image
-// (see list below)
-func (r *Instance) BlueprintId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["blueprintId"])
-}
-
-// The bundle of specification information (see list below)
-func (r *Instance) BundleId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["bundleId"])
-}
-
-func (r *Instance) CpuCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["cpuCount"])
-}
-
-// The timestamp when the instance was created.
-// * `availabilityZone`
-// * `blueprintId`
-// * `bundleId`
-// * `keyPairName`
-// * `userData`
-func (r *Instance) CreatedAt() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdAt"])
-}
-
-func (r *Instance) Ipv6Address() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipv6Address"])
-}
-
-func (r *Instance) IsStaticIp() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isStaticIp"])
-}
-
-// The name of your key pair. Created in the
-// Lightsail console (cannot use `ec2.KeyPair` at this time)
-func (r *Instance) KeyPairName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyPairName"])
-}
-
-// The name of the Lightsail Instance
-func (r *Instance) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *Instance) PrivateIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
-}
-
-func (r *Instance) PublicIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicIpAddress"])
-}
-
-func (r *Instance) RamSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ramSize"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Instance) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// launch script to configure server with additional user data
-func (r *Instance) UserData() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userData"])
-}
-
-func (r *Instance) Username() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["username"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Instance resources.
 type InstanceState struct {
 	// The ARN of the Lightsail instance (matches `id`).
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The Availability Zone in which to create your
 	// instance (see list below)
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The ID for a virtual private server image
 	// (see list below)
-	BlueprintId interface{}
+	BlueprintId pulumi.StringInput `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
-	BundleId interface{}
-	CpuCount interface{}
+	BundleId pulumi.StringInput `pulumi:"bundleId"`
+	CpuCount pulumi.IntInput `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	// * `availabilityZone`
 	// * `blueprintId`
 	// * `bundleId`
 	// * `keyPairName`
 	// * `userData`
-	CreatedAt interface{}
-	Ipv6Address interface{}
-	IsStaticIp interface{}
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
+	IsStaticIp pulumi.BoolInput `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
-	KeyPairName interface{}
+	KeyPairName pulumi.StringInput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance
-	Name interface{}
-	PrivateIpAddress interface{}
-	PublicIpAddress interface{}
-	RamSize interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+	RamSize pulumi.IntInput `pulumi:"ramSize"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// launch script to configure server with additional user data
-	UserData interface{}
-	Username interface{}
+	UserData pulumi.StringInput `pulumi:"userData"`
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
 	// The Availability Zone in which to create your
 	// instance (see list below)
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The ID for a virtual private server image
 	// (see list below)
-	BlueprintId interface{}
+	BlueprintId pulumi.StringInput `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
-	BundleId interface{}
+	BundleId pulumi.StringInput `pulumi:"bundleId"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
-	KeyPairName interface{}
+	KeyPairName pulumi.StringInput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// launch script to configure server with additional user data
-	UserData interface{}
+	UserData pulumi.StringInput `pulumi:"userData"`
 }

@@ -15,57 +15,39 @@ import (
 // It will not retrieve the private key which is not available through the AWS API.   
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_server_certificate.html.markdown.
-func LookupServerCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs) (*GetServerCertificateResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["latest"] = args.Latest
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["pathPrefix"] = args.PathPrefix
-	}
-	outputs, err := ctx.Invoke("aws:iam/getServerCertificate:getServerCertificate", inputs)
+func LookupServerCertificate(ctx *pulumi.Context, args *GetServerCertificateArgs, opts ...pulumi.InvokeOption) (*GetServerCertificateResult, error) {
+	var rv GetServerCertificateResult
+	err := ctx.Invoke("aws:iam/getServerCertificate:getServerCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServerCertificateResult{
-		Arn: outputs["arn"],
-		CertificateBody: outputs["certificateBody"],
-		CertificateChain: outputs["certificateChain"],
-		ExpirationDate: outputs["expirationDate"],
-		Latest: outputs["latest"],
-		Name: outputs["name"],
-		NamePrefix: outputs["namePrefix"],
-		Path: outputs["path"],
-		PathPrefix: outputs["pathPrefix"],
-		UploadDate: outputs["uploadDate"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getServerCertificate.
 type GetServerCertificateArgs struct {
 	// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
-	Latest interface{}
+	Latest *bool `pulumi:"latest"`
 	// exact name of the cert to lookup
-	Name interface{}
+	Name *string `pulumi:"name"`
 	// prefix of cert to filter by
-	NamePrefix interface{}
+	NamePrefix *string `pulumi:"namePrefix"`
 	// prefix of path to filter by
-	PathPrefix interface{}
+	PathPrefix *string `pulumi:"pathPrefix"`
 }
 
 // A collection of values returned by getServerCertificate.
 type GetServerCertificateResult struct {
-	Arn interface{}
-	CertificateBody interface{}
-	CertificateChain interface{}
-	ExpirationDate interface{}
-	Latest interface{}
-	Name interface{}
-	NamePrefix interface{}
-	Path interface{}
-	PathPrefix interface{}
-	UploadDate interface{}
+	Arn string `pulumi:"arn"`
+	CertificateBody string `pulumi:"certificateBody"`
+	CertificateChain string `pulumi:"certificateChain"`
+	ExpirationDate string `pulumi:"expirationDate"`
+	Latest *bool `pulumi:"latest"`
+	Name string `pulumi:"name"`
+	NamePrefix *string `pulumi:"namePrefix"`
+	Path string `pulumi:"path"`
+	PathPrefix *string `pulumi:"pathPrefix"`
+	UploadDate string `pulumi:"uploadDate"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

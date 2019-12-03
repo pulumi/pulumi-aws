@@ -12,66 +12,54 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_receipt_rule_set.html.markdown.
 type ReceiptRuleSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the rule set
+	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
 
 // NewReceiptRuleSet registers a new resource with the given unique name, arguments, and options.
 func NewReceiptRuleSet(ctx *pulumi.Context,
-	name string, args *ReceiptRuleSetArgs, opts ...pulumi.ResourceOpt) (*ReceiptRuleSet, error) {
+	name string, args *ReceiptRuleSetArgs, opts ...pulumi.ResourceOption) (*ReceiptRuleSet, error) {
 	if args == nil || args.RuleSetName == nil {
 		return nil, errors.New("missing required argument 'RuleSetName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["ruleSetName"] = nil
-	} else {
-		inputs["ruleSetName"] = args.RuleSetName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.RuleSetName; i != nil { inputs["ruleSetName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, true, inputs, opts...)
+	var resource ReceiptRuleSet
+	err := ctx.RegisterResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReceiptRuleSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetReceiptRuleSet gets an existing ReceiptRuleSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetReceiptRuleSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ReceiptRuleSetState, opts ...pulumi.ResourceOpt) (*ReceiptRuleSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ReceiptRuleSetState, opts ...pulumi.ResourceOption) (*ReceiptRuleSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["ruleSetName"] = state.RuleSetName
+		if i := state.RuleSetName; i != nil { inputs["ruleSetName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, id, inputs, opts...)
+	var resource ReceiptRuleSet
+	err := ctx.ReadResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReceiptRuleSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ReceiptRuleSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ReceiptRuleSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the rule set
-func (r *ReceiptRuleSet) RuleSetName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ruleSetName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ReceiptRuleSet resources.
 type ReceiptRuleSetState struct {
 	// The name of the rule set
-	RuleSetName interface{}
+	RuleSetName pulumi.StringInput `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a ReceiptRuleSet resource.
 type ReceiptRuleSetArgs struct {
 	// The name of the rule set
-	RuleSetName interface{}
+	RuleSetName pulumi.StringInput `pulumi:"ruleSetName"`
 }

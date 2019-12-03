@@ -4,6 +4,8 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,21 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_documentation_part.html.markdown.
 type DocumentationPart struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The location of the targeted API entity of the to-be-created documentation part. See below.
+	Location DocumentationPartLocationOutput `pulumi:"location"`
+
+	// A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+	Properties pulumi.StringOutput `pulumi:"properties"`
+
+	// The ID of the associated Rest API
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
 // NewDocumentationPart registers a new resource with the given unique name, arguments, and options.
 func NewDocumentationPart(ctx *pulumi.Context,
-	name string, args *DocumentationPartArgs, opts ...pulumi.ResourceOpt) (*DocumentationPart, error) {
+	name string, args *DocumentationPartArgs, opts ...pulumi.ResourceOption) (*DocumentationPart, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -27,81 +38,151 @@ func NewDocumentationPart(ctx *pulumi.Context,
 	if args == nil || args.RestApiId == nil {
 		return nil, errors.New("missing required argument 'RestApiId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["properties"] = nil
-		inputs["restApiId"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["properties"] = args.Properties
-		inputs["restApiId"] = args.RestApiId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToDocumentationPartLocationOutput() }
+		if i := args.Properties; i != nil { inputs["properties"] = i.ToStringOutput() }
+		if i := args.RestApiId; i != nil { inputs["restApiId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:apigateway/documentationPart:DocumentationPart", name, true, inputs, opts...)
+	var resource DocumentationPart
+	err := ctx.RegisterResource("aws:apigateway/documentationPart:DocumentationPart", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DocumentationPart{s: s}, nil
+	return &resource, nil
 }
 
 // GetDocumentationPart gets an existing DocumentationPart resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDocumentationPart(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DocumentationPartState, opts ...pulumi.ResourceOpt) (*DocumentationPart, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DocumentationPartState, opts ...pulumi.ResourceOption) (*DocumentationPart, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["properties"] = state.Properties
-		inputs["restApiId"] = state.RestApiId
+		if i := state.Location; i != nil { inputs["location"] = i.ToDocumentationPartLocationOutput() }
+		if i := state.Properties; i != nil { inputs["properties"] = i.ToStringOutput() }
+		if i := state.RestApiId; i != nil { inputs["restApiId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/documentationPart:DocumentationPart", name, id, inputs, opts...)
+	var resource DocumentationPart
+	err := ctx.ReadResource("aws:apigateway/documentationPart:DocumentationPart", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DocumentationPart{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DocumentationPart) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DocumentationPart) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The location of the targeted API entity of the to-be-created documentation part. See below.
-func (r *DocumentationPart) Location() pulumi.Output {
-	return r.s.State["location"]
-}
-
-// A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
-func (r *DocumentationPart) Properties() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["properties"])
-}
-
-// The ID of the associated Rest API
-func (r *DocumentationPart) RestApiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restApiId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DocumentationPart resources.
 type DocumentationPartState struct {
 	// The location of the targeted API entity of the to-be-created documentation part. See below.
-	Location interface{}
+	Location DocumentationPartLocationInput `pulumi:"location"`
 	// A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
-	Properties interface{}
+	Properties pulumi.StringInput `pulumi:"properties"`
 	// The ID of the associated Rest API
-	RestApiId interface{}
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a DocumentationPart resource.
 type DocumentationPartArgs struct {
 	// The location of the targeted API entity of the to-be-created documentation part. See below.
-	Location interface{}
+	Location DocumentationPartLocationInput `pulumi:"location"`
 	// A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
-	Properties interface{}
+	Properties pulumi.StringInput `pulumi:"properties"`
 	// The ID of the associated Rest API
-	RestApiId interface{}
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
+type DocumentationPartLocation struct {
+	// The HTTP verb of a method. The default value is `*` for any method.
+	Method *string `pulumi:"method"`
+	// The name of the targeted API entity.
+	Name *string `pulumi:"name"`
+	// The URL path of the target. The default value is `/` for the root resource.
+	Path *string `pulumi:"path"`
+	// The HTTP status code of a response. The default value is `*` for any status code.
+	StatusCode *string `pulumi:"statusCode"`
+	// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+	Type string `pulumi:"type"`
+}
+var documentationPartLocationType = reflect.TypeOf((*DocumentationPartLocation)(nil)).Elem()
+
+type DocumentationPartLocationInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationOutput() DocumentationPartLocationOutput
+	ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput
+}
+
+type DocumentationPartLocationArgs struct {
+	// The HTTP verb of a method. The default value is `*` for any method.
+	Method pulumi.StringInput `pulumi:"method"`
+	// The name of the targeted API entity.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL path of the target. The default value is `/` for the root resource.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The HTTP status code of a response. The default value is `*` for any status code.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+	// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DocumentationPartLocationArgs) ElementType() reflect.Type {
+	return documentationPartLocationType
+}
+
+func (a DocumentationPartLocationArgs) ToDocumentationPartLocationOutput() DocumentationPartLocationOutput {
+	return pulumi.ToOutput(a).(DocumentationPartLocationOutput)
+}
+
+func (a DocumentationPartLocationArgs) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DocumentationPartLocationOutput)
+}
+
+type DocumentationPartLocationOutput struct { *pulumi.OutputState }
+
+// The HTTP verb of a method. The default value is `*` for any method.
+func (o DocumentationPartLocationOutput) Method() pulumi.StringOutput {
+	return o.Apply(func(v DocumentationPartLocation) string {
+		if v.Method == nil { return *new(string) } else { return *v.Method }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the targeted API entity.
+func (o DocumentationPartLocationOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v DocumentationPartLocation) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+// The URL path of the target. The default value is `/` for the root resource.
+func (o DocumentationPartLocationOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v DocumentationPartLocation) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+// The HTTP status code of a response. The default value is `*` for any status code.
+func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringOutput {
+	return o.Apply(func(v DocumentationPartLocation) string {
+		if v.StatusCode == nil { return *new(string) } else { return *v.StatusCode }
+	}).(pulumi.StringOutput)
+}
+
+// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+func (o DocumentationPartLocationOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v DocumentationPartLocation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (DocumentationPartLocationOutput) ElementType() reflect.Type {
+	return documentationPartLocationType
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutput() DocumentationPartLocationOutput {
+	return o
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DocumentationPartLocationOutput{}) }
+

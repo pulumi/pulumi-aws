@@ -11,21 +11,19 @@ import (
 // for the effective account in which this provider is working.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
-func LookupAccountAlias(ctx *pulumi.Context) (*GetAccountAliasResult, error) {
-	outputs, err := ctx.Invoke("aws:iam/getAccountAlias:getAccountAlias", nil)
+func LookupAccountAlias(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAccountAliasResult, error) {
+	var rv GetAccountAliasResult
+	err := ctx.Invoke("aws:iam/getAccountAlias:getAccountAlias", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccountAliasResult{
-		AccountAlias: outputs["accountAlias"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of values returned by getAccountAlias.
 type GetAccountAliasResult struct {
 	// The alias associated with the AWS account.
-	AccountAlias interface{}
+	AccountAlias string `pulumi:"accountAlias"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -4,6 +4,8 @@
 package opsworks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -66,564 +68,777 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
 type Instance struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
+	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
+
+	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
+	AmiId pulumi.StringOutput `pulumi:"amiId"`
+
+	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
+	Architecture pulumi.StringOutput `pulumi:"architecture"`
+
+	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
+	AutoScalingType pulumi.StringOutput `pulumi:"autoScalingType"`
+
+	// Name of the availability zone where instances will be created
+	// by default.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+
+	DeleteEbs pulumi.BoolOutput `pulumi:"deleteEbs"`
+
+	DeleteEip pulumi.BoolOutput `pulumi:"deleteEip"`
+
+	// Additional EBS block devices to attach to the
+	// instance.  See Block Devices below for details.
+	EbsBlockDevices InstanceEbsBlockDevicesArrayOutput `pulumi:"ebsBlockDevices"`
+
+	// If true, the launched EC2 instance will be EBS-optimized.
+	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
+
+	// EC2 instance ID
+	Ec2InstanceId pulumi.StringOutput `pulumi:"ec2InstanceId"`
+
+	EcsClusterArn pulumi.StringOutput `pulumi:"ecsClusterArn"`
+
+	ElasticIp pulumi.StringOutput `pulumi:"elasticIp"`
+
+	// Customize Ephemeral (also known as
+	// "Instance Store") volumes on the instance. See Block Devices below for details.
+	EphemeralBlockDevices InstanceEphemeralBlockDevicesArrayOutput `pulumi:"ephemeralBlockDevices"`
+
+	// The instance's host name.
+	Hostname pulumi.StringOutput `pulumi:"hostname"`
+
+	InfrastructureClass pulumi.StringOutput `pulumi:"infrastructureClass"`
+
+	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
+	InstallUpdatesOnBoot pulumi.BoolOutput `pulumi:"installUpdatesOnBoot"`
+
+	InstanceProfileArn pulumi.StringOutput `pulumi:"instanceProfileArn"`
+
+	// The type of instance to start
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+
+	LastServiceErrorId pulumi.StringOutput `pulumi:"lastServiceErrorId"`
+
+	// The ids of the layers the instance will belong to.
+	LayerIds pulumi.StringArrayOutput `pulumi:"layerIds"`
+
+	// Name of operating system that will be installed.
+	Os pulumi.StringOutput `pulumi:"os"`
+
+	Platform pulumi.StringOutput `pulumi:"platform"`
+
+	// The private DNS name assigned to the instance. Can only be
+	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
+	// for your VPC
+	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
+
+	// The private IP address assigned to the instance
+	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+
+	// The public DNS name assigned to the instance. For EC2-VPC, this
+	// is only available if you've enabled DNS hostnames for your VPC
+	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
+
+	// The public IP address assigned to the instance, if applicable.
+	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+
+	RegisteredBy pulumi.StringOutput `pulumi:"registeredBy"`
+
+	ReportedAgentVersion pulumi.StringOutput `pulumi:"reportedAgentVersion"`
+
+	ReportedOsFamily pulumi.StringOutput `pulumi:"reportedOsFamily"`
+
+	ReportedOsName pulumi.StringOutput `pulumi:"reportedOsName"`
+
+	ReportedOsVersion pulumi.StringOutput `pulumi:"reportedOsVersion"`
+
+	// Customize details about the root block
+	// device of the instance. See Block Devices below for details.
+	RootBlockDevices InstanceRootBlockDevicesArrayOutput `pulumi:"rootBlockDevices"`
+
+	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
+	RootDeviceType pulumi.StringOutput `pulumi:"rootDeviceType"`
+
+	RootDeviceVolumeId pulumi.StringOutput `pulumi:"rootDeviceVolumeId"`
+
+	// The associated security groups.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+
+	SshHostDsaKeyFingerprint pulumi.StringOutput `pulumi:"sshHostDsaKeyFingerprint"`
+
+	SshHostRsaKeyFingerprint pulumi.StringOutput `pulumi:"sshHostRsaKeyFingerprint"`
+
+	// Name of the SSH keypair that instances will have by default.
+	SshKeyName pulumi.StringOutput `pulumi:"sshKeyName"`
+
+	// The id of the stack the instance will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
+	State pulumi.StringOutput `pulumi:"state"`
+
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Subnet ID to attach to
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+
+	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
+	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
+
+	// Keyword to choose what virtualization mode created instances
+	// will use. Can be either `"paravirtual"` or `"hvm"`.
+	VirtualizationType pulumi.StringOutput `pulumi:"virtualizationType"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
 func NewInstance(ctx *pulumi.Context,
-	name string, args *InstanceArgs, opts ...pulumi.ResourceOpt) (*Instance, error) {
+	name string, args *InstanceArgs, opts ...pulumi.ResourceOption) (*Instance, error) {
 	if args == nil || args.LayerIds == nil {
 		return nil, errors.New("missing required argument 'LayerIds'")
 	}
 	if args == nil || args.StackId == nil {
 		return nil, errors.New("missing required argument 'StackId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["agentVersion"] = nil
-		inputs["amiId"] = nil
-		inputs["architecture"] = nil
-		inputs["autoScalingType"] = nil
-		inputs["availabilityZone"] = nil
-		inputs["createdAt"] = nil
-		inputs["deleteEbs"] = nil
-		inputs["deleteEip"] = nil
-		inputs["ebsBlockDevices"] = nil
-		inputs["ebsOptimized"] = nil
-		inputs["ecsClusterArn"] = nil
-		inputs["elasticIp"] = nil
-		inputs["ephemeralBlockDevices"] = nil
-		inputs["hostname"] = nil
-		inputs["infrastructureClass"] = nil
-		inputs["installUpdatesOnBoot"] = nil
-		inputs["instanceProfileArn"] = nil
-		inputs["instanceType"] = nil
-		inputs["lastServiceErrorId"] = nil
-		inputs["layerIds"] = nil
-		inputs["os"] = nil
-		inputs["platform"] = nil
-		inputs["privateDns"] = nil
-		inputs["privateIp"] = nil
-		inputs["publicDns"] = nil
-		inputs["publicIp"] = nil
-		inputs["registeredBy"] = nil
-		inputs["reportedAgentVersion"] = nil
-		inputs["reportedOsFamily"] = nil
-		inputs["reportedOsName"] = nil
-		inputs["reportedOsVersion"] = nil
-		inputs["rootBlockDevices"] = nil
-		inputs["rootDeviceType"] = nil
-		inputs["rootDeviceVolumeId"] = nil
-		inputs["securityGroupIds"] = nil
-		inputs["sshHostDsaKeyFingerprint"] = nil
-		inputs["sshHostRsaKeyFingerprint"] = nil
-		inputs["sshKeyName"] = nil
-		inputs["stackId"] = nil
-		inputs["state"] = nil
-		inputs["status"] = nil
-		inputs["subnetId"] = nil
-		inputs["tenancy"] = nil
-		inputs["virtualizationType"] = nil
-	} else {
-		inputs["agentVersion"] = args.AgentVersion
-		inputs["amiId"] = args.AmiId
-		inputs["architecture"] = args.Architecture
-		inputs["autoScalingType"] = args.AutoScalingType
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["createdAt"] = args.CreatedAt
-		inputs["deleteEbs"] = args.DeleteEbs
-		inputs["deleteEip"] = args.DeleteEip
-		inputs["ebsBlockDevices"] = args.EbsBlockDevices
-		inputs["ebsOptimized"] = args.EbsOptimized
-		inputs["ecsClusterArn"] = args.EcsClusterArn
-		inputs["elasticIp"] = args.ElasticIp
-		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
-		inputs["hostname"] = args.Hostname
-		inputs["infrastructureClass"] = args.InfrastructureClass
-		inputs["installUpdatesOnBoot"] = args.InstallUpdatesOnBoot
-		inputs["instanceProfileArn"] = args.InstanceProfileArn
-		inputs["instanceType"] = args.InstanceType
-		inputs["lastServiceErrorId"] = args.LastServiceErrorId
-		inputs["layerIds"] = args.LayerIds
-		inputs["os"] = args.Os
-		inputs["platform"] = args.Platform
-		inputs["privateDns"] = args.PrivateDns
-		inputs["privateIp"] = args.PrivateIp
-		inputs["publicDns"] = args.PublicDns
-		inputs["publicIp"] = args.PublicIp
-		inputs["registeredBy"] = args.RegisteredBy
-		inputs["reportedAgentVersion"] = args.ReportedAgentVersion
-		inputs["reportedOsFamily"] = args.ReportedOsFamily
-		inputs["reportedOsName"] = args.ReportedOsName
-		inputs["reportedOsVersion"] = args.ReportedOsVersion
-		inputs["rootBlockDevices"] = args.RootBlockDevices
-		inputs["rootDeviceType"] = args.RootDeviceType
-		inputs["rootDeviceVolumeId"] = args.RootDeviceVolumeId
-		inputs["securityGroupIds"] = args.SecurityGroupIds
-		inputs["sshHostDsaKeyFingerprint"] = args.SshHostDsaKeyFingerprint
-		inputs["sshHostRsaKeyFingerprint"] = args.SshHostRsaKeyFingerprint
-		inputs["sshKeyName"] = args.SshKeyName
-		inputs["stackId"] = args.StackId
-		inputs["state"] = args.State
-		inputs["status"] = args.Status
-		inputs["subnetId"] = args.SubnetId
-		inputs["tenancy"] = args.Tenancy
-		inputs["virtualizationType"] = args.VirtualizationType
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AgentVersion; i != nil { inputs["agentVersion"] = i.ToStringOutput() }
+		if i := args.AmiId; i != nil { inputs["amiId"] = i.ToStringOutput() }
+		if i := args.Architecture; i != nil { inputs["architecture"] = i.ToStringOutput() }
+		if i := args.AutoScalingType; i != nil { inputs["autoScalingType"] = i.ToStringOutput() }
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.CreatedAt; i != nil { inputs["createdAt"] = i.ToStringOutput() }
+		if i := args.DeleteEbs; i != nil { inputs["deleteEbs"] = i.ToBoolOutput() }
+		if i := args.DeleteEip; i != nil { inputs["deleteEip"] = i.ToBoolOutput() }
+		if i := args.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToInstanceEbsBlockDevicesArrayOutput() }
+		if i := args.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToBoolOutput() }
+		if i := args.EcsClusterArn; i != nil { inputs["ecsClusterArn"] = i.ToStringOutput() }
+		if i := args.ElasticIp; i != nil { inputs["elasticIp"] = i.ToStringOutput() }
+		if i := args.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToInstanceEphemeralBlockDevicesArrayOutput() }
+		if i := args.Hostname; i != nil { inputs["hostname"] = i.ToStringOutput() }
+		if i := args.InfrastructureClass; i != nil { inputs["infrastructureClass"] = i.ToStringOutput() }
+		if i := args.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := args.InstanceProfileArn; i != nil { inputs["instanceProfileArn"] = i.ToStringOutput() }
+		if i := args.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := args.LastServiceErrorId; i != nil { inputs["lastServiceErrorId"] = i.ToStringOutput() }
+		if i := args.LayerIds; i != nil { inputs["layerIds"] = i.ToStringArrayOutput() }
+		if i := args.Os; i != nil { inputs["os"] = i.ToStringOutput() }
+		if i := args.Platform; i != nil { inputs["platform"] = i.ToStringOutput() }
+		if i := args.PrivateDns; i != nil { inputs["privateDns"] = i.ToStringOutput() }
+		if i := args.PrivateIp; i != nil { inputs["privateIp"] = i.ToStringOutput() }
+		if i := args.PublicDns; i != nil { inputs["publicDns"] = i.ToStringOutput() }
+		if i := args.PublicIp; i != nil { inputs["publicIp"] = i.ToStringOutput() }
+		if i := args.RegisteredBy; i != nil { inputs["registeredBy"] = i.ToStringOutput() }
+		if i := args.ReportedAgentVersion; i != nil { inputs["reportedAgentVersion"] = i.ToStringOutput() }
+		if i := args.ReportedOsFamily; i != nil { inputs["reportedOsFamily"] = i.ToStringOutput() }
+		if i := args.ReportedOsName; i != nil { inputs["reportedOsName"] = i.ToStringOutput() }
+		if i := args.ReportedOsVersion; i != nil { inputs["reportedOsVersion"] = i.ToStringOutput() }
+		if i := args.RootBlockDevices; i != nil { inputs["rootBlockDevices"] = i.ToInstanceRootBlockDevicesArrayOutput() }
+		if i := args.RootDeviceType; i != nil { inputs["rootDeviceType"] = i.ToStringOutput() }
+		if i := args.RootDeviceVolumeId; i != nil { inputs["rootDeviceVolumeId"] = i.ToStringOutput() }
+		if i := args.SecurityGroupIds; i != nil { inputs["securityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.SshHostDsaKeyFingerprint; i != nil { inputs["sshHostDsaKeyFingerprint"] = i.ToStringOutput() }
+		if i := args.SshHostRsaKeyFingerprint; i != nil { inputs["sshHostRsaKeyFingerprint"] = i.ToStringOutput() }
+		if i := args.SshKeyName; i != nil { inputs["sshKeyName"] = i.ToStringOutput() }
+		if i := args.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := args.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := args.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := args.Tenancy; i != nil { inputs["tenancy"] = i.ToStringOutput() }
+		if i := args.VirtualizationType; i != nil { inputs["virtualizationType"] = i.ToStringOutput() }
 	}
-	inputs["ec2InstanceId"] = nil
-	s, err := ctx.RegisterResource("aws:opsworks/instance:Instance", name, true, inputs, opts...)
+	var resource Instance
+	err := ctx.RegisterResource("aws:opsworks/instance:Instance", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Instance{s: s}, nil
+	return &resource, nil
 }
 
 // GetInstance gets an existing Instance resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInstance(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InstanceState, opts ...pulumi.ResourceOpt) (*Instance, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InstanceState, opts ...pulumi.ResourceOption) (*Instance, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["agentVersion"] = state.AgentVersion
-		inputs["amiId"] = state.AmiId
-		inputs["architecture"] = state.Architecture
-		inputs["autoScalingType"] = state.AutoScalingType
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["createdAt"] = state.CreatedAt
-		inputs["deleteEbs"] = state.DeleteEbs
-		inputs["deleteEip"] = state.DeleteEip
-		inputs["ebsBlockDevices"] = state.EbsBlockDevices
-		inputs["ebsOptimized"] = state.EbsOptimized
-		inputs["ec2InstanceId"] = state.Ec2InstanceId
-		inputs["ecsClusterArn"] = state.EcsClusterArn
-		inputs["elasticIp"] = state.ElasticIp
-		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
-		inputs["hostname"] = state.Hostname
-		inputs["infrastructureClass"] = state.InfrastructureClass
-		inputs["installUpdatesOnBoot"] = state.InstallUpdatesOnBoot
-		inputs["instanceProfileArn"] = state.InstanceProfileArn
-		inputs["instanceType"] = state.InstanceType
-		inputs["lastServiceErrorId"] = state.LastServiceErrorId
-		inputs["layerIds"] = state.LayerIds
-		inputs["os"] = state.Os
-		inputs["platform"] = state.Platform
-		inputs["privateDns"] = state.PrivateDns
-		inputs["privateIp"] = state.PrivateIp
-		inputs["publicDns"] = state.PublicDns
-		inputs["publicIp"] = state.PublicIp
-		inputs["registeredBy"] = state.RegisteredBy
-		inputs["reportedAgentVersion"] = state.ReportedAgentVersion
-		inputs["reportedOsFamily"] = state.ReportedOsFamily
-		inputs["reportedOsName"] = state.ReportedOsName
-		inputs["reportedOsVersion"] = state.ReportedOsVersion
-		inputs["rootBlockDevices"] = state.RootBlockDevices
-		inputs["rootDeviceType"] = state.RootDeviceType
-		inputs["rootDeviceVolumeId"] = state.RootDeviceVolumeId
-		inputs["securityGroupIds"] = state.SecurityGroupIds
-		inputs["sshHostDsaKeyFingerprint"] = state.SshHostDsaKeyFingerprint
-		inputs["sshHostRsaKeyFingerprint"] = state.SshHostRsaKeyFingerprint
-		inputs["sshKeyName"] = state.SshKeyName
-		inputs["stackId"] = state.StackId
-		inputs["state"] = state.State
-		inputs["status"] = state.Status
-		inputs["subnetId"] = state.SubnetId
-		inputs["tenancy"] = state.Tenancy
-		inputs["virtualizationType"] = state.VirtualizationType
+		if i := state.AgentVersion; i != nil { inputs["agentVersion"] = i.ToStringOutput() }
+		if i := state.AmiId; i != nil { inputs["amiId"] = i.ToStringOutput() }
+		if i := state.Architecture; i != nil { inputs["architecture"] = i.ToStringOutput() }
+		if i := state.AutoScalingType; i != nil { inputs["autoScalingType"] = i.ToStringOutput() }
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.CreatedAt; i != nil { inputs["createdAt"] = i.ToStringOutput() }
+		if i := state.DeleteEbs; i != nil { inputs["deleteEbs"] = i.ToBoolOutput() }
+		if i := state.DeleteEip; i != nil { inputs["deleteEip"] = i.ToBoolOutput() }
+		if i := state.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToInstanceEbsBlockDevicesArrayOutput() }
+		if i := state.EbsOptimized; i != nil { inputs["ebsOptimized"] = i.ToBoolOutput() }
+		if i := state.Ec2InstanceId; i != nil { inputs["ec2InstanceId"] = i.ToStringOutput() }
+		if i := state.EcsClusterArn; i != nil { inputs["ecsClusterArn"] = i.ToStringOutput() }
+		if i := state.ElasticIp; i != nil { inputs["elasticIp"] = i.ToStringOutput() }
+		if i := state.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToInstanceEphemeralBlockDevicesArrayOutput() }
+		if i := state.Hostname; i != nil { inputs["hostname"] = i.ToStringOutput() }
+		if i := state.InfrastructureClass; i != nil { inputs["infrastructureClass"] = i.ToStringOutput() }
+		if i := state.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := state.InstanceProfileArn; i != nil { inputs["instanceProfileArn"] = i.ToStringOutput() }
+		if i := state.InstanceType; i != nil { inputs["instanceType"] = i.ToStringOutput() }
+		if i := state.LastServiceErrorId; i != nil { inputs["lastServiceErrorId"] = i.ToStringOutput() }
+		if i := state.LayerIds; i != nil { inputs["layerIds"] = i.ToStringArrayOutput() }
+		if i := state.Os; i != nil { inputs["os"] = i.ToStringOutput() }
+		if i := state.Platform; i != nil { inputs["platform"] = i.ToStringOutput() }
+		if i := state.PrivateDns; i != nil { inputs["privateDns"] = i.ToStringOutput() }
+		if i := state.PrivateIp; i != nil { inputs["privateIp"] = i.ToStringOutput() }
+		if i := state.PublicDns; i != nil { inputs["publicDns"] = i.ToStringOutput() }
+		if i := state.PublicIp; i != nil { inputs["publicIp"] = i.ToStringOutput() }
+		if i := state.RegisteredBy; i != nil { inputs["registeredBy"] = i.ToStringOutput() }
+		if i := state.ReportedAgentVersion; i != nil { inputs["reportedAgentVersion"] = i.ToStringOutput() }
+		if i := state.ReportedOsFamily; i != nil { inputs["reportedOsFamily"] = i.ToStringOutput() }
+		if i := state.ReportedOsName; i != nil { inputs["reportedOsName"] = i.ToStringOutput() }
+		if i := state.ReportedOsVersion; i != nil { inputs["reportedOsVersion"] = i.ToStringOutput() }
+		if i := state.RootBlockDevices; i != nil { inputs["rootBlockDevices"] = i.ToInstanceRootBlockDevicesArrayOutput() }
+		if i := state.RootDeviceType; i != nil { inputs["rootDeviceType"] = i.ToStringOutput() }
+		if i := state.RootDeviceVolumeId; i != nil { inputs["rootDeviceVolumeId"] = i.ToStringOutput() }
+		if i := state.SecurityGroupIds; i != nil { inputs["securityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.SshHostDsaKeyFingerprint; i != nil { inputs["sshHostDsaKeyFingerprint"] = i.ToStringOutput() }
+		if i := state.SshHostRsaKeyFingerprint; i != nil { inputs["sshHostRsaKeyFingerprint"] = i.ToStringOutput() }
+		if i := state.SshKeyName; i != nil { inputs["sshKeyName"] = i.ToStringOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := state.Tenancy; i != nil { inputs["tenancy"] = i.ToStringOutput() }
+		if i := state.VirtualizationType; i != nil { inputs["virtualizationType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:opsworks/instance:Instance", name, id, inputs, opts...)
+	var resource Instance
+	err := ctx.ReadResource("aws:opsworks/instance:Instance", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Instance{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Instance) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Instance) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
-func (r *Instance) AgentVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["agentVersion"])
-}
-
-// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
-func (r *Instance) AmiId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["amiId"])
-}
-
-// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
-func (r *Instance) Architecture() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["architecture"])
-}
-
-// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
-func (r *Instance) AutoScalingType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoScalingType"])
-}
-
-// Name of the availability zone where instances will be created
-// by default.
-func (r *Instance) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-func (r *Instance) CreatedAt() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdAt"])
-}
-
-func (r *Instance) DeleteEbs() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deleteEbs"])
-}
-
-func (r *Instance) DeleteEip() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deleteEip"])
-}
-
-// Additional EBS block devices to attach to the
-// instance.  See Block Devices below for details.
-func (r *Instance) EbsBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
-}
-
-// If true, the launched EC2 instance will be EBS-optimized.
-func (r *Instance) EbsOptimized() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["ebsOptimized"])
-}
-
-// EC2 instance ID
-func (r *Instance) Ec2InstanceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ec2InstanceId"])
-}
-
-func (r *Instance) EcsClusterArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ecsClusterArn"])
-}
-
-func (r *Instance) ElasticIp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticIp"])
-}
-
-// Customize Ephemeral (also known as
-// "Instance Store") volumes on the instance. See Block Devices below for details.
-func (r *Instance) EphemeralBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
-}
-
-// The instance's host name.
-func (r *Instance) Hostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostname"])
-}
-
-func (r *Instance) InfrastructureClass() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["infrastructureClass"])
-}
-
-// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
-func (r *Instance) InstallUpdatesOnBoot() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
-}
-
-func (r *Instance) InstanceProfileArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceProfileArn"])
-}
-
-// The type of instance to start
-func (r *Instance) InstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceType"])
-}
-
-func (r *Instance) LastServiceErrorId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lastServiceErrorId"])
-}
-
-// The ids of the layers the instance will belong to.
-func (r *Instance) LayerIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["layerIds"])
-}
-
-// Name of operating system that will be installed.
-func (r *Instance) Os() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["os"])
-}
-
-func (r *Instance) Platform() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["platform"])
-}
-
-// The private DNS name assigned to the instance. Can only be
-// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
-// for your VPC
-func (r *Instance) PrivateDns() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateDns"])
-}
-
-// The private IP address assigned to the instance
-func (r *Instance) PrivateIp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateIp"])
-}
-
-// The public DNS name assigned to the instance. For EC2-VPC, this
-// is only available if you've enabled DNS hostnames for your VPC
-func (r *Instance) PublicDns() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicDns"])
-}
-
-// The public IP address assigned to the instance, if applicable.
-func (r *Instance) PublicIp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicIp"])
-}
-
-func (r *Instance) RegisteredBy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["registeredBy"])
-}
-
-func (r *Instance) ReportedAgentVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reportedAgentVersion"])
-}
-
-func (r *Instance) ReportedOsFamily() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reportedOsFamily"])
-}
-
-func (r *Instance) ReportedOsName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reportedOsName"])
-}
-
-func (r *Instance) ReportedOsVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reportedOsVersion"])
-}
-
-// Customize details about the root block
-// device of the instance. See Block Devices below for details.
-func (r *Instance) RootBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["rootBlockDevices"])
-}
-
-// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-func (r *Instance) RootDeviceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootDeviceType"])
-}
-
-func (r *Instance) RootDeviceVolumeId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootDeviceVolumeId"])
-}
-
-// The associated security groups.
-func (r *Instance) SecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroupIds"])
-}
-
-func (r *Instance) SshHostDsaKeyFingerprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshHostDsaKeyFingerprint"])
-}
-
-func (r *Instance) SshHostRsaKeyFingerprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshHostRsaKeyFingerprint"])
-}
-
-// Name of the SSH keypair that instances will have by default.
-func (r *Instance) SshKeyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshKeyName"])
-}
-
-// The id of the stack the instance will belong to.
-func (r *Instance) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-func (r *Instance) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
-}
-
-func (r *Instance) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Subnet ID to attach to
-func (r *Instance) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
-// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
-func (r *Instance) Tenancy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tenancy"])
-}
-
-// Keyword to choose what virtualization mode created instances
-// will use. Can be either `"paravirtual"` or `"hvm"`.
-func (r *Instance) VirtualizationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualizationType"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Instance resources.
 type InstanceState struct {
 	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
-	AgentVersion interface{}
+	AgentVersion pulumi.StringInput `pulumi:"agentVersion"`
 	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
-	AmiId interface{}
+	AmiId pulumi.StringInput `pulumi:"amiId"`
 	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
-	Architecture interface{}
+	Architecture pulumi.StringInput `pulumi:"architecture"`
 	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
-	AutoScalingType interface{}
+	AutoScalingType pulumi.StringInput `pulumi:"autoScalingType"`
 	// Name of the availability zone where instances will be created
 	// by default.
-	AvailabilityZone interface{}
-	CreatedAt interface{}
-	DeleteEbs interface{}
-	DeleteEip interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	DeleteEbs pulumi.BoolInput `pulumi:"deleteEbs"`
+	DeleteEip pulumi.BoolInput `pulumi:"deleteEip"`
 	// Additional EBS block devices to attach to the
 	// instance.  See Block Devices below for details.
-	EbsBlockDevices interface{}
+	EbsBlockDevices InstanceEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized interface{}
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
 	// EC2 instance ID
-	Ec2InstanceId interface{}
-	EcsClusterArn interface{}
-	ElasticIp interface{}
+	Ec2InstanceId pulumi.StringInput `pulumi:"ec2InstanceId"`
+	EcsClusterArn pulumi.StringInput `pulumi:"ecsClusterArn"`
+	ElasticIp pulumi.StringInput `pulumi:"elasticIp"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices InstanceEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// The instance's host name.
-	Hostname interface{}
-	InfrastructureClass interface{}
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	InfrastructureClass pulumi.StringInput `pulumi:"infrastructureClass"`
 	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
-	InstallUpdatesOnBoot interface{}
-	InstanceProfileArn interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
+	InstanceProfileArn pulumi.StringInput `pulumi:"instanceProfileArn"`
 	// The type of instance to start
-	InstanceType interface{}
-	LastServiceErrorId interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	LastServiceErrorId pulumi.StringInput `pulumi:"lastServiceErrorId"`
 	// The ids of the layers the instance will belong to.
-	LayerIds interface{}
+	LayerIds pulumi.StringArrayInput `pulumi:"layerIds"`
 	// Name of operating system that will be installed.
-	Os interface{}
-	Platform interface{}
+	Os pulumi.StringInput `pulumi:"os"`
+	Platform pulumi.StringInput `pulumi:"platform"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
-	PrivateDns interface{}
+	PrivateDns pulumi.StringInput `pulumi:"privateDns"`
 	// The private IP address assigned to the instance
-	PrivateIp interface{}
+	PrivateIp pulumi.StringInput `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
-	PublicDns interface{}
+	PublicDns pulumi.StringInput `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
-	PublicIp interface{}
-	RegisteredBy interface{}
-	ReportedAgentVersion interface{}
-	ReportedOsFamily interface{}
-	ReportedOsName interface{}
-	ReportedOsVersion interface{}
+	PublicIp pulumi.StringInput `pulumi:"publicIp"`
+	RegisteredBy pulumi.StringInput `pulumi:"registeredBy"`
+	ReportedAgentVersion pulumi.StringInput `pulumi:"reportedAgentVersion"`
+	ReportedOsFamily pulumi.StringInput `pulumi:"reportedOsFamily"`
+	ReportedOsName pulumi.StringInput `pulumi:"reportedOsName"`
+	ReportedOsVersion pulumi.StringInput `pulumi:"reportedOsVersion"`
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
-	RootBlockDevices interface{}
+	RootBlockDevices InstanceRootBlockDevicesArrayInput `pulumi:"rootBlockDevices"`
 	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType interface{}
-	RootDeviceVolumeId interface{}
+	RootDeviceType pulumi.StringInput `pulumi:"rootDeviceType"`
+	RootDeviceVolumeId pulumi.StringInput `pulumi:"rootDeviceVolumeId"`
 	// The associated security groups.
-	SecurityGroupIds interface{}
-	SshHostDsaKeyFingerprint interface{}
-	SshHostRsaKeyFingerprint interface{}
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SshHostDsaKeyFingerprint pulumi.StringInput `pulumi:"sshHostDsaKeyFingerprint"`
+	SshHostRsaKeyFingerprint pulumi.StringInput `pulumi:"sshHostRsaKeyFingerprint"`
 	// Name of the SSH keypair that instances will have by default.
-	SshKeyName interface{}
+	SshKeyName pulumi.StringInput `pulumi:"sshKeyName"`
 	// The id of the stack the instance will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State interface{}
-	Status interface{}
+	State pulumi.StringInput `pulumi:"state"`
+	Status pulumi.StringInput `pulumi:"status"`
 	// Subnet ID to attach to
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
-	Tenancy interface{}
+	Tenancy pulumi.StringInput `pulumi:"tenancy"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either `"paravirtual"` or `"hvm"`.
-	VirtualizationType interface{}
+	VirtualizationType pulumi.StringInput `pulumi:"virtualizationType"`
 }
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
 	// The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
-	AgentVersion interface{}
+	AgentVersion pulumi.StringInput `pulumi:"agentVersion"`
 	// The AMI to use for the instance.  If an AMI is specified, `os` must be `"Custom"`.
-	AmiId interface{}
+	AmiId pulumi.StringInput `pulumi:"amiId"`
 	// Machine architecture for created instances.  Can be either `"x8664"` (the default) or `"i386"`
-	Architecture interface{}
+	Architecture pulumi.StringInput `pulumi:"architecture"`
 	// Creates load-based or time-based instances.  If set, can be either: `"load"` or `"timer"`.
-	AutoScalingType interface{}
+	AutoScalingType pulumi.StringInput `pulumi:"autoScalingType"`
 	// Name of the availability zone where instances will be created
 	// by default.
-	AvailabilityZone interface{}
-	CreatedAt interface{}
-	DeleteEbs interface{}
-	DeleteEip interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	DeleteEbs pulumi.BoolInput `pulumi:"deleteEbs"`
+	DeleteEip pulumi.BoolInput `pulumi:"deleteEip"`
 	// Additional EBS block devices to attach to the
 	// instance.  See Block Devices below for details.
-	EbsBlockDevices interface{}
+	EbsBlockDevices InstanceEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized.
-	EbsOptimized interface{}
-	EcsClusterArn interface{}
-	ElasticIp interface{}
+	EbsOptimized pulumi.BoolInput `pulumi:"ebsOptimized"`
+	EcsClusterArn pulumi.StringInput `pulumi:"ecsClusterArn"`
+	ElasticIp pulumi.StringInput `pulumi:"elasticIp"`
 	// Customize Ephemeral (also known as
 	// "Instance Store") volumes on the instance. See Block Devices below for details.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices InstanceEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// The instance's host name.
-	Hostname interface{}
-	InfrastructureClass interface{}
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	InfrastructureClass pulumi.StringInput `pulumi:"infrastructureClass"`
 	// Controls where to install OS and package updates when the instance boots.  Defaults to `true`.
-	InstallUpdatesOnBoot interface{}
-	InstanceProfileArn interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
+	InstanceProfileArn pulumi.StringInput `pulumi:"instanceProfileArn"`
 	// The type of instance to start
-	InstanceType interface{}
-	LastServiceErrorId interface{}
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	LastServiceErrorId pulumi.StringInput `pulumi:"lastServiceErrorId"`
 	// The ids of the layers the instance will belong to.
-	LayerIds interface{}
+	LayerIds pulumi.StringArrayInput `pulumi:"layerIds"`
 	// Name of operating system that will be installed.
-	Os interface{}
-	Platform interface{}
+	Os pulumi.StringInput `pulumi:"os"`
+	Platform pulumi.StringInput `pulumi:"platform"`
 	// The private DNS name assigned to the instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
-	PrivateDns interface{}
+	PrivateDns pulumi.StringInput `pulumi:"privateDns"`
 	// The private IP address assigned to the instance
-	PrivateIp interface{}
+	PrivateIp pulumi.StringInput `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
-	PublicDns interface{}
+	PublicDns pulumi.StringInput `pulumi:"publicDns"`
 	// The public IP address assigned to the instance, if applicable.
-	PublicIp interface{}
-	RegisteredBy interface{}
-	ReportedAgentVersion interface{}
-	ReportedOsFamily interface{}
-	ReportedOsName interface{}
-	ReportedOsVersion interface{}
+	PublicIp pulumi.StringInput `pulumi:"publicIp"`
+	RegisteredBy pulumi.StringInput `pulumi:"registeredBy"`
+	ReportedAgentVersion pulumi.StringInput `pulumi:"reportedAgentVersion"`
+	ReportedOsFamily pulumi.StringInput `pulumi:"reportedOsFamily"`
+	ReportedOsName pulumi.StringInput `pulumi:"reportedOsName"`
+	ReportedOsVersion pulumi.StringInput `pulumi:"reportedOsVersion"`
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
-	RootBlockDevices interface{}
+	RootBlockDevices InstanceRootBlockDevicesArrayInput `pulumi:"rootBlockDevices"`
 	// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
-	RootDeviceType interface{}
-	RootDeviceVolumeId interface{}
+	RootDeviceType pulumi.StringInput `pulumi:"rootDeviceType"`
+	RootDeviceVolumeId pulumi.StringInput `pulumi:"rootDeviceVolumeId"`
 	// The associated security groups.
-	SecurityGroupIds interface{}
-	SshHostDsaKeyFingerprint interface{}
-	SshHostRsaKeyFingerprint interface{}
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SshHostDsaKeyFingerprint pulumi.StringInput `pulumi:"sshHostDsaKeyFingerprint"`
+	SshHostRsaKeyFingerprint pulumi.StringInput `pulumi:"sshHostRsaKeyFingerprint"`
 	// Name of the SSH keypair that instances will have by default.
-	SshKeyName interface{}
+	SshKeyName pulumi.StringInput `pulumi:"sshKeyName"`
 	// The id of the stack the instance will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// The desired state of the instance.  Can be either `"running"` or `"stopped"`.
-	State interface{}
-	Status interface{}
+	State pulumi.StringInput `pulumi:"state"`
+	Status pulumi.StringInput `pulumi:"status"`
 	// Subnet ID to attach to
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
-	Tenancy interface{}
+	Tenancy pulumi.StringInput `pulumi:"tenancy"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either `"paravirtual"` or `"hvm"`.
-	VirtualizationType interface{}
+	VirtualizationType pulumi.StringInput `pulumi:"virtualizationType"`
 }
+type InstanceEbsBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeviceName string `pulumi:"deviceName"`
+	Iops *int `pulumi:"iops"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var instanceEbsBlockDevicesType = reflect.TypeOf((*InstanceEbsBlockDevices)(nil)).Elem()
+
+type InstanceEbsBlockDevicesInput interface {
+	pulumi.Input
+
+	ToInstanceEbsBlockDevicesOutput() InstanceEbsBlockDevicesOutput
+	ToInstanceEbsBlockDevicesOutputWithContext(ctx context.Context) InstanceEbsBlockDevicesOutput
+}
+
+type InstanceEbsBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (InstanceEbsBlockDevicesArgs) ElementType() reflect.Type {
+	return instanceEbsBlockDevicesType
+}
+
+func (a InstanceEbsBlockDevicesArgs) ToInstanceEbsBlockDevicesOutput() InstanceEbsBlockDevicesOutput {
+	return pulumi.ToOutput(a).(InstanceEbsBlockDevicesOutput)
+}
+
+func (a InstanceEbsBlockDevicesArgs) ToInstanceEbsBlockDevicesOutputWithContext(ctx context.Context) InstanceEbsBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceEbsBlockDevicesOutput)
+}
+
+type InstanceEbsBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o InstanceEbsBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v InstanceEbsBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o InstanceEbsBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v InstanceEbsBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceEbsBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v InstanceEbsBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o InstanceEbsBlockDevicesOutput) SnapshotId() pulumi.StringOutput {
+	return o.Apply(func(v InstanceEbsBlockDevices) string {
+		if v.SnapshotId == nil { return *new(string) } else { return *v.SnapshotId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceEbsBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v InstanceEbsBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o InstanceEbsBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v InstanceEbsBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (InstanceEbsBlockDevicesOutput) ElementType() reflect.Type {
+	return instanceEbsBlockDevicesType
+}
+
+func (o InstanceEbsBlockDevicesOutput) ToInstanceEbsBlockDevicesOutput() InstanceEbsBlockDevicesOutput {
+	return o
+}
+
+func (o InstanceEbsBlockDevicesOutput) ToInstanceEbsBlockDevicesOutputWithContext(ctx context.Context) InstanceEbsBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceEbsBlockDevicesOutput{}) }
+
+var instanceEbsBlockDevicesArrayType = reflect.TypeOf((*[]InstanceEbsBlockDevices)(nil)).Elem()
+
+type InstanceEbsBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToInstanceEbsBlockDevicesArrayOutput() InstanceEbsBlockDevicesArrayOutput
+	ToInstanceEbsBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceEbsBlockDevicesArrayOutput
+}
+
+type InstanceEbsBlockDevicesArrayArgs []InstanceEbsBlockDevicesInput
+
+func (InstanceEbsBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return instanceEbsBlockDevicesArrayType
+}
+
+func (a InstanceEbsBlockDevicesArrayArgs) ToInstanceEbsBlockDevicesArrayOutput() InstanceEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(InstanceEbsBlockDevicesArrayOutput)
+}
+
+func (a InstanceEbsBlockDevicesArrayArgs) ToInstanceEbsBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceEbsBlockDevicesArrayOutput)
+}
+
+type InstanceEbsBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o InstanceEbsBlockDevicesArrayOutput) Index(i pulumi.IntInput) InstanceEbsBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) InstanceEbsBlockDevices {
+		return vs[0].([]InstanceEbsBlockDevices)[vs[1].(int)]
+	}).(InstanceEbsBlockDevicesOutput)
+}
+
+func (InstanceEbsBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return instanceEbsBlockDevicesArrayType
+}
+
+func (o InstanceEbsBlockDevicesArrayOutput) ToInstanceEbsBlockDevicesArrayOutput() InstanceEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func (o InstanceEbsBlockDevicesArrayOutput) ToInstanceEbsBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceEbsBlockDevicesArrayOutput{}) }
+
+type InstanceEphemeralBlockDevices struct {
+	DeviceName string `pulumi:"deviceName"`
+	VirtualName string `pulumi:"virtualName"`
+}
+var instanceEphemeralBlockDevicesType = reflect.TypeOf((*InstanceEphemeralBlockDevices)(nil)).Elem()
+
+type InstanceEphemeralBlockDevicesInput interface {
+	pulumi.Input
+
+	ToInstanceEphemeralBlockDevicesOutput() InstanceEphemeralBlockDevicesOutput
+	ToInstanceEphemeralBlockDevicesOutputWithContext(ctx context.Context) InstanceEphemeralBlockDevicesOutput
+}
+
+type InstanceEphemeralBlockDevicesArgs struct {
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (InstanceEphemeralBlockDevicesArgs) ElementType() reflect.Type {
+	return instanceEphemeralBlockDevicesType
+}
+
+func (a InstanceEphemeralBlockDevicesArgs) ToInstanceEphemeralBlockDevicesOutput() InstanceEphemeralBlockDevicesOutput {
+	return pulumi.ToOutput(a).(InstanceEphemeralBlockDevicesOutput)
+}
+
+func (a InstanceEphemeralBlockDevicesArgs) ToInstanceEphemeralBlockDevicesOutputWithContext(ctx context.Context) InstanceEphemeralBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceEphemeralBlockDevicesOutput)
+}
+
+type InstanceEphemeralBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o InstanceEphemeralBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v InstanceEphemeralBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceEphemeralBlockDevicesOutput) VirtualName() pulumi.StringOutput {
+	return o.Apply(func(v InstanceEphemeralBlockDevices) string {
+		return v.VirtualName
+	}).(pulumi.StringOutput)
+}
+
+func (InstanceEphemeralBlockDevicesOutput) ElementType() reflect.Type {
+	return instanceEphemeralBlockDevicesType
+}
+
+func (o InstanceEphemeralBlockDevicesOutput) ToInstanceEphemeralBlockDevicesOutput() InstanceEphemeralBlockDevicesOutput {
+	return o
+}
+
+func (o InstanceEphemeralBlockDevicesOutput) ToInstanceEphemeralBlockDevicesOutputWithContext(ctx context.Context) InstanceEphemeralBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceEphemeralBlockDevicesOutput{}) }
+
+var instanceEphemeralBlockDevicesArrayType = reflect.TypeOf((*[]InstanceEphemeralBlockDevices)(nil)).Elem()
+
+type InstanceEphemeralBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToInstanceEphemeralBlockDevicesArrayOutput() InstanceEphemeralBlockDevicesArrayOutput
+	ToInstanceEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceEphemeralBlockDevicesArrayOutput
+}
+
+type InstanceEphemeralBlockDevicesArrayArgs []InstanceEphemeralBlockDevicesInput
+
+func (InstanceEphemeralBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return instanceEphemeralBlockDevicesArrayType
+}
+
+func (a InstanceEphemeralBlockDevicesArrayArgs) ToInstanceEphemeralBlockDevicesArrayOutput() InstanceEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(InstanceEphemeralBlockDevicesArrayOutput)
+}
+
+func (a InstanceEphemeralBlockDevicesArrayArgs) ToInstanceEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceEphemeralBlockDevicesArrayOutput)
+}
+
+type InstanceEphemeralBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o InstanceEphemeralBlockDevicesArrayOutput) Index(i pulumi.IntInput) InstanceEphemeralBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) InstanceEphemeralBlockDevices {
+		return vs[0].([]InstanceEphemeralBlockDevices)[vs[1].(int)]
+	}).(InstanceEphemeralBlockDevicesOutput)
+}
+
+func (InstanceEphemeralBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return instanceEphemeralBlockDevicesArrayType
+}
+
+func (o InstanceEphemeralBlockDevicesArrayOutput) ToInstanceEphemeralBlockDevicesArrayOutput() InstanceEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func (o InstanceEphemeralBlockDevicesArrayOutput) ToInstanceEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceEphemeralBlockDevicesArrayOutput{}) }
+
+type InstanceRootBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	Iops *int `pulumi:"iops"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var instanceRootBlockDevicesType = reflect.TypeOf((*InstanceRootBlockDevices)(nil)).Elem()
+
+type InstanceRootBlockDevicesInput interface {
+	pulumi.Input
+
+	ToInstanceRootBlockDevicesOutput() InstanceRootBlockDevicesOutput
+	ToInstanceRootBlockDevicesOutputWithContext(ctx context.Context) InstanceRootBlockDevicesOutput
+}
+
+type InstanceRootBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (InstanceRootBlockDevicesArgs) ElementType() reflect.Type {
+	return instanceRootBlockDevicesType
+}
+
+func (a InstanceRootBlockDevicesArgs) ToInstanceRootBlockDevicesOutput() InstanceRootBlockDevicesOutput {
+	return pulumi.ToOutput(a).(InstanceRootBlockDevicesOutput)
+}
+
+func (a InstanceRootBlockDevicesArgs) ToInstanceRootBlockDevicesOutputWithContext(ctx context.Context) InstanceRootBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceRootBlockDevicesOutput)
+}
+
+type InstanceRootBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o InstanceRootBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v InstanceRootBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o InstanceRootBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v InstanceRootBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o InstanceRootBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v InstanceRootBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o InstanceRootBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v InstanceRootBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (InstanceRootBlockDevicesOutput) ElementType() reflect.Type {
+	return instanceRootBlockDevicesType
+}
+
+func (o InstanceRootBlockDevicesOutput) ToInstanceRootBlockDevicesOutput() InstanceRootBlockDevicesOutput {
+	return o
+}
+
+func (o InstanceRootBlockDevicesOutput) ToInstanceRootBlockDevicesOutputWithContext(ctx context.Context) InstanceRootBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceRootBlockDevicesOutput{}) }
+
+var instanceRootBlockDevicesArrayType = reflect.TypeOf((*[]InstanceRootBlockDevices)(nil)).Elem()
+
+type InstanceRootBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToInstanceRootBlockDevicesArrayOutput() InstanceRootBlockDevicesArrayOutput
+	ToInstanceRootBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceRootBlockDevicesArrayOutput
+}
+
+type InstanceRootBlockDevicesArrayArgs []InstanceRootBlockDevicesInput
+
+func (InstanceRootBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return instanceRootBlockDevicesArrayType
+}
+
+func (a InstanceRootBlockDevicesArrayArgs) ToInstanceRootBlockDevicesArrayOutput() InstanceRootBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(InstanceRootBlockDevicesArrayOutput)
+}
+
+func (a InstanceRootBlockDevicesArrayArgs) ToInstanceRootBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceRootBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InstanceRootBlockDevicesArrayOutput)
+}
+
+type InstanceRootBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o InstanceRootBlockDevicesArrayOutput) Index(i pulumi.IntInput) InstanceRootBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) InstanceRootBlockDevices {
+		return vs[0].([]InstanceRootBlockDevices)[vs[1].(int)]
+	}).(InstanceRootBlockDevicesOutput)
+}
+
+func (InstanceRootBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return instanceRootBlockDevicesArrayType
+}
+
+func (o InstanceRootBlockDevicesArrayOutput) ToInstanceRootBlockDevicesArrayOutput() InstanceRootBlockDevicesArrayOutput {
+	return o
+}
+
+func (o InstanceRootBlockDevicesArrayOutput) ToInstanceRootBlockDevicesArrayOutputWithContext(ctx context.Context) InstanceRootBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InstanceRootBlockDevicesArrayOutput{}) }
+

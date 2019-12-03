@@ -20,171 +20,129 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_event_subscription.html.markdown.
 type EventSubscription struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	CustomerAwsId pulumi.StringOutput `pulumi:"customerAwsId"`
+
+	// A boolean flag to enable/disable the subscription. Defaults to true.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
+	EventCategories pulumi.StringArrayOutput `pulumi:"eventCategories"`
+
+	// The name of the Redshift event subscription.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+	Severity pulumi.StringOutput `pulumi:"severity"`
+
+	// The ARN of the SNS topic to send events to.
+	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
+
+	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
+	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
+
+	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+	SourceType pulumi.StringOutput `pulumi:"sourceType"`
+
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewEventSubscription(ctx *pulumi.Context,
-	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOpt) (*EventSubscription, error) {
+	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
 	if args == nil || args.SnsTopicArn == nil {
 		return nil, errors.New("missing required argument 'SnsTopicArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["enabled"] = nil
-		inputs["eventCategories"] = nil
-		inputs["name"] = nil
-		inputs["severity"] = nil
-		inputs["snsTopicArn"] = nil
-		inputs["sourceIds"] = nil
-		inputs["sourceType"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["enabled"] = args.Enabled
-		inputs["eventCategories"] = args.EventCategories
-		inputs["name"] = args.Name
-		inputs["severity"] = args.Severity
-		inputs["snsTopicArn"] = args.SnsTopicArn
-		inputs["sourceIds"] = args.SourceIds
-		inputs["sourceType"] = args.SourceType
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.EventCategories; i != nil { inputs["eventCategories"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Severity; i != nil { inputs["severity"] = i.ToStringOutput() }
+		if i := args.SnsTopicArn; i != nil { inputs["snsTopicArn"] = i.ToStringOutput() }
+		if i := args.SourceIds; i != nil { inputs["sourceIds"] = i.ToStringArrayOutput() }
+		if i := args.SourceType; i != nil { inputs["sourceType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["customerAwsId"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("aws:redshift/eventSubscription:EventSubscription", name, true, inputs, opts...)
+	var resource EventSubscription
+	err := ctx.RegisterResource("aws:redshift/eventSubscription:EventSubscription", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventSubscription{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventSubscription gets an existing EventSubscription resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventSubscription(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventSubscriptionState, opts ...pulumi.ResourceOpt) (*EventSubscription, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventSubscriptionState, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["customerAwsId"] = state.CustomerAwsId
-		inputs["enabled"] = state.Enabled
-		inputs["eventCategories"] = state.EventCategories
-		inputs["name"] = state.Name
-		inputs["severity"] = state.Severity
-		inputs["snsTopicArn"] = state.SnsTopicArn
-		inputs["sourceIds"] = state.SourceIds
-		inputs["sourceType"] = state.SourceType
-		inputs["status"] = state.Status
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CustomerAwsId; i != nil { inputs["customerAwsId"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.EventCategories; i != nil { inputs["eventCategories"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Severity; i != nil { inputs["severity"] = i.ToStringOutput() }
+		if i := state.SnsTopicArn; i != nil { inputs["snsTopicArn"] = i.ToStringOutput() }
+		if i := state.SourceIds; i != nil { inputs["sourceIds"] = i.ToStringArrayOutput() }
+		if i := state.SourceType; i != nil { inputs["sourceType"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:redshift/eventSubscription:EventSubscription", name, id, inputs, opts...)
+	var resource EventSubscription
+	err := ctx.ReadResource("aws:redshift/eventSubscription:EventSubscription", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventSubscription{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventSubscription) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventSubscription) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *EventSubscription) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *EventSubscription) CustomerAwsId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customerAwsId"])
-}
-
-// A boolean flag to enable/disable the subscription. Defaults to true.
-func (r *EventSubscription) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-func (r *EventSubscription) EventCategories() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["eventCategories"])
-}
-
-// The name of the Redshift event subscription.
-func (r *EventSubscription) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
-func (r *EventSubscription) Severity() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["severity"])
-}
-
-// The ARN of the SNS topic to send events to.
-func (r *EventSubscription) SnsTopicArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["snsTopicArn"])
-}
-
-// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
-func (r *EventSubscription) SourceIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["sourceIds"])
-}
-
-// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
-func (r *EventSubscription) SourceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceType"])
-}
-
-func (r *EventSubscription) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *EventSubscription) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type EventSubscriptionState struct {
-	Arn interface{}
-	CustomerAwsId interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	CustomerAwsId pulumi.StringInput `pulumi:"customerAwsId"`
 	// A boolean flag to enable/disable the subscription. Defaults to true.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-	EventCategories interface{}
+	EventCategories pulumi.StringArrayInput `pulumi:"eventCategories"`
 	// The name of the Redshift event subscription.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
-	Severity interface{}
+	Severity pulumi.StringInput `pulumi:"severity"`
 	// The ARN of the SNS topic to send events to.
-	SnsTopicArn interface{}
+	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
-	SourceIds interface{}
+	SourceIds pulumi.StringArrayInput `pulumi:"sourceIds"`
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
-	SourceType interface{}
-	Status interface{}
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+	Status pulumi.StringInput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
 	// A boolean flag to enable/disable the subscription. Defaults to true.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-	EventCategories interface{}
+	EventCategories pulumi.StringArrayInput `pulumi:"eventCategories"`
 	// The name of the Redshift event subscription.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
-	Severity interface{}
+	Severity pulumi.StringInput `pulumi:"severity"`
 	// The ARN of the SNS topic to send events to.
-	SnsTopicArn interface{}
+	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 	// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
-	SourceIds interface{}
+	SourceIds pulumi.StringArrayInput `pulumi:"sourceIds"`
 	// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
-	SourceType interface{}
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

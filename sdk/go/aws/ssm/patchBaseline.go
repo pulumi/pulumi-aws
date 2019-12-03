@@ -4,6 +4,8 @@
 package ssm
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -15,156 +17,445 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_baseline.html.markdown.
 type PatchBaseline struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
+	ApprovalRules PatchBaselineApprovalRulesArrayOutput `pulumi:"approvalRules"`
+
+	// A list of explicitly approved patches for the baseline.
+	ApprovedPatches pulumi.StringArrayOutput `pulumi:"approvedPatches"`
+
+	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+	ApprovedPatchesComplianceLevel pulumi.StringOutput `pulumi:"approvedPatchesComplianceLevel"`
+
+	// The description of the patch baseline.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
+	GlobalFilters PatchBaselineGlobalFiltersArrayOutput `pulumi:"globalFilters"`
+
+	// The name of the patch baseline.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
+	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
+
+	// A list of rejected patches.
+	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
+
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
 func NewPatchBaseline(ctx *pulumi.Context,
-	name string, args *PatchBaselineArgs, opts ...pulumi.ResourceOpt) (*PatchBaseline, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["approvalRules"] = nil
-		inputs["approvedPatches"] = nil
-		inputs["approvedPatchesComplianceLevel"] = nil
-		inputs["description"] = nil
-		inputs["globalFilters"] = nil
-		inputs["name"] = nil
-		inputs["operatingSystem"] = nil
-		inputs["rejectedPatches"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["approvalRules"] = args.ApprovalRules
-		inputs["approvedPatches"] = args.ApprovedPatches
-		inputs["approvedPatchesComplianceLevel"] = args.ApprovedPatchesComplianceLevel
-		inputs["description"] = args.Description
-		inputs["globalFilters"] = args.GlobalFilters
-		inputs["name"] = args.Name
-		inputs["operatingSystem"] = args.OperatingSystem
-		inputs["rejectedPatches"] = args.RejectedPatches
-		inputs["tags"] = args.Tags
+	name string, args *PatchBaselineArgs, opts ...pulumi.ResourceOption) (*PatchBaseline, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApprovalRules; i != nil { inputs["approvalRules"] = i.ToPatchBaselineApprovalRulesArrayOutput() }
+		if i := args.ApprovedPatches; i != nil { inputs["approvedPatches"] = i.ToStringArrayOutput() }
+		if i := args.ApprovedPatchesComplianceLevel; i != nil { inputs["approvedPatchesComplianceLevel"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.GlobalFilters; i != nil { inputs["globalFilters"] = i.ToPatchBaselineGlobalFiltersArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OperatingSystem; i != nil { inputs["operatingSystem"] = i.ToStringOutput() }
+		if i := args.RejectedPatches; i != nil { inputs["rejectedPatches"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, true, inputs, opts...)
+	var resource PatchBaseline
+	err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PatchBaseline{s: s}, nil
+	return &resource, nil
 }
 
 // GetPatchBaseline gets an existing PatchBaseline resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPatchBaseline(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PatchBaselineState, opts ...pulumi.ResourceOpt) (*PatchBaseline, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PatchBaselineState, opts ...pulumi.ResourceOption) (*PatchBaseline, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["approvalRules"] = state.ApprovalRules
-		inputs["approvedPatches"] = state.ApprovedPatches
-		inputs["approvedPatchesComplianceLevel"] = state.ApprovedPatchesComplianceLevel
-		inputs["description"] = state.Description
-		inputs["globalFilters"] = state.GlobalFilters
-		inputs["name"] = state.Name
-		inputs["operatingSystem"] = state.OperatingSystem
-		inputs["rejectedPatches"] = state.RejectedPatches
-		inputs["tags"] = state.Tags
+		if i := state.ApprovalRules; i != nil { inputs["approvalRules"] = i.ToPatchBaselineApprovalRulesArrayOutput() }
+		if i := state.ApprovedPatches; i != nil { inputs["approvedPatches"] = i.ToStringArrayOutput() }
+		if i := state.ApprovedPatchesComplianceLevel; i != nil { inputs["approvedPatchesComplianceLevel"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.GlobalFilters; i != nil { inputs["globalFilters"] = i.ToPatchBaselineGlobalFiltersArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OperatingSystem; i != nil { inputs["operatingSystem"] = i.ToStringOutput() }
+		if i := state.RejectedPatches; i != nil { inputs["rejectedPatches"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/patchBaseline:PatchBaseline", name, id, inputs, opts...)
+	var resource PatchBaseline
+	err := ctx.ReadResource("aws:ssm/patchBaseline:PatchBaseline", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PatchBaseline{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PatchBaseline) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PatchBaseline) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
-func (r *PatchBaseline) ApprovalRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["approvalRules"])
-}
-
-// A list of explicitly approved patches for the baseline.
-func (r *PatchBaseline) ApprovedPatches() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["approvedPatches"])
-}
-
-// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-func (r *PatchBaseline) ApprovedPatchesComplianceLevel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["approvedPatchesComplianceLevel"])
-}
-
-// The description of the patch baseline.
-func (r *PatchBaseline) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-func (r *PatchBaseline) GlobalFilters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["globalFilters"])
-}
-
-// The name of the patch baseline.
-func (r *PatchBaseline) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
-func (r *PatchBaseline) OperatingSystem() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["operatingSystem"])
-}
-
-// A list of rejected patches.
-func (r *PatchBaseline) RejectedPatches() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["rejectedPatches"])
-}
-
-func (r *PatchBaseline) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PatchBaseline resources.
 type PatchBaselineState struct {
 	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
-	ApprovalRules interface{}
+	ApprovalRules PatchBaselineApprovalRulesArrayInput `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
-	ApprovedPatches interface{}
+	ApprovedPatches pulumi.StringArrayInput `pulumi:"approvedPatches"`
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-	ApprovedPatchesComplianceLevel interface{}
+	ApprovedPatchesComplianceLevel pulumi.StringInput `pulumi:"approvedPatchesComplianceLevel"`
 	// The description of the patch baseline.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-	GlobalFilters interface{}
+	GlobalFilters PatchBaselineGlobalFiltersArrayInput `pulumi:"globalFilters"`
 	// The name of the patch baseline.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
-	OperatingSystem interface{}
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
-	RejectedPatches interface{}
-	Tags interface{}
+	RejectedPatches pulumi.StringArrayInput `pulumi:"rejectedPatches"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
 type PatchBaselineArgs struct {
 	// A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
-	ApprovalRules interface{}
+	ApprovalRules PatchBaselineApprovalRulesArrayInput `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
-	ApprovedPatches interface{}
+	ApprovedPatches pulumi.StringArrayInput `pulumi:"approvedPatches"`
 	// Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
-	ApprovedPatchesComplianceLevel interface{}
+	ApprovedPatchesComplianceLevel pulumi.StringInput `pulumi:"approvedPatchesComplianceLevel"`
 	// The description of the patch baseline.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
-	GlobalFilters interface{}
+	GlobalFilters PatchBaselineGlobalFiltersArrayInput `pulumi:"globalFilters"`
 	// The name of the patch baseline.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
-	OperatingSystem interface{}
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
 	// A list of rejected patches.
-	RejectedPatches interface{}
-	Tags interface{}
+	RejectedPatches pulumi.StringArrayInput `pulumi:"rejectedPatches"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type PatchBaselineApprovalRules struct {
+	ApproveAfterDays int `pulumi:"approveAfterDays"`
+	ComplianceLevel *string `pulumi:"complianceLevel"`
+	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
+	PatchFilters []PatchBaselineApprovalRulesPatchFilters `pulumi:"patchFilters"`
+}
+var patchBaselineApprovalRulesType = reflect.TypeOf((*PatchBaselineApprovalRules)(nil)).Elem()
+
+type PatchBaselineApprovalRulesInput interface {
+	pulumi.Input
+
+	ToPatchBaselineApprovalRulesOutput() PatchBaselineApprovalRulesOutput
+	ToPatchBaselineApprovalRulesOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesOutput
+}
+
+type PatchBaselineApprovalRulesArgs struct {
+	ApproveAfterDays pulumi.IntInput `pulumi:"approveAfterDays"`
+	ComplianceLevel pulumi.StringInput `pulumi:"complianceLevel"`
+	EnableNonSecurity pulumi.BoolInput `pulumi:"enableNonSecurity"`
+	PatchFilters PatchBaselineApprovalRulesPatchFiltersArrayInput `pulumi:"patchFilters"`
+}
+
+func (PatchBaselineApprovalRulesArgs) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesType
+}
+
+func (a PatchBaselineApprovalRulesArgs) ToPatchBaselineApprovalRulesOutput() PatchBaselineApprovalRulesOutput {
+	return pulumi.ToOutput(a).(PatchBaselineApprovalRulesOutput)
+}
+
+func (a PatchBaselineApprovalRulesArgs) ToPatchBaselineApprovalRulesOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PatchBaselineApprovalRulesOutput)
+}
+
+type PatchBaselineApprovalRulesOutput struct { *pulumi.OutputState }
+
+func (o PatchBaselineApprovalRulesOutput) ApproveAfterDays() pulumi.IntOutput {
+	return o.Apply(func(v PatchBaselineApprovalRules) int {
+		return v.ApproveAfterDays
+	}).(pulumi.IntOutput)
+}
+
+func (o PatchBaselineApprovalRulesOutput) ComplianceLevel() pulumi.StringOutput {
+	return o.Apply(func(v PatchBaselineApprovalRules) string {
+		if v.ComplianceLevel == nil { return *new(string) } else { return *v.ComplianceLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineApprovalRulesOutput) EnableNonSecurity() pulumi.BoolOutput {
+	return o.Apply(func(v PatchBaselineApprovalRules) bool {
+		if v.EnableNonSecurity == nil { return *new(bool) } else { return *v.EnableNonSecurity }
+	}).(pulumi.BoolOutput)
+}
+
+func (o PatchBaselineApprovalRulesOutput) PatchFilters() PatchBaselineApprovalRulesPatchFiltersArrayOutput {
+	return o.Apply(func(v PatchBaselineApprovalRules) []PatchBaselineApprovalRulesPatchFilters {
+		return v.PatchFilters
+	}).(PatchBaselineApprovalRulesPatchFiltersArrayOutput)
+}
+
+func (PatchBaselineApprovalRulesOutput) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesType
+}
+
+func (o PatchBaselineApprovalRulesOutput) ToPatchBaselineApprovalRulesOutput() PatchBaselineApprovalRulesOutput {
+	return o
+}
+
+func (o PatchBaselineApprovalRulesOutput) ToPatchBaselineApprovalRulesOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PatchBaselineApprovalRulesOutput{}) }
+
+var patchBaselineApprovalRulesArrayType = reflect.TypeOf((*[]PatchBaselineApprovalRules)(nil)).Elem()
+
+type PatchBaselineApprovalRulesArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineApprovalRulesArrayOutput() PatchBaselineApprovalRulesArrayOutput
+	ToPatchBaselineApprovalRulesArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesArrayOutput
+}
+
+type PatchBaselineApprovalRulesArrayArgs []PatchBaselineApprovalRulesInput
+
+func (PatchBaselineApprovalRulesArrayArgs) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesArrayType
+}
+
+func (a PatchBaselineApprovalRulesArrayArgs) ToPatchBaselineApprovalRulesArrayOutput() PatchBaselineApprovalRulesArrayOutput {
+	return pulumi.ToOutput(a).(PatchBaselineApprovalRulesArrayOutput)
+}
+
+func (a PatchBaselineApprovalRulesArrayArgs) ToPatchBaselineApprovalRulesArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PatchBaselineApprovalRulesArrayOutput)
+}
+
+type PatchBaselineApprovalRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o PatchBaselineApprovalRulesArrayOutput) Index(i pulumi.IntInput) PatchBaselineApprovalRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PatchBaselineApprovalRules {
+		return vs[0].([]PatchBaselineApprovalRules)[vs[1].(int)]
+	}).(PatchBaselineApprovalRulesOutput)
+}
+
+func (PatchBaselineApprovalRulesArrayOutput) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesArrayType
+}
+
+func (o PatchBaselineApprovalRulesArrayOutput) ToPatchBaselineApprovalRulesArrayOutput() PatchBaselineApprovalRulesArrayOutput {
+	return o
+}
+
+func (o PatchBaselineApprovalRulesArrayOutput) ToPatchBaselineApprovalRulesArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PatchBaselineApprovalRulesArrayOutput{}) }
+
+type PatchBaselineApprovalRulesPatchFilters struct {
+	Key string `pulumi:"key"`
+	Values []string `pulumi:"values"`
+}
+var patchBaselineApprovalRulesPatchFiltersType = reflect.TypeOf((*PatchBaselineApprovalRulesPatchFilters)(nil)).Elem()
+
+type PatchBaselineApprovalRulesPatchFiltersInput interface {
+	pulumi.Input
+
+	ToPatchBaselineApprovalRulesPatchFiltersOutput() PatchBaselineApprovalRulesPatchFiltersOutput
+	ToPatchBaselineApprovalRulesPatchFiltersOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesPatchFiltersOutput
+}
+
+type PatchBaselineApprovalRulesPatchFiltersArgs struct {
+	Key pulumi.StringInput `pulumi:"key"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PatchBaselineApprovalRulesPatchFiltersArgs) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesPatchFiltersType
+}
+
+func (a PatchBaselineApprovalRulesPatchFiltersArgs) ToPatchBaselineApprovalRulesPatchFiltersOutput() PatchBaselineApprovalRulesPatchFiltersOutput {
+	return pulumi.ToOutput(a).(PatchBaselineApprovalRulesPatchFiltersOutput)
+}
+
+func (a PatchBaselineApprovalRulesPatchFiltersArgs) ToPatchBaselineApprovalRulesPatchFiltersOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesPatchFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PatchBaselineApprovalRulesPatchFiltersOutput)
+}
+
+type PatchBaselineApprovalRulesPatchFiltersOutput struct { *pulumi.OutputState }
+
+func (o PatchBaselineApprovalRulesPatchFiltersOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v PatchBaselineApprovalRulesPatchFilters) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineApprovalRulesPatchFiltersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v PatchBaselineApprovalRulesPatchFilters) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (PatchBaselineApprovalRulesPatchFiltersOutput) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesPatchFiltersType
+}
+
+func (o PatchBaselineApprovalRulesPatchFiltersOutput) ToPatchBaselineApprovalRulesPatchFiltersOutput() PatchBaselineApprovalRulesPatchFiltersOutput {
+	return o
+}
+
+func (o PatchBaselineApprovalRulesPatchFiltersOutput) ToPatchBaselineApprovalRulesPatchFiltersOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesPatchFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PatchBaselineApprovalRulesPatchFiltersOutput{}) }
+
+var patchBaselineApprovalRulesPatchFiltersArrayType = reflect.TypeOf((*[]PatchBaselineApprovalRulesPatchFilters)(nil)).Elem()
+
+type PatchBaselineApprovalRulesPatchFiltersArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineApprovalRulesPatchFiltersArrayOutput() PatchBaselineApprovalRulesPatchFiltersArrayOutput
+	ToPatchBaselineApprovalRulesPatchFiltersArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesPatchFiltersArrayOutput
+}
+
+type PatchBaselineApprovalRulesPatchFiltersArrayArgs []PatchBaselineApprovalRulesPatchFiltersInput
+
+func (PatchBaselineApprovalRulesPatchFiltersArrayArgs) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesPatchFiltersArrayType
+}
+
+func (a PatchBaselineApprovalRulesPatchFiltersArrayArgs) ToPatchBaselineApprovalRulesPatchFiltersArrayOutput() PatchBaselineApprovalRulesPatchFiltersArrayOutput {
+	return pulumi.ToOutput(a).(PatchBaselineApprovalRulesPatchFiltersArrayOutput)
+}
+
+func (a PatchBaselineApprovalRulesPatchFiltersArrayArgs) ToPatchBaselineApprovalRulesPatchFiltersArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesPatchFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PatchBaselineApprovalRulesPatchFiltersArrayOutput)
+}
+
+type PatchBaselineApprovalRulesPatchFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o PatchBaselineApprovalRulesPatchFiltersArrayOutput) Index(i pulumi.IntInput) PatchBaselineApprovalRulesPatchFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PatchBaselineApprovalRulesPatchFilters {
+		return vs[0].([]PatchBaselineApprovalRulesPatchFilters)[vs[1].(int)]
+	}).(PatchBaselineApprovalRulesPatchFiltersOutput)
+}
+
+func (PatchBaselineApprovalRulesPatchFiltersArrayOutput) ElementType() reflect.Type {
+	return patchBaselineApprovalRulesPatchFiltersArrayType
+}
+
+func (o PatchBaselineApprovalRulesPatchFiltersArrayOutput) ToPatchBaselineApprovalRulesPatchFiltersArrayOutput() PatchBaselineApprovalRulesPatchFiltersArrayOutput {
+	return o
+}
+
+func (o PatchBaselineApprovalRulesPatchFiltersArrayOutput) ToPatchBaselineApprovalRulesPatchFiltersArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulesPatchFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PatchBaselineApprovalRulesPatchFiltersArrayOutput{}) }
+
+type PatchBaselineGlobalFilters struct {
+	Key string `pulumi:"key"`
+	Values []string `pulumi:"values"`
+}
+var patchBaselineGlobalFiltersType = reflect.TypeOf((*PatchBaselineGlobalFilters)(nil)).Elem()
+
+type PatchBaselineGlobalFiltersInput interface {
+	pulumi.Input
+
+	ToPatchBaselineGlobalFiltersOutput() PatchBaselineGlobalFiltersOutput
+	ToPatchBaselineGlobalFiltersOutputWithContext(ctx context.Context) PatchBaselineGlobalFiltersOutput
+}
+
+type PatchBaselineGlobalFiltersArgs struct {
+	Key pulumi.StringInput `pulumi:"key"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PatchBaselineGlobalFiltersArgs) ElementType() reflect.Type {
+	return patchBaselineGlobalFiltersType
+}
+
+func (a PatchBaselineGlobalFiltersArgs) ToPatchBaselineGlobalFiltersOutput() PatchBaselineGlobalFiltersOutput {
+	return pulumi.ToOutput(a).(PatchBaselineGlobalFiltersOutput)
+}
+
+func (a PatchBaselineGlobalFiltersArgs) ToPatchBaselineGlobalFiltersOutputWithContext(ctx context.Context) PatchBaselineGlobalFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PatchBaselineGlobalFiltersOutput)
+}
+
+type PatchBaselineGlobalFiltersOutput struct { *pulumi.OutputState }
+
+func (o PatchBaselineGlobalFiltersOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v PatchBaselineGlobalFilters) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineGlobalFiltersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v PatchBaselineGlobalFilters) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (PatchBaselineGlobalFiltersOutput) ElementType() reflect.Type {
+	return patchBaselineGlobalFiltersType
+}
+
+func (o PatchBaselineGlobalFiltersOutput) ToPatchBaselineGlobalFiltersOutput() PatchBaselineGlobalFiltersOutput {
+	return o
+}
+
+func (o PatchBaselineGlobalFiltersOutput) ToPatchBaselineGlobalFiltersOutputWithContext(ctx context.Context) PatchBaselineGlobalFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PatchBaselineGlobalFiltersOutput{}) }
+
+var patchBaselineGlobalFiltersArrayType = reflect.TypeOf((*[]PatchBaselineGlobalFilters)(nil)).Elem()
+
+type PatchBaselineGlobalFiltersArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineGlobalFiltersArrayOutput() PatchBaselineGlobalFiltersArrayOutput
+	ToPatchBaselineGlobalFiltersArrayOutputWithContext(ctx context.Context) PatchBaselineGlobalFiltersArrayOutput
+}
+
+type PatchBaselineGlobalFiltersArrayArgs []PatchBaselineGlobalFiltersInput
+
+func (PatchBaselineGlobalFiltersArrayArgs) ElementType() reflect.Type {
+	return patchBaselineGlobalFiltersArrayType
+}
+
+func (a PatchBaselineGlobalFiltersArrayArgs) ToPatchBaselineGlobalFiltersArrayOutput() PatchBaselineGlobalFiltersArrayOutput {
+	return pulumi.ToOutput(a).(PatchBaselineGlobalFiltersArrayOutput)
+}
+
+func (a PatchBaselineGlobalFiltersArrayArgs) ToPatchBaselineGlobalFiltersArrayOutputWithContext(ctx context.Context) PatchBaselineGlobalFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PatchBaselineGlobalFiltersArrayOutput)
+}
+
+type PatchBaselineGlobalFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o PatchBaselineGlobalFiltersArrayOutput) Index(i pulumi.IntInput) PatchBaselineGlobalFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PatchBaselineGlobalFilters {
+		return vs[0].([]PatchBaselineGlobalFilters)[vs[1].(int)]
+	}).(PatchBaselineGlobalFiltersOutput)
+}
+
+func (PatchBaselineGlobalFiltersArrayOutput) ElementType() reflect.Type {
+	return patchBaselineGlobalFiltersArrayType
+}
+
+func (o PatchBaselineGlobalFiltersArrayOutput) ToPatchBaselineGlobalFiltersArrayOutput() PatchBaselineGlobalFiltersArrayOutput {
+	return o
+}
+
+func (o PatchBaselineGlobalFiltersArrayOutput) ToPatchBaselineGlobalFiltersArrayOutputWithContext(ctx context.Context) PatchBaselineGlobalFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PatchBaselineGlobalFiltersArrayOutput{}) }
+

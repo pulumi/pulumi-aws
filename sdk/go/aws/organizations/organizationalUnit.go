@@ -4,6 +4,8 @@
 package organizations
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,96 +14,206 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
 type OrganizationalUnit struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
+	Accounts OrganizationalUnitAccountsArrayOutput `pulumi:"accounts"`
+
+	// ARN of the organizational unit
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The name for the organizational unit
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// ID of the parent organizational unit, which may be the root
+	ParentId pulumi.StringOutput `pulumi:"parentId"`
 }
 
 // NewOrganizationalUnit registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationalUnit(ctx *pulumi.Context,
-	name string, args *OrganizationalUnitArgs, opts ...pulumi.ResourceOpt) (*OrganizationalUnit, error) {
+	name string, args *OrganizationalUnitArgs, opts ...pulumi.ResourceOption) (*OrganizationalUnit, error) {
 	if args == nil || args.ParentId == nil {
 		return nil, errors.New("missing required argument 'ParentId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["parentId"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["parentId"] = args.ParentId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ParentId; i != nil { inputs["parentId"] = i.ToStringOutput() }
 	}
-	inputs["accounts"] = nil
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, true, inputs, opts...)
+	var resource OrganizationalUnit
+	err := ctx.RegisterResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OrganizationalUnit{s: s}, nil
+	return &resource, nil
 }
 
 // GetOrganizationalUnit gets an existing OrganizationalUnit resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOrganizationalUnit(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OrganizationalUnitState, opts ...pulumi.ResourceOpt) (*OrganizationalUnit, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OrganizationalUnitState, opts ...pulumi.ResourceOption) (*OrganizationalUnit, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accounts"] = state.Accounts
-		inputs["arn"] = state.Arn
-		inputs["name"] = state.Name
-		inputs["parentId"] = state.ParentId
+		if i := state.Accounts; i != nil { inputs["accounts"] = i.ToOrganizationalUnitAccountsArrayOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ParentId; i != nil { inputs["parentId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, id, inputs, opts...)
+	var resource OrganizationalUnit
+	err := ctx.ReadResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OrganizationalUnit{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OrganizationalUnit) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OrganizationalUnit) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-func (r *OrganizationalUnit) Accounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["accounts"])
-}
-
-// ARN of the organizational unit
-func (r *OrganizationalUnit) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The name for the organizational unit
-func (r *OrganizationalUnit) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// ID of the parent organizational unit, which may be the root
-func (r *OrganizationalUnit) ParentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parentId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OrganizationalUnit resources.
 type OrganizationalUnitState struct {
 	// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-	Accounts interface{}
+	Accounts OrganizationalUnitAccountsArrayInput `pulumi:"accounts"`
 	// ARN of the organizational unit
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The name for the organizational unit
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// ID of the parent organizational unit, which may be the root
-	ParentId interface{}
+	ParentId pulumi.StringInput `pulumi:"parentId"`
 }
 
 // The set of arguments for constructing a OrganizationalUnit resource.
 type OrganizationalUnitArgs struct {
 	// The name for the organizational unit
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// ID of the parent organizational unit, which may be the root
-	ParentId interface{}
+	ParentId pulumi.StringInput `pulumi:"parentId"`
 }
+type OrganizationalUnitAccounts struct {
+	// ARN of the organizational unit
+	Arn string `pulumi:"arn"`
+	// Email of the account
+	Email string `pulumi:"email"`
+	// Identifier of the organization unit
+	Id string `pulumi:"id"`
+	// The name for the organizational unit
+	Name string `pulumi:"name"`
+}
+var organizationalUnitAccountsType = reflect.TypeOf((*OrganizationalUnitAccounts)(nil)).Elem()
+
+type OrganizationalUnitAccountsInput interface {
+	pulumi.Input
+
+	ToOrganizationalUnitAccountsOutput() OrganizationalUnitAccountsOutput
+	ToOrganizationalUnitAccountsOutputWithContext(ctx context.Context) OrganizationalUnitAccountsOutput
+}
+
+type OrganizationalUnitAccountsArgs struct {
+	// ARN of the organizational unit
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Email of the account
+	Email pulumi.StringInput `pulumi:"email"`
+	// Identifier of the organization unit
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name for the organizational unit
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OrganizationalUnitAccountsArgs) ElementType() reflect.Type {
+	return organizationalUnitAccountsType
+}
+
+func (a OrganizationalUnitAccountsArgs) ToOrganizationalUnitAccountsOutput() OrganizationalUnitAccountsOutput {
+	return pulumi.ToOutput(a).(OrganizationalUnitAccountsOutput)
+}
+
+func (a OrganizationalUnitAccountsArgs) ToOrganizationalUnitAccountsOutputWithContext(ctx context.Context) OrganizationalUnitAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OrganizationalUnitAccountsOutput)
+}
+
+type OrganizationalUnitAccountsOutput struct { *pulumi.OutputState }
+
+// ARN of the organizational unit
+func (o OrganizationalUnitAccountsOutput) Arn() pulumi.StringOutput {
+	return o.Apply(func(v OrganizationalUnitAccounts) string {
+		return v.Arn
+	}).(pulumi.StringOutput)
+}
+
+// Email of the account
+func (o OrganizationalUnitAccountsOutput) Email() pulumi.StringOutput {
+	return o.Apply(func(v OrganizationalUnitAccounts) string {
+		return v.Email
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of the organization unit
+func (o OrganizationalUnitAccountsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v OrganizationalUnitAccounts) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+// The name for the organizational unit
+func (o OrganizationalUnitAccountsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v OrganizationalUnitAccounts) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (OrganizationalUnitAccountsOutput) ElementType() reflect.Type {
+	return organizationalUnitAccountsType
+}
+
+func (o OrganizationalUnitAccountsOutput) ToOrganizationalUnitAccountsOutput() OrganizationalUnitAccountsOutput {
+	return o
+}
+
+func (o OrganizationalUnitAccountsOutput) ToOrganizationalUnitAccountsOutputWithContext(ctx context.Context) OrganizationalUnitAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OrganizationalUnitAccountsOutput{}) }
+
+var organizationalUnitAccountsArrayType = reflect.TypeOf((*[]OrganizationalUnitAccounts)(nil)).Elem()
+
+type OrganizationalUnitAccountsArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationalUnitAccountsArrayOutput() OrganizationalUnitAccountsArrayOutput
+	ToOrganizationalUnitAccountsArrayOutputWithContext(ctx context.Context) OrganizationalUnitAccountsArrayOutput
+}
+
+type OrganizationalUnitAccountsArrayArgs []OrganizationalUnitAccountsInput
+
+func (OrganizationalUnitAccountsArrayArgs) ElementType() reflect.Type {
+	return organizationalUnitAccountsArrayType
+}
+
+func (a OrganizationalUnitAccountsArrayArgs) ToOrganizationalUnitAccountsArrayOutput() OrganizationalUnitAccountsArrayOutput {
+	return pulumi.ToOutput(a).(OrganizationalUnitAccountsArrayOutput)
+}
+
+func (a OrganizationalUnitAccountsArrayArgs) ToOrganizationalUnitAccountsArrayOutputWithContext(ctx context.Context) OrganizationalUnitAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OrganizationalUnitAccountsArrayOutput)
+}
+
+type OrganizationalUnitAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o OrganizationalUnitAccountsArrayOutput) Index(i pulumi.IntInput) OrganizationalUnitAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) OrganizationalUnitAccounts {
+		return vs[0].([]OrganizationalUnitAccounts)[vs[1].(int)]
+	}).(OrganizationalUnitAccountsOutput)
+}
+
+func (OrganizationalUnitAccountsArrayOutput) ElementType() reflect.Type {
+	return organizationalUnitAccountsArrayType
+}
+
+func (o OrganizationalUnitAccountsArrayOutput) ToOrganizationalUnitAccountsArrayOutput() OrganizationalUnitAccountsArrayOutput {
+	return o
+}
+
+func (o OrganizationalUnitAccountsArrayOutput) ToOrganizationalUnitAccountsArrayOutputWithContext(ctx context.Context) OrganizationalUnitAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OrganizationalUnitAccountsArrayOutput{}) }
+

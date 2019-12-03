@@ -4,6 +4,8 @@
 package wafregional
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,84 +13,175 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_ipset.html.markdown.
 type IpSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the WAF IPSet.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+	IpSetDescriptors IpSetIpSetDescriptorsArrayOutput `pulumi:"ipSetDescriptors"`
+
+	// The name or description of the IPSet.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
 func NewIpSet(ctx *pulumi.Context,
-	name string, args *IpSetArgs, opts ...pulumi.ResourceOpt) (*IpSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["ipSetDescriptors"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["ipSetDescriptors"] = args.IpSetDescriptors
-		inputs["name"] = args.Name
+	name string, args *IpSetArgs, opts ...pulumi.ResourceOption) (*IpSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.IpSetDescriptors; i != nil { inputs["ipSetDescriptors"] = i.ToIpSetIpSetDescriptorsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:wafregional/ipSet:IpSet", name, true, inputs, opts...)
+	var resource IpSet
+	err := ctx.RegisterResource("aws:wafregional/ipSet:IpSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IpSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetIpSet gets an existing IpSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIpSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IpSetState, opts ...pulumi.ResourceOpt) (*IpSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IpSetState, opts ...pulumi.ResourceOption) (*IpSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["ipSetDescriptors"] = state.IpSetDescriptors
-		inputs["name"] = state.Name
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.IpSetDescriptors; i != nil { inputs["ipSetDescriptors"] = i.ToIpSetIpSetDescriptorsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:wafregional/ipSet:IpSet", name, id, inputs, opts...)
+	var resource IpSet
+	err := ctx.ReadResource("aws:wafregional/ipSet:IpSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IpSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IpSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IpSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the WAF IPSet.
-func (r *IpSet) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-func (r *IpSet) IpSetDescriptors() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipSetDescriptors"])
-}
-
-// The name or description of the IPSet.
-func (r *IpSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IpSet resources.
 type IpSetState struct {
 	// The ARN of the WAF IPSet.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-	IpSetDescriptors interface{}
+	IpSetDescriptors IpSetIpSetDescriptorsArrayInput `pulumi:"ipSetDescriptors"`
 	// The name or description of the IPSet.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
 	// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-	IpSetDescriptors interface{}
+	IpSetDescriptors IpSetIpSetDescriptorsArrayInput `pulumi:"ipSetDescriptors"`
 	// The name or description of the IPSet.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type IpSetIpSetDescriptors struct {
+	// The string like IPV4 or IPV6.
+	Type string `pulumi:"type"`
+	// The CIDR notation.
+	Value string `pulumi:"value"`
+}
+var ipSetIpSetDescriptorsType = reflect.TypeOf((*IpSetIpSetDescriptors)(nil)).Elem()
+
+type IpSetIpSetDescriptorsInput interface {
+	pulumi.Input
+
+	ToIpSetIpSetDescriptorsOutput() IpSetIpSetDescriptorsOutput
+	ToIpSetIpSetDescriptorsOutputWithContext(ctx context.Context) IpSetIpSetDescriptorsOutput
+}
+
+type IpSetIpSetDescriptorsArgs struct {
+	// The string like IPV4 or IPV6.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The CIDR notation.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IpSetIpSetDescriptorsArgs) ElementType() reflect.Type {
+	return ipSetIpSetDescriptorsType
+}
+
+func (a IpSetIpSetDescriptorsArgs) ToIpSetIpSetDescriptorsOutput() IpSetIpSetDescriptorsOutput {
+	return pulumi.ToOutput(a).(IpSetIpSetDescriptorsOutput)
+}
+
+func (a IpSetIpSetDescriptorsArgs) ToIpSetIpSetDescriptorsOutputWithContext(ctx context.Context) IpSetIpSetDescriptorsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IpSetIpSetDescriptorsOutput)
+}
+
+type IpSetIpSetDescriptorsOutput struct { *pulumi.OutputState }
+
+// The string like IPV4 or IPV6.
+func (o IpSetIpSetDescriptorsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v IpSetIpSetDescriptors) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The CIDR notation.
+func (o IpSetIpSetDescriptorsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v IpSetIpSetDescriptors) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (IpSetIpSetDescriptorsOutput) ElementType() reflect.Type {
+	return ipSetIpSetDescriptorsType
+}
+
+func (o IpSetIpSetDescriptorsOutput) ToIpSetIpSetDescriptorsOutput() IpSetIpSetDescriptorsOutput {
+	return o
+}
+
+func (o IpSetIpSetDescriptorsOutput) ToIpSetIpSetDescriptorsOutputWithContext(ctx context.Context) IpSetIpSetDescriptorsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IpSetIpSetDescriptorsOutput{}) }
+
+var ipSetIpSetDescriptorsArrayType = reflect.TypeOf((*[]IpSetIpSetDescriptors)(nil)).Elem()
+
+type IpSetIpSetDescriptorsArrayInput interface {
+	pulumi.Input
+
+	ToIpSetIpSetDescriptorsArrayOutput() IpSetIpSetDescriptorsArrayOutput
+	ToIpSetIpSetDescriptorsArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorsArrayOutput
+}
+
+type IpSetIpSetDescriptorsArrayArgs []IpSetIpSetDescriptorsInput
+
+func (IpSetIpSetDescriptorsArrayArgs) ElementType() reflect.Type {
+	return ipSetIpSetDescriptorsArrayType
+}
+
+func (a IpSetIpSetDescriptorsArrayArgs) ToIpSetIpSetDescriptorsArrayOutput() IpSetIpSetDescriptorsArrayOutput {
+	return pulumi.ToOutput(a).(IpSetIpSetDescriptorsArrayOutput)
+}
+
+func (a IpSetIpSetDescriptorsArrayArgs) ToIpSetIpSetDescriptorsArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IpSetIpSetDescriptorsArrayOutput)
+}
+
+type IpSetIpSetDescriptorsArrayOutput struct { *pulumi.OutputState }
+
+func (o IpSetIpSetDescriptorsArrayOutput) Index(i pulumi.IntInput) IpSetIpSetDescriptorsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) IpSetIpSetDescriptors {
+		return vs[0].([]IpSetIpSetDescriptors)[vs[1].(int)]
+	}).(IpSetIpSetDescriptorsOutput)
+}
+
+func (IpSetIpSetDescriptorsArrayOutput) ElementType() reflect.Type {
+	return ipSetIpSetDescriptorsArrayType
+}
+
+func (o IpSetIpSetDescriptorsArrayOutput) ToIpSetIpSetDescriptorsArrayOutput() IpSetIpSetDescriptorsArrayOutput {
+	return o
+}
+
+func (o IpSetIpSetDescriptorsArrayOutput) ToIpSetIpSetDescriptorsArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IpSetIpSetDescriptorsArrayOutput{}) }
+

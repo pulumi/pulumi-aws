@@ -19,78 +19,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acm_certificate_validation.html.markdown.
 type CertificateValidation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the certificate that is being validated.
+	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+
+	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+	ValidationRecordFqdns pulumi.StringArrayOutput `pulumi:"validationRecordFqdns"`
 }
 
 // NewCertificateValidation registers a new resource with the given unique name, arguments, and options.
 func NewCertificateValidation(ctx *pulumi.Context,
-	name string, args *CertificateValidationArgs, opts ...pulumi.ResourceOpt) (*CertificateValidation, error) {
+	name string, args *CertificateValidationArgs, opts ...pulumi.ResourceOption) (*CertificateValidation, error) {
 	if args == nil || args.CertificateArn == nil {
 		return nil, errors.New("missing required argument 'CertificateArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificateArn"] = nil
-		inputs["validationRecordFqdns"] = nil
-	} else {
-		inputs["certificateArn"] = args.CertificateArn
-		inputs["validationRecordFqdns"] = args.ValidationRecordFqdns
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := args.ValidationRecordFqdns; i != nil { inputs["validationRecordFqdns"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:acm/certificateValidation:CertificateValidation", name, true, inputs, opts...)
+	var resource CertificateValidation
+	err := ctx.RegisterResource("aws:acm/certificateValidation:CertificateValidation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CertificateValidation{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificateValidation gets an existing CertificateValidation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificateValidation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateValidationState, opts ...pulumi.ResourceOpt) (*CertificateValidation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateValidationState, opts ...pulumi.ResourceOption) (*CertificateValidation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["certificateArn"] = state.CertificateArn
-		inputs["validationRecordFqdns"] = state.ValidationRecordFqdns
+		if i := state.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := state.ValidationRecordFqdns; i != nil { inputs["validationRecordFqdns"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:acm/certificateValidation:CertificateValidation", name, id, inputs, opts...)
+	var resource CertificateValidation
+	err := ctx.ReadResource("aws:acm/certificateValidation:CertificateValidation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CertificateValidation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CertificateValidation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CertificateValidation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the certificate that is being validated.
-func (r *CertificateValidation) CertificateArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateArn"])
-}
-
-// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-func (r *CertificateValidation) ValidationRecordFqdns() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["validationRecordFqdns"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CertificateValidation resources.
 type CertificateValidationState struct {
 	// The ARN of the certificate that is being validated.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-	ValidationRecordFqdns interface{}
+	ValidationRecordFqdns pulumi.StringArrayInput `pulumi:"validationRecordFqdns"`
 }
 
 // The set of arguments for constructing a CertificateValidation resource.
 type CertificateValidationArgs struct {
 	// The ARN of the certificate that is being validated.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-	ValidationRecordFqdns interface{}
+	ValidationRecordFqdns pulumi.StringArrayInput `pulumi:"validationRecordFqdns"`
 }

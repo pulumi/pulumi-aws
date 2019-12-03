@@ -14,54 +14,40 @@ import (
 // > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
-func LookupReportDefinition(ctx *pulumi.Context, args *GetReportDefinitionArgs) (*GetReportDefinitionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["reportName"] = args.ReportName
-	}
-	outputs, err := ctx.Invoke("aws:cur/getReportDefinition:getReportDefinition", inputs)
+func LookupReportDefinition(ctx *pulumi.Context, args *GetReportDefinitionArgs, opts ...pulumi.InvokeOption) (*GetReportDefinitionResult, error) {
+	var rv GetReportDefinitionResult
+	err := ctx.Invoke("aws:cur/getReportDefinition:getReportDefinition", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetReportDefinitionResult{
-		AdditionalArtifacts: outputs["additionalArtifacts"],
-		AdditionalSchemaElements: outputs["additionalSchemaElements"],
-		Compression: outputs["compression"],
-		Format: outputs["format"],
-		ReportName: outputs["reportName"],
-		S3Bucket: outputs["s3Bucket"],
-		S3Prefix: outputs["s3Prefix"],
-		S3Region: outputs["s3Region"],
-		TimeUnit: outputs["timeUnit"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getReportDefinition.
 type GetReportDefinitionArgs struct {
 	// The name of the report definition to match.
-	ReportName interface{}
+	ReportName string `pulumi:"reportName"`
 }
 
 // A collection of values returned by getReportDefinition.
 type GetReportDefinitionResult struct {
 	// A list of additional artifacts.
-	AdditionalArtifacts interface{}
+	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
 	// A list of schema elements.
-	AdditionalSchemaElements interface{}
+	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
 	// Preferred format for report.
-	Compression interface{}
+	Compression string `pulumi:"compression"`
 	// Preferred compression format for report.
-	Format interface{}
-	ReportName interface{}
+	Format string `pulumi:"format"`
+	ReportName string `pulumi:"reportName"`
 	// Name of customer S3 bucket.
-	S3Bucket interface{}
+	S3Bucket string `pulumi:"s3Bucket"`
 	// Preferred report path prefix.
-	S3Prefix interface{}
+	S3Prefix string `pulumi:"s3Prefix"`
 	// Region of customer S3 bucket.
-	S3Region interface{}
+	S3Region string `pulumi:"s3Region"`
 	// The frequency on which report data are measured and displayed.
-	TimeUnit interface{}
+	TimeUnit string `pulumi:"timeUnit"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -11,27 +11,23 @@ import (
 // which this provider is authorized.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
-func LookupCallerIdentity(ctx *pulumi.Context) (*GetCallerIdentityResult, error) {
-	outputs, err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil)
+func LookupCallerIdentity(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCallerIdentityResult, error) {
+	var rv GetCallerIdentityResult
+	err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetCallerIdentityResult{
-		AccountId: outputs["accountId"],
-		Arn: outputs["arn"],
-		UserId: outputs["userId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of values returned by getCallerIdentity.
 type GetCallerIdentityResult struct {
 	// The AWS Account ID number of the account that owns or contains the calling entity.
-	AccountId interface{}
+	AccountId string `pulumi:"accountId"`
 	// The AWS ARN associated with the calling entity.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The unique identifier of the calling entity.
-	UserId interface{}
+	UserId string `pulumi:"userId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

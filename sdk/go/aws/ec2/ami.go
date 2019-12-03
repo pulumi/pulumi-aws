@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -18,247 +20,439 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
 type Ami struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Machine architecture for created instances. Defaults to "x8664".
+	Architecture pulumi.StringOutput `pulumi:"architecture"`
+
+	// A longer, human-readable description for the AMI.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Nested block describing an EBS block device that should be
+	// attached to created instances. The structure of this block is described below.
+	EbsBlockDevices AmiEbsBlockDevicesArrayOutput `pulumi:"ebsBlockDevices"`
+
+	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
+	EnaSupport pulumi.BoolOutput `pulumi:"enaSupport"`
+
+	// Nested block describing an ephemeral block device that
+	// should be attached to created instances. The structure of this block is described below.
+	EphemeralBlockDevices AmiEphemeralBlockDevicesArrayOutput `pulumi:"ephemeralBlockDevices"`
+
+	// Path to an S3 object containing an image manifest, e.g. created
+	// by the `ec2-upload-bundle` command in the EC2 command line tools.
+	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
+
+	// The id of the kernel image (AKI) that will be used as the paravirtual
+	// kernel in created instances.
+	KernelId pulumi.StringOutput `pulumi:"kernelId"`
+
+	ManageEbsSnapshots pulumi.BoolOutput `pulumi:"manageEbsSnapshots"`
+
+	// A region-unique name for the AMI.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The id of an initrd image (ARI) that will be used when booting the
+	// created instances.
+	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
+
+	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
+
+	// The Snapshot ID for the root volume (for EBS-backed AMIs)
+	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
+
+	// When set to "simple" (the default), enables enhanced networking
+	// for created instances. No other value is supported at this time.
+	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Keyword to choose what virtualization mode created instances
+	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+	// changes the set of further arguments that are required, as described below.
+	VirtualizationType pulumi.StringOutput `pulumi:"virtualizationType"`
 }
 
 // NewAmi registers a new resource with the given unique name, arguments, and options.
 func NewAmi(ctx *pulumi.Context,
-	name string, args *AmiArgs, opts ...pulumi.ResourceOpt) (*Ami, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["architecture"] = nil
-		inputs["description"] = nil
-		inputs["ebsBlockDevices"] = nil
-		inputs["enaSupport"] = nil
-		inputs["ephemeralBlockDevices"] = nil
-		inputs["imageLocation"] = nil
-		inputs["kernelId"] = nil
-		inputs["name"] = nil
-		inputs["ramdiskId"] = nil
-		inputs["rootDeviceName"] = nil
-		inputs["sriovNetSupport"] = nil
-		inputs["tags"] = nil
-		inputs["virtualizationType"] = nil
-	} else {
-		inputs["architecture"] = args.Architecture
-		inputs["description"] = args.Description
-		inputs["ebsBlockDevices"] = args.EbsBlockDevices
-		inputs["enaSupport"] = args.EnaSupport
-		inputs["ephemeralBlockDevices"] = args.EphemeralBlockDevices
-		inputs["imageLocation"] = args.ImageLocation
-		inputs["kernelId"] = args.KernelId
-		inputs["name"] = args.Name
-		inputs["ramdiskId"] = args.RamdiskId
-		inputs["rootDeviceName"] = args.RootDeviceName
-		inputs["sriovNetSupport"] = args.SriovNetSupport
-		inputs["tags"] = args.Tags
-		inputs["virtualizationType"] = args.VirtualizationType
+	name string, args *AmiArgs, opts ...pulumi.ResourceOption) (*Ami, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Architecture; i != nil { inputs["architecture"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToAmiEbsBlockDevicesArrayOutput() }
+		if i := args.EnaSupport; i != nil { inputs["enaSupport"] = i.ToBoolOutput() }
+		if i := args.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToAmiEphemeralBlockDevicesArrayOutput() }
+		if i := args.ImageLocation; i != nil { inputs["imageLocation"] = i.ToStringOutput() }
+		if i := args.KernelId; i != nil { inputs["kernelId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RamdiskId; i != nil { inputs["ramdiskId"] = i.ToStringOutput() }
+		if i := args.RootDeviceName; i != nil { inputs["rootDeviceName"] = i.ToStringOutput() }
+		if i := args.SriovNetSupport; i != nil { inputs["sriovNetSupport"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VirtualizationType; i != nil { inputs["virtualizationType"] = i.ToStringOutput() }
 	}
-	inputs["manageEbsSnapshots"] = nil
-	inputs["rootSnapshotId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/ami:Ami", name, true, inputs, opts...)
+	var resource Ami
+	err := ctx.RegisterResource("aws:ec2/ami:Ami", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Ami{s: s}, nil
+	return &resource, nil
 }
 
 // GetAmi gets an existing Ami resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAmi(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AmiState, opts ...pulumi.ResourceOpt) (*Ami, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AmiState, opts ...pulumi.ResourceOption) (*Ami, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["architecture"] = state.Architecture
-		inputs["description"] = state.Description
-		inputs["ebsBlockDevices"] = state.EbsBlockDevices
-		inputs["enaSupport"] = state.EnaSupport
-		inputs["ephemeralBlockDevices"] = state.EphemeralBlockDevices
-		inputs["imageLocation"] = state.ImageLocation
-		inputs["kernelId"] = state.KernelId
-		inputs["manageEbsSnapshots"] = state.ManageEbsSnapshots
-		inputs["name"] = state.Name
-		inputs["ramdiskId"] = state.RamdiskId
-		inputs["rootDeviceName"] = state.RootDeviceName
-		inputs["rootSnapshotId"] = state.RootSnapshotId
-		inputs["sriovNetSupport"] = state.SriovNetSupport
-		inputs["tags"] = state.Tags
-		inputs["virtualizationType"] = state.VirtualizationType
+		if i := state.Architecture; i != nil { inputs["architecture"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EbsBlockDevices; i != nil { inputs["ebsBlockDevices"] = i.ToAmiEbsBlockDevicesArrayOutput() }
+		if i := state.EnaSupport; i != nil { inputs["enaSupport"] = i.ToBoolOutput() }
+		if i := state.EphemeralBlockDevices; i != nil { inputs["ephemeralBlockDevices"] = i.ToAmiEphemeralBlockDevicesArrayOutput() }
+		if i := state.ImageLocation; i != nil { inputs["imageLocation"] = i.ToStringOutput() }
+		if i := state.KernelId; i != nil { inputs["kernelId"] = i.ToStringOutput() }
+		if i := state.ManageEbsSnapshots; i != nil { inputs["manageEbsSnapshots"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RamdiskId; i != nil { inputs["ramdiskId"] = i.ToStringOutput() }
+		if i := state.RootDeviceName; i != nil { inputs["rootDeviceName"] = i.ToStringOutput() }
+		if i := state.RootSnapshotId; i != nil { inputs["rootSnapshotId"] = i.ToStringOutput() }
+		if i := state.SriovNetSupport; i != nil { inputs["sriovNetSupport"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualizationType; i != nil { inputs["virtualizationType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/ami:Ami", name, id, inputs, opts...)
+	var resource Ami
+	err := ctx.ReadResource("aws:ec2/ami:Ami", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Ami{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Ami) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Ami) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Machine architecture for created instances. Defaults to "x8664".
-func (r *Ami) Architecture() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["architecture"])
-}
-
-// A longer, human-readable description for the AMI.
-func (r *Ami) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Nested block describing an EBS block device that should be
-// attached to created instances. The structure of this block is described below.
-func (r *Ami) EbsBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsBlockDevices"])
-}
-
-// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-func (r *Ami) EnaSupport() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enaSupport"])
-}
-
-// Nested block describing an ephemeral block device that
-// should be attached to created instances. The structure of this block is described below.
-func (r *Ami) EphemeralBlockDevices() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ephemeralBlockDevices"])
-}
-
-// Path to an S3 object containing an image manifest, e.g. created
-// by the `ec2-upload-bundle` command in the EC2 command line tools.
-func (r *Ami) ImageLocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageLocation"])
-}
-
-// The id of the kernel image (AKI) that will be used as the paravirtual
-// kernel in created instances.
-func (r *Ami) KernelId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kernelId"])
-}
-
-func (r *Ami) ManageEbsSnapshots() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["manageEbsSnapshots"])
-}
-
-// A region-unique name for the AMI.
-func (r *Ami) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The id of an initrd image (ARI) that will be used when booting the
-// created instances.
-func (r *Ami) RamdiskId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ramdiskId"])
-}
-
-// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-func (r *Ami) RootDeviceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootDeviceName"])
-}
-
-// The Snapshot ID for the root volume (for EBS-backed AMIs)
-func (r *Ami) RootSnapshotId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootSnapshotId"])
-}
-
-// When set to "simple" (the default), enables enhanced networking
-// for created instances. No other value is supported at this time.
-func (r *Ami) SriovNetSupport() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sriovNetSupport"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Ami) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Keyword to choose what virtualization mode created instances
-// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-// changes the set of further arguments that are required, as described below.
-func (r *Ami) VirtualizationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualizationType"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Ami resources.
 type AmiState struct {
 	// Machine architecture for created instances. Defaults to "x8664".
-	Architecture interface{}
+	Architecture pulumi.StringInput `pulumi:"architecture"`
 	// A longer, human-readable description for the AMI.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices interface{}
+	EbsBlockDevices AmiEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport interface{}
+	EnaSupport pulumi.BoolInput `pulumi:"enaSupport"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices AmiEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation interface{}
+	ImageLocation pulumi.StringInput `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId interface{}
-	ManageEbsSnapshots interface{}
+	KernelId pulumi.StringInput `pulumi:"kernelId"`
+	ManageEbsSnapshots pulumi.BoolInput `pulumi:"manageEbsSnapshots"`
 	// A region-unique name for the AMI.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
-	RamdiskId interface{}
+	RamdiskId pulumi.StringInput `pulumi:"ramdiskId"`
 	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName interface{}
+	RootDeviceName pulumi.StringInput `pulumi:"rootDeviceName"`
 	// The Snapshot ID for the root volume (for EBS-backed AMIs)
-	RootSnapshotId interface{}
+	RootSnapshotId pulumi.StringInput `pulumi:"rootSnapshotId"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
-	SriovNetSupport interface{}
+	SriovNetSupport pulumi.StringInput `pulumi:"sriovNetSupport"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
-	VirtualizationType interface{}
+	VirtualizationType pulumi.StringInput `pulumi:"virtualizationType"`
 }
 
 // The set of arguments for constructing a Ami resource.
 type AmiArgs struct {
 	// Machine architecture for created instances. Defaults to "x8664".
-	Architecture interface{}
+	Architecture pulumi.StringInput `pulumi:"architecture"`
 	// A longer, human-readable description for the AMI.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
-	EbsBlockDevices interface{}
+	EbsBlockDevices AmiEbsBlockDevicesArrayInput `pulumi:"ebsBlockDevices"`
 	// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
-	EnaSupport interface{}
+	EnaSupport pulumi.BoolInput `pulumi:"enaSupport"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
-	EphemeralBlockDevices interface{}
+	EphemeralBlockDevices AmiEphemeralBlockDevicesArrayInput `pulumi:"ephemeralBlockDevices"`
 	// Path to an S3 object containing an image manifest, e.g. created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
-	ImageLocation interface{}
+	ImageLocation pulumi.StringInput `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId interface{}
+	KernelId pulumi.StringInput `pulumi:"kernelId"`
 	// A region-unique name for the AMI.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of an initrd image (ARI) that will be used when booting the
 	// created instances.
-	RamdiskId interface{}
+	RamdiskId pulumi.StringInput `pulumi:"ramdiskId"`
 	// The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-	RootDeviceName interface{}
+	RootDeviceName pulumi.StringInput `pulumi:"rootDeviceName"`
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
-	SriovNetSupport interface{}
+	SriovNetSupport pulumi.StringInput `pulumi:"sriovNetSupport"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
-	VirtualizationType interface{}
+	VirtualizationType pulumi.StringInput `pulumi:"virtualizationType"`
 }
+type AmiEbsBlockDevices struct {
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeviceName string `pulumi:"deviceName"`
+	Encrypted *bool `pulumi:"encrypted"`
+	Iops *int `pulumi:"iops"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	VolumeSize *int `pulumi:"volumeSize"`
+	VolumeType *string `pulumi:"volumeType"`
+}
+var amiEbsBlockDevicesType = reflect.TypeOf((*AmiEbsBlockDevices)(nil)).Elem()
+
+type AmiEbsBlockDevicesInput interface {
+	pulumi.Input
+
+	ToAmiEbsBlockDevicesOutput() AmiEbsBlockDevicesOutput
+	ToAmiEbsBlockDevicesOutputWithContext(ctx context.Context) AmiEbsBlockDevicesOutput
+}
+
+type AmiEbsBlockDevicesArgs struct {
+	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Iops pulumi.IntInput `pulumi:"iops"`
+	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (AmiEbsBlockDevicesArgs) ElementType() reflect.Type {
+	return amiEbsBlockDevicesType
+}
+
+func (a AmiEbsBlockDevicesArgs) ToAmiEbsBlockDevicesOutput() AmiEbsBlockDevicesOutput {
+	return pulumi.ToOutput(a).(AmiEbsBlockDevicesOutput)
+}
+
+func (a AmiEbsBlockDevicesArgs) ToAmiEbsBlockDevicesOutputWithContext(ctx context.Context) AmiEbsBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiEbsBlockDevicesOutput)
+}
+
+type AmiEbsBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o AmiEbsBlockDevicesOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) bool {
+		if v.DeleteOnTermination == nil { return *new(bool) } else { return *v.DeleteOnTermination }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AmiEbsBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o AmiEbsBlockDevicesOutput) Encrypted() pulumi.BoolOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) bool {
+		if v.Encrypted == nil { return *new(bool) } else { return *v.Encrypted }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AmiEbsBlockDevicesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o AmiEbsBlockDevicesOutput) SnapshotId() pulumi.StringOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) string {
+		if v.SnapshotId == nil { return *new(string) } else { return *v.SnapshotId }
+	}).(pulumi.StringOutput)
+}
+
+func (o AmiEbsBlockDevicesOutput) VolumeSize() pulumi.IntOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) int {
+		if v.VolumeSize == nil { return *new(int) } else { return *v.VolumeSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o AmiEbsBlockDevicesOutput) VolumeType() pulumi.StringOutput {
+	return o.Apply(func(v AmiEbsBlockDevices) string {
+		if v.VolumeType == nil { return *new(string) } else { return *v.VolumeType }
+	}).(pulumi.StringOutput)
+}
+
+func (AmiEbsBlockDevicesOutput) ElementType() reflect.Type {
+	return amiEbsBlockDevicesType
+}
+
+func (o AmiEbsBlockDevicesOutput) ToAmiEbsBlockDevicesOutput() AmiEbsBlockDevicesOutput {
+	return o
+}
+
+func (o AmiEbsBlockDevicesOutput) ToAmiEbsBlockDevicesOutputWithContext(ctx context.Context) AmiEbsBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiEbsBlockDevicesOutput{}) }
+
+var amiEbsBlockDevicesArrayType = reflect.TypeOf((*[]AmiEbsBlockDevices)(nil)).Elem()
+
+type AmiEbsBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToAmiEbsBlockDevicesArrayOutput() AmiEbsBlockDevicesArrayOutput
+	ToAmiEbsBlockDevicesArrayOutputWithContext(ctx context.Context) AmiEbsBlockDevicesArrayOutput
+}
+
+type AmiEbsBlockDevicesArrayArgs []AmiEbsBlockDevicesInput
+
+func (AmiEbsBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return amiEbsBlockDevicesArrayType
+}
+
+func (a AmiEbsBlockDevicesArrayArgs) ToAmiEbsBlockDevicesArrayOutput() AmiEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(AmiEbsBlockDevicesArrayOutput)
+}
+
+func (a AmiEbsBlockDevicesArrayArgs) ToAmiEbsBlockDevicesArrayOutputWithContext(ctx context.Context) AmiEbsBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiEbsBlockDevicesArrayOutput)
+}
+
+type AmiEbsBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o AmiEbsBlockDevicesArrayOutput) Index(i pulumi.IntInput) AmiEbsBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AmiEbsBlockDevices {
+		return vs[0].([]AmiEbsBlockDevices)[vs[1].(int)]
+	}).(AmiEbsBlockDevicesOutput)
+}
+
+func (AmiEbsBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return amiEbsBlockDevicesArrayType
+}
+
+func (o AmiEbsBlockDevicesArrayOutput) ToAmiEbsBlockDevicesArrayOutput() AmiEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func (o AmiEbsBlockDevicesArrayOutput) ToAmiEbsBlockDevicesArrayOutputWithContext(ctx context.Context) AmiEbsBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiEbsBlockDevicesArrayOutput{}) }
+
+type AmiEphemeralBlockDevices struct {
+	DeviceName string `pulumi:"deviceName"`
+	VirtualName string `pulumi:"virtualName"`
+}
+var amiEphemeralBlockDevicesType = reflect.TypeOf((*AmiEphemeralBlockDevices)(nil)).Elem()
+
+type AmiEphemeralBlockDevicesInput interface {
+	pulumi.Input
+
+	ToAmiEphemeralBlockDevicesOutput() AmiEphemeralBlockDevicesOutput
+	ToAmiEphemeralBlockDevicesOutputWithContext(ctx context.Context) AmiEphemeralBlockDevicesOutput
+}
+
+type AmiEphemeralBlockDevicesArgs struct {
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	VirtualName pulumi.StringInput `pulumi:"virtualName"`
+}
+
+func (AmiEphemeralBlockDevicesArgs) ElementType() reflect.Type {
+	return amiEphemeralBlockDevicesType
+}
+
+func (a AmiEphemeralBlockDevicesArgs) ToAmiEphemeralBlockDevicesOutput() AmiEphemeralBlockDevicesOutput {
+	return pulumi.ToOutput(a).(AmiEphemeralBlockDevicesOutput)
+}
+
+func (a AmiEphemeralBlockDevicesArgs) ToAmiEphemeralBlockDevicesOutputWithContext(ctx context.Context) AmiEphemeralBlockDevicesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiEphemeralBlockDevicesOutput)
+}
+
+type AmiEphemeralBlockDevicesOutput struct { *pulumi.OutputState }
+
+func (o AmiEphemeralBlockDevicesOutput) DeviceName() pulumi.StringOutput {
+	return o.Apply(func(v AmiEphemeralBlockDevices) string {
+		return v.DeviceName
+	}).(pulumi.StringOutput)
+}
+
+func (o AmiEphemeralBlockDevicesOutput) VirtualName() pulumi.StringOutput {
+	return o.Apply(func(v AmiEphemeralBlockDevices) string {
+		return v.VirtualName
+	}).(pulumi.StringOutput)
+}
+
+func (AmiEphemeralBlockDevicesOutput) ElementType() reflect.Type {
+	return amiEphemeralBlockDevicesType
+}
+
+func (o AmiEphemeralBlockDevicesOutput) ToAmiEphemeralBlockDevicesOutput() AmiEphemeralBlockDevicesOutput {
+	return o
+}
+
+func (o AmiEphemeralBlockDevicesOutput) ToAmiEphemeralBlockDevicesOutputWithContext(ctx context.Context) AmiEphemeralBlockDevicesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiEphemeralBlockDevicesOutput{}) }
+
+var amiEphemeralBlockDevicesArrayType = reflect.TypeOf((*[]AmiEphemeralBlockDevices)(nil)).Elem()
+
+type AmiEphemeralBlockDevicesArrayInput interface {
+	pulumi.Input
+
+	ToAmiEphemeralBlockDevicesArrayOutput() AmiEphemeralBlockDevicesArrayOutput
+	ToAmiEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) AmiEphemeralBlockDevicesArrayOutput
+}
+
+type AmiEphemeralBlockDevicesArrayArgs []AmiEphemeralBlockDevicesInput
+
+func (AmiEphemeralBlockDevicesArrayArgs) ElementType() reflect.Type {
+	return amiEphemeralBlockDevicesArrayType
+}
+
+func (a AmiEphemeralBlockDevicesArrayArgs) ToAmiEphemeralBlockDevicesArrayOutput() AmiEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutput(a).(AmiEphemeralBlockDevicesArrayOutput)
+}
+
+func (a AmiEphemeralBlockDevicesArrayArgs) ToAmiEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) AmiEphemeralBlockDevicesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AmiEphemeralBlockDevicesArrayOutput)
+}
+
+type AmiEphemeralBlockDevicesArrayOutput struct { *pulumi.OutputState }
+
+func (o AmiEphemeralBlockDevicesArrayOutput) Index(i pulumi.IntInput) AmiEphemeralBlockDevicesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AmiEphemeralBlockDevices {
+		return vs[0].([]AmiEphemeralBlockDevices)[vs[1].(int)]
+	}).(AmiEphemeralBlockDevicesOutput)
+}
+
+func (AmiEphemeralBlockDevicesArrayOutput) ElementType() reflect.Type {
+	return amiEphemeralBlockDevicesArrayType
+}
+
+func (o AmiEphemeralBlockDevicesArrayOutput) ToAmiEphemeralBlockDevicesArrayOutput() AmiEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func (o AmiEphemeralBlockDevicesArrayOutput) ToAmiEphemeralBlockDevicesArrayOutputWithContext(ctx context.Context) AmiEphemeralBlockDevicesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AmiEphemeralBlockDevicesArrayOutput{}) }
+

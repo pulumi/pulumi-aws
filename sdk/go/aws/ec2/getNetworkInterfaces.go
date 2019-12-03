@@ -7,39 +7,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-func LookupNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs) (*GetNetworkInterfacesResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", inputs)
+func LookupNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
+	var rv GetNetworkInterfacesResult
+	err := ctx.Invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNetworkInterfacesResult{
-		Filters: outputs["filters"],
-		Ids: outputs["ids"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNetworkInterfaces.
 type GetNetworkInterfacesArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetNetworkInterfacesFiltersArgs `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired network interfaces.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkInterfaces.
 type GetNetworkInterfacesResult struct {
-	Filters interface{}
+	Filters *[]GetNetworkInterfacesFiltersResult `pulumi:"filters"`
 	// A list of all the network interface ids found. This data source will fail if none are found.
-	Ids interface{}
-	Tags interface{}
+	Ids []string `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetNetworkInterfacesFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	Values []string `pulumi:"values"`
+}
+type GetNetworkInterfacesFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	Values []string `pulumi:"values"`
 }

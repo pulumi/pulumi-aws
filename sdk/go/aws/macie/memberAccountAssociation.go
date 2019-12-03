@@ -14,66 +14,54 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_member_account_association.html.markdown.
 type MemberAccountAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
+	MemberAccountId pulumi.StringOutput `pulumi:"memberAccountId"`
 }
 
 // NewMemberAccountAssociation registers a new resource with the given unique name, arguments, and options.
 func NewMemberAccountAssociation(ctx *pulumi.Context,
-	name string, args *MemberAccountAssociationArgs, opts ...pulumi.ResourceOpt) (*MemberAccountAssociation, error) {
+	name string, args *MemberAccountAssociationArgs, opts ...pulumi.ResourceOption) (*MemberAccountAssociation, error) {
 	if args == nil || args.MemberAccountId == nil {
 		return nil, errors.New("missing required argument 'MemberAccountId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["memberAccountId"] = nil
-	} else {
-		inputs["memberAccountId"] = args.MemberAccountId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MemberAccountId; i != nil { inputs["memberAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:macie/memberAccountAssociation:MemberAccountAssociation", name, true, inputs, opts...)
+	var resource MemberAccountAssociation
+	err := ctx.RegisterResource("aws:macie/memberAccountAssociation:MemberAccountAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MemberAccountAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetMemberAccountAssociation gets an existing MemberAccountAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMemberAccountAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MemberAccountAssociationState, opts ...pulumi.ResourceOpt) (*MemberAccountAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MemberAccountAssociationState, opts ...pulumi.ResourceOption) (*MemberAccountAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["memberAccountId"] = state.MemberAccountId
+		if i := state.MemberAccountId; i != nil { inputs["memberAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:macie/memberAccountAssociation:MemberAccountAssociation", name, id, inputs, opts...)
+	var resource MemberAccountAssociation
+	err := ctx.ReadResource("aws:macie/memberAccountAssociation:MemberAccountAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MemberAccountAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MemberAccountAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MemberAccountAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-func (r *MemberAccountAssociation) MemberAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["memberAccountId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MemberAccountAssociation resources.
 type MemberAccountAssociationState struct {
 	// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-	MemberAccountId interface{}
+	MemberAccountId pulumi.StringInput `pulumi:"memberAccountId"`
 }
 
 // The set of arguments for constructing a MemberAccountAssociation resource.
 type MemberAccountAssociationArgs struct {
 	// The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-	MemberAccountId interface{}
+	MemberAccountId pulumi.StringInput `pulumi:"memberAccountId"`
 }

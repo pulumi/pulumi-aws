@@ -12,12 +12,21 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_conditional_forwarder.html.markdown.
 type ConditionalForwader struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The id of directory.
+	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
+
+	// A list of forwarder IP addresses.
+	DnsIps pulumi.StringArrayOutput `pulumi:"dnsIps"`
+
+	// The fully qualified domain name of the remote domain for which forwarders will be used.
+	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
 }
 
 // NewConditionalForwader registers a new resource with the given unique name, arguments, and options.
 func NewConditionalForwader(ctx *pulumi.Context,
-	name string, args *ConditionalForwaderArgs, opts ...pulumi.ResourceOpt) (*ConditionalForwader, error) {
+	name string, args *ConditionalForwaderArgs, opts ...pulumi.ResourceOption) (*ConditionalForwader, error) {
 	if args == nil || args.DirectoryId == nil {
 		return nil, errors.New("missing required argument 'DirectoryId'")
 	}
@@ -27,81 +36,54 @@ func NewConditionalForwader(ctx *pulumi.Context,
 	if args == nil || args.RemoteDomainName == nil {
 		return nil, errors.New("missing required argument 'RemoteDomainName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["directoryId"] = nil
-		inputs["dnsIps"] = nil
-		inputs["remoteDomainName"] = nil
-	} else {
-		inputs["directoryId"] = args.DirectoryId
-		inputs["dnsIps"] = args.DnsIps
-		inputs["remoteDomainName"] = args.RemoteDomainName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DirectoryId; i != nil { inputs["directoryId"] = i.ToStringOutput() }
+		if i := args.DnsIps; i != nil { inputs["dnsIps"] = i.ToStringArrayOutput() }
+		if i := args.RemoteDomainName; i != nil { inputs["remoteDomainName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, true, inputs, opts...)
+	var resource ConditionalForwader
+	err := ctx.RegisterResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConditionalForwader{s: s}, nil
+	return &resource, nil
 }
 
 // GetConditionalForwader gets an existing ConditionalForwader resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConditionalForwader(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConditionalForwaderState, opts ...pulumi.ResourceOpt) (*ConditionalForwader, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConditionalForwaderState, opts ...pulumi.ResourceOption) (*ConditionalForwader, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["directoryId"] = state.DirectoryId
-		inputs["dnsIps"] = state.DnsIps
-		inputs["remoteDomainName"] = state.RemoteDomainName
+		if i := state.DirectoryId; i != nil { inputs["directoryId"] = i.ToStringOutput() }
+		if i := state.DnsIps; i != nil { inputs["dnsIps"] = i.ToStringArrayOutput() }
+		if i := state.RemoteDomainName; i != nil { inputs["remoteDomainName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, id, inputs, opts...)
+	var resource ConditionalForwader
+	err := ctx.ReadResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConditionalForwader{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ConditionalForwader) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ConditionalForwader) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The id of directory.
-func (r *ConditionalForwader) DirectoryId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["directoryId"])
-}
-
-// A list of forwarder IP addresses.
-func (r *ConditionalForwader) DnsIps() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dnsIps"])
-}
-
-// The fully qualified domain name of the remote domain for which forwarders will be used.
-func (r *ConditionalForwader) RemoteDomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["remoteDomainName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ConditionalForwader resources.
 type ConditionalForwaderState struct {
 	// The id of directory.
-	DirectoryId interface{}
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
-	DnsIps interface{}
+	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
-	RemoteDomainName interface{}
+	RemoteDomainName pulumi.StringInput `pulumi:"remoteDomainName"`
 }
 
 // The set of arguments for constructing a ConditionalForwader resource.
 type ConditionalForwaderArgs struct {
 	// The id of directory.
-	DirectoryId interface{}
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
-	DnsIps interface{}
+	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
-	RemoteDomainName interface{}
+	RemoteDomainName pulumi.StringInput `pulumi:"remoteDomainName"`
 }

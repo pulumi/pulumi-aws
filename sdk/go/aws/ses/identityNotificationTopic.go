@@ -12,105 +12,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_notification_topic.html.markdown.
 type IdentityNotificationTopic struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+	Identity pulumi.StringOutput `pulumi:"identity"`
+
+	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	IncludeOriginalHeaders pulumi.BoolOutput `pulumi:"includeOriginalHeaders"`
+
+	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
+
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
 }
 
 // NewIdentityNotificationTopic registers a new resource with the given unique name, arguments, and options.
 func NewIdentityNotificationTopic(ctx *pulumi.Context,
-	name string, args *IdentityNotificationTopicArgs, opts ...pulumi.ResourceOpt) (*IdentityNotificationTopic, error) {
+	name string, args *IdentityNotificationTopicArgs, opts ...pulumi.ResourceOption) (*IdentityNotificationTopic, error) {
 	if args == nil || args.Identity == nil {
 		return nil, errors.New("missing required argument 'Identity'")
 	}
 	if args == nil || args.NotificationType == nil {
 		return nil, errors.New("missing required argument 'NotificationType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["identity"] = nil
-		inputs["includeOriginalHeaders"] = nil
-		inputs["notificationType"] = nil
-		inputs["topicArn"] = nil
-	} else {
-		inputs["identity"] = args.Identity
-		inputs["includeOriginalHeaders"] = args.IncludeOriginalHeaders
-		inputs["notificationType"] = args.NotificationType
-		inputs["topicArn"] = args.TopicArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToStringOutput() }
+		if i := args.IncludeOriginalHeaders; i != nil { inputs["includeOriginalHeaders"] = i.ToBoolOutput() }
+		if i := args.NotificationType; i != nil { inputs["notificationType"] = i.ToStringOutput() }
+		if i := args.TopicArn; i != nil { inputs["topicArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, true, inputs, opts...)
+	var resource IdentityNotificationTopic
+	err := ctx.RegisterResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IdentityNotificationTopic{s: s}, nil
+	return &resource, nil
 }
 
 // GetIdentityNotificationTopic gets an existing IdentityNotificationTopic resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIdentityNotificationTopic(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IdentityNotificationTopicState, opts ...pulumi.ResourceOpt) (*IdentityNotificationTopic, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IdentityNotificationTopicState, opts ...pulumi.ResourceOption) (*IdentityNotificationTopic, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["identity"] = state.Identity
-		inputs["includeOriginalHeaders"] = state.IncludeOriginalHeaders
-		inputs["notificationType"] = state.NotificationType
-		inputs["topicArn"] = state.TopicArn
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToStringOutput() }
+		if i := state.IncludeOriginalHeaders; i != nil { inputs["includeOriginalHeaders"] = i.ToBoolOutput() }
+		if i := state.NotificationType; i != nil { inputs["notificationType"] = i.ToStringOutput() }
+		if i := state.TopicArn; i != nil { inputs["topicArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, id, inputs, opts...)
+	var resource IdentityNotificationTopic
+	err := ctx.ReadResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IdentityNotificationTopic{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IdentityNotificationTopic) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IdentityNotificationTopic) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-func (r *IdentityNotificationTopic) Identity() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["identity"])
-}
-
-// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
-func (r *IdentityNotificationTopic) IncludeOriginalHeaders() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["includeOriginalHeaders"])
-}
-
-// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
-func (r *IdentityNotificationTopic) NotificationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notificationType"])
-}
-
-// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
-func (r *IdentityNotificationTopic) TopicArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["topicArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IdentityNotificationTopic resources.
 type IdentityNotificationTopicState struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-	Identity interface{}
+	Identity pulumi.StringInput `pulumi:"identity"`
 	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
-	IncludeOriginalHeaders interface{}
+	IncludeOriginalHeaders pulumi.BoolInput `pulumi:"includeOriginalHeaders"`
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
-	NotificationType interface{}
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
-	TopicArn interface{}
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
 // The set of arguments for constructing a IdentityNotificationTopic resource.
 type IdentityNotificationTopicArgs struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
-	Identity interface{}
+	Identity pulumi.StringInput `pulumi:"identity"`
 	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
-	IncludeOriginalHeaders interface{}
+	IncludeOriginalHeaders pulumi.BoolInput `pulumi:"includeOriginalHeaders"`
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
-	NotificationType interface{}
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
-	TopicArn interface{}
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }

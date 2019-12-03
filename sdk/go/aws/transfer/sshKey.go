@@ -12,12 +12,21 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_ssh_key.html.markdown.
 type SshKey struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The public key portion of an SSH key pair.
+	Body pulumi.StringOutput `pulumi:"body"`
+
+	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	ServerId pulumi.StringOutput `pulumi:"serverId"`
+
+	// The name of the user account that is assigned to one or more servers.
+	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
 // NewSshKey registers a new resource with the given unique name, arguments, and options.
 func NewSshKey(ctx *pulumi.Context,
-	name string, args *SshKeyArgs, opts ...pulumi.ResourceOpt) (*SshKey, error) {
+	name string, args *SshKeyArgs, opts ...pulumi.ResourceOption) (*SshKey, error) {
 	if args == nil || args.Body == nil {
 		return nil, errors.New("missing required argument 'Body'")
 	}
@@ -27,81 +36,54 @@ func NewSshKey(ctx *pulumi.Context,
 	if args == nil || args.UserName == nil {
 		return nil, errors.New("missing required argument 'UserName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["body"] = nil
-		inputs["serverId"] = nil
-		inputs["userName"] = nil
-	} else {
-		inputs["body"] = args.Body
-		inputs["serverId"] = args.ServerId
-		inputs["userName"] = args.UserName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := args.ServerId; i != nil { inputs["serverId"] = i.ToStringOutput() }
+		if i := args.UserName; i != nil { inputs["userName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:transfer/sshKey:SshKey", name, true, inputs, opts...)
+	var resource SshKey
+	err := ctx.RegisterResource("aws:transfer/sshKey:SshKey", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SshKey{s: s}, nil
+	return &resource, nil
 }
 
 // GetSshKey gets an existing SshKey resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSshKey(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SshKeyState, opts ...pulumi.ResourceOpt) (*SshKey, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SshKeyState, opts ...pulumi.ResourceOption) (*SshKey, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["body"] = state.Body
-		inputs["serverId"] = state.ServerId
-		inputs["userName"] = state.UserName
+		if i := state.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := state.ServerId; i != nil { inputs["serverId"] = i.ToStringOutput() }
+		if i := state.UserName; i != nil { inputs["userName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:transfer/sshKey:SshKey", name, id, inputs, opts...)
+	var resource SshKey
+	err := ctx.ReadResource("aws:transfer/sshKey:SshKey", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SshKey{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SshKey) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SshKey) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The public key portion of an SSH key pair.
-func (r *SshKey) Body() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["body"])
-}
-
-// The Server ID of the Transfer Server (e.g. `s-12345678`)
-func (r *SshKey) ServerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverId"])
-}
-
-// The name of the user account that is assigned to one or more servers.
-func (r *SshKey) UserName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SshKey resources.
 type SshKeyState struct {
 	// The public key portion of an SSH key pair.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
-	ServerId interface{}
+	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// The name of the user account that is assigned to one or more servers.
-	UserName interface{}
+	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
 	// The public key portion of an SSH key pair.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
-	ServerId interface{}
+	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// The name of the user account that is assigned to one or more servers.
-	UserName interface{}
+	UserName pulumi.StringInput `pulumi:"userName"`
 }

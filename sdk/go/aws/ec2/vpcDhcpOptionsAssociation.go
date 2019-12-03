@@ -17,81 +17,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options_association.html.markdown.
 type VpcDhcpOptionsAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the DHCP Options Set to associate to the VPC.
+	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
+
+	// The ID of the VPC to which we would like to associate a DHCP Options Set.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVpcDhcpOptionsAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcDhcpOptionsAssociation(ctx *pulumi.Context,
-	name string, args *VpcDhcpOptionsAssociationArgs, opts ...pulumi.ResourceOpt) (*VpcDhcpOptionsAssociation, error) {
+	name string, args *VpcDhcpOptionsAssociationArgs, opts ...pulumi.ResourceOption) (*VpcDhcpOptionsAssociation, error) {
 	if args == nil || args.DhcpOptionsId == nil {
 		return nil, errors.New("missing required argument 'DhcpOptionsId'")
 	}
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dhcpOptionsId"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["dhcpOptionsId"] = args.DhcpOptionsId
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DhcpOptionsId; i != nil { inputs["dhcpOptionsId"] = i.ToStringOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, true, inputs, opts...)
+	var resource VpcDhcpOptionsAssociation
+	err := ctx.RegisterResource("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcDhcpOptionsAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpcDhcpOptionsAssociation gets an existing VpcDhcpOptionsAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpcDhcpOptionsAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpcDhcpOptionsAssociationState, opts ...pulumi.ResourceOpt) (*VpcDhcpOptionsAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpcDhcpOptionsAssociationState, opts ...pulumi.ResourceOption) (*VpcDhcpOptionsAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dhcpOptionsId"] = state.DhcpOptionsId
-		inputs["vpcId"] = state.VpcId
+		if i := state.DhcpOptionsId; i != nil { inputs["dhcpOptionsId"] = i.ToStringOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, id, inputs, opts...)
+	var resource VpcDhcpOptionsAssociation
+	err := ctx.ReadResource("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcDhcpOptionsAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpcDhcpOptionsAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpcDhcpOptionsAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the DHCP Options Set to associate to the VPC.
-func (r *VpcDhcpOptionsAssociation) DhcpOptionsId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dhcpOptionsId"])
-}
-
-// The ID of the VPC to which we would like to associate a DHCP Options Set.
-func (r *VpcDhcpOptionsAssociation) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
 type VpcDhcpOptionsAssociationState struct {
 	// The ID of the DHCP Options Set to associate to the VPC.
-	DhcpOptionsId interface{}
+	DhcpOptionsId pulumi.StringInput `pulumi:"dhcpOptionsId"`
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
 type VpcDhcpOptionsAssociationArgs struct {
 	// The ID of the DHCP Options Set to associate to the VPC.
-	DhcpOptionsId interface{}
+	DhcpOptionsId pulumi.StringInput `pulumi:"dhcpOptionsId"`
 	// The ID of the VPC to which we would like to associate a DHCP Options Set.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

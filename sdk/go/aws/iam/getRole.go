@@ -12,54 +12,40 @@ import (
 // properties without having to hard code ARNs as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
-func LookupRole(ctx *pulumi.Context, args *GetRoleArgs) (*GetRoleResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:iam/getRole:getRole", inputs)
+func LookupRole(ctx *pulumi.Context, args *GetRoleArgs, opts ...pulumi.InvokeOption) (*GetRoleResult, error) {
+	var rv GetRoleResult
+	err := ctx.Invoke("aws:iam/getRole:getRole", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRoleResult{
-		Arn: outputs["arn"],
-		AssumeRolePolicy: outputs["assumeRolePolicy"],
-		CreateDate: outputs["createDate"],
-		Description: outputs["description"],
-		MaxSessionDuration: outputs["maxSessionDuration"],
-		Name: outputs["name"],
-		Path: outputs["path"],
-		PermissionsBoundary: outputs["permissionsBoundary"],
-		UniqueId: outputs["uniqueId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRole.
 type GetRoleArgs struct {
 	// The friendly IAM role name to match.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getRole.
 type GetRoleResult struct {
 	// The Amazon Resource Name (ARN) specifying the role.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The policy document associated with the role.
-	AssumeRolePolicy interface{}
+	AssumeRolePolicy string `pulumi:"assumeRolePolicy"`
 	// Creation date of the role in RFC 3339 format.
-	CreateDate interface{}
+	CreateDate string `pulumi:"createDate"`
 	// Description for the role.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// Maximum session duration.
-	MaxSessionDuration interface{}
-	Name interface{}
+	MaxSessionDuration int `pulumi:"maxSessionDuration"`
+	Name string `pulumi:"name"`
 	// The path to the role.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
-	PermissionsBoundary interface{}
+	PermissionsBoundary string `pulumi:"permissionsBoundary"`
 	// The stable and unique string identifying the role.
-	UniqueId interface{}
+	UniqueId string `pulumi:"uniqueId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

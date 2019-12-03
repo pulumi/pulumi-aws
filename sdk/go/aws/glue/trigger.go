@@ -4,6 +4,8 @@
 package glue
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,174 +14,472 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
 type Trigger struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// List of actions initiated by this trigger when it fires. Defined below.
+	Actions TriggerActionsArrayOutput `pulumi:"actions"`
+
+	// Amazon Resource Name (ARN) of Glue Trigger
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A description of the new trigger.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The name of the trigger.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
+	Predicate TriggerPredicateOutput `pulumi:"predicate"`
+
+	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	Schedule pulumi.StringOutput `pulumi:"schedule"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	WorkflowName pulumi.StringOutput `pulumi:"workflowName"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
 func NewTrigger(ctx *pulumi.Context,
-	name string, args *TriggerArgs, opts ...pulumi.ResourceOpt) (*Trigger, error) {
+	name string, args *TriggerArgs, opts ...pulumi.ResourceOption) (*Trigger, error) {
 	if args == nil || args.Actions == nil {
 		return nil, errors.New("missing required argument 'Actions'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["actions"] = nil
-		inputs["description"] = nil
-		inputs["enabled"] = nil
-		inputs["name"] = nil
-		inputs["predicate"] = nil
-		inputs["schedule"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-		inputs["workflowName"] = nil
-	} else {
-		inputs["actions"] = args.Actions
-		inputs["description"] = args.Description
-		inputs["enabled"] = args.Enabled
-		inputs["name"] = args.Name
-		inputs["predicate"] = args.Predicate
-		inputs["schedule"] = args.Schedule
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
-		inputs["workflowName"] = args.WorkflowName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Actions; i != nil { inputs["actions"] = i.ToTriggerActionsArrayOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Predicate; i != nil { inputs["predicate"] = i.ToTriggerPredicateOutput() }
+		if i := args.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.WorkflowName; i != nil { inputs["workflowName"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:glue/trigger:Trigger", name, true, inputs, opts...)
+	var resource Trigger
+	err := ctx.RegisterResource("aws:glue/trigger:Trigger", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Trigger{s: s}, nil
+	return &resource, nil
 }
 
 // GetTrigger gets an existing Trigger resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTrigger(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TriggerState, opts ...pulumi.ResourceOpt) (*Trigger, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TriggerState, opts ...pulumi.ResourceOption) (*Trigger, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["actions"] = state.Actions
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["enabled"] = state.Enabled
-		inputs["name"] = state.Name
-		inputs["predicate"] = state.Predicate
-		inputs["schedule"] = state.Schedule
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
-		inputs["workflowName"] = state.WorkflowName
+		if i := state.Actions; i != nil { inputs["actions"] = i.ToTriggerActionsArrayOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Predicate; i != nil { inputs["predicate"] = i.ToTriggerPredicateOutput() }
+		if i := state.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.WorkflowName; i != nil { inputs["workflowName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glue/trigger:Trigger", name, id, inputs, opts...)
+	var resource Trigger
+	err := ctx.ReadResource("aws:glue/trigger:Trigger", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Trigger{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Trigger) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Trigger) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// List of actions initiated by this trigger when it fires. Defined below.
-func (r *Trigger) Actions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["actions"])
-}
-
-// Amazon Resource Name (ARN) of Glue Trigger
-func (r *Trigger) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A description of the new trigger.
-func (r *Trigger) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
-func (r *Trigger) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The name of the trigger.
-func (r *Trigger) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
-func (r *Trigger) Predicate() pulumi.Output {
-	return r.s.State["predicate"]
-}
-
-// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-func (r *Trigger) Schedule() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["schedule"])
-}
-
-// Key-value mapping of resource tags
-func (r *Trigger) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
-func (r *Trigger) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-func (r *Trigger) WorkflowName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workflowName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Trigger resources.
 type TriggerState struct {
 	// List of actions initiated by this trigger when it fires. Defined below.
-	Actions interface{}
+	Actions TriggerActionsArrayInput `pulumi:"actions"`
 	// Amazon Resource Name (ARN) of Glue Trigger
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A description of the new trigger.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The name of the trigger.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
-	Predicate interface{}
+	Predicate TriggerPredicateInput `pulumi:"predicate"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-	WorkflowName interface{}
+	WorkflowName pulumi.StringInput `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
 	// List of actions initiated by this trigger when it fires. Defined below.
-	Actions interface{}
+	Actions TriggerActionsArrayInput `pulumi:"actions"`
 	// A description of the new trigger.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The name of the trigger.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
-	Predicate interface{}
+	Predicate TriggerPredicateInput `pulumi:"predicate"`
 	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-	WorkflowName interface{}
+	WorkflowName pulumi.StringInput `pulumi:"workflowName"`
 }
+type TriggerActions struct {
+	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+	Arguments *map[string]string `pulumi:"arguments"`
+	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	CrawlerName *string `pulumi:"crawlerName"`
+	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	JobName *string `pulumi:"jobName"`
+	// The job run timeout in minutes. It overrides the timeout value of the job.
+	Timeout *int `pulumi:"timeout"`
+}
+var triggerActionsType = reflect.TypeOf((*TriggerActions)(nil)).Elem()
+
+type TriggerActionsInput interface {
+	pulumi.Input
+
+	ToTriggerActionsOutput() TriggerActionsOutput
+	ToTriggerActionsOutputWithContext(ctx context.Context) TriggerActionsOutput
+}
+
+type TriggerActionsArgs struct {
+	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+	Arguments pulumi.MapInput `pulumi:"arguments"`
+	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	CrawlerName pulumi.StringInput `pulumi:"crawlerName"`
+	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// The job run timeout in minutes. It overrides the timeout value of the job.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+}
+
+func (TriggerActionsArgs) ElementType() reflect.Type {
+	return triggerActionsType
+}
+
+func (a TriggerActionsArgs) ToTriggerActionsOutput() TriggerActionsOutput {
+	return pulumi.ToOutput(a).(TriggerActionsOutput)
+}
+
+func (a TriggerActionsArgs) ToTriggerActionsOutputWithContext(ctx context.Context) TriggerActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerActionsOutput)
+}
+
+type TriggerActionsOutput struct { *pulumi.OutputState }
+
+// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+func (o TriggerActionsOutput) Arguments() pulumi.MapOutput {
+	return o.Apply(func(v TriggerActions) map[string]string {
+		if v.Arguments == nil { return *new(map[string]string) } else { return *v.Arguments }
+	}).(pulumi.MapOutput)
+}
+
+// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+func (o TriggerActionsOutput) CrawlerName() pulumi.StringOutput {
+	return o.Apply(func(v TriggerActions) string {
+		if v.CrawlerName == nil { return *new(string) } else { return *v.CrawlerName }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+func (o TriggerActionsOutput) JobName() pulumi.StringOutput {
+	return o.Apply(func(v TriggerActions) string {
+		if v.JobName == nil { return *new(string) } else { return *v.JobName }
+	}).(pulumi.StringOutput)
+}
+
+// The job run timeout in minutes. It overrides the timeout value of the job.
+func (o TriggerActionsOutput) Timeout() pulumi.IntOutput {
+	return o.Apply(func(v TriggerActions) int {
+		if v.Timeout == nil { return *new(int) } else { return *v.Timeout }
+	}).(pulumi.IntOutput)
+}
+
+func (TriggerActionsOutput) ElementType() reflect.Type {
+	return triggerActionsType
+}
+
+func (o TriggerActionsOutput) ToTriggerActionsOutput() TriggerActionsOutput {
+	return o
+}
+
+func (o TriggerActionsOutput) ToTriggerActionsOutputWithContext(ctx context.Context) TriggerActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerActionsOutput{}) }
+
+var triggerActionsArrayType = reflect.TypeOf((*[]TriggerActions)(nil)).Elem()
+
+type TriggerActionsArrayInput interface {
+	pulumi.Input
+
+	ToTriggerActionsArrayOutput() TriggerActionsArrayOutput
+	ToTriggerActionsArrayOutputWithContext(ctx context.Context) TriggerActionsArrayOutput
+}
+
+type TriggerActionsArrayArgs []TriggerActionsInput
+
+func (TriggerActionsArrayArgs) ElementType() reflect.Type {
+	return triggerActionsArrayType
+}
+
+func (a TriggerActionsArrayArgs) ToTriggerActionsArrayOutput() TriggerActionsArrayOutput {
+	return pulumi.ToOutput(a).(TriggerActionsArrayOutput)
+}
+
+func (a TriggerActionsArrayArgs) ToTriggerActionsArrayOutputWithContext(ctx context.Context) TriggerActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerActionsArrayOutput)
+}
+
+type TriggerActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o TriggerActionsArrayOutput) Index(i pulumi.IntInput) TriggerActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TriggerActions {
+		return vs[0].([]TriggerActions)[vs[1].(int)]
+	}).(TriggerActionsOutput)
+}
+
+func (TriggerActionsArrayOutput) ElementType() reflect.Type {
+	return triggerActionsArrayType
+}
+
+func (o TriggerActionsArrayOutput) ToTriggerActionsArrayOutput() TriggerActionsArrayOutput {
+	return o
+}
+
+func (o TriggerActionsArrayOutput) ToTriggerActionsArrayOutputWithContext(ctx context.Context) TriggerActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerActionsArrayOutput{}) }
+
+type TriggerPredicate struct {
+	// A list of the conditions that determine when the trigger will fire. Defined below.
+	Conditions []TriggerPredicateConditions `pulumi:"conditions"`
+	// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
+	Logical *string `pulumi:"logical"`
+}
+var triggerPredicateType = reflect.TypeOf((*TriggerPredicate)(nil)).Elem()
+
+type TriggerPredicateInput interface {
+	pulumi.Input
+
+	ToTriggerPredicateOutput() TriggerPredicateOutput
+	ToTriggerPredicateOutputWithContext(ctx context.Context) TriggerPredicateOutput
+}
+
+type TriggerPredicateArgs struct {
+	// A list of the conditions that determine when the trigger will fire. Defined below.
+	Conditions TriggerPredicateConditionsArrayInput `pulumi:"conditions"`
+	// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
+	Logical pulumi.StringInput `pulumi:"logical"`
+}
+
+func (TriggerPredicateArgs) ElementType() reflect.Type {
+	return triggerPredicateType
+}
+
+func (a TriggerPredicateArgs) ToTriggerPredicateOutput() TriggerPredicateOutput {
+	return pulumi.ToOutput(a).(TriggerPredicateOutput)
+}
+
+func (a TriggerPredicateArgs) ToTriggerPredicateOutputWithContext(ctx context.Context) TriggerPredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerPredicateOutput)
+}
+
+type TriggerPredicateOutput struct { *pulumi.OutputState }
+
+// A list of the conditions that determine when the trigger will fire. Defined below.
+func (o TriggerPredicateOutput) Conditions() TriggerPredicateConditionsArrayOutput {
+	return o.Apply(func(v TriggerPredicate) []TriggerPredicateConditions {
+		return v.Conditions
+	}).(TriggerPredicateConditionsArrayOutput)
+}
+
+// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
+func (o TriggerPredicateOutput) Logical() pulumi.StringOutput {
+	return o.Apply(func(v TriggerPredicate) string {
+		if v.Logical == nil { return *new(string) } else { return *v.Logical }
+	}).(pulumi.StringOutput)
+}
+
+func (TriggerPredicateOutput) ElementType() reflect.Type {
+	return triggerPredicateType
+}
+
+func (o TriggerPredicateOutput) ToTriggerPredicateOutput() TriggerPredicateOutput {
+	return o
+}
+
+func (o TriggerPredicateOutput) ToTriggerPredicateOutputWithContext(ctx context.Context) TriggerPredicateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerPredicateOutput{}) }
+
+type TriggerPredicateConditions struct {
+	// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+	CrawlState *string `pulumi:"crawlState"`
+	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	CrawlerName *string `pulumi:"crawlerName"`
+	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	JobName *string `pulumi:"jobName"`
+	// A logical operator. Defaults to `EQUALS`.
+	LogicalOperator *string `pulumi:"logicalOperator"`
+	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	State *string `pulumi:"state"`
+}
+var triggerPredicateConditionsType = reflect.TypeOf((*TriggerPredicateConditions)(nil)).Elem()
+
+type TriggerPredicateConditionsInput interface {
+	pulumi.Input
+
+	ToTriggerPredicateConditionsOutput() TriggerPredicateConditionsOutput
+	ToTriggerPredicateConditionsOutputWithContext(ctx context.Context) TriggerPredicateConditionsOutput
+}
+
+type TriggerPredicateConditionsArgs struct {
+	// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+	CrawlState pulumi.StringInput `pulumi:"crawlState"`
+	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	CrawlerName pulumi.StringInput `pulumi:"crawlerName"`
+	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// A logical operator. Defaults to `EQUALS`.
+	LogicalOperator pulumi.StringInput `pulumi:"logicalOperator"`
+	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (TriggerPredicateConditionsArgs) ElementType() reflect.Type {
+	return triggerPredicateConditionsType
+}
+
+func (a TriggerPredicateConditionsArgs) ToTriggerPredicateConditionsOutput() TriggerPredicateConditionsOutput {
+	return pulumi.ToOutput(a).(TriggerPredicateConditionsOutput)
+}
+
+func (a TriggerPredicateConditionsArgs) ToTriggerPredicateConditionsOutputWithContext(ctx context.Context) TriggerPredicateConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerPredicateConditionsOutput)
+}
+
+type TriggerPredicateConditionsOutput struct { *pulumi.OutputState }
+
+// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+func (o TriggerPredicateConditionsOutput) CrawlState() pulumi.StringOutput {
+	return o.Apply(func(v TriggerPredicateConditions) string {
+		if v.CrawlState == nil { return *new(string) } else { return *v.CrawlState }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+func (o TriggerPredicateConditionsOutput) CrawlerName() pulumi.StringOutput {
+	return o.Apply(func(v TriggerPredicateConditions) string {
+		if v.CrawlerName == nil { return *new(string) } else { return *v.CrawlerName }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+func (o TriggerPredicateConditionsOutput) JobName() pulumi.StringOutput {
+	return o.Apply(func(v TriggerPredicateConditions) string {
+		if v.JobName == nil { return *new(string) } else { return *v.JobName }
+	}).(pulumi.StringOutput)
+}
+
+// A logical operator. Defaults to `EQUALS`.
+func (o TriggerPredicateConditionsOutput) LogicalOperator() pulumi.StringOutput {
+	return o.Apply(func(v TriggerPredicateConditions) string {
+		if v.LogicalOperator == nil { return *new(string) } else { return *v.LogicalOperator }
+	}).(pulumi.StringOutput)
+}
+
+// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+func (o TriggerPredicateConditionsOutput) State() pulumi.StringOutput {
+	return o.Apply(func(v TriggerPredicateConditions) string {
+		if v.State == nil { return *new(string) } else { return *v.State }
+	}).(pulumi.StringOutput)
+}
+
+func (TriggerPredicateConditionsOutput) ElementType() reflect.Type {
+	return triggerPredicateConditionsType
+}
+
+func (o TriggerPredicateConditionsOutput) ToTriggerPredicateConditionsOutput() TriggerPredicateConditionsOutput {
+	return o
+}
+
+func (o TriggerPredicateConditionsOutput) ToTriggerPredicateConditionsOutputWithContext(ctx context.Context) TriggerPredicateConditionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerPredicateConditionsOutput{}) }
+
+var triggerPredicateConditionsArrayType = reflect.TypeOf((*[]TriggerPredicateConditions)(nil)).Elem()
+
+type TriggerPredicateConditionsArrayInput interface {
+	pulumi.Input
+
+	ToTriggerPredicateConditionsArrayOutput() TriggerPredicateConditionsArrayOutput
+	ToTriggerPredicateConditionsArrayOutputWithContext(ctx context.Context) TriggerPredicateConditionsArrayOutput
+}
+
+type TriggerPredicateConditionsArrayArgs []TriggerPredicateConditionsInput
+
+func (TriggerPredicateConditionsArrayArgs) ElementType() reflect.Type {
+	return triggerPredicateConditionsArrayType
+}
+
+func (a TriggerPredicateConditionsArrayArgs) ToTriggerPredicateConditionsArrayOutput() TriggerPredicateConditionsArrayOutput {
+	return pulumi.ToOutput(a).(TriggerPredicateConditionsArrayOutput)
+}
+
+func (a TriggerPredicateConditionsArrayArgs) ToTriggerPredicateConditionsArrayOutputWithContext(ctx context.Context) TriggerPredicateConditionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TriggerPredicateConditionsArrayOutput)
+}
+
+type TriggerPredicateConditionsArrayOutput struct { *pulumi.OutputState }
+
+func (o TriggerPredicateConditionsArrayOutput) Index(i pulumi.IntInput) TriggerPredicateConditionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TriggerPredicateConditions {
+		return vs[0].([]TriggerPredicateConditions)[vs[1].(int)]
+	}).(TriggerPredicateConditionsOutput)
+}
+
+func (TriggerPredicateConditionsArrayOutput) ElementType() reflect.Type {
+	return triggerPredicateConditionsArrayType
+}
+
+func (o TriggerPredicateConditionsArrayOutput) ToTriggerPredicateConditionsArrayOutput() TriggerPredicateConditionsArrayOutput {
+	return o
+}
+
+func (o TriggerPredicateConditionsArrayOutput) ToTriggerPredicateConditionsArrayOutputWithContext(ctx context.Context) TriggerPredicateConditionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TriggerPredicateConditionsArrayOutput{}) }
+

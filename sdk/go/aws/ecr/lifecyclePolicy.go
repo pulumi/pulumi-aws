@@ -16,87 +16,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
 type LifecyclePolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// The registry ID where the repository was created.
+	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+
+	// Name of the repository to apply the policy.
+	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
 func NewLifecyclePolicy(ctx *pulumi.Context,
-	name string, args *LifecyclePolicyArgs, opts ...pulumi.ResourceOpt) (*LifecyclePolicy, error) {
+	name string, args *LifecyclePolicyArgs, opts ...pulumi.ResourceOption) (*LifecyclePolicy, error) {
 	if args == nil || args.Policy == nil {
 		return nil, errors.New("missing required argument 'Policy'")
 	}
 	if args == nil || args.Repository == nil {
 		return nil, errors.New("missing required argument 'Repository'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["policy"] = nil
-		inputs["repository"] = nil
-	} else {
-		inputs["policy"] = args.Policy
-		inputs["repository"] = args.Repository
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.Repository; i != nil { inputs["repository"] = i.ToStringOutput() }
 	}
-	inputs["registryId"] = nil
-	s, err := ctx.RegisterResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, true, inputs, opts...)
+	var resource LifecyclePolicy
+	err := ctx.RegisterResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LifecyclePolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetLifecyclePolicy gets an existing LifecyclePolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLifecyclePolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LifecyclePolicyState, opts ...pulumi.ResourceOpt) (*LifecyclePolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LifecyclePolicyState, opts ...pulumi.ResourceOption) (*LifecyclePolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["policy"] = state.Policy
-		inputs["registryId"] = state.RegistryId
-		inputs["repository"] = state.Repository
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.RegistryId; i != nil { inputs["registryId"] = i.ToStringOutput() }
+		if i := state.Repository; i != nil { inputs["repository"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, id, inputs, opts...)
+	var resource LifecyclePolicy
+	err := ctx.ReadResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LifecyclePolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LifecyclePolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LifecyclePolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *LifecyclePolicy) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// The registry ID where the repository was created.
-func (r *LifecyclePolicy) RegistryId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["registryId"])
-}
-
-// Name of the repository to apply the policy.
-func (r *LifecyclePolicy) Repository() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["repository"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type LifecyclePolicyState struct {
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The registry ID where the repository was created.
-	RegistryId interface{}
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
 	// Name of the repository to apply the policy.
-	Repository interface{}
+	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// Name of the repository to apply the policy.
-	Repository interface{}
+	Repository pulumi.StringInput `pulumi:"repository"`
 }

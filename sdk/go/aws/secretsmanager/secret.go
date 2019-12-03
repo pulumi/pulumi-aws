@@ -4,6 +4,8 @@
 package secretsmanager
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,174 +13,185 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/secretsmanager_secret.html.markdown.
 type Secret struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the secret.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A description of the secret.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+
+	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
+	RecoveryWindowInDays pulumi.IntOutput `pulumi:"recoveryWindowInDays"`
+
+	// Specifies whether automatic rotation is enabled for this secret.
+	RotationEnabled pulumi.BoolOutput `pulumi:"rotationEnabled"`
+
+	// Specifies the ARN of the Lambda function that can rotate the secret.
+	RotationLambdaArn pulumi.StringOutput `pulumi:"rotationLambdaArn"`
+
+	// A structure that defines the rotation configuration for this secret. Defined below.
+	RotationRules SecretRotationRulesOutput `pulumi:"rotationRules"`
+
+	// Specifies a key-value map of user-defined tags that are attached to the secret.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
 func NewSecret(ctx *pulumi.Context,
-	name string, args *SecretArgs, opts ...pulumi.ResourceOpt) (*Secret, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["kmsKeyId"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["policy"] = nil
-		inputs["recoveryWindowInDays"] = nil
-		inputs["rotationLambdaArn"] = nil
-		inputs["rotationRules"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["kmsKeyId"] = args.KmsKeyId
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["policy"] = args.Policy
-		inputs["recoveryWindowInDays"] = args.RecoveryWindowInDays
-		inputs["rotationLambdaArn"] = args.RotationLambdaArn
-		inputs["rotationRules"] = args.RotationRules
-		inputs["tags"] = args.Tags
+	name string, args *SecretArgs, opts ...pulumi.ResourceOption) (*Secret, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.RecoveryWindowInDays; i != nil { inputs["recoveryWindowInDays"] = i.ToIntOutput() }
+		if i := args.RotationLambdaArn; i != nil { inputs["rotationLambdaArn"] = i.ToStringOutput() }
+		if i := args.RotationRules; i != nil { inputs["rotationRules"] = i.ToSecretRotationRulesOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["rotationEnabled"] = nil
-	s, err := ctx.RegisterResource("aws:secretsmanager/secret:Secret", name, true, inputs, opts...)
+	var resource Secret
+	err := ctx.RegisterResource("aws:secretsmanager/secret:Secret", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Secret{s: s}, nil
+	return &resource, nil
 }
 
 // GetSecret gets an existing Secret resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSecret(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SecretState, opts ...pulumi.ResourceOpt) (*Secret, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["kmsKeyId"] = state.KmsKeyId
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["policy"] = state.Policy
-		inputs["recoveryWindowInDays"] = state.RecoveryWindowInDays
-		inputs["rotationEnabled"] = state.RotationEnabled
-		inputs["rotationLambdaArn"] = state.RotationLambdaArn
-		inputs["rotationRules"] = state.RotationRules
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.KmsKeyId; i != nil { inputs["kmsKeyId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.RecoveryWindowInDays; i != nil { inputs["recoveryWindowInDays"] = i.ToIntOutput() }
+		if i := state.RotationEnabled; i != nil { inputs["rotationEnabled"] = i.ToBoolOutput() }
+		if i := state.RotationLambdaArn; i != nil { inputs["rotationLambdaArn"] = i.ToStringOutput() }
+		if i := state.RotationRules; i != nil { inputs["rotationRules"] = i.ToSecretRotationRulesOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:secretsmanager/secret:Secret", name, id, inputs, opts...)
+	var resource Secret
+	err := ctx.ReadResource("aws:secretsmanager/secret:Secret", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Secret{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Secret) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Secret) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the secret.
-func (r *Secret) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A description of the secret.
-func (r *Secret) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-func (r *Secret) KmsKeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyId"])
-}
-
-// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-func (r *Secret) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Secret) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-func (r *Secret) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-func (r *Secret) RecoveryWindowInDays() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["recoveryWindowInDays"])
-}
-
-// Specifies whether automatic rotation is enabled for this secret.
-func (r *Secret) RotationEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["rotationEnabled"])
-}
-
-// Specifies the ARN of the Lambda function that can rotate the secret.
-func (r *Secret) RotationLambdaArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rotationLambdaArn"])
-}
-
-// A structure that defines the rotation configuration for this secret. Defined below.
-func (r *Secret) RotationRules() pulumi.Output {
-	return r.s.State["rotationRules"]
-}
-
-// Specifies a key-value map of user-defined tags that are attached to the secret.
-func (r *Secret) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Secret resources.
 type SecretState struct {
 	// Amazon Resource Name (ARN) of the secret.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A description of the secret.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
-	Policy interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays interface{}
+	RecoveryWindowInDays pulumi.IntInput `pulumi:"recoveryWindowInDays"`
 	// Specifies whether automatic rotation is enabled for this secret.
-	RotationEnabled interface{}
+	RotationEnabled pulumi.BoolInput `pulumi:"rotationEnabled"`
 	// Specifies the ARN of the Lambda function that can rotate the secret.
-	RotationLambdaArn interface{}
+	RotationLambdaArn pulumi.StringInput `pulumi:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret. Defined below.
-	RotationRules interface{}
+	RotationRules SecretRotationRulesInput `pulumi:"rotationRules"`
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
 	// A description of the secret.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies the ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
-	KmsKeyId interface{}
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
-	Policy interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-	RecoveryWindowInDays interface{}
+	RecoveryWindowInDays pulumi.IntInput `pulumi:"recoveryWindowInDays"`
 	// Specifies the ARN of the Lambda function that can rotate the secret.
-	RotationLambdaArn interface{}
+	RotationLambdaArn pulumi.StringInput `pulumi:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret. Defined below.
-	RotationRules interface{}
+	RotationRules SecretRotationRulesInput `pulumi:"rotationRules"`
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type SecretRotationRules struct {
+	// Specifies the number of days between automatic scheduled rotations of the secret.
+	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
+}
+var secretRotationRulesType = reflect.TypeOf((*SecretRotationRules)(nil)).Elem()
+
+type SecretRotationRulesInput interface {
+	pulumi.Input
+
+	ToSecretRotationRulesOutput() SecretRotationRulesOutput
+	ToSecretRotationRulesOutputWithContext(ctx context.Context) SecretRotationRulesOutput
+}
+
+type SecretRotationRulesArgs struct {
+	// Specifies the number of days between automatic scheduled rotations of the secret.
+	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
+}
+
+func (SecretRotationRulesArgs) ElementType() reflect.Type {
+	return secretRotationRulesType
+}
+
+func (a SecretRotationRulesArgs) ToSecretRotationRulesOutput() SecretRotationRulesOutput {
+	return pulumi.ToOutput(a).(SecretRotationRulesOutput)
+}
+
+func (a SecretRotationRulesArgs) ToSecretRotationRulesOutputWithContext(ctx context.Context) SecretRotationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SecretRotationRulesOutput)
+}
+
+type SecretRotationRulesOutput struct { *pulumi.OutputState }
+
+// Specifies the number of days between automatic scheduled rotations of the secret.
+func (o SecretRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntOutput {
+	return o.Apply(func(v SecretRotationRules) int {
+		return v.AutomaticallyAfterDays
+	}).(pulumi.IntOutput)
+}
+
+func (SecretRotationRulesOutput) ElementType() reflect.Type {
+	return secretRotationRulesType
+}
+
+func (o SecretRotationRulesOutput) ToSecretRotationRulesOutput() SecretRotationRulesOutput {
+	return o
+}
+
+func (o SecretRotationRulesOutput) ToSecretRotationRulesOutputWithContext(ctx context.Context) SecretRotationRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SecretRotationRulesOutput{}) }
+

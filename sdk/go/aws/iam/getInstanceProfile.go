@@ -12,49 +12,37 @@ import (
 // instance profile properties without having to hard code ARNs as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
-func LookupInstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs) (*GetInstanceProfileResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:iam/getInstanceProfile:getInstanceProfile", inputs)
+func LookupInstanceProfile(ctx *pulumi.Context, args *GetInstanceProfileArgs, opts ...pulumi.InvokeOption) (*GetInstanceProfileResult, error) {
+	var rv GetInstanceProfileResult
+	err := ctx.Invoke("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetInstanceProfileResult{
-		Arn: outputs["arn"],
-		CreateDate: outputs["createDate"],
-		Name: outputs["name"],
-		Path: outputs["path"],
-		RoleArn: outputs["roleArn"],
-		RoleId: outputs["roleId"],
-		RoleName: outputs["roleName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getInstanceProfile.
 type GetInstanceProfileArgs struct {
 	// The friendly IAM instance profile name to match.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getInstanceProfile.
 type GetInstanceProfileResult struct {
 	// The Amazon Resource Name (ARN) specifying the instance profile.
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The string representation of the date the instance profile
 	// was created.
-	CreateDate interface{}
-	Name interface{}
+	CreateDate string `pulumi:"createDate"`
+	Name string `pulumi:"name"`
 	// The path to the instance profile.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// The role arn associated with this instance profile.
-	RoleArn interface{}
+	RoleArn string `pulumi:"roleArn"`
 	// The role id associated with this instance profile.
-	RoleId interface{}
+	RoleId string `pulumi:"roleId"`
 	// The role name associated with this instance profile.
-	RoleName interface{}
+	RoleName string `pulumi:"roleName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

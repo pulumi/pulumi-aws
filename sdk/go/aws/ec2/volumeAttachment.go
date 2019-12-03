@@ -15,12 +15,35 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
 type VolumeAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The device name to expose to the instance (for
+	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
+	DeviceName pulumi.StringOutput `pulumi:"deviceName"`
+
+	// Set to `true` if you want to force the
+	// volume to detach. Useful if previous attempts failed, but use this option only
+	// as a last resort, as this can result in **data loss**. See
+	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
+	ForceDetach pulumi.BoolOutput `pulumi:"forceDetach"`
+
+	// ID of the Instance to attach to
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+
+	// Set this to true if you do not wish
+	// to detach the volume from the instance to which it is attached at destroy
+	// time, and instead just remove the attachment from this provider state. This is
+	// useful when destroying an instance which has volumes created by some other
+	// means attached.
+	SkipDestroy pulumi.BoolOutput `pulumi:"skipDestroy"`
+
+	// ID of the Volume to be attached
+	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 }
 
 // NewVolumeAttachment registers a new resource with the given unique name, arguments, and options.
 func NewVolumeAttachment(ctx *pulumi.Context,
-	name string, args *VolumeAttachmentArgs, opts ...pulumi.ResourceOpt) (*VolumeAttachment, error) {
+	name string, args *VolumeAttachmentArgs, opts ...pulumi.ResourceOption) (*VolumeAttachment, error) {
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
@@ -30,129 +53,82 @@ func NewVolumeAttachment(ctx *pulumi.Context,
 	if args == nil || args.VolumeId == nil {
 		return nil, errors.New("missing required argument 'VolumeId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deviceName"] = nil
-		inputs["forceDetach"] = nil
-		inputs["instanceId"] = nil
-		inputs["skipDestroy"] = nil
-		inputs["volumeId"] = nil
-	} else {
-		inputs["deviceName"] = args.DeviceName
-		inputs["forceDetach"] = args.ForceDetach
-		inputs["instanceId"] = args.InstanceId
-		inputs["skipDestroy"] = args.SkipDestroy
-		inputs["volumeId"] = args.VolumeId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeviceName; i != nil { inputs["deviceName"] = i.ToStringOutput() }
+		if i := args.ForceDetach; i != nil { inputs["forceDetach"] = i.ToBoolOutput() }
+		if i := args.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := args.SkipDestroy; i != nil { inputs["skipDestroy"] = i.ToBoolOutput() }
+		if i := args.VolumeId; i != nil { inputs["volumeId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/volumeAttachment:VolumeAttachment", name, true, inputs, opts...)
+	var resource VolumeAttachment
+	err := ctx.RegisterResource("aws:ec2/volumeAttachment:VolumeAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VolumeAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetVolumeAttachment gets an existing VolumeAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVolumeAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VolumeAttachmentState, opts ...pulumi.ResourceOpt) (*VolumeAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VolumeAttachmentState, opts ...pulumi.ResourceOption) (*VolumeAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["deviceName"] = state.DeviceName
-		inputs["forceDetach"] = state.ForceDetach
-		inputs["instanceId"] = state.InstanceId
-		inputs["skipDestroy"] = state.SkipDestroy
-		inputs["volumeId"] = state.VolumeId
+		if i := state.DeviceName; i != nil { inputs["deviceName"] = i.ToStringOutput() }
+		if i := state.ForceDetach; i != nil { inputs["forceDetach"] = i.ToBoolOutput() }
+		if i := state.InstanceId; i != nil { inputs["instanceId"] = i.ToStringOutput() }
+		if i := state.SkipDestroy; i != nil { inputs["skipDestroy"] = i.ToBoolOutput() }
+		if i := state.VolumeId; i != nil { inputs["volumeId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/volumeAttachment:VolumeAttachment", name, id, inputs, opts...)
+	var resource VolumeAttachment
+	err := ctx.ReadResource("aws:ec2/volumeAttachment:VolumeAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VolumeAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VolumeAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VolumeAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The device name to expose to the instance (for
-// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
-func (r *VolumeAttachment) DeviceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deviceName"])
-}
-
-// Set to `true` if you want to force the
-// volume to detach. Useful if previous attempts failed, but use this option only
-// as a last resort, as this can result in **data loss**. See
-// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
-func (r *VolumeAttachment) ForceDetach() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["forceDetach"])
-}
-
-// ID of the Instance to attach to
-func (r *VolumeAttachment) InstanceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceId"])
-}
-
-// Set this to true if you do not wish
-// to detach the volume from the instance to which it is attached at destroy
-// time, and instead just remove the attachment from this provider state. This is
-// useful when destroying an instance which has volumes created by some other
-// means attached.
-func (r *VolumeAttachment) SkipDestroy() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["skipDestroy"])
-}
-
-// ID of the Volume to be attached
-func (r *VolumeAttachment) VolumeId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["volumeId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VolumeAttachment resources.
 type VolumeAttachmentState struct {
 	// The device name to expose to the instance (for
 	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
-	DeviceName interface{}
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
 	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
-	ForceDetach interface{}
+	ForceDetach pulumi.BoolInput `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
-	SkipDestroy interface{}
+	SkipDestroy pulumi.BoolInput `pulumi:"skipDestroy"`
 	// ID of the Volume to be attached
-	VolumeId interface{}
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a VolumeAttachment resource.
 type VolumeAttachmentArgs struct {
 	// The device name to expose to the instance (for
 	// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances][1] and [Device Naming on Windows Instances][2] for more information.
-	DeviceName interface{}
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Set to `true` if you want to force the
 	// volume to detach. Useful if previous attempts failed, but use this option only
 	// as a last resort, as this can result in **data loss**. See
 	// [Detaching an Amazon EBS Volume from an Instance][3] for more information.
-	ForceDetach interface{}
+	ForceDetach pulumi.BoolInput `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
-	InstanceId interface{}
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
-	SkipDestroy interface{}
+	SkipDestroy pulumi.BoolInput `pulumi:"skipDestroy"`
 	// ID of the Volume to be attached
-	VolumeId interface{}
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }

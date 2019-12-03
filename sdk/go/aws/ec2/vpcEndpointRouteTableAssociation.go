@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_route_table_association.html.markdown.
 type VpcEndpointRouteTableAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+
+	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
+	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
 // NewVpcEndpointRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
 func NewVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
-	name string, args *VpcEndpointRouteTableAssociationArgs, opts ...pulumi.ResourceOpt) (*VpcEndpointRouteTableAssociation, error) {
+	name string, args *VpcEndpointRouteTableAssociationArgs, opts ...pulumi.ResourceOption) (*VpcEndpointRouteTableAssociation, error) {
 	if args == nil || args.RouteTableId == nil {
 		return nil, errors.New("missing required argument 'RouteTableId'")
 	}
 	if args == nil || args.VpcEndpointId == nil {
 		return nil, errors.New("missing required argument 'VpcEndpointId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["routeTableId"] = nil
-		inputs["vpcEndpointId"] = nil
-	} else {
-		inputs["routeTableId"] = args.RouteTableId
-		inputs["vpcEndpointId"] = args.VpcEndpointId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := args.VpcEndpointId; i != nil { inputs["vpcEndpointId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, true, inputs, opts...)
+	var resource VpcEndpointRouteTableAssociation
+	err := ctx.RegisterResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcEndpointRouteTableAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpcEndpointRouteTableAssociation gets an existing VpcEndpointRouteTableAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpcEndpointRouteTableAssociationState, opts ...pulumi.ResourceOpt) (*VpcEndpointRouteTableAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpcEndpointRouteTableAssociationState, opts ...pulumi.ResourceOption) (*VpcEndpointRouteTableAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["routeTableId"] = state.RouteTableId
-		inputs["vpcEndpointId"] = state.VpcEndpointId
+		if i := state.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := state.VpcEndpointId; i != nil { inputs["vpcEndpointId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, id, inputs, opts...)
+	var resource VpcEndpointRouteTableAssociation
+	err := ctx.ReadResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpcEndpointRouteTableAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpcEndpointRouteTableAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpcEndpointRouteTableAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-func (r *VpcEndpointRouteTableAssociation) RouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["routeTableId"])
-}
-
-// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-func (r *VpcEndpointRouteTableAssociation) VpcEndpointId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcEndpointId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpcEndpointRouteTableAssociation resources.
 type VpcEndpointRouteTableAssociationState struct {
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-	VpcEndpointId interface{}
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a VpcEndpointRouteTableAssociation resource.
 type VpcEndpointRouteTableAssociationArgs struct {
 	// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-	VpcEndpointId interface{}
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }

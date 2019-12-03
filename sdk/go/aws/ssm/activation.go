@@ -12,153 +12,117 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
 type Activation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The code the system generates when it processes the activation.
+	ActivationCode pulumi.StringOutput `pulumi:"activationCode"`
+
+	// The description of the resource that you want to register.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
+	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+
+	// If the current activation has expired.
+	Expired pulumi.StringOutput `pulumi:"expired"`
+
+	// The IAM Role to attach to the managed instance.
+	IamRole pulumi.StringOutput `pulumi:"iamRole"`
+
+	// The default name of the registered managed instance.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The number of managed instances that are currently registered using this activation.
+	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
+
+	// The maximum number of managed instances you want to register. The default value is 1 instance.
+	RegistrationLimit pulumi.IntOutput `pulumi:"registrationLimit"`
+
+	// A mapping of tags to assign to the object.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewActivation registers a new resource with the given unique name, arguments, and options.
 func NewActivation(ctx *pulumi.Context,
-	name string, args *ActivationArgs, opts ...pulumi.ResourceOpt) (*Activation, error) {
+	name string, args *ActivationArgs, opts ...pulumi.ResourceOption) (*Activation, error) {
 	if args == nil || args.IamRole == nil {
 		return nil, errors.New("missing required argument 'IamRole'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["expirationDate"] = nil
-		inputs["iamRole"] = nil
-		inputs["name"] = nil
-		inputs["registrationLimit"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["expirationDate"] = args.ExpirationDate
-		inputs["iamRole"] = args.IamRole
-		inputs["name"] = args.Name
-		inputs["registrationLimit"] = args.RegistrationLimit
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.ExpirationDate; i != nil { inputs["expirationDate"] = i.ToStringOutput() }
+		if i := args.IamRole; i != nil { inputs["iamRole"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RegistrationLimit; i != nil { inputs["registrationLimit"] = i.ToIntOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["activationCode"] = nil
-	inputs["expired"] = nil
-	inputs["registrationCount"] = nil
-	s, err := ctx.RegisterResource("aws:ssm/activation:Activation", name, true, inputs, opts...)
+	var resource Activation
+	err := ctx.RegisterResource("aws:ssm/activation:Activation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Activation{s: s}, nil
+	return &resource, nil
 }
 
 // GetActivation gets an existing Activation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetActivation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ActivationState, opts ...pulumi.ResourceOpt) (*Activation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ActivationState, opts ...pulumi.ResourceOption) (*Activation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activationCode"] = state.ActivationCode
-		inputs["description"] = state.Description
-		inputs["expirationDate"] = state.ExpirationDate
-		inputs["expired"] = state.Expired
-		inputs["iamRole"] = state.IamRole
-		inputs["name"] = state.Name
-		inputs["registrationCount"] = state.RegistrationCount
-		inputs["registrationLimit"] = state.RegistrationLimit
-		inputs["tags"] = state.Tags
+		if i := state.ActivationCode; i != nil { inputs["activationCode"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ExpirationDate; i != nil { inputs["expirationDate"] = i.ToStringOutput() }
+		if i := state.Expired; i != nil { inputs["expired"] = i.ToStringOutput() }
+		if i := state.IamRole; i != nil { inputs["iamRole"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RegistrationCount; i != nil { inputs["registrationCount"] = i.ToIntOutput() }
+		if i := state.RegistrationLimit; i != nil { inputs["registrationLimit"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ssm/activation:Activation", name, id, inputs, opts...)
+	var resource Activation
+	err := ctx.ReadResource("aws:ssm/activation:Activation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Activation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Activation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Activation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The code the system generates when it processes the activation.
-func (r *Activation) ActivationCode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["activationCode"])
-}
-
-// The description of the resource that you want to register.
-func (r *Activation) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-func (r *Activation) ExpirationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expirationDate"])
-}
-
-// If the current activation has expired.
-func (r *Activation) Expired() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expired"])
-}
-
-// The IAM Role to attach to the managed instance.
-func (r *Activation) IamRole() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamRole"])
-}
-
-// The default name of the registered managed instance.
-func (r *Activation) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The number of managed instances that are currently registered using this activation.
-func (r *Activation) RegistrationCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["registrationCount"])
-}
-
-// The maximum number of managed instances you want to register. The default value is 1 instance.
-func (r *Activation) RegistrationLimit() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["registrationLimit"])
-}
-
-// A mapping of tags to assign to the object.
-func (r *Activation) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Activation resources.
 type ActivationState struct {
 	// The code the system generates when it processes the activation.
-	ActivationCode interface{}
+	ActivationCode pulumi.StringInput `pulumi:"activationCode"`
 	// The description of the resource that you want to register.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-	ExpirationDate interface{}
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// If the current activation has expired.
-	Expired interface{}
+	Expired pulumi.StringInput `pulumi:"expired"`
 	// The IAM Role to attach to the managed instance.
-	IamRole interface{}
+	IamRole pulumi.StringInput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The number of managed instances that are currently registered using this activation.
-	RegistrationCount interface{}
+	RegistrationCount pulumi.IntInput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
-	RegistrationLimit interface{}
+	RegistrationLimit pulumi.IntInput `pulumi:"registrationLimit"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activation resource.
 type ActivationArgs struct {
 	// The description of the resource that you want to register.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-	ExpirationDate interface{}
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// The IAM Role to attach to the managed instance.
-	IamRole interface{}
+	IamRole pulumi.StringInput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
-	RegistrationLimit interface{}
+	RegistrationLimit pulumi.IntInput `pulumi:"registrationLimit"`
 	// A mapping of tags to assign to the object.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

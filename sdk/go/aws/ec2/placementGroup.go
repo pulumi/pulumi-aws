@@ -13,78 +13,63 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/placement_group.html.markdown.
 type PlacementGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the placement group.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The placement strategy.
+	Strategy pulumi.StringOutput `pulumi:"strategy"`
 }
 
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
 func NewPlacementGroup(ctx *pulumi.Context,
-	name string, args *PlacementGroupArgs, opts ...pulumi.ResourceOpt) (*PlacementGroup, error) {
+	name string, args *PlacementGroupArgs, opts ...pulumi.ResourceOption) (*PlacementGroup, error) {
 	if args == nil || args.Strategy == nil {
 		return nil, errors.New("missing required argument 'Strategy'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["strategy"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["strategy"] = args.Strategy
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Strategy; i != nil { inputs["strategy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/placementGroup:PlacementGroup", name, true, inputs, opts...)
+	var resource PlacementGroup
+	err := ctx.RegisterResource("aws:ec2/placementGroup:PlacementGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PlacementGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetPlacementGroup gets an existing PlacementGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPlacementGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PlacementGroupState, opts ...pulumi.ResourceOpt) (*PlacementGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PlacementGroupState, opts ...pulumi.ResourceOption) (*PlacementGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["strategy"] = state.Strategy
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Strategy; i != nil { inputs["strategy"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/placementGroup:PlacementGroup", name, id, inputs, opts...)
+	var resource PlacementGroup
+	err := ctx.ReadResource("aws:ec2/placementGroup:PlacementGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PlacementGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PlacementGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PlacementGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the placement group.
-func (r *PlacementGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The placement strategy.
-func (r *PlacementGroup) Strategy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["strategy"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PlacementGroup resources.
 type PlacementGroupState struct {
 	// The name of the placement group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The placement strategy.
-	Strategy interface{}
+	Strategy pulumi.StringInput `pulumi:"strategy"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
 	// The name of the placement group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The placement strategy.
-	Strategy interface{}
+	Strategy pulumi.StringInput `pulumi:"strategy"`
 }

@@ -10,65 +10,62 @@ import (
 // Provides details about a specific Nat Gateway.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/nat_gateway.html.markdown.
-func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGatewayResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["id"] = args.Id
-		inputs["state"] = args.State
-		inputs["subnetId"] = args.SubnetId
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getNatGateway:getNatGateway", inputs)
+func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs, opts ...pulumi.InvokeOption) (*GetNatGatewayResult, error) {
+	var rv GetNatGatewayResult
+	err := ctx.Invoke("aws:ec2/getNatGateway:getNatGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNatGatewayResult{
-		AllocationId: outputs["allocationId"],
-		Filters: outputs["filters"],
-		Id: outputs["id"],
-		NetworkInterfaceId: outputs["networkInterfaceId"],
-		PrivateIp: outputs["privateIp"],
-		PublicIp: outputs["publicIp"],
-		State: outputs["state"],
-		SubnetId: outputs["subnetId"],
-		Tags: outputs["tags"],
-		VpcId: outputs["vpcId"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNatGateway.
 type GetNatGatewayArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetNatGatewayFiltersArgs `pulumi:"filters"`
 	// The id of the specific Nat Gateway to retrieve.
-	Id interface{}
+	Id *string `pulumi:"id"`
 	// The state of the NAT gateway (pending | failed | available | deleting | deleted ).
-	State interface{}
+	State *string `pulumi:"state"`
 	// The id of subnet that the Nat Gateway resides in.
-	SubnetId interface{}
+	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired Nat Gateway.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 	// The id of the VPC that the Nat Gateway resides in.
-	VpcId interface{}
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getNatGateway.
 type GetNatGatewayResult struct {
 	// The Id of the EIP allocated to the selected Nat Gateway.
-	AllocationId interface{}
-	Filters interface{}
-	Id interface{}
+	AllocationId string `pulumi:"allocationId"`
+	Filters *[]GetNatGatewayFiltersResult `pulumi:"filters"`
+	Id string `pulumi:"id"`
 	// The Id of the ENI allocated to the selected Nat Gateway.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The private Ip address of the selected Nat Gateway.
-	PrivateIp interface{}
+	PrivateIp string `pulumi:"privateIp"`
 	// The public Ip (EIP) address of the selected Nat Gateway.
-	PublicIp interface{}
-	State interface{}
-	SubnetId interface{}
-	Tags interface{}
-	VpcId interface{}
+	PublicIp string `pulumi:"publicIp"`
+	State string `pulumi:"state"`
+	SubnetId string `pulumi:"subnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	VpcId string `pulumi:"vpcId"`
+}
+type GetNatGatewayFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An Nat Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+type GetNatGatewayFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An Nat Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
 }

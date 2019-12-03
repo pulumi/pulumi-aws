@@ -4,6 +4,8 @@
 package opsworks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,354 +14,402 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_haproxy_layer.html.markdown.
 type HaproxyLayer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolOutput `pulumi:"autoAssignElasticIps"`
+
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolOutput `pulumi:"autoAssignPublicIps"`
+
+	// Whether to enable auto-healing for the layer.
+	AutoHealing pulumi.BoolOutput `pulumi:"autoHealing"`
+
+	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
+
+	CustomDeployRecipes pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn pulumi.StringOutput `pulumi:"customInstanceProfileArn"`
+
+	// Custom JSON attributes to apply to the layer.
+	CustomJson pulumi.StringOutput `pulumi:"customJson"`
+
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
+
+	CustomSetupRecipes pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+
+	CustomShutdownRecipes pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+
+	CustomUndeployRecipes pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolOutput `pulumi:"drainElbOnShutdown"`
+
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes HaproxyLayerEbsVolumesArrayOutput `pulumi:"ebsVolumes"`
+
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringOutput `pulumi:"elasticLoadBalancer"`
+
+	// HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
+	HealthcheckMethod pulumi.StringOutput `pulumi:"healthcheckMethod"`
+
+	// URL path to use for instance healthchecks. Defaults to "/".
+	HealthcheckUrl pulumi.StringOutput `pulumi:"healthcheckUrl"`
+
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolOutput `pulumi:"installUpdatesOnBoot"`
+
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntOutput `pulumi:"instanceShutdownTimeout"`
+
+	// A human-readable name for the layer.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The id of the stack the layer will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// Whether to enable HAProxy stats.
+	StatsEnabled pulumi.BoolOutput `pulumi:"statsEnabled"`
+
+	// The password to use for HAProxy stats.
+	StatsPassword pulumi.StringOutput `pulumi:"statsPassword"`
+
+	// The HAProxy stats URL. Defaults to "/haproxy?stats".
+	StatsUrl pulumi.StringOutput `pulumi:"statsUrl"`
+
+	// The username for HAProxy stats. Defaults to "opsworks".
+	StatsUser pulumi.StringOutput `pulumi:"statsUser"`
+
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances pulumi.BoolOutput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // NewHaproxyLayer registers a new resource with the given unique name, arguments, and options.
 func NewHaproxyLayer(ctx *pulumi.Context,
-	name string, args *HaproxyLayerArgs, opts ...pulumi.ResourceOpt) (*HaproxyLayer, error) {
+	name string, args *HaproxyLayerArgs, opts ...pulumi.ResourceOption) (*HaproxyLayer, error) {
 	if args == nil || args.StackId == nil {
 		return nil, errors.New("missing required argument 'StackId'")
 	}
 	if args == nil || args.StatsPassword == nil {
 		return nil, errors.New("missing required argument 'StatsPassword'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoAssignElasticIps"] = nil
-		inputs["autoAssignPublicIps"] = nil
-		inputs["autoHealing"] = nil
-		inputs["customConfigureRecipes"] = nil
-		inputs["customDeployRecipes"] = nil
-		inputs["customInstanceProfileArn"] = nil
-		inputs["customJson"] = nil
-		inputs["customSecurityGroupIds"] = nil
-		inputs["customSetupRecipes"] = nil
-		inputs["customShutdownRecipes"] = nil
-		inputs["customUndeployRecipes"] = nil
-		inputs["drainElbOnShutdown"] = nil
-		inputs["ebsVolumes"] = nil
-		inputs["elasticLoadBalancer"] = nil
-		inputs["healthcheckMethod"] = nil
-		inputs["healthcheckUrl"] = nil
-		inputs["installUpdatesOnBoot"] = nil
-		inputs["instanceShutdownTimeout"] = nil
-		inputs["name"] = nil
-		inputs["stackId"] = nil
-		inputs["statsEnabled"] = nil
-		inputs["statsPassword"] = nil
-		inputs["statsUrl"] = nil
-		inputs["statsUser"] = nil
-		inputs["systemPackages"] = nil
-		inputs["useEbsOptimizedInstances"] = nil
-	} else {
-		inputs["autoAssignElasticIps"] = args.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = args.AutoAssignPublicIps
-		inputs["autoHealing"] = args.AutoHealing
-		inputs["customConfigureRecipes"] = args.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = args.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = args.CustomInstanceProfileArn
-		inputs["customJson"] = args.CustomJson
-		inputs["customSecurityGroupIds"] = args.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = args.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = args.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = args.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = args.DrainElbOnShutdown
-		inputs["ebsVolumes"] = args.EbsVolumes
-		inputs["elasticLoadBalancer"] = args.ElasticLoadBalancer
-		inputs["healthcheckMethod"] = args.HealthcheckMethod
-		inputs["healthcheckUrl"] = args.HealthcheckUrl
-		inputs["installUpdatesOnBoot"] = args.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = args.InstanceShutdownTimeout
-		inputs["name"] = args.Name
-		inputs["stackId"] = args.StackId
-		inputs["statsEnabled"] = args.StatsEnabled
-		inputs["statsPassword"] = args.StatsPassword
-		inputs["statsUrl"] = args.StatsUrl
-		inputs["statsUser"] = args.StatsUser
-		inputs["systemPackages"] = args.SystemPackages
-		inputs["useEbsOptimizedInstances"] = args.UseEbsOptimizedInstances
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := args.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := args.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := args.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := args.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := args.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := args.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToHaproxyLayerEbsVolumesArrayOutput() }
+		if i := args.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := args.HealthcheckMethod; i != nil { inputs["healthcheckMethod"] = i.ToStringOutput() }
+		if i := args.HealthcheckUrl; i != nil { inputs["healthcheckUrl"] = i.ToStringOutput() }
+		if i := args.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := args.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := args.StatsEnabled; i != nil { inputs["statsEnabled"] = i.ToBoolOutput() }
+		if i := args.StatsPassword; i != nil { inputs["statsPassword"] = i.ToStringOutput() }
+		if i := args.StatsUrl; i != nil { inputs["statsUrl"] = i.ToStringOutput() }
+		if i := args.StatsUser; i != nil { inputs["statsUser"] = i.ToStringOutput() }
+		if i := args.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := args.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, true, inputs, opts...)
+	var resource HaproxyLayer
+	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HaproxyLayer{s: s}, nil
+	return &resource, nil
 }
 
 // GetHaproxyLayer gets an existing HaproxyLayer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetHaproxyLayer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *HaproxyLayerState, opts ...pulumi.ResourceOpt) (*HaproxyLayer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *HaproxyLayerState, opts ...pulumi.ResourceOption) (*HaproxyLayer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoAssignElasticIps"] = state.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = state.AutoAssignPublicIps
-		inputs["autoHealing"] = state.AutoHealing
-		inputs["customConfigureRecipes"] = state.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = state.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = state.CustomInstanceProfileArn
-		inputs["customJson"] = state.CustomJson
-		inputs["customSecurityGroupIds"] = state.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = state.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = state.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = state.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = state.DrainElbOnShutdown
-		inputs["ebsVolumes"] = state.EbsVolumes
-		inputs["elasticLoadBalancer"] = state.ElasticLoadBalancer
-		inputs["healthcheckMethod"] = state.HealthcheckMethod
-		inputs["healthcheckUrl"] = state.HealthcheckUrl
-		inputs["installUpdatesOnBoot"] = state.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = state.InstanceShutdownTimeout
-		inputs["name"] = state.Name
-		inputs["stackId"] = state.StackId
-		inputs["statsEnabled"] = state.StatsEnabled
-		inputs["statsPassword"] = state.StatsPassword
-		inputs["statsUrl"] = state.StatsUrl
-		inputs["statsUser"] = state.StatsUser
-		inputs["systemPackages"] = state.SystemPackages
-		inputs["useEbsOptimizedInstances"] = state.UseEbsOptimizedInstances
+		if i := state.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := state.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := state.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := state.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := state.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := state.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := state.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToHaproxyLayerEbsVolumesArrayOutput() }
+		if i := state.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := state.HealthcheckMethod; i != nil { inputs["healthcheckMethod"] = i.ToStringOutput() }
+		if i := state.HealthcheckUrl; i != nil { inputs["healthcheckUrl"] = i.ToStringOutput() }
+		if i := state.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := state.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.StatsEnabled; i != nil { inputs["statsEnabled"] = i.ToBoolOutput() }
+		if i := state.StatsPassword; i != nil { inputs["statsPassword"] = i.ToStringOutput() }
+		if i := state.StatsUrl; i != nil { inputs["statsUrl"] = i.ToStringOutput() }
+		if i := state.StatsUser; i != nil { inputs["statsUser"] = i.ToStringOutput() }
+		if i := state.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := state.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, id, inputs, opts...)
+	var resource HaproxyLayer
+	err := ctx.ReadResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HaproxyLayer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *HaproxyLayer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *HaproxyLayer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *HaproxyLayer) AutoAssignElasticIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
-}
-
-// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *HaproxyLayer) AutoAssignPublicIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
-}
-
-// Whether to enable auto-healing for the layer.
-func (r *HaproxyLayer) AutoHealing() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
-}
-
-func (r *HaproxyLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
-}
-
-func (r *HaproxyLayer) CustomDeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
-}
-
-// The ARN of an IAM profile that will be used for the layer's instances.
-func (r *HaproxyLayer) CustomInstanceProfileArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
-}
-
-// Custom JSON attributes to apply to the layer.
-func (r *HaproxyLayer) CustomJson() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customJson"])
-}
-
-// Ids for a set of security groups to apply to the layer's instances.
-func (r *HaproxyLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
-}
-
-func (r *HaproxyLayer) CustomSetupRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
-}
-
-func (r *HaproxyLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
-}
-
-func (r *HaproxyLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
-}
-
-// Whether to enable Elastic Load Balancing connection draining.
-func (r *HaproxyLayer) DrainElbOnShutdown() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
-}
-
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *HaproxyLayer) EbsVolumes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
-}
-
-// Name of an Elastic Load Balancer to attach to this layer
-func (r *HaproxyLayer) ElasticLoadBalancer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
-}
-
-// HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
-func (r *HaproxyLayer) HealthcheckMethod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["healthcheckMethod"])
-}
-
-// URL path to use for instance healthchecks. Defaults to "/".
-func (r *HaproxyLayer) HealthcheckUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["healthcheckUrl"])
-}
-
-// Whether to install OS and package updates on each instance when it boots.
-func (r *HaproxyLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
-}
-
-// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *HaproxyLayer) InstanceShutdownTimeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
-}
-
-// A human-readable name for the layer.
-func (r *HaproxyLayer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The id of the stack the layer will belong to.
-func (r *HaproxyLayer) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// Whether to enable HAProxy stats.
-func (r *HaproxyLayer) StatsEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["statsEnabled"])
-}
-
-// The password to use for HAProxy stats.
-func (r *HaproxyLayer) StatsPassword() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["statsPassword"])
-}
-
-// The HAProxy stats URL. Defaults to "/haproxy?stats".
-func (r *HaproxyLayer) StatsUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["statsUrl"])
-}
-
-// The username for HAProxy stats. Defaults to "opsworks".
-func (r *HaproxyLayer) StatsUser() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["statsUser"])
-}
-
-// Names of a set of system packages to install on the layer's instances.
-func (r *HaproxyLayer) SystemPackages() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
-}
-
-// Whether to use EBS-optimized instances.
-func (r *HaproxyLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering HaproxyLayer resources.
 type HaproxyLayerState struct {
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes HaproxyLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
-	HealthcheckMethod interface{}
+	HealthcheckMethod pulumi.StringInput `pulumi:"healthcheckMethod"`
 	// URL path to use for instance healthchecks. Defaults to "/".
-	HealthcheckUrl interface{}
+	HealthcheckUrl pulumi.StringInput `pulumi:"healthcheckUrl"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Whether to enable HAProxy stats.
-	StatsEnabled interface{}
+	StatsEnabled pulumi.BoolInput `pulumi:"statsEnabled"`
 	// The password to use for HAProxy stats.
-	StatsPassword interface{}
+	StatsPassword pulumi.StringInput `pulumi:"statsPassword"`
 	// The HAProxy stats URL. Defaults to "/haproxy?stats".
-	StatsUrl interface{}
+	StatsUrl pulumi.StringInput `pulumi:"statsUrl"`
 	// The username for HAProxy stats. Defaults to "opsworks".
-	StatsUser interface{}
+	StatsUser pulumi.StringInput `pulumi:"statsUser"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // The set of arguments for constructing a HaproxyLayer resource.
 type HaproxyLayerArgs struct {
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes HaproxyLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
-	HealthcheckMethod interface{}
+	HealthcheckMethod pulumi.StringInput `pulumi:"healthcheckMethod"`
 	// URL path to use for instance healthchecks. Defaults to "/".
-	HealthcheckUrl interface{}
+	HealthcheckUrl pulumi.StringInput `pulumi:"healthcheckUrl"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Whether to enable HAProxy stats.
-	StatsEnabled interface{}
+	StatsEnabled pulumi.BoolInput `pulumi:"statsEnabled"`
 	// The password to use for HAProxy stats.
-	StatsPassword interface{}
+	StatsPassword pulumi.StringInput `pulumi:"statsPassword"`
 	// The HAProxy stats URL. Defaults to "/haproxy?stats".
-	StatsUrl interface{}
+	StatsUrl pulumi.StringInput `pulumi:"statsUrl"`
 	// The username for HAProxy stats. Defaults to "opsworks".
-	StatsUser interface{}
+	StatsUser pulumi.StringInput `pulumi:"statsUser"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 }
+type HaproxyLayerEbsVolumes struct {
+	Iops *int `pulumi:"iops"`
+	MountPoint string `pulumi:"mountPoint"`
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	RaidLevel *string `pulumi:"raidLevel"`
+	Size int `pulumi:"size"`
+	Type *string `pulumi:"type"`
+}
+var haproxyLayerEbsVolumesType = reflect.TypeOf((*HaproxyLayerEbsVolumes)(nil)).Elem()
+
+type HaproxyLayerEbsVolumesInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerEbsVolumesOutput() HaproxyLayerEbsVolumesOutput
+	ToHaproxyLayerEbsVolumesOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumesOutput
+}
+
+type HaproxyLayerEbsVolumesArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	RaidLevel pulumi.StringInput `pulumi:"raidLevel"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HaproxyLayerEbsVolumesArgs) ElementType() reflect.Type {
+	return haproxyLayerEbsVolumesType
+}
+
+func (a HaproxyLayerEbsVolumesArgs) ToHaproxyLayerEbsVolumesOutput() HaproxyLayerEbsVolumesOutput {
+	return pulumi.ToOutput(a).(HaproxyLayerEbsVolumesOutput)
+}
+
+func (a HaproxyLayerEbsVolumesArgs) ToHaproxyLayerEbsVolumesOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HaproxyLayerEbsVolumesOutput)
+}
+
+type HaproxyLayerEbsVolumesOutput struct { *pulumi.OutputState }
+
+func (o HaproxyLayerEbsVolumesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v HaproxyLayerEbsVolumes) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o HaproxyLayerEbsVolumesOutput) MountPoint() pulumi.StringOutput {
+	return o.Apply(func(v HaproxyLayerEbsVolumes) string {
+		return v.MountPoint
+	}).(pulumi.StringOutput)
+}
+
+func (o HaproxyLayerEbsVolumesOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.Apply(func(v HaproxyLayerEbsVolumes) int {
+		return v.NumberOfDisks
+	}).(pulumi.IntOutput)
+}
+
+func (o HaproxyLayerEbsVolumesOutput) RaidLevel() pulumi.StringOutput {
+	return o.Apply(func(v HaproxyLayerEbsVolumes) string {
+		if v.RaidLevel == nil { return *new(string) } else { return *v.RaidLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o HaproxyLayerEbsVolumesOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v HaproxyLayerEbsVolumes) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o HaproxyLayerEbsVolumesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v HaproxyLayerEbsVolumes) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (HaproxyLayerEbsVolumesOutput) ElementType() reflect.Type {
+	return haproxyLayerEbsVolumesType
+}
+
+func (o HaproxyLayerEbsVolumesOutput) ToHaproxyLayerEbsVolumesOutput() HaproxyLayerEbsVolumesOutput {
+	return o
+}
+
+func (o HaproxyLayerEbsVolumesOutput) ToHaproxyLayerEbsVolumesOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HaproxyLayerEbsVolumesOutput{}) }
+
+var haproxyLayerEbsVolumesArrayType = reflect.TypeOf((*[]HaproxyLayerEbsVolumes)(nil)).Elem()
+
+type HaproxyLayerEbsVolumesArrayInput interface {
+	pulumi.Input
+
+	ToHaproxyLayerEbsVolumesArrayOutput() HaproxyLayerEbsVolumesArrayOutput
+	ToHaproxyLayerEbsVolumesArrayOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumesArrayOutput
+}
+
+type HaproxyLayerEbsVolumesArrayArgs []HaproxyLayerEbsVolumesInput
+
+func (HaproxyLayerEbsVolumesArrayArgs) ElementType() reflect.Type {
+	return haproxyLayerEbsVolumesArrayType
+}
+
+func (a HaproxyLayerEbsVolumesArrayArgs) ToHaproxyLayerEbsVolumesArrayOutput() HaproxyLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutput(a).(HaproxyLayerEbsVolumesArrayOutput)
+}
+
+func (a HaproxyLayerEbsVolumesArrayArgs) ToHaproxyLayerEbsVolumesArrayOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HaproxyLayerEbsVolumesArrayOutput)
+}
+
+type HaproxyLayerEbsVolumesArrayOutput struct { *pulumi.OutputState }
+
+func (o HaproxyLayerEbsVolumesArrayOutput) Index(i pulumi.IntInput) HaproxyLayerEbsVolumesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) HaproxyLayerEbsVolumes {
+		return vs[0].([]HaproxyLayerEbsVolumes)[vs[1].(int)]
+	}).(HaproxyLayerEbsVolumesOutput)
+}
+
+func (HaproxyLayerEbsVolumesArrayOutput) ElementType() reflect.Type {
+	return haproxyLayerEbsVolumesArrayType
+}
+
+func (o HaproxyLayerEbsVolumesArrayOutput) ToHaproxyLayerEbsVolumesArrayOutput() HaproxyLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func (o HaproxyLayerEbsVolumesArrayOutput) ToHaproxyLayerEbsVolumesArrayOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HaproxyLayerEbsVolumesArrayOutput{}) }
+

@@ -4,6 +4,8 @@
 package opsworks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,261 +14,570 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_application.html.markdown.
 type Application struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// SCM configuration of the app as described below.
+	AppSources ApplicationAppSourcesArrayOutput `pulumi:"appSources"`
+
+	// Run bundle install when deploying for application of type `rails`.
+	AutoBundleOnDeploy pulumi.StringOutput `pulumi:"autoBundleOnDeploy"`
+
+	// Specify activity and workflow workers for your app using the aws-flow gem.
+	AwsFlowRubySettings pulumi.StringOutput `pulumi:"awsFlowRubySettings"`
+
+	// The data source's ARN.
+	DataSourceArn pulumi.StringOutput `pulumi:"dataSourceArn"`
+
+	// The database name.
+	DataSourceDatabaseName pulumi.StringOutput `pulumi:"dataSourceDatabaseName"`
+
+	// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
+	DataSourceType pulumi.StringOutput `pulumi:"dataSourceType"`
+
+	// A description of the app.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Subfolder for the document root for application of type `rails`.
+	DocumentRoot pulumi.StringOutput `pulumi:"documentRoot"`
+
+	// A list of virtual host alias.
+	Domains pulumi.StringArrayOutput `pulumi:"domains"`
+
+	// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
+	EnableSsl pulumi.BoolOutput `pulumi:"enableSsl"`
+
+	// Object to define environment variables.  Object is described below.
+	Environments ApplicationEnvironmentsArrayOutput `pulumi:"environments"`
+
+	// A human-readable name for the application.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Rails environment for application of type `rails`.
+	RailsEnv pulumi.StringOutput `pulumi:"railsEnv"`
+
+	// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
+	ShortName pulumi.StringOutput `pulumi:"shortName"`
+
+	// The SSL configuration of the app. Object is described below.
+	SslConfigurations ApplicationSslConfigurationsArrayOutput `pulumi:"sslConfigurations"`
+
+	// The id of the stack the application will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// The type of source to use. For example, "archive".
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
-	name string, args *ApplicationArgs, opts ...pulumi.ResourceOpt) (*Application, error) {
+	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
 	if args == nil || args.StackId == nil {
 		return nil, errors.New("missing required argument 'StackId'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appSources"] = nil
-		inputs["autoBundleOnDeploy"] = nil
-		inputs["awsFlowRubySettings"] = nil
-		inputs["dataSourceArn"] = nil
-		inputs["dataSourceDatabaseName"] = nil
-		inputs["dataSourceType"] = nil
-		inputs["description"] = nil
-		inputs["documentRoot"] = nil
-		inputs["domains"] = nil
-		inputs["enableSsl"] = nil
-		inputs["environments"] = nil
-		inputs["name"] = nil
-		inputs["railsEnv"] = nil
-		inputs["shortName"] = nil
-		inputs["sslConfigurations"] = nil
-		inputs["stackId"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["appSources"] = args.AppSources
-		inputs["autoBundleOnDeploy"] = args.AutoBundleOnDeploy
-		inputs["awsFlowRubySettings"] = args.AwsFlowRubySettings
-		inputs["dataSourceArn"] = args.DataSourceArn
-		inputs["dataSourceDatabaseName"] = args.DataSourceDatabaseName
-		inputs["dataSourceType"] = args.DataSourceType
-		inputs["description"] = args.Description
-		inputs["documentRoot"] = args.DocumentRoot
-		inputs["domains"] = args.Domains
-		inputs["enableSsl"] = args.EnableSsl
-		inputs["environments"] = args.Environments
-		inputs["name"] = args.Name
-		inputs["railsEnv"] = args.RailsEnv
-		inputs["shortName"] = args.ShortName
-		inputs["sslConfigurations"] = args.SslConfigurations
-		inputs["stackId"] = args.StackId
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppSources; i != nil { inputs["appSources"] = i.ToApplicationAppSourcesArrayOutput() }
+		if i := args.AutoBundleOnDeploy; i != nil { inputs["autoBundleOnDeploy"] = i.ToStringOutput() }
+		if i := args.AwsFlowRubySettings; i != nil { inputs["awsFlowRubySettings"] = i.ToStringOutput() }
+		if i := args.DataSourceArn; i != nil { inputs["dataSourceArn"] = i.ToStringOutput() }
+		if i := args.DataSourceDatabaseName; i != nil { inputs["dataSourceDatabaseName"] = i.ToStringOutput() }
+		if i := args.DataSourceType; i != nil { inputs["dataSourceType"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DocumentRoot; i != nil { inputs["documentRoot"] = i.ToStringOutput() }
+		if i := args.Domains; i != nil { inputs["domains"] = i.ToStringArrayOutput() }
+		if i := args.EnableSsl; i != nil { inputs["enableSsl"] = i.ToBoolOutput() }
+		if i := args.Environments; i != nil { inputs["environments"] = i.ToApplicationEnvironmentsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RailsEnv; i != nil { inputs["railsEnv"] = i.ToStringOutput() }
+		if i := args.ShortName; i != nil { inputs["shortName"] = i.ToStringOutput() }
+		if i := args.SslConfigurations; i != nil { inputs["sslConfigurations"] = i.ToApplicationSslConfigurationsArrayOutput() }
+		if i := args.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:opsworks/application:Application", name, true, inputs, opts...)
+	var resource Application
+	err := ctx.RegisterResource("aws:opsworks/application:Application", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
+	return &resource, nil
 }
 
 // GetApplication gets an existing Application resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApplication(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApplicationState, opts ...pulumi.ResourceOpt) (*Application, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appSources"] = state.AppSources
-		inputs["autoBundleOnDeploy"] = state.AutoBundleOnDeploy
-		inputs["awsFlowRubySettings"] = state.AwsFlowRubySettings
-		inputs["dataSourceArn"] = state.DataSourceArn
-		inputs["dataSourceDatabaseName"] = state.DataSourceDatabaseName
-		inputs["dataSourceType"] = state.DataSourceType
-		inputs["description"] = state.Description
-		inputs["documentRoot"] = state.DocumentRoot
-		inputs["domains"] = state.Domains
-		inputs["enableSsl"] = state.EnableSsl
-		inputs["environments"] = state.Environments
-		inputs["name"] = state.Name
-		inputs["railsEnv"] = state.RailsEnv
-		inputs["shortName"] = state.ShortName
-		inputs["sslConfigurations"] = state.SslConfigurations
-		inputs["stackId"] = state.StackId
-		inputs["type"] = state.Type
+		if i := state.AppSources; i != nil { inputs["appSources"] = i.ToApplicationAppSourcesArrayOutput() }
+		if i := state.AutoBundleOnDeploy; i != nil { inputs["autoBundleOnDeploy"] = i.ToStringOutput() }
+		if i := state.AwsFlowRubySettings; i != nil { inputs["awsFlowRubySettings"] = i.ToStringOutput() }
+		if i := state.DataSourceArn; i != nil { inputs["dataSourceArn"] = i.ToStringOutput() }
+		if i := state.DataSourceDatabaseName; i != nil { inputs["dataSourceDatabaseName"] = i.ToStringOutput() }
+		if i := state.DataSourceType; i != nil { inputs["dataSourceType"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DocumentRoot; i != nil { inputs["documentRoot"] = i.ToStringOutput() }
+		if i := state.Domains; i != nil { inputs["domains"] = i.ToStringArrayOutput() }
+		if i := state.EnableSsl; i != nil { inputs["enableSsl"] = i.ToBoolOutput() }
+		if i := state.Environments; i != nil { inputs["environments"] = i.ToApplicationEnvironmentsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RailsEnv; i != nil { inputs["railsEnv"] = i.ToStringOutput() }
+		if i := state.ShortName; i != nil { inputs["shortName"] = i.ToStringOutput() }
+		if i := state.SslConfigurations; i != nil { inputs["sslConfigurations"] = i.ToApplicationSslConfigurationsArrayOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:opsworks/application:Application", name, id, inputs, opts...)
+	var resource Application
+	err := ctx.ReadResource("aws:opsworks/application:Application", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// SCM configuration of the app as described below.
-func (r *Application) AppSources() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["appSources"])
-}
-
-// Run bundle install when deploying for application of type `rails`.
-func (r *Application) AutoBundleOnDeploy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoBundleOnDeploy"])
-}
-
-// Specify activity and workflow workers for your app using the aws-flow gem.
-func (r *Application) AwsFlowRubySettings() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["awsFlowRubySettings"])
-}
-
-// The data source's ARN.
-func (r *Application) DataSourceArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataSourceArn"])
-}
-
-// The database name.
-func (r *Application) DataSourceDatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataSourceDatabaseName"])
-}
-
-// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-func (r *Application) DataSourceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataSourceType"])
-}
-
-// A description of the app.
-func (r *Application) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Subfolder for the document root for application of type `rails`.
-func (r *Application) DocumentRoot() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["documentRoot"])
-}
-
-// A list of virtual host alias.
-func (r *Application) Domains() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["domains"])
-}
-
-// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-func (r *Application) EnableSsl() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableSsl"])
-}
-
-// Object to define environment variables.  Object is described below.
-func (r *Application) Environments() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["environments"])
-}
-
-// A human-readable name for the application.
-func (r *Application) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Rails environment for application of type `rails`.
-func (r *Application) RailsEnv() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["railsEnv"])
-}
-
-// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-func (r *Application) ShortName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["shortName"])
-}
-
-// The SSL configuration of the app. Object is described below.
-func (r *Application) SslConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["sslConfigurations"])
-}
-
-// The id of the stack the application will belong to.
-func (r *Application) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// The type of source to use. For example, "archive".
-func (r *Application) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
 	// SCM configuration of the app as described below.
-	AppSources interface{}
+	AppSources ApplicationAppSourcesArrayInput `pulumi:"appSources"`
 	// Run bundle install when deploying for application of type `rails`.
-	AutoBundleOnDeploy interface{}
+	AutoBundleOnDeploy pulumi.StringInput `pulumi:"autoBundleOnDeploy"`
 	// Specify activity and workflow workers for your app using the aws-flow gem.
-	AwsFlowRubySettings interface{}
+	AwsFlowRubySettings pulumi.StringInput `pulumi:"awsFlowRubySettings"`
 	// The data source's ARN.
-	DataSourceArn interface{}
+	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
 	// The database name.
-	DataSourceDatabaseName interface{}
+	DataSourceDatabaseName pulumi.StringInput `pulumi:"dataSourceDatabaseName"`
 	// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-	DataSourceType interface{}
+	DataSourceType pulumi.StringInput `pulumi:"dataSourceType"`
 	// A description of the app.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Subfolder for the document root for application of type `rails`.
-	DocumentRoot interface{}
+	DocumentRoot pulumi.StringInput `pulumi:"documentRoot"`
 	// A list of virtual host alias.
-	Domains interface{}
+	Domains pulumi.StringArrayInput `pulumi:"domains"`
 	// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-	EnableSsl interface{}
+	EnableSsl pulumi.BoolInput `pulumi:"enableSsl"`
 	// Object to define environment variables.  Object is described below.
-	Environments interface{}
+	Environments ApplicationEnvironmentsArrayInput `pulumi:"environments"`
 	// A human-readable name for the application.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Rails environment for application of type `rails`.
-	RailsEnv interface{}
+	RailsEnv pulumi.StringInput `pulumi:"railsEnv"`
 	// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-	ShortName interface{}
+	ShortName pulumi.StringInput `pulumi:"shortName"`
 	// The SSL configuration of the app. Object is described below.
-	SslConfigurations interface{}
+	SslConfigurations ApplicationSslConfigurationsArrayInput `pulumi:"sslConfigurations"`
 	// The id of the stack the application will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// The type of source to use. For example, "archive".
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// SCM configuration of the app as described below.
-	AppSources interface{}
+	AppSources ApplicationAppSourcesArrayInput `pulumi:"appSources"`
 	// Run bundle install when deploying for application of type `rails`.
-	AutoBundleOnDeploy interface{}
+	AutoBundleOnDeploy pulumi.StringInput `pulumi:"autoBundleOnDeploy"`
 	// Specify activity and workflow workers for your app using the aws-flow gem.
-	AwsFlowRubySettings interface{}
+	AwsFlowRubySettings pulumi.StringInput `pulumi:"awsFlowRubySettings"`
 	// The data source's ARN.
-	DataSourceArn interface{}
+	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
 	// The database name.
-	DataSourceDatabaseName interface{}
+	DataSourceDatabaseName pulumi.StringInput `pulumi:"dataSourceDatabaseName"`
 	// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-	DataSourceType interface{}
+	DataSourceType pulumi.StringInput `pulumi:"dataSourceType"`
 	// A description of the app.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Subfolder for the document root for application of type `rails`.
-	DocumentRoot interface{}
+	DocumentRoot pulumi.StringInput `pulumi:"documentRoot"`
 	// A list of virtual host alias.
-	Domains interface{}
+	Domains pulumi.StringArrayInput `pulumi:"domains"`
 	// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-	EnableSsl interface{}
+	EnableSsl pulumi.BoolInput `pulumi:"enableSsl"`
 	// Object to define environment variables.  Object is described below.
-	Environments interface{}
+	Environments ApplicationEnvironmentsArrayInput `pulumi:"environments"`
 	// A human-readable name for the application.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Rails environment for application of type `rails`.
-	RailsEnv interface{}
+	RailsEnv pulumi.StringInput `pulumi:"railsEnv"`
 	// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-	ShortName interface{}
+	ShortName pulumi.StringInput `pulumi:"shortName"`
 	// The SSL configuration of the app. Object is described below.
-	SslConfigurations interface{}
+	SslConfigurations ApplicationSslConfigurationsArrayInput `pulumi:"sslConfigurations"`
 	// The id of the stack the application will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// The type of source to use. For example, "archive".
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
+type ApplicationAppSources struct {
+	Password *string `pulumi:"password"`
+	// For sources that are version-aware, the revision to use.
+	Revision *string `pulumi:"revision"`
+	SshKey *string `pulumi:"sshKey"`
+	// The type of source to use. For example, "archive".
+	Type string `pulumi:"type"`
+	// The URL where the app resource can be found.
+	Url *string `pulumi:"url"`
+	// Username to use when authenticating to the source.
+	Username *string `pulumi:"username"`
+}
+var applicationAppSourcesType = reflect.TypeOf((*ApplicationAppSources)(nil)).Elem()
+
+type ApplicationAppSourcesInput interface {
+	pulumi.Input
+
+	ToApplicationAppSourcesOutput() ApplicationAppSourcesOutput
+	ToApplicationAppSourcesOutputWithContext(ctx context.Context) ApplicationAppSourcesOutput
+}
+
+type ApplicationAppSourcesArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	// For sources that are version-aware, the revision to use.
+	Revision pulumi.StringInput `pulumi:"revision"`
+	SshKey pulumi.StringInput `pulumi:"sshKey"`
+	// The type of source to use. For example, "archive".
+	Type pulumi.StringInput `pulumi:"type"`
+	// The URL where the app resource can be found.
+	Url pulumi.StringInput `pulumi:"url"`
+	// Username to use when authenticating to the source.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ApplicationAppSourcesArgs) ElementType() reflect.Type {
+	return applicationAppSourcesType
+}
+
+func (a ApplicationAppSourcesArgs) ToApplicationAppSourcesOutput() ApplicationAppSourcesOutput {
+	return pulumi.ToOutput(a).(ApplicationAppSourcesOutput)
+}
+
+func (a ApplicationAppSourcesArgs) ToApplicationAppSourcesOutputWithContext(ctx context.Context) ApplicationAppSourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationAppSourcesOutput)
+}
+
+type ApplicationAppSourcesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationAppSourcesOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppSources) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+// For sources that are version-aware, the revision to use.
+func (o ApplicationAppSourcesOutput) Revision() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppSources) string {
+		if v.Revision == nil { return *new(string) } else { return *v.Revision }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationAppSourcesOutput) SshKey() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppSources) string {
+		if v.SshKey == nil { return *new(string) } else { return *v.SshKey }
+	}).(pulumi.StringOutput)
+}
+
+// The type of source to use. For example, "archive".
+func (o ApplicationAppSourcesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppSources) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The URL where the app resource can be found.
+func (o ApplicationAppSourcesOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppSources) string {
+		if v.Url == nil { return *new(string) } else { return *v.Url }
+	}).(pulumi.StringOutput)
+}
+
+// Username to use when authenticating to the source.
+func (o ApplicationAppSourcesOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationAppSources) string {
+		if v.Username == nil { return *new(string) } else { return *v.Username }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationAppSourcesOutput) ElementType() reflect.Type {
+	return applicationAppSourcesType
+}
+
+func (o ApplicationAppSourcesOutput) ToApplicationAppSourcesOutput() ApplicationAppSourcesOutput {
+	return o
+}
+
+func (o ApplicationAppSourcesOutput) ToApplicationAppSourcesOutputWithContext(ctx context.Context) ApplicationAppSourcesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationAppSourcesOutput{}) }
+
+var applicationAppSourcesArrayType = reflect.TypeOf((*[]ApplicationAppSources)(nil)).Elem()
+
+type ApplicationAppSourcesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationAppSourcesArrayOutput() ApplicationAppSourcesArrayOutput
+	ToApplicationAppSourcesArrayOutputWithContext(ctx context.Context) ApplicationAppSourcesArrayOutput
+}
+
+type ApplicationAppSourcesArrayArgs []ApplicationAppSourcesInput
+
+func (ApplicationAppSourcesArrayArgs) ElementType() reflect.Type {
+	return applicationAppSourcesArrayType
+}
+
+func (a ApplicationAppSourcesArrayArgs) ToApplicationAppSourcesArrayOutput() ApplicationAppSourcesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationAppSourcesArrayOutput)
+}
+
+func (a ApplicationAppSourcesArrayArgs) ToApplicationAppSourcesArrayOutputWithContext(ctx context.Context) ApplicationAppSourcesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationAppSourcesArrayOutput)
+}
+
+type ApplicationAppSourcesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationAppSourcesArrayOutput) Index(i pulumi.IntInput) ApplicationAppSourcesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationAppSources {
+		return vs[0].([]ApplicationAppSources)[vs[1].(int)]
+	}).(ApplicationAppSourcesOutput)
+}
+
+func (ApplicationAppSourcesArrayOutput) ElementType() reflect.Type {
+	return applicationAppSourcesArrayType
+}
+
+func (o ApplicationAppSourcesArrayOutput) ToApplicationAppSourcesArrayOutput() ApplicationAppSourcesArrayOutput {
+	return o
+}
+
+func (o ApplicationAppSourcesArrayOutput) ToApplicationAppSourcesArrayOutputWithContext(ctx context.Context) ApplicationAppSourcesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationAppSourcesArrayOutput{}) }
+
+type ApplicationEnvironments struct {
+	Key string `pulumi:"key"`
+	Secure *bool `pulumi:"secure"`
+	Value string `pulumi:"value"`
+}
+var applicationEnvironmentsType = reflect.TypeOf((*ApplicationEnvironments)(nil)).Elem()
+
+type ApplicationEnvironmentsInput interface {
+	pulumi.Input
+
+	ToApplicationEnvironmentsOutput() ApplicationEnvironmentsOutput
+	ToApplicationEnvironmentsOutputWithContext(ctx context.Context) ApplicationEnvironmentsOutput
+}
+
+type ApplicationEnvironmentsArgs struct {
+	Key pulumi.StringInput `pulumi:"key"`
+	Secure pulumi.BoolInput `pulumi:"secure"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApplicationEnvironmentsArgs) ElementType() reflect.Type {
+	return applicationEnvironmentsType
+}
+
+func (a ApplicationEnvironmentsArgs) ToApplicationEnvironmentsOutput() ApplicationEnvironmentsOutput {
+	return pulumi.ToOutput(a).(ApplicationEnvironmentsOutput)
+}
+
+func (a ApplicationEnvironmentsArgs) ToApplicationEnvironmentsOutputWithContext(ctx context.Context) ApplicationEnvironmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationEnvironmentsOutput)
+}
+
+type ApplicationEnvironmentsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationEnvironmentsOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationEnvironments) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationEnvironmentsOutput) Secure() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationEnvironments) bool {
+		if v.Secure == nil { return *new(bool) } else { return *v.Secure }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationEnvironmentsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationEnvironments) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationEnvironmentsOutput) ElementType() reflect.Type {
+	return applicationEnvironmentsType
+}
+
+func (o ApplicationEnvironmentsOutput) ToApplicationEnvironmentsOutput() ApplicationEnvironmentsOutput {
+	return o
+}
+
+func (o ApplicationEnvironmentsOutput) ToApplicationEnvironmentsOutputWithContext(ctx context.Context) ApplicationEnvironmentsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationEnvironmentsOutput{}) }
+
+var applicationEnvironmentsArrayType = reflect.TypeOf((*[]ApplicationEnvironments)(nil)).Elem()
+
+type ApplicationEnvironmentsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationEnvironmentsArrayOutput() ApplicationEnvironmentsArrayOutput
+	ToApplicationEnvironmentsArrayOutputWithContext(ctx context.Context) ApplicationEnvironmentsArrayOutput
+}
+
+type ApplicationEnvironmentsArrayArgs []ApplicationEnvironmentsInput
+
+func (ApplicationEnvironmentsArrayArgs) ElementType() reflect.Type {
+	return applicationEnvironmentsArrayType
+}
+
+func (a ApplicationEnvironmentsArrayArgs) ToApplicationEnvironmentsArrayOutput() ApplicationEnvironmentsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationEnvironmentsArrayOutput)
+}
+
+func (a ApplicationEnvironmentsArrayArgs) ToApplicationEnvironmentsArrayOutputWithContext(ctx context.Context) ApplicationEnvironmentsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationEnvironmentsArrayOutput)
+}
+
+type ApplicationEnvironmentsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationEnvironmentsArrayOutput) Index(i pulumi.IntInput) ApplicationEnvironmentsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationEnvironments {
+		return vs[0].([]ApplicationEnvironments)[vs[1].(int)]
+	}).(ApplicationEnvironmentsOutput)
+}
+
+func (ApplicationEnvironmentsArrayOutput) ElementType() reflect.Type {
+	return applicationEnvironmentsArrayType
+}
+
+func (o ApplicationEnvironmentsArrayOutput) ToApplicationEnvironmentsArrayOutput() ApplicationEnvironmentsArrayOutput {
+	return o
+}
+
+func (o ApplicationEnvironmentsArrayOutput) ToApplicationEnvironmentsArrayOutputWithContext(ctx context.Context) ApplicationEnvironmentsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationEnvironmentsArrayOutput{}) }
+
+type ApplicationSslConfigurations struct {
+	Certificate string `pulumi:"certificate"`
+	Chain *string `pulumi:"chain"`
+	PrivateKey string `pulumi:"privateKey"`
+}
+var applicationSslConfigurationsType = reflect.TypeOf((*ApplicationSslConfigurations)(nil)).Elem()
+
+type ApplicationSslConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationSslConfigurationsOutput() ApplicationSslConfigurationsOutput
+	ToApplicationSslConfigurationsOutputWithContext(ctx context.Context) ApplicationSslConfigurationsOutput
+}
+
+type ApplicationSslConfigurationsArgs struct {
+	Certificate pulumi.StringInput `pulumi:"certificate"`
+	Chain pulumi.StringInput `pulumi:"chain"`
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (ApplicationSslConfigurationsArgs) ElementType() reflect.Type {
+	return applicationSslConfigurationsType
+}
+
+func (a ApplicationSslConfigurationsArgs) ToApplicationSslConfigurationsOutput() ApplicationSslConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationSslConfigurationsOutput)
+}
+
+func (a ApplicationSslConfigurationsArgs) ToApplicationSslConfigurationsOutputWithContext(ctx context.Context) ApplicationSslConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationSslConfigurationsOutput)
+}
+
+type ApplicationSslConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationSslConfigurationsOutput) Certificate() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationSslConfigurations) string {
+		return v.Certificate
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationSslConfigurationsOutput) Chain() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationSslConfigurations) string {
+		if v.Chain == nil { return *new(string) } else { return *v.Chain }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationSslConfigurationsOutput) PrivateKey() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationSslConfigurations) string {
+		return v.PrivateKey
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationSslConfigurationsOutput) ElementType() reflect.Type {
+	return applicationSslConfigurationsType
+}
+
+func (o ApplicationSslConfigurationsOutput) ToApplicationSslConfigurationsOutput() ApplicationSslConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationSslConfigurationsOutput) ToApplicationSslConfigurationsOutputWithContext(ctx context.Context) ApplicationSslConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationSslConfigurationsOutput{}) }
+
+var applicationSslConfigurationsArrayType = reflect.TypeOf((*[]ApplicationSslConfigurations)(nil)).Elem()
+
+type ApplicationSslConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationSslConfigurationsArrayOutput() ApplicationSslConfigurationsArrayOutput
+	ToApplicationSslConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationSslConfigurationsArrayOutput
+}
+
+type ApplicationSslConfigurationsArrayArgs []ApplicationSslConfigurationsInput
+
+func (ApplicationSslConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationSslConfigurationsArrayType
+}
+
+func (a ApplicationSslConfigurationsArrayArgs) ToApplicationSslConfigurationsArrayOutput() ApplicationSslConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationSslConfigurationsArrayOutput)
+}
+
+func (a ApplicationSslConfigurationsArrayArgs) ToApplicationSslConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationSslConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationSslConfigurationsArrayOutput)
+}
+
+type ApplicationSslConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationSslConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationSslConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationSslConfigurations {
+		return vs[0].([]ApplicationSslConfigurations)[vs[1].(int)]
+	}).(ApplicationSslConfigurationsOutput)
+}
+
+func (ApplicationSslConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationSslConfigurationsArrayType
+}
+
+func (o ApplicationSslConfigurationsArrayOutput) ToApplicationSslConfigurationsArrayOutput() ApplicationSslConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationSslConfigurationsArrayOutput) ToApplicationSslConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationSslConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationSslConfigurationsArrayOutput{}) }
+

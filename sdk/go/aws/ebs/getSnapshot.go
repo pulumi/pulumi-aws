@@ -10,39 +10,13 @@ import (
 // Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
-func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["mostRecent"] = args.MostRecent
-		inputs["owners"] = args.Owners
-		inputs["restorableByUserIds"] = args.RestorableByUserIds
-		inputs["snapshotIds"] = args.SnapshotIds
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("aws:ebs/getSnapshot:getSnapshot", inputs)
+func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs, opts ...pulumi.InvokeOption) (*GetSnapshotResult, error) {
+	var rv GetSnapshotResult
+	err := ctx.Invoke("aws:ebs/getSnapshot:getSnapshot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSnapshotResult{
-		DataEncryptionKeyId: outputs["dataEncryptionKeyId"],
-		Description: outputs["description"],
-		Encrypted: outputs["encrypted"],
-		Filters: outputs["filters"],
-		KmsKeyId: outputs["kmsKeyId"],
-		MostRecent: outputs["mostRecent"],
-		OwnerAlias: outputs["ownerAlias"],
-		OwnerId: outputs["ownerId"],
-		Owners: outputs["owners"],
-		RestorableByUserIds: outputs["restorableByUserIds"],
-		SnapshotId: outputs["snapshotId"],
-		SnapshotIds: outputs["snapshotIds"],
-		State: outputs["state"],
-		Tags: outputs["tags"],
-		VolumeId: outputs["volumeId"],
-		VolumeSize: outputs["volumeSize"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSnapshot.
@@ -50,47 +24,55 @@ type GetSnapshotArgs struct {
 	// One or more name/value pairs to filter off of. There are
 	// several valid keys, for a full reference, check out
 	// [describe-snapshots in the AWS CLI reference][1].
-	Filters interface{}
+	Filters *[]GetSnapshotFiltersArgs `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
-	MostRecent interface{}
+	MostRecent *bool `pulumi:"mostRecent"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-	Owners interface{}
+	Owners *[]string `pulumi:"owners"`
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
-	RestorableByUserIds interface{}
+	RestorableByUserIds *[]string `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
-	SnapshotIds interface{}
-	Tags interface{}
+	SnapshotIds *[]string `pulumi:"snapshotIds"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.
 type GetSnapshotResult struct {
 	// The data encryption key identifier for the snapshot.
-	DataEncryptionKeyId interface{}
+	DataEncryptionKeyId string `pulumi:"dataEncryptionKeyId"`
 	// A description for the snapshot
-	Description interface{}
+	Description string `pulumi:"description"`
 	// Whether the snapshot is encrypted.
-	Encrypted interface{}
-	Filters interface{}
+	Encrypted bool `pulumi:"encrypted"`
+	Filters *[]GetSnapshotFiltersResult `pulumi:"filters"`
 	// The ARN for the KMS encryption key.
-	KmsKeyId interface{}
-	MostRecent interface{}
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	MostRecent *bool `pulumi:"mostRecent"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-	OwnerAlias interface{}
+	OwnerAlias string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId interface{}
-	Owners interface{}
-	RestorableByUserIds interface{}
+	OwnerId string `pulumi:"ownerId"`
+	Owners *[]string `pulumi:"owners"`
+	RestorableByUserIds *[]string `pulumi:"restorableByUserIds"`
 	// The snapshot ID (e.g. snap-59fcb34e).
-	SnapshotId interface{}
-	SnapshotIds interface{}
+	SnapshotId string `pulumi:"snapshotId"`
+	SnapshotIds *[]string `pulumi:"snapshotIds"`
 	// The snapshot state.
-	State interface{}
+	State string `pulumi:"state"`
 	// A mapping of tags for the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The volume ID (e.g. vol-59fcb34e).
-	VolumeId interface{}
+	VolumeId string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
-	VolumeSize interface{}
+	VolumeSize int `pulumi:"volumeSize"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSnapshotFiltersArgs struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+type GetSnapshotFiltersResult struct {
+	Name string `pulumi:"name"`
+	Values []string `pulumi:"values"`
 }

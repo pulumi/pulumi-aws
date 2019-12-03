@@ -13,121 +13,91 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user.html.markdown.
 type User struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN assigned by AWS for this user.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// When destroying this user, destroy even if it
+	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
+	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
+	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
+
+	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Path in which to create the user.
+	Path pulumi.StringOutput `pulumi:"path"`
+
+	// The ARN of the policy that is used to set the permissions boundary for the user.
+	PermissionsBoundary pulumi.StringOutput `pulumi:"permissionsBoundary"`
+
+	// Key-value mapping of tags for the IAM user
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The [unique ID][1] assigned by AWS.
+	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
-	name string, args *UserArgs, opts ...pulumi.ResourceOpt) (*User, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["forceDestroy"] = nil
-		inputs["name"] = nil
-		inputs["path"] = nil
-		inputs["permissionsBoundary"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["forceDestroy"] = args.ForceDestroy
-		inputs["name"] = args.Name
-		inputs["path"] = args.Path
-		inputs["permissionsBoundary"] = args.PermissionsBoundary
-		inputs["tags"] = args.Tags
+	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ForceDestroy; i != nil { inputs["forceDestroy"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := args.PermissionsBoundary; i != nil { inputs["permissionsBoundary"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["uniqueId"] = nil
-	s, err := ctx.RegisterResource("aws:iam/user:User", name, true, inputs, opts...)
+	var resource User
+	err := ctx.RegisterResource("aws:iam/user:User", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &User{s: s}, nil
+	return &resource, nil
 }
 
 // GetUser gets an existing User resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetUser(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *UserState, opts ...pulumi.ResourceOpt) (*User, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *UserState, opts ...pulumi.ResourceOption) (*User, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["forceDestroy"] = state.ForceDestroy
-		inputs["name"] = state.Name
-		inputs["path"] = state.Path
-		inputs["permissionsBoundary"] = state.PermissionsBoundary
-		inputs["tags"] = state.Tags
-		inputs["uniqueId"] = state.UniqueId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ForceDestroy; i != nil { inputs["forceDestroy"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := state.PermissionsBoundary; i != nil { inputs["permissionsBoundary"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UniqueId; i != nil { inputs["uniqueId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/user:User", name, id, inputs, opts...)
+	var resource User
+	err := ctx.ReadResource("aws:iam/user:User", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &User{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *User) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *User) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN assigned by AWS for this user.
-func (r *User) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// When destroying this user, destroy even if it
-// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
-func (r *User) ForceDestroy() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["forceDestroy"])
-}
-
-// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-func (r *User) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Path in which to create the user.
-func (r *User) Path() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["path"])
-}
-
-// The ARN of the policy that is used to set the permissions boundary for the user.
-func (r *User) PermissionsBoundary() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["permissionsBoundary"])
-}
-
-// Key-value mapping of tags for the IAM user
-func (r *User) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The [unique ID][1] assigned by AWS.
-func (r *User) UniqueId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering User resources.
 type UserState struct {
 	// The ARN assigned by AWS for this user.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// When destroying this user, destroy even if it
 	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy interface{}
+	ForceDestroy pulumi.BoolInput `pulumi:"forceDestroy"`
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Path in which to create the user.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary interface{}
+	PermissionsBoundary pulumi.StringInput `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM user
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The [unique ID][1] assigned by AWS.
-	UniqueId interface{}
+	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -135,13 +105,13 @@ type UserArgs struct {
 	// When destroying this user, destroy even if it
 	// has non-this provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
 	// a user with non-this provider-managed access keys and login profile will fail to be destroyed.
-	ForceDestroy interface{}
+	ForceDestroy pulumi.BoolInput `pulumi:"forceDestroy"`
 	// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Path in which to create the user.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary interface{}
+	PermissionsBoundary pulumi.StringInput `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM user
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

@@ -16,183 +16,141 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_managed_rule.html.markdown.
 type OrganizationManagedRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the rule
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Description of the rule
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// List of AWS account identifiers to exclude from the rule
+	ExcludedAccounts pulumi.StringArrayOutput `pulumi:"excludedAccounts"`
+
+	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+	InputParameters pulumi.StringOutput `pulumi:"inputParameters"`
+
+	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
+	MaximumExecutionFrequency pulumi.StringOutput `pulumi:"maximumExecutionFrequency"`
+
+	// The name of the rule
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Identifier of the AWS resource to evaluate
+	ResourceIdScope pulumi.StringOutput `pulumi:"resourceIdScope"`
+
+	// List of types of AWS resources to evaluate
+	ResourceTypesScopes pulumi.StringArrayOutput `pulumi:"resourceTypesScopes"`
+
+	// Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
+	RuleIdentifier pulumi.StringOutput `pulumi:"ruleIdentifier"`
+
+	// Tag key of AWS resources to evaluate
+	TagKeyScope pulumi.StringOutput `pulumi:"tagKeyScope"`
+
+	// Tag value of AWS resources to evaluate
+	TagValueScope pulumi.StringOutput `pulumi:"tagValueScope"`
 }
 
 // NewOrganizationManagedRule registers a new resource with the given unique name, arguments, and options.
 func NewOrganizationManagedRule(ctx *pulumi.Context,
-	name string, args *OrganizationManagedRuleArgs, opts ...pulumi.ResourceOpt) (*OrganizationManagedRule, error) {
+	name string, args *OrganizationManagedRuleArgs, opts ...pulumi.ResourceOption) (*OrganizationManagedRule, error) {
 	if args == nil || args.RuleIdentifier == nil {
 		return nil, errors.New("missing required argument 'RuleIdentifier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["excludedAccounts"] = nil
-		inputs["inputParameters"] = nil
-		inputs["maximumExecutionFrequency"] = nil
-		inputs["name"] = nil
-		inputs["resourceIdScope"] = nil
-		inputs["resourceTypesScopes"] = nil
-		inputs["ruleIdentifier"] = nil
-		inputs["tagKeyScope"] = nil
-		inputs["tagValueScope"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["excludedAccounts"] = args.ExcludedAccounts
-		inputs["inputParameters"] = args.InputParameters
-		inputs["maximumExecutionFrequency"] = args.MaximumExecutionFrequency
-		inputs["name"] = args.Name
-		inputs["resourceIdScope"] = args.ResourceIdScope
-		inputs["resourceTypesScopes"] = args.ResourceTypesScopes
-		inputs["ruleIdentifier"] = args.RuleIdentifier
-		inputs["tagKeyScope"] = args.TagKeyScope
-		inputs["tagValueScope"] = args.TagValueScope
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.ExcludedAccounts; i != nil { inputs["excludedAccounts"] = i.ToStringArrayOutput() }
+		if i := args.InputParameters; i != nil { inputs["inputParameters"] = i.ToStringOutput() }
+		if i := args.MaximumExecutionFrequency; i != nil { inputs["maximumExecutionFrequency"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceIdScope; i != nil { inputs["resourceIdScope"] = i.ToStringOutput() }
+		if i := args.ResourceTypesScopes; i != nil { inputs["resourceTypesScopes"] = i.ToStringArrayOutput() }
+		if i := args.RuleIdentifier; i != nil { inputs["ruleIdentifier"] = i.ToStringOutput() }
+		if i := args.TagKeyScope; i != nil { inputs["tagKeyScope"] = i.ToStringOutput() }
+		if i := args.TagValueScope; i != nil { inputs["tagValueScope"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, true, inputs, opts...)
+	var resource OrganizationManagedRule
+	err := ctx.RegisterResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OrganizationManagedRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetOrganizationManagedRule gets an existing OrganizationManagedRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOrganizationManagedRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OrganizationManagedRuleState, opts ...pulumi.ResourceOpt) (*OrganizationManagedRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OrganizationManagedRuleState, opts ...pulumi.ResourceOption) (*OrganizationManagedRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["excludedAccounts"] = state.ExcludedAccounts
-		inputs["inputParameters"] = state.InputParameters
-		inputs["maximumExecutionFrequency"] = state.MaximumExecutionFrequency
-		inputs["name"] = state.Name
-		inputs["resourceIdScope"] = state.ResourceIdScope
-		inputs["resourceTypesScopes"] = state.ResourceTypesScopes
-		inputs["ruleIdentifier"] = state.RuleIdentifier
-		inputs["tagKeyScope"] = state.TagKeyScope
-		inputs["tagValueScope"] = state.TagValueScope
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ExcludedAccounts; i != nil { inputs["excludedAccounts"] = i.ToStringArrayOutput() }
+		if i := state.InputParameters; i != nil { inputs["inputParameters"] = i.ToStringOutput() }
+		if i := state.MaximumExecutionFrequency; i != nil { inputs["maximumExecutionFrequency"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceIdScope; i != nil { inputs["resourceIdScope"] = i.ToStringOutput() }
+		if i := state.ResourceTypesScopes; i != nil { inputs["resourceTypesScopes"] = i.ToStringArrayOutput() }
+		if i := state.RuleIdentifier; i != nil { inputs["ruleIdentifier"] = i.ToStringOutput() }
+		if i := state.TagKeyScope; i != nil { inputs["tagKeyScope"] = i.ToStringOutput() }
+		if i := state.TagValueScope; i != nil { inputs["tagValueScope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, id, inputs, opts...)
+	var resource OrganizationManagedRule
+	err := ctx.ReadResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OrganizationManagedRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OrganizationManagedRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OrganizationManagedRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the rule
-func (r *OrganizationManagedRule) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Description of the rule
-func (r *OrganizationManagedRule) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// List of AWS account identifiers to exclude from the rule
-func (r *OrganizationManagedRule) ExcludedAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["excludedAccounts"])
-}
-
-// A string in JSON format that is passed to the AWS Config Rule Lambda Function
-func (r *OrganizationManagedRule) InputParameters() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["inputParameters"])
-}
-
-// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-func (r *OrganizationManagedRule) MaximumExecutionFrequency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["maximumExecutionFrequency"])
-}
-
-// The name of the rule
-func (r *OrganizationManagedRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Identifier of the AWS resource to evaluate
-func (r *OrganizationManagedRule) ResourceIdScope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceIdScope"])
-}
-
-// List of types of AWS resources to evaluate
-func (r *OrganizationManagedRule) ResourceTypesScopes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["resourceTypesScopes"])
-}
-
-// Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-func (r *OrganizationManagedRule) RuleIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ruleIdentifier"])
-}
-
-// Tag key of AWS resources to evaluate
-func (r *OrganizationManagedRule) TagKeyScope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tagKeyScope"])
-}
-
-// Tag value of AWS resources to evaluate
-func (r *OrganizationManagedRule) TagValueScope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tagValueScope"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OrganizationManagedRule resources.
 type OrganizationManagedRuleState struct {
 	// Amazon Resource Name (ARN) of the rule
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Description of the rule
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// List of AWS account identifiers to exclude from the rule
-	ExcludedAccounts interface{}
+	ExcludedAccounts pulumi.StringArrayInput `pulumi:"excludedAccounts"`
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
-	InputParameters interface{}
+	InputParameters pulumi.StringInput `pulumi:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-	MaximumExecutionFrequency interface{}
+	MaximumExecutionFrequency pulumi.StringInput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Identifier of the AWS resource to evaluate
-	ResourceIdScope interface{}
+	ResourceIdScope pulumi.StringInput `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
-	ResourceTypesScopes interface{}
+	ResourceTypesScopes pulumi.StringArrayInput `pulumi:"resourceTypesScopes"`
 	// Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-	RuleIdentifier interface{}
+	RuleIdentifier pulumi.StringInput `pulumi:"ruleIdentifier"`
 	// Tag key of AWS resources to evaluate
-	TagKeyScope interface{}
+	TagKeyScope pulumi.StringInput `pulumi:"tagKeyScope"`
 	// Tag value of AWS resources to evaluate
-	TagValueScope interface{}
+	TagValueScope pulumi.StringInput `pulumi:"tagValueScope"`
 }
 
 // The set of arguments for constructing a OrganizationManagedRule resource.
 type OrganizationManagedRuleArgs struct {
 	// Description of the rule
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// List of AWS account identifiers to exclude from the rule
-	ExcludedAccounts interface{}
+	ExcludedAccounts pulumi.StringArrayInput `pulumi:"excludedAccounts"`
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
-	InputParameters interface{}
+	InputParameters pulumi.StringInput `pulumi:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-	MaximumExecutionFrequency interface{}
+	MaximumExecutionFrequency pulumi.StringInput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Identifier of the AWS resource to evaluate
-	ResourceIdScope interface{}
+	ResourceIdScope pulumi.StringInput `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
-	ResourceTypesScopes interface{}
+	ResourceTypesScopes pulumi.StringArrayInput `pulumi:"resourceTypesScopes"`
 	// Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-	RuleIdentifier interface{}
+	RuleIdentifier pulumi.StringInput `pulumi:"ruleIdentifier"`
 	// Tag key of AWS resources to evaluate
-	TagKeyScope interface{}
+	TagKeyScope pulumi.StringInput `pulumi:"tagKeyScope"`
 	// Tag value of AWS resources to evaluate
-	TagValueScope interface{}
+	TagValueScope pulumi.StringInput `pulumi:"tagValueScope"`
 }

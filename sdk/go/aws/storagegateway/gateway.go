@@ -4,6 +4,8 @@
 package storagegateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,192 +16,222 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
 type Gateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
+
+	// Amazon Resource Name (ARN) of the gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Identifier of the gateway.
+	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
+
+	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+	GatewayIpAddress pulumi.StringOutput `pulumi:"gatewayIpAddress"`
+
+	// Name of the gateway.
+	GatewayName pulumi.StringOutput `pulumi:"gatewayName"`
+
+	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+	GatewayTimezone pulumi.StringOutput `pulumi:"gatewayTimezone"`
+
+	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
+	GatewayType pulumi.StringOutput `pulumi:"gatewayType"`
+
+	MediumChangerType pulumi.StringOutput `pulumi:"mediumChangerType"`
+
+	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsOutput `pulumi:"smbActiveDirectorySettings"`
+
+	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+	SmbGuestPassword pulumi.StringOutput `pulumi:"smbGuestPassword"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
+	TapeDriveType pulumi.StringOutput `pulumi:"tapeDriveType"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
 func NewGateway(ctx *pulumi.Context,
-	name string, args *GatewayArgs, opts ...pulumi.ResourceOpt) (*Gateway, error) {
+	name string, args *GatewayArgs, opts ...pulumi.ResourceOption) (*Gateway, error) {
 	if args == nil || args.GatewayName == nil {
 		return nil, errors.New("missing required argument 'GatewayName'")
 	}
 	if args == nil || args.GatewayTimezone == nil {
 		return nil, errors.New("missing required argument 'GatewayTimezone'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["activationKey"] = nil
-		inputs["gatewayIpAddress"] = nil
-		inputs["gatewayName"] = nil
-		inputs["gatewayTimezone"] = nil
-		inputs["gatewayType"] = nil
-		inputs["mediumChangerType"] = nil
-		inputs["smbActiveDirectorySettings"] = nil
-		inputs["smbGuestPassword"] = nil
-		inputs["tags"] = nil
-		inputs["tapeDriveType"] = nil
-	} else {
-		inputs["activationKey"] = args.ActivationKey
-		inputs["gatewayIpAddress"] = args.GatewayIpAddress
-		inputs["gatewayName"] = args.GatewayName
-		inputs["gatewayTimezone"] = args.GatewayTimezone
-		inputs["gatewayType"] = args.GatewayType
-		inputs["mediumChangerType"] = args.MediumChangerType
-		inputs["smbActiveDirectorySettings"] = args.SmbActiveDirectorySettings
-		inputs["smbGuestPassword"] = args.SmbGuestPassword
-		inputs["tags"] = args.Tags
-		inputs["tapeDriveType"] = args.TapeDriveType
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActivationKey; i != nil { inputs["activationKey"] = i.ToStringOutput() }
+		if i := args.GatewayIpAddress; i != nil { inputs["gatewayIpAddress"] = i.ToStringOutput() }
+		if i := args.GatewayName; i != nil { inputs["gatewayName"] = i.ToStringOutput() }
+		if i := args.GatewayTimezone; i != nil { inputs["gatewayTimezone"] = i.ToStringOutput() }
+		if i := args.GatewayType; i != nil { inputs["gatewayType"] = i.ToStringOutput() }
+		if i := args.MediumChangerType; i != nil { inputs["mediumChangerType"] = i.ToStringOutput() }
+		if i := args.SmbActiveDirectorySettings; i != nil { inputs["smbActiveDirectorySettings"] = i.ToGatewaySmbActiveDirectorySettingsOutput() }
+		if i := args.SmbGuestPassword; i != nil { inputs["smbGuestPassword"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TapeDriveType; i != nil { inputs["tapeDriveType"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["gatewayId"] = nil
-	s, err := ctx.RegisterResource("aws:storagegateway/gateway:Gateway", name, true, inputs, opts...)
+	var resource Gateway
+	err := ctx.RegisterResource("aws:storagegateway/gateway:Gateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Gateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetGateway gets an existing Gateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GatewayState, opts ...pulumi.ResourceOpt) (*Gateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GatewayState, opts ...pulumi.ResourceOption) (*Gateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activationKey"] = state.ActivationKey
-		inputs["arn"] = state.Arn
-		inputs["gatewayId"] = state.GatewayId
-		inputs["gatewayIpAddress"] = state.GatewayIpAddress
-		inputs["gatewayName"] = state.GatewayName
-		inputs["gatewayTimezone"] = state.GatewayTimezone
-		inputs["gatewayType"] = state.GatewayType
-		inputs["mediumChangerType"] = state.MediumChangerType
-		inputs["smbActiveDirectorySettings"] = state.SmbActiveDirectorySettings
-		inputs["smbGuestPassword"] = state.SmbGuestPassword
-		inputs["tags"] = state.Tags
-		inputs["tapeDriveType"] = state.TapeDriveType
+		if i := state.ActivationKey; i != nil { inputs["activationKey"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.GatewayId; i != nil { inputs["gatewayId"] = i.ToStringOutput() }
+		if i := state.GatewayIpAddress; i != nil { inputs["gatewayIpAddress"] = i.ToStringOutput() }
+		if i := state.GatewayName; i != nil { inputs["gatewayName"] = i.ToStringOutput() }
+		if i := state.GatewayTimezone; i != nil { inputs["gatewayTimezone"] = i.ToStringOutput() }
+		if i := state.GatewayType; i != nil { inputs["gatewayType"] = i.ToStringOutput() }
+		if i := state.MediumChangerType; i != nil { inputs["mediumChangerType"] = i.ToStringOutput() }
+		if i := state.SmbActiveDirectorySettings; i != nil { inputs["smbActiveDirectorySettings"] = i.ToGatewaySmbActiveDirectorySettingsOutput() }
+		if i := state.SmbGuestPassword; i != nil { inputs["smbGuestPassword"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TapeDriveType; i != nil { inputs["tapeDriveType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:storagegateway/gateway:Gateway", name, id, inputs, opts...)
+	var resource Gateway
+	err := ctx.ReadResource("aws:storagegateway/gateway:Gateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Gateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Gateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Gateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-func (r *Gateway) ActivationKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["activationKey"])
-}
-
-// Amazon Resource Name (ARN) of the gateway.
-func (r *Gateway) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Identifier of the gateway.
-func (r *Gateway) GatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayId"])
-}
-
-// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-func (r *Gateway) GatewayIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayIpAddress"])
-}
-
-// Name of the gateway.
-func (r *Gateway) GatewayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayName"])
-}
-
-// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-func (r *Gateway) GatewayTimezone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayTimezone"])
-}
-
-// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-func (r *Gateway) GatewayType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayType"])
-}
-
-func (r *Gateway) MediumChangerType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["mediumChangerType"])
-}
-
-// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
-func (r *Gateway) SmbActiveDirectorySettings() pulumi.Output {
-	return r.s.State["smbActiveDirectorySettings"]
-}
-
-// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-func (r *Gateway) SmbGuestPassword() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["smbGuestPassword"])
-}
-
-// Key-value mapping of resource tags
-func (r *Gateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-func (r *Gateway) TapeDriveType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tapeDriveType"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Gateway resources.
 type GatewayState struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-	ActivationKey interface{}
+	ActivationKey pulumi.StringInput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Identifier of the gateway.
-	GatewayId interface{}
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-	GatewayIpAddress interface{}
+	GatewayIpAddress pulumi.StringInput `pulumi:"gatewayIpAddress"`
 	// Name of the gateway.
-	GatewayName interface{}
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-	GatewayTimezone interface{}
+	GatewayTimezone pulumi.StringInput `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType interface{}
-	MediumChangerType interface{}
+	GatewayType pulumi.StringInput `pulumi:"gatewayType"`
+	MediumChangerType pulumi.StringInput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
-	SmbActiveDirectorySettings interface{}
+	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsInput `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-	SmbGuestPassword interface{}
+	SmbGuestPassword pulumi.StringInput `pulumi:"smbGuestPassword"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-	TapeDriveType interface{}
+	TapeDriveType pulumi.StringInput `pulumi:"tapeDriveType"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-	ActivationKey interface{}
+	ActivationKey pulumi.StringInput `pulumi:"activationKey"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
-	GatewayIpAddress interface{}
+	GatewayIpAddress pulumi.StringInput `pulumi:"gatewayIpAddress"`
 	// Name of the gateway.
-	GatewayName interface{}
+	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
 	// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-	GatewayTimezone interface{}
+	GatewayTimezone pulumi.StringInput `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
-	GatewayType interface{}
-	MediumChangerType interface{}
+	GatewayType pulumi.StringInput `pulumi:"gatewayType"`
+	MediumChangerType pulumi.StringInput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
-	SmbActiveDirectorySettings interface{}
+	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsInput `pulumi:"smbActiveDirectorySettings"`
 	// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
-	SmbGuestPassword interface{}
+	SmbGuestPassword pulumi.StringInput `pulumi:"smbGuestPassword"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
-	TapeDriveType interface{}
+	TapeDriveType pulumi.StringInput `pulumi:"tapeDriveType"`
 }
+type GatewaySmbActiveDirectorySettings struct {
+	// The name of the domain that you want the gateway to join.
+	DomainName string `pulumi:"domainName"`
+	// The password of the user who has permission to add the gateway to the Active Directory domain.
+	Password string `pulumi:"password"`
+	// The user name of user who has permission to add the gateway to the Active Directory domain.
+	Username string `pulumi:"username"`
+}
+var gatewaySmbActiveDirectorySettingsType = reflect.TypeOf((*GatewaySmbActiveDirectorySettings)(nil)).Elem()
+
+type GatewaySmbActiveDirectorySettingsInput interface {
+	pulumi.Input
+
+	ToGatewaySmbActiveDirectorySettingsOutput() GatewaySmbActiveDirectorySettingsOutput
+	ToGatewaySmbActiveDirectorySettingsOutputWithContext(ctx context.Context) GatewaySmbActiveDirectorySettingsOutput
+}
+
+type GatewaySmbActiveDirectorySettingsArgs struct {
+	// The name of the domain that you want the gateway to join.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The password of the user who has permission to add the gateway to the Active Directory domain.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The user name of user who has permission to add the gateway to the Active Directory domain.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GatewaySmbActiveDirectorySettingsArgs) ElementType() reflect.Type {
+	return gatewaySmbActiveDirectorySettingsType
+}
+
+func (a GatewaySmbActiveDirectorySettingsArgs) ToGatewaySmbActiveDirectorySettingsOutput() GatewaySmbActiveDirectorySettingsOutput {
+	return pulumi.ToOutput(a).(GatewaySmbActiveDirectorySettingsOutput)
+}
+
+func (a GatewaySmbActiveDirectorySettingsArgs) ToGatewaySmbActiveDirectorySettingsOutputWithContext(ctx context.Context) GatewaySmbActiveDirectorySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GatewaySmbActiveDirectorySettingsOutput)
+}
+
+type GatewaySmbActiveDirectorySettingsOutput struct { *pulumi.OutputState }
+
+// The name of the domain that you want the gateway to join.
+func (o GatewaySmbActiveDirectorySettingsOutput) DomainName() pulumi.StringOutput {
+	return o.Apply(func(v GatewaySmbActiveDirectorySettings) string {
+		return v.DomainName
+	}).(pulumi.StringOutput)
+}
+
+// The password of the user who has permission to add the gateway to the Active Directory domain.
+func (o GatewaySmbActiveDirectorySettingsOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v GatewaySmbActiveDirectorySettings) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The user name of user who has permission to add the gateway to the Active Directory domain.
+func (o GatewaySmbActiveDirectorySettingsOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v GatewaySmbActiveDirectorySettings) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (GatewaySmbActiveDirectorySettingsOutput) ElementType() reflect.Type {
+	return gatewaySmbActiveDirectorySettingsType
+}
+
+func (o GatewaySmbActiveDirectorySettingsOutput) ToGatewaySmbActiveDirectorySettingsOutput() GatewaySmbActiveDirectorySettingsOutput {
+	return o
+}
+
+func (o GatewaySmbActiveDirectorySettingsOutput) ToGatewaySmbActiveDirectorySettingsOutputWithContext(ctx context.Context) GatewaySmbActiveDirectorySettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GatewaySmbActiveDirectorySettingsOutput{}) }
+

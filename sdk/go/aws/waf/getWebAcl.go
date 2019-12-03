@@ -10,30 +10,24 @@ import (
 // `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
-func LookupWebAcl(ctx *pulumi.Context, args *GetWebAclArgs) (*GetWebAclResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:waf/getWebAcl:getWebAcl", inputs)
+func LookupWebAcl(ctx *pulumi.Context, args *GetWebAclArgs, opts ...pulumi.InvokeOption) (*GetWebAclResult, error) {
+	var rv GetWebAclResult
+	err := ctx.Invoke("aws:waf/getWebAcl:getWebAcl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetWebAclResult{
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getWebAcl.
 type GetWebAclArgs struct {
 	// The name of the WAF Web ACL.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getWebAcl.
 type GetWebAclResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

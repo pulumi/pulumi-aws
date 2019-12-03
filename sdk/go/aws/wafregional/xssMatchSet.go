@@ -4,6 +4,8 @@
 package wafregional
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,75 +13,233 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_xss_match_set.html.markdown.
 type XssMatchSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the set
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The parts of web requests that you want to inspect for cross-site scripting attacks.
+	XssMatchTuples XssMatchSetXssMatchTuplesArrayOutput `pulumi:"xssMatchTuples"`
 }
 
 // NewXssMatchSet registers a new resource with the given unique name, arguments, and options.
 func NewXssMatchSet(ctx *pulumi.Context,
-	name string, args *XssMatchSetArgs, opts ...pulumi.ResourceOpt) (*XssMatchSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["xssMatchTuples"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["xssMatchTuples"] = args.XssMatchTuples
+	name string, args *XssMatchSetArgs, opts ...pulumi.ResourceOption) (*XssMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.XssMatchTuples; i != nil { inputs["xssMatchTuples"] = i.ToXssMatchSetXssMatchTuplesArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:wafregional/xssMatchSet:XssMatchSet", name, true, inputs, opts...)
+	var resource XssMatchSet
+	err := ctx.RegisterResource("aws:wafregional/xssMatchSet:XssMatchSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &XssMatchSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetXssMatchSet gets an existing XssMatchSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetXssMatchSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *XssMatchSetState, opts ...pulumi.ResourceOpt) (*XssMatchSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *XssMatchSetState, opts ...pulumi.ResourceOption) (*XssMatchSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["xssMatchTuples"] = state.XssMatchTuples
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.XssMatchTuples; i != nil { inputs["xssMatchTuples"] = i.ToXssMatchSetXssMatchTuplesArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:wafregional/xssMatchSet:XssMatchSet", name, id, inputs, opts...)
+	var resource XssMatchSet
+	err := ctx.ReadResource("aws:wafregional/xssMatchSet:XssMatchSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &XssMatchSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *XssMatchSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *XssMatchSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the set
-func (r *XssMatchSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The parts of web requests that you want to inspect for cross-site scripting attacks.
-func (r *XssMatchSet) XssMatchTuples() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["xssMatchTuples"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering XssMatchSet resources.
 type XssMatchSetState struct {
 	// The name of the set
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
-	XssMatchTuples interface{}
+	XssMatchTuples XssMatchSetXssMatchTuplesArrayInput `pulumi:"xssMatchTuples"`
 }
 
 // The set of arguments for constructing a XssMatchSet resource.
 type XssMatchSetArgs struct {
 	// The name of the set
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The parts of web requests that you want to inspect for cross-site scripting attacks.
-	XssMatchTuples interface{}
+	XssMatchTuples XssMatchSetXssMatchTuplesArrayInput `pulumi:"xssMatchTuples"`
 }
+type XssMatchSetXssMatchTuples struct {
+	// Specifies where in a web request to look for cross-site scripting attacks.
+	FieldToMatch XssMatchSetXssMatchTuplesFieldToMatch `pulumi:"fieldToMatch"`
+	// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
+	TextTransformation string `pulumi:"textTransformation"`
+}
+var xssMatchSetXssMatchTuplesType = reflect.TypeOf((*XssMatchSetXssMatchTuples)(nil)).Elem()
+
+type XssMatchSetXssMatchTuplesInput interface {
+	pulumi.Input
+
+	ToXssMatchSetXssMatchTuplesOutput() XssMatchSetXssMatchTuplesOutput
+	ToXssMatchSetXssMatchTuplesOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesOutput
+}
+
+type XssMatchSetXssMatchTuplesArgs struct {
+	// Specifies where in a web request to look for cross-site scripting attacks.
+	FieldToMatch XssMatchSetXssMatchTuplesFieldToMatchInput `pulumi:"fieldToMatch"`
+	// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
+	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
+}
+
+func (XssMatchSetXssMatchTuplesArgs) ElementType() reflect.Type {
+	return xssMatchSetXssMatchTuplesType
+}
+
+func (a XssMatchSetXssMatchTuplesArgs) ToXssMatchSetXssMatchTuplesOutput() XssMatchSetXssMatchTuplesOutput {
+	return pulumi.ToOutput(a).(XssMatchSetXssMatchTuplesOutput)
+}
+
+func (a XssMatchSetXssMatchTuplesArgs) ToXssMatchSetXssMatchTuplesOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(XssMatchSetXssMatchTuplesOutput)
+}
+
+type XssMatchSetXssMatchTuplesOutput struct { *pulumi.OutputState }
+
+// Specifies where in a web request to look for cross-site scripting attacks.
+func (o XssMatchSetXssMatchTuplesOutput) FieldToMatch() XssMatchSetXssMatchTuplesFieldToMatchOutput {
+	return o.Apply(func(v XssMatchSetXssMatchTuples) XssMatchSetXssMatchTuplesFieldToMatch {
+		return v.FieldToMatch
+	}).(XssMatchSetXssMatchTuplesFieldToMatchOutput)
+}
+
+// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
+func (o XssMatchSetXssMatchTuplesOutput) TextTransformation() pulumi.StringOutput {
+	return o.Apply(func(v XssMatchSetXssMatchTuples) string {
+		return v.TextTransformation
+	}).(pulumi.StringOutput)
+}
+
+func (XssMatchSetXssMatchTuplesOutput) ElementType() reflect.Type {
+	return xssMatchSetXssMatchTuplesType
+}
+
+func (o XssMatchSetXssMatchTuplesOutput) ToXssMatchSetXssMatchTuplesOutput() XssMatchSetXssMatchTuplesOutput {
+	return o
+}
+
+func (o XssMatchSetXssMatchTuplesOutput) ToXssMatchSetXssMatchTuplesOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(XssMatchSetXssMatchTuplesOutput{}) }
+
+var xssMatchSetXssMatchTuplesArrayType = reflect.TypeOf((*[]XssMatchSetXssMatchTuples)(nil)).Elem()
+
+type XssMatchSetXssMatchTuplesArrayInput interface {
+	pulumi.Input
+
+	ToXssMatchSetXssMatchTuplesArrayOutput() XssMatchSetXssMatchTuplesArrayOutput
+	ToXssMatchSetXssMatchTuplesArrayOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesArrayOutput
+}
+
+type XssMatchSetXssMatchTuplesArrayArgs []XssMatchSetXssMatchTuplesInput
+
+func (XssMatchSetXssMatchTuplesArrayArgs) ElementType() reflect.Type {
+	return xssMatchSetXssMatchTuplesArrayType
+}
+
+func (a XssMatchSetXssMatchTuplesArrayArgs) ToXssMatchSetXssMatchTuplesArrayOutput() XssMatchSetXssMatchTuplesArrayOutput {
+	return pulumi.ToOutput(a).(XssMatchSetXssMatchTuplesArrayOutput)
+}
+
+func (a XssMatchSetXssMatchTuplesArrayArgs) ToXssMatchSetXssMatchTuplesArrayOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(XssMatchSetXssMatchTuplesArrayOutput)
+}
+
+type XssMatchSetXssMatchTuplesArrayOutput struct { *pulumi.OutputState }
+
+func (o XssMatchSetXssMatchTuplesArrayOutput) Index(i pulumi.IntInput) XssMatchSetXssMatchTuplesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) XssMatchSetXssMatchTuples {
+		return vs[0].([]XssMatchSetXssMatchTuples)[vs[1].(int)]
+	}).(XssMatchSetXssMatchTuplesOutput)
+}
+
+func (XssMatchSetXssMatchTuplesArrayOutput) ElementType() reflect.Type {
+	return xssMatchSetXssMatchTuplesArrayType
+}
+
+func (o XssMatchSetXssMatchTuplesArrayOutput) ToXssMatchSetXssMatchTuplesArrayOutput() XssMatchSetXssMatchTuplesArrayOutput {
+	return o
+}
+
+func (o XssMatchSetXssMatchTuplesArrayOutput) ToXssMatchSetXssMatchTuplesArrayOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(XssMatchSetXssMatchTuplesArrayOutput{}) }
+
+type XssMatchSetXssMatchTuplesFieldToMatch struct {
+	// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+	Data *string `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+	Type string `pulumi:"type"`
+}
+var xssMatchSetXssMatchTuplesFieldToMatchType = reflect.TypeOf((*XssMatchSetXssMatchTuplesFieldToMatch)(nil)).Elem()
+
+type XssMatchSetXssMatchTuplesFieldToMatchInput interface {
+	pulumi.Input
+
+	ToXssMatchSetXssMatchTuplesFieldToMatchOutput() XssMatchSetXssMatchTuplesFieldToMatchOutput
+	ToXssMatchSetXssMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesFieldToMatchOutput
+}
+
+type XssMatchSetXssMatchTuplesFieldToMatchArgs struct {
+	// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+	Data pulumi.StringInput `pulumi:"data"`
+	// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (XssMatchSetXssMatchTuplesFieldToMatchArgs) ElementType() reflect.Type {
+	return xssMatchSetXssMatchTuplesFieldToMatchType
+}
+
+func (a XssMatchSetXssMatchTuplesFieldToMatchArgs) ToXssMatchSetXssMatchTuplesFieldToMatchOutput() XssMatchSetXssMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutput(a).(XssMatchSetXssMatchTuplesFieldToMatchOutput)
+}
+
+func (a XssMatchSetXssMatchTuplesFieldToMatchArgs) ToXssMatchSetXssMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesFieldToMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(XssMatchSetXssMatchTuplesFieldToMatchOutput)
+}
+
+type XssMatchSetXssMatchTuplesFieldToMatchOutput struct { *pulumi.OutputState }
+
+// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+func (o XssMatchSetXssMatchTuplesFieldToMatchOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v XssMatchSetXssMatchTuplesFieldToMatch) string {
+		if v.Data == nil { return *new(string) } else { return *v.Data }
+	}).(pulumi.StringOutput)
+}
+
+// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+func (o XssMatchSetXssMatchTuplesFieldToMatchOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v XssMatchSetXssMatchTuplesFieldToMatch) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (XssMatchSetXssMatchTuplesFieldToMatchOutput) ElementType() reflect.Type {
+	return xssMatchSetXssMatchTuplesFieldToMatchType
+}
+
+func (o XssMatchSetXssMatchTuplesFieldToMatchOutput) ToXssMatchSetXssMatchTuplesFieldToMatchOutput() XssMatchSetXssMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func (o XssMatchSetXssMatchTuplesFieldToMatchOutput) ToXssMatchSetXssMatchTuplesFieldToMatchOutputWithContext(ctx context.Context) XssMatchSetXssMatchTuplesFieldToMatchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(XssMatchSetXssMatchTuplesFieldToMatchOutput{}) }
+

@@ -4,6 +4,8 @@
 package glue
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,243 +14,686 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_crawler.html.markdown.
 type Crawler struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the crawler 
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	CatalogTargets CrawlerCatalogTargetsArrayOutput `pulumi:"catalogTargets"`
+
+	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
+
+	// JSON string of configuration information.
+	Configuration pulumi.StringOutput `pulumi:"configuration"`
+
+	// The name of the Glue database to be synchronized.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+
+	// Description of the crawler.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// List of nested DynamoDB target arguments. See below.
+	DynamodbTargets CrawlerDynamodbTargetsArrayOutput `pulumi:"dynamodbTargets"`
+
+	// List of nested JBDC target arguments. See below.
+	JdbcTargets CrawlerJdbcTargetsArrayOutput `pulumi:"jdbcTargets"`
+
+	// Name of the crawler.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+	Role pulumi.StringOutput `pulumi:"role"`
+
+	// List nested Amazon S3 target arguments. See below.
+	S3Targets CrawlerS3TargetsArrayOutput `pulumi:"s3Targets"`
+
+	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+	Schedule pulumi.StringOutput `pulumi:"schedule"`
+
+	// Policy for the crawler's update and deletion behavior.
+	SchemaChangePolicy CrawlerSchemaChangePolicyOutput `pulumi:"schemaChangePolicy"`
+
+	// The name of Security Configuration to be used by the crawler
+	SecurityConfiguration pulumi.StringOutput `pulumi:"securityConfiguration"`
+
+	// The table prefix used for catalog tables that are created.
+	TablePrefix pulumi.StringOutput `pulumi:"tablePrefix"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewCrawler registers a new resource with the given unique name, arguments, and options.
 func NewCrawler(ctx *pulumi.Context,
-	name string, args *CrawlerArgs, opts ...pulumi.ResourceOpt) (*Crawler, error) {
+	name string, args *CrawlerArgs, opts ...pulumi.ResourceOption) (*Crawler, error) {
 	if args == nil || args.DatabaseName == nil {
 		return nil, errors.New("missing required argument 'DatabaseName'")
 	}
 	if args == nil || args.Role == nil {
 		return nil, errors.New("missing required argument 'Role'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["catalogTargets"] = nil
-		inputs["classifiers"] = nil
-		inputs["configuration"] = nil
-		inputs["databaseName"] = nil
-		inputs["description"] = nil
-		inputs["dynamodbTargets"] = nil
-		inputs["jdbcTargets"] = nil
-		inputs["name"] = nil
-		inputs["role"] = nil
-		inputs["s3Targets"] = nil
-		inputs["schedule"] = nil
-		inputs["schemaChangePolicy"] = nil
-		inputs["securityConfiguration"] = nil
-		inputs["tablePrefix"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["catalogTargets"] = args.CatalogTargets
-		inputs["classifiers"] = args.Classifiers
-		inputs["configuration"] = args.Configuration
-		inputs["databaseName"] = args.DatabaseName
-		inputs["description"] = args.Description
-		inputs["dynamodbTargets"] = args.DynamodbTargets
-		inputs["jdbcTargets"] = args.JdbcTargets
-		inputs["name"] = args.Name
-		inputs["role"] = args.Role
-		inputs["s3Targets"] = args.S3Targets
-		inputs["schedule"] = args.Schedule
-		inputs["schemaChangePolicy"] = args.SchemaChangePolicy
-		inputs["securityConfiguration"] = args.SecurityConfiguration
-		inputs["tablePrefix"] = args.TablePrefix
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CatalogTargets; i != nil { inputs["catalogTargets"] = i.ToCrawlerCatalogTargetsArrayOutput() }
+		if i := args.Classifiers; i != nil { inputs["classifiers"] = i.ToStringArrayOutput() }
+		if i := args.Configuration; i != nil { inputs["configuration"] = i.ToStringOutput() }
+		if i := args.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DynamodbTargets; i != nil { inputs["dynamodbTargets"] = i.ToCrawlerDynamodbTargetsArrayOutput() }
+		if i := args.JdbcTargets; i != nil { inputs["jdbcTargets"] = i.ToCrawlerJdbcTargetsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Role; i != nil { inputs["role"] = i.ToStringOutput() }
+		if i := args.S3Targets; i != nil { inputs["s3Targets"] = i.ToCrawlerS3TargetsArrayOutput() }
+		if i := args.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := args.SchemaChangePolicy; i != nil { inputs["schemaChangePolicy"] = i.ToCrawlerSchemaChangePolicyOutput() }
+		if i := args.SecurityConfiguration; i != nil { inputs["securityConfiguration"] = i.ToStringOutput() }
+		if i := args.TablePrefix; i != nil { inputs["tablePrefix"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, true, inputs, opts...)
+	var resource Crawler
+	err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Crawler{s: s}, nil
+	return &resource, nil
 }
 
 // GetCrawler gets an existing Crawler resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCrawler(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CrawlerState, opts ...pulumi.ResourceOpt) (*Crawler, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CrawlerState, opts ...pulumi.ResourceOption) (*Crawler, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["catalogTargets"] = state.CatalogTargets
-		inputs["classifiers"] = state.Classifiers
-		inputs["configuration"] = state.Configuration
-		inputs["databaseName"] = state.DatabaseName
-		inputs["description"] = state.Description
-		inputs["dynamodbTargets"] = state.DynamodbTargets
-		inputs["jdbcTargets"] = state.JdbcTargets
-		inputs["name"] = state.Name
-		inputs["role"] = state.Role
-		inputs["s3Targets"] = state.S3Targets
-		inputs["schedule"] = state.Schedule
-		inputs["schemaChangePolicy"] = state.SchemaChangePolicy
-		inputs["securityConfiguration"] = state.SecurityConfiguration
-		inputs["tablePrefix"] = state.TablePrefix
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CatalogTargets; i != nil { inputs["catalogTargets"] = i.ToCrawlerCatalogTargetsArrayOutput() }
+		if i := state.Classifiers; i != nil { inputs["classifiers"] = i.ToStringArrayOutput() }
+		if i := state.Configuration; i != nil { inputs["configuration"] = i.ToStringOutput() }
+		if i := state.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DynamodbTargets; i != nil { inputs["dynamodbTargets"] = i.ToCrawlerDynamodbTargetsArrayOutput() }
+		if i := state.JdbcTargets; i != nil { inputs["jdbcTargets"] = i.ToCrawlerJdbcTargetsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Role; i != nil { inputs["role"] = i.ToStringOutput() }
+		if i := state.S3Targets; i != nil { inputs["s3Targets"] = i.ToCrawlerS3TargetsArrayOutput() }
+		if i := state.Schedule; i != nil { inputs["schedule"] = i.ToStringOutput() }
+		if i := state.SchemaChangePolicy; i != nil { inputs["schemaChangePolicy"] = i.ToCrawlerSchemaChangePolicyOutput() }
+		if i := state.SecurityConfiguration; i != nil { inputs["securityConfiguration"] = i.ToStringOutput() }
+		if i := state.TablePrefix; i != nil { inputs["tablePrefix"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:glue/crawler:Crawler", name, id, inputs, opts...)
+	var resource Crawler
+	err := ctx.ReadResource("aws:glue/crawler:Crawler", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Crawler{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Crawler) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Crawler) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the crawler 
-func (r *Crawler) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-func (r *Crawler) CatalogTargets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["catalogTargets"])
-}
-
-// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-func (r *Crawler) Classifiers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["classifiers"])
-}
-
-// JSON string of configuration information.
-func (r *Crawler) Configuration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configuration"])
-}
-
-// The name of the Glue database to be synchronized.
-func (r *Crawler) DatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["databaseName"])
-}
-
-// Description of the crawler.
-func (r *Crawler) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// List of nested DynamoDB target arguments. See below.
-func (r *Crawler) DynamodbTargets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dynamodbTargets"])
-}
-
-// List of nested JBDC target arguments. See below.
-func (r *Crawler) JdbcTargets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["jdbcTargets"])
-}
-
-// Name of the crawler.
-func (r *Crawler) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-func (r *Crawler) Role() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["role"])
-}
-
-// List nested Amazon S3 target arguments. See below.
-func (r *Crawler) S3Targets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["s3Targets"])
-}
-
-// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-func (r *Crawler) Schedule() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["schedule"])
-}
-
-// Policy for the crawler's update and deletion behavior.
-func (r *Crawler) SchemaChangePolicy() pulumi.Output {
-	return r.s.State["schemaChangePolicy"]
-}
-
-// The name of Security Configuration to be used by the crawler
-func (r *Crawler) SecurityConfiguration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["securityConfiguration"])
-}
-
-// The table prefix used for catalog tables that are created.
-func (r *Crawler) TablePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tablePrefix"])
-}
-
-// Key-value mapping of resource tags
-func (r *Crawler) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Crawler resources.
 type CrawlerState struct {
 	// The ARN of the crawler 
-	Arn interface{}
-	CatalogTargets interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
+	CatalogTargets CrawlerCatalogTargetsArrayInput `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-	Classifiers interface{}
+	Classifiers pulumi.StringArrayInput `pulumi:"classifiers"`
 	// JSON string of configuration information.
-	Configuration interface{}
+	Configuration pulumi.StringInput `pulumi:"configuration"`
 	// The name of the Glue database to be synchronized.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Description of the crawler.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See below.
-	DynamodbTargets interface{}
+	DynamodbTargets CrawlerDynamodbTargetsArrayInput `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
-	JdbcTargets interface{}
+	JdbcTargets CrawlerJdbcTargetsArrayInput `pulumi:"jdbcTargets"`
 	// Name of the crawler.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-	Role interface{}
+	Role pulumi.StringInput `pulumi:"role"`
 	// List nested Amazon S3 target arguments. See below.
-	S3Targets interface{}
+	S3Targets CrawlerS3TargetsArrayInput `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// Policy for the crawler's update and deletion behavior.
-	SchemaChangePolicy interface{}
+	SchemaChangePolicy CrawlerSchemaChangePolicyInput `pulumi:"schemaChangePolicy"`
 	// The name of Security Configuration to be used by the crawler
-	SecurityConfiguration interface{}
+	SecurityConfiguration pulumi.StringInput `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
-	TablePrefix interface{}
+	TablePrefix pulumi.StringInput `pulumi:"tablePrefix"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Crawler resource.
 type CrawlerArgs struct {
-	CatalogTargets interface{}
+	CatalogTargets CrawlerCatalogTargetsArrayInput `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-	Classifiers interface{}
+	Classifiers pulumi.StringArrayInput `pulumi:"classifiers"`
 	// JSON string of configuration information.
-	Configuration interface{}
+	Configuration pulumi.StringInput `pulumi:"configuration"`
 	// The name of the Glue database to be synchronized.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Description of the crawler.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See below.
-	DynamodbTargets interface{}
+	DynamodbTargets CrawlerDynamodbTargetsArrayInput `pulumi:"dynamodbTargets"`
 	// List of nested JBDC target arguments. See below.
-	JdbcTargets interface{}
+	JdbcTargets CrawlerJdbcTargetsArrayInput `pulumi:"jdbcTargets"`
 	// Name of the crawler.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-	Role interface{}
+	Role pulumi.StringInput `pulumi:"role"`
 	// List nested Amazon S3 target arguments. See below.
-	S3Targets interface{}
+	S3Targets CrawlerS3TargetsArrayInput `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-	Schedule interface{}
+	Schedule pulumi.StringInput `pulumi:"schedule"`
 	// Policy for the crawler's update and deletion behavior.
-	SchemaChangePolicy interface{}
+	SchemaChangePolicy CrawlerSchemaChangePolicyInput `pulumi:"schemaChangePolicy"`
 	// The name of Security Configuration to be used by the crawler
-	SecurityConfiguration interface{}
+	SecurityConfiguration pulumi.StringInput `pulumi:"securityConfiguration"`
 	// The table prefix used for catalog tables that are created.
-	TablePrefix interface{}
+	TablePrefix pulumi.StringInput `pulumi:"tablePrefix"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type CrawlerCatalogTargets struct {
+	// The name of the Glue database to be synchronized.
+	DatabaseName string `pulumi:"databaseName"`
+	// A list of catalog tables to be synchronized.
+	Tables []string `pulumi:"tables"`
+}
+var crawlerCatalogTargetsType = reflect.TypeOf((*CrawlerCatalogTargets)(nil)).Elem()
+
+type CrawlerCatalogTargetsInput interface {
+	pulumi.Input
+
+	ToCrawlerCatalogTargetsOutput() CrawlerCatalogTargetsOutput
+	ToCrawlerCatalogTargetsOutputWithContext(ctx context.Context) CrawlerCatalogTargetsOutput
+}
+
+type CrawlerCatalogTargetsArgs struct {
+	// The name of the Glue database to be synchronized.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// A list of catalog tables to be synchronized.
+	Tables pulumi.StringArrayInput `pulumi:"tables"`
+}
+
+func (CrawlerCatalogTargetsArgs) ElementType() reflect.Type {
+	return crawlerCatalogTargetsType
+}
+
+func (a CrawlerCatalogTargetsArgs) ToCrawlerCatalogTargetsOutput() CrawlerCatalogTargetsOutput {
+	return pulumi.ToOutput(a).(CrawlerCatalogTargetsOutput)
+}
+
+func (a CrawlerCatalogTargetsArgs) ToCrawlerCatalogTargetsOutputWithContext(ctx context.Context) CrawlerCatalogTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerCatalogTargetsOutput)
+}
+
+type CrawlerCatalogTargetsOutput struct { *pulumi.OutputState }
+
+// The name of the Glue database to be synchronized.
+func (o CrawlerCatalogTargetsOutput) DatabaseName() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerCatalogTargets) string {
+		return v.DatabaseName
+	}).(pulumi.StringOutput)
+}
+
+// A list of catalog tables to be synchronized.
+func (o CrawlerCatalogTargetsOutput) Tables() pulumi.StringArrayOutput {
+	return o.Apply(func(v CrawlerCatalogTargets) []string {
+		return v.Tables
+	}).(pulumi.StringArrayOutput)
+}
+
+func (CrawlerCatalogTargetsOutput) ElementType() reflect.Type {
+	return crawlerCatalogTargetsType
+}
+
+func (o CrawlerCatalogTargetsOutput) ToCrawlerCatalogTargetsOutput() CrawlerCatalogTargetsOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetsOutput) ToCrawlerCatalogTargetsOutputWithContext(ctx context.Context) CrawlerCatalogTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerCatalogTargetsOutput{}) }
+
+var crawlerCatalogTargetsArrayType = reflect.TypeOf((*[]CrawlerCatalogTargets)(nil)).Elem()
+
+type CrawlerCatalogTargetsArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerCatalogTargetsArrayOutput() CrawlerCatalogTargetsArrayOutput
+	ToCrawlerCatalogTargetsArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetsArrayOutput
+}
+
+type CrawlerCatalogTargetsArrayArgs []CrawlerCatalogTargetsInput
+
+func (CrawlerCatalogTargetsArrayArgs) ElementType() reflect.Type {
+	return crawlerCatalogTargetsArrayType
+}
+
+func (a CrawlerCatalogTargetsArrayArgs) ToCrawlerCatalogTargetsArrayOutput() CrawlerCatalogTargetsArrayOutput {
+	return pulumi.ToOutput(a).(CrawlerCatalogTargetsArrayOutput)
+}
+
+func (a CrawlerCatalogTargetsArrayArgs) ToCrawlerCatalogTargetsArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerCatalogTargetsArrayOutput)
+}
+
+type CrawlerCatalogTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o CrawlerCatalogTargetsArrayOutput) Index(i pulumi.IntInput) CrawlerCatalogTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CrawlerCatalogTargets {
+		return vs[0].([]CrawlerCatalogTargets)[vs[1].(int)]
+	}).(CrawlerCatalogTargetsOutput)
+}
+
+func (CrawlerCatalogTargetsArrayOutput) ElementType() reflect.Type {
+	return crawlerCatalogTargetsArrayType
+}
+
+func (o CrawlerCatalogTargetsArrayOutput) ToCrawlerCatalogTargetsArrayOutput() CrawlerCatalogTargetsArrayOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetsArrayOutput) ToCrawlerCatalogTargetsArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerCatalogTargetsArrayOutput{}) }
+
+type CrawlerDynamodbTargets struct {
+	// The path to the Amazon S3 target.
+	Path string `pulumi:"path"`
+}
+var crawlerDynamodbTargetsType = reflect.TypeOf((*CrawlerDynamodbTargets)(nil)).Elem()
+
+type CrawlerDynamodbTargetsInput interface {
+	pulumi.Input
+
+	ToCrawlerDynamodbTargetsOutput() CrawlerDynamodbTargetsOutput
+	ToCrawlerDynamodbTargetsOutputWithContext(ctx context.Context) CrawlerDynamodbTargetsOutput
+}
+
+type CrawlerDynamodbTargetsArgs struct {
+	// The path to the Amazon S3 target.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (CrawlerDynamodbTargetsArgs) ElementType() reflect.Type {
+	return crawlerDynamodbTargetsType
+}
+
+func (a CrawlerDynamodbTargetsArgs) ToCrawlerDynamodbTargetsOutput() CrawlerDynamodbTargetsOutput {
+	return pulumi.ToOutput(a).(CrawlerDynamodbTargetsOutput)
+}
+
+func (a CrawlerDynamodbTargetsArgs) ToCrawlerDynamodbTargetsOutputWithContext(ctx context.Context) CrawlerDynamodbTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerDynamodbTargetsOutput)
+}
+
+type CrawlerDynamodbTargetsOutput struct { *pulumi.OutputState }
+
+// The path to the Amazon S3 target.
+func (o CrawlerDynamodbTargetsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerDynamodbTargets) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (CrawlerDynamodbTargetsOutput) ElementType() reflect.Type {
+	return crawlerDynamodbTargetsType
+}
+
+func (o CrawlerDynamodbTargetsOutput) ToCrawlerDynamodbTargetsOutput() CrawlerDynamodbTargetsOutput {
+	return o
+}
+
+func (o CrawlerDynamodbTargetsOutput) ToCrawlerDynamodbTargetsOutputWithContext(ctx context.Context) CrawlerDynamodbTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerDynamodbTargetsOutput{}) }
+
+var crawlerDynamodbTargetsArrayType = reflect.TypeOf((*[]CrawlerDynamodbTargets)(nil)).Elem()
+
+type CrawlerDynamodbTargetsArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerDynamodbTargetsArrayOutput() CrawlerDynamodbTargetsArrayOutput
+	ToCrawlerDynamodbTargetsArrayOutputWithContext(ctx context.Context) CrawlerDynamodbTargetsArrayOutput
+}
+
+type CrawlerDynamodbTargetsArrayArgs []CrawlerDynamodbTargetsInput
+
+func (CrawlerDynamodbTargetsArrayArgs) ElementType() reflect.Type {
+	return crawlerDynamodbTargetsArrayType
+}
+
+func (a CrawlerDynamodbTargetsArrayArgs) ToCrawlerDynamodbTargetsArrayOutput() CrawlerDynamodbTargetsArrayOutput {
+	return pulumi.ToOutput(a).(CrawlerDynamodbTargetsArrayOutput)
+}
+
+func (a CrawlerDynamodbTargetsArrayArgs) ToCrawlerDynamodbTargetsArrayOutputWithContext(ctx context.Context) CrawlerDynamodbTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerDynamodbTargetsArrayOutput)
+}
+
+type CrawlerDynamodbTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o CrawlerDynamodbTargetsArrayOutput) Index(i pulumi.IntInput) CrawlerDynamodbTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CrawlerDynamodbTargets {
+		return vs[0].([]CrawlerDynamodbTargets)[vs[1].(int)]
+	}).(CrawlerDynamodbTargetsOutput)
+}
+
+func (CrawlerDynamodbTargetsArrayOutput) ElementType() reflect.Type {
+	return crawlerDynamodbTargetsArrayType
+}
+
+func (o CrawlerDynamodbTargetsArrayOutput) ToCrawlerDynamodbTargetsArrayOutput() CrawlerDynamodbTargetsArrayOutput {
+	return o
+}
+
+func (o CrawlerDynamodbTargetsArrayOutput) ToCrawlerDynamodbTargetsArrayOutputWithContext(ctx context.Context) CrawlerDynamodbTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerDynamodbTargetsArrayOutput{}) }
+
+type CrawlerJdbcTargets struct {
+	// The name of the connection to use to connect to the JDBC target.
+	ConnectionName string `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions *[]string `pulumi:"exclusions"`
+	// The path to the Amazon S3 target.
+	Path string `pulumi:"path"`
+}
+var crawlerJdbcTargetsType = reflect.TypeOf((*CrawlerJdbcTargets)(nil)).Elem()
+
+type CrawlerJdbcTargetsInput interface {
+	pulumi.Input
+
+	ToCrawlerJdbcTargetsOutput() CrawlerJdbcTargetsOutput
+	ToCrawlerJdbcTargetsOutputWithContext(ctx context.Context) CrawlerJdbcTargetsOutput
+}
+
+type CrawlerJdbcTargetsArgs struct {
+	// The name of the connection to use to connect to the JDBC target.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The path to the Amazon S3 target.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (CrawlerJdbcTargetsArgs) ElementType() reflect.Type {
+	return crawlerJdbcTargetsType
+}
+
+func (a CrawlerJdbcTargetsArgs) ToCrawlerJdbcTargetsOutput() CrawlerJdbcTargetsOutput {
+	return pulumi.ToOutput(a).(CrawlerJdbcTargetsOutput)
+}
+
+func (a CrawlerJdbcTargetsArgs) ToCrawlerJdbcTargetsOutputWithContext(ctx context.Context) CrawlerJdbcTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerJdbcTargetsOutput)
+}
+
+type CrawlerJdbcTargetsOutput struct { *pulumi.OutputState }
+
+// The name of the connection to use to connect to the JDBC target.
+func (o CrawlerJdbcTargetsOutput) ConnectionName() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerJdbcTargets) string {
+		return v.ConnectionName
+	}).(pulumi.StringOutput)
+}
+
+// A list of glob patterns used to exclude from the crawl.
+func (o CrawlerJdbcTargetsOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.Apply(func(v CrawlerJdbcTargets) []string {
+		if v.Exclusions == nil { return *new([]string) } else { return *v.Exclusions }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The path to the Amazon S3 target.
+func (o CrawlerJdbcTargetsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerJdbcTargets) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (CrawlerJdbcTargetsOutput) ElementType() reflect.Type {
+	return crawlerJdbcTargetsType
+}
+
+func (o CrawlerJdbcTargetsOutput) ToCrawlerJdbcTargetsOutput() CrawlerJdbcTargetsOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetsOutput) ToCrawlerJdbcTargetsOutputWithContext(ctx context.Context) CrawlerJdbcTargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerJdbcTargetsOutput{}) }
+
+var crawlerJdbcTargetsArrayType = reflect.TypeOf((*[]CrawlerJdbcTargets)(nil)).Elem()
+
+type CrawlerJdbcTargetsArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerJdbcTargetsArrayOutput() CrawlerJdbcTargetsArrayOutput
+	ToCrawlerJdbcTargetsArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetsArrayOutput
+}
+
+type CrawlerJdbcTargetsArrayArgs []CrawlerJdbcTargetsInput
+
+func (CrawlerJdbcTargetsArrayArgs) ElementType() reflect.Type {
+	return crawlerJdbcTargetsArrayType
+}
+
+func (a CrawlerJdbcTargetsArrayArgs) ToCrawlerJdbcTargetsArrayOutput() CrawlerJdbcTargetsArrayOutput {
+	return pulumi.ToOutput(a).(CrawlerJdbcTargetsArrayOutput)
+}
+
+func (a CrawlerJdbcTargetsArrayArgs) ToCrawlerJdbcTargetsArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerJdbcTargetsArrayOutput)
+}
+
+type CrawlerJdbcTargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o CrawlerJdbcTargetsArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CrawlerJdbcTargets {
+		return vs[0].([]CrawlerJdbcTargets)[vs[1].(int)]
+	}).(CrawlerJdbcTargetsOutput)
+}
+
+func (CrawlerJdbcTargetsArrayOutput) ElementType() reflect.Type {
+	return crawlerJdbcTargetsArrayType
+}
+
+func (o CrawlerJdbcTargetsArrayOutput) ToCrawlerJdbcTargetsArrayOutput() CrawlerJdbcTargetsArrayOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetsArrayOutput) ToCrawlerJdbcTargetsArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerJdbcTargetsArrayOutput{}) }
+
+type CrawlerS3Targets struct {
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions *[]string `pulumi:"exclusions"`
+	// The path to the Amazon S3 target.
+	Path string `pulumi:"path"`
+}
+var crawlerS3TargetsType = reflect.TypeOf((*CrawlerS3Targets)(nil)).Elem()
+
+type CrawlerS3TargetsInput interface {
+	pulumi.Input
+
+	ToCrawlerS3TargetsOutput() CrawlerS3TargetsOutput
+	ToCrawlerS3TargetsOutputWithContext(ctx context.Context) CrawlerS3TargetsOutput
+}
+
+type CrawlerS3TargetsArgs struct {
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The path to the Amazon S3 target.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (CrawlerS3TargetsArgs) ElementType() reflect.Type {
+	return crawlerS3TargetsType
+}
+
+func (a CrawlerS3TargetsArgs) ToCrawlerS3TargetsOutput() CrawlerS3TargetsOutput {
+	return pulumi.ToOutput(a).(CrawlerS3TargetsOutput)
+}
+
+func (a CrawlerS3TargetsArgs) ToCrawlerS3TargetsOutputWithContext(ctx context.Context) CrawlerS3TargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerS3TargetsOutput)
+}
+
+type CrawlerS3TargetsOutput struct { *pulumi.OutputState }
+
+// A list of glob patterns used to exclude from the crawl.
+func (o CrawlerS3TargetsOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.Apply(func(v CrawlerS3Targets) []string {
+		if v.Exclusions == nil { return *new([]string) } else { return *v.Exclusions }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The path to the Amazon S3 target.
+func (o CrawlerS3TargetsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerS3Targets) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (CrawlerS3TargetsOutput) ElementType() reflect.Type {
+	return crawlerS3TargetsType
+}
+
+func (o CrawlerS3TargetsOutput) ToCrawlerS3TargetsOutput() CrawlerS3TargetsOutput {
+	return o
+}
+
+func (o CrawlerS3TargetsOutput) ToCrawlerS3TargetsOutputWithContext(ctx context.Context) CrawlerS3TargetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerS3TargetsOutput{}) }
+
+var crawlerS3TargetsArrayType = reflect.TypeOf((*[]CrawlerS3Targets)(nil)).Elem()
+
+type CrawlerS3TargetsArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerS3TargetsArrayOutput() CrawlerS3TargetsArrayOutput
+	ToCrawlerS3TargetsArrayOutputWithContext(ctx context.Context) CrawlerS3TargetsArrayOutput
+}
+
+type CrawlerS3TargetsArrayArgs []CrawlerS3TargetsInput
+
+func (CrawlerS3TargetsArrayArgs) ElementType() reflect.Type {
+	return crawlerS3TargetsArrayType
+}
+
+func (a CrawlerS3TargetsArrayArgs) ToCrawlerS3TargetsArrayOutput() CrawlerS3TargetsArrayOutput {
+	return pulumi.ToOutput(a).(CrawlerS3TargetsArrayOutput)
+}
+
+func (a CrawlerS3TargetsArrayArgs) ToCrawlerS3TargetsArrayOutputWithContext(ctx context.Context) CrawlerS3TargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerS3TargetsArrayOutput)
+}
+
+type CrawlerS3TargetsArrayOutput struct { *pulumi.OutputState }
+
+func (o CrawlerS3TargetsArrayOutput) Index(i pulumi.IntInput) CrawlerS3TargetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CrawlerS3Targets {
+		return vs[0].([]CrawlerS3Targets)[vs[1].(int)]
+	}).(CrawlerS3TargetsOutput)
+}
+
+func (CrawlerS3TargetsArrayOutput) ElementType() reflect.Type {
+	return crawlerS3TargetsArrayType
+}
+
+func (o CrawlerS3TargetsArrayOutput) ToCrawlerS3TargetsArrayOutput() CrawlerS3TargetsArrayOutput {
+	return o
+}
+
+func (o CrawlerS3TargetsArrayOutput) ToCrawlerS3TargetsArrayOutputWithContext(ctx context.Context) CrawlerS3TargetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerS3TargetsArrayOutput{}) }
+
+type CrawlerSchemaChangePolicy struct {
+	// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+	DeleteBehavior *string `pulumi:"deleteBehavior"`
+	// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+	UpdateBehavior *string `pulumi:"updateBehavior"`
+}
+var crawlerSchemaChangePolicyType = reflect.TypeOf((*CrawlerSchemaChangePolicy)(nil)).Elem()
+
+type CrawlerSchemaChangePolicyInput interface {
+	pulumi.Input
+
+	ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput
+	ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput
+}
+
+type CrawlerSchemaChangePolicyArgs struct {
+	// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+	DeleteBehavior pulumi.StringInput `pulumi:"deleteBehavior"`
+	// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+	UpdateBehavior pulumi.StringInput `pulumi:"updateBehavior"`
+}
+
+func (CrawlerSchemaChangePolicyArgs) ElementType() reflect.Type {
+	return crawlerSchemaChangePolicyType
+}
+
+func (a CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput {
+	return pulumi.ToOutput(a).(CrawlerSchemaChangePolicyOutput)
+}
+
+func (a CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CrawlerSchemaChangePolicyOutput)
+}
+
+type CrawlerSchemaChangePolicyOutput struct { *pulumi.OutputState }
+
+// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+func (o CrawlerSchemaChangePolicyOutput) DeleteBehavior() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerSchemaChangePolicy) string {
+		if v.DeleteBehavior == nil { return *new(string) } else { return *v.DeleteBehavior }
+	}).(pulumi.StringOutput)
+}
+
+// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+func (o CrawlerSchemaChangePolicyOutput) UpdateBehavior() pulumi.StringOutput {
+	return o.Apply(func(v CrawlerSchemaChangePolicy) string {
+		if v.UpdateBehavior == nil { return *new(string) } else { return *v.UpdateBehavior }
+	}).(pulumi.StringOutput)
+}
+
+func (CrawlerSchemaChangePolicyOutput) ElementType() reflect.Type {
+	return crawlerSchemaChangePolicyType
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{}) }
+

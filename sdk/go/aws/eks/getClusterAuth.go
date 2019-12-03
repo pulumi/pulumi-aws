@@ -15,33 +15,26 @@ import (
 // server configured.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
-func LookupClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs) (*GetClusterAuthResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:eks/getClusterAuth:getClusterAuth", inputs)
+func LookupClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulumi.InvokeOption) (*GetClusterAuthResult, error) {
+	var rv GetClusterAuthResult
+	err := ctx.Invoke("aws:eks/getClusterAuth:getClusterAuth", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetClusterAuthResult{
-		Name: outputs["name"],
-		Token: outputs["token"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getClusterAuth.
 type GetClusterAuthArgs struct {
 	// The name of the cluster
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getClusterAuth.
 type GetClusterAuthResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The token to use to authenticate with the cluster.
-	Token interface{}
+	Token string `pulumi:"token"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

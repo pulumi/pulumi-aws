@@ -10,30 +10,24 @@ import (
 // `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
-func LookupRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs) (*GetRateBasedModResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", inputs)
+func LookupRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pulumi.InvokeOption) (*GetRateBasedModResult, error) {
+	var rv GetRateBasedModResult
+	err := ctx.Invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRateBasedModResult{
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRateBasedMod.
 type GetRateBasedModArgs struct {
 	// The name of the WAF Regional rate based rule.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getRateBasedMod.
 type GetRateBasedModResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -16,123 +16,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudformation_stack_set_instance.html.markdown.
 type StackSetInstance struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+
+	// Key-value map of input parameters to override from the Stack Set for this Instance.
+	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
+
+	// Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
+	Region pulumi.StringOutput `pulumi:"region"`
+
+	// During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+	RetainStack pulumi.BoolOutput `pulumi:"retainStack"`
+
+	// Stack identifier
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// Name of the Stack Set.
+	StackSetName pulumi.StringOutput `pulumi:"stackSetName"`
 }
 
 // NewStackSetInstance registers a new resource with the given unique name, arguments, and options.
 func NewStackSetInstance(ctx *pulumi.Context,
-	name string, args *StackSetInstanceArgs, opts ...pulumi.ResourceOpt) (*StackSetInstance, error) {
+	name string, args *StackSetInstanceArgs, opts ...pulumi.ResourceOption) (*StackSetInstance, error) {
 	if args == nil || args.StackSetName == nil {
 		return nil, errors.New("missing required argument 'StackSetName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountId"] = nil
-		inputs["parameterOverrides"] = nil
-		inputs["region"] = nil
-		inputs["retainStack"] = nil
-		inputs["stackSetName"] = nil
-	} else {
-		inputs["accountId"] = args.AccountId
-		inputs["parameterOverrides"] = args.ParameterOverrides
-		inputs["region"] = args.Region
-		inputs["retainStack"] = args.RetainStack
-		inputs["stackSetName"] = args.StackSetName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := args.ParameterOverrides; i != nil { inputs["parameterOverrides"] = i.ToStringMapOutput() }
+		if i := args.Region; i != nil { inputs["region"] = i.ToStringOutput() }
+		if i := args.RetainStack; i != nil { inputs["retainStack"] = i.ToBoolOutput() }
+		if i := args.StackSetName; i != nil { inputs["stackSetName"] = i.ToStringOutput() }
 	}
-	inputs["stackId"] = nil
-	s, err := ctx.RegisterResource("aws:cloudformation/stackSetInstance:StackSetInstance", name, true, inputs, opts...)
+	var resource StackSetInstance
+	err := ctx.RegisterResource("aws:cloudformation/stackSetInstance:StackSetInstance", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StackSetInstance{s: s}, nil
+	return &resource, nil
 }
 
 // GetStackSetInstance gets an existing StackSetInstance resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStackSetInstance(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StackSetInstanceState, opts ...pulumi.ResourceOpt) (*StackSetInstance, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StackSetInstanceState, opts ...pulumi.ResourceOption) (*StackSetInstance, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountId"] = state.AccountId
-		inputs["parameterOverrides"] = state.ParameterOverrides
-		inputs["region"] = state.Region
-		inputs["retainStack"] = state.RetainStack
-		inputs["stackId"] = state.StackId
-		inputs["stackSetName"] = state.StackSetName
+		if i := state.AccountId; i != nil { inputs["accountId"] = i.ToStringOutput() }
+		if i := state.ParameterOverrides; i != nil { inputs["parameterOverrides"] = i.ToStringMapOutput() }
+		if i := state.Region; i != nil { inputs["region"] = i.ToStringOutput() }
+		if i := state.RetainStack; i != nil { inputs["retainStack"] = i.ToBoolOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.StackSetName; i != nil { inputs["stackSetName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudformation/stackSetInstance:StackSetInstance", name, id, inputs, opts...)
+	var resource StackSetInstance
+	err := ctx.ReadResource("aws:cloudformation/stackSetInstance:StackSetInstance", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StackSetInstance{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StackSetInstance) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StackSetInstance) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
-func (r *StackSetInstance) AccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountId"])
-}
-
-// Key-value map of input parameters to override from the Stack Set for this Instance.
-func (r *StackSetInstance) ParameterOverrides() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameterOverrides"])
-}
-
-// Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
-func (r *StackSetInstance) Region() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["region"])
-}
-
-// During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
-func (r *StackSetInstance) RetainStack() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["retainStack"])
-}
-
-// Stack identifier
-func (r *StackSetInstance) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// Name of the Stack Set.
-func (r *StackSetInstance) StackSetName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackSetName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StackSetInstance resources.
 type StackSetInstanceState struct {
 	// Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Key-value map of input parameters to override from the Stack Set for this Instance.
-	ParameterOverrides interface{}
+	ParameterOverrides pulumi.StringMapInput `pulumi:"parameterOverrides"`
 	// Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
-	Region interface{}
+	Region pulumi.StringInput `pulumi:"region"`
 	// During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
-	RetainStack interface{}
+	RetainStack pulumi.BoolInput `pulumi:"retainStack"`
 	// Stack identifier
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Name of the Stack Set.
-	StackSetName interface{}
+	StackSetName pulumi.StringInput `pulumi:"stackSetName"`
 }
 
 // The set of arguments for constructing a StackSetInstance resource.
 type StackSetInstanceArgs struct {
 	// Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
-	AccountId interface{}
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Key-value map of input parameters to override from the Stack Set for this Instance.
-	ParameterOverrides interface{}
+	ParameterOverrides pulumi.StringMapInput `pulumi:"parameterOverrides"`
 	// Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
-	Region interface{}
+	Region pulumi.StringInput `pulumi:"region"`
 	// During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
-	RetainStack interface{}
+	RetainStack pulumi.BoolInput `pulumi:"retainStack"`
 	// Name of the Stack Set.
-	StackSetName interface{}
+	StackSetName pulumi.StringInput `pulumi:"stackSetName"`
 }

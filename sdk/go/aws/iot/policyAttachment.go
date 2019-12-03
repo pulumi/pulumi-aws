@@ -12,81 +12,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
 type PolicyAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the policy to attach.
+	Policy pulumi.StringOutput `pulumi:"policy"`
+
+	// The identity to which the policy is attached.
+	Target pulumi.StringOutput `pulumi:"target"`
 }
 
 // NewPolicyAttachment registers a new resource with the given unique name, arguments, and options.
 func NewPolicyAttachment(ctx *pulumi.Context,
-	name string, args *PolicyAttachmentArgs, opts ...pulumi.ResourceOpt) (*PolicyAttachment, error) {
+	name string, args *PolicyAttachmentArgs, opts ...pulumi.ResourceOption) (*PolicyAttachment, error) {
 	if args == nil || args.Policy == nil {
 		return nil, errors.New("missing required argument 'Policy'")
 	}
 	if args == nil || args.Target == nil {
 		return nil, errors.New("missing required argument 'Target'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["policy"] = nil
-		inputs["target"] = nil
-	} else {
-		inputs["policy"] = args.Policy
-		inputs["target"] = args.Target
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := args.Target; i != nil { inputs["target"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:iot/policyAttachment:PolicyAttachment", name, true, inputs, opts...)
+	var resource PolicyAttachment
+	err := ctx.RegisterResource("aws:iot/policyAttachment:PolicyAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PolicyAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetPolicyAttachment gets an existing PolicyAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPolicyAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PolicyAttachmentState, opts ...pulumi.ResourceOpt) (*PolicyAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PolicyAttachmentState, opts ...pulumi.ResourceOption) (*PolicyAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["policy"] = state.Policy
-		inputs["target"] = state.Target
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToStringOutput() }
+		if i := state.Target; i != nil { inputs["target"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iot/policyAttachment:PolicyAttachment", name, id, inputs, opts...)
+	var resource PolicyAttachment
+	err := ctx.ReadResource("aws:iot/policyAttachment:PolicyAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PolicyAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PolicyAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PolicyAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the policy to attach.
-func (r *PolicyAttachment) Policy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policy"])
-}
-
-// The identity to which the policy is attached.
-func (r *PolicyAttachment) Target() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["target"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type PolicyAttachmentState struct {
 	// The name of the policy to attach.
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The identity to which the policy is attached.
-	Target interface{}
+	Target pulumi.StringInput `pulumi:"target"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
 	// The name of the policy to attach.
-	Policy interface{}
+	Policy pulumi.StringInput `pulumi:"policy"`
 	// The identity to which the policy is attached.
-	Target interface{}
+	Target pulumi.StringInput `pulumi:"target"`
 }

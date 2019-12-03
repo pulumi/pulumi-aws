@@ -15,175 +15,136 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
 type AccountPasswordPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether to allow users to change their own password
+	AllowUsersToChangePassword pulumi.BoolOutput `pulumi:"allowUsersToChangePassword"`
+
+	// Indicates whether passwords in the account expire.
+	// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
+	// Returns `false` if it is `0` or _not present_.
+	ExpirePasswords pulumi.BoolOutput `pulumi:"expirePasswords"`
+
+	// Whether users are prevented from setting a new password after their password has expired
+	// (i.e. require administrator reset)
+	HardExpiry pulumi.BoolOutput `pulumi:"hardExpiry"`
+
+	// The number of days that an user password is valid.
+	MaxPasswordAge pulumi.IntOutput `pulumi:"maxPasswordAge"`
+
+	// Minimum length to require for user passwords.
+	MinimumPasswordLength pulumi.IntOutput `pulumi:"minimumPasswordLength"`
+
+	// The number of previous passwords that users are prevented from reusing.
+	PasswordReusePrevention pulumi.IntOutput `pulumi:"passwordReusePrevention"`
+
+	// Whether to require lowercase characters for user passwords.
+	RequireLowercaseCharacters pulumi.BoolOutput `pulumi:"requireLowercaseCharacters"`
+
+	// Whether to require numbers for user passwords.
+	RequireNumbers pulumi.BoolOutput `pulumi:"requireNumbers"`
+
+	// Whether to require symbols for user passwords.
+	RequireSymbols pulumi.BoolOutput `pulumi:"requireSymbols"`
+
+	// Whether to require uppercase characters for user passwords.
+	RequireUppercaseCharacters pulumi.BoolOutput `pulumi:"requireUppercaseCharacters"`
 }
 
 // NewAccountPasswordPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccountPasswordPolicy(ctx *pulumi.Context,
-	name string, args *AccountPasswordPolicyArgs, opts ...pulumi.ResourceOpt) (*AccountPasswordPolicy, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowUsersToChangePassword"] = nil
-		inputs["hardExpiry"] = nil
-		inputs["maxPasswordAge"] = nil
-		inputs["minimumPasswordLength"] = nil
-		inputs["passwordReusePrevention"] = nil
-		inputs["requireLowercaseCharacters"] = nil
-		inputs["requireNumbers"] = nil
-		inputs["requireSymbols"] = nil
-		inputs["requireUppercaseCharacters"] = nil
-	} else {
-		inputs["allowUsersToChangePassword"] = args.AllowUsersToChangePassword
-		inputs["hardExpiry"] = args.HardExpiry
-		inputs["maxPasswordAge"] = args.MaxPasswordAge
-		inputs["minimumPasswordLength"] = args.MinimumPasswordLength
-		inputs["passwordReusePrevention"] = args.PasswordReusePrevention
-		inputs["requireLowercaseCharacters"] = args.RequireLowercaseCharacters
-		inputs["requireNumbers"] = args.RequireNumbers
-		inputs["requireSymbols"] = args.RequireSymbols
-		inputs["requireUppercaseCharacters"] = args.RequireUppercaseCharacters
+	name string, args *AccountPasswordPolicyArgs, opts ...pulumi.ResourceOption) (*AccountPasswordPolicy, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowUsersToChangePassword; i != nil { inputs["allowUsersToChangePassword"] = i.ToBoolOutput() }
+		if i := args.HardExpiry; i != nil { inputs["hardExpiry"] = i.ToBoolOutput() }
+		if i := args.MaxPasswordAge; i != nil { inputs["maxPasswordAge"] = i.ToIntOutput() }
+		if i := args.MinimumPasswordLength; i != nil { inputs["minimumPasswordLength"] = i.ToIntOutput() }
+		if i := args.PasswordReusePrevention; i != nil { inputs["passwordReusePrevention"] = i.ToIntOutput() }
+		if i := args.RequireLowercaseCharacters; i != nil { inputs["requireLowercaseCharacters"] = i.ToBoolOutput() }
+		if i := args.RequireNumbers; i != nil { inputs["requireNumbers"] = i.ToBoolOutput() }
+		if i := args.RequireSymbols; i != nil { inputs["requireSymbols"] = i.ToBoolOutput() }
+		if i := args.RequireUppercaseCharacters; i != nil { inputs["requireUppercaseCharacters"] = i.ToBoolOutput() }
 	}
-	inputs["expirePasswords"] = nil
-	s, err := ctx.RegisterResource("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, true, inputs, opts...)
+	var resource AccountPasswordPolicy
+	err := ctx.RegisterResource("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AccountPasswordPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccountPasswordPolicy gets an existing AccountPasswordPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccountPasswordPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountPasswordPolicyState, opts ...pulumi.ResourceOpt) (*AccountPasswordPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountPasswordPolicyState, opts ...pulumi.ResourceOption) (*AccountPasswordPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowUsersToChangePassword"] = state.AllowUsersToChangePassword
-		inputs["expirePasswords"] = state.ExpirePasswords
-		inputs["hardExpiry"] = state.HardExpiry
-		inputs["maxPasswordAge"] = state.MaxPasswordAge
-		inputs["minimumPasswordLength"] = state.MinimumPasswordLength
-		inputs["passwordReusePrevention"] = state.PasswordReusePrevention
-		inputs["requireLowercaseCharacters"] = state.RequireLowercaseCharacters
-		inputs["requireNumbers"] = state.RequireNumbers
-		inputs["requireSymbols"] = state.RequireSymbols
-		inputs["requireUppercaseCharacters"] = state.RequireUppercaseCharacters
+		if i := state.AllowUsersToChangePassword; i != nil { inputs["allowUsersToChangePassword"] = i.ToBoolOutput() }
+		if i := state.ExpirePasswords; i != nil { inputs["expirePasswords"] = i.ToBoolOutput() }
+		if i := state.HardExpiry; i != nil { inputs["hardExpiry"] = i.ToBoolOutput() }
+		if i := state.MaxPasswordAge; i != nil { inputs["maxPasswordAge"] = i.ToIntOutput() }
+		if i := state.MinimumPasswordLength; i != nil { inputs["minimumPasswordLength"] = i.ToIntOutput() }
+		if i := state.PasswordReusePrevention; i != nil { inputs["passwordReusePrevention"] = i.ToIntOutput() }
+		if i := state.RequireLowercaseCharacters; i != nil { inputs["requireLowercaseCharacters"] = i.ToBoolOutput() }
+		if i := state.RequireNumbers; i != nil { inputs["requireNumbers"] = i.ToBoolOutput() }
+		if i := state.RequireSymbols; i != nil { inputs["requireSymbols"] = i.ToBoolOutput() }
+		if i := state.RequireUppercaseCharacters; i != nil { inputs["requireUppercaseCharacters"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, id, inputs, opts...)
+	var resource AccountPasswordPolicy
+	err := ctx.ReadResource("aws:iam/accountPasswordPolicy:AccountPasswordPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AccountPasswordPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AccountPasswordPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AccountPasswordPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether to allow users to change their own password
-func (r *AccountPasswordPolicy) AllowUsersToChangePassword() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowUsersToChangePassword"])
-}
-
-// Indicates whether passwords in the account expire.
-// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
-// Returns `false` if it is `0` or _not present_.
-func (r *AccountPasswordPolicy) ExpirePasswords() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["expirePasswords"])
-}
-
-// Whether users are prevented from setting a new password after their password has expired
-// (i.e. require administrator reset)
-func (r *AccountPasswordPolicy) HardExpiry() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["hardExpiry"])
-}
-
-// The number of days that an user password is valid.
-func (r *AccountPasswordPolicy) MaxPasswordAge() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxPasswordAge"])
-}
-
-// Minimum length to require for user passwords.
-func (r *AccountPasswordPolicy) MinimumPasswordLength() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["minimumPasswordLength"])
-}
-
-// The number of previous passwords that users are prevented from reusing.
-func (r *AccountPasswordPolicy) PasswordReusePrevention() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["passwordReusePrevention"])
-}
-
-// Whether to require lowercase characters for user passwords.
-func (r *AccountPasswordPolicy) RequireLowercaseCharacters() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requireLowercaseCharacters"])
-}
-
-// Whether to require numbers for user passwords.
-func (r *AccountPasswordPolicy) RequireNumbers() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requireNumbers"])
-}
-
-// Whether to require symbols for user passwords.
-func (r *AccountPasswordPolicy) RequireSymbols() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requireSymbols"])
-}
-
-// Whether to require uppercase characters for user passwords.
-func (r *AccountPasswordPolicy) RequireUppercaseCharacters() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requireUppercaseCharacters"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AccountPasswordPolicy resources.
 type AccountPasswordPolicyState struct {
 	// Whether to allow users to change their own password
-	AllowUsersToChangePassword interface{}
+	AllowUsersToChangePassword pulumi.BoolInput `pulumi:"allowUsersToChangePassword"`
 	// Indicates whether passwords in the account expire.
 	// Returns `true` if `maxPasswordAge` contains a value greater than `0`.
 	// Returns `false` if it is `0` or _not present_.
-	ExpirePasswords interface{}
+	ExpirePasswords pulumi.BoolInput `pulumi:"expirePasswords"`
 	// Whether users are prevented from setting a new password after their password has expired
 	// (i.e. require administrator reset)
-	HardExpiry interface{}
+	HardExpiry pulumi.BoolInput `pulumi:"hardExpiry"`
 	// The number of days that an user password is valid.
-	MaxPasswordAge interface{}
+	MaxPasswordAge pulumi.IntInput `pulumi:"maxPasswordAge"`
 	// Minimum length to require for user passwords.
-	MinimumPasswordLength interface{}
+	MinimumPasswordLength pulumi.IntInput `pulumi:"minimumPasswordLength"`
 	// The number of previous passwords that users are prevented from reusing.
-	PasswordReusePrevention interface{}
+	PasswordReusePrevention pulumi.IntInput `pulumi:"passwordReusePrevention"`
 	// Whether to require lowercase characters for user passwords.
-	RequireLowercaseCharacters interface{}
+	RequireLowercaseCharacters pulumi.BoolInput `pulumi:"requireLowercaseCharacters"`
 	// Whether to require numbers for user passwords.
-	RequireNumbers interface{}
+	RequireNumbers pulumi.BoolInput `pulumi:"requireNumbers"`
 	// Whether to require symbols for user passwords.
-	RequireSymbols interface{}
+	RequireSymbols pulumi.BoolInput `pulumi:"requireSymbols"`
 	// Whether to require uppercase characters for user passwords.
-	RequireUppercaseCharacters interface{}
+	RequireUppercaseCharacters pulumi.BoolInput `pulumi:"requireUppercaseCharacters"`
 }
 
 // The set of arguments for constructing a AccountPasswordPolicy resource.
 type AccountPasswordPolicyArgs struct {
 	// Whether to allow users to change their own password
-	AllowUsersToChangePassword interface{}
+	AllowUsersToChangePassword pulumi.BoolInput `pulumi:"allowUsersToChangePassword"`
 	// Whether users are prevented from setting a new password after their password has expired
 	// (i.e. require administrator reset)
-	HardExpiry interface{}
+	HardExpiry pulumi.BoolInput `pulumi:"hardExpiry"`
 	// The number of days that an user password is valid.
-	MaxPasswordAge interface{}
+	MaxPasswordAge pulumi.IntInput `pulumi:"maxPasswordAge"`
 	// Minimum length to require for user passwords.
-	MinimumPasswordLength interface{}
+	MinimumPasswordLength pulumi.IntInput `pulumi:"minimumPasswordLength"`
 	// The number of previous passwords that users are prevented from reusing.
-	PasswordReusePrevention interface{}
+	PasswordReusePrevention pulumi.IntInput `pulumi:"passwordReusePrevention"`
 	// Whether to require lowercase characters for user passwords.
-	RequireLowercaseCharacters interface{}
+	RequireLowercaseCharacters pulumi.BoolInput `pulumi:"requireLowercaseCharacters"`
 	// Whether to require numbers for user passwords.
-	RequireNumbers interface{}
+	RequireNumbers pulumi.BoolInput `pulumi:"requireNumbers"`
 	// Whether to require symbols for user passwords.
-	RequireSymbols interface{}
+	RequireSymbols pulumi.BoolInput `pulumi:"requireSymbols"`
 	// Whether to require uppercase characters for user passwords.
-	RequireUppercaseCharacters interface{}
+	RequireUppercaseCharacters pulumi.BoolInput `pulumi:"requireUppercaseCharacters"`
 }

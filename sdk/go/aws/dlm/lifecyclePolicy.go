@@ -4,6 +4,8 @@
 package dlm
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dlm_lifecycle_policy.html.markdown.
 type LifecyclePolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// A description for the DLM lifecycle policy.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The ARN of an IAM role that is able to be assumed by the DLM service.
+	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
+
+	// See the `policyDetails` configuration block. Max of 1.
+	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
+
+	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+	State pulumi.StringOutput `pulumi:"state"`
+
+	// Key-value mapping of resource tags.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
 func NewLifecyclePolicy(ctx *pulumi.Context,
-	name string, args *LifecyclePolicyArgs, opts ...pulumi.ResourceOpt) (*LifecyclePolicy, error) {
+	name string, args *LifecyclePolicyArgs, opts ...pulumi.ResourceOption) (*LifecyclePolicy, error) {
 	if args == nil || args.Description == nil {
 		return nil, errors.New("missing required argument 'Description'")
 	}
@@ -27,114 +47,414 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args == nil || args.PolicyDetails == nil {
 		return nil, errors.New("missing required argument 'PolicyDetails'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["executionRoleArn"] = nil
-		inputs["policyDetails"] = nil
-		inputs["state"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["executionRoleArn"] = args.ExecutionRoleArn
-		inputs["policyDetails"] = args.PolicyDetails
-		inputs["state"] = args.State
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.ExecutionRoleArn; i != nil { inputs["executionRoleArn"] = i.ToStringOutput() }
+		if i := args.PolicyDetails; i != nil { inputs["policyDetails"] = i.ToLifecyclePolicyPolicyDetailsOutput() }
+		if i := args.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, true, inputs, opts...)
+	var resource LifecyclePolicy
+	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LifecyclePolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetLifecyclePolicy gets an existing LifecyclePolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLifecyclePolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LifecyclePolicyState, opts ...pulumi.ResourceOpt) (*LifecyclePolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LifecyclePolicyState, opts ...pulumi.ResourceOption) (*LifecyclePolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["description"] = state.Description
-		inputs["executionRoleArn"] = state.ExecutionRoleArn
-		inputs["policyDetails"] = state.PolicyDetails
-		inputs["state"] = state.State
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ExecutionRoleArn; i != nil { inputs["executionRoleArn"] = i.ToStringOutput() }
+		if i := state.PolicyDetails; i != nil { inputs["policyDetails"] = i.ToLifecyclePolicyPolicyDetailsOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, id, inputs, opts...)
+	var resource LifecyclePolicy
+	err := ctx.ReadResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LifecyclePolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LifecyclePolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LifecyclePolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-func (r *LifecyclePolicy) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// A description for the DLM lifecycle policy.
-func (r *LifecyclePolicy) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The ARN of an IAM role that is able to be assumed by the DLM service.
-func (r *LifecyclePolicy) ExecutionRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["executionRoleArn"])
-}
-
-// See the `policyDetails` configuration block. Max of 1.
-func (r *LifecyclePolicy) PolicyDetails() pulumi.Output {
-	return r.s.State["policyDetails"]
-}
-
-// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-func (r *LifecyclePolicy) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
-}
-
-// Key-value mapping of resource tags.
-func (r *LifecyclePolicy) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type LifecyclePolicyState struct {
 	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// A description for the DLM lifecycle policy.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
-	ExecutionRoleArn interface{}
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails interface{}
+	PolicyDetails LifecyclePolicyPolicyDetailsInput `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
 	// A description for the DLM lifecycle policy.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The ARN of an IAM role that is able to be assumed by the DLM service.
-	ExecutionRoleArn interface{}
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
 	// See the `policyDetails` configuration block. Max of 1.
-	PolicyDetails interface{}
+	PolicyDetails LifecyclePolicyPolicyDetailsInput `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type LifecyclePolicyPolicyDetails struct {
+	// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	// See the `schedule` configuration block.
+	Schedules []LifecyclePolicyPolicyDetailsSchedules `pulumi:"schedules"`
+	// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	TargetTags map[string]string `pulumi:"targetTags"`
+}
+var lifecyclePolicyPolicyDetailsType = reflect.TypeOf((*LifecyclePolicyPolicyDetails)(nil)).Elem()
+
+type LifecyclePolicyPolicyDetailsInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsOutput() LifecyclePolicyPolicyDetailsOutput
+	ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsOutput
+}
+
+type LifecyclePolicyPolicyDetailsArgs struct {
+	// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// See the `schedule` configuration block.
+	Schedules LifecyclePolicyPolicyDetailsSchedulesArrayInput `pulumi:"schedules"`
+	// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	TargetTags pulumi.MapInput `pulumi:"targetTags"`
+}
+
+func (LifecyclePolicyPolicyDetailsArgs) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsType
+}
+
+func (a LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsOutput() LifecyclePolicyPolicyDetailsOutput {
+	return pulumi.ToOutput(a).(LifecyclePolicyPolicyDetailsOutput)
+}
+
+func (a LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LifecyclePolicyPolicyDetailsOutput)
+}
+
+type LifecyclePolicyPolicyDetailsOutput struct { *pulumi.OutputState }
+
+// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+func (o LifecyclePolicyPolicyDetailsOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetails) []string {
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// See the `schedule` configuration block.
+func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDetailsSchedulesArrayOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedules {
+		return v.Schedules
+	}).(LifecyclePolicyPolicyDetailsSchedulesArrayOutput)
+}
+
+// A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.MapOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetails) map[string]string {
+		return v.TargetTags
+	}).(pulumi.MapOutput)
+}
+
+func (LifecyclePolicyPolicyDetailsOutput) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsType
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsOutput() LifecyclePolicyPolicyDetailsOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsOutput{}) }
+
+type LifecyclePolicyPolicyDetailsSchedules struct {
+	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	CopyTags *bool `pulumi:"copyTags"`
+	// See the `createRule` block. Max of 1 per schedule.
+	CreateRule LifecyclePolicyPolicyDetailsSchedulesCreateRule `pulumi:"createRule"`
+	// A name for the schedule.
+	Name string `pulumi:"name"`
+	// See the `retainRule` block. Max of 1 per schedule.
+	RetainRule LifecyclePolicyPolicyDetailsSchedulesRetainRule `pulumi:"retainRule"`
+	// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+	TagsToAdd *map[string]string `pulumi:"tagsToAdd"`
+}
+var lifecyclePolicyPolicyDetailsSchedulesType = reflect.TypeOf((*LifecyclePolicyPolicyDetailsSchedules)(nil)).Elem()
+
+type LifecyclePolicyPolicyDetailsSchedulesInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsSchedulesOutput() LifecyclePolicyPolicyDetailsSchedulesOutput
+	ToLifecyclePolicyPolicyDetailsSchedulesOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesOutput
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesArgs struct {
+	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	CopyTags pulumi.BoolInput `pulumi:"copyTags"`
+	// See the `createRule` block. Max of 1 per schedule.
+	CreateRule LifecyclePolicyPolicyDetailsSchedulesCreateRuleInput `pulumi:"createRule"`
+	// A name for the schedule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// See the `retainRule` block. Max of 1 per schedule.
+	RetainRule LifecyclePolicyPolicyDetailsSchedulesRetainRuleInput `pulumi:"retainRule"`
+	// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+	TagsToAdd pulumi.MapInput `pulumi:"tagsToAdd"`
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesArgs) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesType
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesArgs) ToLifecyclePolicyPolicyDetailsSchedulesOutput() LifecyclePolicyPolicyDetailsSchedulesOutput {
+	return pulumi.ToOutput(a).(LifecyclePolicyPolicyDetailsSchedulesOutput)
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesArgs) ToLifecyclePolicyPolicyDetailsSchedulesOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LifecyclePolicyPolicyDetailsSchedulesOutput)
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesOutput struct { *pulumi.OutputState }
+
+// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) CopyTags() pulumi.BoolOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedules) bool {
+		if v.CopyTags == nil { return *new(bool) } else { return *v.CopyTags }
+	}).(pulumi.BoolOutput)
+}
+
+// See the `createRule` block. Max of 1 per schedule.
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) CreateRule() LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedules) LifecyclePolicyPolicyDetailsSchedulesCreateRule {
+		return v.CreateRule
+	}).(LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput)
+}
+
+// A name for the schedule.
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// See the `retainRule` block. Max of 1 per schedule.
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) RetainRule() LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedules) LifecyclePolicyPolicyDetailsSchedulesRetainRule {
+		return v.RetainRule
+	}).(LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput)
+}
+
+// A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) TagsToAdd() pulumi.MapOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedules) map[string]string {
+		if v.TagsToAdd == nil { return *new(map[string]string) } else { return *v.TagsToAdd }
+	}).(pulumi.MapOutput)
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesOutput) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesType
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) ToLifecyclePolicyPolicyDetailsSchedulesOutput() LifecyclePolicyPolicyDetailsSchedulesOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesOutput) ToLifecyclePolicyPolicyDetailsSchedulesOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsSchedulesOutput{}) }
+
+var lifecyclePolicyPolicyDetailsSchedulesArrayType = reflect.TypeOf((*[]LifecyclePolicyPolicyDetailsSchedules)(nil)).Elem()
+
+type LifecyclePolicyPolicyDetailsSchedulesArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsSchedulesArrayOutput() LifecyclePolicyPolicyDetailsSchedulesArrayOutput
+	ToLifecyclePolicyPolicyDetailsSchedulesArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesArrayOutput
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesArrayArgs []LifecyclePolicyPolicyDetailsSchedulesInput
+
+func (LifecyclePolicyPolicyDetailsSchedulesArrayArgs) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesArrayType
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesArrayArgs) ToLifecyclePolicyPolicyDetailsSchedulesArrayOutput() LifecyclePolicyPolicyDetailsSchedulesArrayOutput {
+	return pulumi.ToOutput(a).(LifecyclePolicyPolicyDetailsSchedulesArrayOutput)
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesArrayArgs) ToLifecyclePolicyPolicyDetailsSchedulesArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LifecyclePolicyPolicyDetailsSchedulesArrayOutput)
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesArrayOutput struct { *pulumi.OutputState }
+
+func (o LifecyclePolicyPolicyDetailsSchedulesArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailsSchedulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LifecyclePolicyPolicyDetailsSchedules {
+		return vs[0].([]LifecyclePolicyPolicyDetailsSchedules)[vs[1].(int)]
+	}).(LifecyclePolicyPolicyDetailsSchedulesOutput)
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesArrayOutput) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesArrayType
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesArrayOutput) ToLifecyclePolicyPolicyDetailsSchedulesArrayOutput() LifecyclePolicyPolicyDetailsSchedulesArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesArrayOutput) ToLifecyclePolicyPolicyDetailsSchedulesArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsSchedulesArrayOutput{}) }
+
+type LifecyclePolicyPolicyDetailsSchedulesCreateRule struct {
+	// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	Interval int `pulumi:"interval"`
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	IntervalUnit *string `pulumi:"intervalUnit"`
+	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+	Times *string `pulumi:"times"`
+}
+var lifecyclePolicyPolicyDetailsSchedulesCreateRuleType = reflect.TypeOf((*LifecyclePolicyPolicyDetailsSchedulesCreateRule)(nil)).Elem()
+
+type LifecyclePolicyPolicyDetailsSchedulesCreateRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput() LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput
+	ToLifecyclePolicyPolicyDetailsSchedulesCreateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs struct {
+	// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
+	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+	Times pulumi.StringInput `pulumi:"times"`
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesCreateRuleType
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs) ToLifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput() LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput {
+	return pulumi.ToOutput(a).(LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput)
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesCreateRuleArgs) ToLifecyclePolicyPolicyDetailsSchedulesCreateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput)
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput struct { *pulumi.OutputState }
+
+// How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+func (o LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput) Interval() pulumi.IntOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedulesCreateRule) int {
+		return v.Interval
+	}).(pulumi.IntOutput)
+}
+
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+func (o LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput) IntervalUnit() pulumi.StringOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedulesCreateRule) string {
+		if v.IntervalUnit == nil { return *new(string) } else { return *v.IntervalUnit }
+	}).(pulumi.StringOutput)
+}
+
+// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+func (o LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput) Times() pulumi.StringOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedulesCreateRule) string {
+		if v.Times == nil { return *new(string) } else { return *v.Times }
+	}).(pulumi.StringOutput)
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesCreateRuleType
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput) ToLifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput() LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput) ToLifecyclePolicyPolicyDetailsSchedulesCreateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsSchedulesCreateRuleOutput{}) }
+
+type LifecyclePolicyPolicyDetailsSchedulesRetainRule struct {
+	// How many snapshots to keep. Must be an integer between 1 and 1000.
+	Count int `pulumi:"count"`
+}
+var lifecyclePolicyPolicyDetailsSchedulesRetainRuleType = reflect.TypeOf((*LifecyclePolicyPolicyDetailsSchedulesRetainRule)(nil)).Elem()
+
+type LifecyclePolicyPolicyDetailsSchedulesRetainRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput() LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput
+	ToLifecyclePolicyPolicyDetailsSchedulesRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs struct {
+	// How many snapshots to keep. Must be an integer between 1 and 1000.
+	Count pulumi.IntInput `pulumi:"count"`
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesRetainRuleType
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs) ToLifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput() LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput {
+	return pulumi.ToOutput(a).(LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput)
+}
+
+func (a LifecyclePolicyPolicyDetailsSchedulesRetainRuleArgs) ToLifecyclePolicyPolicyDetailsSchedulesRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput)
+}
+
+type LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput struct { *pulumi.OutputState }
+
+// How many snapshots to keep. Must be an integer between 1 and 1000.
+func (o LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v LifecyclePolicyPolicyDetailsSchedulesRetainRule) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+func (LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput) ElementType() reflect.Type {
+	return lifecyclePolicyPolicyDetailsSchedulesRetainRuleType
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput) ToLifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput() LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput) ToLifecyclePolicyPolicyDetailsSchedulesRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsSchedulesRetainRuleOutput{}) }
+

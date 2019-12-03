@@ -4,6 +4,8 @@
 package route53
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,164 +14,237 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule.html.markdown.
 type ResolverRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN (Amazon Resource Name) for the resolver rule.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+
+	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+	// This argument should only be specified for `FORWARD` type rules.
+	ResolverEndpointId pulumi.StringOutput `pulumi:"resolverEndpointId"`
+
+	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	RuleType pulumi.StringOutput `pulumi:"ruleType"`
+
+	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
+	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+	// This argument should only be specified for `FORWARD` type rules.
+	TargetIps ResolverRuleTargetIpsArrayOutput `pulumi:"targetIps"`
 }
 
 // NewResolverRule registers a new resource with the given unique name, arguments, and options.
 func NewResolverRule(ctx *pulumi.Context,
-	name string, args *ResolverRuleArgs, opts ...pulumi.ResourceOpt) (*ResolverRule, error) {
+	name string, args *ResolverRuleArgs, opts ...pulumi.ResourceOption) (*ResolverRule, error) {
 	if args == nil || args.DomainName == nil {
 		return nil, errors.New("missing required argument 'DomainName'")
 	}
 	if args == nil || args.RuleType == nil {
 		return nil, errors.New("missing required argument 'RuleType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["domainName"] = nil
-		inputs["name"] = nil
-		inputs["resolverEndpointId"] = nil
-		inputs["ruleType"] = nil
-		inputs["tags"] = nil
-		inputs["targetIps"] = nil
-	} else {
-		inputs["domainName"] = args.DomainName
-		inputs["name"] = args.Name
-		inputs["resolverEndpointId"] = args.ResolverEndpointId
-		inputs["ruleType"] = args.RuleType
-		inputs["tags"] = args.Tags
-		inputs["targetIps"] = args.TargetIps
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResolverEndpointId; i != nil { inputs["resolverEndpointId"] = i.ToStringOutput() }
+		if i := args.RuleType; i != nil { inputs["ruleType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TargetIps; i != nil { inputs["targetIps"] = i.ToResolverRuleTargetIpsArrayOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["ownerId"] = nil
-	inputs["shareStatus"] = nil
-	s, err := ctx.RegisterResource("aws:route53/resolverRule:ResolverRule", name, true, inputs, opts...)
+	var resource ResolverRule
+	err := ctx.RegisterResource("aws:route53/resolverRule:ResolverRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResolverRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetResolverRule gets an existing ResolverRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetResolverRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ResolverRuleState, opts ...pulumi.ResourceOpt) (*ResolverRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ResolverRuleState, opts ...pulumi.ResourceOption) (*ResolverRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["domainName"] = state.DomainName
-		inputs["name"] = state.Name
-		inputs["ownerId"] = state.OwnerId
-		inputs["resolverEndpointId"] = state.ResolverEndpointId
-		inputs["ruleType"] = state.RuleType
-		inputs["shareStatus"] = state.ShareStatus
-		inputs["tags"] = state.Tags
-		inputs["targetIps"] = state.TargetIps
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.ResolverEndpointId; i != nil { inputs["resolverEndpointId"] = i.ToStringOutput() }
+		if i := state.RuleType; i != nil { inputs["ruleType"] = i.ToStringOutput() }
+		if i := state.ShareStatus; i != nil { inputs["shareStatus"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TargetIps; i != nil { inputs["targetIps"] = i.ToResolverRuleTargetIpsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:route53/resolverRule:ResolverRule", name, id, inputs, opts...)
+	var resource ResolverRule
+	err := ctx.ReadResource("aws:route53/resolverRule:ResolverRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResolverRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ResolverRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ResolverRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN (Amazon Resource Name) for the resolver rule.
-func (r *ResolverRule) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-func (r *ResolverRule) DomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainName"])
-}
-
-// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-func (r *ResolverRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-func (r *ResolverRule) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
-// This argument should only be specified for `FORWARD` type rules.
-func (r *ResolverRule) ResolverEndpointId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resolverEndpointId"])
-}
-
-// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-func (r *ResolverRule) RuleType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ruleType"])
-}
-
-// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
-// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-func (r *ResolverRule) ShareStatus() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["shareStatus"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ResolverRule) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
-// This argument should only be specified for `FORWARD` type rules.
-func (r *ResolverRule) TargetIps() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["targetIps"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ResolverRule resources.
 type ResolverRuleState struct {
 	// The ARN (Amazon Resource Name) for the resolver rule.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
-	ResolverEndpointId interface{}
+	ResolverEndpointId pulumi.StringInput `pulumi:"resolverEndpointId"`
 	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-	RuleType interface{}
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-	ShareStatus interface{}
+	ShareStatus pulumi.StringInput `pulumi:"shareStatus"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
-	TargetIps interface{}
+	TargetIps ResolverRuleTargetIpsArrayInput `pulumi:"targetIps"`
 }
 
 // The set of arguments for constructing a ResolverRule resource.
 type ResolverRuleArgs struct {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
-	ResolverEndpointId interface{}
+	ResolverEndpointId pulumi.StringInput `pulumi:"resolverEndpointId"`
 	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-	RuleType interface{}
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
-	TargetIps interface{}
+	TargetIps ResolverRuleTargetIpsArrayInput `pulumi:"targetIps"`
 }
+type ResolverRuleTargetIps struct {
+	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+	Ip string `pulumi:"ip"`
+	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
+	Port *int `pulumi:"port"`
+}
+var resolverRuleTargetIpsType = reflect.TypeOf((*ResolverRuleTargetIps)(nil)).Elem()
+
+type ResolverRuleTargetIpsInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetIpsOutput() ResolverRuleTargetIpsOutput
+	ToResolverRuleTargetIpsOutputWithContext(ctx context.Context) ResolverRuleTargetIpsOutput
+}
+
+type ResolverRuleTargetIpsArgs struct {
+	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ResolverRuleTargetIpsArgs) ElementType() reflect.Type {
+	return resolverRuleTargetIpsType
+}
+
+func (a ResolverRuleTargetIpsArgs) ToResolverRuleTargetIpsOutput() ResolverRuleTargetIpsOutput {
+	return pulumi.ToOutput(a).(ResolverRuleTargetIpsOutput)
+}
+
+func (a ResolverRuleTargetIpsArgs) ToResolverRuleTargetIpsOutputWithContext(ctx context.Context) ResolverRuleTargetIpsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ResolverRuleTargetIpsOutput)
+}
+
+type ResolverRuleTargetIpsOutput struct { *pulumi.OutputState }
+
+// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+func (o ResolverRuleTargetIpsOutput) Ip() pulumi.StringOutput {
+	return o.Apply(func(v ResolverRuleTargetIps) string {
+		return v.Ip
+	}).(pulumi.StringOutput)
+}
+
+// The port at `ip` that you want to forward DNS queries to. Default value is `53`
+func (o ResolverRuleTargetIpsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ResolverRuleTargetIps) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+func (ResolverRuleTargetIpsOutput) ElementType() reflect.Type {
+	return resolverRuleTargetIpsType
+}
+
+func (o ResolverRuleTargetIpsOutput) ToResolverRuleTargetIpsOutput() ResolverRuleTargetIpsOutput {
+	return o
+}
+
+func (o ResolverRuleTargetIpsOutput) ToResolverRuleTargetIpsOutputWithContext(ctx context.Context) ResolverRuleTargetIpsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ResolverRuleTargetIpsOutput{}) }
+
+var resolverRuleTargetIpsArrayType = reflect.TypeOf((*[]ResolverRuleTargetIps)(nil)).Elem()
+
+type ResolverRuleTargetIpsArrayInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetIpsArrayOutput() ResolverRuleTargetIpsArrayOutput
+	ToResolverRuleTargetIpsArrayOutputWithContext(ctx context.Context) ResolverRuleTargetIpsArrayOutput
+}
+
+type ResolverRuleTargetIpsArrayArgs []ResolverRuleTargetIpsInput
+
+func (ResolverRuleTargetIpsArrayArgs) ElementType() reflect.Type {
+	return resolverRuleTargetIpsArrayType
+}
+
+func (a ResolverRuleTargetIpsArrayArgs) ToResolverRuleTargetIpsArrayOutput() ResolverRuleTargetIpsArrayOutput {
+	return pulumi.ToOutput(a).(ResolverRuleTargetIpsArrayOutput)
+}
+
+func (a ResolverRuleTargetIpsArrayArgs) ToResolverRuleTargetIpsArrayOutputWithContext(ctx context.Context) ResolverRuleTargetIpsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ResolverRuleTargetIpsArrayOutput)
+}
+
+type ResolverRuleTargetIpsArrayOutput struct { *pulumi.OutputState }
+
+func (o ResolverRuleTargetIpsArrayOutput) Index(i pulumi.IntInput) ResolverRuleTargetIpsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ResolverRuleTargetIps {
+		return vs[0].([]ResolverRuleTargetIps)[vs[1].(int)]
+	}).(ResolverRuleTargetIpsOutput)
+}
+
+func (ResolverRuleTargetIpsArrayOutput) ElementType() reflect.Type {
+	return resolverRuleTargetIpsArrayType
+}
+
+func (o ResolverRuleTargetIpsArrayOutput) ToResolverRuleTargetIpsArrayOutput() ResolverRuleTargetIpsArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTargetIpsArrayOutput) ToResolverRuleTargetIpsArrayOutputWithContext(ctx context.Context) ResolverRuleTargetIpsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ResolverRuleTargetIpsArrayOutput{}) }
+

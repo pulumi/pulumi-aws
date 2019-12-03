@@ -12,111 +12,87 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy.html.markdown.
 type Policy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the policy.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
+	Content pulumi.StringOutput `pulumi:"content"`
+
+	// A description to assign to the policy.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The friendly name to assign to the policy.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
-	name string, args *PolicyArgs, opts ...pulumi.ResourceOpt) (*Policy, error) {
+	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
 	if args == nil || args.Content == nil {
 		return nil, errors.New("missing required argument 'Content'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["content"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["content"] = args.Content
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Content; i != nil { inputs["content"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:organizations/policy:Policy", name, true, inputs, opts...)
+	var resource Policy
+	err := ctx.RegisterResource("aws:organizations/policy:Policy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Policy{s: s}, nil
+	return &resource, nil
 }
 
 // GetPolicy gets an existing Policy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PolicyState, opts ...pulumi.ResourceOpt) (*Policy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["content"] = state.Content
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["type"] = state.Type
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Content; i != nil { inputs["content"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:organizations/policy:Policy", name, id, inputs, opts...)
+	var resource Policy
+	err := ctx.ReadResource("aws:organizations/policy:Policy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Policy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the policy.
-func (r *Policy) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
-func (r *Policy) Content() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["content"])
-}
-
-// A description to assign to the policy.
-func (r *Policy) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The friendly name to assign to the policy.
-func (r *Policy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
-func (r *Policy) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Policy resources.
 type PolicyState struct {
 	// Amazon Resource Name (ARN) of the policy.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
-	Content interface{}
+	Content pulumi.StringInput `pulumi:"content"`
 	// A description to assign to the policy.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The friendly name to assign to the policy.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html).
-	Content interface{}
+	Content pulumi.StringInput `pulumi:"content"`
 	// A description to assign to the policy.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The friendly name to assign to the policy.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The type of policy to create. Currently, the only valid value is `SERVICE_CONTROL_POLICY` (SCP).
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }

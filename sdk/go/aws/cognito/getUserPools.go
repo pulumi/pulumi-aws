@@ -10,35 +10,27 @@ import (
 // Use this data source to get a list of cognito user pools.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
-func LookupUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs) (*GetUserPoolsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", inputs)
+func LookupUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
+	var rv GetUserPoolsResult
+	err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetUserPoolsResult{
-		Arns: outputs["arns"],
-		Ids: outputs["ids"],
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsArgs struct {
 	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getUserPools.
 type GetUserPoolsResult struct {
-	Arns interface{}
+	Arns []string `pulumi:"arns"`
 	// The list of cognito user pool ids.
-	Ids interface{}
-	Name interface{}
+	Ids []string `pulumi:"ids"`
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

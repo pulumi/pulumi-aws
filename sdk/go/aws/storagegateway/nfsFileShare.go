@@ -4,6 +4,8 @@
 package storagegateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,60 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_nfs_file_share.html.markdown.
 type NfsFileShare struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN) of the NFS File Share.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
+	ClientLists pulumi.StringArrayOutput `pulumi:"clientLists"`
+
+	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	DefaultStorageClass pulumi.StringOutput `pulumi:"defaultStorageClass"`
+
+	// ID of the NFS File Share.
+	FileshareId pulumi.StringOutput `pulumi:"fileshareId"`
+
+	// Amazon Resource Name (ARN) of the file gateway.
+	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+
+	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+	GuessMimeTypeEnabled pulumi.BoolOutput `pulumi:"guessMimeTypeEnabled"`
+
+	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+	KmsEncrypted pulumi.BoolOutput `pulumi:"kmsEncrypted"`
+
+	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+
+	// The ARN of the backed storage used for storing file data.
+	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
+
+	// Nested argument with file share default values. More information below.
+	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsOutput `pulumi:"nfsFileShareDefaults"`
+
+	// Access Control List permission for S3 bucket objects. Defaults to `private`.
+	ObjectAcl pulumi.StringOutput `pulumi:"objectAcl"`
+
+	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
+
+	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+	RequesterPays pulumi.BoolOutput `pulumi:"requesterPays"`
+
+	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+
+	// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
+	Squash pulumi.StringOutput `pulumi:"squash"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewNfsFileShare registers a new resource with the given unique name, arguments, and options.
 func NewNfsFileShare(ctx *pulumi.Context,
-	name string, args *NfsFileShareArgs, opts ...pulumi.ResourceOpt) (*NfsFileShare, error) {
+	name string, args *NfsFileShareArgs, opts ...pulumi.ResourceOption) (*NfsFileShare, error) {
 	if args == nil || args.ClientLists == nil {
 		return nil, errors.New("missing required argument 'ClientLists'")
 	}
@@ -30,231 +80,212 @@ func NewNfsFileShare(ctx *pulumi.Context,
 	if args == nil || args.RoleArn == nil {
 		return nil, errors.New("missing required argument 'RoleArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clientLists"] = nil
-		inputs["defaultStorageClass"] = nil
-		inputs["gatewayArn"] = nil
-		inputs["guessMimeTypeEnabled"] = nil
-		inputs["kmsEncrypted"] = nil
-		inputs["kmsKeyArn"] = nil
-		inputs["locationArn"] = nil
-		inputs["nfsFileShareDefaults"] = nil
-		inputs["objectAcl"] = nil
-		inputs["readOnly"] = nil
-		inputs["requesterPays"] = nil
-		inputs["roleArn"] = nil
-		inputs["squash"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["clientLists"] = args.ClientLists
-		inputs["defaultStorageClass"] = args.DefaultStorageClass
-		inputs["gatewayArn"] = args.GatewayArn
-		inputs["guessMimeTypeEnabled"] = args.GuessMimeTypeEnabled
-		inputs["kmsEncrypted"] = args.KmsEncrypted
-		inputs["kmsKeyArn"] = args.KmsKeyArn
-		inputs["locationArn"] = args.LocationArn
-		inputs["nfsFileShareDefaults"] = args.NfsFileShareDefaults
-		inputs["objectAcl"] = args.ObjectAcl
-		inputs["readOnly"] = args.ReadOnly
-		inputs["requesterPays"] = args.RequesterPays
-		inputs["roleArn"] = args.RoleArn
-		inputs["squash"] = args.Squash
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClientLists; i != nil { inputs["clientLists"] = i.ToStringArrayOutput() }
+		if i := args.DefaultStorageClass; i != nil { inputs["defaultStorageClass"] = i.ToStringOutput() }
+		if i := args.GatewayArn; i != nil { inputs["gatewayArn"] = i.ToStringOutput() }
+		if i := args.GuessMimeTypeEnabled; i != nil { inputs["guessMimeTypeEnabled"] = i.ToBoolOutput() }
+		if i := args.KmsEncrypted; i != nil { inputs["kmsEncrypted"] = i.ToBoolOutput() }
+		if i := args.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := args.LocationArn; i != nil { inputs["locationArn"] = i.ToStringOutput() }
+		if i := args.NfsFileShareDefaults; i != nil { inputs["nfsFileShareDefaults"] = i.ToNfsFileShareNfsFileShareDefaultsOutput() }
+		if i := args.ObjectAcl; i != nil { inputs["objectAcl"] = i.ToStringOutput() }
+		if i := args.ReadOnly; i != nil { inputs["readOnly"] = i.ToBoolOutput() }
+		if i := args.RequesterPays; i != nil { inputs["requesterPays"] = i.ToBoolOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := args.Squash; i != nil { inputs["squash"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["fileshareId"] = nil
-	s, err := ctx.RegisterResource("aws:storagegateway/nfsFileShare:NfsFileShare", name, true, inputs, opts...)
+	var resource NfsFileShare
+	err := ctx.RegisterResource("aws:storagegateway/nfsFileShare:NfsFileShare", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NfsFileShare{s: s}, nil
+	return &resource, nil
 }
 
 // GetNfsFileShare gets an existing NfsFileShare resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNfsFileShare(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NfsFileShareState, opts ...pulumi.ResourceOpt) (*NfsFileShare, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NfsFileShareState, opts ...pulumi.ResourceOption) (*NfsFileShare, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["clientLists"] = state.ClientLists
-		inputs["defaultStorageClass"] = state.DefaultStorageClass
-		inputs["fileshareId"] = state.FileshareId
-		inputs["gatewayArn"] = state.GatewayArn
-		inputs["guessMimeTypeEnabled"] = state.GuessMimeTypeEnabled
-		inputs["kmsEncrypted"] = state.KmsEncrypted
-		inputs["kmsKeyArn"] = state.KmsKeyArn
-		inputs["locationArn"] = state.LocationArn
-		inputs["nfsFileShareDefaults"] = state.NfsFileShareDefaults
-		inputs["objectAcl"] = state.ObjectAcl
-		inputs["readOnly"] = state.ReadOnly
-		inputs["requesterPays"] = state.RequesterPays
-		inputs["roleArn"] = state.RoleArn
-		inputs["squash"] = state.Squash
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ClientLists; i != nil { inputs["clientLists"] = i.ToStringArrayOutput() }
+		if i := state.DefaultStorageClass; i != nil { inputs["defaultStorageClass"] = i.ToStringOutput() }
+		if i := state.FileshareId; i != nil { inputs["fileshareId"] = i.ToStringOutput() }
+		if i := state.GatewayArn; i != nil { inputs["gatewayArn"] = i.ToStringOutput() }
+		if i := state.GuessMimeTypeEnabled; i != nil { inputs["guessMimeTypeEnabled"] = i.ToBoolOutput() }
+		if i := state.KmsEncrypted; i != nil { inputs["kmsEncrypted"] = i.ToBoolOutput() }
+		if i := state.KmsKeyArn; i != nil { inputs["kmsKeyArn"] = i.ToStringOutput() }
+		if i := state.LocationArn; i != nil { inputs["locationArn"] = i.ToStringOutput() }
+		if i := state.NfsFileShareDefaults; i != nil { inputs["nfsFileShareDefaults"] = i.ToNfsFileShareNfsFileShareDefaultsOutput() }
+		if i := state.ObjectAcl; i != nil { inputs["objectAcl"] = i.ToStringOutput() }
+		if i := state.ReadOnly; i != nil { inputs["readOnly"] = i.ToBoolOutput() }
+		if i := state.RequesterPays; i != nil { inputs["requesterPays"] = i.ToBoolOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
+		if i := state.Squash; i != nil { inputs["squash"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:storagegateway/nfsFileShare:NfsFileShare", name, id, inputs, opts...)
+	var resource NfsFileShare
+	err := ctx.ReadResource("aws:storagegateway/nfsFileShare:NfsFileShare", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NfsFileShare{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NfsFileShare) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NfsFileShare) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN) of the NFS File Share.
-func (r *NfsFileShare) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
-func (r *NfsFileShare) ClientLists() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["clientLists"])
-}
-
-// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
-func (r *NfsFileShare) DefaultStorageClass() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultStorageClass"])
-}
-
-// ID of the NFS File Share.
-func (r *NfsFileShare) FileshareId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fileshareId"])
-}
-
-// Amazon Resource Name (ARN) of the file gateway.
-func (r *NfsFileShare) GatewayArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayArn"])
-}
-
-// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
-func (r *NfsFileShare) GuessMimeTypeEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["guessMimeTypeEnabled"])
-}
-
-// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-func (r *NfsFileShare) KmsEncrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["kmsEncrypted"])
-}
-
-// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
-func (r *NfsFileShare) KmsKeyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kmsKeyArn"])
-}
-
-// The ARN of the backed storage used for storing file data.
-func (r *NfsFileShare) LocationArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["locationArn"])
-}
-
-// Nested argument with file share default values. More information below.
-func (r *NfsFileShare) NfsFileShareDefaults() pulumi.Output {
-	return r.s.State["nfsFileShareDefaults"]
-}
-
-// Access Control List permission for S3 bucket objects. Defaults to `private`.
-func (r *NfsFileShare) ObjectAcl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["objectAcl"])
-}
-
-// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-func (r *NfsFileShare) ReadOnly() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["readOnly"])
-}
-
-// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
-func (r *NfsFileShare) RequesterPays() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requesterPays"])
-}
-
-// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-func (r *NfsFileShare) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
-}
-
-// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
-func (r *NfsFileShare) Squash() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["squash"])
-}
-
-// Key-value mapping of resource tags
-func (r *NfsFileShare) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NfsFileShare resources.
 type NfsFileShareState struct {
 	// Amazon Resource Name (ARN) of the NFS File Share.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
-	ClientLists interface{}
+	ClientLists pulumi.StringArrayInput `pulumi:"clientLists"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
-	DefaultStorageClass interface{}
+	DefaultStorageClass pulumi.StringInput `pulumi:"defaultStorageClass"`
 	// ID of the NFS File Share.
-	FileshareId interface{}
+	FileshareId pulumi.StringInput `pulumi:"fileshareId"`
 	// Amazon Resource Name (ARN) of the file gateway.
-	GatewayArn interface{}
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
-	GuessMimeTypeEnabled interface{}
+	GuessMimeTypeEnabled pulumi.BoolInput `pulumi:"guessMimeTypeEnabled"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-	KmsEncrypted interface{}
+	KmsEncrypted pulumi.BoolInput `pulumi:"kmsEncrypted"`
 	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
-	LocationArn interface{}
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 	// Nested argument with file share default values. More information below.
-	NfsFileShareDefaults interface{}
+	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsInput `pulumi:"nfsFileShareDefaults"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
-	ObjectAcl interface{}
+	ObjectAcl pulumi.StringInput `pulumi:"objectAcl"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-	ReadOnly interface{}
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
-	RequesterPays interface{}
+	RequesterPays pulumi.BoolInput `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
-	Squash interface{}
+	Squash pulumi.StringInput `pulumi:"squash"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NfsFileShare resource.
 type NfsFileShareArgs struct {
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
-	ClientLists interface{}
+	ClientLists pulumi.StringArrayInput `pulumi:"clientLists"`
 	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
-	DefaultStorageClass interface{}
+	DefaultStorageClass pulumi.StringInput `pulumi:"defaultStorageClass"`
 	// Amazon Resource Name (ARN) of the file gateway.
-	GatewayArn interface{}
+	GatewayArn pulumi.StringInput `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
-	GuessMimeTypeEnabled interface{}
+	GuessMimeTypeEnabled pulumi.BoolInput `pulumi:"guessMimeTypeEnabled"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-	KmsEncrypted interface{}
+	KmsEncrypted pulumi.BoolInput `pulumi:"kmsEncrypted"`
 	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
-	KmsKeyArn interface{}
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
-	LocationArn interface{}
+	LocationArn pulumi.StringInput `pulumi:"locationArn"`
 	// Nested argument with file share default values. More information below.
-	NfsFileShareDefaults interface{}
+	NfsFileShareDefaults NfsFileShareNfsFileShareDefaultsInput `pulumi:"nfsFileShareDefaults"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
-	ObjectAcl interface{}
+	ObjectAcl pulumi.StringInput `pulumi:"objectAcl"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
-	ReadOnly interface{}
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
-	RequesterPays interface{}
+	RequesterPays pulumi.BoolInput `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
-	Squash interface{}
+	Squash pulumi.StringInput `pulumi:"squash"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type NfsFileShareNfsFileShareDefaults struct {
+	// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+	DirectoryMode *string `pulumi:"directoryMode"`
+	// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+	FileMode *string `pulumi:"fileMode"`
+	// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+	GroupId *int `pulumi:"groupId"`
+	// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+	OwnerId *int `pulumi:"ownerId"`
+}
+var nfsFileShareNfsFileShareDefaultsType = reflect.TypeOf((*NfsFileShareNfsFileShareDefaults)(nil)).Elem()
+
+type NfsFileShareNfsFileShareDefaultsInput interface {
+	pulumi.Input
+
+	ToNfsFileShareNfsFileShareDefaultsOutput() NfsFileShareNfsFileShareDefaultsOutput
+	ToNfsFileShareNfsFileShareDefaultsOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsOutput
+}
+
+type NfsFileShareNfsFileShareDefaultsArgs struct {
+	// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+	DirectoryMode pulumi.StringInput `pulumi:"directoryMode"`
+	// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+	FileMode pulumi.StringInput `pulumi:"fileMode"`
+	// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+	OwnerId pulumi.IntInput `pulumi:"ownerId"`
+}
+
+func (NfsFileShareNfsFileShareDefaultsArgs) ElementType() reflect.Type {
+	return nfsFileShareNfsFileShareDefaultsType
+}
+
+func (a NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsOutput() NfsFileShareNfsFileShareDefaultsOutput {
+	return pulumi.ToOutput(a).(NfsFileShareNfsFileShareDefaultsOutput)
+}
+
+func (a NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NfsFileShareNfsFileShareDefaultsOutput)
+}
+
+type NfsFileShareNfsFileShareDefaultsOutput struct { *pulumi.OutputState }
+
+// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+func (o NfsFileShareNfsFileShareDefaultsOutput) DirectoryMode() pulumi.StringOutput {
+	return o.Apply(func(v NfsFileShareNfsFileShareDefaults) string {
+		if v.DirectoryMode == nil { return *new(string) } else { return *v.DirectoryMode }
+	}).(pulumi.StringOutput)
+}
+
+// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+func (o NfsFileShareNfsFileShareDefaultsOutput) FileMode() pulumi.StringOutput {
+	return o.Apply(func(v NfsFileShareNfsFileShareDefaults) string {
+		if v.FileMode == nil { return *new(string) } else { return *v.FileMode }
+	}).(pulumi.StringOutput)
+}
+
+// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+func (o NfsFileShareNfsFileShareDefaultsOutput) GroupId() pulumi.IntOutput {
+	return o.Apply(func(v NfsFileShareNfsFileShareDefaults) int {
+		if v.GroupId == nil { return *new(int) } else { return *v.GroupId }
+	}).(pulumi.IntOutput)
+}
+
+// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+func (o NfsFileShareNfsFileShareDefaultsOutput) OwnerId() pulumi.IntOutput {
+	return o.Apply(func(v NfsFileShareNfsFileShareDefaults) int {
+		if v.OwnerId == nil { return *new(int) } else { return *v.OwnerId }
+	}).(pulumi.IntOutput)
+}
+
+func (NfsFileShareNfsFileShareDefaultsOutput) ElementType() reflect.Type {
+	return nfsFileShareNfsFileShareDefaultsType
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaultsOutput() NfsFileShareNfsFileShareDefaultsOutput {
+	return o
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaultsOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NfsFileShareNfsFileShareDefaultsOutput{}) }
+

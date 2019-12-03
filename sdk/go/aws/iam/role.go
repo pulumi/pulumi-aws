@@ -14,192 +14,147 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
 type Role struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) specifying the role.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The policy that grants an entity permission to assume the role.
+	AssumeRolePolicy pulumi.StringOutput `pulumi:"assumeRolePolicy"`
+
+	// The creation date of the IAM role.
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+
+	// The description of the role.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
+	ForceDetachPolicies pulumi.BoolOutput `pulumi:"forceDetachPolicies"`
+
+	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	MaxSessionDuration pulumi.IntOutput `pulumi:"maxSessionDuration"`
+
+	// The name of the role. If omitted, this provider will assign a random, unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+
+	// The path to the role.
+	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+	Path pulumi.StringOutput `pulumi:"path"`
+
+	// The ARN of the policy that is used to set the permissions boundary for the role.
+	PermissionsBoundary pulumi.StringOutput `pulumi:"permissionsBoundary"`
+
+	// Key-value mapping of tags for the IAM role
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The stable and unique string identifying the role.
+	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
 func NewRole(ctx *pulumi.Context,
-	name string, args *RoleArgs, opts ...pulumi.ResourceOpt) (*Role, error) {
+	name string, args *RoleArgs, opts ...pulumi.ResourceOption) (*Role, error) {
 	if args == nil || args.AssumeRolePolicy == nil {
 		return nil, errors.New("missing required argument 'AssumeRolePolicy'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["assumeRolePolicy"] = nil
-		inputs["description"] = nil
-		inputs["forceDetachPolicies"] = nil
-		inputs["maxSessionDuration"] = nil
-		inputs["name"] = nil
-		inputs["namePrefix"] = nil
-		inputs["path"] = nil
-		inputs["permissionsBoundary"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["assumeRolePolicy"] = args.AssumeRolePolicy
-		inputs["description"] = args.Description
-		inputs["forceDetachPolicies"] = args.ForceDetachPolicies
-		inputs["maxSessionDuration"] = args.MaxSessionDuration
-		inputs["name"] = args.Name
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["path"] = args.Path
-		inputs["permissionsBoundary"] = args.PermissionsBoundary
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AssumeRolePolicy; i != nil { inputs["assumeRolePolicy"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.ForceDetachPolicies; i != nil { inputs["forceDetachPolicies"] = i.ToBoolOutput() }
+		if i := args.MaxSessionDuration; i != nil { inputs["maxSessionDuration"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := args.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := args.PermissionsBoundary; i != nil { inputs["permissionsBoundary"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createDate"] = nil
-	inputs["uniqueId"] = nil
-	s, err := ctx.RegisterResource("aws:iam/role:Role", name, true, inputs, opts...)
+	var resource Role
+	err := ctx.RegisterResource("aws:iam/role:Role", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Role{s: s}, nil
+	return &resource, nil
 }
 
 // GetRole gets an existing Role resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRole(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RoleState, opts ...pulumi.ResourceOpt) (*Role, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RoleState, opts ...pulumi.ResourceOption) (*Role, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["assumeRolePolicy"] = state.AssumeRolePolicy
-		inputs["createDate"] = state.CreateDate
-		inputs["description"] = state.Description
-		inputs["forceDetachPolicies"] = state.ForceDetachPolicies
-		inputs["maxSessionDuration"] = state.MaxSessionDuration
-		inputs["name"] = state.Name
-		inputs["namePrefix"] = state.NamePrefix
-		inputs["path"] = state.Path
-		inputs["permissionsBoundary"] = state.PermissionsBoundary
-		inputs["tags"] = state.Tags
-		inputs["uniqueId"] = state.UniqueId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AssumeRolePolicy; i != nil { inputs["assumeRolePolicy"] = i.ToStringOutput() }
+		if i := state.CreateDate; i != nil { inputs["createDate"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ForceDetachPolicies; i != nil { inputs["forceDetachPolicies"] = i.ToBoolOutput() }
+		if i := state.MaxSessionDuration; i != nil { inputs["maxSessionDuration"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamePrefix; i != nil { inputs["namePrefix"] = i.ToStringOutput() }
+		if i := state.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := state.PermissionsBoundary; i != nil { inputs["permissionsBoundary"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UniqueId; i != nil { inputs["uniqueId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/role:Role", name, id, inputs, opts...)
+	var resource Role
+	err := ctx.ReadResource("aws:iam/role:Role", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Role{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Role) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Role) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) specifying the role.
-func (r *Role) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The policy that grants an entity permission to assume the role.
-func (r *Role) AssumeRolePolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["assumeRolePolicy"])
-}
-
-// The creation date of the IAM role.
-func (r *Role) CreateDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createDate"])
-}
-
-// The description of the role.
-func (r *Role) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-func (r *Role) ForceDetachPolicies() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["forceDetachPolicies"])
-}
-
-// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-func (r *Role) MaxSessionDuration() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxSessionDuration"])
-}
-
-// The name of the role. If omitted, this provider will assign a random, unique name.
-func (r *Role) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (r *Role) NamePrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namePrefix"])
-}
-
-// The path to the role.
-// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-func (r *Role) Path() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["path"])
-}
-
-// The ARN of the policy that is used to set the permissions boundary for the role.
-func (r *Role) PermissionsBoundary() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["permissionsBoundary"])
-}
-
-// Key-value mapping of tags for the IAM role
-func (r *Role) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The stable and unique string identifying the role.
-func (r *Role) UniqueId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Role resources.
 type RoleState struct {
 	// The Amazon Resource Name (ARN) specifying the role.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The policy that grants an entity permission to assume the role.
-	AssumeRolePolicy interface{}
+	AssumeRolePolicy pulumi.StringInput `pulumi:"assumeRolePolicy"`
 	// The creation date of the IAM role.
-	CreateDate interface{}
+	CreateDate pulumi.StringInput `pulumi:"createDate"`
 	// The description of the role.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-	ForceDetachPolicies interface{}
+	ForceDetachPolicies pulumi.BoolInput `pulumi:"forceDetachPolicies"`
 	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-	MaxSessionDuration interface{}
+	MaxSessionDuration pulumi.IntInput `pulumi:"maxSessionDuration"`
 	// The name of the role. If omitted, this provider will assign a random, unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// The path to the role.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
-	PermissionsBoundary interface{}
+	PermissionsBoundary pulumi.StringInput `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM role
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The stable and unique string identifying the role.
-	UniqueId interface{}
+	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	// The policy that grants an entity permission to assume the role.
-	AssumeRolePolicy interface{}
+	AssumeRolePolicy pulumi.StringInput `pulumi:"assumeRolePolicy"`
 	// The description of the role.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-	ForceDetachPolicies interface{}
+	ForceDetachPolicies pulumi.BoolInput `pulumi:"forceDetachPolicies"`
 	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-	MaxSessionDuration interface{}
+	MaxSessionDuration pulumi.IntInput `pulumi:"maxSessionDuration"`
 	// The name of the role. If omitted, this provider will assign a random, unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix interface{}
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 	// The path to the role.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
-	PermissionsBoundary interface{}
+	PermissionsBoundary pulumi.StringInput `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM role
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

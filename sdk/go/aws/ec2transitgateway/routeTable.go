@@ -12,96 +12,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
 type RouteTable struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
+	DefaultAssociationRouteTable pulumi.BoolOutput `pulumi:"defaultAssociationRouteTable"`
+
+	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
+	DefaultPropagationRouteTable pulumi.BoolOutput `pulumi:"defaultPropagationRouteTable"`
+
+	// Key-value tags for the EC2 Transit Gateway Route Table.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+
+	// Identifier of EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
 
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewRouteTable(ctx *pulumi.Context,
-	name string, args *RouteTableArgs, opts ...pulumi.ResourceOpt) (*RouteTable, error) {
+	name string, args *RouteTableArgs, opts ...pulumi.ResourceOption) (*RouteTable, error) {
 	if args == nil || args.TransitGatewayId == nil {
 		return nil, errors.New("missing required argument 'TransitGatewayId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["tags"] = nil
-		inputs["transitGatewayId"] = nil
-	} else {
-		inputs["tags"] = args.Tags
-		inputs["transitGatewayId"] = args.TransitGatewayId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
+		if i := args.TransitGatewayId; i != nil { inputs["transitGatewayId"] = i.ToStringOutput() }
 	}
-	inputs["defaultAssociationRouteTable"] = nil
-	inputs["defaultPropagationRouteTable"] = nil
-	s, err := ctx.RegisterResource("aws:ec2transitgateway/routeTable:RouteTable", name, true, inputs, opts...)
+	var resource RouteTable
+	err := ctx.RegisterResource("aws:ec2transitgateway/routeTable:RouteTable", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RouteTable{s: s}, nil
+	return &resource, nil
 }
 
 // GetRouteTable gets an existing RouteTable resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRouteTable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteTableState, opts ...pulumi.ResourceOpt) (*RouteTable, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteTableState, opts ...pulumi.ResourceOption) (*RouteTable, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["defaultAssociationRouteTable"] = state.DefaultAssociationRouteTable
-		inputs["defaultPropagationRouteTable"] = state.DefaultPropagationRouteTable
-		inputs["tags"] = state.Tags
-		inputs["transitGatewayId"] = state.TransitGatewayId
+		if i := state.DefaultAssociationRouteTable; i != nil { inputs["defaultAssociationRouteTable"] = i.ToBoolOutput() }
+		if i := state.DefaultPropagationRouteTable; i != nil { inputs["defaultPropagationRouteTable"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
+		if i := state.TransitGatewayId; i != nil { inputs["transitGatewayId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2transitgateway/routeTable:RouteTable", name, id, inputs, opts...)
+	var resource RouteTable
+	err := ctx.ReadResource("aws:ec2transitgateway/routeTable:RouteTable", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RouteTable{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RouteTable) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RouteTable) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Boolean whether this is the default association route table for the EC2 Transit Gateway.
-func (r *RouteTable) DefaultAssociationRouteTable() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["defaultAssociationRouteTable"])
-}
-
-// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-func (r *RouteTable) DefaultPropagationRouteTable() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["defaultPropagationRouteTable"])
-}
-
-// Key-value tags for the EC2 Transit Gateway Route Table.
-func (r *RouteTable) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Identifier of EC2 Transit Gateway.
-func (r *RouteTable) TransitGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RouteTable resources.
 type RouteTableState struct {
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
-	DefaultAssociationRouteTable interface{}
+	DefaultAssociationRouteTable pulumi.BoolInput `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-	DefaultPropagationRouteTable interface{}
+	DefaultPropagationRouteTable pulumi.BoolInput `pulumi:"defaultPropagationRouteTable"`
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
 }

@@ -55,7 +55,7 @@ func GetProfile(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AWS_PROFILE").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AWS_PROFILE")).(string); ok {
 		return dv
 	}
 	return v
@@ -67,7 +67,7 @@ func GetRegion(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION")).(string); ok {
 		return dv
 	}
 	return v

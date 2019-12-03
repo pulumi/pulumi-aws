@@ -4,6 +4,8 @@
 package globalaccelerator
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_listener.html.markdown.
 type Listener struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) of your accelerator.
+	AcceleratorArn pulumi.StringOutput `pulumi:"acceleratorArn"`
+
+	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
+	ClientAffinity pulumi.StringOutput `pulumi:"clientAffinity"`
+
+	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+	PortRanges ListenerPortRangesArrayOutput `pulumi:"portRanges"`
+
+	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
 func NewListener(ctx *pulumi.Context,
-	name string, args *ListenerArgs, opts ...pulumi.ResourceOpt) (*Listener, error) {
+	name string, args *ListenerArgs, opts ...pulumi.ResourceOption) (*Listener, error) {
 	if args == nil || args.AcceleratorArn == nil {
 		return nil, errors.New("missing required argument 'AcceleratorArn'")
 	}
@@ -27,93 +41,169 @@ func NewListener(ctx *pulumi.Context,
 	if args == nil || args.Protocol == nil {
 		return nil, errors.New("missing required argument 'Protocol'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["acceleratorArn"] = nil
-		inputs["clientAffinity"] = nil
-		inputs["portRanges"] = nil
-		inputs["protocol"] = nil
-	} else {
-		inputs["acceleratorArn"] = args.AcceleratorArn
-		inputs["clientAffinity"] = args.ClientAffinity
-		inputs["portRanges"] = args.PortRanges
-		inputs["protocol"] = args.Protocol
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AcceleratorArn; i != nil { inputs["acceleratorArn"] = i.ToStringOutput() }
+		if i := args.ClientAffinity; i != nil { inputs["clientAffinity"] = i.ToStringOutput() }
+		if i := args.PortRanges; i != nil { inputs["portRanges"] = i.ToListenerPortRangesArrayOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:globalaccelerator/listener:Listener", name, true, inputs, opts...)
+	var resource Listener
+	err := ctx.RegisterResource("aws:globalaccelerator/listener:Listener", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Listener{s: s}, nil
+	return &resource, nil
 }
 
 // GetListener gets an existing Listener resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetListener(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ListenerState, opts ...pulumi.ResourceOpt) (*Listener, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ListenerState, opts ...pulumi.ResourceOption) (*Listener, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["acceleratorArn"] = state.AcceleratorArn
-		inputs["clientAffinity"] = state.ClientAffinity
-		inputs["portRanges"] = state.PortRanges
-		inputs["protocol"] = state.Protocol
+		if i := state.AcceleratorArn; i != nil { inputs["acceleratorArn"] = i.ToStringOutput() }
+		if i := state.ClientAffinity; i != nil { inputs["clientAffinity"] = i.ToStringOutput() }
+		if i := state.PortRanges; i != nil { inputs["portRanges"] = i.ToListenerPortRangesArrayOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:globalaccelerator/listener:Listener", name, id, inputs, opts...)
+	var resource Listener
+	err := ctx.ReadResource("aws:globalaccelerator/listener:Listener", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Listener{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Listener) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Listener) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) of your accelerator.
-func (r *Listener) AcceleratorArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["acceleratorArn"])
-}
-
-// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-func (r *Listener) ClientAffinity() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientAffinity"])
-}
-
-// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-func (r *Listener) PortRanges() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["portRanges"])
-}
-
-// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-func (r *Listener) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Listener resources.
 type ListenerState struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
-	AcceleratorArn interface{}
+	AcceleratorArn pulumi.StringInput `pulumi:"acceleratorArn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-	ClientAffinity interface{}
+	ClientAffinity pulumi.StringInput `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	PortRanges interface{}
+	PortRanges ListenerPortRangesArrayInput `pulumi:"portRanges"`
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
-	AcceleratorArn interface{}
+	AcceleratorArn pulumi.StringInput `pulumi:"acceleratorArn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-	ClientAffinity interface{}
+	ClientAffinity pulumi.StringInput `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	PortRanges interface{}
+	PortRanges ListenerPortRangesArrayInput `pulumi:"portRanges"`
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
+type ListenerPortRanges struct {
+	// The first port in the range of ports, inclusive.
+	FromPort *int `pulumi:"fromPort"`
+	// The last port in the range of ports, inclusive.
+	ToPort *int `pulumi:"toPort"`
+}
+var listenerPortRangesType = reflect.TypeOf((*ListenerPortRanges)(nil)).Elem()
+
+type ListenerPortRangesInput interface {
+	pulumi.Input
+
+	ToListenerPortRangesOutput() ListenerPortRangesOutput
+	ToListenerPortRangesOutputWithContext(ctx context.Context) ListenerPortRangesOutput
+}
+
+type ListenerPortRangesArgs struct {
+	// The first port in the range of ports, inclusive.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// The last port in the range of ports, inclusive.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (ListenerPortRangesArgs) ElementType() reflect.Type {
+	return listenerPortRangesType
+}
+
+func (a ListenerPortRangesArgs) ToListenerPortRangesOutput() ListenerPortRangesOutput {
+	return pulumi.ToOutput(a).(ListenerPortRangesOutput)
+}
+
+func (a ListenerPortRangesArgs) ToListenerPortRangesOutputWithContext(ctx context.Context) ListenerPortRangesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ListenerPortRangesOutput)
+}
+
+type ListenerPortRangesOutput struct { *pulumi.OutputState }
+
+// The first port in the range of ports, inclusive.
+func (o ListenerPortRangesOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v ListenerPortRanges) int {
+		if v.FromPort == nil { return *new(int) } else { return *v.FromPort }
+	}).(pulumi.IntOutput)
+}
+
+// The last port in the range of ports, inclusive.
+func (o ListenerPortRangesOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v ListenerPortRanges) int {
+		if v.ToPort == nil { return *new(int) } else { return *v.ToPort }
+	}).(pulumi.IntOutput)
+}
+
+func (ListenerPortRangesOutput) ElementType() reflect.Type {
+	return listenerPortRangesType
+}
+
+func (o ListenerPortRangesOutput) ToListenerPortRangesOutput() ListenerPortRangesOutput {
+	return o
+}
+
+func (o ListenerPortRangesOutput) ToListenerPortRangesOutputWithContext(ctx context.Context) ListenerPortRangesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ListenerPortRangesOutput{}) }
+
+var listenerPortRangesArrayType = reflect.TypeOf((*[]ListenerPortRanges)(nil)).Elem()
+
+type ListenerPortRangesArrayInput interface {
+	pulumi.Input
+
+	ToListenerPortRangesArrayOutput() ListenerPortRangesArrayOutput
+	ToListenerPortRangesArrayOutputWithContext(ctx context.Context) ListenerPortRangesArrayOutput
+}
+
+type ListenerPortRangesArrayArgs []ListenerPortRangesInput
+
+func (ListenerPortRangesArrayArgs) ElementType() reflect.Type {
+	return listenerPortRangesArrayType
+}
+
+func (a ListenerPortRangesArrayArgs) ToListenerPortRangesArrayOutput() ListenerPortRangesArrayOutput {
+	return pulumi.ToOutput(a).(ListenerPortRangesArrayOutput)
+}
+
+func (a ListenerPortRangesArrayArgs) ToListenerPortRangesArrayOutputWithContext(ctx context.Context) ListenerPortRangesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ListenerPortRangesArrayOutput)
+}
+
+type ListenerPortRangesArrayOutput struct { *pulumi.OutputState }
+
+func (o ListenerPortRangesArrayOutput) Index(i pulumi.IntInput) ListenerPortRangesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ListenerPortRanges {
+		return vs[0].([]ListenerPortRanges)[vs[1].(int)]
+	}).(ListenerPortRangesOutput)
+}
+
+func (ListenerPortRangesArrayOutput) ElementType() reflect.Type {
+	return listenerPortRangesArrayType
+}
+
+func (o ListenerPortRangesArrayOutput) ToListenerPortRangesArrayOutput() ListenerPortRangesArrayOutput {
+	return o
+}
+
+func (o ListenerPortRangesArrayOutput) ToListenerPortRangesArrayOutputWithContext(ctx context.Context) ListenerPortRangesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ListenerPortRangesArrayOutput{}) }
+

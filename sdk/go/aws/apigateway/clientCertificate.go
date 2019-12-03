@@ -11,111 +11,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_client_certificate.html.markdown.
 type ClientCertificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The date when the client certificate was created.
+	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+
+	// The description of the client certificate.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The date when the client certificate will expire.
+	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+
+	// The PEM-encoded public key of the client certificate.
+	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewClientCertificate registers a new resource with the given unique name, arguments, and options.
 func NewClientCertificate(ctx *pulumi.Context,
-	name string, args *ClientCertificateArgs, opts ...pulumi.ResourceOpt) (*ClientCertificate, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["tags"] = args.Tags
+	name string, args *ClientCertificateArgs, opts ...pulumi.ResourceOption) (*ClientCertificate, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["createdDate"] = nil
-	inputs["expirationDate"] = nil
-	inputs["pemEncodedCertificate"] = nil
-	s, err := ctx.RegisterResource("aws:apigateway/clientCertificate:ClientCertificate", name, true, inputs, opts...)
+	var resource ClientCertificate
+	err := ctx.RegisterResource("aws:apigateway/clientCertificate:ClientCertificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClientCertificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetClientCertificate gets an existing ClientCertificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetClientCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClientCertificateState, opts ...pulumi.ResourceOpt) (*ClientCertificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClientCertificateState, opts ...pulumi.ResourceOption) (*ClientCertificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["createdDate"] = state.CreatedDate
-		inputs["description"] = state.Description
-		inputs["expirationDate"] = state.ExpirationDate
-		inputs["pemEncodedCertificate"] = state.PemEncodedCertificate
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CreatedDate; i != nil { inputs["createdDate"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ExpirationDate; i != nil { inputs["expirationDate"] = i.ToStringOutput() }
+		if i := state.PemEncodedCertificate; i != nil { inputs["pemEncodedCertificate"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/clientCertificate:ClientCertificate", name, id, inputs, opts...)
+	var resource ClientCertificate
+	err := ctx.ReadResource("aws:apigateway/clientCertificate:ClientCertificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ClientCertificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ClientCertificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ClientCertificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN)
-func (r *ClientCertificate) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The date when the client certificate was created.
-func (r *ClientCertificate) CreatedDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createdDate"])
-}
-
-// The description of the client certificate.
-func (r *ClientCertificate) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The date when the client certificate will expire.
-func (r *ClientCertificate) ExpirationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expirationDate"])
-}
-
-// The PEM-encoded public key of the client certificate.
-func (r *ClientCertificate) PemEncodedCertificate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["pemEncodedCertificate"])
-}
-
-// Key-value mapping of resource tags
-func (r *ClientCertificate) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ClientCertificate resources.
 type ClientCertificateState struct {
 	// Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The date when the client certificate was created.
-	CreatedDate interface{}
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The description of the client certificate.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The date when the client certificate will expire.
-	ExpirationDate interface{}
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
-	PemEncodedCertificate interface{}
+	PemEncodedCertificate pulumi.StringInput `pulumi:"pemEncodedCertificate"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClientCertificate resource.
 type ClientCertificateArgs struct {
 	// The description of the client certificate.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

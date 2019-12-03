@@ -4,6 +4,8 @@
 package directoryservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -15,225 +17,321 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_directory.html.markdown.
 type Directory struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The access URL for the directory, such as `http://alias.awsapps.com`.
+	AccessUrl pulumi.StringOutput `pulumi:"accessUrl"`
+
+	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
+	Alias pulumi.StringOutput `pulumi:"alias"`
+
+	// Connector related information about the directory. Fields documented below.
+	ConnectSettings DirectoryConnectSettingsOutput `pulumi:"connectSettings"`
+
+	// A textual description for the directory.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A list of IP addresses of the DNS servers for the directory or connector.
+	DnsIpAddresses pulumi.StringArrayOutput `pulumi:"dnsIpAddresses"`
+
+	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
+	Edition pulumi.StringOutput `pulumi:"edition"`
+
+	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+	EnableSso pulumi.BoolOutput `pulumi:"enableSso"`
+
+	// The fully qualified name for the directory, such as `corp.example.com`
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The password for the directory administrator or connector user.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The ID of the security group created by the directory.
+	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
+
+	// The short name of the directory, such as `CORP`.
+	ShortName pulumi.StringOutput `pulumi:"shortName"`
+
+	// The size of the directory (`Small` or `Large` are accepted values).
+	Size pulumi.StringOutput `pulumi:"size"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// VPC related information about the directory. Fields documented below.
+	VpcSettings DirectoryVpcSettingsOutput `pulumi:"vpcSettings"`
 }
 
 // NewDirectory registers a new resource with the given unique name, arguments, and options.
 func NewDirectory(ctx *pulumi.Context,
-	name string, args *DirectoryArgs, opts ...pulumi.ResourceOpt) (*Directory, error) {
+	name string, args *DirectoryArgs, opts ...pulumi.ResourceOption) (*Directory, error) {
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["alias"] = nil
-		inputs["connectSettings"] = nil
-		inputs["description"] = nil
-		inputs["edition"] = nil
-		inputs["enableSso"] = nil
-		inputs["name"] = nil
-		inputs["password"] = nil
-		inputs["shortName"] = nil
-		inputs["size"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-		inputs["vpcSettings"] = nil
-	} else {
-		inputs["alias"] = args.Alias
-		inputs["connectSettings"] = args.ConnectSettings
-		inputs["description"] = args.Description
-		inputs["edition"] = args.Edition
-		inputs["enableSso"] = args.EnableSso
-		inputs["name"] = args.Name
-		inputs["password"] = args.Password
-		inputs["shortName"] = args.ShortName
-		inputs["size"] = args.Size
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
-		inputs["vpcSettings"] = args.VpcSettings
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Alias; i != nil { inputs["alias"] = i.ToStringOutput() }
+		if i := args.ConnectSettings; i != nil { inputs["connectSettings"] = i.ToDirectoryConnectSettingsOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := args.EnableSso; i != nil { inputs["enableSso"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.ShortName; i != nil { inputs["shortName"] = i.ToStringOutput() }
+		if i := args.Size; i != nil { inputs["size"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.VpcSettings; i != nil { inputs["vpcSettings"] = i.ToDirectoryVpcSettingsOutput() }
 	}
-	inputs["accessUrl"] = nil
-	inputs["dnsIpAddresses"] = nil
-	inputs["securityGroupId"] = nil
-	s, err := ctx.RegisterResource("aws:directoryservice/directory:Directory", name, true, inputs, opts...)
+	var resource Directory
+	err := ctx.RegisterResource("aws:directoryservice/directory:Directory", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Directory{s: s}, nil
+	return &resource, nil
 }
 
 // GetDirectory gets an existing Directory resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDirectory(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DirectoryState, opts ...pulumi.ResourceOpt) (*Directory, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DirectoryState, opts ...pulumi.ResourceOption) (*Directory, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessUrl"] = state.AccessUrl
-		inputs["alias"] = state.Alias
-		inputs["connectSettings"] = state.ConnectSettings
-		inputs["description"] = state.Description
-		inputs["dnsIpAddresses"] = state.DnsIpAddresses
-		inputs["edition"] = state.Edition
-		inputs["enableSso"] = state.EnableSso
-		inputs["name"] = state.Name
-		inputs["password"] = state.Password
-		inputs["securityGroupId"] = state.SecurityGroupId
-		inputs["shortName"] = state.ShortName
-		inputs["size"] = state.Size
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
-		inputs["vpcSettings"] = state.VpcSettings
+		if i := state.AccessUrl; i != nil { inputs["accessUrl"] = i.ToStringOutput() }
+		if i := state.Alias; i != nil { inputs["alias"] = i.ToStringOutput() }
+		if i := state.ConnectSettings; i != nil { inputs["connectSettings"] = i.ToDirectoryConnectSettingsOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DnsIpAddresses; i != nil { inputs["dnsIpAddresses"] = i.ToStringArrayOutput() }
+		if i := state.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := state.EnableSso; i != nil { inputs["enableSso"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.SecurityGroupId; i != nil { inputs["securityGroupId"] = i.ToStringOutput() }
+		if i := state.ShortName; i != nil { inputs["shortName"] = i.ToStringOutput() }
+		if i := state.Size; i != nil { inputs["size"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.VpcSettings; i != nil { inputs["vpcSettings"] = i.ToDirectoryVpcSettingsOutput() }
 	}
-	s, err := ctx.ReadResource("aws:directoryservice/directory:Directory", name, id, inputs, opts...)
+	var resource Directory
+	err := ctx.ReadResource("aws:directoryservice/directory:Directory", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Directory{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Directory) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Directory) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The access URL for the directory, such as `http://alias.awsapps.com`.
-func (r *Directory) AccessUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accessUrl"])
-}
-
-// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
-func (r *Directory) Alias() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["alias"])
-}
-
-// Connector related information about the directory. Fields documented below.
-func (r *Directory) ConnectSettings() pulumi.Output {
-	return r.s.State["connectSettings"]
-}
-
-// A textual description for the directory.
-func (r *Directory) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A list of IP addresses of the DNS servers for the directory or connector.
-func (r *Directory) DnsIpAddresses() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dnsIpAddresses"])
-}
-
-// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
-func (r *Directory) Edition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["edition"])
-}
-
-// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-func (r *Directory) EnableSso() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableSso"])
-}
-
-// The fully qualified name for the directory, such as `corp.example.com`
-func (r *Directory) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The password for the directory administrator or connector user.
-func (r *Directory) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The ID of the security group created by the directory.
-func (r *Directory) SecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["securityGroupId"])
-}
-
-// The short name of the directory, such as `CORP`.
-func (r *Directory) ShortName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["shortName"])
-}
-
-// The size of the directory (`Small` or `Large` are accepted values).
-func (r *Directory) Size() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["size"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Directory) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-func (r *Directory) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// VPC related information about the directory. Fields documented below.
-func (r *Directory) VpcSettings() pulumi.Output {
-	return r.s.State["vpcSettings"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Directory resources.
 type DirectoryState struct {
 	// The access URL for the directory, such as `http://alias.awsapps.com`.
-	AccessUrl interface{}
+	AccessUrl pulumi.StringInput `pulumi:"accessUrl"`
 	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
-	Alias interface{}
+	Alias pulumi.StringInput `pulumi:"alias"`
 	// Connector related information about the directory. Fields documented below.
-	ConnectSettings interface{}
+	ConnectSettings DirectoryConnectSettingsInput `pulumi:"connectSettings"`
 	// A textual description for the directory.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A list of IP addresses of the DNS servers for the directory or connector.
-	DnsIpAddresses interface{}
+	DnsIpAddresses pulumi.StringArrayInput `pulumi:"dnsIpAddresses"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-	EnableSso interface{}
+	EnableSso pulumi.BoolInput `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password for the directory administrator or connector user.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The ID of the security group created by the directory.
-	SecurityGroupId interface{}
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
 	// The short name of the directory, such as `CORP`.
-	ShortName interface{}
+	ShortName pulumi.StringInput `pulumi:"shortName"`
 	// The size of the directory (`Small` or `Large` are accepted values).
-	Size interface{}
+	Size pulumi.StringInput `pulumi:"size"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// VPC related information about the directory. Fields documented below.
-	VpcSettings interface{}
+	VpcSettings DirectoryVpcSettingsInput `pulumi:"vpcSettings"`
 }
 
 // The set of arguments for constructing a Directory resource.
 type DirectoryArgs struct {
 	// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
-	Alias interface{}
+	Alias pulumi.StringInput `pulumi:"alias"`
 	// Connector related information about the directory. Fields documented below.
-	ConnectSettings interface{}
+	ConnectSettings DirectoryConnectSettingsInput `pulumi:"connectSettings"`
 	// A textual description for the directory.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-	EnableSso interface{}
+	EnableSso pulumi.BoolInput `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password for the directory administrator or connector user.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The short name of the directory, such as `CORP`.
-	ShortName interface{}
+	ShortName pulumi.StringInput `pulumi:"shortName"`
 	// The size of the directory (`Small` or `Large` are accepted values).
-	Size interface{}
+	Size pulumi.StringInput `pulumi:"size"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// VPC related information about the directory. Fields documented below.
-	VpcSettings interface{}
+	VpcSettings DirectoryVpcSettingsInput `pulumi:"vpcSettings"`
 }
+type DirectoryConnectSettings struct {
+	// The DNS IP addresses of the domain to connect to.
+	CustomerDnsIps []string `pulumi:"customerDnsIps"`
+	// The username corresponding to the password provided.
+	CustomerUsername string `pulumi:"customerUsername"`
+	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The identifier of the VPC that the directory is in.
+	VpcId string `pulumi:"vpcId"`
+}
+var directoryConnectSettingsType = reflect.TypeOf((*DirectoryConnectSettings)(nil)).Elem()
+
+type DirectoryConnectSettingsInput interface {
+	pulumi.Input
+
+	ToDirectoryConnectSettingsOutput() DirectoryConnectSettingsOutput
+	ToDirectoryConnectSettingsOutputWithContext(ctx context.Context) DirectoryConnectSettingsOutput
+}
+
+type DirectoryConnectSettingsArgs struct {
+	// The DNS IP addresses of the domain to connect to.
+	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
+	// The username corresponding to the password provided.
+	CustomerUsername pulumi.StringInput `pulumi:"customerUsername"`
+	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The identifier of the VPC that the directory is in.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (DirectoryConnectSettingsArgs) ElementType() reflect.Type {
+	return directoryConnectSettingsType
+}
+
+func (a DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsOutput() DirectoryConnectSettingsOutput {
+	return pulumi.ToOutput(a).(DirectoryConnectSettingsOutput)
+}
+
+func (a DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsOutputWithContext(ctx context.Context) DirectoryConnectSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DirectoryConnectSettingsOutput)
+}
+
+type DirectoryConnectSettingsOutput struct { *pulumi.OutputState }
+
+// The DNS IP addresses of the domain to connect to.
+func (o DirectoryConnectSettingsOutput) CustomerDnsIps() pulumi.StringArrayOutput {
+	return o.Apply(func(v DirectoryConnectSettings) []string {
+		return v.CustomerDnsIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The username corresponding to the password provided.
+func (o DirectoryConnectSettingsOutput) CustomerUsername() pulumi.StringOutput {
+	return o.Apply(func(v DirectoryConnectSettings) string {
+		return v.CustomerUsername
+	}).(pulumi.StringOutput)
+}
+
+// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+func (o DirectoryConnectSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v DirectoryConnectSettings) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the VPC that the directory is in.
+func (o DirectoryConnectSettingsOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v DirectoryConnectSettings) string {
+		return v.VpcId
+	}).(pulumi.StringOutput)
+}
+
+func (DirectoryConnectSettingsOutput) ElementType() reflect.Type {
+	return directoryConnectSettingsType
+}
+
+func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsOutput() DirectoryConnectSettingsOutput {
+	return o
+}
+
+func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsOutputWithContext(ctx context.Context) DirectoryConnectSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DirectoryConnectSettingsOutput{}) }
+
+type DirectoryVpcSettings struct {
+	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The identifier of the VPC that the directory is in.
+	VpcId string `pulumi:"vpcId"`
+}
+var directoryVpcSettingsType = reflect.TypeOf((*DirectoryVpcSettings)(nil)).Elem()
+
+type DirectoryVpcSettingsInput interface {
+	pulumi.Input
+
+	ToDirectoryVpcSettingsOutput() DirectoryVpcSettingsOutput
+	ToDirectoryVpcSettingsOutputWithContext(ctx context.Context) DirectoryVpcSettingsOutput
+}
+
+type DirectoryVpcSettingsArgs struct {
+	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The identifier of the VPC that the directory is in.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (DirectoryVpcSettingsArgs) ElementType() reflect.Type {
+	return directoryVpcSettingsType
+}
+
+func (a DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsOutput() DirectoryVpcSettingsOutput {
+	return pulumi.ToOutput(a).(DirectoryVpcSettingsOutput)
+}
+
+func (a DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsOutputWithContext(ctx context.Context) DirectoryVpcSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DirectoryVpcSettingsOutput)
+}
+
+type DirectoryVpcSettingsOutput struct { *pulumi.OutputState }
+
+// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+func (o DirectoryVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v DirectoryVpcSettings) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the VPC that the directory is in.
+func (o DirectoryVpcSettingsOutput) VpcId() pulumi.StringOutput {
+	return o.Apply(func(v DirectoryVpcSettings) string {
+		return v.VpcId
+	}).(pulumi.StringOutput)
+}
+
+func (DirectoryVpcSettingsOutput) ElementType() reflect.Type {
+	return directoryVpcSettingsType
+}
+
+func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsOutput() DirectoryVpcSettingsOutput {
+	return o
+}
+
+func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsOutputWithContext(ctx context.Context) DirectoryVpcSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{}) }
+

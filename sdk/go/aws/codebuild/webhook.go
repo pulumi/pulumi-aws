@@ -4,6 +4,8 @@
 package codebuild
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,117 +14,308 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.
 type Webhook struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+	BranchFilter pulumi.StringOutput `pulumi:"branchFilter"`
+
+	// Information about the webhook's trigger. Filter group blocks are documented below.
+	FilterGroups WebhookFilterGroupsArrayOutput `pulumi:"filterGroups"`
+
+	// The CodeBuild endpoint where webhook events are sent.
+	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
+
+	// The name of the build project.
+	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+
+	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
+	Secret pulumi.StringOutput `pulumi:"secret"`
+
+	// The URL to the webhook.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
 func NewWebhook(ctx *pulumi.Context,
-	name string, args *WebhookArgs, opts ...pulumi.ResourceOpt) (*Webhook, error) {
+	name string, args *WebhookArgs, opts ...pulumi.ResourceOption) (*Webhook, error) {
 	if args == nil || args.ProjectName == nil {
 		return nil, errors.New("missing required argument 'ProjectName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["branchFilter"] = nil
-		inputs["filterGroups"] = nil
-		inputs["projectName"] = nil
-	} else {
-		inputs["branchFilter"] = args.BranchFilter
-		inputs["filterGroups"] = args.FilterGroups
-		inputs["projectName"] = args.ProjectName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BranchFilter; i != nil { inputs["branchFilter"] = i.ToStringOutput() }
+		if i := args.FilterGroups; i != nil { inputs["filterGroups"] = i.ToWebhookFilterGroupsArrayOutput() }
+		if i := args.ProjectName; i != nil { inputs["projectName"] = i.ToStringOutput() }
 	}
-	inputs["payloadUrl"] = nil
-	inputs["secret"] = nil
-	inputs["url"] = nil
-	s, err := ctx.RegisterResource("aws:codebuild/webhook:Webhook", name, true, inputs, opts...)
+	var resource Webhook
+	err := ctx.RegisterResource("aws:codebuild/webhook:Webhook", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Webhook{s: s}, nil
+	return &resource, nil
 }
 
 // GetWebhook gets an existing Webhook resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWebhook(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WebhookState, opts ...pulumi.ResourceOpt) (*Webhook, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WebhookState, opts ...pulumi.ResourceOption) (*Webhook, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["branchFilter"] = state.BranchFilter
-		inputs["filterGroups"] = state.FilterGroups
-		inputs["payloadUrl"] = state.PayloadUrl
-		inputs["projectName"] = state.ProjectName
-		inputs["secret"] = state.Secret
-		inputs["url"] = state.Url
+		if i := state.BranchFilter; i != nil { inputs["branchFilter"] = i.ToStringOutput() }
+		if i := state.FilterGroups; i != nil { inputs["filterGroups"] = i.ToWebhookFilterGroupsArrayOutput() }
+		if i := state.PayloadUrl; i != nil { inputs["payloadUrl"] = i.ToStringOutput() }
+		if i := state.ProjectName; i != nil { inputs["projectName"] = i.ToStringOutput() }
+		if i := state.Secret; i != nil { inputs["secret"] = i.ToStringOutput() }
+		if i := state.Url; i != nil { inputs["url"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:codebuild/webhook:Webhook", name, id, inputs, opts...)
+	var resource Webhook
+	err := ctx.ReadResource("aws:codebuild/webhook:Webhook", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Webhook{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Webhook) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Webhook) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
-func (r *Webhook) BranchFilter() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["branchFilter"])
-}
-
-// Information about the webhook's trigger. Filter group blocks are documented below.
-func (r *Webhook) FilterGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["filterGroups"])
-}
-
-// The CodeBuild endpoint where webhook events are sent.
-func (r *Webhook) PayloadUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["payloadUrl"])
-}
-
-// The name of the build project.
-func (r *Webhook) ProjectName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["projectName"])
-}
-
-// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
-func (r *Webhook) Secret() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secret"])
-}
-
-// The URL to the webhook.
-func (r *Webhook) Url() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["url"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Webhook resources.
 type WebhookState struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
-	BranchFilter interface{}
+	BranchFilter pulumi.StringInput `pulumi:"branchFilter"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
-	FilterGroups interface{}
+	FilterGroups WebhookFilterGroupsArrayInput `pulumi:"filterGroups"`
 	// The CodeBuild endpoint where webhook events are sent.
-	PayloadUrl interface{}
+	PayloadUrl pulumi.StringInput `pulumi:"payloadUrl"`
 	// The name of the build project.
-	ProjectName interface{}
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
-	Secret interface{}
+	Secret pulumi.StringInput `pulumi:"secret"`
 	// The URL to the webhook.
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
-	BranchFilter interface{}
+	BranchFilter pulumi.StringInput `pulumi:"branchFilter"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
-	FilterGroups interface{}
+	FilterGroups WebhookFilterGroupsArrayInput `pulumi:"filterGroups"`
 	// The name of the build project.
-	ProjectName interface{}
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
 }
+type WebhookFilterGroups struct {
+	// A webhook filter for the group. Filter blocks are documented below.
+	Filters *[]WebhookFilterGroupsFilters `pulumi:"filters"`
+}
+var webhookFilterGroupsType = reflect.TypeOf((*WebhookFilterGroups)(nil)).Elem()
+
+type WebhookFilterGroupsInput interface {
+	pulumi.Input
+
+	ToWebhookFilterGroupsOutput() WebhookFilterGroupsOutput
+	ToWebhookFilterGroupsOutputWithContext(ctx context.Context) WebhookFilterGroupsOutput
+}
+
+type WebhookFilterGroupsArgs struct {
+	// A webhook filter for the group. Filter blocks are documented below.
+	Filters WebhookFilterGroupsFiltersArrayInput `pulumi:"filters"`
+}
+
+func (WebhookFilterGroupsArgs) ElementType() reflect.Type {
+	return webhookFilterGroupsType
+}
+
+func (a WebhookFilterGroupsArgs) ToWebhookFilterGroupsOutput() WebhookFilterGroupsOutput {
+	return pulumi.ToOutput(a).(WebhookFilterGroupsOutput)
+}
+
+func (a WebhookFilterGroupsArgs) ToWebhookFilterGroupsOutputWithContext(ctx context.Context) WebhookFilterGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WebhookFilterGroupsOutput)
+}
+
+type WebhookFilterGroupsOutput struct { *pulumi.OutputState }
+
+// A webhook filter for the group. Filter blocks are documented below.
+func (o WebhookFilterGroupsOutput) Filters() WebhookFilterGroupsFiltersArrayOutput {
+	return o.Apply(func(v WebhookFilterGroups) []WebhookFilterGroupsFilters {
+		if v.Filters == nil { return *new([]WebhookFilterGroupsFilters) } else { return *v.Filters }
+	}).(WebhookFilterGroupsFiltersArrayOutput)
+}
+
+func (WebhookFilterGroupsOutput) ElementType() reflect.Type {
+	return webhookFilterGroupsType
+}
+
+func (o WebhookFilterGroupsOutput) ToWebhookFilterGroupsOutput() WebhookFilterGroupsOutput {
+	return o
+}
+
+func (o WebhookFilterGroupsOutput) ToWebhookFilterGroupsOutputWithContext(ctx context.Context) WebhookFilterGroupsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WebhookFilterGroupsOutput{}) }
+
+var webhookFilterGroupsArrayType = reflect.TypeOf((*[]WebhookFilterGroups)(nil)).Elem()
+
+type WebhookFilterGroupsArrayInput interface {
+	pulumi.Input
+
+	ToWebhookFilterGroupsArrayOutput() WebhookFilterGroupsArrayOutput
+	ToWebhookFilterGroupsArrayOutputWithContext(ctx context.Context) WebhookFilterGroupsArrayOutput
+}
+
+type WebhookFilterGroupsArrayArgs []WebhookFilterGroupsInput
+
+func (WebhookFilterGroupsArrayArgs) ElementType() reflect.Type {
+	return webhookFilterGroupsArrayType
+}
+
+func (a WebhookFilterGroupsArrayArgs) ToWebhookFilterGroupsArrayOutput() WebhookFilterGroupsArrayOutput {
+	return pulumi.ToOutput(a).(WebhookFilterGroupsArrayOutput)
+}
+
+func (a WebhookFilterGroupsArrayArgs) ToWebhookFilterGroupsArrayOutputWithContext(ctx context.Context) WebhookFilterGroupsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WebhookFilterGroupsArrayOutput)
+}
+
+type WebhookFilterGroupsArrayOutput struct { *pulumi.OutputState }
+
+func (o WebhookFilterGroupsArrayOutput) Index(i pulumi.IntInput) WebhookFilterGroupsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) WebhookFilterGroups {
+		return vs[0].([]WebhookFilterGroups)[vs[1].(int)]
+	}).(WebhookFilterGroupsOutput)
+}
+
+func (WebhookFilterGroupsArrayOutput) ElementType() reflect.Type {
+	return webhookFilterGroupsArrayType
+}
+
+func (o WebhookFilterGroupsArrayOutput) ToWebhookFilterGroupsArrayOutput() WebhookFilterGroupsArrayOutput {
+	return o
+}
+
+func (o WebhookFilterGroupsArrayOutput) ToWebhookFilterGroupsArrayOutputWithContext(ctx context.Context) WebhookFilterGroupsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WebhookFilterGroupsArrayOutput{}) }
+
+type WebhookFilterGroupsFilters struct {
+	// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
+	ExcludeMatchedPattern *bool `pulumi:"excludeMatchedPattern"`
+	// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
+	Pattern string `pulumi:"pattern"`
+	// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+	Type string `pulumi:"type"`
+}
+var webhookFilterGroupsFiltersType = reflect.TypeOf((*WebhookFilterGroupsFilters)(nil)).Elem()
+
+type WebhookFilterGroupsFiltersInput interface {
+	pulumi.Input
+
+	ToWebhookFilterGroupsFiltersOutput() WebhookFilterGroupsFiltersOutput
+	ToWebhookFilterGroupsFiltersOutputWithContext(ctx context.Context) WebhookFilterGroupsFiltersOutput
+}
+
+type WebhookFilterGroupsFiltersArgs struct {
+	// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
+	ExcludeMatchedPattern pulumi.BoolInput `pulumi:"excludeMatchedPattern"`
+	// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+	// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebhookFilterGroupsFiltersArgs) ElementType() reflect.Type {
+	return webhookFilterGroupsFiltersType
+}
+
+func (a WebhookFilterGroupsFiltersArgs) ToWebhookFilterGroupsFiltersOutput() WebhookFilterGroupsFiltersOutput {
+	return pulumi.ToOutput(a).(WebhookFilterGroupsFiltersOutput)
+}
+
+func (a WebhookFilterGroupsFiltersArgs) ToWebhookFilterGroupsFiltersOutputWithContext(ctx context.Context) WebhookFilterGroupsFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WebhookFilterGroupsFiltersOutput)
+}
+
+type WebhookFilterGroupsFiltersOutput struct { *pulumi.OutputState }
+
+// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
+func (o WebhookFilterGroupsFiltersOutput) ExcludeMatchedPattern() pulumi.BoolOutput {
+	return o.Apply(func(v WebhookFilterGroupsFilters) bool {
+		if v.ExcludeMatchedPattern == nil { return *new(bool) } else { return *v.ExcludeMatchedPattern }
+	}).(pulumi.BoolOutput)
+}
+
+// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
+func (o WebhookFilterGroupsFiltersOutput) Pattern() pulumi.StringOutput {
+	return o.Apply(func(v WebhookFilterGroupsFilters) string {
+		return v.Pattern
+	}).(pulumi.StringOutput)
+}
+
+// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+func (o WebhookFilterGroupsFiltersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v WebhookFilterGroupsFilters) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (WebhookFilterGroupsFiltersOutput) ElementType() reflect.Type {
+	return webhookFilterGroupsFiltersType
+}
+
+func (o WebhookFilterGroupsFiltersOutput) ToWebhookFilterGroupsFiltersOutput() WebhookFilterGroupsFiltersOutput {
+	return o
+}
+
+func (o WebhookFilterGroupsFiltersOutput) ToWebhookFilterGroupsFiltersOutputWithContext(ctx context.Context) WebhookFilterGroupsFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WebhookFilterGroupsFiltersOutput{}) }
+
+var webhookFilterGroupsFiltersArrayType = reflect.TypeOf((*[]WebhookFilterGroupsFilters)(nil)).Elem()
+
+type WebhookFilterGroupsFiltersArrayInput interface {
+	pulumi.Input
+
+	ToWebhookFilterGroupsFiltersArrayOutput() WebhookFilterGroupsFiltersArrayOutput
+	ToWebhookFilterGroupsFiltersArrayOutputWithContext(ctx context.Context) WebhookFilterGroupsFiltersArrayOutput
+}
+
+type WebhookFilterGroupsFiltersArrayArgs []WebhookFilterGroupsFiltersInput
+
+func (WebhookFilterGroupsFiltersArrayArgs) ElementType() reflect.Type {
+	return webhookFilterGroupsFiltersArrayType
+}
+
+func (a WebhookFilterGroupsFiltersArrayArgs) ToWebhookFilterGroupsFiltersArrayOutput() WebhookFilterGroupsFiltersArrayOutput {
+	return pulumi.ToOutput(a).(WebhookFilterGroupsFiltersArrayOutput)
+}
+
+func (a WebhookFilterGroupsFiltersArrayArgs) ToWebhookFilterGroupsFiltersArrayOutputWithContext(ctx context.Context) WebhookFilterGroupsFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WebhookFilterGroupsFiltersArrayOutput)
+}
+
+type WebhookFilterGroupsFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o WebhookFilterGroupsFiltersArrayOutput) Index(i pulumi.IntInput) WebhookFilterGroupsFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) WebhookFilterGroupsFilters {
+		return vs[0].([]WebhookFilterGroupsFilters)[vs[1].(int)]
+	}).(WebhookFilterGroupsFiltersOutput)
+}
+
+func (WebhookFilterGroupsFiltersArrayOutput) ElementType() reflect.Type {
+	return webhookFilterGroupsFiltersArrayType
+}
+
+func (o WebhookFilterGroupsFiltersArrayOutput) ToWebhookFilterGroupsFiltersArrayOutput() WebhookFilterGroupsFiltersArrayOutput {
+	return o
+}
+
+func (o WebhookFilterGroupsFiltersArrayOutput) ToWebhookFilterGroupsFiltersArrayOutputWithContext(ctx context.Context) WebhookFilterGroupsFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WebhookFilterGroupsFiltersArrayOutput{}) }
+

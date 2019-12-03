@@ -4,6 +4,8 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
 type MethodSettings struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+	MethodPath pulumi.StringOutput `pulumi:"methodPath"`
+
+	// The ID of the REST API
+	RestApi pulumi.StringOutput `pulumi:"restApi"`
+
+	// The settings block, see below.
+	Settings MethodSettingsSettingsOutput `pulumi:"settings"`
+
+	// The name of the stage
+	StageName pulumi.StringOutput `pulumi:"stageName"`
 }
 
 // NewMethodSettings registers a new resource with the given unique name, arguments, and options.
 func NewMethodSettings(ctx *pulumi.Context,
-	name string, args *MethodSettingsArgs, opts ...pulumi.ResourceOpt) (*MethodSettings, error) {
+	name string, args *MethodSettingsArgs, opts ...pulumi.ResourceOption) (*MethodSettings, error) {
 	if args == nil || args.MethodPath == nil {
 		return nil, errors.New("missing required argument 'MethodPath'")
 	}
@@ -30,93 +44,212 @@ func NewMethodSettings(ctx *pulumi.Context,
 	if args == nil || args.StageName == nil {
 		return nil, errors.New("missing required argument 'StageName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["methodPath"] = nil
-		inputs["restApi"] = nil
-		inputs["settings"] = nil
-		inputs["stageName"] = nil
-	} else {
-		inputs["methodPath"] = args.MethodPath
-		inputs["restApi"] = args.RestApi
-		inputs["settings"] = args.Settings
-		inputs["stageName"] = args.StageName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.MethodPath; i != nil { inputs["methodPath"] = i.ToStringOutput() }
+		if i := args.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
+		if i := args.Settings; i != nil { inputs["settings"] = i.ToMethodSettingsSettingsOutput() }
+		if i := args.StageName; i != nil { inputs["stageName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:apigateway/methodSettings:MethodSettings", name, true, inputs, opts...)
+	var resource MethodSettings
+	err := ctx.RegisterResource("aws:apigateway/methodSettings:MethodSettings", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MethodSettings{s: s}, nil
+	return &resource, nil
 }
 
 // GetMethodSettings gets an existing MethodSettings resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMethodSettings(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MethodSettingsState, opts ...pulumi.ResourceOpt) (*MethodSettings, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MethodSettingsState, opts ...pulumi.ResourceOption) (*MethodSettings, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["methodPath"] = state.MethodPath
-		inputs["restApi"] = state.RestApi
-		inputs["settings"] = state.Settings
-		inputs["stageName"] = state.StageName
+		if i := state.MethodPath; i != nil { inputs["methodPath"] = i.ToStringOutput() }
+		if i := state.RestApi; i != nil { inputs["restApi"] = i.ToStringOutput() }
+		if i := state.Settings; i != nil { inputs["settings"] = i.ToMethodSettingsSettingsOutput() }
+		if i := state.StageName; i != nil { inputs["stageName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/methodSettings:MethodSettings", name, id, inputs, opts...)
+	var resource MethodSettings
+	err := ctx.ReadResource("aws:apigateway/methodSettings:MethodSettings", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MethodSettings{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MethodSettings) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MethodSettings) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-func (r *MethodSettings) MethodPath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["methodPath"])
-}
-
-// The ID of the REST API
-func (r *MethodSettings) RestApi() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restApi"])
-}
-
-// The settings block, see below.
-func (r *MethodSettings) Settings() pulumi.Output {
-	return r.s.State["settings"]
-}
-
-// The name of the stage
-func (r *MethodSettings) StageName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stageName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MethodSettings resources.
 type MethodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-	MethodPath interface{}
+	MethodPath pulumi.StringInput `pulumi:"methodPath"`
 	// The ID of the REST API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 	// The settings block, see below.
-	Settings interface{}
+	Settings MethodSettingsSettingsInput `pulumi:"settings"`
 	// The name of the stage
-	StageName interface{}
+	StageName pulumi.StringInput `pulumi:"stageName"`
 }
 
 // The set of arguments for constructing a MethodSettings resource.
 type MethodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-	MethodPath interface{}
+	MethodPath pulumi.StringInput `pulumi:"methodPath"`
 	// The ID of the REST API
-	RestApi interface{}
+	RestApi pulumi.StringInput `pulumi:"restApi"`
 	// The settings block, see below.
-	Settings interface{}
+	Settings MethodSettingsSettingsInput `pulumi:"settings"`
 	// The name of the stage
-	StageName interface{}
+	StageName pulumi.StringInput `pulumi:"stageName"`
 }
+type MethodSettingsSettings struct {
+	// Specifies whether the cached responses are encrypted.
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// Specifies whether authorization is required for a cache invalidation request.
+	RequireAuthorizationForCacheControl *bool `pulumi:"requireAuthorizationForCacheControl"`
+	// Specifies the throttling burst limit.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// Specifies the throttling rate limit.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+	// Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+	UnauthorizedCacheControlHeaderStrategy *string `pulumi:"unauthorizedCacheControlHeaderStrategy"`
+}
+var methodSettingsSettingsType = reflect.TypeOf((*MethodSettingsSettings)(nil)).Elem()
+
+type MethodSettingsSettingsInput interface {
+	pulumi.Input
+
+	ToMethodSettingsSettingsOutput() MethodSettingsSettingsOutput
+	ToMethodSettingsSettingsOutputWithContext(ctx context.Context) MethodSettingsSettingsOutput
+}
+
+type MethodSettingsSettingsArgs struct {
+	// Specifies whether the cached responses are encrypted.
+	CacheDataEncrypted pulumi.BoolInput `pulumi:"cacheDataEncrypted"`
+	// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+	CacheTtlInSeconds pulumi.IntInput `pulumi:"cacheTtlInSeconds"`
+	// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+	CachingEnabled pulumi.BoolInput `pulumi:"cachingEnabled"`
+	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+	DataTraceEnabled pulumi.BoolInput `pulumi:"dataTraceEnabled"`
+	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+	LoggingLevel pulumi.StringInput `pulumi:"loggingLevel"`
+	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
+	MetricsEnabled pulumi.BoolInput `pulumi:"metricsEnabled"`
+	// Specifies whether authorization is required for a cache invalidation request.
+	RequireAuthorizationForCacheControl pulumi.BoolInput `pulumi:"requireAuthorizationForCacheControl"`
+	// Specifies the throttling burst limit.
+	ThrottlingBurstLimit pulumi.IntInput `pulumi:"throttlingBurstLimit"`
+	// Specifies the throttling rate limit.
+	ThrottlingRateLimit pulumi.Float64Input `pulumi:"throttlingRateLimit"`
+	// Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+	UnauthorizedCacheControlHeaderStrategy pulumi.StringInput `pulumi:"unauthorizedCacheControlHeaderStrategy"`
+}
+
+func (MethodSettingsSettingsArgs) ElementType() reflect.Type {
+	return methodSettingsSettingsType
+}
+
+func (a MethodSettingsSettingsArgs) ToMethodSettingsSettingsOutput() MethodSettingsSettingsOutput {
+	return pulumi.ToOutput(a).(MethodSettingsSettingsOutput)
+}
+
+func (a MethodSettingsSettingsArgs) ToMethodSettingsSettingsOutputWithContext(ctx context.Context) MethodSettingsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MethodSettingsSettingsOutput)
+}
+
+type MethodSettingsSettingsOutput struct { *pulumi.OutputState }
+
+// Specifies whether the cached responses are encrypted.
+func (o MethodSettingsSettingsOutput) CacheDataEncrypted() pulumi.BoolOutput {
+	return o.Apply(func(v MethodSettingsSettings) bool {
+		if v.CacheDataEncrypted == nil { return *new(bool) } else { return *v.CacheDataEncrypted }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+func (o MethodSettingsSettingsOutput) CacheTtlInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v MethodSettingsSettings) int {
+		if v.CacheTtlInSeconds == nil { return *new(int) } else { return *v.CacheTtlInSeconds }
+	}).(pulumi.IntOutput)
+}
+
+// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+func (o MethodSettingsSettingsOutput) CachingEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v MethodSettingsSettings) bool {
+		if v.CachingEnabled == nil { return *new(bool) } else { return *v.CachingEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+func (o MethodSettingsSettingsOutput) DataTraceEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v MethodSettingsSettings) bool {
+		if v.DataTraceEnabled == nil { return *new(bool) } else { return *v.DataTraceEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+func (o MethodSettingsSettingsOutput) LoggingLevel() pulumi.StringOutput {
+	return o.Apply(func(v MethodSettingsSettings) string {
+		if v.LoggingLevel == nil { return *new(string) } else { return *v.LoggingLevel }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies whether Amazon CloudWatch metrics are enabled for this method.
+func (o MethodSettingsSettingsOutput) MetricsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v MethodSettingsSettings) bool {
+		if v.MetricsEnabled == nil { return *new(bool) } else { return *v.MetricsEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies whether authorization is required for a cache invalidation request.
+func (o MethodSettingsSettingsOutput) RequireAuthorizationForCacheControl() pulumi.BoolOutput {
+	return o.Apply(func(v MethodSettingsSettings) bool {
+		if v.RequireAuthorizationForCacheControl == nil { return *new(bool) } else { return *v.RequireAuthorizationForCacheControl }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies the throttling burst limit.
+func (o MethodSettingsSettingsOutput) ThrottlingBurstLimit() pulumi.IntOutput {
+	return o.Apply(func(v MethodSettingsSettings) int {
+		if v.ThrottlingBurstLimit == nil { return *new(int) } else { return *v.ThrottlingBurstLimit }
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the throttling rate limit.
+func (o MethodSettingsSettingsOutput) ThrottlingRateLimit() pulumi.Float64Output {
+	return o.Apply(func(v MethodSettingsSettings) float64 {
+		if v.ThrottlingRateLimit == nil { return *new(float64) } else { return *v.ThrottlingRateLimit }
+	}).(pulumi.Float64Output)
+}
+
+// Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+func (o MethodSettingsSettingsOutput) UnauthorizedCacheControlHeaderStrategy() pulumi.StringOutput {
+	return o.Apply(func(v MethodSettingsSettings) string {
+		if v.UnauthorizedCacheControlHeaderStrategy == nil { return *new(string) } else { return *v.UnauthorizedCacheControlHeaderStrategy }
+	}).(pulumi.StringOutput)
+}
+
+func (MethodSettingsSettingsOutput) ElementType() reflect.Type {
+	return methodSettingsSettingsType
+}
+
+func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsOutput() MethodSettingsSettingsOutput {
+	return o
+}
+
+func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsOutputWithContext(ctx context.Context) MethodSettingsSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MethodSettingsSettingsOutput{}) }
+

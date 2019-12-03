@@ -4,6 +4,8 @@
 package backup
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,117 +14,213 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
 type Selection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
+
+	// The display name of a resource selection document.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The backup plan ID to be associated with the selection of resources.
+	PlanId pulumi.StringOutput `pulumi:"planId"`
+
+	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+	Resources pulumi.StringArrayOutput `pulumi:"resources"`
+
+	// Tag-based conditions used to specify a set of resources to assign to a backup plan.
+	SelectionTags SelectionSelectionTagsArrayOutput `pulumi:"selectionTags"`
 }
 
 // NewSelection registers a new resource with the given unique name, arguments, and options.
 func NewSelection(ctx *pulumi.Context,
-	name string, args *SelectionArgs, opts ...pulumi.ResourceOpt) (*Selection, error) {
+	name string, args *SelectionArgs, opts ...pulumi.ResourceOption) (*Selection, error) {
 	if args == nil || args.IamRoleArn == nil {
 		return nil, errors.New("missing required argument 'IamRoleArn'")
 	}
 	if args == nil || args.PlanId == nil {
 		return nil, errors.New("missing required argument 'PlanId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["iamRoleArn"] = nil
-		inputs["name"] = nil
-		inputs["planId"] = nil
-		inputs["resources"] = nil
-		inputs["selectionTags"] = nil
-	} else {
-		inputs["iamRoleArn"] = args.IamRoleArn
-		inputs["name"] = args.Name
-		inputs["planId"] = args.PlanId
-		inputs["resources"] = args.Resources
-		inputs["selectionTags"] = args.SelectionTags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.IamRoleArn; i != nil { inputs["iamRoleArn"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PlanId; i != nil { inputs["planId"] = i.ToStringOutput() }
+		if i := args.Resources; i != nil { inputs["resources"] = i.ToStringArrayOutput() }
+		if i := args.SelectionTags; i != nil { inputs["selectionTags"] = i.ToSelectionSelectionTagsArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:backup/selection:Selection", name, true, inputs, opts...)
+	var resource Selection
+	err := ctx.RegisterResource("aws:backup/selection:Selection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Selection{s: s}, nil
+	return &resource, nil
 }
 
 // GetSelection gets an existing Selection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSelection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SelectionState, opts ...pulumi.ResourceOpt) (*Selection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SelectionState, opts ...pulumi.ResourceOption) (*Selection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["iamRoleArn"] = state.IamRoleArn
-		inputs["name"] = state.Name
-		inputs["planId"] = state.PlanId
-		inputs["resources"] = state.Resources
-		inputs["selectionTags"] = state.SelectionTags
+		if i := state.IamRoleArn; i != nil { inputs["iamRoleArn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PlanId; i != nil { inputs["planId"] = i.ToStringOutput() }
+		if i := state.Resources; i != nil { inputs["resources"] = i.ToStringArrayOutput() }
+		if i := state.SelectionTags; i != nil { inputs["selectionTags"] = i.ToSelectionSelectionTagsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:backup/selection:Selection", name, id, inputs, opts...)
+	var resource Selection
+	err := ctx.ReadResource("aws:backup/selection:Selection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Selection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Selection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Selection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-func (r *Selection) IamRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
-}
-
-// The display name of a resource selection document.
-func (r *Selection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The backup plan ID to be associated with the selection of resources.
-func (r *Selection) PlanId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["planId"])
-}
-
-// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-func (r *Selection) Resources() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["resources"])
-}
-
-// Tag-based conditions used to specify a set of resources to assign to a backup plan.
-func (r *Selection) SelectionTags() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["selectionTags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Selection resources.
 type SelectionState struct {
 	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn interface{}
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// The display name of a resource selection document.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The backup plan ID to be associated with the selection of resources.
-	PlanId interface{}
+	PlanId pulumi.StringInput `pulumi:"planId"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-	Resources interface{}
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan.
-	SelectionTags interface{}
+	SelectionTags SelectionSelectionTagsArrayInput `pulumi:"selectionTags"`
 }
 
 // The set of arguments for constructing a Selection resource.
 type SelectionArgs struct {
 	// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-	IamRoleArn interface{}
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// The display name of a resource selection document.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The backup plan ID to be associated with the selection of resources.
-	PlanId interface{}
+	PlanId pulumi.StringInput `pulumi:"planId"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-	Resources interface{}
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan.
-	SelectionTags interface{}
+	SelectionTags SelectionSelectionTagsArrayInput `pulumi:"selectionTags"`
 }
+type SelectionSelectionTags struct {
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+	Type string `pulumi:"type"`
+	// The value in a key-value pair.
+	Value string `pulumi:"value"`
+}
+var selectionSelectionTagsType = reflect.TypeOf((*SelectionSelectionTags)(nil)).Elem()
+
+type SelectionSelectionTagsInput interface {
+	pulumi.Input
+
+	ToSelectionSelectionTagsOutput() SelectionSelectionTagsOutput
+	ToSelectionSelectionTagsOutputWithContext(ctx context.Context) SelectionSelectionTagsOutput
+}
+
+type SelectionSelectionTagsArgs struct {
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value in a key-value pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SelectionSelectionTagsArgs) ElementType() reflect.Type {
+	return selectionSelectionTagsType
+}
+
+func (a SelectionSelectionTagsArgs) ToSelectionSelectionTagsOutput() SelectionSelectionTagsOutput {
+	return pulumi.ToOutput(a).(SelectionSelectionTagsOutput)
+}
+
+func (a SelectionSelectionTagsArgs) ToSelectionSelectionTagsOutputWithContext(ctx context.Context) SelectionSelectionTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SelectionSelectionTagsOutput)
+}
+
+type SelectionSelectionTagsOutput struct { *pulumi.OutputState }
+
+// The key in a key-value pair.
+func (o SelectionSelectionTagsOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v SelectionSelectionTags) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+func (o SelectionSelectionTagsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v SelectionSelectionTags) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The value in a key-value pair.
+func (o SelectionSelectionTagsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v SelectionSelectionTags) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (SelectionSelectionTagsOutput) ElementType() reflect.Type {
+	return selectionSelectionTagsType
+}
+
+func (o SelectionSelectionTagsOutput) ToSelectionSelectionTagsOutput() SelectionSelectionTagsOutput {
+	return o
+}
+
+func (o SelectionSelectionTagsOutput) ToSelectionSelectionTagsOutputWithContext(ctx context.Context) SelectionSelectionTagsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SelectionSelectionTagsOutput{}) }
+
+var selectionSelectionTagsArrayType = reflect.TypeOf((*[]SelectionSelectionTags)(nil)).Elem()
+
+type SelectionSelectionTagsArrayInput interface {
+	pulumi.Input
+
+	ToSelectionSelectionTagsArrayOutput() SelectionSelectionTagsArrayOutput
+	ToSelectionSelectionTagsArrayOutputWithContext(ctx context.Context) SelectionSelectionTagsArrayOutput
+}
+
+type SelectionSelectionTagsArrayArgs []SelectionSelectionTagsInput
+
+func (SelectionSelectionTagsArrayArgs) ElementType() reflect.Type {
+	return selectionSelectionTagsArrayType
+}
+
+func (a SelectionSelectionTagsArrayArgs) ToSelectionSelectionTagsArrayOutput() SelectionSelectionTagsArrayOutput {
+	return pulumi.ToOutput(a).(SelectionSelectionTagsArrayOutput)
+}
+
+func (a SelectionSelectionTagsArrayArgs) ToSelectionSelectionTagsArrayOutputWithContext(ctx context.Context) SelectionSelectionTagsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SelectionSelectionTagsArrayOutput)
+}
+
+type SelectionSelectionTagsArrayOutput struct { *pulumi.OutputState }
+
+func (o SelectionSelectionTagsArrayOutput) Index(i pulumi.IntInput) SelectionSelectionTagsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SelectionSelectionTags {
+		return vs[0].([]SelectionSelectionTags)[vs[1].(int)]
+	}).(SelectionSelectionTagsOutput)
+}
+
+func (SelectionSelectionTagsArrayOutput) ElementType() reflect.Type {
+	return selectionSelectionTagsArrayType
+}
+
+func (o SelectionSelectionTagsArrayOutput) ToSelectionSelectionTagsArrayOutput() SelectionSelectionTagsArrayOutput {
+	return o
+}
+
+func (o SelectionSelectionTagsArrayOutput) ToSelectionSelectionTagsArrayOutputWithContext(ctx context.Context) SelectionSelectionTagsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SelectionSelectionTagsArrayOutput{}) }
+

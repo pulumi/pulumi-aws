@@ -4,6 +4,8 @@
 package sagemaker
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,147 +14,365 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_model.html.markdown.
 type Model struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Amazon Resource Name (ARN) assigned by AWS to this model.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
+	Containers ModelContainersArrayOutput `pulumi:"containers"`
+
+	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+	EnableNetworkIsolation pulumi.BoolOutput `pulumi:"enableNetworkIsolation"`
+
+	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
+
+	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+	PrimaryContainer ModelPrimaryContainerOutput `pulumi:"primaryContainer"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+	VpcConfig ModelVpcConfigOutput `pulumi:"vpcConfig"`
 }
 
 // NewModel registers a new resource with the given unique name, arguments, and options.
 func NewModel(ctx *pulumi.Context,
-	name string, args *ModelArgs, opts ...pulumi.ResourceOpt) (*Model, error) {
+	name string, args *ModelArgs, opts ...pulumi.ResourceOption) (*Model, error) {
 	if args == nil || args.ExecutionRoleArn == nil {
 		return nil, errors.New("missing required argument 'ExecutionRoleArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["containers"] = nil
-		inputs["enableNetworkIsolation"] = nil
-		inputs["executionRoleArn"] = nil
-		inputs["name"] = nil
-		inputs["primaryContainer"] = nil
-		inputs["tags"] = nil
-		inputs["vpcConfig"] = nil
-	} else {
-		inputs["containers"] = args.Containers
-		inputs["enableNetworkIsolation"] = args.EnableNetworkIsolation
-		inputs["executionRoleArn"] = args.ExecutionRoleArn
-		inputs["name"] = args.Name
-		inputs["primaryContainer"] = args.PrimaryContainer
-		inputs["tags"] = args.Tags
-		inputs["vpcConfig"] = args.VpcConfig
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Containers; i != nil { inputs["containers"] = i.ToModelContainersArrayOutput() }
+		if i := args.EnableNetworkIsolation; i != nil { inputs["enableNetworkIsolation"] = i.ToBoolOutput() }
+		if i := args.ExecutionRoleArn; i != nil { inputs["executionRoleArn"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PrimaryContainer; i != nil { inputs["primaryContainer"] = i.ToModelPrimaryContainerOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToModelVpcConfigOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:sagemaker/model:Model", name, true, inputs, opts...)
+	var resource Model
+	err := ctx.RegisterResource("aws:sagemaker/model:Model", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Model{s: s}, nil
+	return &resource, nil
 }
 
 // GetModel gets an existing Model resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetModel(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ModelState, opts ...pulumi.ResourceOpt) (*Model, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ModelState, opts ...pulumi.ResourceOption) (*Model, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["containers"] = state.Containers
-		inputs["enableNetworkIsolation"] = state.EnableNetworkIsolation
-		inputs["executionRoleArn"] = state.ExecutionRoleArn
-		inputs["name"] = state.Name
-		inputs["primaryContainer"] = state.PrimaryContainer
-		inputs["tags"] = state.Tags
-		inputs["vpcConfig"] = state.VpcConfig
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Containers; i != nil { inputs["containers"] = i.ToModelContainersArrayOutput() }
+		if i := state.EnableNetworkIsolation; i != nil { inputs["enableNetworkIsolation"] = i.ToBoolOutput() }
+		if i := state.ExecutionRoleArn; i != nil { inputs["executionRoleArn"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryContainer; i != nil { inputs["primaryContainer"] = i.ToModelPrimaryContainerOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcConfig; i != nil { inputs["vpcConfig"] = i.ToModelVpcConfigOutput() }
 	}
-	s, err := ctx.ReadResource("aws:sagemaker/model:Model", name, id, inputs, opts...)
+	var resource Model
+	err := ctx.ReadResource("aws:sagemaker/model:Model", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Model{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Model) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Model) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Amazon Resource Name (ARN) assigned by AWS to this model.
-func (r *Model) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-func (r *Model) Containers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["containers"])
-}
-
-// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-func (r *Model) EnableNetworkIsolation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableNetworkIsolation"])
-}
-
-// A role that SageMaker can assume to access model artifacts and docker images for deployment.
-func (r *Model) ExecutionRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["executionRoleArn"])
-}
-
-// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-func (r *Model) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-func (r *Model) PrimaryContainer() pulumi.Output {
-	return r.s.State["primaryContainer"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Model) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-func (r *Model) VpcConfig() pulumi.Output {
-	return r.s.State["vpcConfig"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Model resources.
 type ModelState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this model.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-	Containers interface{}
+	Containers ModelContainersArrayInput `pulumi:"containers"`
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-	EnableNetworkIsolation interface{}
+	EnableNetworkIsolation pulumi.BoolInput `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
-	ExecutionRoleArn interface{}
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-	PrimaryContainer interface{}
+	PrimaryContainer ModelPrimaryContainerInput `pulumi:"primaryContainer"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-	VpcConfig interface{}
+	VpcConfig ModelVpcConfigInput `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Model resource.
 type ModelArgs struct {
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-	Containers interface{}
+	Containers ModelContainersArrayInput `pulumi:"containers"`
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-	EnableNetworkIsolation interface{}
+	EnableNetworkIsolation pulumi.BoolInput `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
-	ExecutionRoleArn interface{}
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-	PrimaryContainer interface{}
+	PrimaryContainer ModelPrimaryContainerInput `pulumi:"primaryContainer"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-	VpcConfig interface{}
+	VpcConfig ModelVpcConfigInput `pulumi:"vpcConfig"`
 }
+type ModelContainers struct {
+	ContainerHostname *string `pulumi:"containerHostname"`
+	Environment *map[string]string `pulumi:"environment"`
+	Image string `pulumi:"image"`
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+}
+var modelContainersType = reflect.TypeOf((*ModelContainers)(nil)).Elem()
+
+type ModelContainersInput interface {
+	pulumi.Input
+
+	ToModelContainersOutput() ModelContainersOutput
+	ToModelContainersOutputWithContext(ctx context.Context) ModelContainersOutput
+}
+
+type ModelContainersArgs struct {
+	ContainerHostname pulumi.StringInput `pulumi:"containerHostname"`
+	Environment pulumi.MapInput `pulumi:"environment"`
+	Image pulumi.StringInput `pulumi:"image"`
+	ModelDataUrl pulumi.StringInput `pulumi:"modelDataUrl"`
+}
+
+func (ModelContainersArgs) ElementType() reflect.Type {
+	return modelContainersType
+}
+
+func (a ModelContainersArgs) ToModelContainersOutput() ModelContainersOutput {
+	return pulumi.ToOutput(a).(ModelContainersOutput)
+}
+
+func (a ModelContainersArgs) ToModelContainersOutputWithContext(ctx context.Context) ModelContainersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ModelContainersOutput)
+}
+
+type ModelContainersOutput struct { *pulumi.OutputState }
+
+func (o ModelContainersOutput) ContainerHostname() pulumi.StringOutput {
+	return o.Apply(func(v ModelContainers) string {
+		if v.ContainerHostname == nil { return *new(string) } else { return *v.ContainerHostname }
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelContainersOutput) Environment() pulumi.MapOutput {
+	return o.Apply(func(v ModelContainers) map[string]string {
+		if v.Environment == nil { return *new(map[string]string) } else { return *v.Environment }
+	}).(pulumi.MapOutput)
+}
+
+func (o ModelContainersOutput) Image() pulumi.StringOutput {
+	return o.Apply(func(v ModelContainers) string {
+		return v.Image
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelContainersOutput) ModelDataUrl() pulumi.StringOutput {
+	return o.Apply(func(v ModelContainers) string {
+		if v.ModelDataUrl == nil { return *new(string) } else { return *v.ModelDataUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (ModelContainersOutput) ElementType() reflect.Type {
+	return modelContainersType
+}
+
+func (o ModelContainersOutput) ToModelContainersOutput() ModelContainersOutput {
+	return o
+}
+
+func (o ModelContainersOutput) ToModelContainersOutputWithContext(ctx context.Context) ModelContainersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ModelContainersOutput{}) }
+
+var modelContainersArrayType = reflect.TypeOf((*[]ModelContainers)(nil)).Elem()
+
+type ModelContainersArrayInput interface {
+	pulumi.Input
+
+	ToModelContainersArrayOutput() ModelContainersArrayOutput
+	ToModelContainersArrayOutputWithContext(ctx context.Context) ModelContainersArrayOutput
+}
+
+type ModelContainersArrayArgs []ModelContainersInput
+
+func (ModelContainersArrayArgs) ElementType() reflect.Type {
+	return modelContainersArrayType
+}
+
+func (a ModelContainersArrayArgs) ToModelContainersArrayOutput() ModelContainersArrayOutput {
+	return pulumi.ToOutput(a).(ModelContainersArrayOutput)
+}
+
+func (a ModelContainersArrayArgs) ToModelContainersArrayOutputWithContext(ctx context.Context) ModelContainersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ModelContainersArrayOutput)
+}
+
+type ModelContainersArrayOutput struct { *pulumi.OutputState }
+
+func (o ModelContainersArrayOutput) Index(i pulumi.IntInput) ModelContainersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ModelContainers {
+		return vs[0].([]ModelContainers)[vs[1].(int)]
+	}).(ModelContainersOutput)
+}
+
+func (ModelContainersArrayOutput) ElementType() reflect.Type {
+	return modelContainersArrayType
+}
+
+func (o ModelContainersArrayOutput) ToModelContainersArrayOutput() ModelContainersArrayOutput {
+	return o
+}
+
+func (o ModelContainersArrayOutput) ToModelContainersArrayOutputWithContext(ctx context.Context) ModelContainersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ModelContainersArrayOutput{}) }
+
+type ModelPrimaryContainer struct {
+	ContainerHostname *string `pulumi:"containerHostname"`
+	Environment *map[string]string `pulumi:"environment"`
+	Image string `pulumi:"image"`
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+}
+var modelPrimaryContainerType = reflect.TypeOf((*ModelPrimaryContainer)(nil)).Elem()
+
+type ModelPrimaryContainerInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerOutput() ModelPrimaryContainerOutput
+	ToModelPrimaryContainerOutputWithContext(ctx context.Context) ModelPrimaryContainerOutput
+}
+
+type ModelPrimaryContainerArgs struct {
+	ContainerHostname pulumi.StringInput `pulumi:"containerHostname"`
+	Environment pulumi.MapInput `pulumi:"environment"`
+	Image pulumi.StringInput `pulumi:"image"`
+	ModelDataUrl pulumi.StringInput `pulumi:"modelDataUrl"`
+}
+
+func (ModelPrimaryContainerArgs) ElementType() reflect.Type {
+	return modelPrimaryContainerType
+}
+
+func (a ModelPrimaryContainerArgs) ToModelPrimaryContainerOutput() ModelPrimaryContainerOutput {
+	return pulumi.ToOutput(a).(ModelPrimaryContainerOutput)
+}
+
+func (a ModelPrimaryContainerArgs) ToModelPrimaryContainerOutputWithContext(ctx context.Context) ModelPrimaryContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ModelPrimaryContainerOutput)
+}
+
+type ModelPrimaryContainerOutput struct { *pulumi.OutputState }
+
+func (o ModelPrimaryContainerOutput) ContainerHostname() pulumi.StringOutput {
+	return o.Apply(func(v ModelPrimaryContainer) string {
+		if v.ContainerHostname == nil { return *new(string) } else { return *v.ContainerHostname }
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPrimaryContainerOutput) Environment() pulumi.MapOutput {
+	return o.Apply(func(v ModelPrimaryContainer) map[string]string {
+		if v.Environment == nil { return *new(map[string]string) } else { return *v.Environment }
+	}).(pulumi.MapOutput)
+}
+
+func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
+	return o.Apply(func(v ModelPrimaryContainer) string {
+		return v.Image
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringOutput {
+	return o.Apply(func(v ModelPrimaryContainer) string {
+		if v.ModelDataUrl == nil { return *new(string) } else { return *v.ModelDataUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (ModelPrimaryContainerOutput) ElementType() reflect.Type {
+	return modelPrimaryContainerType
+}
+
+func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerOutput() ModelPrimaryContainerOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerOutputWithContext(ctx context.Context) ModelPrimaryContainerOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ModelPrimaryContainerOutput{}) }
+
+type ModelVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	Subnets []string `pulumi:"subnets"`
+}
+var modelVpcConfigType = reflect.TypeOf((*ModelVpcConfig)(nil)).Elem()
+
+type ModelVpcConfigInput interface {
+	pulumi.Input
+
+	ToModelVpcConfigOutput() ModelVpcConfigOutput
+	ToModelVpcConfigOutputWithContext(ctx context.Context) ModelVpcConfigOutput
+}
+
+type ModelVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (ModelVpcConfigArgs) ElementType() reflect.Type {
+	return modelVpcConfigType
+}
+
+func (a ModelVpcConfigArgs) ToModelVpcConfigOutput() ModelVpcConfigOutput {
+	return pulumi.ToOutput(a).(ModelVpcConfigOutput)
+}
+
+func (a ModelVpcConfigArgs) ToModelVpcConfigOutputWithContext(ctx context.Context) ModelVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ModelVpcConfigOutput)
+}
+
+type ModelVpcConfigOutput struct { *pulumi.OutputState }
+
+func (o ModelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ModelVpcConfig) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ModelVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.Apply(func(v ModelVpcConfig) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ModelVpcConfigOutput) ElementType() reflect.Type {
+	return modelVpcConfigType
+}
+
+func (o ModelVpcConfigOutput) ToModelVpcConfigOutput() ModelVpcConfigOutput {
+	return o
+}
+
+func (o ModelVpcConfigOutput) ToModelVpcConfigOutputWithContext(ctx context.Context) ModelVpcConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ModelVpcConfigOutput{}) }
+

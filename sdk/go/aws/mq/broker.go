@@ -4,6 +4,8 @@
 package mq
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -27,12 +29,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/mq_broker.html.markdown.
 type Broker struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether any broker modifications
+	// are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+
+	// The ARN of the broker.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
+	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
+
+	// The name of the broker.
+	BrokerName pulumi.StringOutput `pulumi:"brokerName"`
+
+	// Configuration of the broker. See below.
+	Configuration BrokerConfigurationOutput `pulumi:"configuration"`
+
+	// The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
+	DeploymentMode pulumi.StringOutput `pulumi:"deploymentMode"`
+
+	// Configuration block containing encryption options. See below.
+	EncryptionOptions BrokerEncryptionOptionsOutput `pulumi:"encryptionOptions"`
+
+	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
+	EngineType pulumi.StringOutput `pulumi:"engineType"`
+
+	// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+
+	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
+	HostInstanceType pulumi.StringOutput `pulumi:"hostInstanceType"`
+
+	// A list of information about allocated brokers (both active & standby).
+	// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
+	// * `instances.0.ip_address` - The IP Address of the broker.
+	// * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+	// * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+	// * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+	// * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+	// * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+	// * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+	Instances BrokerInstancesArrayOutput `pulumi:"instances"`
+
+	// Logging configuration of the broker. See below.
+	Logs BrokerLogsOutput `pulumi:"logs"`
+
+	// Maintenance window start time. See below.
+	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimeOutput `pulumi:"maintenanceWindowStartTime"`
+
+	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
+
+	// The list of security group IDs assigned to the broker.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
+
+	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The list of all ActiveMQ usernames for the specified broker. See below.
+	Users BrokerUsersArrayOutput `pulumi:"users"`
 }
 
 // NewBroker registers a new resource with the given unique name, arguments, and options.
 func NewBroker(ctx *pulumi.Context,
-	name string, args *BrokerArgs, opts ...pulumi.ResourceOpt) (*Broker, error) {
+	name string, args *BrokerArgs, opts ...pulumi.ResourceOption) (*Broker, error) {
 	if args == nil || args.BrokerName == nil {
 		return nil, errors.New("missing required argument 'BrokerName'")
 	}
@@ -51,215 +116,89 @@ func NewBroker(ctx *pulumi.Context,
 	if args == nil || args.Users == nil {
 		return nil, errors.New("missing required argument 'Users'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applyImmediately"] = nil
-		inputs["autoMinorVersionUpgrade"] = nil
-		inputs["brokerName"] = nil
-		inputs["configuration"] = nil
-		inputs["deploymentMode"] = nil
-		inputs["encryptionOptions"] = nil
-		inputs["engineType"] = nil
-		inputs["engineVersion"] = nil
-		inputs["hostInstanceType"] = nil
-		inputs["logs"] = nil
-		inputs["maintenanceWindowStartTime"] = nil
-		inputs["publiclyAccessible"] = nil
-		inputs["securityGroups"] = nil
-		inputs["subnetIds"] = nil
-		inputs["tags"] = nil
-		inputs["users"] = nil
-	} else {
-		inputs["applyImmediately"] = args.ApplyImmediately
-		inputs["autoMinorVersionUpgrade"] = args.AutoMinorVersionUpgrade
-		inputs["brokerName"] = args.BrokerName
-		inputs["configuration"] = args.Configuration
-		inputs["deploymentMode"] = args.DeploymentMode
-		inputs["encryptionOptions"] = args.EncryptionOptions
-		inputs["engineType"] = args.EngineType
-		inputs["engineVersion"] = args.EngineVersion
-		inputs["hostInstanceType"] = args.HostInstanceType
-		inputs["logs"] = args.Logs
-		inputs["maintenanceWindowStartTime"] = args.MaintenanceWindowStartTime
-		inputs["publiclyAccessible"] = args.PubliclyAccessible
-		inputs["securityGroups"] = args.SecurityGroups
-		inputs["subnetIds"] = args.SubnetIds
-		inputs["tags"] = args.Tags
-		inputs["users"] = args.Users
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := args.AutoMinorVersionUpgrade; i != nil { inputs["autoMinorVersionUpgrade"] = i.ToBoolOutput() }
+		if i := args.BrokerName; i != nil { inputs["brokerName"] = i.ToStringOutput() }
+		if i := args.Configuration; i != nil { inputs["configuration"] = i.ToBrokerConfigurationOutput() }
+		if i := args.DeploymentMode; i != nil { inputs["deploymentMode"] = i.ToStringOutput() }
+		if i := args.EncryptionOptions; i != nil { inputs["encryptionOptions"] = i.ToBrokerEncryptionOptionsOutput() }
+		if i := args.EngineType; i != nil { inputs["engineType"] = i.ToStringOutput() }
+		if i := args.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := args.HostInstanceType; i != nil { inputs["hostInstanceType"] = i.ToStringOutput() }
+		if i := args.Logs; i != nil { inputs["logs"] = i.ToBrokerLogsOutput() }
+		if i := args.MaintenanceWindowStartTime; i != nil { inputs["maintenanceWindowStartTime"] = i.ToBrokerMaintenanceWindowStartTimeOutput() }
+		if i := args.PubliclyAccessible; i != nil { inputs["publiclyAccessible"] = i.ToBoolOutput() }
+		if i := args.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := args.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Users; i != nil { inputs["users"] = i.ToBrokerUsersArrayOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["instances"] = nil
-	s, err := ctx.RegisterResource("aws:mq/broker:Broker", name, true, inputs, opts...)
+	var resource Broker
+	err := ctx.RegisterResource("aws:mq/broker:Broker", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Broker{s: s}, nil
+	return &resource, nil
 }
 
 // GetBroker gets an existing Broker resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBroker(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BrokerState, opts ...pulumi.ResourceOpt) (*Broker, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BrokerState, opts ...pulumi.ResourceOption) (*Broker, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applyImmediately"] = state.ApplyImmediately
-		inputs["arn"] = state.Arn
-		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
-		inputs["brokerName"] = state.BrokerName
-		inputs["configuration"] = state.Configuration
-		inputs["deploymentMode"] = state.DeploymentMode
-		inputs["encryptionOptions"] = state.EncryptionOptions
-		inputs["engineType"] = state.EngineType
-		inputs["engineVersion"] = state.EngineVersion
-		inputs["hostInstanceType"] = state.HostInstanceType
-		inputs["instances"] = state.Instances
-		inputs["logs"] = state.Logs
-		inputs["maintenanceWindowStartTime"] = state.MaintenanceWindowStartTime
-		inputs["publiclyAccessible"] = state.PubliclyAccessible
-		inputs["securityGroups"] = state.SecurityGroups
-		inputs["subnetIds"] = state.SubnetIds
-		inputs["tags"] = state.Tags
-		inputs["users"] = state.Users
+		if i := state.ApplyImmediately; i != nil { inputs["applyImmediately"] = i.ToBoolOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AutoMinorVersionUpgrade; i != nil { inputs["autoMinorVersionUpgrade"] = i.ToBoolOutput() }
+		if i := state.BrokerName; i != nil { inputs["brokerName"] = i.ToStringOutput() }
+		if i := state.Configuration; i != nil { inputs["configuration"] = i.ToBrokerConfigurationOutput() }
+		if i := state.DeploymentMode; i != nil { inputs["deploymentMode"] = i.ToStringOutput() }
+		if i := state.EncryptionOptions; i != nil { inputs["encryptionOptions"] = i.ToBrokerEncryptionOptionsOutput() }
+		if i := state.EngineType; i != nil { inputs["engineType"] = i.ToStringOutput() }
+		if i := state.EngineVersion; i != nil { inputs["engineVersion"] = i.ToStringOutput() }
+		if i := state.HostInstanceType; i != nil { inputs["hostInstanceType"] = i.ToStringOutput() }
+		if i := state.Instances; i != nil { inputs["instances"] = i.ToBrokerInstancesArrayOutput() }
+		if i := state.Logs; i != nil { inputs["logs"] = i.ToBrokerLogsOutput() }
+		if i := state.MaintenanceWindowStartTime; i != nil { inputs["maintenanceWindowStartTime"] = i.ToBrokerMaintenanceWindowStartTimeOutput() }
+		if i := state.PubliclyAccessible; i != nil { inputs["publiclyAccessible"] = i.ToBoolOutput() }
+		if i := state.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := state.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Users; i != nil { inputs["users"] = i.ToBrokerUsersArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:mq/broker:Broker", name, id, inputs, opts...)
+	var resource Broker
+	err := ctx.ReadResource("aws:mq/broker:Broker", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Broker{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Broker) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Broker) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether any broker modifications
-// are applied immediately, or during the next maintenance window. Default is `false`.
-func (r *Broker) ApplyImmediately() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
-}
-
-// The ARN of the broker.
-func (r *Broker) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
-func (r *Broker) AutoMinorVersionUpgrade() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoMinorVersionUpgrade"])
-}
-
-// The name of the broker.
-func (r *Broker) BrokerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["brokerName"])
-}
-
-// Configuration of the broker. See below.
-func (r *Broker) Configuration() pulumi.Output {
-	return r.s.State["configuration"]
-}
-
-// The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
-func (r *Broker) DeploymentMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deploymentMode"])
-}
-
-// Configuration block containing encryption options. See below.
-func (r *Broker) EncryptionOptions() pulumi.Output {
-	return r.s.State["encryptionOptions"]
-}
-
-// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
-func (r *Broker) EngineType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineType"])
-}
-
-// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
-func (r *Broker) EngineVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["engineVersion"])
-}
-
-// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
-func (r *Broker) HostInstanceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostInstanceType"])
-}
-
-// A list of information about allocated brokers (both active & standby).
-// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
-// * `instances.0.ip_address` - The IP Address of the broker.
-// * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
-// * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-// * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-// * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-// * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-// * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-func (r *Broker) Instances() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["instances"])
-}
-
-// Logging configuration of the broker. See below.
-func (r *Broker) Logs() pulumi.Output {
-	return r.s.State["logs"]
-}
-
-// Maintenance window start time. See below.
-func (r *Broker) MaintenanceWindowStartTime() pulumi.Output {
-	return r.s.State["maintenanceWindowStartTime"]
-}
-
-// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-func (r *Broker) PubliclyAccessible() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["publiclyAccessible"])
-}
-
-// The list of security group IDs assigned to the broker.
-func (r *Broker) SecurityGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
-}
-
-// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
-func (r *Broker) SubnetIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Broker) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The list of all ActiveMQ usernames for the specified broker. See below.
-func (r *Broker) Users() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["users"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Broker resources.
 type BrokerState struct {
 	// Specifies whether any broker modifications
 	// are applied immediately, or during the next maintenance window. Default is `false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// The ARN of the broker.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
-	AutoMinorVersionUpgrade interface{}
+	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"autoMinorVersionUpgrade"`
 	// The name of the broker.
-	BrokerName interface{}
+	BrokerName pulumi.StringInput `pulumi:"brokerName"`
 	// Configuration of the broker. See below.
-	Configuration interface{}
+	Configuration BrokerConfigurationInput `pulumi:"configuration"`
 	// The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
-	DeploymentMode interface{}
+	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
 	// Configuration block containing encryption options. See below.
-	EncryptionOptions interface{}
+	EncryptionOptions BrokerEncryptionOptionsInput `pulumi:"encryptionOptions"`
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
-	EngineType interface{}
+	EngineType pulumi.StringInput `pulumi:"engineType"`
 	// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
-	HostInstanceType interface{}
+	HostInstanceType pulumi.StringInput `pulumi:"hostInstanceType"`
 	// A list of information about allocated brokers (both active & standby).
 	// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
 	// * `instances.0.ip_address` - The IP Address of the broker.
@@ -269,56 +208,565 @@ type BrokerState struct {
 	// * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
 	// * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
 	// * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-	Instances interface{}
+	Instances BrokerInstancesArrayInput `pulumi:"instances"`
 	// Logging configuration of the broker. See below.
-	Logs interface{}
+	Logs BrokerLogsInput `pulumi:"logs"`
 	// Maintenance window start time. See below.
-	MaintenanceWindowStartTime interface{}
+	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimeInput `pulumi:"maintenanceWindowStartTime"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-	PubliclyAccessible interface{}
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 	// The list of security group IDs assigned to the broker.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The list of all ActiveMQ usernames for the specified broker. See below.
-	Users interface{}
+	Users BrokerUsersArrayInput `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Broker resource.
 type BrokerArgs struct {
 	// Specifies whether any broker modifications
 	// are applied immediately, or during the next maintenance window. Default is `false`.
-	ApplyImmediately interface{}
+	ApplyImmediately pulumi.BoolInput `pulumi:"applyImmediately"`
 	// Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
-	AutoMinorVersionUpgrade interface{}
+	AutoMinorVersionUpgrade pulumi.BoolInput `pulumi:"autoMinorVersionUpgrade"`
 	// The name of the broker.
-	BrokerName interface{}
+	BrokerName pulumi.StringInput `pulumi:"brokerName"`
 	// Configuration of the broker. See below.
-	Configuration interface{}
+	Configuration BrokerConfigurationInput `pulumi:"configuration"`
 	// The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
-	DeploymentMode interface{}
+	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
 	// Configuration block containing encryption options. See below.
-	EncryptionOptions interface{}
+	EncryptionOptions BrokerEncryptionOptionsInput `pulumi:"encryptionOptions"`
 	// The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
-	EngineType interface{}
+	EngineType pulumi.StringInput `pulumi:"engineType"`
 	// The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
-	EngineVersion interface{}
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
-	HostInstanceType interface{}
+	HostInstanceType pulumi.StringInput `pulumi:"hostInstanceType"`
 	// Logging configuration of the broker. See below.
-	Logs interface{}
+	Logs BrokerLogsInput `pulumi:"logs"`
 	// Maintenance window start time. See below.
-	MaintenanceWindowStartTime interface{}
+	MaintenanceWindowStartTime BrokerMaintenanceWindowStartTimeInput `pulumi:"maintenanceWindowStartTime"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-	PubliclyAccessible interface{}
+	PubliclyAccessible pulumi.BoolInput `pulumi:"publiclyAccessible"`
 	// The list of security group IDs assigned to the broker.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The list of all ActiveMQ usernames for the specified broker. See below.
-	Users interface{}
+	Users BrokerUsersArrayInput `pulumi:"users"`
 }
+type BrokerConfiguration struct {
+	// The Configuration ID.
+	Id *string `pulumi:"id"`
+	// Revision of the Configuration.
+	Revision *int `pulumi:"revision"`
+}
+var brokerConfigurationType = reflect.TypeOf((*BrokerConfiguration)(nil)).Elem()
+
+type BrokerConfigurationInput interface {
+	pulumi.Input
+
+	ToBrokerConfigurationOutput() BrokerConfigurationOutput
+	ToBrokerConfigurationOutputWithContext(ctx context.Context) BrokerConfigurationOutput
+}
+
+type BrokerConfigurationArgs struct {
+	// The Configuration ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Revision of the Configuration.
+	Revision pulumi.IntInput `pulumi:"revision"`
+}
+
+func (BrokerConfigurationArgs) ElementType() reflect.Type {
+	return brokerConfigurationType
+}
+
+func (a BrokerConfigurationArgs) ToBrokerConfigurationOutput() BrokerConfigurationOutput {
+	return pulumi.ToOutput(a).(BrokerConfigurationOutput)
+}
+
+func (a BrokerConfigurationArgs) ToBrokerConfigurationOutputWithContext(ctx context.Context) BrokerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerConfigurationOutput)
+}
+
+type BrokerConfigurationOutput struct { *pulumi.OutputState }
+
+// The Configuration ID.
+func (o BrokerConfigurationOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v BrokerConfiguration) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Revision of the Configuration.
+func (o BrokerConfigurationOutput) Revision() pulumi.IntOutput {
+	return o.Apply(func(v BrokerConfiguration) int {
+		if v.Revision == nil { return *new(int) } else { return *v.Revision }
+	}).(pulumi.IntOutput)
+}
+
+func (BrokerConfigurationOutput) ElementType() reflect.Type {
+	return brokerConfigurationType
+}
+
+func (o BrokerConfigurationOutput) ToBrokerConfigurationOutput() BrokerConfigurationOutput {
+	return o
+}
+
+func (o BrokerConfigurationOutput) ToBrokerConfigurationOutputWithContext(ctx context.Context) BrokerConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerConfigurationOutput{}) }
+
+type BrokerEncryptionOptions struct {
+	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+	UseAwsOwnedKey *bool `pulumi:"useAwsOwnedKey"`
+}
+var brokerEncryptionOptionsType = reflect.TypeOf((*BrokerEncryptionOptions)(nil)).Elem()
+
+type BrokerEncryptionOptionsInput interface {
+	pulumi.Input
+
+	ToBrokerEncryptionOptionsOutput() BrokerEncryptionOptionsOutput
+	ToBrokerEncryptionOptionsOutputWithContext(ctx context.Context) BrokerEncryptionOptionsOutput
+}
+
+type BrokerEncryptionOptionsArgs struct {
+	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+	UseAwsOwnedKey pulumi.BoolInput `pulumi:"useAwsOwnedKey"`
+}
+
+func (BrokerEncryptionOptionsArgs) ElementType() reflect.Type {
+	return brokerEncryptionOptionsType
+}
+
+func (a BrokerEncryptionOptionsArgs) ToBrokerEncryptionOptionsOutput() BrokerEncryptionOptionsOutput {
+	return pulumi.ToOutput(a).(BrokerEncryptionOptionsOutput)
+}
+
+func (a BrokerEncryptionOptionsArgs) ToBrokerEncryptionOptionsOutputWithContext(ctx context.Context) BrokerEncryptionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerEncryptionOptionsOutput)
+}
+
+type BrokerEncryptionOptionsOutput struct { *pulumi.OutputState }
+
+// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
+func (o BrokerEncryptionOptionsOutput) KmsKeyId() pulumi.StringOutput {
+	return o.Apply(func(v BrokerEncryptionOptions) string {
+		if v.KmsKeyId == nil { return *new(string) } else { return *v.KmsKeyId }
+	}).(pulumi.StringOutput)
+}
+
+// Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
+func (o BrokerEncryptionOptionsOutput) UseAwsOwnedKey() pulumi.BoolOutput {
+	return o.Apply(func(v BrokerEncryptionOptions) bool {
+		if v.UseAwsOwnedKey == nil { return *new(bool) } else { return *v.UseAwsOwnedKey }
+	}).(pulumi.BoolOutput)
+}
+
+func (BrokerEncryptionOptionsOutput) ElementType() reflect.Type {
+	return brokerEncryptionOptionsType
+}
+
+func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsOutput() BrokerEncryptionOptionsOutput {
+	return o
+}
+
+func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsOutputWithContext(ctx context.Context) BrokerEncryptionOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerEncryptionOptionsOutput{}) }
+
+type BrokerInstances struct {
+	ConsoleUrl string `pulumi:"consoleUrl"`
+	Endpoints []string `pulumi:"endpoints"`
+	IpAddress string `pulumi:"ipAddress"`
+}
+var brokerInstancesType = reflect.TypeOf((*BrokerInstances)(nil)).Elem()
+
+type BrokerInstancesInput interface {
+	pulumi.Input
+
+	ToBrokerInstancesOutput() BrokerInstancesOutput
+	ToBrokerInstancesOutputWithContext(ctx context.Context) BrokerInstancesOutput
+}
+
+type BrokerInstancesArgs struct {
+	ConsoleUrl pulumi.StringInput `pulumi:"consoleUrl"`
+	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+}
+
+func (BrokerInstancesArgs) ElementType() reflect.Type {
+	return brokerInstancesType
+}
+
+func (a BrokerInstancesArgs) ToBrokerInstancesOutput() BrokerInstancesOutput {
+	return pulumi.ToOutput(a).(BrokerInstancesOutput)
+}
+
+func (a BrokerInstancesArgs) ToBrokerInstancesOutputWithContext(ctx context.Context) BrokerInstancesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerInstancesOutput)
+}
+
+type BrokerInstancesOutput struct { *pulumi.OutputState }
+
+func (o BrokerInstancesOutput) ConsoleUrl() pulumi.StringOutput {
+	return o.Apply(func(v BrokerInstances) string {
+		return v.ConsoleUrl
+	}).(pulumi.StringOutput)
+}
+
+func (o BrokerInstancesOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.Apply(func(v BrokerInstances) []string {
+		return v.Endpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BrokerInstancesOutput) IpAddress() pulumi.StringOutput {
+	return o.Apply(func(v BrokerInstances) string {
+		return v.IpAddress
+	}).(pulumi.StringOutput)
+}
+
+func (BrokerInstancesOutput) ElementType() reflect.Type {
+	return brokerInstancesType
+}
+
+func (o BrokerInstancesOutput) ToBrokerInstancesOutput() BrokerInstancesOutput {
+	return o
+}
+
+func (o BrokerInstancesOutput) ToBrokerInstancesOutputWithContext(ctx context.Context) BrokerInstancesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerInstancesOutput{}) }
+
+var brokerInstancesArrayType = reflect.TypeOf((*[]BrokerInstances)(nil)).Elem()
+
+type BrokerInstancesArrayInput interface {
+	pulumi.Input
+
+	ToBrokerInstancesArrayOutput() BrokerInstancesArrayOutput
+	ToBrokerInstancesArrayOutputWithContext(ctx context.Context) BrokerInstancesArrayOutput
+}
+
+type BrokerInstancesArrayArgs []BrokerInstancesInput
+
+func (BrokerInstancesArrayArgs) ElementType() reflect.Type {
+	return brokerInstancesArrayType
+}
+
+func (a BrokerInstancesArrayArgs) ToBrokerInstancesArrayOutput() BrokerInstancesArrayOutput {
+	return pulumi.ToOutput(a).(BrokerInstancesArrayOutput)
+}
+
+func (a BrokerInstancesArrayArgs) ToBrokerInstancesArrayOutputWithContext(ctx context.Context) BrokerInstancesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerInstancesArrayOutput)
+}
+
+type BrokerInstancesArrayOutput struct { *pulumi.OutputState }
+
+func (o BrokerInstancesArrayOutput) Index(i pulumi.IntInput) BrokerInstancesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BrokerInstances {
+		return vs[0].([]BrokerInstances)[vs[1].(int)]
+	}).(BrokerInstancesOutput)
+}
+
+func (BrokerInstancesArrayOutput) ElementType() reflect.Type {
+	return brokerInstancesArrayType
+}
+
+func (o BrokerInstancesArrayOutput) ToBrokerInstancesArrayOutput() BrokerInstancesArrayOutput {
+	return o
+}
+
+func (o BrokerInstancesArrayOutput) ToBrokerInstancesArrayOutputWithContext(ctx context.Context) BrokerInstancesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerInstancesArrayOutput{}) }
+
+type BrokerLogs struct {
+	// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+	Audit *bool `pulumi:"audit"`
+	// Enables general logging via CloudWatch. Defaults to `false`.
+	General *bool `pulumi:"general"`
+}
+var brokerLogsType = reflect.TypeOf((*BrokerLogs)(nil)).Elem()
+
+type BrokerLogsInput interface {
+	pulumi.Input
+
+	ToBrokerLogsOutput() BrokerLogsOutput
+	ToBrokerLogsOutputWithContext(ctx context.Context) BrokerLogsOutput
+}
+
+type BrokerLogsArgs struct {
+	// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+	Audit pulumi.BoolInput `pulumi:"audit"`
+	// Enables general logging via CloudWatch. Defaults to `false`.
+	General pulumi.BoolInput `pulumi:"general"`
+}
+
+func (BrokerLogsArgs) ElementType() reflect.Type {
+	return brokerLogsType
+}
+
+func (a BrokerLogsArgs) ToBrokerLogsOutput() BrokerLogsOutput {
+	return pulumi.ToOutput(a).(BrokerLogsOutput)
+}
+
+func (a BrokerLogsArgs) ToBrokerLogsOutputWithContext(ctx context.Context) BrokerLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerLogsOutput)
+}
+
+type BrokerLogsOutput struct { *pulumi.OutputState }
+
+// Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+func (o BrokerLogsOutput) Audit() pulumi.BoolOutput {
+	return o.Apply(func(v BrokerLogs) bool {
+		if v.Audit == nil { return *new(bool) } else { return *v.Audit }
+	}).(pulumi.BoolOutput)
+}
+
+// Enables general logging via CloudWatch. Defaults to `false`.
+func (o BrokerLogsOutput) General() pulumi.BoolOutput {
+	return o.Apply(func(v BrokerLogs) bool {
+		if v.General == nil { return *new(bool) } else { return *v.General }
+	}).(pulumi.BoolOutput)
+}
+
+func (BrokerLogsOutput) ElementType() reflect.Type {
+	return brokerLogsType
+}
+
+func (o BrokerLogsOutput) ToBrokerLogsOutput() BrokerLogsOutput {
+	return o
+}
+
+func (o BrokerLogsOutput) ToBrokerLogsOutputWithContext(ctx context.Context) BrokerLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerLogsOutput{}) }
+
+type BrokerMaintenanceWindowStartTime struct {
+	// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The time, in 24-hour format. e.g. `02:00`
+	TimeOfDay string `pulumi:"timeOfDay"`
+	// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+	TimeZone string `pulumi:"timeZone"`
+}
+var brokerMaintenanceWindowStartTimeType = reflect.TypeOf((*BrokerMaintenanceWindowStartTime)(nil)).Elem()
+
+type BrokerMaintenanceWindowStartTimeInput interface {
+	pulumi.Input
+
+	ToBrokerMaintenanceWindowStartTimeOutput() BrokerMaintenanceWindowStartTimeOutput
+	ToBrokerMaintenanceWindowStartTimeOutputWithContext(ctx context.Context) BrokerMaintenanceWindowStartTimeOutput
+}
+
+type BrokerMaintenanceWindowStartTimeArgs struct {
+	// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The time, in 24-hour format. e.g. `02:00`
+	TimeOfDay pulumi.StringInput `pulumi:"timeOfDay"`
+	// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+}
+
+func (BrokerMaintenanceWindowStartTimeArgs) ElementType() reflect.Type {
+	return brokerMaintenanceWindowStartTimeType
+}
+
+func (a BrokerMaintenanceWindowStartTimeArgs) ToBrokerMaintenanceWindowStartTimeOutput() BrokerMaintenanceWindowStartTimeOutput {
+	return pulumi.ToOutput(a).(BrokerMaintenanceWindowStartTimeOutput)
+}
+
+func (a BrokerMaintenanceWindowStartTimeArgs) ToBrokerMaintenanceWindowStartTimeOutputWithContext(ctx context.Context) BrokerMaintenanceWindowStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerMaintenanceWindowStartTimeOutput)
+}
+
+type BrokerMaintenanceWindowStartTimeOutput struct { *pulumi.OutputState }
+
+// The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
+func (o BrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
+	return o.Apply(func(v BrokerMaintenanceWindowStartTime) string {
+		return v.DayOfWeek
+	}).(pulumi.StringOutput)
+}
+
+// The time, in 24-hour format. e.g. `02:00`
+func (o BrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringOutput {
+	return o.Apply(func(v BrokerMaintenanceWindowStartTime) string {
+		return v.TimeOfDay
+	}).(pulumi.StringOutput)
+}
+
+// The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
+func (o BrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutput {
+	return o.Apply(func(v BrokerMaintenanceWindowStartTime) string {
+		return v.TimeZone
+	}).(pulumi.StringOutput)
+}
+
+func (BrokerMaintenanceWindowStartTimeOutput) ElementType() reflect.Type {
+	return brokerMaintenanceWindowStartTimeType
+}
+
+func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTimeOutput() BrokerMaintenanceWindowStartTimeOutput {
+	return o
+}
+
+func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTimeOutputWithContext(ctx context.Context) BrokerMaintenanceWindowStartTimeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerMaintenanceWindowStartTimeOutput{}) }
+
+type BrokerUsers struct {
+	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+	ConsoleAccess *bool `pulumi:"consoleAccess"`
+	// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+	Groups *[]string `pulumi:"groups"`
+	// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+	Password string `pulumi:"password"`
+	// The username of the user.
+	Username string `pulumi:"username"`
+}
+var brokerUsersType = reflect.TypeOf((*BrokerUsers)(nil)).Elem()
+
+type BrokerUsersInput interface {
+	pulumi.Input
+
+	ToBrokerUsersOutput() BrokerUsersOutput
+	ToBrokerUsersOutputWithContext(ctx context.Context) BrokerUsersOutput
+}
+
+type BrokerUsersArgs struct {
+	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+	ConsoleAccess pulumi.BoolInput `pulumi:"consoleAccess"`
+	// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username of the user.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (BrokerUsersArgs) ElementType() reflect.Type {
+	return brokerUsersType
+}
+
+func (a BrokerUsersArgs) ToBrokerUsersOutput() BrokerUsersOutput {
+	return pulumi.ToOutput(a).(BrokerUsersOutput)
+}
+
+func (a BrokerUsersArgs) ToBrokerUsersOutputWithContext(ctx context.Context) BrokerUsersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerUsersOutput)
+}
+
+type BrokerUsersOutput struct { *pulumi.OutputState }
+
+// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
+func (o BrokerUsersOutput) ConsoleAccess() pulumi.BoolOutput {
+	return o.Apply(func(v BrokerUsers) bool {
+		if v.ConsoleAccess == nil { return *new(bool) } else { return *v.ConsoleAccess }
+	}).(pulumi.BoolOutput)
+}
+
+// The list of groups (20 maximum) to which the ActiveMQ user belongs.
+func (o BrokerUsersOutput) Groups() pulumi.StringArrayOutput {
+	return o.Apply(func(v BrokerUsers) []string {
+		if v.Groups == nil { return *new([]string) } else { return *v.Groups }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+func (o BrokerUsersOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v BrokerUsers) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The username of the user.
+func (o BrokerUsersOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v BrokerUsers) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (BrokerUsersOutput) ElementType() reflect.Type {
+	return brokerUsersType
+}
+
+func (o BrokerUsersOutput) ToBrokerUsersOutput() BrokerUsersOutput {
+	return o
+}
+
+func (o BrokerUsersOutput) ToBrokerUsersOutputWithContext(ctx context.Context) BrokerUsersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerUsersOutput{}) }
+
+var brokerUsersArrayType = reflect.TypeOf((*[]BrokerUsers)(nil)).Elem()
+
+type BrokerUsersArrayInput interface {
+	pulumi.Input
+
+	ToBrokerUsersArrayOutput() BrokerUsersArrayOutput
+	ToBrokerUsersArrayOutputWithContext(ctx context.Context) BrokerUsersArrayOutput
+}
+
+type BrokerUsersArrayArgs []BrokerUsersInput
+
+func (BrokerUsersArrayArgs) ElementType() reflect.Type {
+	return brokerUsersArrayType
+}
+
+func (a BrokerUsersArrayArgs) ToBrokerUsersArrayOutput() BrokerUsersArrayOutput {
+	return pulumi.ToOutput(a).(BrokerUsersArrayOutput)
+}
+
+func (a BrokerUsersArrayArgs) ToBrokerUsersArrayOutputWithContext(ctx context.Context) BrokerUsersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BrokerUsersArrayOutput)
+}
+
+type BrokerUsersArrayOutput struct { *pulumi.OutputState }
+
+func (o BrokerUsersArrayOutput) Index(i pulumi.IntInput) BrokerUsersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BrokerUsers {
+		return vs[0].([]BrokerUsers)[vs[1].(int)]
+	}).(BrokerUsersOutput)
+}
+
+func (BrokerUsersArrayOutput) ElementType() reflect.Type {
+	return brokerUsersArrayType
+}
+
+func (o BrokerUsersArrayOutput) ToBrokerUsersArrayOutput() BrokerUsersArrayOutput {
+	return o
+}
+
+func (o BrokerUsersArrayOutput) ToBrokerUsersArrayOutputWithContext(ctx context.Context) BrokerUsersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BrokerUsersArrayOutput{}) }
+

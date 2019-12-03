@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -18,299 +20,456 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
 type VpnConnection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The configuration information for the VPN connection's customer gateway (in the native XML format).
+	CustomerGatewayConfiguration pulumi.StringOutput `pulumi:"customerGatewayConfiguration"`
+
+	// The ID of the customer gateway.
+	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
+
+	Routes VpnConnectionRoutesArrayOutput `pulumi:"routes"`
+
+	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
+
+	// Tags to apply to the connection.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
+	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+
+	// The ID of the EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+
+	// The public IP address of the first VPN tunnel.
+	Tunnel1Address pulumi.StringOutput `pulumi:"tunnel1Address"`
+
+	// The bgp asn number of the first VPN tunnel.
+	Tunnel1BgpAsn pulumi.StringOutput `pulumi:"tunnel1BgpAsn"`
+
+	// The bgp holdtime of the first VPN tunnel.
+	Tunnel1BgpHoldtime pulumi.IntOutput `pulumi:"tunnel1BgpHoldtime"`
+
+	// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+	Tunnel1CgwInsideAddress pulumi.StringOutput `pulumi:"tunnel1CgwInsideAddress"`
+
+	// The CIDR block of the inside IP addresses for the first VPN tunnel.
+	Tunnel1InsideCidr pulumi.StringOutput `pulumi:"tunnel1InsideCidr"`
+
+	// The preshared key of the first VPN tunnel.
+	Tunnel1PresharedKey pulumi.StringOutput `pulumi:"tunnel1PresharedKey"`
+
+	// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+	Tunnel1VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel1VgwInsideAddress"`
+
+	// The public IP address of the second VPN tunnel.
+	Tunnel2Address pulumi.StringOutput `pulumi:"tunnel2Address"`
+
+	// The bgp asn number of the second VPN tunnel.
+	Tunnel2BgpAsn pulumi.StringOutput `pulumi:"tunnel2BgpAsn"`
+
+	// The bgp holdtime of the second VPN tunnel.
+	Tunnel2BgpHoldtime pulumi.IntOutput `pulumi:"tunnel2BgpHoldtime"`
+
+	// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+	Tunnel2CgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2CgwInsideAddress"`
+
+	// The CIDR block of the inside IP addresses for the second VPN tunnel.
+	Tunnel2InsideCidr pulumi.StringOutput `pulumi:"tunnel2InsideCidr"`
+
+	// The preshared key of the second VPN tunnel.
+	Tunnel2PresharedKey pulumi.StringOutput `pulumi:"tunnel2PresharedKey"`
+
+	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+	Tunnel2VgwInsideAddress pulumi.StringOutput `pulumi:"tunnel2VgwInsideAddress"`
+
+	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	VgwTelemetries VpnConnectionVgwTelemetriesArrayOutput `pulumi:"vgwTelemetries"`
+
+	// The ID of the Virtual Private Gateway.
+	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewVpnConnection registers a new resource with the given unique name, arguments, and options.
 func NewVpnConnection(ctx *pulumi.Context,
-	name string, args *VpnConnectionArgs, opts ...pulumi.ResourceOpt) (*VpnConnection, error) {
+	name string, args *VpnConnectionArgs, opts ...pulumi.ResourceOption) (*VpnConnection, error) {
 	if args == nil || args.CustomerGatewayId == nil {
 		return nil, errors.New("missing required argument 'CustomerGatewayId'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["customerGatewayId"] = nil
-		inputs["staticRoutesOnly"] = nil
-		inputs["tags"] = nil
-		inputs["transitGatewayId"] = nil
-		inputs["tunnel1InsideCidr"] = nil
-		inputs["tunnel1PresharedKey"] = nil
-		inputs["tunnel2InsideCidr"] = nil
-		inputs["tunnel2PresharedKey"] = nil
-		inputs["type"] = nil
-		inputs["vpnGatewayId"] = nil
-	} else {
-		inputs["customerGatewayId"] = args.CustomerGatewayId
-		inputs["staticRoutesOnly"] = args.StaticRoutesOnly
-		inputs["tags"] = args.Tags
-		inputs["transitGatewayId"] = args.TransitGatewayId
-		inputs["tunnel1InsideCidr"] = args.Tunnel1InsideCidr
-		inputs["tunnel1PresharedKey"] = args.Tunnel1PresharedKey
-		inputs["tunnel2InsideCidr"] = args.Tunnel2InsideCidr
-		inputs["tunnel2PresharedKey"] = args.Tunnel2PresharedKey
-		inputs["type"] = args.Type
-		inputs["vpnGatewayId"] = args.VpnGatewayId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CustomerGatewayId; i != nil { inputs["customerGatewayId"] = i.ToStringOutput() }
+		if i := args.StaticRoutesOnly; i != nil { inputs["staticRoutesOnly"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TransitGatewayId; i != nil { inputs["transitGatewayId"] = i.ToStringOutput() }
+		if i := args.Tunnel1InsideCidr; i != nil { inputs["tunnel1InsideCidr"] = i.ToStringOutput() }
+		if i := args.Tunnel1PresharedKey; i != nil { inputs["tunnel1PresharedKey"] = i.ToStringOutput() }
+		if i := args.Tunnel2InsideCidr; i != nil { inputs["tunnel2InsideCidr"] = i.ToStringOutput() }
+		if i := args.Tunnel2PresharedKey; i != nil { inputs["tunnel2PresharedKey"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.VpnGatewayId; i != nil { inputs["vpnGatewayId"] = i.ToStringOutput() }
 	}
-	inputs["customerGatewayConfiguration"] = nil
-	inputs["routes"] = nil
-	inputs["transitGatewayAttachmentId"] = nil
-	inputs["tunnel1Address"] = nil
-	inputs["tunnel1BgpAsn"] = nil
-	inputs["tunnel1BgpHoldtime"] = nil
-	inputs["tunnel1CgwInsideAddress"] = nil
-	inputs["tunnel1VgwInsideAddress"] = nil
-	inputs["tunnel2Address"] = nil
-	inputs["tunnel2BgpAsn"] = nil
-	inputs["tunnel2BgpHoldtime"] = nil
-	inputs["tunnel2CgwInsideAddress"] = nil
-	inputs["tunnel2VgwInsideAddress"] = nil
-	inputs["vgwTelemetries"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/vpnConnection:VpnConnection", name, true, inputs, opts...)
+	var resource VpnConnection
+	err := ctx.RegisterResource("aws:ec2/vpnConnection:VpnConnection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpnConnection{s: s}, nil
+	return &resource, nil
 }
 
 // GetVpnConnection gets an existing VpnConnection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVpnConnection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VpnConnectionState, opts ...pulumi.ResourceOpt) (*VpnConnection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VpnConnectionState, opts ...pulumi.ResourceOption) (*VpnConnection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["customerGatewayConfiguration"] = state.CustomerGatewayConfiguration
-		inputs["customerGatewayId"] = state.CustomerGatewayId
-		inputs["routes"] = state.Routes
-		inputs["staticRoutesOnly"] = state.StaticRoutesOnly
-		inputs["tags"] = state.Tags
-		inputs["transitGatewayAttachmentId"] = state.TransitGatewayAttachmentId
-		inputs["transitGatewayId"] = state.TransitGatewayId
-		inputs["tunnel1Address"] = state.Tunnel1Address
-		inputs["tunnel1BgpAsn"] = state.Tunnel1BgpAsn
-		inputs["tunnel1BgpHoldtime"] = state.Tunnel1BgpHoldtime
-		inputs["tunnel1CgwInsideAddress"] = state.Tunnel1CgwInsideAddress
-		inputs["tunnel1InsideCidr"] = state.Tunnel1InsideCidr
-		inputs["tunnel1PresharedKey"] = state.Tunnel1PresharedKey
-		inputs["tunnel1VgwInsideAddress"] = state.Tunnel1VgwInsideAddress
-		inputs["tunnel2Address"] = state.Tunnel2Address
-		inputs["tunnel2BgpAsn"] = state.Tunnel2BgpAsn
-		inputs["tunnel2BgpHoldtime"] = state.Tunnel2BgpHoldtime
-		inputs["tunnel2CgwInsideAddress"] = state.Tunnel2CgwInsideAddress
-		inputs["tunnel2InsideCidr"] = state.Tunnel2InsideCidr
-		inputs["tunnel2PresharedKey"] = state.Tunnel2PresharedKey
-		inputs["tunnel2VgwInsideAddress"] = state.Tunnel2VgwInsideAddress
-		inputs["type"] = state.Type
-		inputs["vgwTelemetries"] = state.VgwTelemetries
-		inputs["vpnGatewayId"] = state.VpnGatewayId
+		if i := state.CustomerGatewayConfiguration; i != nil { inputs["customerGatewayConfiguration"] = i.ToStringOutput() }
+		if i := state.CustomerGatewayId; i != nil { inputs["customerGatewayId"] = i.ToStringOutput() }
+		if i := state.Routes; i != nil { inputs["routes"] = i.ToVpnConnectionRoutesArrayOutput() }
+		if i := state.StaticRoutesOnly; i != nil { inputs["staticRoutesOnly"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TransitGatewayAttachmentId; i != nil { inputs["transitGatewayAttachmentId"] = i.ToStringOutput() }
+		if i := state.TransitGatewayId; i != nil { inputs["transitGatewayId"] = i.ToStringOutput() }
+		if i := state.Tunnel1Address; i != nil { inputs["tunnel1Address"] = i.ToStringOutput() }
+		if i := state.Tunnel1BgpAsn; i != nil { inputs["tunnel1BgpAsn"] = i.ToStringOutput() }
+		if i := state.Tunnel1BgpHoldtime; i != nil { inputs["tunnel1BgpHoldtime"] = i.ToIntOutput() }
+		if i := state.Tunnel1CgwInsideAddress; i != nil { inputs["tunnel1CgwInsideAddress"] = i.ToStringOutput() }
+		if i := state.Tunnel1InsideCidr; i != nil { inputs["tunnel1InsideCidr"] = i.ToStringOutput() }
+		if i := state.Tunnel1PresharedKey; i != nil { inputs["tunnel1PresharedKey"] = i.ToStringOutput() }
+		if i := state.Tunnel1VgwInsideAddress; i != nil { inputs["tunnel1VgwInsideAddress"] = i.ToStringOutput() }
+		if i := state.Tunnel2Address; i != nil { inputs["tunnel2Address"] = i.ToStringOutput() }
+		if i := state.Tunnel2BgpAsn; i != nil { inputs["tunnel2BgpAsn"] = i.ToStringOutput() }
+		if i := state.Tunnel2BgpHoldtime; i != nil { inputs["tunnel2BgpHoldtime"] = i.ToIntOutput() }
+		if i := state.Tunnel2CgwInsideAddress; i != nil { inputs["tunnel2CgwInsideAddress"] = i.ToStringOutput() }
+		if i := state.Tunnel2InsideCidr; i != nil { inputs["tunnel2InsideCidr"] = i.ToStringOutput() }
+		if i := state.Tunnel2PresharedKey; i != nil { inputs["tunnel2PresharedKey"] = i.ToStringOutput() }
+		if i := state.Tunnel2VgwInsideAddress; i != nil { inputs["tunnel2VgwInsideAddress"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.VgwTelemetries; i != nil { inputs["vgwTelemetries"] = i.ToVpnConnectionVgwTelemetriesArrayOutput() }
+		if i := state.VpnGatewayId; i != nil { inputs["vpnGatewayId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/vpnConnection:VpnConnection", name, id, inputs, opts...)
+	var resource VpnConnection
+	err := ctx.ReadResource("aws:ec2/vpnConnection:VpnConnection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VpnConnection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VpnConnection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VpnConnection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The configuration information for the VPN connection's customer gateway (in the native XML format).
-func (r *VpnConnection) CustomerGatewayConfiguration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customerGatewayConfiguration"])
-}
-
-// The ID of the customer gateway.
-func (r *VpnConnection) CustomerGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customerGatewayId"])
-}
-
-func (r *VpnConnection) Routes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["routes"])
-}
-
-// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-func (r *VpnConnection) StaticRoutesOnly() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["staticRoutesOnly"])
-}
-
-// Tags to apply to the connection.
-func (r *VpnConnection) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
-func (r *VpnConnection) TransitGatewayAttachmentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["transitGatewayAttachmentId"])
-}
-
-// The ID of the EC2 Transit Gateway.
-func (r *VpnConnection) TransitGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["transitGatewayId"])
-}
-
-// The public IP address of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1Address() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel1Address"])
-}
-
-// The bgp asn number of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1BgpAsn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel1BgpAsn"])
-}
-
-// The bgp holdtime of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1BgpHoldtime() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["tunnel1BgpHoldtime"])
-}
-
-// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-func (r *VpnConnection) Tunnel1CgwInsideAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel1CgwInsideAddress"])
-}
-
-// The CIDR block of the inside IP addresses for the first VPN tunnel.
-func (r *VpnConnection) Tunnel1InsideCidr() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel1InsideCidr"])
-}
-
-// The preshared key of the first VPN tunnel.
-func (r *VpnConnection) Tunnel1PresharedKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel1PresharedKey"])
-}
-
-// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-func (r *VpnConnection) Tunnel1VgwInsideAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel1VgwInsideAddress"])
-}
-
-// The public IP address of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2Address() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel2Address"])
-}
-
-// The bgp asn number of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2BgpAsn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel2BgpAsn"])
-}
-
-// The bgp holdtime of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2BgpHoldtime() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["tunnel2BgpHoldtime"])
-}
-
-// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-func (r *VpnConnection) Tunnel2CgwInsideAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel2CgwInsideAddress"])
-}
-
-// The CIDR block of the inside IP addresses for the second VPN tunnel.
-func (r *VpnConnection) Tunnel2InsideCidr() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel2InsideCidr"])
-}
-
-// The preshared key of the second VPN tunnel.
-func (r *VpnConnection) Tunnel2PresharedKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel2PresharedKey"])
-}
-
-// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-func (r *VpnConnection) Tunnel2VgwInsideAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tunnel2VgwInsideAddress"])
-}
-
-// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-func (r *VpnConnection) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-func (r *VpnConnection) VgwTelemetries() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["vgwTelemetries"])
-}
-
-// The ID of the Virtual Private Gateway.
-func (r *VpnConnection) VpnGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpnGatewayId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VpnConnection resources.
 type VpnConnectionState struct {
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
-	CustomerGatewayConfiguration interface{}
+	CustomerGatewayConfiguration pulumi.StringInput `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
-	CustomerGatewayId interface{}
-	Routes interface{}
+	CustomerGatewayId pulumi.StringInput `pulumi:"customerGatewayId"`
+	Routes VpnConnectionRoutesArrayInput `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly interface{}
+	StaticRoutesOnly pulumi.BoolInput `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
-	TransitGatewayAttachmentId interface{}
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
 	// The public IP address of the first VPN tunnel.
-	Tunnel1Address interface{}
+	Tunnel1Address pulumi.StringInput `pulumi:"tunnel1Address"`
 	// The bgp asn number of the first VPN tunnel.
-	Tunnel1BgpAsn interface{}
+	Tunnel1BgpAsn pulumi.StringInput `pulumi:"tunnel1BgpAsn"`
 	// The bgp holdtime of the first VPN tunnel.
-	Tunnel1BgpHoldtime interface{}
+	Tunnel1BgpHoldtime pulumi.IntInput `pulumi:"tunnel1BgpHoldtime"`
 	// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-	Tunnel1CgwInsideAddress interface{}
+	Tunnel1CgwInsideAddress pulumi.StringInput `pulumi:"tunnel1CgwInsideAddress"`
 	// The CIDR block of the inside IP addresses for the first VPN tunnel.
-	Tunnel1InsideCidr interface{}
+	Tunnel1InsideCidr pulumi.StringInput `pulumi:"tunnel1InsideCidr"`
 	// The preshared key of the first VPN tunnel.
-	Tunnel1PresharedKey interface{}
+	Tunnel1PresharedKey pulumi.StringInput `pulumi:"tunnel1PresharedKey"`
 	// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-	Tunnel1VgwInsideAddress interface{}
+	Tunnel1VgwInsideAddress pulumi.StringInput `pulumi:"tunnel1VgwInsideAddress"`
 	// The public IP address of the second VPN tunnel.
-	Tunnel2Address interface{}
+	Tunnel2Address pulumi.StringInput `pulumi:"tunnel2Address"`
 	// The bgp asn number of the second VPN tunnel.
-	Tunnel2BgpAsn interface{}
+	Tunnel2BgpAsn pulumi.StringInput `pulumi:"tunnel2BgpAsn"`
 	// The bgp holdtime of the second VPN tunnel.
-	Tunnel2BgpHoldtime interface{}
+	Tunnel2BgpHoldtime pulumi.IntInput `pulumi:"tunnel2BgpHoldtime"`
 	// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-	Tunnel2CgwInsideAddress interface{}
+	Tunnel2CgwInsideAddress pulumi.StringInput `pulumi:"tunnel2CgwInsideAddress"`
 	// The CIDR block of the inside IP addresses for the second VPN tunnel.
-	Tunnel2InsideCidr interface{}
+	Tunnel2InsideCidr pulumi.StringInput `pulumi:"tunnel2InsideCidr"`
 	// The preshared key of the second VPN tunnel.
-	Tunnel2PresharedKey interface{}
+	Tunnel2PresharedKey pulumi.StringInput `pulumi:"tunnel2PresharedKey"`
 	// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-	Tunnel2VgwInsideAddress interface{}
+	Tunnel2VgwInsideAddress pulumi.StringInput `pulumi:"tunnel2VgwInsideAddress"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type interface{}
-	VgwTelemetries interface{}
+	Type pulumi.StringInput `pulumi:"type"`
+	VgwTelemetries VpnConnectionVgwTelemetriesArrayInput `pulumi:"vgwTelemetries"`
 	// The ID of the Virtual Private Gateway.
-	VpnGatewayId interface{}
+	VpnGatewayId pulumi.StringInput `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
 	// The ID of the customer gateway.
-	CustomerGatewayId interface{}
+	CustomerGatewayId pulumi.StringInput `pulumi:"customerGatewayId"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-	StaticRoutesOnly interface{}
+	StaticRoutesOnly pulumi.BoolInput `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway.
-	TransitGatewayId interface{}
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
 	// The CIDR block of the inside IP addresses for the first VPN tunnel.
-	Tunnel1InsideCidr interface{}
+	Tunnel1InsideCidr pulumi.StringInput `pulumi:"tunnel1InsideCidr"`
 	// The preshared key of the first VPN tunnel.
-	Tunnel1PresharedKey interface{}
+	Tunnel1PresharedKey pulumi.StringInput `pulumi:"tunnel1PresharedKey"`
 	// The CIDR block of the inside IP addresses for the second VPN tunnel.
-	Tunnel2InsideCidr interface{}
+	Tunnel2InsideCidr pulumi.StringInput `pulumi:"tunnel2InsideCidr"`
 	// The preshared key of the second VPN tunnel.
-	Tunnel2PresharedKey interface{}
+	Tunnel2PresharedKey pulumi.StringInput `pulumi:"tunnel2PresharedKey"`
 	// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// The ID of the Virtual Private Gateway.
-	VpnGatewayId interface{}
+	VpnGatewayId pulumi.StringInput `pulumi:"vpnGatewayId"`
 }
+type VpnConnectionRoutes struct {
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	Source string `pulumi:"source"`
+	State string `pulumi:"state"`
+}
+var vpnConnectionRoutesType = reflect.TypeOf((*VpnConnectionRoutes)(nil)).Elem()
+
+type VpnConnectionRoutesInput interface {
+	pulumi.Input
+
+	ToVpnConnectionRoutesOutput() VpnConnectionRoutesOutput
+	ToVpnConnectionRoutesOutputWithContext(ctx context.Context) VpnConnectionRoutesOutput
+}
+
+type VpnConnectionRoutesArgs struct {
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
+	Source pulumi.StringInput `pulumi:"source"`
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (VpnConnectionRoutesArgs) ElementType() reflect.Type {
+	return vpnConnectionRoutesType
+}
+
+func (a VpnConnectionRoutesArgs) ToVpnConnectionRoutesOutput() VpnConnectionRoutesOutput {
+	return pulumi.ToOutput(a).(VpnConnectionRoutesOutput)
+}
+
+func (a VpnConnectionRoutesArgs) ToVpnConnectionRoutesOutputWithContext(ctx context.Context) VpnConnectionRoutesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VpnConnectionRoutesOutput)
+}
+
+type VpnConnectionRoutesOutput struct { *pulumi.OutputState }
+
+func (o VpnConnectionRoutesOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionRoutes) string {
+		return v.DestinationCidrBlock
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionRoutesOutput) Source() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionRoutes) string {
+		return v.Source
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionRoutesOutput) State() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionRoutes) string {
+		return v.State
+	}).(pulumi.StringOutput)
+}
+
+func (VpnConnectionRoutesOutput) ElementType() reflect.Type {
+	return vpnConnectionRoutesType
+}
+
+func (o VpnConnectionRoutesOutput) ToVpnConnectionRoutesOutput() VpnConnectionRoutesOutput {
+	return o
+}
+
+func (o VpnConnectionRoutesOutput) ToVpnConnectionRoutesOutputWithContext(ctx context.Context) VpnConnectionRoutesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VpnConnectionRoutesOutput{}) }
+
+var vpnConnectionRoutesArrayType = reflect.TypeOf((*[]VpnConnectionRoutes)(nil)).Elem()
+
+type VpnConnectionRoutesArrayInput interface {
+	pulumi.Input
+
+	ToVpnConnectionRoutesArrayOutput() VpnConnectionRoutesArrayOutput
+	ToVpnConnectionRoutesArrayOutputWithContext(ctx context.Context) VpnConnectionRoutesArrayOutput
+}
+
+type VpnConnectionRoutesArrayArgs []VpnConnectionRoutesInput
+
+func (VpnConnectionRoutesArrayArgs) ElementType() reflect.Type {
+	return vpnConnectionRoutesArrayType
+}
+
+func (a VpnConnectionRoutesArrayArgs) ToVpnConnectionRoutesArrayOutput() VpnConnectionRoutesArrayOutput {
+	return pulumi.ToOutput(a).(VpnConnectionRoutesArrayOutput)
+}
+
+func (a VpnConnectionRoutesArrayArgs) ToVpnConnectionRoutesArrayOutputWithContext(ctx context.Context) VpnConnectionRoutesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VpnConnectionRoutesArrayOutput)
+}
+
+type VpnConnectionRoutesArrayOutput struct { *pulumi.OutputState }
+
+func (o VpnConnectionRoutesArrayOutput) Index(i pulumi.IntInput) VpnConnectionRoutesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VpnConnectionRoutes {
+		return vs[0].([]VpnConnectionRoutes)[vs[1].(int)]
+	}).(VpnConnectionRoutesOutput)
+}
+
+func (VpnConnectionRoutesArrayOutput) ElementType() reflect.Type {
+	return vpnConnectionRoutesArrayType
+}
+
+func (o VpnConnectionRoutesArrayOutput) ToVpnConnectionRoutesArrayOutput() VpnConnectionRoutesArrayOutput {
+	return o
+}
+
+func (o VpnConnectionRoutesArrayOutput) ToVpnConnectionRoutesArrayOutputWithContext(ctx context.Context) VpnConnectionRoutesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VpnConnectionRoutesArrayOutput{}) }
+
+type VpnConnectionVgwTelemetries struct {
+	AcceptedRouteCount int `pulumi:"acceptedRouteCount"`
+	LastStatusChange string `pulumi:"lastStatusChange"`
+	OutsideIpAddress string `pulumi:"outsideIpAddress"`
+	Status string `pulumi:"status"`
+	StatusMessage string `pulumi:"statusMessage"`
+}
+var vpnConnectionVgwTelemetriesType = reflect.TypeOf((*VpnConnectionVgwTelemetries)(nil)).Elem()
+
+type VpnConnectionVgwTelemetriesInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVgwTelemetriesOutput() VpnConnectionVgwTelemetriesOutput
+	ToVpnConnectionVgwTelemetriesOutputWithContext(ctx context.Context) VpnConnectionVgwTelemetriesOutput
+}
+
+type VpnConnectionVgwTelemetriesArgs struct {
+	AcceptedRouteCount pulumi.IntInput `pulumi:"acceptedRouteCount"`
+	LastStatusChange pulumi.StringInput `pulumi:"lastStatusChange"`
+	OutsideIpAddress pulumi.StringInput `pulumi:"outsideIpAddress"`
+	Status pulumi.StringInput `pulumi:"status"`
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+}
+
+func (VpnConnectionVgwTelemetriesArgs) ElementType() reflect.Type {
+	return vpnConnectionVgwTelemetriesType
+}
+
+func (a VpnConnectionVgwTelemetriesArgs) ToVpnConnectionVgwTelemetriesOutput() VpnConnectionVgwTelemetriesOutput {
+	return pulumi.ToOutput(a).(VpnConnectionVgwTelemetriesOutput)
+}
+
+func (a VpnConnectionVgwTelemetriesArgs) ToVpnConnectionVgwTelemetriesOutputWithContext(ctx context.Context) VpnConnectionVgwTelemetriesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VpnConnectionVgwTelemetriesOutput)
+}
+
+type VpnConnectionVgwTelemetriesOutput struct { *pulumi.OutputState }
+
+func (o VpnConnectionVgwTelemetriesOutput) AcceptedRouteCount() pulumi.IntOutput {
+	return o.Apply(func(v VpnConnectionVgwTelemetries) int {
+		return v.AcceptedRouteCount
+	}).(pulumi.IntOutput)
+}
+
+func (o VpnConnectionVgwTelemetriesOutput) LastStatusChange() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionVgwTelemetries) string {
+		return v.LastStatusChange
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionVgwTelemetriesOutput) OutsideIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionVgwTelemetries) string {
+		return v.OutsideIpAddress
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionVgwTelemetriesOutput) Status() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionVgwTelemetries) string {
+		return v.Status
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionVgwTelemetriesOutput) StatusMessage() pulumi.StringOutput {
+	return o.Apply(func(v VpnConnectionVgwTelemetries) string {
+		return v.StatusMessage
+	}).(pulumi.StringOutput)
+}
+
+func (VpnConnectionVgwTelemetriesOutput) ElementType() reflect.Type {
+	return vpnConnectionVgwTelemetriesType
+}
+
+func (o VpnConnectionVgwTelemetriesOutput) ToVpnConnectionVgwTelemetriesOutput() VpnConnectionVgwTelemetriesOutput {
+	return o
+}
+
+func (o VpnConnectionVgwTelemetriesOutput) ToVpnConnectionVgwTelemetriesOutputWithContext(ctx context.Context) VpnConnectionVgwTelemetriesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VpnConnectionVgwTelemetriesOutput{}) }
+
+var vpnConnectionVgwTelemetriesArrayType = reflect.TypeOf((*[]VpnConnectionVgwTelemetries)(nil)).Elem()
+
+type VpnConnectionVgwTelemetriesArrayInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVgwTelemetriesArrayOutput() VpnConnectionVgwTelemetriesArrayOutput
+	ToVpnConnectionVgwTelemetriesArrayOutputWithContext(ctx context.Context) VpnConnectionVgwTelemetriesArrayOutput
+}
+
+type VpnConnectionVgwTelemetriesArrayArgs []VpnConnectionVgwTelemetriesInput
+
+func (VpnConnectionVgwTelemetriesArrayArgs) ElementType() reflect.Type {
+	return vpnConnectionVgwTelemetriesArrayType
+}
+
+func (a VpnConnectionVgwTelemetriesArrayArgs) ToVpnConnectionVgwTelemetriesArrayOutput() VpnConnectionVgwTelemetriesArrayOutput {
+	return pulumi.ToOutput(a).(VpnConnectionVgwTelemetriesArrayOutput)
+}
+
+func (a VpnConnectionVgwTelemetriesArrayArgs) ToVpnConnectionVgwTelemetriesArrayOutputWithContext(ctx context.Context) VpnConnectionVgwTelemetriesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VpnConnectionVgwTelemetriesArrayOutput)
+}
+
+type VpnConnectionVgwTelemetriesArrayOutput struct { *pulumi.OutputState }
+
+func (o VpnConnectionVgwTelemetriesArrayOutput) Index(i pulumi.IntInput) VpnConnectionVgwTelemetriesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VpnConnectionVgwTelemetries {
+		return vs[0].([]VpnConnectionVgwTelemetries)[vs[1].(int)]
+	}).(VpnConnectionVgwTelemetriesOutput)
+}
+
+func (VpnConnectionVgwTelemetriesArrayOutput) ElementType() reflect.Type {
+	return vpnConnectionVgwTelemetriesArrayType
+}
+
+func (o VpnConnectionVgwTelemetriesArrayOutput) ToVpnConnectionVgwTelemetriesArrayOutput() VpnConnectionVgwTelemetriesArrayOutput {
+	return o
+}
+
+func (o VpnConnectionVgwTelemetriesArrayOutput) ToVpnConnectionVgwTelemetriesArrayOutputWithContext(ctx context.Context) VpnConnectionVgwTelemetriesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VpnConnectionVgwTelemetriesArrayOutput{}) }
+

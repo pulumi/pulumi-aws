@@ -12,93 +12,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
 type ResolverRuleAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A name for the association that you're creating between a resolver rule and a VPC.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ID of the resolver rule that you want to associate with the VPC.
+	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
+
+	// The ID of the VPC that you want to associate the resolver rule with.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewResolverRuleAssociation registers a new resource with the given unique name, arguments, and options.
 func NewResolverRuleAssociation(ctx *pulumi.Context,
-	name string, args *ResolverRuleAssociationArgs, opts ...pulumi.ResourceOpt) (*ResolverRuleAssociation, error) {
+	name string, args *ResolverRuleAssociationArgs, opts ...pulumi.ResourceOption) (*ResolverRuleAssociation, error) {
 	if args == nil || args.ResolverRuleId == nil {
 		return nil, errors.New("missing required argument 'ResolverRuleId'")
 	}
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["resolverRuleId"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["resolverRuleId"] = args.ResolverRuleId
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResolverRuleId; i != nil { inputs["resolverRuleId"] = i.ToStringOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, true, inputs, opts...)
+	var resource ResolverRuleAssociation
+	err := ctx.RegisterResource("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResolverRuleAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetResolverRuleAssociation gets an existing ResolverRuleAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetResolverRuleAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ResolverRuleAssociationState, opts ...pulumi.ResourceOpt) (*ResolverRuleAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ResolverRuleAssociationState, opts ...pulumi.ResourceOption) (*ResolverRuleAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["resolverRuleId"] = state.ResolverRuleId
-		inputs["vpcId"] = state.VpcId
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResolverRuleId; i != nil { inputs["resolverRuleId"] = i.ToStringOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, id, inputs, opts...)
+	var resource ResolverRuleAssociation
+	err := ctx.ReadResource("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResolverRuleAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ResolverRuleAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ResolverRuleAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A name for the association that you're creating between a resolver rule and a VPC.
-func (r *ResolverRuleAssociation) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ID of the resolver rule that you want to associate with the VPC.
-func (r *ResolverRuleAssociation) ResolverRuleId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resolverRuleId"])
-}
-
-// The ID of the VPC that you want to associate the resolver rule with.
-func (r *ResolverRuleAssociation) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ResolverRuleAssociation resources.
 type ResolverRuleAssociationState struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the resolver rule that you want to associate with the VPC.
-	ResolverRuleId interface{}
+	ResolverRuleId pulumi.StringInput `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you want to associate the resolver rule with.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ResolverRuleAssociation resource.
 type ResolverRuleAssociationArgs struct {
 	// A name for the association that you're creating between a resolver rule and a VPC.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the resolver rule that you want to associate with the VPC.
-	ResolverRuleId interface{}
+	ResolverRuleId pulumi.StringInput `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you want to associate the resolver rule with.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

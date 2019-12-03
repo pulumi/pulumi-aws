@@ -4,6 +4,8 @@
 package eks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,56 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_node_group.html.markdown.
 type NodeGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	AmiType pulumi.StringOutput `pulumi:"amiType"`
+
+	// Amazon Resource Name (ARN) of the EKS Node Group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Name of the EKS Cluster.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+
+	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
+
+	InstanceTypes pulumi.StringOutput `pulumi:"instanceTypes"`
+
+	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+	Labels pulumi.StringMapOutput `pulumi:"labels"`
+
+	// Name of the EKS Node Group.
+	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
+
+	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
+
+	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
+	ReleaseVersion pulumi.StringOutput `pulumi:"releaseVersion"`
+
+	// Configuration block with remote access settings. Detailed below.
+	RemoteAccess NodeGroupRemoteAccessOutput `pulumi:"remoteAccess"`
+
+	// List of objects containing information about underlying resources.
+	Resources NodeGroupResourcesArrayOutput `pulumi:"resources"`
+
+	// Configuration block with scaling settings. Detailed below.
+	ScalingConfig NodeGroupScalingConfigOutput `pulumi:"scalingConfig"`
+
+	// Status of the EKS Node Group.
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+
+	// Key-value mapping of resource tags.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewNodeGroup registers a new resource with the given unique name, arguments, and options.
 func NewNodeGroup(ctx *pulumi.Context,
-	name string, args *NodeGroupArgs, opts ...pulumi.ResourceOpt) (*NodeGroup, error) {
+	name string, args *NodeGroupArgs, opts ...pulumi.ResourceOption) (*NodeGroup, error) {
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
@@ -33,216 +79,461 @@ func NewNodeGroup(ctx *pulumi.Context,
 	if args == nil || args.SubnetIds == nil {
 		return nil, errors.New("missing required argument 'SubnetIds'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["amiType"] = nil
-		inputs["clusterName"] = nil
-		inputs["diskSize"] = nil
-		inputs["instanceTypes"] = nil
-		inputs["labels"] = nil
-		inputs["nodeGroupName"] = nil
-		inputs["nodeRoleArn"] = nil
-		inputs["releaseVersion"] = nil
-		inputs["remoteAccess"] = nil
-		inputs["scalingConfig"] = nil
-		inputs["subnetIds"] = nil
-		inputs["tags"] = nil
-		inputs["version"] = nil
-	} else {
-		inputs["amiType"] = args.AmiType
-		inputs["clusterName"] = args.ClusterName
-		inputs["diskSize"] = args.DiskSize
-		inputs["instanceTypes"] = args.InstanceTypes
-		inputs["labels"] = args.Labels
-		inputs["nodeGroupName"] = args.NodeGroupName
-		inputs["nodeRoleArn"] = args.NodeRoleArn
-		inputs["releaseVersion"] = args.ReleaseVersion
-		inputs["remoteAccess"] = args.RemoteAccess
-		inputs["scalingConfig"] = args.ScalingConfig
-		inputs["subnetIds"] = args.SubnetIds
-		inputs["tags"] = args.Tags
-		inputs["version"] = args.Version
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AmiType; i != nil { inputs["amiType"] = i.ToStringOutput() }
+		if i := args.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := args.DiskSize; i != nil { inputs["diskSize"] = i.ToIntOutput() }
+		if i := args.InstanceTypes; i != nil { inputs["instanceTypes"] = i.ToStringOutput() }
+		if i := args.Labels; i != nil { inputs["labels"] = i.ToStringMapOutput() }
+		if i := args.NodeGroupName; i != nil { inputs["nodeGroupName"] = i.ToStringOutput() }
+		if i := args.NodeRoleArn; i != nil { inputs["nodeRoleArn"] = i.ToStringOutput() }
+		if i := args.ReleaseVersion; i != nil { inputs["releaseVersion"] = i.ToStringOutput() }
+		if i := args.RemoteAccess; i != nil { inputs["remoteAccess"] = i.ToNodeGroupRemoteAccessOutput() }
+		if i := args.ScalingConfig; i != nil { inputs["scalingConfig"] = i.ToNodeGroupScalingConfigOutput() }
+		if i := args.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["resources"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("aws:eks/nodeGroup:NodeGroup", name, true, inputs, opts...)
+	var resource NodeGroup
+	err := ctx.RegisterResource("aws:eks/nodeGroup:NodeGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NodeGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetNodeGroup gets an existing NodeGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNodeGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NodeGroupState, opts ...pulumi.ResourceOpt) (*NodeGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NodeGroupState, opts ...pulumi.ResourceOption) (*NodeGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["amiType"] = state.AmiType
-		inputs["arn"] = state.Arn
-		inputs["clusterName"] = state.ClusterName
-		inputs["diskSize"] = state.DiskSize
-		inputs["instanceTypes"] = state.InstanceTypes
-		inputs["labels"] = state.Labels
-		inputs["nodeGroupName"] = state.NodeGroupName
-		inputs["nodeRoleArn"] = state.NodeRoleArn
-		inputs["releaseVersion"] = state.ReleaseVersion
-		inputs["remoteAccess"] = state.RemoteAccess
-		inputs["resources"] = state.Resources
-		inputs["scalingConfig"] = state.ScalingConfig
-		inputs["status"] = state.Status
-		inputs["subnetIds"] = state.SubnetIds
-		inputs["tags"] = state.Tags
-		inputs["version"] = state.Version
+		if i := state.AmiType; i != nil { inputs["amiType"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := state.DiskSize; i != nil { inputs["diskSize"] = i.ToIntOutput() }
+		if i := state.InstanceTypes; i != nil { inputs["instanceTypes"] = i.ToStringOutput() }
+		if i := state.Labels; i != nil { inputs["labels"] = i.ToStringMapOutput() }
+		if i := state.NodeGroupName; i != nil { inputs["nodeGroupName"] = i.ToStringOutput() }
+		if i := state.NodeRoleArn; i != nil { inputs["nodeRoleArn"] = i.ToStringOutput() }
+		if i := state.ReleaseVersion; i != nil { inputs["releaseVersion"] = i.ToStringOutput() }
+		if i := state.RemoteAccess; i != nil { inputs["remoteAccess"] = i.ToNodeGroupRemoteAccessOutput() }
+		if i := state.Resources; i != nil { inputs["resources"] = i.ToNodeGroupResourcesArrayOutput() }
+		if i := state.ScalingConfig; i != nil { inputs["scalingConfig"] = i.ToNodeGroupScalingConfigOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:eks/nodeGroup:NodeGroup", name, id, inputs, opts...)
+	var resource NodeGroup
+	err := ctx.ReadResource("aws:eks/nodeGroup:NodeGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NodeGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NodeGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NodeGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *NodeGroup) AmiType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["amiType"])
-}
-
-// Amazon Resource Name (ARN) of the EKS Node Group.
-func (r *NodeGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Name of the EKS Cluster.
-func (r *NodeGroup) ClusterName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterName"])
-}
-
-func (r *NodeGroup) DiskSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["diskSize"])
-}
-
-func (r *NodeGroup) InstanceTypes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instanceTypes"])
-}
-
-// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-func (r *NodeGroup) Labels() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["labels"])
-}
-
-// Name of the EKS Node Group.
-func (r *NodeGroup) NodeGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeGroupName"])
-}
-
-// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-func (r *NodeGroup) NodeRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeRoleArn"])
-}
-
-// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-func (r *NodeGroup) ReleaseVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["releaseVersion"])
-}
-
-// Configuration block with remote access settings. Detailed below.
-func (r *NodeGroup) RemoteAccess() pulumi.Output {
-	return r.s.State["remoteAccess"]
-}
-
-// List of objects containing information about underlying resources.
-func (r *NodeGroup) Resources() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["resources"])
-}
-
-// Configuration block with scaling settings. Detailed below.
-func (r *NodeGroup) ScalingConfig() pulumi.Output {
-	return r.s.State["scalingConfig"]
-}
-
-// Status of the EKS Node Group.
-func (r *NodeGroup) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-func (r *NodeGroup) SubnetIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
-}
-
-// Key-value mapping of resource tags.
-func (r *NodeGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *NodeGroup) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NodeGroup resources.
 type NodeGroupState struct {
-	AmiType interface{}
+	AmiType pulumi.StringInput `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName interface{}
-	DiskSize interface{}
-	InstanceTypes interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	DiskSize pulumi.IntInput `pulumi:"diskSize"`
+	InstanceTypes pulumi.StringInput `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-	Labels interface{}
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Name of the EKS Node Group.
-	NodeGroupName interface{}
+	NodeGroupName pulumi.StringInput `pulumi:"nodeGroupName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-	NodeRoleArn interface{}
+	NodeRoleArn pulumi.StringInput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-	ReleaseVersion interface{}
+	ReleaseVersion pulumi.StringInput `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings. Detailed below.
-	RemoteAccess interface{}
+	RemoteAccess NodeGroupRemoteAccessInput `pulumi:"remoteAccess"`
 	// List of objects containing information about underlying resources.
-	Resources interface{}
+	Resources NodeGroupResourcesArrayInput `pulumi:"resources"`
 	// Configuration block with scaling settings. Detailed below.
-	ScalingConfig interface{}
+	ScalingConfig NodeGroupScalingConfigInput `pulumi:"scalingConfig"`
 	// Status of the EKS Node Group.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
-	Version interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a NodeGroup resource.
 type NodeGroupArgs struct {
-	AmiType interface{}
+	AmiType pulumi.StringInput `pulumi:"amiType"`
 	// Name of the EKS Cluster.
-	ClusterName interface{}
-	DiskSize interface{}
-	InstanceTypes interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	DiskSize pulumi.IntInput `pulumi:"diskSize"`
+	InstanceTypes pulumi.StringInput `pulumi:"instanceTypes"`
 	// Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-	Labels interface{}
+	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Name of the EKS Node Group.
-	NodeGroupName interface{}
+	NodeGroupName pulumi.StringInput `pulumi:"nodeGroupName"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-	NodeRoleArn interface{}
+	NodeRoleArn pulumi.StringInput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-	ReleaseVersion interface{}
+	ReleaseVersion pulumi.StringInput `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings. Detailed below.
-	RemoteAccess interface{}
+	RemoteAccess NodeGroupRemoteAccessInput `pulumi:"remoteAccess"`
 	// Configuration block with scaling settings. Detailed below.
-	ScalingConfig interface{}
+	ScalingConfig NodeGroupScalingConfigInput `pulumi:"scalingConfig"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// Key-value mapping of resource tags.
-	Tags interface{}
-	Version interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Version pulumi.StringInput `pulumi:"version"`
 }
+type NodeGroupRemoteAccess struct {
+	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+	Ec2SshKey *string `pulumi:"ec2SshKey"`
+	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+	SourceSecurityGroupIds *[]string `pulumi:"sourceSecurityGroupIds"`
+}
+var nodeGroupRemoteAccessType = reflect.TypeOf((*NodeGroupRemoteAccess)(nil)).Elem()
+
+type NodeGroupRemoteAccessInput interface {
+	pulumi.Input
+
+	ToNodeGroupRemoteAccessOutput() NodeGroupRemoteAccessOutput
+	ToNodeGroupRemoteAccessOutputWithContext(ctx context.Context) NodeGroupRemoteAccessOutput
+}
+
+type NodeGroupRemoteAccessArgs struct {
+	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+	Ec2SshKey pulumi.StringInput `pulumi:"ec2SshKey"`
+	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+	SourceSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceSecurityGroupIds"`
+}
+
+func (NodeGroupRemoteAccessArgs) ElementType() reflect.Type {
+	return nodeGroupRemoteAccessType
+}
+
+func (a NodeGroupRemoteAccessArgs) ToNodeGroupRemoteAccessOutput() NodeGroupRemoteAccessOutput {
+	return pulumi.ToOutput(a).(NodeGroupRemoteAccessOutput)
+}
+
+func (a NodeGroupRemoteAccessArgs) ToNodeGroupRemoteAccessOutputWithContext(ctx context.Context) NodeGroupRemoteAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NodeGroupRemoteAccessOutput)
+}
+
+type NodeGroupRemoteAccessOutput struct { *pulumi.OutputState }
+
+// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+func (o NodeGroupRemoteAccessOutput) Ec2SshKey() pulumi.StringOutput {
+	return o.Apply(func(v NodeGroupRemoteAccess) string {
+		if v.Ec2SshKey == nil { return *new(string) } else { return *v.Ec2SshKey }
+	}).(pulumi.StringOutput)
+}
+
+// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+func (o NodeGroupRemoteAccessOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NodeGroupRemoteAccess) []string {
+		if v.SourceSecurityGroupIds == nil { return *new([]string) } else { return *v.SourceSecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (NodeGroupRemoteAccessOutput) ElementType() reflect.Type {
+	return nodeGroupRemoteAccessType
+}
+
+func (o NodeGroupRemoteAccessOutput) ToNodeGroupRemoteAccessOutput() NodeGroupRemoteAccessOutput {
+	return o
+}
+
+func (o NodeGroupRemoteAccessOutput) ToNodeGroupRemoteAccessOutputWithContext(ctx context.Context) NodeGroupRemoteAccessOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NodeGroupRemoteAccessOutput{}) }
+
+type NodeGroupResources struct {
+	// List of objects containing information about AutoScaling Groups.
+	AutoscalingGroups []NodeGroupResourcesAutoscalingGroups `pulumi:"autoscalingGroups"`
+	// Identifier of the remote access EC2 Security Group.
+	RemoteAccessSecurityGroupId string `pulumi:"remoteAccessSecurityGroupId"`
+}
+var nodeGroupResourcesType = reflect.TypeOf((*NodeGroupResources)(nil)).Elem()
+
+type NodeGroupResourcesInput interface {
+	pulumi.Input
+
+	ToNodeGroupResourcesOutput() NodeGroupResourcesOutput
+	ToNodeGroupResourcesOutputWithContext(ctx context.Context) NodeGroupResourcesOutput
+}
+
+type NodeGroupResourcesArgs struct {
+	// List of objects containing information about AutoScaling Groups.
+	AutoscalingGroups NodeGroupResourcesAutoscalingGroupsArrayInput `pulumi:"autoscalingGroups"`
+	// Identifier of the remote access EC2 Security Group.
+	RemoteAccessSecurityGroupId pulumi.StringInput `pulumi:"remoteAccessSecurityGroupId"`
+}
+
+func (NodeGroupResourcesArgs) ElementType() reflect.Type {
+	return nodeGroupResourcesType
+}
+
+func (a NodeGroupResourcesArgs) ToNodeGroupResourcesOutput() NodeGroupResourcesOutput {
+	return pulumi.ToOutput(a).(NodeGroupResourcesOutput)
+}
+
+func (a NodeGroupResourcesArgs) ToNodeGroupResourcesOutputWithContext(ctx context.Context) NodeGroupResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NodeGroupResourcesOutput)
+}
+
+type NodeGroupResourcesOutput struct { *pulumi.OutputState }
+
+// List of objects containing information about AutoScaling Groups.
+func (o NodeGroupResourcesOutput) AutoscalingGroups() NodeGroupResourcesAutoscalingGroupsArrayOutput {
+	return o.Apply(func(v NodeGroupResources) []NodeGroupResourcesAutoscalingGroups {
+		return v.AutoscalingGroups
+	}).(NodeGroupResourcesAutoscalingGroupsArrayOutput)
+}
+
+// Identifier of the remote access EC2 Security Group.
+func (o NodeGroupResourcesOutput) RemoteAccessSecurityGroupId() pulumi.StringOutput {
+	return o.Apply(func(v NodeGroupResources) string {
+		return v.RemoteAccessSecurityGroupId
+	}).(pulumi.StringOutput)
+}
+
+func (NodeGroupResourcesOutput) ElementType() reflect.Type {
+	return nodeGroupResourcesType
+}
+
+func (o NodeGroupResourcesOutput) ToNodeGroupResourcesOutput() NodeGroupResourcesOutput {
+	return o
+}
+
+func (o NodeGroupResourcesOutput) ToNodeGroupResourcesOutputWithContext(ctx context.Context) NodeGroupResourcesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NodeGroupResourcesOutput{}) }
+
+var nodeGroupResourcesArrayType = reflect.TypeOf((*[]NodeGroupResources)(nil)).Elem()
+
+type NodeGroupResourcesArrayInput interface {
+	pulumi.Input
+
+	ToNodeGroupResourcesArrayOutput() NodeGroupResourcesArrayOutput
+	ToNodeGroupResourcesArrayOutputWithContext(ctx context.Context) NodeGroupResourcesArrayOutput
+}
+
+type NodeGroupResourcesArrayArgs []NodeGroupResourcesInput
+
+func (NodeGroupResourcesArrayArgs) ElementType() reflect.Type {
+	return nodeGroupResourcesArrayType
+}
+
+func (a NodeGroupResourcesArrayArgs) ToNodeGroupResourcesArrayOutput() NodeGroupResourcesArrayOutput {
+	return pulumi.ToOutput(a).(NodeGroupResourcesArrayOutput)
+}
+
+func (a NodeGroupResourcesArrayArgs) ToNodeGroupResourcesArrayOutputWithContext(ctx context.Context) NodeGroupResourcesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NodeGroupResourcesArrayOutput)
+}
+
+type NodeGroupResourcesArrayOutput struct { *pulumi.OutputState }
+
+func (o NodeGroupResourcesArrayOutput) Index(i pulumi.IntInput) NodeGroupResourcesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NodeGroupResources {
+		return vs[0].([]NodeGroupResources)[vs[1].(int)]
+	}).(NodeGroupResourcesOutput)
+}
+
+func (NodeGroupResourcesArrayOutput) ElementType() reflect.Type {
+	return nodeGroupResourcesArrayType
+}
+
+func (o NodeGroupResourcesArrayOutput) ToNodeGroupResourcesArrayOutput() NodeGroupResourcesArrayOutput {
+	return o
+}
+
+func (o NodeGroupResourcesArrayOutput) ToNodeGroupResourcesArrayOutputWithContext(ctx context.Context) NodeGroupResourcesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NodeGroupResourcesArrayOutput{}) }
+
+type NodeGroupResourcesAutoscalingGroups struct {
+	// Name of the AutoScaling Group.
+	Name string `pulumi:"name"`
+}
+var nodeGroupResourcesAutoscalingGroupsType = reflect.TypeOf((*NodeGroupResourcesAutoscalingGroups)(nil)).Elem()
+
+type NodeGroupResourcesAutoscalingGroupsInput interface {
+	pulumi.Input
+
+	ToNodeGroupResourcesAutoscalingGroupsOutput() NodeGroupResourcesAutoscalingGroupsOutput
+	ToNodeGroupResourcesAutoscalingGroupsOutputWithContext(ctx context.Context) NodeGroupResourcesAutoscalingGroupsOutput
+}
+
+type NodeGroupResourcesAutoscalingGroupsArgs struct {
+	// Name of the AutoScaling Group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (NodeGroupResourcesAutoscalingGroupsArgs) ElementType() reflect.Type {
+	return nodeGroupResourcesAutoscalingGroupsType
+}
+
+func (a NodeGroupResourcesAutoscalingGroupsArgs) ToNodeGroupResourcesAutoscalingGroupsOutput() NodeGroupResourcesAutoscalingGroupsOutput {
+	return pulumi.ToOutput(a).(NodeGroupResourcesAutoscalingGroupsOutput)
+}
+
+func (a NodeGroupResourcesAutoscalingGroupsArgs) ToNodeGroupResourcesAutoscalingGroupsOutputWithContext(ctx context.Context) NodeGroupResourcesAutoscalingGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NodeGroupResourcesAutoscalingGroupsOutput)
+}
+
+type NodeGroupResourcesAutoscalingGroupsOutput struct { *pulumi.OutputState }
+
+// Name of the AutoScaling Group.
+func (o NodeGroupResourcesAutoscalingGroupsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v NodeGroupResourcesAutoscalingGroups) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (NodeGroupResourcesAutoscalingGroupsOutput) ElementType() reflect.Type {
+	return nodeGroupResourcesAutoscalingGroupsType
+}
+
+func (o NodeGroupResourcesAutoscalingGroupsOutput) ToNodeGroupResourcesAutoscalingGroupsOutput() NodeGroupResourcesAutoscalingGroupsOutput {
+	return o
+}
+
+func (o NodeGroupResourcesAutoscalingGroupsOutput) ToNodeGroupResourcesAutoscalingGroupsOutputWithContext(ctx context.Context) NodeGroupResourcesAutoscalingGroupsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NodeGroupResourcesAutoscalingGroupsOutput{}) }
+
+var nodeGroupResourcesAutoscalingGroupsArrayType = reflect.TypeOf((*[]NodeGroupResourcesAutoscalingGroups)(nil)).Elem()
+
+type NodeGroupResourcesAutoscalingGroupsArrayInput interface {
+	pulumi.Input
+
+	ToNodeGroupResourcesAutoscalingGroupsArrayOutput() NodeGroupResourcesAutoscalingGroupsArrayOutput
+	ToNodeGroupResourcesAutoscalingGroupsArrayOutputWithContext(ctx context.Context) NodeGroupResourcesAutoscalingGroupsArrayOutput
+}
+
+type NodeGroupResourcesAutoscalingGroupsArrayArgs []NodeGroupResourcesAutoscalingGroupsInput
+
+func (NodeGroupResourcesAutoscalingGroupsArrayArgs) ElementType() reflect.Type {
+	return nodeGroupResourcesAutoscalingGroupsArrayType
+}
+
+func (a NodeGroupResourcesAutoscalingGroupsArrayArgs) ToNodeGroupResourcesAutoscalingGroupsArrayOutput() NodeGroupResourcesAutoscalingGroupsArrayOutput {
+	return pulumi.ToOutput(a).(NodeGroupResourcesAutoscalingGroupsArrayOutput)
+}
+
+func (a NodeGroupResourcesAutoscalingGroupsArrayArgs) ToNodeGroupResourcesAutoscalingGroupsArrayOutputWithContext(ctx context.Context) NodeGroupResourcesAutoscalingGroupsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NodeGroupResourcesAutoscalingGroupsArrayOutput)
+}
+
+type NodeGroupResourcesAutoscalingGroupsArrayOutput struct { *pulumi.OutputState }
+
+func (o NodeGroupResourcesAutoscalingGroupsArrayOutput) Index(i pulumi.IntInput) NodeGroupResourcesAutoscalingGroupsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NodeGroupResourcesAutoscalingGroups {
+		return vs[0].([]NodeGroupResourcesAutoscalingGroups)[vs[1].(int)]
+	}).(NodeGroupResourcesAutoscalingGroupsOutput)
+}
+
+func (NodeGroupResourcesAutoscalingGroupsArrayOutput) ElementType() reflect.Type {
+	return nodeGroupResourcesAutoscalingGroupsArrayType
+}
+
+func (o NodeGroupResourcesAutoscalingGroupsArrayOutput) ToNodeGroupResourcesAutoscalingGroupsArrayOutput() NodeGroupResourcesAutoscalingGroupsArrayOutput {
+	return o
+}
+
+func (o NodeGroupResourcesAutoscalingGroupsArrayOutput) ToNodeGroupResourcesAutoscalingGroupsArrayOutputWithContext(ctx context.Context) NodeGroupResourcesAutoscalingGroupsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NodeGroupResourcesAutoscalingGroupsArrayOutput{}) }
+
+type NodeGroupScalingConfig struct {
+	// Desired number of worker nodes.
+	DesiredSize int `pulumi:"desiredSize"`
+	// Maximum number of worker nodes.
+	MaxSize int `pulumi:"maxSize"`
+	// Minimum number of worker nodes.
+	MinSize int `pulumi:"minSize"`
+}
+var nodeGroupScalingConfigType = reflect.TypeOf((*NodeGroupScalingConfig)(nil)).Elem()
+
+type NodeGroupScalingConfigInput interface {
+	pulumi.Input
+
+	ToNodeGroupScalingConfigOutput() NodeGroupScalingConfigOutput
+	ToNodeGroupScalingConfigOutputWithContext(ctx context.Context) NodeGroupScalingConfigOutput
+}
+
+type NodeGroupScalingConfigArgs struct {
+	// Desired number of worker nodes.
+	DesiredSize pulumi.IntInput `pulumi:"desiredSize"`
+	// Maximum number of worker nodes.
+	MaxSize pulumi.IntInput `pulumi:"maxSize"`
+	// Minimum number of worker nodes.
+	MinSize pulumi.IntInput `pulumi:"minSize"`
+}
+
+func (NodeGroupScalingConfigArgs) ElementType() reflect.Type {
+	return nodeGroupScalingConfigType
+}
+
+func (a NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigOutput() NodeGroupScalingConfigOutput {
+	return pulumi.ToOutput(a).(NodeGroupScalingConfigOutput)
+}
+
+func (a NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigOutputWithContext(ctx context.Context) NodeGroupScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NodeGroupScalingConfigOutput)
+}
+
+type NodeGroupScalingConfigOutput struct { *pulumi.OutputState }
+
+// Desired number of worker nodes.
+func (o NodeGroupScalingConfigOutput) DesiredSize() pulumi.IntOutput {
+	return o.Apply(func(v NodeGroupScalingConfig) int {
+		return v.DesiredSize
+	}).(pulumi.IntOutput)
+}
+
+// Maximum number of worker nodes.
+func (o NodeGroupScalingConfigOutput) MaxSize() pulumi.IntOutput {
+	return o.Apply(func(v NodeGroupScalingConfig) int {
+		return v.MaxSize
+	}).(pulumi.IntOutput)
+}
+
+// Minimum number of worker nodes.
+func (o NodeGroupScalingConfigOutput) MinSize() pulumi.IntOutput {
+	return o.Apply(func(v NodeGroupScalingConfig) int {
+		return v.MinSize
+	}).(pulumi.IntOutput)
+}
+
+func (NodeGroupScalingConfigOutput) ElementType() reflect.Type {
+	return nodeGroupScalingConfigType
+}
+
+func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigOutput() NodeGroupScalingConfigOutput {
+	return o
+}
+
+func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigOutputWithContext(ctx context.Context) NodeGroupScalingConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NodeGroupScalingConfigOutput{}) }
+

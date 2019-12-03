@@ -4,6 +4,8 @@
 package opsworks
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,339 +14,390 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_java_app_layer.html.markdown.
 type JavaAppLayer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Keyword for the application container to use. Defaults to "tomcat".
+	AppServer pulumi.StringOutput `pulumi:"appServer"`
+
+	// Version of the selected application container to use. Defaults to "7".
+	AppServerVersion pulumi.StringOutput `pulumi:"appServerVersion"`
+
+	// Whether to automatically assign an elastic IP address to the layer's instances.
+	AutoAssignElasticIps pulumi.BoolOutput `pulumi:"autoAssignElasticIps"`
+
+	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+	AutoAssignPublicIps pulumi.BoolOutput `pulumi:"autoAssignPublicIps"`
+
+	// Whether to enable auto-healing for the layer.
+	AutoHealing pulumi.BoolOutput `pulumi:"autoHealing"`
+
+	CustomConfigureRecipes pulumi.StringArrayOutput `pulumi:"customConfigureRecipes"`
+
+	CustomDeployRecipes pulumi.StringArrayOutput `pulumi:"customDeployRecipes"`
+
+	// The ARN of an IAM profile that will be used for the layer's instances.
+	CustomInstanceProfileArn pulumi.StringOutput `pulumi:"customInstanceProfileArn"`
+
+	// Custom JSON attributes to apply to the layer.
+	CustomJson pulumi.StringOutput `pulumi:"customJson"`
+
+	// Ids for a set of security groups to apply to the layer's instances.
+	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
+
+	CustomSetupRecipes pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
+
+	CustomShutdownRecipes pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
+
+	CustomUndeployRecipes pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
+
+	// Whether to enable Elastic Load Balancing connection draining.
+	DrainElbOnShutdown pulumi.BoolOutput `pulumi:"drainElbOnShutdown"`
+
+	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+	EbsVolumes JavaAppLayerEbsVolumesArrayOutput `pulumi:"ebsVolumes"`
+
+	// Name of an Elastic Load Balancer to attach to this layer
+	ElasticLoadBalancer pulumi.StringOutput `pulumi:"elasticLoadBalancer"`
+
+	// Whether to install OS and package updates on each instance when it boots.
+	InstallUpdatesOnBoot pulumi.BoolOutput `pulumi:"installUpdatesOnBoot"`
+
+	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+	InstanceShutdownTimeout pulumi.IntOutput `pulumi:"instanceShutdownTimeout"`
+
+	// Options to set for the JVM.
+	JvmOptions pulumi.StringOutput `pulumi:"jvmOptions"`
+
+	// Keyword for the type of JVM to use. Defaults to `openjdk`.
+	JvmType pulumi.StringOutput `pulumi:"jvmType"`
+
+	// Version of JVM to use. Defaults to "7".
+	JvmVersion pulumi.StringOutput `pulumi:"jvmVersion"`
+
+	// A human-readable name for the layer.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The id of the stack the layer will belong to.
+	StackId pulumi.StringOutput `pulumi:"stackId"`
+
+	// Names of a set of system packages to install on the layer's instances.
+	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
+
+	// Whether to use EBS-optimized instances.
+	UseEbsOptimizedInstances pulumi.BoolOutput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // NewJavaAppLayer registers a new resource with the given unique name, arguments, and options.
 func NewJavaAppLayer(ctx *pulumi.Context,
-	name string, args *JavaAppLayerArgs, opts ...pulumi.ResourceOpt) (*JavaAppLayer, error) {
+	name string, args *JavaAppLayerArgs, opts ...pulumi.ResourceOption) (*JavaAppLayer, error) {
 	if args == nil || args.StackId == nil {
 		return nil, errors.New("missing required argument 'StackId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appServer"] = nil
-		inputs["appServerVersion"] = nil
-		inputs["autoAssignElasticIps"] = nil
-		inputs["autoAssignPublicIps"] = nil
-		inputs["autoHealing"] = nil
-		inputs["customConfigureRecipes"] = nil
-		inputs["customDeployRecipes"] = nil
-		inputs["customInstanceProfileArn"] = nil
-		inputs["customJson"] = nil
-		inputs["customSecurityGroupIds"] = nil
-		inputs["customSetupRecipes"] = nil
-		inputs["customShutdownRecipes"] = nil
-		inputs["customUndeployRecipes"] = nil
-		inputs["drainElbOnShutdown"] = nil
-		inputs["ebsVolumes"] = nil
-		inputs["elasticLoadBalancer"] = nil
-		inputs["installUpdatesOnBoot"] = nil
-		inputs["instanceShutdownTimeout"] = nil
-		inputs["jvmOptions"] = nil
-		inputs["jvmType"] = nil
-		inputs["jvmVersion"] = nil
-		inputs["name"] = nil
-		inputs["stackId"] = nil
-		inputs["systemPackages"] = nil
-		inputs["useEbsOptimizedInstances"] = nil
-	} else {
-		inputs["appServer"] = args.AppServer
-		inputs["appServerVersion"] = args.AppServerVersion
-		inputs["autoAssignElasticIps"] = args.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = args.AutoAssignPublicIps
-		inputs["autoHealing"] = args.AutoHealing
-		inputs["customConfigureRecipes"] = args.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = args.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = args.CustomInstanceProfileArn
-		inputs["customJson"] = args.CustomJson
-		inputs["customSecurityGroupIds"] = args.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = args.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = args.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = args.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = args.DrainElbOnShutdown
-		inputs["ebsVolumes"] = args.EbsVolumes
-		inputs["elasticLoadBalancer"] = args.ElasticLoadBalancer
-		inputs["installUpdatesOnBoot"] = args.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = args.InstanceShutdownTimeout
-		inputs["jvmOptions"] = args.JvmOptions
-		inputs["jvmType"] = args.JvmType
-		inputs["jvmVersion"] = args.JvmVersion
-		inputs["name"] = args.Name
-		inputs["stackId"] = args.StackId
-		inputs["systemPackages"] = args.SystemPackages
-		inputs["useEbsOptimizedInstances"] = args.UseEbsOptimizedInstances
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppServer; i != nil { inputs["appServer"] = i.ToStringOutput() }
+		if i := args.AppServerVersion; i != nil { inputs["appServerVersion"] = i.ToStringOutput() }
+		if i := args.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := args.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := args.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := args.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := args.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := args.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := args.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := args.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := args.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := args.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToJavaAppLayerEbsVolumesArrayOutput() }
+		if i := args.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := args.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := args.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := args.JvmOptions; i != nil { inputs["jvmOptions"] = i.ToStringOutput() }
+		if i := args.JvmType; i != nil { inputs["jvmType"] = i.ToStringOutput() }
+		if i := args.JvmVersion; i != nil { inputs["jvmVersion"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := args.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := args.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:opsworks/javaAppLayer:JavaAppLayer", name, true, inputs, opts...)
+	var resource JavaAppLayer
+	err := ctx.RegisterResource("aws:opsworks/javaAppLayer:JavaAppLayer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &JavaAppLayer{s: s}, nil
+	return &resource, nil
 }
 
 // GetJavaAppLayer gets an existing JavaAppLayer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetJavaAppLayer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *JavaAppLayerState, opts ...pulumi.ResourceOpt) (*JavaAppLayer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *JavaAppLayerState, opts ...pulumi.ResourceOption) (*JavaAppLayer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServer"] = state.AppServer
-		inputs["appServerVersion"] = state.AppServerVersion
-		inputs["autoAssignElasticIps"] = state.AutoAssignElasticIps
-		inputs["autoAssignPublicIps"] = state.AutoAssignPublicIps
-		inputs["autoHealing"] = state.AutoHealing
-		inputs["customConfigureRecipes"] = state.CustomConfigureRecipes
-		inputs["customDeployRecipes"] = state.CustomDeployRecipes
-		inputs["customInstanceProfileArn"] = state.CustomInstanceProfileArn
-		inputs["customJson"] = state.CustomJson
-		inputs["customSecurityGroupIds"] = state.CustomSecurityGroupIds
-		inputs["customSetupRecipes"] = state.CustomSetupRecipes
-		inputs["customShutdownRecipes"] = state.CustomShutdownRecipes
-		inputs["customUndeployRecipes"] = state.CustomUndeployRecipes
-		inputs["drainElbOnShutdown"] = state.DrainElbOnShutdown
-		inputs["ebsVolumes"] = state.EbsVolumes
-		inputs["elasticLoadBalancer"] = state.ElasticLoadBalancer
-		inputs["installUpdatesOnBoot"] = state.InstallUpdatesOnBoot
-		inputs["instanceShutdownTimeout"] = state.InstanceShutdownTimeout
-		inputs["jvmOptions"] = state.JvmOptions
-		inputs["jvmType"] = state.JvmType
-		inputs["jvmVersion"] = state.JvmVersion
-		inputs["name"] = state.Name
-		inputs["stackId"] = state.StackId
-		inputs["systemPackages"] = state.SystemPackages
-		inputs["useEbsOptimizedInstances"] = state.UseEbsOptimizedInstances
+		if i := state.AppServer; i != nil { inputs["appServer"] = i.ToStringOutput() }
+		if i := state.AppServerVersion; i != nil { inputs["appServerVersion"] = i.ToStringOutput() }
+		if i := state.AutoAssignElasticIps; i != nil { inputs["autoAssignElasticIps"] = i.ToBoolOutput() }
+		if i := state.AutoAssignPublicIps; i != nil { inputs["autoAssignPublicIps"] = i.ToBoolOutput() }
+		if i := state.AutoHealing; i != nil { inputs["autoHealing"] = i.ToBoolOutput() }
+		if i := state.CustomConfigureRecipes; i != nil { inputs["customConfigureRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomDeployRecipes; i != nil { inputs["customDeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomInstanceProfileArn; i != nil { inputs["customInstanceProfileArn"] = i.ToStringOutput() }
+		if i := state.CustomJson; i != nil { inputs["customJson"] = i.ToStringOutput() }
+		if i := state.CustomSecurityGroupIds; i != nil { inputs["customSecurityGroupIds"] = i.ToStringArrayOutput() }
+		if i := state.CustomSetupRecipes; i != nil { inputs["customSetupRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomShutdownRecipes; i != nil { inputs["customShutdownRecipes"] = i.ToStringArrayOutput() }
+		if i := state.CustomUndeployRecipes; i != nil { inputs["customUndeployRecipes"] = i.ToStringArrayOutput() }
+		if i := state.DrainElbOnShutdown; i != nil { inputs["drainElbOnShutdown"] = i.ToBoolOutput() }
+		if i := state.EbsVolumes; i != nil { inputs["ebsVolumes"] = i.ToJavaAppLayerEbsVolumesArrayOutput() }
+		if i := state.ElasticLoadBalancer; i != nil { inputs["elasticLoadBalancer"] = i.ToStringOutput() }
+		if i := state.InstallUpdatesOnBoot; i != nil { inputs["installUpdatesOnBoot"] = i.ToBoolOutput() }
+		if i := state.InstanceShutdownTimeout; i != nil { inputs["instanceShutdownTimeout"] = i.ToIntOutput() }
+		if i := state.JvmOptions; i != nil { inputs["jvmOptions"] = i.ToStringOutput() }
+		if i := state.JvmType; i != nil { inputs["jvmType"] = i.ToStringOutput() }
+		if i := state.JvmVersion; i != nil { inputs["jvmVersion"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.StackId; i != nil { inputs["stackId"] = i.ToStringOutput() }
+		if i := state.SystemPackages; i != nil { inputs["systemPackages"] = i.ToStringArrayOutput() }
+		if i := state.UseEbsOptimizedInstances; i != nil { inputs["useEbsOptimizedInstances"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("aws:opsworks/javaAppLayer:JavaAppLayer", name, id, inputs, opts...)
+	var resource JavaAppLayer
+	err := ctx.ReadResource("aws:opsworks/javaAppLayer:JavaAppLayer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &JavaAppLayer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *JavaAppLayer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *JavaAppLayer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Keyword for the application container to use. Defaults to "tomcat".
-func (r *JavaAppLayer) AppServer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServer"])
-}
-
-// Version of the selected application container to use. Defaults to "7".
-func (r *JavaAppLayer) AppServerVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServerVersion"])
-}
-
-// Whether to automatically assign an elastic IP address to the layer's instances.
-func (r *JavaAppLayer) AutoAssignElasticIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignElasticIps"])
-}
-
-// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-func (r *JavaAppLayer) AutoAssignPublicIps() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoAssignPublicIps"])
-}
-
-// Whether to enable auto-healing for the layer.
-func (r *JavaAppLayer) AutoHealing() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoHealing"])
-}
-
-func (r *JavaAppLayer) CustomConfigureRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customConfigureRecipes"])
-}
-
-func (r *JavaAppLayer) CustomDeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customDeployRecipes"])
-}
-
-// The ARN of an IAM profile that will be used for the layer's instances.
-func (r *JavaAppLayer) CustomInstanceProfileArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customInstanceProfileArn"])
-}
-
-// Custom JSON attributes to apply to the layer.
-func (r *JavaAppLayer) CustomJson() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customJson"])
-}
-
-// Ids for a set of security groups to apply to the layer's instances.
-func (r *JavaAppLayer) CustomSecurityGroupIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSecurityGroupIds"])
-}
-
-func (r *JavaAppLayer) CustomSetupRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customSetupRecipes"])
-}
-
-func (r *JavaAppLayer) CustomShutdownRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customShutdownRecipes"])
-}
-
-func (r *JavaAppLayer) CustomUndeployRecipes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customUndeployRecipes"])
-}
-
-// Whether to enable Elastic Load Balancing connection draining.
-func (r *JavaAppLayer) DrainElbOnShutdown() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["drainElbOnShutdown"])
-}
-
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-func (r *JavaAppLayer) EbsVolumes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ebsVolumes"])
-}
-
-// Name of an Elastic Load Balancer to attach to this layer
-func (r *JavaAppLayer) ElasticLoadBalancer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticLoadBalancer"])
-}
-
-// Whether to install OS and package updates on each instance when it boots.
-func (r *JavaAppLayer) InstallUpdatesOnBoot() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["installUpdatesOnBoot"])
-}
-
-// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-func (r *JavaAppLayer) InstanceShutdownTimeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["instanceShutdownTimeout"])
-}
-
-// Options to set for the JVM.
-func (r *JavaAppLayer) JvmOptions() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["jvmOptions"])
-}
-
-// Keyword for the type of JVM to use. Defaults to `openjdk`.
-func (r *JavaAppLayer) JvmType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["jvmType"])
-}
-
-// Version of JVM to use. Defaults to "7".
-func (r *JavaAppLayer) JvmVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["jvmVersion"])
-}
-
-// A human-readable name for the layer.
-func (r *JavaAppLayer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The id of the stack the layer will belong to.
-func (r *JavaAppLayer) StackId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["stackId"])
-}
-
-// Names of a set of system packages to install on the layer's instances.
-func (r *JavaAppLayer) SystemPackages() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["systemPackages"])
-}
-
-// Whether to use EBS-optimized instances.
-func (r *JavaAppLayer) UseEbsOptimizedInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["useEbsOptimizedInstances"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering JavaAppLayer resources.
 type JavaAppLayerState struct {
 	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer interface{}
+	AppServer pulumi.StringInput `pulumi:"appServer"`
 	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion interface{}
+	AppServerVersion pulumi.StringInput `pulumi:"appServerVersion"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes JavaAppLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// Options to set for the JVM.
-	JvmOptions interface{}
+	JvmOptions pulumi.StringInput `pulumi:"jvmOptions"`
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType interface{}
+	JvmType pulumi.StringInput `pulumi:"jvmType"`
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion interface{}
+	JvmVersion pulumi.StringInput `pulumi:"jvmVersion"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 }
 
 // The set of arguments for constructing a JavaAppLayer resource.
 type JavaAppLayerArgs struct {
 	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer interface{}
+	AppServer pulumi.StringInput `pulumi:"appServer"`
 	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion interface{}
+	AppServerVersion pulumi.StringInput `pulumi:"appServerVersion"`
 	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps interface{}
+	AutoAssignElasticIps pulumi.BoolInput `pulumi:"autoAssignElasticIps"`
 	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps interface{}
+	AutoAssignPublicIps pulumi.BoolInput `pulumi:"autoAssignPublicIps"`
 	// Whether to enable auto-healing for the layer.
-	AutoHealing interface{}
-	CustomConfigureRecipes interface{}
-	CustomDeployRecipes interface{}
+	AutoHealing pulumi.BoolInput `pulumi:"autoHealing"`
+	CustomConfigureRecipes pulumi.StringArrayInput `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes pulumi.StringArrayInput `pulumi:"customDeployRecipes"`
 	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn interface{}
+	CustomInstanceProfileArn pulumi.StringInput `pulumi:"customInstanceProfileArn"`
 	// Custom JSON attributes to apply to the layer.
-	CustomJson interface{}
+	CustomJson pulumi.StringInput `pulumi:"customJson"`
 	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds interface{}
-	CustomSetupRecipes interface{}
-	CustomShutdownRecipes interface{}
-	CustomUndeployRecipes interface{}
+	CustomSecurityGroupIds pulumi.StringArrayInput `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes pulumi.StringArrayInput `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes pulumi.StringArrayInput `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes pulumi.StringArrayInput `pulumi:"customUndeployRecipes"`
 	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown interface{}
+	DrainElbOnShutdown pulumi.BoolInput `pulumi:"drainElbOnShutdown"`
 	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes interface{}
+	EbsVolumes JavaAppLayerEbsVolumesArrayInput `pulumi:"ebsVolumes"`
 	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer interface{}
+	ElasticLoadBalancer pulumi.StringInput `pulumi:"elasticLoadBalancer"`
 	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot interface{}
+	InstallUpdatesOnBoot pulumi.BoolInput `pulumi:"installUpdatesOnBoot"`
 	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout interface{}
+	InstanceShutdownTimeout pulumi.IntInput `pulumi:"instanceShutdownTimeout"`
 	// Options to set for the JVM.
-	JvmOptions interface{}
+	JvmOptions pulumi.StringInput `pulumi:"jvmOptions"`
 	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType interface{}
+	JvmType pulumi.StringInput `pulumi:"jvmType"`
 	// Version of JVM to use. Defaults to "7".
-	JvmVersion interface{}
+	JvmVersion pulumi.StringInput `pulumi:"jvmVersion"`
 	// A human-readable name for the layer.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the stack the layer will belong to.
-	StackId interface{}
+	StackId pulumi.StringInput `pulumi:"stackId"`
 	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages interface{}
+	SystemPackages pulumi.StringArrayInput `pulumi:"systemPackages"`
 	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances interface{}
+	UseEbsOptimizedInstances pulumi.BoolInput `pulumi:"useEbsOptimizedInstances"`
 }
+type JavaAppLayerEbsVolumes struct {
+	Iops *int `pulumi:"iops"`
+	MountPoint string `pulumi:"mountPoint"`
+	NumberOfDisks int `pulumi:"numberOfDisks"`
+	RaidLevel *string `pulumi:"raidLevel"`
+	Size int `pulumi:"size"`
+	Type *string `pulumi:"type"`
+}
+var javaAppLayerEbsVolumesType = reflect.TypeOf((*JavaAppLayerEbsVolumes)(nil)).Elem()
+
+type JavaAppLayerEbsVolumesInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerEbsVolumesOutput() JavaAppLayerEbsVolumesOutput
+	ToJavaAppLayerEbsVolumesOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumesOutput
+}
+
+type JavaAppLayerEbsVolumesArgs struct {
+	Iops pulumi.IntInput `pulumi:"iops"`
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
+	RaidLevel pulumi.StringInput `pulumi:"raidLevel"`
+	Size pulumi.IntInput `pulumi:"size"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JavaAppLayerEbsVolumesArgs) ElementType() reflect.Type {
+	return javaAppLayerEbsVolumesType
+}
+
+func (a JavaAppLayerEbsVolumesArgs) ToJavaAppLayerEbsVolumesOutput() JavaAppLayerEbsVolumesOutput {
+	return pulumi.ToOutput(a).(JavaAppLayerEbsVolumesOutput)
+}
+
+func (a JavaAppLayerEbsVolumesArgs) ToJavaAppLayerEbsVolumesOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JavaAppLayerEbsVolumesOutput)
+}
+
+type JavaAppLayerEbsVolumesOutput struct { *pulumi.OutputState }
+
+func (o JavaAppLayerEbsVolumesOutput) Iops() pulumi.IntOutput {
+	return o.Apply(func(v JavaAppLayerEbsVolumes) int {
+		if v.Iops == nil { return *new(int) } else { return *v.Iops }
+	}).(pulumi.IntOutput)
+}
+
+func (o JavaAppLayerEbsVolumesOutput) MountPoint() pulumi.StringOutput {
+	return o.Apply(func(v JavaAppLayerEbsVolumes) string {
+		return v.MountPoint
+	}).(pulumi.StringOutput)
+}
+
+func (o JavaAppLayerEbsVolumesOutput) NumberOfDisks() pulumi.IntOutput {
+	return o.Apply(func(v JavaAppLayerEbsVolumes) int {
+		return v.NumberOfDisks
+	}).(pulumi.IntOutput)
+}
+
+func (o JavaAppLayerEbsVolumesOutput) RaidLevel() pulumi.StringOutput {
+	return o.Apply(func(v JavaAppLayerEbsVolumes) string {
+		if v.RaidLevel == nil { return *new(string) } else { return *v.RaidLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o JavaAppLayerEbsVolumesOutput) Size() pulumi.IntOutput {
+	return o.Apply(func(v JavaAppLayerEbsVolumes) int {
+		return v.Size
+	}).(pulumi.IntOutput)
+}
+
+func (o JavaAppLayerEbsVolumesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v JavaAppLayerEbsVolumes) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (JavaAppLayerEbsVolumesOutput) ElementType() reflect.Type {
+	return javaAppLayerEbsVolumesType
+}
+
+func (o JavaAppLayerEbsVolumesOutput) ToJavaAppLayerEbsVolumesOutput() JavaAppLayerEbsVolumesOutput {
+	return o
+}
+
+func (o JavaAppLayerEbsVolumesOutput) ToJavaAppLayerEbsVolumesOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JavaAppLayerEbsVolumesOutput{}) }
+
+var javaAppLayerEbsVolumesArrayType = reflect.TypeOf((*[]JavaAppLayerEbsVolumes)(nil)).Elem()
+
+type JavaAppLayerEbsVolumesArrayInput interface {
+	pulumi.Input
+
+	ToJavaAppLayerEbsVolumesArrayOutput() JavaAppLayerEbsVolumesArrayOutput
+	ToJavaAppLayerEbsVolumesArrayOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumesArrayOutput
+}
+
+type JavaAppLayerEbsVolumesArrayArgs []JavaAppLayerEbsVolumesInput
+
+func (JavaAppLayerEbsVolumesArrayArgs) ElementType() reflect.Type {
+	return javaAppLayerEbsVolumesArrayType
+}
+
+func (a JavaAppLayerEbsVolumesArrayArgs) ToJavaAppLayerEbsVolumesArrayOutput() JavaAppLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutput(a).(JavaAppLayerEbsVolumesArrayOutput)
+}
+
+func (a JavaAppLayerEbsVolumesArrayArgs) ToJavaAppLayerEbsVolumesArrayOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JavaAppLayerEbsVolumesArrayOutput)
+}
+
+type JavaAppLayerEbsVolumesArrayOutput struct { *pulumi.OutputState }
+
+func (o JavaAppLayerEbsVolumesArrayOutput) Index(i pulumi.IntInput) JavaAppLayerEbsVolumesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) JavaAppLayerEbsVolumes {
+		return vs[0].([]JavaAppLayerEbsVolumes)[vs[1].(int)]
+	}).(JavaAppLayerEbsVolumesOutput)
+}
+
+func (JavaAppLayerEbsVolumesArrayOutput) ElementType() reflect.Type {
+	return javaAppLayerEbsVolumesArrayType
+}
+
+func (o JavaAppLayerEbsVolumesArrayOutput) ToJavaAppLayerEbsVolumesArrayOutput() JavaAppLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func (o JavaAppLayerEbsVolumesArrayOutput) ToJavaAppLayerEbsVolumesArrayOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JavaAppLayerEbsVolumesArrayOutput{}) }
+

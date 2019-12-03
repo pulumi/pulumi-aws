@@ -14,66 +14,54 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
 type AccountAlias struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The account alias
+	AccountAlias pulumi.StringOutput `pulumi:"accountAlias"`
 }
 
 // NewAccountAlias registers a new resource with the given unique name, arguments, and options.
 func NewAccountAlias(ctx *pulumi.Context,
-	name string, args *AccountAliasArgs, opts ...pulumi.ResourceOpt) (*AccountAlias, error) {
+	name string, args *AccountAliasArgs, opts ...pulumi.ResourceOption) (*AccountAlias, error) {
 	if args == nil || args.AccountAlias == nil {
 		return nil, errors.New("missing required argument 'AccountAlias'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountAlias"] = nil
-	} else {
-		inputs["accountAlias"] = args.AccountAlias
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountAlias; i != nil { inputs["accountAlias"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:iam/accountAlias:AccountAlias", name, true, inputs, opts...)
+	var resource AccountAlias
+	err := ctx.RegisterResource("aws:iam/accountAlias:AccountAlias", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AccountAlias{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccountAlias gets an existing AccountAlias resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccountAlias(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountAliasState, opts ...pulumi.ResourceOpt) (*AccountAlias, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountAliasState, opts ...pulumi.ResourceOption) (*AccountAlias, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountAlias"] = state.AccountAlias
+		if i := state.AccountAlias; i != nil { inputs["accountAlias"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:iam/accountAlias:AccountAlias", name, id, inputs, opts...)
+	var resource AccountAlias
+	err := ctx.ReadResource("aws:iam/accountAlias:AccountAlias", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AccountAlias{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AccountAlias) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AccountAlias) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The account alias
-func (r *AccountAlias) AccountAlias() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountAlias"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AccountAlias resources.
 type AccountAliasState struct {
 	// The account alias
-	AccountAlias interface{}
+	AccountAlias pulumi.StringInput `pulumi:"accountAlias"`
 }
 
 // The set of arguments for constructing a AccountAlias resource.
 type AccountAliasArgs struct {
 	// The account alias
-	AccountAlias interface{}
+	AccountAlias pulumi.StringInput `pulumi:"accountAlias"`
 }

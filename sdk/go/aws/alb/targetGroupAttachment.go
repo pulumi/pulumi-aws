@@ -14,105 +14,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_attachment.html.markdown.
 type TargetGroupAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Availability Zone where the IP address of the target is to be registered.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+
+	// The port on which targets receive traffic.
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// The ARN of the target group with which to register targets
+	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
+
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
 
 // NewTargetGroupAttachment registers a new resource with the given unique name, arguments, and options.
 func NewTargetGroupAttachment(ctx *pulumi.Context,
-	name string, args *TargetGroupAttachmentArgs, opts ...pulumi.ResourceOpt) (*TargetGroupAttachment, error) {
+	name string, args *TargetGroupAttachmentArgs, opts ...pulumi.ResourceOption) (*TargetGroupAttachment, error) {
 	if args == nil || args.TargetGroupArn == nil {
 		return nil, errors.New("missing required argument 'TargetGroupArn'")
 	}
 	if args == nil || args.TargetId == nil {
 		return nil, errors.New("missing required argument 'TargetId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["availabilityZone"] = nil
-		inputs["port"] = nil
-		inputs["targetGroupArn"] = nil
-		inputs["targetId"] = nil
-	} else {
-		inputs["availabilityZone"] = args.AvailabilityZone
-		inputs["port"] = args.Port
-		inputs["targetGroupArn"] = args.TargetGroupArn
-		inputs["targetId"] = args.TargetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := args.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := args.TargetGroupArn; i != nil { inputs["targetGroupArn"] = i.ToStringOutput() }
+		if i := args.TargetId; i != nil { inputs["targetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, true, inputs, opts...)
+	var resource TargetGroupAttachment
+	err := ctx.RegisterResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TargetGroupAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetTargetGroupAttachment gets an existing TargetGroupAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTargetGroupAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TargetGroupAttachmentState, opts ...pulumi.ResourceOpt) (*TargetGroupAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TargetGroupAttachmentState, opts ...pulumi.ResourceOption) (*TargetGroupAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["availabilityZone"] = state.AvailabilityZone
-		inputs["port"] = state.Port
-		inputs["targetGroupArn"] = state.TargetGroupArn
-		inputs["targetId"] = state.TargetId
+		if i := state.AvailabilityZone; i != nil { inputs["availabilityZone"] = i.ToStringOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.TargetGroupArn; i != nil { inputs["targetGroupArn"] = i.ToStringOutput() }
+		if i := state.TargetId; i != nil { inputs["targetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, id, inputs, opts...)
+	var resource TargetGroupAttachment
+	err := ctx.ReadResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TargetGroupAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TargetGroupAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TargetGroupAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Availability Zone where the IP address of the target is to be registered.
-func (r *TargetGroupAttachment) AvailabilityZone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
-}
-
-// The port on which targets receive traffic.
-func (r *TargetGroupAttachment) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// The ARN of the target group with which to register targets
-func (r *TargetGroupAttachment) TargetGroupArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetGroupArn"])
-}
-
-// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
-func (r *TargetGroupAttachment) TargetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.
 type TargetGroupAttachmentState struct {
 	// The Availability Zone where the IP address of the target is to be registered.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The ARN of the target group with which to register targets
-	TargetGroupArn interface{}
+	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
-	TargetId interface{}
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a TargetGroupAttachment resource.
 type TargetGroupAttachmentArgs struct {
 	// The Availability Zone where the IP address of the target is to be registered.
-	AvailabilityZone interface{}
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The ARN of the target group with which to register targets
-	TargetGroupArn interface{}
+	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
-	TargetId interface{}
+	TargetId pulumi.StringInput `pulumi:"targetId"`
 }

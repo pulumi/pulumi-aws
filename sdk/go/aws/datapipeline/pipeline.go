@@ -11,87 +11,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datapipeline_pipeline.html.markdown.
 type Pipeline struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The description of Pipeline.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of Pipeline.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
 func NewPipeline(ctx *pulumi.Context,
-	name string, args *PipelineArgs, opts ...pulumi.ResourceOpt) (*Pipeline, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *PipelineArgs, opts ...pulumi.ResourceOption) (*Pipeline, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:datapipeline/pipeline:Pipeline", name, true, inputs, opts...)
+	var resource Pipeline
+	err := ctx.RegisterResource("aws:datapipeline/pipeline:Pipeline", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pipeline{s: s}, nil
+	return &resource, nil
 }
 
 // GetPipeline gets an existing Pipeline resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPipeline(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PipelineState, opts ...pulumi.ResourceOpt) (*Pipeline, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:datapipeline/pipeline:Pipeline", name, id, inputs, opts...)
+	var resource Pipeline
+	err := ctx.ReadResource("aws:datapipeline/pipeline:Pipeline", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pipeline{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Pipeline) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Pipeline) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The description of Pipeline.
-func (r *Pipeline) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of Pipeline.
-func (r *Pipeline) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Pipeline) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Pipeline resources.
 type PipelineState struct {
 	// The description of Pipeline.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of Pipeline.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// The description of Pipeline.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of Pipeline.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

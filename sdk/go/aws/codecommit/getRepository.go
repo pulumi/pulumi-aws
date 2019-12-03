@@ -10,42 +10,32 @@ import (
 // The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
-func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs) (*GetRepositoryResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["repositoryName"] = args.RepositoryName
-	}
-	outputs, err := ctx.Invoke("aws:codecommit/getRepository:getRepository", inputs)
+func LookupRepository(ctx *pulumi.Context, args *GetRepositoryArgs, opts ...pulumi.InvokeOption) (*GetRepositoryResult, error) {
+	var rv GetRepositoryResult
+	err := ctx.Invoke("aws:codecommit/getRepository:getRepository", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRepositoryResult{
-		Arn: outputs["arn"],
-		CloneUrlHttp: outputs["cloneUrlHttp"],
-		CloneUrlSsh: outputs["cloneUrlSsh"],
-		RepositoryId: outputs["repositoryId"],
-		RepositoryName: outputs["repositoryName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRepository.
 type GetRepositoryArgs struct {
 	// The name for the repository. This needs to be less than 100 characters.
-	RepositoryName interface{}
+	RepositoryName string `pulumi:"repositoryName"`
 }
 
 // A collection of values returned by getRepository.
 type GetRepositoryResult struct {
 	// The ARN of the repository
-	Arn interface{}
+	Arn string `pulumi:"arn"`
 	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp interface{}
+	CloneUrlHttp string `pulumi:"cloneUrlHttp"`
 	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh interface{}
+	CloneUrlSsh string `pulumi:"cloneUrlSsh"`
 	// The ID of the repository
-	RepositoryId interface{}
-	RepositoryName interface{}
+	RepositoryId string `pulumi:"repositoryId"`
+	RepositoryName string `pulumi:"repositoryName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -12,117 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
 type NamedQuery struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The database to which the query belongs.
+	Database pulumi.StringOutput `pulumi:"database"`
+
+	// A brief explanation of the query. Maximum length of 1024.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The plain language name for the query. Maximum length of 128.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
+	Query pulumi.StringOutput `pulumi:"query"`
+
+	// The workgroup to which the query belongs. Defaults to `primary`
+	Workgroup pulumi.StringOutput `pulumi:"workgroup"`
 }
 
 // NewNamedQuery registers a new resource with the given unique name, arguments, and options.
 func NewNamedQuery(ctx *pulumi.Context,
-	name string, args *NamedQueryArgs, opts ...pulumi.ResourceOpt) (*NamedQuery, error) {
+	name string, args *NamedQueryArgs, opts ...pulumi.ResourceOption) (*NamedQuery, error) {
 	if args == nil || args.Database == nil {
 		return nil, errors.New("missing required argument 'Database'")
 	}
 	if args == nil || args.Query == nil {
 		return nil, errors.New("missing required argument 'Query'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["database"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["query"] = nil
-		inputs["workgroup"] = nil
-	} else {
-		inputs["database"] = args.Database
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["query"] = args.Query
-		inputs["workgroup"] = args.Workgroup
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Database; i != nil { inputs["database"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Query; i != nil { inputs["query"] = i.ToStringOutput() }
+		if i := args.Workgroup; i != nil { inputs["workgroup"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:athena/namedQuery:NamedQuery", name, true, inputs, opts...)
+	var resource NamedQuery
+	err := ctx.RegisterResource("aws:athena/namedQuery:NamedQuery", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NamedQuery{s: s}, nil
+	return &resource, nil
 }
 
 // GetNamedQuery gets an existing NamedQuery resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNamedQuery(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NamedQueryState, opts ...pulumi.ResourceOpt) (*NamedQuery, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NamedQueryState, opts ...pulumi.ResourceOption) (*NamedQuery, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["database"] = state.Database
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["query"] = state.Query
-		inputs["workgroup"] = state.Workgroup
+		if i := state.Database; i != nil { inputs["database"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Query; i != nil { inputs["query"] = i.ToStringOutput() }
+		if i := state.Workgroup; i != nil { inputs["workgroup"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:athena/namedQuery:NamedQuery", name, id, inputs, opts...)
+	var resource NamedQuery
+	err := ctx.ReadResource("aws:athena/namedQuery:NamedQuery", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NamedQuery{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NamedQuery) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NamedQuery) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The database to which the query belongs.
-func (r *NamedQuery) Database() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["database"])
-}
-
-// A brief explanation of the query. Maximum length of 1024.
-func (r *NamedQuery) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The plain language name for the query. Maximum length of 128.
-func (r *NamedQuery) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The text of the query itself. In other words, all query statements. Maximum length of 262144.
-func (r *NamedQuery) Query() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["query"])
-}
-
-// The workgroup to which the query belongs. Defaults to `primary`
-func (r *NamedQuery) Workgroup() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workgroup"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NamedQuery resources.
 type NamedQueryState struct {
 	// The database to which the query belongs.
-	Database interface{}
+	Database pulumi.StringInput `pulumi:"database"`
 	// A brief explanation of the query. Maximum length of 1024.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The plain language name for the query. Maximum length of 128.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
-	Query interface{}
+	Query pulumi.StringInput `pulumi:"query"`
 	// The workgroup to which the query belongs. Defaults to `primary`
-	Workgroup interface{}
+	Workgroup pulumi.StringInput `pulumi:"workgroup"`
 }
 
 // The set of arguments for constructing a NamedQuery resource.
 type NamedQueryArgs struct {
 	// The database to which the query belongs.
-	Database interface{}
+	Database pulumi.StringInput `pulumi:"database"`
 	// A brief explanation of the query. Maximum length of 1024.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The plain language name for the query. Maximum length of 128.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The text of the query itself. In other words, all query statements. Maximum length of 262144.
-	Query interface{}
+	Query pulumi.StringInput `pulumi:"query"`
 	// The workgroup to which the query belongs. Defaults to `primary`
-	Workgroup interface{}
+	Workgroup pulumi.StringInput `pulumi:"workgroup"`
 }

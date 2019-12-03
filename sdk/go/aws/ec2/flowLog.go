@@ -13,162 +13,126 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/flow_log.html.markdown.
 type FlowLog struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Elastic Network Interface ID to attach to
+	EniId pulumi.StringOutput `pulumi:"eniId"`
+
+	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
+
+	// The ARN of the logging destination.
+	LogDestination pulumi.StringOutput `pulumi:"logDestination"`
+
+	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
+	LogDestinationType pulumi.StringOutput `pulumi:"logDestinationType"`
+
+	// The fields to include in the flow log record, in the order in which they should appear.
+	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
+
+	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
+
+	// Subnet ID to attach to
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+
+	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
+
+	// VPC ID to attach to
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
 func NewFlowLog(ctx *pulumi.Context,
-	name string, args *FlowLogArgs, opts ...pulumi.ResourceOpt) (*FlowLog, error) {
+	name string, args *FlowLogArgs, opts ...pulumi.ResourceOption) (*FlowLog, error) {
 	if args == nil || args.TrafficType == nil {
 		return nil, errors.New("missing required argument 'TrafficType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["eniId"] = nil
-		inputs["iamRoleArn"] = nil
-		inputs["logDestination"] = nil
-		inputs["logDestinationType"] = nil
-		inputs["logFormat"] = nil
-		inputs["logGroupName"] = nil
-		inputs["subnetId"] = nil
-		inputs["trafficType"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["eniId"] = args.EniId
-		inputs["iamRoleArn"] = args.IamRoleArn
-		inputs["logDestination"] = args.LogDestination
-		inputs["logDestinationType"] = args.LogDestinationType
-		inputs["logFormat"] = args.LogFormat
-		inputs["logGroupName"] = args.LogGroupName
-		inputs["subnetId"] = args.SubnetId
-		inputs["trafficType"] = args.TrafficType
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EniId; i != nil { inputs["eniId"] = i.ToStringOutput() }
+		if i := args.IamRoleArn; i != nil { inputs["iamRoleArn"] = i.ToStringOutput() }
+		if i := args.LogDestination; i != nil { inputs["logDestination"] = i.ToStringOutput() }
+		if i := args.LogDestinationType; i != nil { inputs["logDestinationType"] = i.ToStringOutput() }
+		if i := args.LogFormat; i != nil { inputs["logFormat"] = i.ToStringOutput() }
+		if i := args.LogGroupName; i != nil { inputs["logGroupName"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := args.TrafficType; i != nil { inputs["trafficType"] = i.ToStringOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/flowLog:FlowLog", name, true, inputs, opts...)
+	var resource FlowLog
+	err := ctx.RegisterResource("aws:ec2/flowLog:FlowLog", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FlowLog{s: s}, nil
+	return &resource, nil
 }
 
 // GetFlowLog gets an existing FlowLog resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFlowLog(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FlowLogState, opts ...pulumi.ResourceOpt) (*FlowLog, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FlowLogState, opts ...pulumi.ResourceOption) (*FlowLog, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["eniId"] = state.EniId
-		inputs["iamRoleArn"] = state.IamRoleArn
-		inputs["logDestination"] = state.LogDestination
-		inputs["logDestinationType"] = state.LogDestinationType
-		inputs["logFormat"] = state.LogFormat
-		inputs["logGroupName"] = state.LogGroupName
-		inputs["subnetId"] = state.SubnetId
-		inputs["trafficType"] = state.TrafficType
-		inputs["vpcId"] = state.VpcId
+		if i := state.EniId; i != nil { inputs["eniId"] = i.ToStringOutput() }
+		if i := state.IamRoleArn; i != nil { inputs["iamRoleArn"] = i.ToStringOutput() }
+		if i := state.LogDestination; i != nil { inputs["logDestination"] = i.ToStringOutput() }
+		if i := state.LogDestinationType; i != nil { inputs["logDestinationType"] = i.ToStringOutput() }
+		if i := state.LogFormat; i != nil { inputs["logFormat"] = i.ToStringOutput() }
+		if i := state.LogGroupName; i != nil { inputs["logGroupName"] = i.ToStringOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := state.TrafficType; i != nil { inputs["trafficType"] = i.ToStringOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/flowLog:FlowLog", name, id, inputs, opts...)
+	var resource FlowLog
+	err := ctx.ReadResource("aws:ec2/flowLog:FlowLog", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FlowLog{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FlowLog) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FlowLog) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Elastic Network Interface ID to attach to
-func (r *FlowLog) EniId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eniId"])
-}
-
-// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
-func (r *FlowLog) IamRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iamRoleArn"])
-}
-
-// The ARN of the logging destination.
-func (r *FlowLog) LogDestination() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logDestination"])
-}
-
-// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
-func (r *FlowLog) LogDestinationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logDestinationType"])
-}
-
-// The fields to include in the flow log record, in the order in which they should appear.
-func (r *FlowLog) LogFormat() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logFormat"])
-}
-
-// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
-func (r *FlowLog) LogGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logGroupName"])
-}
-
-// Subnet ID to attach to
-func (r *FlowLog) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
-// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-func (r *FlowLog) TrafficType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["trafficType"])
-}
-
-// VPC ID to attach to
-func (r *FlowLog) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FlowLog resources.
 type FlowLogState struct {
 	// Elastic Network Interface ID to attach to
-	EniId interface{}
+	EniId pulumi.StringInput `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
-	IamRoleArn interface{}
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// The ARN of the logging destination.
-	LogDestination interface{}
+	LogDestination pulumi.StringInput `pulumi:"logDestination"`
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
-	LogDestinationType interface{}
+	LogDestinationType pulumi.StringInput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
-	LogFormat interface{}
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
-	LogGroupName interface{}
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// Subnet ID to attach to
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-	TrafficType interface{}
+	TrafficType pulumi.StringInput `pulumi:"trafficType"`
 	// VPC ID to attach to
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a FlowLog resource.
 type FlowLogArgs struct {
 	// Elastic Network Interface ID to attach to
-	EniId interface{}
+	EniId pulumi.StringInput `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
-	IamRoleArn interface{}
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// The ARN of the logging destination.
-	LogDestination interface{}
+	LogDestination pulumi.StringInput `pulumi:"logDestination"`
 	// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
-	LogDestinationType interface{}
+	LogDestinationType pulumi.StringInput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
-	LogFormat interface{}
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
 	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
-	LogGroupName interface{}
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// Subnet ID to attach to
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-	TrafficType interface{}
+	TrafficType pulumi.StringInput `pulumi:"trafficType"`
 	// VPC ID to attach to
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }

@@ -12,44 +12,51 @@ import (
 // This resource can be useful for getting back a list of subnet ids for a vpc.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
-func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["filters"] = args.Filters
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
-	}
-	outputs, err := ctx.Invoke("aws:ec2/getSubnetIds:getSubnetIds", inputs)
+func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.InvokeOption) (*GetSubnetIdsResult, error) {
+	var rv GetSubnetIdsResult
+	err := ctx.Invoke("aws:ec2/getSubnetIds:getSubnetIds", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSubnetIdsResult{
-		Filters: outputs["filters"],
-		Ids: outputs["ids"],
-		Tags: outputs["tags"],
-		VpcId: outputs["vpcId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSubnetIds.
 type GetSubnetIdsArgs struct {
 	// Custom filter block as described below.
-	Filters interface{}
+	Filters *[]GetSubnetIdsFiltersArgs `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
-	Tags interface{}
+	Tags *map[string]string `pulumi:"tags"`
 	// The VPC ID that you want to filter from.
-	VpcId interface{}
+	VpcId string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getSubnetIds.
 type GetSubnetIdsResult struct {
-	Filters interface{}
+	Filters *[]GetSubnetIdsFiltersResult `pulumi:"filters"`
 	// A set of all the subnet ids found. This data source will fail if none are found.
-	Ids interface{}
-	Tags interface{}
-	VpcId interface{}
+	Ids []string `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
+	VpcId string `pulumi:"vpcId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSubnetIdsFiltersArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	// For example, if matching against tag `Name`, use:
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// Subnet IDs will be selected if any one of the given values match.
+	Values []string `pulumi:"values"`
+}
+type GetSubnetIdsFiltersResult struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	// For example, if matching against tag `Name`, use:
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// Subnet IDs will be selected if any one of the given values match.
+	Values []string `pulumi:"values"`
 }

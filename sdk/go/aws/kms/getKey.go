@@ -13,63 +13,43 @@ import (
 // without having to hard code the ARN as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
-func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["grantTokens"] = args.GrantTokens
-		inputs["keyId"] = args.KeyId
-	}
-	outputs, err := ctx.Invoke("aws:kms/getKey:getKey", inputs)
+func LookupKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
+	var rv GetKeyResult
+	err := ctx.Invoke("aws:kms/getKey:getKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetKeyResult{
-		Arn: outputs["arn"],
-		AwsAccountId: outputs["awsAccountId"],
-		CreationDate: outputs["creationDate"],
-		DeletionDate: outputs["deletionDate"],
-		Description: outputs["description"],
-		Enabled: outputs["enabled"],
-		ExpirationModel: outputs["expirationModel"],
-		GrantTokens: outputs["grantTokens"],
-		KeyId: outputs["keyId"],
-		KeyManager: outputs["keyManager"],
-		KeyState: outputs["keyState"],
-		KeyUsage: outputs["keyUsage"],
-		Origin: outputs["origin"],
-		ValidTo: outputs["validTo"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
 	// List of grant tokens
-	GrantTokens interface{}
+	GrantTokens *[]string `pulumi:"grantTokens"`
 	// Key identifier which can be one of the following format:
 	// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
 	// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	// * Alias name. E.g.: `alias/my-key`
 	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-	KeyId interface{}
+	KeyId string `pulumi:"keyId"`
 }
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
-	Arn interface{}
-	AwsAccountId interface{}
-	CreationDate interface{}
-	DeletionDate interface{}
-	Description interface{}
-	Enabled interface{}
-	ExpirationModel interface{}
-	GrantTokens interface{}
-	KeyId interface{}
-	KeyManager interface{}
-	KeyState interface{}
-	KeyUsage interface{}
-	Origin interface{}
-	ValidTo interface{}
+	Arn string `pulumi:"arn"`
+	AwsAccountId string `pulumi:"awsAccountId"`
+	CreationDate string `pulumi:"creationDate"`
+	DeletionDate string `pulumi:"deletionDate"`
+	Description string `pulumi:"description"`
+	Enabled bool `pulumi:"enabled"`
+	ExpirationModel string `pulumi:"expirationModel"`
+	GrantTokens *[]string `pulumi:"grantTokens"`
+	KeyId string `pulumi:"keyId"`
+	KeyManager string `pulumi:"keyManager"`
+	KeyState string `pulumi:"keyState"`
+	KeyUsage string `pulumi:"keyUsage"`
+	Origin string `pulumi:"origin"`
+	ValidTo string `pulumi:"validTo"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

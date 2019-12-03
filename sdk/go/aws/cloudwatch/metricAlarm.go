@@ -4,6 +4,8 @@
 package cloudwatch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,354 +14,535 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_metric_alarm.html.markdown.
 type MetricAlarm struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
+	ActionsEnabled pulumi.BoolOutput `pulumi:"actionsEnabled"`
+
+	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
+
+	// The description for the alarm.
+	AlarmDescription pulumi.StringOutput `pulumi:"alarmDescription"`
+
+	// The descriptive name for the alarm. This name must be unique within the user's AWS account
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ARN of the cloudwatch metric alarm.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
+	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
+
+	// The number of datapoints that must be breaching to trigger the alarm.
+	DatapointsToAlarm pulumi.IntOutput `pulumi:"datapointsToAlarm"`
+
+	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Dimensions pulumi.MapOutput `pulumi:"dimensions"`
+
+	// Used only for alarms
+	// based on percentiles. If you specify `ignore`, the alarm state will not
+	// change during periods with too few data points to be statistically significant.
+	// If you specify `evaluate` or omit this parameter, the alarm will always be
+	// evaluated and possibly change state no matter how many data points are available.
+	// The following values are supported: `ignore`, and `evaluate`.
+	EvaluateLowSampleCountPercentiles pulumi.StringOutput `pulumi:"evaluateLowSampleCountPercentiles"`
+
+	// The number of periods over which data is compared to the specified threshold.
+	EvaluationPeriods pulumi.IntOutput `pulumi:"evaluationPeriods"`
+
+	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+	ExtendedStatistic pulumi.StringOutput `pulumi:"extendedStatistic"`
+
+	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
+
+	// The name for this metric.
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	MetricName pulumi.StringOutput `pulumi:"metricName"`
+
+	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+	MetricQueries MetricAlarmMetricQueriesArrayOutput `pulumi:"metricQueries"`
+
+	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Namespace pulumi.StringOutput `pulumi:"namespace"`
+
+	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
+
+	// The period in seconds over which the specified `stat` is applied.
+	Period pulumi.IntOutput `pulumi:"period"`
+
+	// The statistic to apply to the alarm's associated metric.
+	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+	Statistic pulumi.StringOutput `pulumi:"statistic"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+	Threshold pulumi.Float64Output `pulumi:"threshold"`
+
+	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
+	ThresholdMetricId pulumi.StringOutput `pulumi:"thresholdMetricId"`
+
+	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+	TreatMissingData pulumi.StringOutput `pulumi:"treatMissingData"`
+
+	// The unit for this metric.
+	Unit pulumi.StringOutput `pulumi:"unit"`
 }
 
 // NewMetricAlarm registers a new resource with the given unique name, arguments, and options.
 func NewMetricAlarm(ctx *pulumi.Context,
-	name string, args *MetricAlarmArgs, opts ...pulumi.ResourceOpt) (*MetricAlarm, error) {
+	name string, args *MetricAlarmArgs, opts ...pulumi.ResourceOption) (*MetricAlarm, error) {
 	if args == nil || args.ComparisonOperator == nil {
 		return nil, errors.New("missing required argument 'ComparisonOperator'")
 	}
 	if args == nil || args.EvaluationPeriods == nil {
 		return nil, errors.New("missing required argument 'EvaluationPeriods'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["actionsEnabled"] = nil
-		inputs["alarmActions"] = nil
-		inputs["alarmDescription"] = nil
-		inputs["name"] = nil
-		inputs["comparisonOperator"] = nil
-		inputs["datapointsToAlarm"] = nil
-		inputs["dimensions"] = nil
-		inputs["evaluateLowSampleCountPercentiles"] = nil
-		inputs["evaluationPeriods"] = nil
-		inputs["extendedStatistic"] = nil
-		inputs["insufficientDataActions"] = nil
-		inputs["metricName"] = nil
-		inputs["metricQueries"] = nil
-		inputs["namespace"] = nil
-		inputs["okActions"] = nil
-		inputs["period"] = nil
-		inputs["statistic"] = nil
-		inputs["tags"] = nil
-		inputs["threshold"] = nil
-		inputs["thresholdMetricId"] = nil
-		inputs["treatMissingData"] = nil
-		inputs["unit"] = nil
-	} else {
-		inputs["actionsEnabled"] = args.ActionsEnabled
-		inputs["alarmActions"] = args.AlarmActions
-		inputs["alarmDescription"] = args.AlarmDescription
-		inputs["name"] = args.Name
-		inputs["comparisonOperator"] = args.ComparisonOperator
-		inputs["datapointsToAlarm"] = args.DatapointsToAlarm
-		inputs["dimensions"] = args.Dimensions
-		inputs["evaluateLowSampleCountPercentiles"] = args.EvaluateLowSampleCountPercentiles
-		inputs["evaluationPeriods"] = args.EvaluationPeriods
-		inputs["extendedStatistic"] = args.ExtendedStatistic
-		inputs["insufficientDataActions"] = args.InsufficientDataActions
-		inputs["metricName"] = args.MetricName
-		inputs["metricQueries"] = args.MetricQueries
-		inputs["namespace"] = args.Namespace
-		inputs["okActions"] = args.OkActions
-		inputs["period"] = args.Period
-		inputs["statistic"] = args.Statistic
-		inputs["tags"] = args.Tags
-		inputs["threshold"] = args.Threshold
-		inputs["thresholdMetricId"] = args.ThresholdMetricId
-		inputs["treatMissingData"] = args.TreatMissingData
-		inputs["unit"] = args.Unit
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActionsEnabled; i != nil { inputs["actionsEnabled"] = i.ToBoolOutput() }
+		if i := args.AlarmActions; i != nil { inputs["alarmActions"] = i.ToStringArrayOutput() }
+		if i := args.AlarmDescription; i != nil { inputs["alarmDescription"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ComparisonOperator; i != nil { inputs["comparisonOperator"] = i.ToStringOutput() }
+		if i := args.DatapointsToAlarm; i != nil { inputs["datapointsToAlarm"] = i.ToIntOutput() }
+		if i := args.Dimensions; i != nil { inputs["dimensions"] = i.ToMapOutput() }
+		if i := args.EvaluateLowSampleCountPercentiles; i != nil { inputs["evaluateLowSampleCountPercentiles"] = i.ToStringOutput() }
+		if i := args.EvaluationPeriods; i != nil { inputs["evaluationPeriods"] = i.ToIntOutput() }
+		if i := args.ExtendedStatistic; i != nil { inputs["extendedStatistic"] = i.ToStringOutput() }
+		if i := args.InsufficientDataActions; i != nil { inputs["insufficientDataActions"] = i.ToStringArrayOutput() }
+		if i := args.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := args.MetricQueries; i != nil { inputs["metricQueries"] = i.ToMetricAlarmMetricQueriesArrayOutput() }
+		if i := args.Namespace; i != nil { inputs["namespace"] = i.ToStringOutput() }
+		if i := args.OkActions; i != nil { inputs["okActions"] = i.ToStringArrayOutput() }
+		if i := args.Period; i != nil { inputs["period"] = i.ToIntOutput() }
+		if i := args.Statistic; i != nil { inputs["statistic"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Threshold; i != nil { inputs["threshold"] = i.ToFloat64Output() }
+		if i := args.ThresholdMetricId; i != nil { inputs["thresholdMetricId"] = i.ToStringOutput() }
+		if i := args.TreatMissingData; i != nil { inputs["treatMissingData"] = i.ToStringOutput() }
+		if i := args.Unit; i != nil { inputs["unit"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, true, inputs, opts...)
+	var resource MetricAlarm
+	err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MetricAlarm{s: s}, nil
+	return &resource, nil
 }
 
 // GetMetricAlarm gets an existing MetricAlarm resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMetricAlarm(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MetricAlarmState, opts ...pulumi.ResourceOpt) (*MetricAlarm, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MetricAlarmState, opts ...pulumi.ResourceOption) (*MetricAlarm, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["actionsEnabled"] = state.ActionsEnabled
-		inputs["alarmActions"] = state.AlarmActions
-		inputs["alarmDescription"] = state.AlarmDescription
-		inputs["name"] = state.Name
-		inputs["arn"] = state.Arn
-		inputs["comparisonOperator"] = state.ComparisonOperator
-		inputs["datapointsToAlarm"] = state.DatapointsToAlarm
-		inputs["dimensions"] = state.Dimensions
-		inputs["evaluateLowSampleCountPercentiles"] = state.EvaluateLowSampleCountPercentiles
-		inputs["evaluationPeriods"] = state.EvaluationPeriods
-		inputs["extendedStatistic"] = state.ExtendedStatistic
-		inputs["insufficientDataActions"] = state.InsufficientDataActions
-		inputs["metricName"] = state.MetricName
-		inputs["metricQueries"] = state.MetricQueries
-		inputs["namespace"] = state.Namespace
-		inputs["okActions"] = state.OkActions
-		inputs["period"] = state.Period
-		inputs["statistic"] = state.Statistic
-		inputs["tags"] = state.Tags
-		inputs["threshold"] = state.Threshold
-		inputs["thresholdMetricId"] = state.ThresholdMetricId
-		inputs["treatMissingData"] = state.TreatMissingData
-		inputs["unit"] = state.Unit
+		if i := state.ActionsEnabled; i != nil { inputs["actionsEnabled"] = i.ToBoolOutput() }
+		if i := state.AlarmActions; i != nil { inputs["alarmActions"] = i.ToStringArrayOutput() }
+		if i := state.AlarmDescription; i != nil { inputs["alarmDescription"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.ComparisonOperator; i != nil { inputs["comparisonOperator"] = i.ToStringOutput() }
+		if i := state.DatapointsToAlarm; i != nil { inputs["datapointsToAlarm"] = i.ToIntOutput() }
+		if i := state.Dimensions; i != nil { inputs["dimensions"] = i.ToMapOutput() }
+		if i := state.EvaluateLowSampleCountPercentiles; i != nil { inputs["evaluateLowSampleCountPercentiles"] = i.ToStringOutput() }
+		if i := state.EvaluationPeriods; i != nil { inputs["evaluationPeriods"] = i.ToIntOutput() }
+		if i := state.ExtendedStatistic; i != nil { inputs["extendedStatistic"] = i.ToStringOutput() }
+		if i := state.InsufficientDataActions; i != nil { inputs["insufficientDataActions"] = i.ToStringArrayOutput() }
+		if i := state.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := state.MetricQueries; i != nil { inputs["metricQueries"] = i.ToMetricAlarmMetricQueriesArrayOutput() }
+		if i := state.Namespace; i != nil { inputs["namespace"] = i.ToStringOutput() }
+		if i := state.OkActions; i != nil { inputs["okActions"] = i.ToStringArrayOutput() }
+		if i := state.Period; i != nil { inputs["period"] = i.ToIntOutput() }
+		if i := state.Statistic; i != nil { inputs["statistic"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Threshold; i != nil { inputs["threshold"] = i.ToFloat64Output() }
+		if i := state.ThresholdMetricId; i != nil { inputs["thresholdMetricId"] = i.ToStringOutput() }
+		if i := state.TreatMissingData; i != nil { inputs["treatMissingData"] = i.ToStringOutput() }
+		if i := state.Unit; i != nil { inputs["unit"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, id, inputs, opts...)
+	var resource MetricAlarm
+	err := ctx.ReadResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MetricAlarm{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MetricAlarm) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MetricAlarm) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-func (r *MetricAlarm) ActionsEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["actionsEnabled"])
-}
-
-// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (r *MetricAlarm) AlarmActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["alarmActions"])
-}
-
-// The description for the alarm.
-func (r *MetricAlarm) AlarmDescription() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["alarmDescription"])
-}
-
-// The descriptive name for the alarm. This name must be unique within the user's AWS account
-func (r *MetricAlarm) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ARN of the cloudwatch metric alarm.
-func (r *MetricAlarm) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-func (r *MetricAlarm) ComparisonOperator() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["comparisonOperator"])
-}
-
-// The number of datapoints that must be breaching to trigger the alarm.
-func (r *MetricAlarm) DatapointsToAlarm() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["datapointsToAlarm"])
-}
-
-// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (r *MetricAlarm) Dimensions() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["dimensions"])
-}
-
-// Used only for alarms
-// based on percentiles. If you specify `ignore`, the alarm state will not
-// change during periods with too few data points to be statistically significant.
-// If you specify `evaluate` or omit this parameter, the alarm will always be
-// evaluated and possibly change state no matter how many data points are available.
-// The following values are supported: `ignore`, and `evaluate`.
-func (r *MetricAlarm) EvaluateLowSampleCountPercentiles() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["evaluateLowSampleCountPercentiles"])
-}
-
-// The number of periods over which data is compared to the specified threshold.
-func (r *MetricAlarm) EvaluationPeriods() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["evaluationPeriods"])
-}
-
-// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-func (r *MetricAlarm) ExtendedStatistic() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["extendedStatistic"])
-}
-
-// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (r *MetricAlarm) InsufficientDataActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["insufficientDataActions"])
-}
-
-// The name for this metric.
-// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (r *MetricAlarm) MetricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metricName"])
-}
-
-// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
-func (r *MetricAlarm) MetricQueries() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["metricQueries"])
-}
-
-// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (r *MetricAlarm) Namespace() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespace"])
-}
-
-// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (r *MetricAlarm) OkActions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["okActions"])
-}
-
-// The period in seconds over which the specified `stat` is applied.
-func (r *MetricAlarm) Period() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["period"])
-}
-
-// The statistic to apply to the alarm's associated metric.
-// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-func (r *MetricAlarm) Statistic() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["statistic"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *MetricAlarm) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
-func (r *MetricAlarm) Threshold() pulumi.Float64Output {
-	return (pulumi.Float64Output)(r.s.State["threshold"])
-}
-
-// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
-func (r *MetricAlarm) ThresholdMetricId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thresholdMetricId"])
-}
-
-// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
-func (r *MetricAlarm) TreatMissingData() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["treatMissingData"])
-}
-
-// The unit for this metric.
-func (r *MetricAlarm) Unit() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["unit"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MetricAlarm resources.
 type MetricAlarmState struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-	ActionsEnabled interface{}
+	ActionsEnabled pulumi.BoolInput `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions interface{}
+	AlarmActions pulumi.StringArrayInput `pulumi:"alarmActions"`
 	// The description for the alarm.
-	AlarmDescription interface{}
+	AlarmDescription pulumi.StringInput `pulumi:"alarmDescription"`
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ARN of the cloudwatch metric alarm.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-	ComparisonOperator interface{}
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
-	DatapointsToAlarm interface{}
+	DatapointsToAlarm pulumi.IntInput `pulumi:"datapointsToAlarm"`
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions interface{}
+	Dimensions pulumi.MapInput `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
 	// If you specify `evaluate` or omit this parameter, the alarm will always be
 	// evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
-	EvaluateLowSampleCountPercentiles interface{}
+	EvaluateLowSampleCountPercentiles pulumi.StringInput `pulumi:"evaluateLowSampleCountPercentiles"`
 	// The number of periods over which data is compared to the specified threshold.
-	EvaluationPeriods interface{}
+	EvaluationPeriods pulumi.IntInput `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-	ExtendedStatistic interface{}
+	ExtendedStatistic pulumi.StringInput `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions interface{}
+	InsufficientDataActions pulumi.StringArrayInput `pulumi:"insufficientDataActions"`
 	// The name for this metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
-	MetricQueries interface{}
+	MetricQueries MetricAlarmMetricQueriesArrayInput `pulumi:"metricQueries"`
 	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Namespace interface{}
+	Namespace pulumi.StringInput `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OkActions interface{}
+	OkActions pulumi.StringArrayInput `pulumi:"okActions"`
 	// The period in seconds over which the specified `stat` is applied.
-	Period interface{}
+	Period pulumi.IntInput `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-	Statistic interface{}
+	Statistic pulumi.StringInput `pulumi:"statistic"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
-	Threshold interface{}
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
-	ThresholdMetricId interface{}
+	ThresholdMetricId pulumi.StringInput `pulumi:"thresholdMetricId"`
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
-	TreatMissingData interface{}
+	TreatMissingData pulumi.StringInput `pulumi:"treatMissingData"`
 	// The unit for this metric.
-	Unit interface{}
+	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
 // The set of arguments for constructing a MetricAlarm resource.
 type MetricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-	ActionsEnabled interface{}
+	ActionsEnabled pulumi.BoolInput `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions interface{}
+	AlarmActions pulumi.StringArrayInput `pulumi:"alarmActions"`
 	// The description for the alarm.
-	AlarmDescription interface{}
+	AlarmDescription pulumi.StringInput `pulumi:"alarmDescription"`
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-	ComparisonOperator interface{}
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
-	DatapointsToAlarm interface{}
+	DatapointsToAlarm pulumi.IntInput `pulumi:"datapointsToAlarm"`
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions interface{}
+	Dimensions pulumi.MapInput `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
 	// If you specify `evaluate` or omit this parameter, the alarm will always be
 	// evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
-	EvaluateLowSampleCountPercentiles interface{}
+	EvaluateLowSampleCountPercentiles pulumi.StringInput `pulumi:"evaluateLowSampleCountPercentiles"`
 	// The number of periods over which data is compared to the specified threshold.
-	EvaluationPeriods interface{}
+	EvaluationPeriods pulumi.IntInput `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-	ExtendedStatistic interface{}
+	ExtendedStatistic pulumi.StringInput `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions interface{}
+	InsufficientDataActions pulumi.StringArrayInput `pulumi:"insufficientDataActions"`
 	// The name for this metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
-	MetricQueries interface{}
+	MetricQueries MetricAlarmMetricQueriesArrayInput `pulumi:"metricQueries"`
 	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Namespace interface{}
+	Namespace pulumi.StringInput `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OkActions interface{}
+	OkActions pulumi.StringArrayInput `pulumi:"okActions"`
 	// The period in seconds over which the specified `stat` is applied.
-	Period interface{}
+	Period pulumi.IntInput `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-	Statistic interface{}
+	Statistic pulumi.StringInput `pulumi:"statistic"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
-	Threshold interface{}
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
-	ThresholdMetricId interface{}
+	ThresholdMetricId pulumi.StringInput `pulumi:"thresholdMetricId"`
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
-	TreatMissingData interface{}
+	TreatMissingData pulumi.StringInput `pulumi:"treatMissingData"`
 	// The unit for this metric.
-	Unit interface{}
+	Unit pulumi.StringInput `pulumi:"unit"`
 }
+type MetricAlarmMetricQueries struct {
+	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+	Expression *string `pulumi:"expression"`
+	// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+	Id string `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+	Label *string `pulumi:"label"`
+	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+	Metric *MetricAlarmMetricQueriesMetric `pulumi:"metric"`
+	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+	ReturnData *bool `pulumi:"returnData"`
+}
+var metricAlarmMetricQueriesType = reflect.TypeOf((*MetricAlarmMetricQueries)(nil)).Elem()
+
+type MetricAlarmMetricQueriesInput interface {
+	pulumi.Input
+
+	ToMetricAlarmMetricQueriesOutput() MetricAlarmMetricQueriesOutput
+	ToMetricAlarmMetricQueriesOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesOutput
+}
+
+type MetricAlarmMetricQueriesArgs struct {
+	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+	Label pulumi.StringInput `pulumi:"label"`
+	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+	Metric MetricAlarmMetricQueriesMetricInput `pulumi:"metric"`
+	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+	ReturnData pulumi.BoolInput `pulumi:"returnData"`
+}
+
+func (MetricAlarmMetricQueriesArgs) ElementType() reflect.Type {
+	return metricAlarmMetricQueriesType
+}
+
+func (a MetricAlarmMetricQueriesArgs) ToMetricAlarmMetricQueriesOutput() MetricAlarmMetricQueriesOutput {
+	return pulumi.ToOutput(a).(MetricAlarmMetricQueriesOutput)
+}
+
+func (a MetricAlarmMetricQueriesArgs) ToMetricAlarmMetricQueriesOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlarmMetricQueriesOutput)
+}
+
+type MetricAlarmMetricQueriesOutput struct { *pulumi.OutputState }
+
+// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+func (o MetricAlarmMetricQueriesOutput) Expression() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueries) string {
+		if v.Expression == nil { return *new(string) } else { return *v.Expression }
+	}).(pulumi.StringOutput)
+}
+
+// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+func (o MetricAlarmMetricQueriesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueries) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+func (o MetricAlarmMetricQueriesOutput) Label() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueries) string {
+		if v.Label == nil { return *new(string) } else { return *v.Label }
+	}).(pulumi.StringOutput)
+}
+
+// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+func (o MetricAlarmMetricQueriesOutput) Metric() MetricAlarmMetricQueriesMetricOutput {
+	return o.Apply(func(v MetricAlarmMetricQueries) MetricAlarmMetricQueriesMetric {
+		if v.Metric == nil { return *new(MetricAlarmMetricQueriesMetric) } else { return *v.Metric }
+	}).(MetricAlarmMetricQueriesMetricOutput)
+}
+
+// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+func (o MetricAlarmMetricQueriesOutput) ReturnData() pulumi.BoolOutput {
+	return o.Apply(func(v MetricAlarmMetricQueries) bool {
+		if v.ReturnData == nil { return *new(bool) } else { return *v.ReturnData }
+	}).(pulumi.BoolOutput)
+}
+
+func (MetricAlarmMetricQueriesOutput) ElementType() reflect.Type {
+	return metricAlarmMetricQueriesType
+}
+
+func (o MetricAlarmMetricQueriesOutput) ToMetricAlarmMetricQueriesOutput() MetricAlarmMetricQueriesOutput {
+	return o
+}
+
+func (o MetricAlarmMetricQueriesOutput) ToMetricAlarmMetricQueriesOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlarmMetricQueriesOutput{}) }
+
+var metricAlarmMetricQueriesArrayType = reflect.TypeOf((*[]MetricAlarmMetricQueries)(nil)).Elem()
+
+type MetricAlarmMetricQueriesArrayInput interface {
+	pulumi.Input
+
+	ToMetricAlarmMetricQueriesArrayOutput() MetricAlarmMetricQueriesArrayOutput
+	ToMetricAlarmMetricQueriesArrayOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesArrayOutput
+}
+
+type MetricAlarmMetricQueriesArrayArgs []MetricAlarmMetricQueriesInput
+
+func (MetricAlarmMetricQueriesArrayArgs) ElementType() reflect.Type {
+	return metricAlarmMetricQueriesArrayType
+}
+
+func (a MetricAlarmMetricQueriesArrayArgs) ToMetricAlarmMetricQueriesArrayOutput() MetricAlarmMetricQueriesArrayOutput {
+	return pulumi.ToOutput(a).(MetricAlarmMetricQueriesArrayOutput)
+}
+
+func (a MetricAlarmMetricQueriesArrayArgs) ToMetricAlarmMetricQueriesArrayOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlarmMetricQueriesArrayOutput)
+}
+
+type MetricAlarmMetricQueriesArrayOutput struct { *pulumi.OutputState }
+
+func (o MetricAlarmMetricQueriesArrayOutput) Index(i pulumi.IntInput) MetricAlarmMetricQueriesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MetricAlarmMetricQueries {
+		return vs[0].([]MetricAlarmMetricQueries)[vs[1].(int)]
+	}).(MetricAlarmMetricQueriesOutput)
+}
+
+func (MetricAlarmMetricQueriesArrayOutput) ElementType() reflect.Type {
+	return metricAlarmMetricQueriesArrayType
+}
+
+func (o MetricAlarmMetricQueriesArrayOutput) ToMetricAlarmMetricQueriesArrayOutput() MetricAlarmMetricQueriesArrayOutput {
+	return o
+}
+
+func (o MetricAlarmMetricQueriesArrayOutput) ToMetricAlarmMetricQueriesArrayOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlarmMetricQueriesArrayOutput{}) }
+
+type MetricAlarmMetricQueriesMetric struct {
+	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Dimensions *map[string]string `pulumi:"dimensions"`
+	// The name for this metric.
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	MetricName string `pulumi:"metricName"`
+	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Namespace *string `pulumi:"namespace"`
+	// The period in seconds over which the specified `stat` is applied.
+	Period int `pulumi:"period"`
+	// The statistic to apply to this metric.
+	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+	Stat string `pulumi:"stat"`
+	// The unit for this metric.
+	Unit *string `pulumi:"unit"`
+}
+var metricAlarmMetricQueriesMetricType = reflect.TypeOf((*MetricAlarmMetricQueriesMetric)(nil)).Elem()
+
+type MetricAlarmMetricQueriesMetricInput interface {
+	pulumi.Input
+
+	ToMetricAlarmMetricQueriesMetricOutput() MetricAlarmMetricQueriesMetricOutput
+	ToMetricAlarmMetricQueriesMetricOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesMetricOutput
+}
+
+type MetricAlarmMetricQueriesMetricArgs struct {
+	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Dimensions pulumi.MapInput `pulumi:"dimensions"`
+	// The name for this metric.
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The period in seconds over which the specified `stat` is applied.
+	Period pulumi.IntInput `pulumi:"period"`
+	// The statistic to apply to this metric.
+	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+	Stat pulumi.StringInput `pulumi:"stat"`
+	// The unit for this metric.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (MetricAlarmMetricQueriesMetricArgs) ElementType() reflect.Type {
+	return metricAlarmMetricQueriesMetricType
+}
+
+func (a MetricAlarmMetricQueriesMetricArgs) ToMetricAlarmMetricQueriesMetricOutput() MetricAlarmMetricQueriesMetricOutput {
+	return pulumi.ToOutput(a).(MetricAlarmMetricQueriesMetricOutput)
+}
+
+func (a MetricAlarmMetricQueriesMetricArgs) ToMetricAlarmMetricQueriesMetricOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlarmMetricQueriesMetricOutput)
+}
+
+type MetricAlarmMetricQueriesMetricOutput struct { *pulumi.OutputState }
+
+// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+func (o MetricAlarmMetricQueriesMetricOutput) Dimensions() pulumi.MapOutput {
+	return o.Apply(func(v MetricAlarmMetricQueriesMetric) map[string]string {
+		if v.Dimensions == nil { return *new(map[string]string) } else { return *v.Dimensions }
+	}).(pulumi.MapOutput)
+}
+
+// The name for this metric.
+// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+func (o MetricAlarmMetricQueriesMetricOutput) MetricName() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueriesMetric) string {
+		return v.MetricName
+	}).(pulumi.StringOutput)
+}
+
+// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+func (o MetricAlarmMetricQueriesMetricOutput) Namespace() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueriesMetric) string {
+		if v.Namespace == nil { return *new(string) } else { return *v.Namespace }
+	}).(pulumi.StringOutput)
+}
+
+// The period in seconds over which the specified `stat` is applied.
+func (o MetricAlarmMetricQueriesMetricOutput) Period() pulumi.IntOutput {
+	return o.Apply(func(v MetricAlarmMetricQueriesMetric) int {
+		return v.Period
+	}).(pulumi.IntOutput)
+}
+
+// The statistic to apply to this metric.
+// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+func (o MetricAlarmMetricQueriesMetricOutput) Stat() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueriesMetric) string {
+		return v.Stat
+	}).(pulumi.StringOutput)
+}
+
+// The unit for this metric.
+func (o MetricAlarmMetricQueriesMetricOutput) Unit() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlarmMetricQueriesMetric) string {
+		if v.Unit == nil { return *new(string) } else { return *v.Unit }
+	}).(pulumi.StringOutput)
+}
+
+func (MetricAlarmMetricQueriesMetricOutput) ElementType() reflect.Type {
+	return metricAlarmMetricQueriesMetricType
+}
+
+func (o MetricAlarmMetricQueriesMetricOutput) ToMetricAlarmMetricQueriesMetricOutput() MetricAlarmMetricQueriesMetricOutput {
+	return o
+}
+
+func (o MetricAlarmMetricQueriesMetricOutput) ToMetricAlarmMetricQueriesMetricOutputWithContext(ctx context.Context) MetricAlarmMetricQueriesMetricOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlarmMetricQueriesMetricOutput{}) }
+

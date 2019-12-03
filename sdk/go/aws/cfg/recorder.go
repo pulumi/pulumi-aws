@@ -4,6 +4,8 @@
 package cfg
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,96 +16,168 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
 type Recorder struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Recording group - see below.
+	RecordingGroup RecorderRecordingGroupOutput `pulumi:"recordingGroup"`
+
+	// Amazon Resource Name (ARN) of the IAM role.
+	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
+	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
 // NewRecorder registers a new resource with the given unique name, arguments, and options.
 func NewRecorder(ctx *pulumi.Context,
-	name string, args *RecorderArgs, opts ...pulumi.ResourceOpt) (*Recorder, error) {
+	name string, args *RecorderArgs, opts ...pulumi.ResourceOption) (*Recorder, error) {
 	if args == nil || args.RoleArn == nil {
 		return nil, errors.New("missing required argument 'RoleArn'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["recordingGroup"] = nil
-		inputs["roleArn"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["recordingGroup"] = args.RecordingGroup
-		inputs["roleArn"] = args.RoleArn
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecordingGroup; i != nil { inputs["recordingGroup"] = i.ToRecorderRecordingGroupOutput() }
+		if i := args.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:cfg/recorder:Recorder", name, true, inputs, opts...)
+	var resource Recorder
+	err := ctx.RegisterResource("aws:cfg/recorder:Recorder", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Recorder{s: s}, nil
+	return &resource, nil
 }
 
 // GetRecorder gets an existing Recorder resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRecorder(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RecorderState, opts ...pulumi.ResourceOpt) (*Recorder, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RecorderState, opts ...pulumi.ResourceOption) (*Recorder, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["recordingGroup"] = state.RecordingGroup
-		inputs["roleArn"] = state.RoleArn
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecordingGroup; i != nil { inputs["recordingGroup"] = i.ToRecorderRecordingGroupOutput() }
+		if i := state.RoleArn; i != nil { inputs["roleArn"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:cfg/recorder:Recorder", name, id, inputs, opts...)
+	var resource Recorder
+	err := ctx.ReadResource("aws:cfg/recorder:Recorder", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Recorder{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Recorder) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Recorder) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-func (r *Recorder) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Recording group - see below.
-func (r *Recorder) RecordingGroup() pulumi.Output {
-	return r.s.State["recordingGroup"]
-}
-
-// Amazon Resource Name (ARN) of the IAM role.
-// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
-// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-func (r *Recorder) RoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleArn"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Recorder resources.
 type RecorderState struct {
 	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Recording group - see below.
-	RecordingGroup interface{}
+	RecordingGroup RecorderRecordingGroupInput `pulumi:"recordingGroup"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
 	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a Recorder resource.
 type RecorderArgs struct {
 	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Recording group - see below.
-	RecordingGroup interface{}
+	RecordingGroup RecorderRecordingGroupInput `pulumi:"recordingGroup"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	// used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
 	// See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-	RoleArn interface{}
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
+type RecorderRecordingGroup struct {
+	// Specifies whether AWS Config records configuration changes
+	// for every supported type of regional resource (which includes any new type that will become supported in the future).
+	// Conflicts with `resourceTypes`. Defaults to `true`.
+	AllSupported *bool `pulumi:"allSupported"`
+	// Specifies whether AWS Config includes all supported types of *global resources*
+	// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
+	// A list that specifies the types of AWS resources for which
+	// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
+	// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	ResourceTypes *[]string `pulumi:"resourceTypes"`
+}
+var recorderRecordingGroupType = reflect.TypeOf((*RecorderRecordingGroup)(nil)).Elem()
+
+type RecorderRecordingGroupInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingGroupOutput() RecorderRecordingGroupOutput
+	ToRecorderRecordingGroupOutputWithContext(ctx context.Context) RecorderRecordingGroupOutput
+}
+
+type RecorderRecordingGroupArgs struct {
+	// Specifies whether AWS Config records configuration changes
+	// for every supported type of regional resource (which includes any new type that will become supported in the future).
+	// Conflicts with `resourceTypes`. Defaults to `true`.
+	AllSupported pulumi.BoolInput `pulumi:"allSupported"`
+	// Specifies whether AWS Config includes all supported types of *global resources*
+	// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+	IncludeGlobalResourceTypes pulumi.BoolInput `pulumi:"includeGlobalResourceTypes"`
+	// A list that specifies the types of AWS resources for which
+	// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
+	// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (RecorderRecordingGroupArgs) ElementType() reflect.Type {
+	return recorderRecordingGroupType
+}
+
+func (a RecorderRecordingGroupArgs) ToRecorderRecordingGroupOutput() RecorderRecordingGroupOutput {
+	return pulumi.ToOutput(a).(RecorderRecordingGroupOutput)
+}
+
+func (a RecorderRecordingGroupArgs) ToRecorderRecordingGroupOutputWithContext(ctx context.Context) RecorderRecordingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RecorderRecordingGroupOutput)
+}
+
+type RecorderRecordingGroupOutput struct { *pulumi.OutputState }
+
+// Specifies whether AWS Config records configuration changes
+// for every supported type of regional resource (which includes any new type that will become supported in the future).
+// Conflicts with `resourceTypes`. Defaults to `true`.
+func (o RecorderRecordingGroupOutput) AllSupported() pulumi.BoolOutput {
+	return o.Apply(func(v RecorderRecordingGroup) bool {
+		if v.AllSupported == nil { return *new(bool) } else { return *v.AllSupported }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies whether AWS Config includes all supported types of *global resources*
+// with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
+func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolOutput {
+	return o.Apply(func(v RecorderRecordingGroup) bool {
+		if v.IncludeGlobalResourceTypes == nil { return *new(bool) } else { return *v.IncludeGlobalResourceTypes }
+	}).(pulumi.BoolOutput)
+}
+
+// A list that specifies the types of AWS resources for which
+// AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
+// See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+func (o RecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.Apply(func(v RecorderRecordingGroup) []string {
+		if v.ResourceTypes == nil { return *new([]string) } else { return *v.ResourceTypes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (RecorderRecordingGroupOutput) ElementType() reflect.Type {
+	return recorderRecordingGroupType
+}
+
+func (o RecorderRecordingGroupOutput) ToRecorderRecordingGroupOutput() RecorderRecordingGroupOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupOutput) ToRecorderRecordingGroupOutputWithContext(ctx context.Context) RecorderRecordingGroupOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RecorderRecordingGroupOutput{}) }
+

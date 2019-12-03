@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,177 +14,644 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_fleet.html.markdown.
 type Fleet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+	ExcessCapacityTerminationPolicy pulumi.StringOutput `pulumi:"excessCapacityTerminationPolicy"`
+
+	// Nested argument containing EC2 Launch Template configurations. Defined below.
+	LaunchTemplateConfig FleetLaunchTemplateConfigOutput `pulumi:"launchTemplateConfig"`
+
+	// Nested argument containing On-Demand configurations. Defined below.
+	OnDemandOptions FleetOnDemandOptionsOutput `pulumi:"onDemandOptions"`
+
+	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+	ReplaceUnhealthyInstances pulumi.BoolOutput `pulumi:"replaceUnhealthyInstances"`
+
+	// Nested argument containing Spot configurations. Defined below.
+	SpotOptions FleetSpotOptionsOutput `pulumi:"spotOptions"`
+
+	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Nested argument containing target capacity configurations. Defined below.
+	TargetCapacitySpecification FleetTargetCapacitySpecificationOutput `pulumi:"targetCapacitySpecification"`
+
+	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
+	TerminateInstances pulumi.BoolOutput `pulumi:"terminateInstances"`
+
+	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
+	TerminateInstancesWithExpiration pulumi.BoolOutput `pulumi:"terminateInstancesWithExpiration"`
+
+	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
 func NewFleet(ctx *pulumi.Context,
-	name string, args *FleetArgs, opts ...pulumi.ResourceOpt) (*Fleet, error) {
+	name string, args *FleetArgs, opts ...pulumi.ResourceOption) (*Fleet, error) {
 	if args == nil || args.LaunchTemplateConfig == nil {
 		return nil, errors.New("missing required argument 'LaunchTemplateConfig'")
 	}
 	if args == nil || args.TargetCapacitySpecification == nil {
 		return nil, errors.New("missing required argument 'TargetCapacitySpecification'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["excessCapacityTerminationPolicy"] = nil
-		inputs["launchTemplateConfig"] = nil
-		inputs["onDemandOptions"] = nil
-		inputs["replaceUnhealthyInstances"] = nil
-		inputs["spotOptions"] = nil
-		inputs["tags"] = nil
-		inputs["targetCapacitySpecification"] = nil
-		inputs["terminateInstances"] = nil
-		inputs["terminateInstancesWithExpiration"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["excessCapacityTerminationPolicy"] = args.ExcessCapacityTerminationPolicy
-		inputs["launchTemplateConfig"] = args.LaunchTemplateConfig
-		inputs["onDemandOptions"] = args.OnDemandOptions
-		inputs["replaceUnhealthyInstances"] = args.ReplaceUnhealthyInstances
-		inputs["spotOptions"] = args.SpotOptions
-		inputs["tags"] = args.Tags
-		inputs["targetCapacitySpecification"] = args.TargetCapacitySpecification
-		inputs["terminateInstances"] = args.TerminateInstances
-		inputs["terminateInstancesWithExpiration"] = args.TerminateInstancesWithExpiration
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ExcessCapacityTerminationPolicy; i != nil { inputs["excessCapacityTerminationPolicy"] = i.ToStringOutput() }
+		if i := args.LaunchTemplateConfig; i != nil { inputs["launchTemplateConfig"] = i.ToFleetLaunchTemplateConfigOutput() }
+		if i := args.OnDemandOptions; i != nil { inputs["onDemandOptions"] = i.ToFleetOnDemandOptionsOutput() }
+		if i := args.ReplaceUnhealthyInstances; i != nil { inputs["replaceUnhealthyInstances"] = i.ToBoolOutput() }
+		if i := args.SpotOptions; i != nil { inputs["spotOptions"] = i.ToFleetSpotOptionsOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TargetCapacitySpecification; i != nil { inputs["targetCapacitySpecification"] = i.ToFleetTargetCapacitySpecificationOutput() }
+		if i := args.TerminateInstances; i != nil { inputs["terminateInstances"] = i.ToBoolOutput() }
+		if i := args.TerminateInstancesWithExpiration; i != nil { inputs["terminateInstancesWithExpiration"] = i.ToBoolOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("aws:ec2/fleet:Fleet", name, true, inputs, opts...)
+	var resource Fleet
+	err := ctx.RegisterResource("aws:ec2/fleet:Fleet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Fleet{s: s}, nil
+	return &resource, nil
 }
 
 // GetFleet gets an existing Fleet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFleet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FleetState, opts ...pulumi.ResourceOpt) (*Fleet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FleetState, opts ...pulumi.ResourceOption) (*Fleet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["excessCapacityTerminationPolicy"] = state.ExcessCapacityTerminationPolicy
-		inputs["launchTemplateConfig"] = state.LaunchTemplateConfig
-		inputs["onDemandOptions"] = state.OnDemandOptions
-		inputs["replaceUnhealthyInstances"] = state.ReplaceUnhealthyInstances
-		inputs["spotOptions"] = state.SpotOptions
-		inputs["tags"] = state.Tags
-		inputs["targetCapacitySpecification"] = state.TargetCapacitySpecification
-		inputs["terminateInstances"] = state.TerminateInstances
-		inputs["terminateInstancesWithExpiration"] = state.TerminateInstancesWithExpiration
-		inputs["type"] = state.Type
+		if i := state.ExcessCapacityTerminationPolicy; i != nil { inputs["excessCapacityTerminationPolicy"] = i.ToStringOutput() }
+		if i := state.LaunchTemplateConfig; i != nil { inputs["launchTemplateConfig"] = i.ToFleetLaunchTemplateConfigOutput() }
+		if i := state.OnDemandOptions; i != nil { inputs["onDemandOptions"] = i.ToFleetOnDemandOptionsOutput() }
+		if i := state.ReplaceUnhealthyInstances; i != nil { inputs["replaceUnhealthyInstances"] = i.ToBoolOutput() }
+		if i := state.SpotOptions; i != nil { inputs["spotOptions"] = i.ToFleetSpotOptionsOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TargetCapacitySpecification; i != nil { inputs["targetCapacitySpecification"] = i.ToFleetTargetCapacitySpecificationOutput() }
+		if i := state.TerminateInstances; i != nil { inputs["terminateInstances"] = i.ToBoolOutput() }
+		if i := state.TerminateInstancesWithExpiration; i != nil { inputs["terminateInstancesWithExpiration"] = i.ToBoolOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/fleet:Fleet", name, id, inputs, opts...)
+	var resource Fleet
+	err := ctx.ReadResource("aws:ec2/fleet:Fleet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Fleet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Fleet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Fleet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-func (r *Fleet) ExcessCapacityTerminationPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["excessCapacityTerminationPolicy"])
-}
-
-// Nested argument containing EC2 Launch Template configurations. Defined below.
-func (r *Fleet) LaunchTemplateConfig() pulumi.Output {
-	return r.s.State["launchTemplateConfig"]
-}
-
-// Nested argument containing On-Demand configurations. Defined below.
-func (r *Fleet) OnDemandOptions() pulumi.Output {
-	return r.s.State["onDemandOptions"]
-}
-
-// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-func (r *Fleet) ReplaceUnhealthyInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["replaceUnhealthyInstances"])
-}
-
-// Nested argument containing Spot configurations. Defined below.
-func (r *Fleet) SpotOptions() pulumi.Output {
-	return r.s.State["spotOptions"]
-}
-
-// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-func (r *Fleet) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Nested argument containing target capacity configurations. Defined below.
-func (r *Fleet) TargetCapacitySpecification() pulumi.Output {
-	return r.s.State["targetCapacitySpecification"]
-}
-
-// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-func (r *Fleet) TerminateInstances() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["terminateInstances"])
-}
-
-// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-func (r *Fleet) TerminateInstancesWithExpiration() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["terminateInstancesWithExpiration"])
-}
-
-// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-func (r *Fleet) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Fleet resources.
 type FleetState struct {
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-	ExcessCapacityTerminationPolicy interface{}
+	ExcessCapacityTerminationPolicy pulumi.StringInput `pulumi:"excessCapacityTerminationPolicy"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig interface{}
+	LaunchTemplateConfig FleetLaunchTemplateConfigInput `pulumi:"launchTemplateConfig"`
 	// Nested argument containing On-Demand configurations. Defined below.
-	OnDemandOptions interface{}
+	OnDemandOptions FleetOnDemandOptionsInput `pulumi:"onDemandOptions"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-	ReplaceUnhealthyInstances interface{}
+	ReplaceUnhealthyInstances pulumi.BoolInput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
-	SpotOptions interface{}
+	SpotOptions FleetSpotOptionsInput `pulumi:"spotOptions"`
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Nested argument containing target capacity configurations. Defined below.
-	TargetCapacitySpecification interface{}
+	TargetCapacitySpecification FleetTargetCapacitySpecificationInput `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-	TerminateInstances interface{}
+	TerminateInstances pulumi.BoolInput `pulumi:"terminateInstances"`
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-	TerminateInstancesWithExpiration interface{}
+	TerminateInstancesWithExpiration pulumi.BoolInput `pulumi:"terminateInstancesWithExpiration"`
 	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-	ExcessCapacityTerminationPolicy interface{}
+	ExcessCapacityTerminationPolicy pulumi.StringInput `pulumi:"excessCapacityTerminationPolicy"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig interface{}
+	LaunchTemplateConfig FleetLaunchTemplateConfigInput `pulumi:"launchTemplateConfig"`
 	// Nested argument containing On-Demand configurations. Defined below.
-	OnDemandOptions interface{}
+	OnDemandOptions FleetOnDemandOptionsInput `pulumi:"onDemandOptions"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-	ReplaceUnhealthyInstances interface{}
+	ReplaceUnhealthyInstances pulumi.BoolInput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing Spot configurations. Defined below.
-	SpotOptions interface{}
+	SpotOptions FleetSpotOptionsInput `pulumi:"spotOptions"`
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Nested argument containing target capacity configurations. Defined below.
-	TargetCapacitySpecification interface{}
+	TargetCapacitySpecification FleetTargetCapacitySpecificationInput `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-	TerminateInstances interface{}
+	TerminateInstances pulumi.BoolInput `pulumi:"terminateInstances"`
 	// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-	TerminateInstancesWithExpiration interface{}
+	TerminateInstancesWithExpiration pulumi.BoolInput `pulumi:"terminateInstancesWithExpiration"`
 	// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
+type FleetLaunchTemplateConfig struct {
+	// Nested argument containing EC2 Launch Template to use. Defined below.
+	LaunchTemplateSpecification FleetLaunchTemplateConfigLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
+	// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+	Overrides *[]FleetLaunchTemplateConfigOverrides `pulumi:"overrides"`
+}
+var fleetLaunchTemplateConfigType = reflect.TypeOf((*FleetLaunchTemplateConfig)(nil)).Elem()
+
+type FleetLaunchTemplateConfigInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOutput() FleetLaunchTemplateConfigOutput
+	ToFleetLaunchTemplateConfigOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOutput
+}
+
+type FleetLaunchTemplateConfigArgs struct {
+	// Nested argument containing EC2 Launch Template to use. Defined below.
+	LaunchTemplateSpecification FleetLaunchTemplateConfigLaunchTemplateSpecificationInput `pulumi:"launchTemplateSpecification"`
+	// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+	Overrides FleetLaunchTemplateConfigOverridesArrayInput `pulumi:"overrides"`
+}
+
+func (FleetLaunchTemplateConfigArgs) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigType
+}
+
+func (a FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigOutput() FleetLaunchTemplateConfigOutput {
+	return pulumi.ToOutput(a).(FleetLaunchTemplateConfigOutput)
+}
+
+func (a FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetLaunchTemplateConfigOutput)
+}
+
+type FleetLaunchTemplateConfigOutput struct { *pulumi.OutputState }
+
+// Nested argument containing EC2 Launch Template to use. Defined below.
+func (o FleetLaunchTemplateConfigOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfig) FleetLaunchTemplateConfigLaunchTemplateSpecification {
+		return v.LaunchTemplateSpecification
+	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+func (o FleetLaunchTemplateConfigOutput) Overrides() FleetLaunchTemplateConfigOverridesArrayOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverrides {
+		if v.Overrides == nil { return *new([]FleetLaunchTemplateConfigOverrides) } else { return *v.Overrides }
+	}).(FleetLaunchTemplateConfigOverridesArrayOutput)
+}
+
+func (FleetLaunchTemplateConfigOutput) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigType
+}
+
+func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigOutput() FleetLaunchTemplateConfigOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetLaunchTemplateConfigOutput{}) }
+
+type FleetLaunchTemplateConfigLaunchTemplateSpecification struct {
+	// ID of the launch template.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// Name of the launch template.
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// Version number of the launch template.
+	Version string `pulumi:"version"`
+}
+var fleetLaunchTemplateConfigLaunchTemplateSpecificationType = reflect.TypeOf((*FleetLaunchTemplateConfigLaunchTemplateSpecification)(nil)).Elem()
+
+type FleetLaunchTemplateConfigLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput
+	ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput
+}
+
+type FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs struct {
+	// ID of the launch template.
+	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
+	// Name of the launch template.
+	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
+	// Version number of the launch template.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigLaunchTemplateSpecificationType
+}
+
+func (a FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutput(a).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+func (a FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
+}
+
+type FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput struct { *pulumi.OutputState }
+
+// ID of the launch template.
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) string {
+		if v.LaunchTemplateId == nil { return *new(string) } else { return *v.LaunchTemplateId }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the launch template.
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) string {
+		if v.LaunchTemplateName == nil { return *new(string) } else { return *v.LaunchTemplateName }
+	}).(pulumi.StringOutput)
+}
+
+// Version number of the launch template.
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigLaunchTemplateSpecificationType
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutput() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput{}) }
+
+type FleetLaunchTemplateConfigOverrides struct {
+	// Availability Zone in which to launch the instances.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Maximum price per unit hour that you are willing to pay for a Spot Instance.
+	MaxPrice *string `pulumi:"maxPrice"`
+	// Priority for the launch template override. If `onDemandOptions` `allocationStrategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
+	Priority *float64 `pulumi:"priority"`
+	// ID of the subnet in which to launch the instances.
+	SubnetId *string `pulumi:"subnetId"`
+	// Number of units provided by the specified instance type.
+	WeightedCapacity *float64 `pulumi:"weightedCapacity"`
+}
+var fleetLaunchTemplateConfigOverridesType = reflect.TypeOf((*FleetLaunchTemplateConfigOverrides)(nil)).Elem()
+
+type FleetLaunchTemplateConfigOverridesInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverridesOutput() FleetLaunchTemplateConfigOverridesOutput
+	ToFleetLaunchTemplateConfigOverridesOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverridesOutput
+}
+
+type FleetLaunchTemplateConfigOverridesArgs struct {
+	// Availability Zone in which to launch the instances.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// Instance type.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Maximum price per unit hour that you are willing to pay for a Spot Instance.
+	MaxPrice pulumi.StringInput `pulumi:"maxPrice"`
+	// Priority for the launch template override. If `onDemandOptions` `allocationStrategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
+	Priority pulumi.Float64Input `pulumi:"priority"`
+	// ID of the subnet in which to launch the instances.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// Number of units provided by the specified instance type.
+	WeightedCapacity pulumi.Float64Input `pulumi:"weightedCapacity"`
+}
+
+func (FleetLaunchTemplateConfigOverridesArgs) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigOverridesType
+}
+
+func (a FleetLaunchTemplateConfigOverridesArgs) ToFleetLaunchTemplateConfigOverridesOutput() FleetLaunchTemplateConfigOverridesOutput {
+	return pulumi.ToOutput(a).(FleetLaunchTemplateConfigOverridesOutput)
+}
+
+func (a FleetLaunchTemplateConfigOverridesArgs) ToFleetLaunchTemplateConfigOverridesOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetLaunchTemplateConfigOverridesOutput)
+}
+
+type FleetLaunchTemplateConfigOverridesOutput struct { *pulumi.OutputState }
+
+// Availability Zone in which to launch the instances.
+func (o FleetLaunchTemplateConfigOverridesOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigOverrides) string {
+		if v.AvailabilityZone == nil { return *new(string) } else { return *v.AvailabilityZone }
+	}).(pulumi.StringOutput)
+}
+
+// Instance type.
+func (o FleetLaunchTemplateConfigOverridesOutput) InstanceType() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigOverrides) string {
+		if v.InstanceType == nil { return *new(string) } else { return *v.InstanceType }
+	}).(pulumi.StringOutput)
+}
+
+// Maximum price per unit hour that you are willing to pay for a Spot Instance.
+func (o FleetLaunchTemplateConfigOverridesOutput) MaxPrice() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigOverrides) string {
+		if v.MaxPrice == nil { return *new(string) } else { return *v.MaxPrice }
+	}).(pulumi.StringOutput)
+}
+
+// Priority for the launch template override. If `onDemandOptions` `allocationStrategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
+func (o FleetLaunchTemplateConfigOverridesOutput) Priority() pulumi.Float64Output {
+	return o.Apply(func(v FleetLaunchTemplateConfigOverrides) float64 {
+		if v.Priority == nil { return *new(float64) } else { return *v.Priority }
+	}).(pulumi.Float64Output)
+}
+
+// ID of the subnet in which to launch the instances.
+func (o FleetLaunchTemplateConfigOverridesOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v FleetLaunchTemplateConfigOverrides) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+// Number of units provided by the specified instance type.
+func (o FleetLaunchTemplateConfigOverridesOutput) WeightedCapacity() pulumi.Float64Output {
+	return o.Apply(func(v FleetLaunchTemplateConfigOverrides) float64 {
+		if v.WeightedCapacity == nil { return *new(float64) } else { return *v.WeightedCapacity }
+	}).(pulumi.Float64Output)
+}
+
+func (FleetLaunchTemplateConfigOverridesOutput) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigOverridesType
+}
+
+func (o FleetLaunchTemplateConfigOverridesOutput) ToFleetLaunchTemplateConfigOverridesOutput() FleetLaunchTemplateConfigOverridesOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverridesOutput) ToFleetLaunchTemplateConfigOverridesOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverridesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverridesOutput{}) }
+
+var fleetLaunchTemplateConfigOverridesArrayType = reflect.TypeOf((*[]FleetLaunchTemplateConfigOverrides)(nil)).Elem()
+
+type FleetLaunchTemplateConfigOverridesArrayInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverridesArrayOutput() FleetLaunchTemplateConfigOverridesArrayOutput
+	ToFleetLaunchTemplateConfigOverridesArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverridesArrayOutput
+}
+
+type FleetLaunchTemplateConfigOverridesArrayArgs []FleetLaunchTemplateConfigOverridesInput
+
+func (FleetLaunchTemplateConfigOverridesArrayArgs) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigOverridesArrayType
+}
+
+func (a FleetLaunchTemplateConfigOverridesArrayArgs) ToFleetLaunchTemplateConfigOverridesArrayOutput() FleetLaunchTemplateConfigOverridesArrayOutput {
+	return pulumi.ToOutput(a).(FleetLaunchTemplateConfigOverridesArrayOutput)
+}
+
+func (a FleetLaunchTemplateConfigOverridesArrayArgs) ToFleetLaunchTemplateConfigOverridesArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverridesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetLaunchTemplateConfigOverridesArrayOutput)
+}
+
+type FleetLaunchTemplateConfigOverridesArrayOutput struct { *pulumi.OutputState }
+
+func (o FleetLaunchTemplateConfigOverridesArrayOutput) Index(i pulumi.IntInput) FleetLaunchTemplateConfigOverridesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FleetLaunchTemplateConfigOverrides {
+		return vs[0].([]FleetLaunchTemplateConfigOverrides)[vs[1].(int)]
+	}).(FleetLaunchTemplateConfigOverridesOutput)
+}
+
+func (FleetLaunchTemplateConfigOverridesArrayOutput) ElementType() reflect.Type {
+	return fleetLaunchTemplateConfigOverridesArrayType
+}
+
+func (o FleetLaunchTemplateConfigOverridesArrayOutput) ToFleetLaunchTemplateConfigOverridesArrayOutput() FleetLaunchTemplateConfigOverridesArrayOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverridesArrayOutput) ToFleetLaunchTemplateConfigOverridesArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverridesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverridesArrayOutput{}) }
+
+type FleetOnDemandOptions struct {
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+}
+var fleetOnDemandOptionsType = reflect.TypeOf((*FleetOnDemandOptions)(nil)).Elem()
+
+type FleetOnDemandOptionsInput interface {
+	pulumi.Input
+
+	ToFleetOnDemandOptionsOutput() FleetOnDemandOptionsOutput
+	ToFleetOnDemandOptionsOutputWithContext(ctx context.Context) FleetOnDemandOptionsOutput
+}
+
+type FleetOnDemandOptionsArgs struct {
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+}
+
+func (FleetOnDemandOptionsArgs) ElementType() reflect.Type {
+	return fleetOnDemandOptionsType
+}
+
+func (a FleetOnDemandOptionsArgs) ToFleetOnDemandOptionsOutput() FleetOnDemandOptionsOutput {
+	return pulumi.ToOutput(a).(FleetOnDemandOptionsOutput)
+}
+
+func (a FleetOnDemandOptionsArgs) ToFleetOnDemandOptionsOutputWithContext(ctx context.Context) FleetOnDemandOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetOnDemandOptionsOutput)
+}
+
+type FleetOnDemandOptionsOutput struct { *pulumi.OutputState }
+
+// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+func (o FleetOnDemandOptionsOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.Apply(func(v FleetOnDemandOptions) string {
+		if v.AllocationStrategy == nil { return *new(string) } else { return *v.AllocationStrategy }
+	}).(pulumi.StringOutput)
+}
+
+func (FleetOnDemandOptionsOutput) ElementType() reflect.Type {
+	return fleetOnDemandOptionsType
+}
+
+func (o FleetOnDemandOptionsOutput) ToFleetOnDemandOptionsOutput() FleetOnDemandOptionsOutput {
+	return o
+}
+
+func (o FleetOnDemandOptionsOutput) ToFleetOnDemandOptionsOutputWithContext(ctx context.Context) FleetOnDemandOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetOnDemandOptionsOutput{}) }
+
+type FleetSpotOptions struct {
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
+	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
+}
+var fleetSpotOptionsType = reflect.TypeOf((*FleetSpotOptions)(nil)).Elem()
+
+type FleetSpotOptionsInput interface {
+	pulumi.Input
+
+	ToFleetSpotOptionsOutput() FleetSpotOptionsOutput
+	ToFleetSpotOptionsOutputWithContext(ctx context.Context) FleetSpotOptionsOutput
+}
+
+type FleetSpotOptionsArgs struct {
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
+	InstanceInterruptionBehavior pulumi.StringInput `pulumi:"instanceInterruptionBehavior"`
+	// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
+	InstancePoolsToUseCount pulumi.IntInput `pulumi:"instancePoolsToUseCount"`
+}
+
+func (FleetSpotOptionsArgs) ElementType() reflect.Type {
+	return fleetSpotOptionsType
+}
+
+func (a FleetSpotOptionsArgs) ToFleetSpotOptionsOutput() FleetSpotOptionsOutput {
+	return pulumi.ToOutput(a).(FleetSpotOptionsOutput)
+}
+
+func (a FleetSpotOptionsArgs) ToFleetSpotOptionsOutputWithContext(ctx context.Context) FleetSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetSpotOptionsOutput)
+}
+
+type FleetSpotOptionsOutput struct { *pulumi.OutputState }
+
+// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+func (o FleetSpotOptionsOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.Apply(func(v FleetSpotOptions) string {
+		if v.AllocationStrategy == nil { return *new(string) } else { return *v.AllocationStrategy }
+	}).(pulumi.StringOutput)
+}
+
+// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
+func (o FleetSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringOutput {
+	return o.Apply(func(v FleetSpotOptions) string {
+		if v.InstanceInterruptionBehavior == nil { return *new(string) } else { return *v.InstanceInterruptionBehavior }
+	}).(pulumi.StringOutput)
+}
+
+// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
+func (o FleetSpotOptionsOutput) InstancePoolsToUseCount() pulumi.IntOutput {
+	return o.Apply(func(v FleetSpotOptions) int {
+		if v.InstancePoolsToUseCount == nil { return *new(int) } else { return *v.InstancePoolsToUseCount }
+	}).(pulumi.IntOutput)
+}
+
+func (FleetSpotOptionsOutput) ElementType() reflect.Type {
+	return fleetSpotOptionsType
+}
+
+func (o FleetSpotOptionsOutput) ToFleetSpotOptionsOutput() FleetSpotOptionsOutput {
+	return o
+}
+
+func (o FleetSpotOptionsOutput) ToFleetSpotOptionsOutputWithContext(ctx context.Context) FleetSpotOptionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetSpotOptionsOutput{}) }
+
+type FleetTargetCapacitySpecification struct {
+	// Default target capacity type. Valid values: `on-demand`, `spot`.
+	DefaultTargetCapacityType string `pulumi:"defaultTargetCapacityType"`
+	// The number of On-Demand units to request.
+	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
+	// The number of Spot units to request.
+	SpotTargetCapacity *int `pulumi:"spotTargetCapacity"`
+	// The number of units to request, filled using `defaultTargetCapacityType`.
+	TotalTargetCapacity int `pulumi:"totalTargetCapacity"`
+}
+var fleetTargetCapacitySpecificationType = reflect.TypeOf((*FleetTargetCapacitySpecification)(nil)).Elem()
+
+type FleetTargetCapacitySpecificationInput interface {
+	pulumi.Input
+
+	ToFleetTargetCapacitySpecificationOutput() FleetTargetCapacitySpecificationOutput
+	ToFleetTargetCapacitySpecificationOutputWithContext(ctx context.Context) FleetTargetCapacitySpecificationOutput
+}
+
+type FleetTargetCapacitySpecificationArgs struct {
+	// Default target capacity type. Valid values: `on-demand`, `spot`.
+	DefaultTargetCapacityType pulumi.StringInput `pulumi:"defaultTargetCapacityType"`
+	// The number of On-Demand units to request.
+	OnDemandTargetCapacity pulumi.IntInput `pulumi:"onDemandTargetCapacity"`
+	// The number of Spot units to request.
+	SpotTargetCapacity pulumi.IntInput `pulumi:"spotTargetCapacity"`
+	// The number of units to request, filled using `defaultTargetCapacityType`.
+	TotalTargetCapacity pulumi.IntInput `pulumi:"totalTargetCapacity"`
+}
+
+func (FleetTargetCapacitySpecificationArgs) ElementType() reflect.Type {
+	return fleetTargetCapacitySpecificationType
+}
+
+func (a FleetTargetCapacitySpecificationArgs) ToFleetTargetCapacitySpecificationOutput() FleetTargetCapacitySpecificationOutput {
+	return pulumi.ToOutput(a).(FleetTargetCapacitySpecificationOutput)
+}
+
+func (a FleetTargetCapacitySpecificationArgs) ToFleetTargetCapacitySpecificationOutputWithContext(ctx context.Context) FleetTargetCapacitySpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FleetTargetCapacitySpecificationOutput)
+}
+
+type FleetTargetCapacitySpecificationOutput struct { *pulumi.OutputState }
+
+// Default target capacity type. Valid values: `on-demand`, `spot`.
+func (o FleetTargetCapacitySpecificationOutput) DefaultTargetCapacityType() pulumi.StringOutput {
+	return o.Apply(func(v FleetTargetCapacitySpecification) string {
+		return v.DefaultTargetCapacityType
+	}).(pulumi.StringOutput)
+}
+
+// The number of On-Demand units to request.
+func (o FleetTargetCapacitySpecificationOutput) OnDemandTargetCapacity() pulumi.IntOutput {
+	return o.Apply(func(v FleetTargetCapacitySpecification) int {
+		if v.OnDemandTargetCapacity == nil { return *new(int) } else { return *v.OnDemandTargetCapacity }
+	}).(pulumi.IntOutput)
+}
+
+// The number of Spot units to request.
+func (o FleetTargetCapacitySpecificationOutput) SpotTargetCapacity() pulumi.IntOutput {
+	return o.Apply(func(v FleetTargetCapacitySpecification) int {
+		if v.SpotTargetCapacity == nil { return *new(int) } else { return *v.SpotTargetCapacity }
+	}).(pulumi.IntOutput)
+}
+
+// The number of units to request, filled using `defaultTargetCapacityType`.
+func (o FleetTargetCapacitySpecificationOutput) TotalTargetCapacity() pulumi.IntOutput {
+	return o.Apply(func(v FleetTargetCapacitySpecification) int {
+		return v.TotalTargetCapacity
+	}).(pulumi.IntOutput)
+}
+
+func (FleetTargetCapacitySpecificationOutput) ElementType() reflect.Type {
+	return fleetTargetCapacitySpecificationType
+}
+
+func (o FleetTargetCapacitySpecificationOutput) ToFleetTargetCapacitySpecificationOutput() FleetTargetCapacitySpecificationOutput {
+	return o
+}
+
+func (o FleetTargetCapacitySpecificationOutput) ToFleetTargetCapacitySpecificationOutputWithContext(ctx context.Context) FleetTargetCapacitySpecificationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FleetTargetCapacitySpecificationOutput{}) }
+

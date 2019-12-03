@@ -4,6 +4,8 @@
 package elastictranscoder
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,184 +14,596 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_pipeline.html.markdown.
 type Pipeline struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+	AwsKmsKeyArn pulumi.StringOutput `pulumi:"awsKmsKeyArn"`
+
+	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+	ContentConfig PipelineContentConfigOutput `pulumi:"contentConfig"`
+
+	// The permissions for the `contentConfig` object. (documented below)
+	ContentConfigPermissions PipelineContentConfigPermissionsArrayOutput `pulumi:"contentConfigPermissions"`
+
+	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+	InputBucket pulumi.StringOutput `pulumi:"inputBucket"`
+
+	// The name of the pipeline. Maximum 40 characters
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+	Notifications PipelineNotificationsOutput `pulumi:"notifications"`
+
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+	OutputBucket pulumi.StringOutput `pulumi:"outputBucket"`
+
+	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+	Role pulumi.StringOutput `pulumi:"role"`
+
+	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+	ThumbnailConfig PipelineThumbnailConfigOutput `pulumi:"thumbnailConfig"`
+
+	// The permissions for the `thumbnailConfig` object. (documented below)
+	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionsArrayOutput `pulumi:"thumbnailConfigPermissions"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
 func NewPipeline(ctx *pulumi.Context,
-	name string, args *PipelineArgs, opts ...pulumi.ResourceOpt) (*Pipeline, error) {
+	name string, args *PipelineArgs, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	if args == nil || args.InputBucket == nil {
 		return nil, errors.New("missing required argument 'InputBucket'")
 	}
 	if args == nil || args.Role == nil {
 		return nil, errors.New("missing required argument 'Role'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["awsKmsKeyArn"] = nil
-		inputs["contentConfig"] = nil
-		inputs["contentConfigPermissions"] = nil
-		inputs["inputBucket"] = nil
-		inputs["name"] = nil
-		inputs["notifications"] = nil
-		inputs["outputBucket"] = nil
-		inputs["role"] = nil
-		inputs["thumbnailConfig"] = nil
-		inputs["thumbnailConfigPermissions"] = nil
-	} else {
-		inputs["awsKmsKeyArn"] = args.AwsKmsKeyArn
-		inputs["contentConfig"] = args.ContentConfig
-		inputs["contentConfigPermissions"] = args.ContentConfigPermissions
-		inputs["inputBucket"] = args.InputBucket
-		inputs["name"] = args.Name
-		inputs["notifications"] = args.Notifications
-		inputs["outputBucket"] = args.OutputBucket
-		inputs["role"] = args.Role
-		inputs["thumbnailConfig"] = args.ThumbnailConfig
-		inputs["thumbnailConfigPermissions"] = args.ThumbnailConfigPermissions
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AwsKmsKeyArn; i != nil { inputs["awsKmsKeyArn"] = i.ToStringOutput() }
+		if i := args.ContentConfig; i != nil { inputs["contentConfig"] = i.ToPipelineContentConfigOutput() }
+		if i := args.ContentConfigPermissions; i != nil { inputs["contentConfigPermissions"] = i.ToPipelineContentConfigPermissionsArrayOutput() }
+		if i := args.InputBucket; i != nil { inputs["inputBucket"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Notifications; i != nil { inputs["notifications"] = i.ToPipelineNotificationsOutput() }
+		if i := args.OutputBucket; i != nil { inputs["outputBucket"] = i.ToStringOutput() }
+		if i := args.Role; i != nil { inputs["role"] = i.ToStringOutput() }
+		if i := args.ThumbnailConfig; i != nil { inputs["thumbnailConfig"] = i.ToPipelineThumbnailConfigOutput() }
+		if i := args.ThumbnailConfigPermissions; i != nil { inputs["thumbnailConfigPermissions"] = i.ToPipelineThumbnailConfigPermissionsArrayOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:elastictranscoder/pipeline:Pipeline", name, true, inputs, opts...)
+	var resource Pipeline
+	err := ctx.RegisterResource("aws:elastictranscoder/pipeline:Pipeline", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pipeline{s: s}, nil
+	return &resource, nil
 }
 
 // GetPipeline gets an existing Pipeline resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPipeline(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PipelineState, opts ...pulumi.ResourceOpt) (*Pipeline, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["awsKmsKeyArn"] = state.AwsKmsKeyArn
-		inputs["contentConfig"] = state.ContentConfig
-		inputs["contentConfigPermissions"] = state.ContentConfigPermissions
-		inputs["inputBucket"] = state.InputBucket
-		inputs["name"] = state.Name
-		inputs["notifications"] = state.Notifications
-		inputs["outputBucket"] = state.OutputBucket
-		inputs["role"] = state.Role
-		inputs["thumbnailConfig"] = state.ThumbnailConfig
-		inputs["thumbnailConfigPermissions"] = state.ThumbnailConfigPermissions
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.AwsKmsKeyArn; i != nil { inputs["awsKmsKeyArn"] = i.ToStringOutput() }
+		if i := state.ContentConfig; i != nil { inputs["contentConfig"] = i.ToPipelineContentConfigOutput() }
+		if i := state.ContentConfigPermissions; i != nil { inputs["contentConfigPermissions"] = i.ToPipelineContentConfigPermissionsArrayOutput() }
+		if i := state.InputBucket; i != nil { inputs["inputBucket"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Notifications; i != nil { inputs["notifications"] = i.ToPipelineNotificationsOutput() }
+		if i := state.OutputBucket; i != nil { inputs["outputBucket"] = i.ToStringOutput() }
+		if i := state.Role; i != nil { inputs["role"] = i.ToStringOutput() }
+		if i := state.ThumbnailConfig; i != nil { inputs["thumbnailConfig"] = i.ToPipelineThumbnailConfigOutput() }
+		if i := state.ThumbnailConfigPermissions; i != nil { inputs["thumbnailConfigPermissions"] = i.ToPipelineThumbnailConfigPermissionsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("aws:elastictranscoder/pipeline:Pipeline", name, id, inputs, opts...)
+	var resource Pipeline
+	err := ctx.ReadResource("aws:elastictranscoder/pipeline:Pipeline", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pipeline{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Pipeline) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Pipeline) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Pipeline) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-func (r *Pipeline) AwsKmsKeyArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["awsKmsKeyArn"])
-}
-
-// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-func (r *Pipeline) ContentConfig() pulumi.Output {
-	return r.s.State["contentConfig"]
-}
-
-// The permissions for the `contentConfig` object. (documented below)
-func (r *Pipeline) ContentConfigPermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["contentConfigPermissions"])
-}
-
-// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-func (r *Pipeline) InputBucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["inputBucket"])
-}
-
-// The name of the pipeline. Maximum 40 characters
-func (r *Pipeline) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-func (r *Pipeline) Notifications() pulumi.Output {
-	return r.s.State["notifications"]
-}
-
-// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-func (r *Pipeline) OutputBucket() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["outputBucket"])
-}
-
-// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-func (r *Pipeline) Role() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["role"])
-}
-
-// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-func (r *Pipeline) ThumbnailConfig() pulumi.Output {
-	return r.s.State["thumbnailConfig"]
-}
-
-// The permissions for the `thumbnailConfig` object. (documented below)
-func (r *Pipeline) ThumbnailConfigPermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["thumbnailConfigPermissions"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Pipeline resources.
 type PipelineState struct {
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn interface{}
+	AwsKmsKeyArn pulumi.StringInput `pulumi:"awsKmsKeyArn"`
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig interface{}
+	ContentConfig PipelineContentConfigInput `pulumi:"contentConfig"`
 	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions interface{}
+	ContentConfigPermissions PipelineContentConfigPermissionsArrayInput `pulumi:"contentConfigPermissions"`
 	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket interface{}
+	InputBucket pulumi.StringInput `pulumi:"inputBucket"`
 	// The name of the pipeline. Maximum 40 characters
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications interface{}
+	Notifications PipelineNotificationsInput `pulumi:"notifications"`
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket interface{}
+	OutputBucket pulumi.StringInput `pulumi:"outputBucket"`
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role interface{}
+	Role pulumi.StringInput `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig interface{}
+	ThumbnailConfig PipelineThumbnailConfigInput `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
-	ThumbnailConfigPermissions interface{}
+	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionsArrayInput `pulumi:"thumbnailConfigPermissions"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-	AwsKmsKeyArn interface{}
+	AwsKmsKeyArn pulumi.StringInput `pulumi:"awsKmsKeyArn"`
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-	ContentConfig interface{}
+	ContentConfig PipelineContentConfigInput `pulumi:"contentConfig"`
 	// The permissions for the `contentConfig` object. (documented below)
-	ContentConfigPermissions interface{}
+	ContentConfigPermissions PipelineContentConfigPermissionsArrayInput `pulumi:"contentConfigPermissions"`
 	// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
-	InputBucket interface{}
+	InputBucket pulumi.StringInput `pulumi:"inputBucket"`
 	// The name of the pipeline. Maximum 40 characters
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-	Notifications interface{}
+	Notifications PipelineNotificationsInput `pulumi:"notifications"`
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-	OutputBucket interface{}
+	OutputBucket pulumi.StringInput `pulumi:"outputBucket"`
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-	Role interface{}
+	Role pulumi.StringInput `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-	ThumbnailConfig interface{}
+	ThumbnailConfig PipelineThumbnailConfigInput `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
-	ThumbnailConfigPermissions interface{}
+	ThumbnailConfigPermissions PipelineThumbnailConfigPermissionsArrayInput `pulumi:"thumbnailConfigPermissions"`
 }
+type PipelineContentConfig struct {
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+	Bucket *string `pulumi:"bucket"`
+	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+	StorageClass *string `pulumi:"storageClass"`
+}
+var pipelineContentConfigType = reflect.TypeOf((*PipelineContentConfig)(nil)).Elem()
+
+type PipelineContentConfigInput interface {
+	pulumi.Input
+
+	ToPipelineContentConfigOutput() PipelineContentConfigOutput
+	ToPipelineContentConfigOutputWithContext(ctx context.Context) PipelineContentConfigOutput
+}
+
+type PipelineContentConfigArgs struct {
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
+}
+
+func (PipelineContentConfigArgs) ElementType() reflect.Type {
+	return pipelineContentConfigType
+}
+
+func (a PipelineContentConfigArgs) ToPipelineContentConfigOutput() PipelineContentConfigOutput {
+	return pulumi.ToOutput(a).(PipelineContentConfigOutput)
+}
+
+func (a PipelineContentConfigArgs) ToPipelineContentConfigOutputWithContext(ctx context.Context) PipelineContentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineContentConfigOutput)
+}
+
+type PipelineContentConfigOutput struct { *pulumi.OutputState }
+
+// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+func (o PipelineContentConfigOutput) Bucket() pulumi.StringOutput {
+	return o.Apply(func(v PipelineContentConfig) string {
+		if v.Bucket == nil { return *new(string) } else { return *v.Bucket }
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+func (o PipelineContentConfigOutput) StorageClass() pulumi.StringOutput {
+	return o.Apply(func(v PipelineContentConfig) string {
+		if v.StorageClass == nil { return *new(string) } else { return *v.StorageClass }
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineContentConfigOutput) ElementType() reflect.Type {
+	return pipelineContentConfigType
+}
+
+func (o PipelineContentConfigOutput) ToPipelineContentConfigOutput() PipelineContentConfigOutput {
+	return o
+}
+
+func (o PipelineContentConfigOutput) ToPipelineContentConfigOutputWithContext(ctx context.Context) PipelineContentConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineContentConfigOutput{}) }
+
+type PipelineContentConfigPermissions struct {
+	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	Accesses *[]string `pulumi:"accesses"`
+	// The AWS user or group that you want to have access to thumbnail files.
+	Grantee *string `pulumi:"grantee"`
+	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	GranteeType *string `pulumi:"granteeType"`
+}
+var pipelineContentConfigPermissionsType = reflect.TypeOf((*PipelineContentConfigPermissions)(nil)).Elem()
+
+type PipelineContentConfigPermissionsInput interface {
+	pulumi.Input
+
+	ToPipelineContentConfigPermissionsOutput() PipelineContentConfigPermissionsOutput
+	ToPipelineContentConfigPermissionsOutputWithContext(ctx context.Context) PipelineContentConfigPermissionsOutput
+}
+
+type PipelineContentConfigPermissionsArgs struct {
+	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	Accesses pulumi.StringArrayInput `pulumi:"accesses"`
+	// The AWS user or group that you want to have access to thumbnail files.
+	Grantee pulumi.StringInput `pulumi:"grantee"`
+	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	GranteeType pulumi.StringInput `pulumi:"granteeType"`
+}
+
+func (PipelineContentConfigPermissionsArgs) ElementType() reflect.Type {
+	return pipelineContentConfigPermissionsType
+}
+
+func (a PipelineContentConfigPermissionsArgs) ToPipelineContentConfigPermissionsOutput() PipelineContentConfigPermissionsOutput {
+	return pulumi.ToOutput(a).(PipelineContentConfigPermissionsOutput)
+}
+
+func (a PipelineContentConfigPermissionsArgs) ToPipelineContentConfigPermissionsOutputWithContext(ctx context.Context) PipelineContentConfigPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineContentConfigPermissionsOutput)
+}
+
+type PipelineContentConfigPermissionsOutput struct { *pulumi.OutputState }
+
+// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+func (o PipelineContentConfigPermissionsOutput) Accesses() pulumi.StringArrayOutput {
+	return o.Apply(func(v PipelineContentConfigPermissions) []string {
+		if v.Accesses == nil { return *new([]string) } else { return *v.Accesses }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The AWS user or group that you want to have access to thumbnail files.
+func (o PipelineContentConfigPermissionsOutput) Grantee() pulumi.StringOutput {
+	return o.Apply(func(v PipelineContentConfigPermissions) string {
+		if v.Grantee == nil { return *new(string) } else { return *v.Grantee }
+	}).(pulumi.StringOutput)
+}
+
+// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+func (o PipelineContentConfigPermissionsOutput) GranteeType() pulumi.StringOutput {
+	return o.Apply(func(v PipelineContentConfigPermissions) string {
+		if v.GranteeType == nil { return *new(string) } else { return *v.GranteeType }
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineContentConfigPermissionsOutput) ElementType() reflect.Type {
+	return pipelineContentConfigPermissionsType
+}
+
+func (o PipelineContentConfigPermissionsOutput) ToPipelineContentConfigPermissionsOutput() PipelineContentConfigPermissionsOutput {
+	return o
+}
+
+func (o PipelineContentConfigPermissionsOutput) ToPipelineContentConfigPermissionsOutputWithContext(ctx context.Context) PipelineContentConfigPermissionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineContentConfigPermissionsOutput{}) }
+
+var pipelineContentConfigPermissionsArrayType = reflect.TypeOf((*[]PipelineContentConfigPermissions)(nil)).Elem()
+
+type PipelineContentConfigPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToPipelineContentConfigPermissionsArrayOutput() PipelineContentConfigPermissionsArrayOutput
+	ToPipelineContentConfigPermissionsArrayOutputWithContext(ctx context.Context) PipelineContentConfigPermissionsArrayOutput
+}
+
+type PipelineContentConfigPermissionsArrayArgs []PipelineContentConfigPermissionsInput
+
+func (PipelineContentConfigPermissionsArrayArgs) ElementType() reflect.Type {
+	return pipelineContentConfigPermissionsArrayType
+}
+
+func (a PipelineContentConfigPermissionsArrayArgs) ToPipelineContentConfigPermissionsArrayOutput() PipelineContentConfigPermissionsArrayOutput {
+	return pulumi.ToOutput(a).(PipelineContentConfigPermissionsArrayOutput)
+}
+
+func (a PipelineContentConfigPermissionsArrayArgs) ToPipelineContentConfigPermissionsArrayOutputWithContext(ctx context.Context) PipelineContentConfigPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineContentConfigPermissionsArrayOutput)
+}
+
+type PipelineContentConfigPermissionsArrayOutput struct { *pulumi.OutputState }
+
+func (o PipelineContentConfigPermissionsArrayOutput) Index(i pulumi.IntInput) PipelineContentConfigPermissionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PipelineContentConfigPermissions {
+		return vs[0].([]PipelineContentConfigPermissions)[vs[1].(int)]
+	}).(PipelineContentConfigPermissionsOutput)
+}
+
+func (PipelineContentConfigPermissionsArrayOutput) ElementType() reflect.Type {
+	return pipelineContentConfigPermissionsArrayType
+}
+
+func (o PipelineContentConfigPermissionsArrayOutput) ToPipelineContentConfigPermissionsArrayOutput() PipelineContentConfigPermissionsArrayOutput {
+	return o
+}
+
+func (o PipelineContentConfigPermissionsArrayOutput) ToPipelineContentConfigPermissionsArrayOutputWithContext(ctx context.Context) PipelineContentConfigPermissionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineContentConfigPermissionsArrayOutput{}) }
+
+type PipelineNotifications struct {
+	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+	Completed *string `pulumi:"completed"`
+	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+	Error *string `pulumi:"error"`
+	// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+	Progressing *string `pulumi:"progressing"`
+	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+	Warning *string `pulumi:"warning"`
+}
+var pipelineNotificationsType = reflect.TypeOf((*PipelineNotifications)(nil)).Elem()
+
+type PipelineNotificationsInput interface {
+	pulumi.Input
+
+	ToPipelineNotificationsOutput() PipelineNotificationsOutput
+	ToPipelineNotificationsOutputWithContext(ctx context.Context) PipelineNotificationsOutput
+}
+
+type PipelineNotificationsArgs struct {
+	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+	Completed pulumi.StringInput `pulumi:"completed"`
+	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+	Error pulumi.StringInput `pulumi:"error"`
+	// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+	Progressing pulumi.StringInput `pulumi:"progressing"`
+	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+	Warning pulumi.StringInput `pulumi:"warning"`
+}
+
+func (PipelineNotificationsArgs) ElementType() reflect.Type {
+	return pipelineNotificationsType
+}
+
+func (a PipelineNotificationsArgs) ToPipelineNotificationsOutput() PipelineNotificationsOutput {
+	return pulumi.ToOutput(a).(PipelineNotificationsOutput)
+}
+
+func (a PipelineNotificationsArgs) ToPipelineNotificationsOutputWithContext(ctx context.Context) PipelineNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineNotificationsOutput)
+}
+
+type PipelineNotificationsOutput struct { *pulumi.OutputState }
+
+// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+func (o PipelineNotificationsOutput) Completed() pulumi.StringOutput {
+	return o.Apply(func(v PipelineNotifications) string {
+		if v.Completed == nil { return *new(string) } else { return *v.Completed }
+	}).(pulumi.StringOutput)
+}
+
+// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+func (o PipelineNotificationsOutput) Error() pulumi.StringOutput {
+	return o.Apply(func(v PipelineNotifications) string {
+		if v.Error == nil { return *new(string) } else { return *v.Error }
+	}).(pulumi.StringOutput)
+}
+
+// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+func (o PipelineNotificationsOutput) Progressing() pulumi.StringOutput {
+	return o.Apply(func(v PipelineNotifications) string {
+		if v.Progressing == nil { return *new(string) } else { return *v.Progressing }
+	}).(pulumi.StringOutput)
+}
+
+// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+func (o PipelineNotificationsOutput) Warning() pulumi.StringOutput {
+	return o.Apply(func(v PipelineNotifications) string {
+		if v.Warning == nil { return *new(string) } else { return *v.Warning }
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineNotificationsOutput) ElementType() reflect.Type {
+	return pipelineNotificationsType
+}
+
+func (o PipelineNotificationsOutput) ToPipelineNotificationsOutput() PipelineNotificationsOutput {
+	return o
+}
+
+func (o PipelineNotificationsOutput) ToPipelineNotificationsOutputWithContext(ctx context.Context) PipelineNotificationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineNotificationsOutput{}) }
+
+type PipelineThumbnailConfig struct {
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+	Bucket *string `pulumi:"bucket"`
+	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+	StorageClass *string `pulumi:"storageClass"`
+}
+var pipelineThumbnailConfigType = reflect.TypeOf((*PipelineThumbnailConfig)(nil)).Elem()
+
+type PipelineThumbnailConfigInput interface {
+	pulumi.Input
+
+	ToPipelineThumbnailConfigOutput() PipelineThumbnailConfigOutput
+	ToPipelineThumbnailConfigOutputWithContext(ctx context.Context) PipelineThumbnailConfigOutput
+}
+
+type PipelineThumbnailConfigArgs struct {
+	// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
+}
+
+func (PipelineThumbnailConfigArgs) ElementType() reflect.Type {
+	return pipelineThumbnailConfigType
+}
+
+func (a PipelineThumbnailConfigArgs) ToPipelineThumbnailConfigOutput() PipelineThumbnailConfigOutput {
+	return pulumi.ToOutput(a).(PipelineThumbnailConfigOutput)
+}
+
+func (a PipelineThumbnailConfigArgs) ToPipelineThumbnailConfigOutputWithContext(ctx context.Context) PipelineThumbnailConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineThumbnailConfigOutput)
+}
+
+type PipelineThumbnailConfigOutput struct { *pulumi.OutputState }
+
+// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+func (o PipelineThumbnailConfigOutput) Bucket() pulumi.StringOutput {
+	return o.Apply(func(v PipelineThumbnailConfig) string {
+		if v.Bucket == nil { return *new(string) } else { return *v.Bucket }
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+func (o PipelineThumbnailConfigOutput) StorageClass() pulumi.StringOutput {
+	return o.Apply(func(v PipelineThumbnailConfig) string {
+		if v.StorageClass == nil { return *new(string) } else { return *v.StorageClass }
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineThumbnailConfigOutput) ElementType() reflect.Type {
+	return pipelineThumbnailConfigType
+}
+
+func (o PipelineThumbnailConfigOutput) ToPipelineThumbnailConfigOutput() PipelineThumbnailConfigOutput {
+	return o
+}
+
+func (o PipelineThumbnailConfigOutput) ToPipelineThumbnailConfigOutputWithContext(ctx context.Context) PipelineThumbnailConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineThumbnailConfigOutput{}) }
+
+type PipelineThumbnailConfigPermissions struct {
+	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	Accesses *[]string `pulumi:"accesses"`
+	// The AWS user or group that you want to have access to thumbnail files.
+	Grantee *string `pulumi:"grantee"`
+	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	GranteeType *string `pulumi:"granteeType"`
+}
+var pipelineThumbnailConfigPermissionsType = reflect.TypeOf((*PipelineThumbnailConfigPermissions)(nil)).Elem()
+
+type PipelineThumbnailConfigPermissionsInput interface {
+	pulumi.Input
+
+	ToPipelineThumbnailConfigPermissionsOutput() PipelineThumbnailConfigPermissionsOutput
+	ToPipelineThumbnailConfigPermissionsOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionsOutput
+}
+
+type PipelineThumbnailConfigPermissionsArgs struct {
+	// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+	Accesses pulumi.StringArrayInput `pulumi:"accesses"`
+	// The AWS user or group that you want to have access to thumbnail files.
+	Grantee pulumi.StringInput `pulumi:"grantee"`
+	// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+	GranteeType pulumi.StringInput `pulumi:"granteeType"`
+}
+
+func (PipelineThumbnailConfigPermissionsArgs) ElementType() reflect.Type {
+	return pipelineThumbnailConfigPermissionsType
+}
+
+func (a PipelineThumbnailConfigPermissionsArgs) ToPipelineThumbnailConfigPermissionsOutput() PipelineThumbnailConfigPermissionsOutput {
+	return pulumi.ToOutput(a).(PipelineThumbnailConfigPermissionsOutput)
+}
+
+func (a PipelineThumbnailConfigPermissionsArgs) ToPipelineThumbnailConfigPermissionsOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineThumbnailConfigPermissionsOutput)
+}
+
+type PipelineThumbnailConfigPermissionsOutput struct { *pulumi.OutputState }
+
+// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+func (o PipelineThumbnailConfigPermissionsOutput) Accesses() pulumi.StringArrayOutput {
+	return o.Apply(func(v PipelineThumbnailConfigPermissions) []string {
+		if v.Accesses == nil { return *new([]string) } else { return *v.Accesses }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The AWS user or group that you want to have access to thumbnail files.
+func (o PipelineThumbnailConfigPermissionsOutput) Grantee() pulumi.StringOutput {
+	return o.Apply(func(v PipelineThumbnailConfigPermissions) string {
+		if v.Grantee == nil { return *new(string) } else { return *v.Grantee }
+	}).(pulumi.StringOutput)
+}
+
+// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
+func (o PipelineThumbnailConfigPermissionsOutput) GranteeType() pulumi.StringOutput {
+	return o.Apply(func(v PipelineThumbnailConfigPermissions) string {
+		if v.GranteeType == nil { return *new(string) } else { return *v.GranteeType }
+	}).(pulumi.StringOutput)
+}
+
+func (PipelineThumbnailConfigPermissionsOutput) ElementType() reflect.Type {
+	return pipelineThumbnailConfigPermissionsType
+}
+
+func (o PipelineThumbnailConfigPermissionsOutput) ToPipelineThumbnailConfigPermissionsOutput() PipelineThumbnailConfigPermissionsOutput {
+	return o
+}
+
+func (o PipelineThumbnailConfigPermissionsOutput) ToPipelineThumbnailConfigPermissionsOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineThumbnailConfigPermissionsOutput{}) }
+
+var pipelineThumbnailConfigPermissionsArrayType = reflect.TypeOf((*[]PipelineThumbnailConfigPermissions)(nil)).Elem()
+
+type PipelineThumbnailConfigPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToPipelineThumbnailConfigPermissionsArrayOutput() PipelineThumbnailConfigPermissionsArrayOutput
+	ToPipelineThumbnailConfigPermissionsArrayOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionsArrayOutput
+}
+
+type PipelineThumbnailConfigPermissionsArrayArgs []PipelineThumbnailConfigPermissionsInput
+
+func (PipelineThumbnailConfigPermissionsArrayArgs) ElementType() reflect.Type {
+	return pipelineThumbnailConfigPermissionsArrayType
+}
+
+func (a PipelineThumbnailConfigPermissionsArrayArgs) ToPipelineThumbnailConfigPermissionsArrayOutput() PipelineThumbnailConfigPermissionsArrayOutput {
+	return pulumi.ToOutput(a).(PipelineThumbnailConfigPermissionsArrayOutput)
+}
+
+func (a PipelineThumbnailConfigPermissionsArrayArgs) ToPipelineThumbnailConfigPermissionsArrayOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PipelineThumbnailConfigPermissionsArrayOutput)
+}
+
+type PipelineThumbnailConfigPermissionsArrayOutput struct { *pulumi.OutputState }
+
+func (o PipelineThumbnailConfigPermissionsArrayOutput) Index(i pulumi.IntInput) PipelineThumbnailConfigPermissionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PipelineThumbnailConfigPermissions {
+		return vs[0].([]PipelineThumbnailConfigPermissions)[vs[1].(int)]
+	}).(PipelineThumbnailConfigPermissionsOutput)
+}
+
+func (PipelineThumbnailConfigPermissionsArrayOutput) ElementType() reflect.Type {
+	return pipelineThumbnailConfigPermissionsArrayType
+}
+
+func (o PipelineThumbnailConfigPermissionsArrayOutput) ToPipelineThumbnailConfigPermissionsArrayOutput() PipelineThumbnailConfigPermissionsArrayOutput {
+	return o
+}
+
+func (o PipelineThumbnailConfigPermissionsArrayOutput) ToPipelineThumbnailConfigPermissionsArrayOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PipelineThumbnailConfigPermissionsArrayOutput{}) }
+

@@ -13,108 +13,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_client_vpn_network_association.html.markdown.
 type NetworkAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Client VPN endpoint.
+	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
+
+	// The IDs of the security groups applied to the target network association.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
+
+	// The current state of the target network association.
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// The ID of the subnet to associate with the Client VPN endpoint.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+
+	// The ID of the VPC in which the target network (subnet) is located. 
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkAssociation registers a new resource with the given unique name, arguments, and options.
 func NewNetworkAssociation(ctx *pulumi.Context,
-	name string, args *NetworkAssociationArgs, opts ...pulumi.ResourceOpt) (*NetworkAssociation, error) {
+	name string, args *NetworkAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkAssociation, error) {
 	if args == nil || args.ClientVpnEndpointId == nil {
 		return nil, errors.New("missing required argument 'ClientVpnEndpointId'")
 	}
 	if args == nil || args.SubnetId == nil {
 		return nil, errors.New("missing required argument 'SubnetId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clientVpnEndpointId"] = nil
-		inputs["subnetId"] = nil
-	} else {
-		inputs["clientVpnEndpointId"] = args.ClientVpnEndpointId
-		inputs["subnetId"] = args.SubnetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClientVpnEndpointId; i != nil { inputs["clientVpnEndpointId"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	inputs["securityGroups"] = nil
-	inputs["status"] = nil
-	inputs["vpcId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, true, inputs, opts...)
+	var resource NetworkAssociation
+	err := ctx.RegisterResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkAssociation gets an existing NetworkAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkAssociationState, opts ...pulumi.ResourceOpt) (*NetworkAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkAssociationState, opts ...pulumi.ResourceOption) (*NetworkAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clientVpnEndpointId"] = state.ClientVpnEndpointId
-		inputs["securityGroups"] = state.SecurityGroups
-		inputs["status"] = state.Status
-		inputs["subnetId"] = state.SubnetId
-		inputs["vpcId"] = state.VpcId
+		if i := state.ClientVpnEndpointId; i != nil { inputs["clientVpnEndpointId"] = i.ToStringOutput() }
+		if i := state.SecurityGroups; i != nil { inputs["securityGroups"] = i.ToStringArrayOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, id, inputs, opts...)
+	var resource NetworkAssociation
+	err := ctx.ReadResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Client VPN endpoint.
-func (r *NetworkAssociation) ClientVpnEndpointId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientVpnEndpointId"])
-}
-
-// The IDs of the security groups applied to the target network association.
-func (r *NetworkAssociation) SecurityGroups() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityGroups"])
-}
-
-// The current state of the target network association.
-func (r *NetworkAssociation) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// The ID of the subnet to associate with the Client VPN endpoint.
-func (r *NetworkAssociation) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
-// The ID of the VPC in which the target network (subnet) is located. 
-func (r *NetworkAssociation) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkAssociation resources.
 type NetworkAssociationState struct {
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId interface{}
+	ClientVpnEndpointId pulumi.StringInput `pulumi:"clientVpnEndpointId"`
 	// The IDs of the security groups applied to the target network association.
-	SecurityGroups interface{}
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The current state of the target network association.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The ID of the VPC in which the target network (subnet) is located. 
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkAssociation resource.
 type NetworkAssociationArgs struct {
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId interface{}
+	ClientVpnEndpointId pulumi.StringInput `pulumi:"clientVpnEndpointId"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }

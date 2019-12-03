@@ -4,6 +4,8 @@
 package globalaccelerator
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -11,108 +13,268 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
 type Accelerator struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The attributes of the accelerator. Fields documented below.
+	Attributes AcceleratorAttributesOutput `pulumi:"attributes"`
+
+	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The value for the address type must be `IPV4`.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
+
+	// IP address set associated with the accelerator.
+	IpSets AcceleratorIpSetsArrayOutput `pulumi:"ipSets"`
+
+	// The name of the accelerator.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
 func NewAccelerator(ctx *pulumi.Context,
-	name string, args *AcceleratorArgs, opts ...pulumi.ResourceOpt) (*Accelerator, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["attributes"] = nil
-		inputs["enabled"] = nil
-		inputs["ipAddressType"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["attributes"] = args.Attributes
-		inputs["enabled"] = args.Enabled
-		inputs["ipAddressType"] = args.IpAddressType
-		inputs["name"] = args.Name
+	name string, args *AcceleratorArgs, opts ...pulumi.ResourceOption) (*Accelerator, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Attributes; i != nil { inputs["attributes"] = i.ToAcceleratorAttributesOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.IpAddressType; i != nil { inputs["ipAddressType"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	inputs["ipSets"] = nil
-	s, err := ctx.RegisterResource("aws:globalaccelerator/accelerator:Accelerator", name, true, inputs, opts...)
+	var resource Accelerator
+	err := ctx.RegisterResource("aws:globalaccelerator/accelerator:Accelerator", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Accelerator{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccelerator gets an existing Accelerator resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccelerator(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AcceleratorState, opts ...pulumi.ResourceOpt) (*Accelerator, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AcceleratorState, opts ...pulumi.ResourceOption) (*Accelerator, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["attributes"] = state.Attributes
-		inputs["enabled"] = state.Enabled
-		inputs["ipAddressType"] = state.IpAddressType
-		inputs["ipSets"] = state.IpSets
-		inputs["name"] = state.Name
+		if i := state.Attributes; i != nil { inputs["attributes"] = i.ToAcceleratorAttributesOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.IpAddressType; i != nil { inputs["ipAddressType"] = i.ToStringOutput() }
+		if i := state.IpSets; i != nil { inputs["ipSets"] = i.ToAcceleratorIpSetsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:globalaccelerator/accelerator:Accelerator", name, id, inputs, opts...)
+	var resource Accelerator
+	err := ctx.ReadResource("aws:globalaccelerator/accelerator:Accelerator", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Accelerator{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Accelerator) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Accelerator) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The attributes of the accelerator. Fields documented below.
-func (r *Accelerator) Attributes() pulumi.Output {
-	return r.s.State["attributes"]
-}
-
-// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-func (r *Accelerator) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The value for the address type must be `IPV4`.
-func (r *Accelerator) IpAddressType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddressType"])
-}
-
-// IP address set associated with the accelerator.
-func (r *Accelerator) IpSets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipSets"])
-}
-
-// The name of the accelerator.
-func (r *Accelerator) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Accelerator resources.
 type AcceleratorState struct {
 	// The attributes of the accelerator. Fields documented below.
-	Attributes interface{}
+	Attributes AcceleratorAttributesInput `pulumi:"attributes"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The value for the address type must be `IPV4`.
-	IpAddressType interface{}
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// IP address set associated with the accelerator.
-	IpSets interface{}
+	IpSets AcceleratorIpSetsArrayInput `pulumi:"ipSets"`
 	// The name of the accelerator.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
 type AcceleratorArgs struct {
 	// The attributes of the accelerator. Fields documented below.
-	Attributes interface{}
+	Attributes AcceleratorAttributesInput `pulumi:"attributes"`
 	// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The value for the address type must be `IPV4`.
-	IpAddressType interface{}
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// The name of the accelerator.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
+type AcceleratorAttributes struct {
+	// Indicates whether flow logs are enabled.
+	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
+}
+var acceleratorAttributesType = reflect.TypeOf((*AcceleratorAttributes)(nil)).Elem()
+
+type AcceleratorAttributesInput interface {
+	pulumi.Input
+
+	ToAcceleratorAttributesOutput() AcceleratorAttributesOutput
+	ToAcceleratorAttributesOutputWithContext(ctx context.Context) AcceleratorAttributesOutput
+}
+
+type AcceleratorAttributesArgs struct {
+	// Indicates whether flow logs are enabled.
+	FlowLogsEnabled pulumi.BoolInput `pulumi:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Bucket pulumi.StringInput `pulumi:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Prefix pulumi.StringInput `pulumi:"flowLogsS3Prefix"`
+}
+
+func (AcceleratorAttributesArgs) ElementType() reflect.Type {
+	return acceleratorAttributesType
+}
+
+func (a AcceleratorAttributesArgs) ToAcceleratorAttributesOutput() AcceleratorAttributesOutput {
+	return pulumi.ToOutput(a).(AcceleratorAttributesOutput)
+}
+
+func (a AcceleratorAttributesArgs) ToAcceleratorAttributesOutputWithContext(ctx context.Context) AcceleratorAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AcceleratorAttributesOutput)
+}
+
+type AcceleratorAttributesOutput struct { *pulumi.OutputState }
+
+// Indicates whether flow logs are enabled.
+func (o AcceleratorAttributesOutput) FlowLogsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v AcceleratorAttributes) bool {
+		if v.FlowLogsEnabled == nil { return *new(bool) } else { return *v.FlowLogsEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the Amazon S3 bucket for the flow logs.
+func (o AcceleratorAttributesOutput) FlowLogsS3Bucket() pulumi.StringOutput {
+	return o.Apply(func(v AcceleratorAttributes) string {
+		if v.FlowLogsS3Bucket == nil { return *new(string) } else { return *v.FlowLogsS3Bucket }
+	}).(pulumi.StringOutput)
+}
+
+// The prefix for the location in the Amazon S3 bucket for the flow logs.
+func (o AcceleratorAttributesOutput) FlowLogsS3Prefix() pulumi.StringOutput {
+	return o.Apply(func(v AcceleratorAttributes) string {
+		if v.FlowLogsS3Prefix == nil { return *new(string) } else { return *v.FlowLogsS3Prefix }
+	}).(pulumi.StringOutput)
+}
+
+func (AcceleratorAttributesOutput) ElementType() reflect.Type {
+	return acceleratorAttributesType
+}
+
+func (o AcceleratorAttributesOutput) ToAcceleratorAttributesOutput() AcceleratorAttributesOutput {
+	return o
+}
+
+func (o AcceleratorAttributesOutput) ToAcceleratorAttributesOutputWithContext(ctx context.Context) AcceleratorAttributesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AcceleratorAttributesOutput{}) }
+
+type AcceleratorIpSets struct {
+	// The array of IP addresses in the IP address set.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The types of IP addresses included in this IP set.
+	IpFamily string `pulumi:"ipFamily"`
+}
+var acceleratorIpSetsType = reflect.TypeOf((*AcceleratorIpSets)(nil)).Elem()
+
+type AcceleratorIpSetsInput interface {
+	pulumi.Input
+
+	ToAcceleratorIpSetsOutput() AcceleratorIpSetsOutput
+	ToAcceleratorIpSetsOutputWithContext(ctx context.Context) AcceleratorIpSetsOutput
+}
+
+type AcceleratorIpSetsArgs struct {
+	// The array of IP addresses in the IP address set.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The types of IP addresses included in this IP set.
+	IpFamily pulumi.StringInput `pulumi:"ipFamily"`
+}
+
+func (AcceleratorIpSetsArgs) ElementType() reflect.Type {
+	return acceleratorIpSetsType
+}
+
+func (a AcceleratorIpSetsArgs) ToAcceleratorIpSetsOutput() AcceleratorIpSetsOutput {
+	return pulumi.ToOutput(a).(AcceleratorIpSetsOutput)
+}
+
+func (a AcceleratorIpSetsArgs) ToAcceleratorIpSetsOutputWithContext(ctx context.Context) AcceleratorIpSetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AcceleratorIpSetsOutput)
+}
+
+type AcceleratorIpSetsOutput struct { *pulumi.OutputState }
+
+// The array of IP addresses in the IP address set.
+func (o AcceleratorIpSetsOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v AcceleratorIpSets) []string {
+		return v.IpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The types of IP addresses included in this IP set.
+func (o AcceleratorIpSetsOutput) IpFamily() pulumi.StringOutput {
+	return o.Apply(func(v AcceleratorIpSets) string {
+		return v.IpFamily
+	}).(pulumi.StringOutput)
+}
+
+func (AcceleratorIpSetsOutput) ElementType() reflect.Type {
+	return acceleratorIpSetsType
+}
+
+func (o AcceleratorIpSetsOutput) ToAcceleratorIpSetsOutput() AcceleratorIpSetsOutput {
+	return o
+}
+
+func (o AcceleratorIpSetsOutput) ToAcceleratorIpSetsOutputWithContext(ctx context.Context) AcceleratorIpSetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AcceleratorIpSetsOutput{}) }
+
+var acceleratorIpSetsArrayType = reflect.TypeOf((*[]AcceleratorIpSets)(nil)).Elem()
+
+type AcceleratorIpSetsArrayInput interface {
+	pulumi.Input
+
+	ToAcceleratorIpSetsArrayOutput() AcceleratorIpSetsArrayOutput
+	ToAcceleratorIpSetsArrayOutputWithContext(ctx context.Context) AcceleratorIpSetsArrayOutput
+}
+
+type AcceleratorIpSetsArrayArgs []AcceleratorIpSetsInput
+
+func (AcceleratorIpSetsArrayArgs) ElementType() reflect.Type {
+	return acceleratorIpSetsArrayType
+}
+
+func (a AcceleratorIpSetsArrayArgs) ToAcceleratorIpSetsArrayOutput() AcceleratorIpSetsArrayOutput {
+	return pulumi.ToOutput(a).(AcceleratorIpSetsArrayOutput)
+}
+
+func (a AcceleratorIpSetsArrayArgs) ToAcceleratorIpSetsArrayOutputWithContext(ctx context.Context) AcceleratorIpSetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AcceleratorIpSetsArrayOutput)
+}
+
+type AcceleratorIpSetsArrayOutput struct { *pulumi.OutputState }
+
+func (o AcceleratorIpSetsArrayOutput) Index(i pulumi.IntInput) AcceleratorIpSetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AcceleratorIpSets {
+		return vs[0].([]AcceleratorIpSets)[vs[1].(int)]
+	}).(AcceleratorIpSetsOutput)
+}
+
+func (AcceleratorIpSetsArrayOutput) ElementType() reflect.Type {
+	return acceleratorIpSetsArrayType
+}
+
+func (o AcceleratorIpSetsArrayOutput) ToAcceleratorIpSetsArrayOutput() AcceleratorIpSetsArrayOutput {
+	return o
+}
+
+func (o AcceleratorIpSetsArrayOutput) ToAcceleratorIpSetsArrayOutputWithContext(ctx context.Context) AcceleratorIpSetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AcceleratorIpSetsArrayOutput{}) }
+

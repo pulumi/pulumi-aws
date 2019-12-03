@@ -11,77 +11,62 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_delegation_set.html.markdown.
 type DelegationSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A list of authoritative name servers for the hosted zone
+	// (effectively a list of NS records).
+	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
+
+	// This is a reference name used in Caller Reference
+	// (helpful for identifying single delegation set amongst others)
+	ReferenceName pulumi.StringOutput `pulumi:"referenceName"`
 }
 
 // NewDelegationSet registers a new resource with the given unique name, arguments, and options.
 func NewDelegationSet(ctx *pulumi.Context,
-	name string, args *DelegationSetArgs, opts ...pulumi.ResourceOpt) (*DelegationSet, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["referenceName"] = nil
-	} else {
-		inputs["referenceName"] = args.ReferenceName
+	name string, args *DelegationSetArgs, opts ...pulumi.ResourceOption) (*DelegationSet, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ReferenceName; i != nil { inputs["referenceName"] = i.ToStringOutput() }
 	}
-	inputs["nameServers"] = nil
-	s, err := ctx.RegisterResource("aws:route53/delegationSet:DelegationSet", name, true, inputs, opts...)
+	var resource DelegationSet
+	err := ctx.RegisterResource("aws:route53/delegationSet:DelegationSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DelegationSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetDelegationSet gets an existing DelegationSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDelegationSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DelegationSetState, opts ...pulumi.ResourceOpt) (*DelegationSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DelegationSetState, opts ...pulumi.ResourceOption) (*DelegationSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["nameServers"] = state.NameServers
-		inputs["referenceName"] = state.ReferenceName
+		if i := state.NameServers; i != nil { inputs["nameServers"] = i.ToStringArrayOutput() }
+		if i := state.ReferenceName; i != nil { inputs["referenceName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:route53/delegationSet:DelegationSet", name, id, inputs, opts...)
+	var resource DelegationSet
+	err := ctx.ReadResource("aws:route53/delegationSet:DelegationSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DelegationSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DelegationSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DelegationSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A list of authoritative name servers for the hosted zone
-// (effectively a list of NS records).
-func (r *DelegationSet) NameServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["nameServers"])
-}
-
-// This is a reference name used in Caller Reference
-// (helpful for identifying single delegation set amongst others)
-func (r *DelegationSet) ReferenceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["referenceName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DelegationSet resources.
 type DelegationSetState struct {
 	// A list of authoritative name servers for the hosted zone
 	// (effectively a list of NS records).
-	NameServers interface{}
+	NameServers pulumi.StringArrayInput `pulumi:"nameServers"`
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single delegation set amongst others)
-	ReferenceName interface{}
+	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
 }
 
 // The set of arguments for constructing a DelegationSet resource.
 type DelegationSetArgs struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single delegation set amongst others)
-	ReferenceName interface{}
+	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
 }

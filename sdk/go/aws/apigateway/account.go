@@ -4,6 +4,8 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -13,62 +15,47 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
+	// See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
+	// Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+	CloudwatchRoleArn pulumi.StringOutput `pulumi:"cloudwatchRoleArn"`
+
+	// Account-Level throttle settings. See exported fields below.
+	ThrottleSettings AccountThrottleSettingsOutput `pulumi:"throttleSettings"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cloudwatchRoleArn"] = nil
-	} else {
-		inputs["cloudwatchRoleArn"] = args.CloudwatchRoleArn
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CloudwatchRoleArn; i != nil { inputs["cloudwatchRoleArn"] = i.ToStringOutput() }
 	}
-	inputs["throttleSettings"] = nil
-	s, err := ctx.RegisterResource("aws:apigateway/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("aws:apigateway/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["cloudwatchRoleArn"] = state.CloudwatchRoleArn
-		inputs["throttleSettings"] = state.ThrottleSettings
+		if i := state.CloudwatchRoleArn; i != nil { inputs["cloudwatchRoleArn"] = i.ToStringOutput() }
+		if i := state.ThrottleSettings; i != nil { inputs["throttleSettings"] = i.ToAccountThrottleSettingsOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("aws:apigateway/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
-// See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
-// Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-func (r *Account) CloudwatchRoleArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudwatchRoleArn"])
-}
-
-// Account-Level throttle settings. See exported fields below.
-func (r *Account) ThrottleSettings() pulumi.Output {
-	return r.s.State["throttleSettings"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
@@ -76,9 +63,9 @@ type AccountState struct {
 	// The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
 	// See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
 	// Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-	CloudwatchRoleArn interface{}
+	CloudwatchRoleArn pulumi.StringInput `pulumi:"cloudwatchRoleArn"`
 	// Account-Level throttle settings. See exported fields below.
-	ThrottleSettings interface{}
+	ThrottleSettings AccountThrottleSettingsInput `pulumi:"throttleSettings"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -86,5 +73,69 @@ type AccountArgs struct {
 	// The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
 	// See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
 	// Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-	CloudwatchRoleArn interface{}
+	CloudwatchRoleArn pulumi.StringInput `pulumi:"cloudwatchRoleArn"`
 }
+type AccountThrottleSettings struct {
+	// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+	BurstLimit int `pulumi:"burstLimit"`
+	// The number of times API Gateway allows the API to be called per second on average (RPS).
+	RateLimit float64 `pulumi:"rateLimit"`
+}
+var accountThrottleSettingsType = reflect.TypeOf((*AccountThrottleSettings)(nil)).Elem()
+
+type AccountThrottleSettingsInput interface {
+	pulumi.Input
+
+	ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput
+	ToAccountThrottleSettingsOutputWithContext(ctx context.Context) AccountThrottleSettingsOutput
+}
+
+type AccountThrottleSettingsArgs struct {
+	// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+	BurstLimit pulumi.IntInput `pulumi:"burstLimit"`
+	// The number of times API Gateway allows the API to be called per second on average (RPS).
+	RateLimit pulumi.Float64Input `pulumi:"rateLimit"`
+}
+
+func (AccountThrottleSettingsArgs) ElementType() reflect.Type {
+	return accountThrottleSettingsType
+}
+
+func (a AccountThrottleSettingsArgs) ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput {
+	return pulumi.ToOutput(a).(AccountThrottleSettingsOutput)
+}
+
+func (a AccountThrottleSettingsArgs) ToAccountThrottleSettingsOutputWithContext(ctx context.Context) AccountThrottleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountThrottleSettingsOutput)
+}
+
+type AccountThrottleSettingsOutput struct { *pulumi.OutputState }
+
+// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+func (o AccountThrottleSettingsOutput) BurstLimit() pulumi.IntOutput {
+	return o.Apply(func(v AccountThrottleSettings) int {
+		return v.BurstLimit
+	}).(pulumi.IntOutput)
+}
+
+// The number of times API Gateway allows the API to be called per second on average (RPS).
+func (o AccountThrottleSettingsOutput) RateLimit() pulumi.Float64Output {
+	return o.Apply(func(v AccountThrottleSettings) float64 {
+		return v.RateLimit
+	}).(pulumi.Float64Output)
+}
+
+func (AccountThrottleSettingsOutput) ElementType() reflect.Type {
+	return accountThrottleSettingsType
+}
+
+func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput {
+	return o
+}
+
+func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsOutputWithContext(ctx context.Context) AccountThrottleSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountThrottleSettingsOutput{}) }
+

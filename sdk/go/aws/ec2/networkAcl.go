@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -19,129 +21,486 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
 type NetworkAcl struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies an egress rule. Parameters defined below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	Egress NetworkAclEgressArrayOutput `pulumi:"egress"`
+
+	// Specifies an ingress rule. Parameters defined below.
+	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	Ingress NetworkAclIngressArrayOutput `pulumi:"ingress"`
+
+	// The ID of the AWS account that owns the network ACL.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	// A list of Subnet IDs to apply the ACL to
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The ID of the associated VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkAcl registers a new resource with the given unique name, arguments, and options.
 func NewNetworkAcl(ctx *pulumi.Context,
-	name string, args *NetworkAclArgs, opts ...pulumi.ResourceOpt) (*NetworkAcl, error) {
+	name string, args *NetworkAclArgs, opts ...pulumi.ResourceOption) (*NetworkAcl, error) {
 	if args == nil || args.VpcId == nil {
 		return nil, errors.New("missing required argument 'VpcId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["egress"] = nil
-		inputs["ingress"] = nil
-		inputs["subnetIds"] = nil
-		inputs["tags"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["egress"] = args.Egress
-		inputs["ingress"] = args.Ingress
-		inputs["subnetIds"] = args.SubnetIds
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Egress; i != nil { inputs["egress"] = i.ToNetworkAclEgressArrayOutput() }
+		if i := args.Ingress; i != nil { inputs["ingress"] = i.ToNetworkAclIngressArrayOutput() }
+		if i := args.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	inputs["ownerId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/networkAcl:NetworkAcl", name, true, inputs, opts...)
+	var resource NetworkAcl
+	err := ctx.RegisterResource("aws:ec2/networkAcl:NetworkAcl", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkAcl{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkAcl gets an existing NetworkAcl resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkAcl(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkAclState, opts ...pulumi.ResourceOpt) (*NetworkAcl, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkAclState, opts ...pulumi.ResourceOption) (*NetworkAcl, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["egress"] = state.Egress
-		inputs["ingress"] = state.Ingress
-		inputs["ownerId"] = state.OwnerId
-		inputs["subnetIds"] = state.SubnetIds
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.Egress; i != nil { inputs["egress"] = i.ToNetworkAclEgressArrayOutput() }
+		if i := state.Ingress; i != nil { inputs["ingress"] = i.ToNetworkAclIngressArrayOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.SubnetIds; i != nil { inputs["subnetIds"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/networkAcl:NetworkAcl", name, id, inputs, opts...)
+	var resource NetworkAcl
+	err := ctx.ReadResource("aws:ec2/networkAcl:NetworkAcl", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkAcl{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkAcl) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkAcl) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies an egress rule. Parameters defined below.
-// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *NetworkAcl) Egress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["egress"])
-}
-
-// Specifies an ingress rule. Parameters defined below.
-// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-func (r *NetworkAcl) Ingress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ingress"])
-}
-
-// The ID of the AWS account that owns the network ACL.
-func (r *NetworkAcl) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-// A list of Subnet IDs to apply the ACL to
-func (r *NetworkAcl) SubnetIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnetIds"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *NetworkAcl) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The ID of the associated VPC.
-func (r *NetworkAcl) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkAcl resources.
 type NetworkAclState struct {
 	// Specifies an egress rule. Parameters defined below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Egress interface{}
+	Egress NetworkAclEgressArrayInput `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Ingress interface{}
+	Ingress NetworkAclIngressArrayInput `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
-	OwnerId interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
 	// A list of Subnet IDs to apply the ACL to
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The ID of the associated VPC.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
 	// Specifies an egress rule. Parameters defined below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Egress interface{}
+	Egress NetworkAclEgressArrayInput `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
 	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-	Ingress interface{}
+	Ingress NetworkAclIngressArrayInput `pulumi:"ingress"`
 	// A list of Subnet IDs to apply the ACL to
-	SubnetIds interface{}
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The ID of the associated VPC.
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
+type NetworkAclEgress struct {
+	// The action to take.
+	Action string `pulumi:"action"`
+	// The CIDR block to match. This must be a
+	// valid network mask.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// The from port to match.
+	FromPort int `pulumi:"fromPort"`
+	// The ICMP type code to be used. Default 0.
+	IcmpCode *int `pulumi:"icmpCode"`
+	// The ICMP type to be used. Default 0.
+	IcmpType *int `pulumi:"icmpType"`
+	// The IPv6 CIDR block.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The protocol to match. If using the -1 'all'
+	// protocol, you must specify a from and to port of 0.
+	Protocol string `pulumi:"protocol"`
+	// The rule number. Used for ordering.
+	RuleNo int `pulumi:"ruleNo"`
+	// The to port to match.
+	ToPort int `pulumi:"toPort"`
+}
+var networkAclEgressType = reflect.TypeOf((*NetworkAclEgress)(nil)).Elem()
+
+type NetworkAclEgressInput interface {
+	pulumi.Input
+
+	ToNetworkAclEgressOutput() NetworkAclEgressOutput
+	ToNetworkAclEgressOutputWithContext(ctx context.Context) NetworkAclEgressOutput
+}
+
+type NetworkAclEgressArgs struct {
+	// The action to take.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The CIDR block to match. This must be a
+	// valid network mask.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// The from port to match.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// The ICMP type code to be used. Default 0.
+	IcmpCode pulumi.IntInput `pulumi:"icmpCode"`
+	// The ICMP type to be used. Default 0.
+	IcmpType pulumi.IntInput `pulumi:"icmpType"`
+	// The IPv6 CIDR block.
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+	// The protocol to match. If using the -1 'all'
+	// protocol, you must specify a from and to port of 0.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The rule number. Used for ordering.
+	RuleNo pulumi.IntInput `pulumi:"ruleNo"`
+	// The to port to match.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (NetworkAclEgressArgs) ElementType() reflect.Type {
+	return networkAclEgressType
+}
+
+func (a NetworkAclEgressArgs) ToNetworkAclEgressOutput() NetworkAclEgressOutput {
+	return pulumi.ToOutput(a).(NetworkAclEgressOutput)
+}
+
+func (a NetworkAclEgressArgs) ToNetworkAclEgressOutputWithContext(ctx context.Context) NetworkAclEgressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkAclEgressOutput)
+}
+
+type NetworkAclEgressOutput struct { *pulumi.OutputState }
+
+// The action to take.
+func (o NetworkAclEgressOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclEgress) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+// The CIDR block to match. This must be a
+// valid network mask.
+func (o NetworkAclEgressOutput) CidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclEgress) string {
+		if v.CidrBlock == nil { return *new(string) } else { return *v.CidrBlock }
+	}).(pulumi.StringOutput)
+}
+
+// The from port to match.
+func (o NetworkAclEgressOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclEgress) int {
+		return v.FromPort
+	}).(pulumi.IntOutput)
+}
+
+// The ICMP type code to be used. Default 0.
+func (o NetworkAclEgressOutput) IcmpCode() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclEgress) int {
+		if v.IcmpCode == nil { return *new(int) } else { return *v.IcmpCode }
+	}).(pulumi.IntOutput)
+}
+
+// The ICMP type to be used. Default 0.
+func (o NetworkAclEgressOutput) IcmpType() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclEgress) int {
+		if v.IcmpType == nil { return *new(int) } else { return *v.IcmpType }
+	}).(pulumi.IntOutput)
+}
+
+// The IPv6 CIDR block.
+func (o NetworkAclEgressOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclEgress) string {
+		if v.Ipv6CidrBlock == nil { return *new(string) } else { return *v.Ipv6CidrBlock }
+	}).(pulumi.StringOutput)
+}
+
+// The protocol to match. If using the -1 'all'
+// protocol, you must specify a from and to port of 0.
+func (o NetworkAclEgressOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclEgress) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// The rule number. Used for ordering.
+func (o NetworkAclEgressOutput) RuleNo() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclEgress) int {
+		return v.RuleNo
+	}).(pulumi.IntOutput)
+}
+
+// The to port to match.
+func (o NetworkAclEgressOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclEgress) int {
+		return v.ToPort
+	}).(pulumi.IntOutput)
+}
+
+func (NetworkAclEgressOutput) ElementType() reflect.Type {
+	return networkAclEgressType
+}
+
+func (o NetworkAclEgressOutput) ToNetworkAclEgressOutput() NetworkAclEgressOutput {
+	return o
+}
+
+func (o NetworkAclEgressOutput) ToNetworkAclEgressOutputWithContext(ctx context.Context) NetworkAclEgressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkAclEgressOutput{}) }
+
+var networkAclEgressArrayType = reflect.TypeOf((*[]NetworkAclEgress)(nil)).Elem()
+
+type NetworkAclEgressArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclEgressArrayOutput() NetworkAclEgressArrayOutput
+	ToNetworkAclEgressArrayOutputWithContext(ctx context.Context) NetworkAclEgressArrayOutput
+}
+
+type NetworkAclEgressArrayArgs []NetworkAclEgressInput
+
+func (NetworkAclEgressArrayArgs) ElementType() reflect.Type {
+	return networkAclEgressArrayType
+}
+
+func (a NetworkAclEgressArrayArgs) ToNetworkAclEgressArrayOutput() NetworkAclEgressArrayOutput {
+	return pulumi.ToOutput(a).(NetworkAclEgressArrayOutput)
+}
+
+func (a NetworkAclEgressArrayArgs) ToNetworkAclEgressArrayOutputWithContext(ctx context.Context) NetworkAclEgressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkAclEgressArrayOutput)
+}
+
+type NetworkAclEgressArrayOutput struct { *pulumi.OutputState }
+
+func (o NetworkAclEgressArrayOutput) Index(i pulumi.IntInput) NetworkAclEgressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NetworkAclEgress {
+		return vs[0].([]NetworkAclEgress)[vs[1].(int)]
+	}).(NetworkAclEgressOutput)
+}
+
+func (NetworkAclEgressArrayOutput) ElementType() reflect.Type {
+	return networkAclEgressArrayType
+}
+
+func (o NetworkAclEgressArrayOutput) ToNetworkAclEgressArrayOutput() NetworkAclEgressArrayOutput {
+	return o
+}
+
+func (o NetworkAclEgressArrayOutput) ToNetworkAclEgressArrayOutputWithContext(ctx context.Context) NetworkAclEgressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkAclEgressArrayOutput{}) }
+
+type NetworkAclIngress struct {
+	// The action to take.
+	Action string `pulumi:"action"`
+	// The CIDR block to match. This must be a
+	// valid network mask.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// The from port to match.
+	FromPort int `pulumi:"fromPort"`
+	// The ICMP type code to be used. Default 0.
+	IcmpCode *int `pulumi:"icmpCode"`
+	// The ICMP type to be used. Default 0.
+	IcmpType *int `pulumi:"icmpType"`
+	// The IPv6 CIDR block.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The protocol to match. If using the -1 'all'
+	// protocol, you must specify a from and to port of 0.
+	Protocol string `pulumi:"protocol"`
+	// The rule number. Used for ordering.
+	RuleNo int `pulumi:"ruleNo"`
+	// The to port to match.
+	ToPort int `pulumi:"toPort"`
+}
+var networkAclIngressType = reflect.TypeOf((*NetworkAclIngress)(nil)).Elem()
+
+type NetworkAclIngressInput interface {
+	pulumi.Input
+
+	ToNetworkAclIngressOutput() NetworkAclIngressOutput
+	ToNetworkAclIngressOutputWithContext(ctx context.Context) NetworkAclIngressOutput
+}
+
+type NetworkAclIngressArgs struct {
+	// The action to take.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The CIDR block to match. This must be a
+	// valid network mask.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// The from port to match.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// The ICMP type code to be used. Default 0.
+	IcmpCode pulumi.IntInput `pulumi:"icmpCode"`
+	// The ICMP type to be used. Default 0.
+	IcmpType pulumi.IntInput `pulumi:"icmpType"`
+	// The IPv6 CIDR block.
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+	// The protocol to match. If using the -1 'all'
+	// protocol, you must specify a from and to port of 0.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The rule number. Used for ordering.
+	RuleNo pulumi.IntInput `pulumi:"ruleNo"`
+	// The to port to match.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (NetworkAclIngressArgs) ElementType() reflect.Type {
+	return networkAclIngressType
+}
+
+func (a NetworkAclIngressArgs) ToNetworkAclIngressOutput() NetworkAclIngressOutput {
+	return pulumi.ToOutput(a).(NetworkAclIngressOutput)
+}
+
+func (a NetworkAclIngressArgs) ToNetworkAclIngressOutputWithContext(ctx context.Context) NetworkAclIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkAclIngressOutput)
+}
+
+type NetworkAclIngressOutput struct { *pulumi.OutputState }
+
+// The action to take.
+func (o NetworkAclIngressOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclIngress) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+// The CIDR block to match. This must be a
+// valid network mask.
+func (o NetworkAclIngressOutput) CidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclIngress) string {
+		if v.CidrBlock == nil { return *new(string) } else { return *v.CidrBlock }
+	}).(pulumi.StringOutput)
+}
+
+// The from port to match.
+func (o NetworkAclIngressOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclIngress) int {
+		return v.FromPort
+	}).(pulumi.IntOutput)
+}
+
+// The ICMP type code to be used. Default 0.
+func (o NetworkAclIngressOutput) IcmpCode() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclIngress) int {
+		if v.IcmpCode == nil { return *new(int) } else { return *v.IcmpCode }
+	}).(pulumi.IntOutput)
+}
+
+// The ICMP type to be used. Default 0.
+func (o NetworkAclIngressOutput) IcmpType() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclIngress) int {
+		if v.IcmpType == nil { return *new(int) } else { return *v.IcmpType }
+	}).(pulumi.IntOutput)
+}
+
+// The IPv6 CIDR block.
+func (o NetworkAclIngressOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclIngress) string {
+		if v.Ipv6CidrBlock == nil { return *new(string) } else { return *v.Ipv6CidrBlock }
+	}).(pulumi.StringOutput)
+}
+
+// The protocol to match. If using the -1 'all'
+// protocol, you must specify a from and to port of 0.
+func (o NetworkAclIngressOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v NetworkAclIngress) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// The rule number. Used for ordering.
+func (o NetworkAclIngressOutput) RuleNo() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclIngress) int {
+		return v.RuleNo
+	}).(pulumi.IntOutput)
+}
+
+// The to port to match.
+func (o NetworkAclIngressOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v NetworkAclIngress) int {
+		return v.ToPort
+	}).(pulumi.IntOutput)
+}
+
+func (NetworkAclIngressOutput) ElementType() reflect.Type {
+	return networkAclIngressType
+}
+
+func (o NetworkAclIngressOutput) ToNetworkAclIngressOutput() NetworkAclIngressOutput {
+	return o
+}
+
+func (o NetworkAclIngressOutput) ToNetworkAclIngressOutputWithContext(ctx context.Context) NetworkAclIngressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkAclIngressOutput{}) }
+
+var networkAclIngressArrayType = reflect.TypeOf((*[]NetworkAclIngress)(nil)).Elem()
+
+type NetworkAclIngressArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclIngressArrayOutput() NetworkAclIngressArrayOutput
+	ToNetworkAclIngressArrayOutputWithContext(ctx context.Context) NetworkAclIngressArrayOutput
+}
+
+type NetworkAclIngressArrayArgs []NetworkAclIngressInput
+
+func (NetworkAclIngressArrayArgs) ElementType() reflect.Type {
+	return networkAclIngressArrayType
+}
+
+func (a NetworkAclIngressArrayArgs) ToNetworkAclIngressArrayOutput() NetworkAclIngressArrayOutput {
+	return pulumi.ToOutput(a).(NetworkAclIngressArrayOutput)
+}
+
+func (a NetworkAclIngressArrayArgs) ToNetworkAclIngressArrayOutputWithContext(ctx context.Context) NetworkAclIngressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkAclIngressArrayOutput)
+}
+
+type NetworkAclIngressArrayOutput struct { *pulumi.OutputState }
+
+func (o NetworkAclIngressArrayOutput) Index(i pulumi.IntInput) NetworkAclIngressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NetworkAclIngress {
+		return vs[0].([]NetworkAclIngress)[vs[1].(int)]
+	}).(NetworkAclIngressOutput)
+}
+
+func (NetworkAclIngressArrayOutput) ElementType() reflect.Type {
+	return networkAclIngressArrayType
+}
+
+func (o NetworkAclIngressArrayOutput) ToNetworkAclIngressArrayOutput() NetworkAclIngressArrayOutput {
+	return o
+}
+
+func (o NetworkAclIngressArrayOutput) ToNetworkAclIngressArrayOutputWithContext(ctx context.Context) NetworkAclIngressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkAclIngressArrayOutput{}) }
+

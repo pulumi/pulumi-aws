@@ -4,6 +4,8 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -50,145 +52,436 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
 type DefaultSecurityGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// Can be specified multiple times for each
+	// egress rule. Each egress block supports fields documented below.
+	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
+
+	// Can be specified multiple times for each
+	// ingress rule. Each ingress block supports fields documented below.
+	Ingress DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
+
+	// The name of the security group
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The owner ID.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+
+	RevokeRulesOnDelete pulumi.BoolOutput `pulumi:"revokeRulesOnDelete"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The VPC ID. **Note that changing
+	// the `vpcId` will _not_ restore any default security group rules that were
+	// modified, added, or removed.** It will be left in its current state
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewDefaultSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewDefaultSecurityGroup(ctx *pulumi.Context,
-	name string, args *DefaultSecurityGroupArgs, opts ...pulumi.ResourceOpt) (*DefaultSecurityGroup, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["egress"] = nil
-		inputs["ingress"] = nil
-		inputs["revokeRulesOnDelete"] = nil
-		inputs["tags"] = nil
-		inputs["vpcId"] = nil
-	} else {
-		inputs["egress"] = args.Egress
-		inputs["ingress"] = args.Ingress
-		inputs["revokeRulesOnDelete"] = args.RevokeRulesOnDelete
-		inputs["tags"] = args.Tags
-		inputs["vpcId"] = args.VpcId
+	name string, args *DefaultSecurityGroupArgs, opts ...pulumi.ResourceOption) (*DefaultSecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Egress; i != nil { inputs["egress"] = i.ToDefaultSecurityGroupEgressArrayOutput() }
+		if i := args.Ingress; i != nil { inputs["ingress"] = i.ToDefaultSecurityGroupIngressArrayOutput() }
+		if i := args.RevokeRulesOnDelete; i != nil { inputs["revokeRulesOnDelete"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["name"] = nil
-	inputs["ownerId"] = nil
-	s, err := ctx.RegisterResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, true, inputs, opts...)
+	var resource DefaultSecurityGroup
+	err := ctx.RegisterResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DefaultSecurityGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetDefaultSecurityGroup gets an existing DefaultSecurityGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDefaultSecurityGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DefaultSecurityGroupState, opts ...pulumi.ResourceOpt) (*DefaultSecurityGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DefaultSecurityGroupState, opts ...pulumi.ResourceOption) (*DefaultSecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["egress"] = state.Egress
-		inputs["ingress"] = state.Ingress
-		inputs["name"] = state.Name
-		inputs["ownerId"] = state.OwnerId
-		inputs["revokeRulesOnDelete"] = state.RevokeRulesOnDelete
-		inputs["tags"] = state.Tags
-		inputs["vpcId"] = state.VpcId
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.Egress; i != nil { inputs["egress"] = i.ToDefaultSecurityGroupEgressArrayOutput() }
+		if i := state.Ingress; i != nil { inputs["ingress"] = i.ToDefaultSecurityGroupIngressArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OwnerId; i != nil { inputs["ownerId"] = i.ToStringOutput() }
+		if i := state.RevokeRulesOnDelete; i != nil { inputs["revokeRulesOnDelete"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VpcId; i != nil { inputs["vpcId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, id, inputs, opts...)
+	var resource DefaultSecurityGroup
+	err := ctx.ReadResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DefaultSecurityGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DefaultSecurityGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DefaultSecurityGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *DefaultSecurityGroup) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// Can be specified multiple times for each
-// egress rule. Each egress block supports fields documented below.
-func (r *DefaultSecurityGroup) Egress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["egress"])
-}
-
-// Can be specified multiple times for each
-// ingress rule. Each ingress block supports fields documented below.
-func (r *DefaultSecurityGroup) Ingress() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ingress"])
-}
-
-// The name of the security group
-func (r *DefaultSecurityGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The owner ID.
-func (r *DefaultSecurityGroup) OwnerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ownerId"])
-}
-
-func (r *DefaultSecurityGroup) RevokeRulesOnDelete() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["revokeRulesOnDelete"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *DefaultSecurityGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The VPC ID. **Note that changing
-// the `vpcId` will _not_ restore any default security group rules that were
-// modified, added, or removed.** It will be left in its current state
-func (r *DefaultSecurityGroup) VpcId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpcId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DefaultSecurityGroup resources.
 type DefaultSecurityGroupState struct {
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	Egress interface{}
+	Egress DefaultSecurityGroupEgressArrayInput `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	Ingress interface{}
+	Ingress DefaultSecurityGroupIngressArrayInput `pulumi:"ingress"`
 	// The name of the security group
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The owner ID.
-	OwnerId interface{}
-	RevokeRulesOnDelete interface{}
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	RevokeRulesOnDelete pulumi.BoolInput `pulumi:"revokeRulesOnDelete"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a DefaultSecurityGroup resource.
 type DefaultSecurityGroupArgs struct {
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
-	Egress interface{}
+	Egress DefaultSecurityGroupEgressArrayInput `pulumi:"egress"`
 	// Can be specified multiple times for each
 	// ingress rule. Each ingress block supports fields documented below.
-	Ingress interface{}
-	RevokeRulesOnDelete interface{}
+	Ingress DefaultSecurityGroupIngressArrayInput `pulumi:"ingress"`
+	RevokeRulesOnDelete pulumi.BoolInput `pulumi:"revokeRulesOnDelete"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
-	VpcId interface{}
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
+type DefaultSecurityGroupEgress struct {
+	CidrBlocks *[]string `pulumi:"cidrBlocks"`
+	// The description of the security group
+	Description *string `pulumi:"description"`
+	FromPort int `pulumi:"fromPort"`
+	Ipv6CidrBlocks *[]string `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds *[]string `pulumi:"prefixListIds"`
+	Protocol string `pulumi:"protocol"`
+	SecurityGroups *[]string `pulumi:"securityGroups"`
+	Self *bool `pulumi:"self"`
+	ToPort int `pulumi:"toPort"`
+}
+var defaultSecurityGroupEgressType = reflect.TypeOf((*DefaultSecurityGroupEgress)(nil)).Elem()
+
+type DefaultSecurityGroupEgressInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupEgressOutput() DefaultSecurityGroupEgressOutput
+	ToDefaultSecurityGroupEgressOutputWithContext(ctx context.Context) DefaultSecurityGroupEgressOutput
+}
+
+type DefaultSecurityGroupEgressArgs struct {
+	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
+	// The description of the security group
+	Description pulumi.StringInput `pulumi:"description"`
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Self pulumi.BoolInput `pulumi:"self"`
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (DefaultSecurityGroupEgressArgs) ElementType() reflect.Type {
+	return defaultSecurityGroupEgressType
+}
+
+func (a DefaultSecurityGroupEgressArgs) ToDefaultSecurityGroupEgressOutput() DefaultSecurityGroupEgressOutput {
+	return pulumi.ToOutput(a).(DefaultSecurityGroupEgressOutput)
+}
+
+func (a DefaultSecurityGroupEgressArgs) ToDefaultSecurityGroupEgressOutputWithContext(ctx context.Context) DefaultSecurityGroupEgressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefaultSecurityGroupEgressOutput)
+}
+
+type DefaultSecurityGroupEgressOutput struct { *pulumi.OutputState }
+
+func (o DefaultSecurityGroupEgressOutput) CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) []string {
+		if v.CidrBlocks == nil { return *new([]string) } else { return *v.CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The description of the security group
+func (o DefaultSecurityGroupEgressOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) int {
+		return v.FromPort
+	}).(pulumi.IntOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) []string {
+		if v.Ipv6CidrBlocks == nil { return *new([]string) } else { return *v.Ipv6CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) []string {
+		if v.PrefixListIds == nil { return *new([]string) } else { return *v.PrefixListIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) []string {
+		if v.SecurityGroups == nil { return *new([]string) } else { return *v.SecurityGroups }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) Self() pulumi.BoolOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) bool {
+		if v.Self == nil { return *new(bool) } else { return *v.Self }
+	}).(pulumi.BoolOutput)
+}
+
+func (o DefaultSecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v DefaultSecurityGroupEgress) int {
+		return v.ToPort
+	}).(pulumi.IntOutput)
+}
+
+func (DefaultSecurityGroupEgressOutput) ElementType() reflect.Type {
+	return defaultSecurityGroupEgressType
+}
+
+func (o DefaultSecurityGroupEgressOutput) ToDefaultSecurityGroupEgressOutput() DefaultSecurityGroupEgressOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupEgressOutput) ToDefaultSecurityGroupEgressOutputWithContext(ctx context.Context) DefaultSecurityGroupEgressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefaultSecurityGroupEgressOutput{}) }
+
+var defaultSecurityGroupEgressArrayType = reflect.TypeOf((*[]DefaultSecurityGroupEgress)(nil)).Elem()
+
+type DefaultSecurityGroupEgressArrayInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupEgressArrayOutput() DefaultSecurityGroupEgressArrayOutput
+	ToDefaultSecurityGroupEgressArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupEgressArrayOutput
+}
+
+type DefaultSecurityGroupEgressArrayArgs []DefaultSecurityGroupEgressInput
+
+func (DefaultSecurityGroupEgressArrayArgs) ElementType() reflect.Type {
+	return defaultSecurityGroupEgressArrayType
+}
+
+func (a DefaultSecurityGroupEgressArrayArgs) ToDefaultSecurityGroupEgressArrayOutput() DefaultSecurityGroupEgressArrayOutput {
+	return pulumi.ToOutput(a).(DefaultSecurityGroupEgressArrayOutput)
+}
+
+func (a DefaultSecurityGroupEgressArrayArgs) ToDefaultSecurityGroupEgressArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupEgressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefaultSecurityGroupEgressArrayOutput)
+}
+
+type DefaultSecurityGroupEgressArrayOutput struct { *pulumi.OutputState }
+
+func (o DefaultSecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) DefaultSecurityGroupEgressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DefaultSecurityGroupEgress {
+		return vs[0].([]DefaultSecurityGroupEgress)[vs[1].(int)]
+	}).(DefaultSecurityGroupEgressOutput)
+}
+
+func (DefaultSecurityGroupEgressArrayOutput) ElementType() reflect.Type {
+	return defaultSecurityGroupEgressArrayType
+}
+
+func (o DefaultSecurityGroupEgressArrayOutput) ToDefaultSecurityGroupEgressArrayOutput() DefaultSecurityGroupEgressArrayOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupEgressArrayOutput) ToDefaultSecurityGroupEgressArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupEgressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefaultSecurityGroupEgressArrayOutput{}) }
+
+type DefaultSecurityGroupIngress struct {
+	CidrBlocks *[]string `pulumi:"cidrBlocks"`
+	// The description of the security group
+	Description *string `pulumi:"description"`
+	FromPort int `pulumi:"fromPort"`
+	Ipv6CidrBlocks *[]string `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds *[]string `pulumi:"prefixListIds"`
+	Protocol string `pulumi:"protocol"`
+	SecurityGroups *[]string `pulumi:"securityGroups"`
+	Self *bool `pulumi:"self"`
+	ToPort int `pulumi:"toPort"`
+}
+var defaultSecurityGroupIngressType = reflect.TypeOf((*DefaultSecurityGroupIngress)(nil)).Elem()
+
+type DefaultSecurityGroupIngressInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupIngressOutput() DefaultSecurityGroupIngressOutput
+	ToDefaultSecurityGroupIngressOutputWithContext(ctx context.Context) DefaultSecurityGroupIngressOutput
+}
+
+type DefaultSecurityGroupIngressArgs struct {
+	CidrBlocks pulumi.StringArrayInput `pulumi:"cidrBlocks"`
+	// The description of the security group
+	Description pulumi.StringInput `pulumi:"description"`
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
+	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Self pulumi.BoolInput `pulumi:"self"`
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (DefaultSecurityGroupIngressArgs) ElementType() reflect.Type {
+	return defaultSecurityGroupIngressType
+}
+
+func (a DefaultSecurityGroupIngressArgs) ToDefaultSecurityGroupIngressOutput() DefaultSecurityGroupIngressOutput {
+	return pulumi.ToOutput(a).(DefaultSecurityGroupIngressOutput)
+}
+
+func (a DefaultSecurityGroupIngressArgs) ToDefaultSecurityGroupIngressOutputWithContext(ctx context.Context) DefaultSecurityGroupIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefaultSecurityGroupIngressOutput)
+}
+
+type DefaultSecurityGroupIngressOutput struct { *pulumi.OutputState }
+
+func (o DefaultSecurityGroupIngressOutput) CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) []string {
+		if v.CidrBlocks == nil { return *new([]string) } else { return *v.CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The description of the security group
+func (o DefaultSecurityGroupIngressOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) FromPort() pulumi.IntOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) int {
+		return v.FromPort
+	}).(pulumi.IntOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) []string {
+		if v.Ipv6CidrBlocks == nil { return *new([]string) } else { return *v.Ipv6CidrBlocks }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) []string {
+		if v.PrefixListIds == nil { return *new([]string) } else { return *v.PrefixListIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) []string {
+		if v.SecurityGroups == nil { return *new([]string) } else { return *v.SecurityGroups }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) Self() pulumi.BoolOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) bool {
+		if v.Self == nil { return *new(bool) } else { return *v.Self }
+	}).(pulumi.BoolOutput)
+}
+
+func (o DefaultSecurityGroupIngressOutput) ToPort() pulumi.IntOutput {
+	return o.Apply(func(v DefaultSecurityGroupIngress) int {
+		return v.ToPort
+	}).(pulumi.IntOutput)
+}
+
+func (DefaultSecurityGroupIngressOutput) ElementType() reflect.Type {
+	return defaultSecurityGroupIngressType
+}
+
+func (o DefaultSecurityGroupIngressOutput) ToDefaultSecurityGroupIngressOutput() DefaultSecurityGroupIngressOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupIngressOutput) ToDefaultSecurityGroupIngressOutputWithContext(ctx context.Context) DefaultSecurityGroupIngressOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefaultSecurityGroupIngressOutput{}) }
+
+var defaultSecurityGroupIngressArrayType = reflect.TypeOf((*[]DefaultSecurityGroupIngress)(nil)).Elem()
+
+type DefaultSecurityGroupIngressArrayInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupIngressArrayOutput() DefaultSecurityGroupIngressArrayOutput
+	ToDefaultSecurityGroupIngressArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupIngressArrayOutput
+}
+
+type DefaultSecurityGroupIngressArrayArgs []DefaultSecurityGroupIngressInput
+
+func (DefaultSecurityGroupIngressArrayArgs) ElementType() reflect.Type {
+	return defaultSecurityGroupIngressArrayType
+}
+
+func (a DefaultSecurityGroupIngressArrayArgs) ToDefaultSecurityGroupIngressArrayOutput() DefaultSecurityGroupIngressArrayOutput {
+	return pulumi.ToOutput(a).(DefaultSecurityGroupIngressArrayOutput)
+}
+
+func (a DefaultSecurityGroupIngressArrayArgs) ToDefaultSecurityGroupIngressArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupIngressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefaultSecurityGroupIngressArrayOutput)
+}
+
+type DefaultSecurityGroupIngressArrayOutput struct { *pulumi.OutputState }
+
+func (o DefaultSecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) DefaultSecurityGroupIngressOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DefaultSecurityGroupIngress {
+		return vs[0].([]DefaultSecurityGroupIngress)[vs[1].(int)]
+	}).(DefaultSecurityGroupIngressOutput)
+}
+
+func (DefaultSecurityGroupIngressArrayOutput) ElementType() reflect.Type {
+	return defaultSecurityGroupIngressArrayType
+}
+
+func (o DefaultSecurityGroupIngressArrayOutput) ToDefaultSecurityGroupIngressArrayOutput() DefaultSecurityGroupIngressArrayOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupIngressArrayOutput) ToDefaultSecurityGroupIngressArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupIngressArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefaultSecurityGroupIngressArrayOutput{}) }
+

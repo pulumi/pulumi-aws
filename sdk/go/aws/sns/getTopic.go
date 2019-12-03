@@ -12,33 +12,26 @@ import (
 // without having to hard code the ARNs as input.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
-func LookupTopic(ctx *pulumi.Context, args *GetTopicArgs) (*GetTopicResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("aws:sns/getTopic:getTopic", inputs)
+func LookupTopic(ctx *pulumi.Context, args *GetTopicArgs, opts ...pulumi.InvokeOption) (*GetTopicResult, error) {
+	var rv GetTopicResult
+	err := ctx.Invoke("aws:sns/getTopic:getTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetTopicResult{
-		Arn: outputs["arn"],
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getTopic.
 type GetTopicArgs struct {
 	// The friendly name of the topic to match.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getTopic.
 type GetTopicResult struct {
 	// Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
-	Arn interface{}
-	Name interface{}
+	Arn string `pulumi:"arn"`
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

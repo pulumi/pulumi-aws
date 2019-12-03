@@ -4,6 +4,8 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -40,271 +42,264 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
 type DomainName struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Amazon Resource Name (ARN)
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
+	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
+
+	// The certificate issued for the domain name
+	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+	// `regionalCertificateName`.
+	CertificateBody pulumi.StringOutput `pulumi:"certificateBody"`
+
+	// The certificate for the CA that issued the
+	// certificate, along with any intermediate CA certificates required to
+	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
+	// `regionalCertificateArn`, and `regionalCertificateName`.
+	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
+
+	// The unique name to use when registering this
+	// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
+	// `regionalCertificateName`. Required if `certificateArn` is not set.
+	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
+
+	// The private key associated with the
+	// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
+	CertificatePrivateKey pulumi.StringOutput `pulumi:"certificatePrivateKey"`
+
+	// The upload date associated with the domain certificate.
+	CertificateUploadDate pulumi.StringOutput `pulumi:"certificateUploadDate"`
+
+	// The hostname created by Cloudfront to represent
+	// the distribution that implements this domain name mapping.
+	CloudfrontDomainName pulumi.StringOutput `pulumi:"cloudfrontDomainName"`
+
+	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
+	// that can be used to create a Route53 alias record for the distribution.
+	CloudfrontZoneId pulumi.StringOutput `pulumi:"cloudfrontZoneId"`
+
+	// The fully-qualified domain name to register
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+
+	// Configuration block defining API endpoint information including type. Defined below.
+	EndpointConfiguration DomainNameEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
+
+	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+	RegionalCertificateArn pulumi.StringOutput `pulumi:"regionalCertificateArn"`
+
+	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
+	// `certificatePrivateKey`.
+	RegionalCertificateName pulumi.StringOutput `pulumi:"regionalCertificateName"`
+
+	// The hostname for the custom domain's regional endpoint.
+	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
+
+	// The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+	RegionalZoneId pulumi.StringOutput `pulumi:"regionalZoneId"`
+
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
+
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
 func NewDomainName(ctx *pulumi.Context,
-	name string, args *DomainNameArgs, opts ...pulumi.ResourceOpt) (*DomainName, error) {
+	name string, args *DomainNameArgs, opts ...pulumi.ResourceOption) (*DomainName, error) {
 	if args == nil || args.DomainName == nil {
 		return nil, errors.New("missing required argument 'DomainName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificateArn"] = nil
-		inputs["certificateBody"] = nil
-		inputs["certificateChain"] = nil
-		inputs["certificateName"] = nil
-		inputs["certificatePrivateKey"] = nil
-		inputs["domainName"] = nil
-		inputs["endpointConfiguration"] = nil
-		inputs["regionalCertificateArn"] = nil
-		inputs["regionalCertificateName"] = nil
-		inputs["securityPolicy"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["certificateArn"] = args.CertificateArn
-		inputs["certificateBody"] = args.CertificateBody
-		inputs["certificateChain"] = args.CertificateChain
-		inputs["certificateName"] = args.CertificateName
-		inputs["certificatePrivateKey"] = args.CertificatePrivateKey
-		inputs["domainName"] = args.DomainName
-		inputs["endpointConfiguration"] = args.EndpointConfiguration
-		inputs["regionalCertificateArn"] = args.RegionalCertificateArn
-		inputs["regionalCertificateName"] = args.RegionalCertificateName
-		inputs["securityPolicy"] = args.SecurityPolicy
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := args.CertificateBody; i != nil { inputs["certificateBody"] = i.ToStringOutput() }
+		if i := args.CertificateChain; i != nil { inputs["certificateChain"] = i.ToStringOutput() }
+		if i := args.CertificateName; i != nil { inputs["certificateName"] = i.ToStringOutput() }
+		if i := args.CertificatePrivateKey; i != nil { inputs["certificatePrivateKey"] = i.ToStringOutput() }
+		if i := args.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := args.EndpointConfiguration; i != nil { inputs["endpointConfiguration"] = i.ToDomainNameEndpointConfigurationOutput() }
+		if i := args.RegionalCertificateArn; i != nil { inputs["regionalCertificateArn"] = i.ToStringOutput() }
+		if i := args.RegionalCertificateName; i != nil { inputs["regionalCertificateName"] = i.ToStringOutput() }
+		if i := args.SecurityPolicy; i != nil { inputs["securityPolicy"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["arn"] = nil
-	inputs["certificateUploadDate"] = nil
-	inputs["cloudfrontDomainName"] = nil
-	inputs["cloudfrontZoneId"] = nil
-	inputs["regionalDomainName"] = nil
-	inputs["regionalZoneId"] = nil
-	s, err := ctx.RegisterResource("aws:apigateway/domainName:DomainName", name, true, inputs, opts...)
+	var resource DomainName
+	err := ctx.RegisterResource("aws:apigateway/domainName:DomainName", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DomainName{s: s}, nil
+	return &resource, nil
 }
 
 // GetDomainName gets an existing DomainName resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDomainName(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DomainNameState, opts ...pulumi.ResourceOpt) (*DomainName, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DomainNameState, opts ...pulumi.ResourceOption) (*DomainName, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["arn"] = state.Arn
-		inputs["certificateArn"] = state.CertificateArn
-		inputs["certificateBody"] = state.CertificateBody
-		inputs["certificateChain"] = state.CertificateChain
-		inputs["certificateName"] = state.CertificateName
-		inputs["certificatePrivateKey"] = state.CertificatePrivateKey
-		inputs["certificateUploadDate"] = state.CertificateUploadDate
-		inputs["cloudfrontDomainName"] = state.CloudfrontDomainName
-		inputs["cloudfrontZoneId"] = state.CloudfrontZoneId
-		inputs["domainName"] = state.DomainName
-		inputs["endpointConfiguration"] = state.EndpointConfiguration
-		inputs["regionalCertificateArn"] = state.RegionalCertificateArn
-		inputs["regionalCertificateName"] = state.RegionalCertificateName
-		inputs["regionalDomainName"] = state.RegionalDomainName
-		inputs["regionalZoneId"] = state.RegionalZoneId
-		inputs["securityPolicy"] = state.SecurityPolicy
-		inputs["tags"] = state.Tags
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.CertificateArn; i != nil { inputs["certificateArn"] = i.ToStringOutput() }
+		if i := state.CertificateBody; i != nil { inputs["certificateBody"] = i.ToStringOutput() }
+		if i := state.CertificateChain; i != nil { inputs["certificateChain"] = i.ToStringOutput() }
+		if i := state.CertificateName; i != nil { inputs["certificateName"] = i.ToStringOutput() }
+		if i := state.CertificatePrivateKey; i != nil { inputs["certificatePrivateKey"] = i.ToStringOutput() }
+		if i := state.CertificateUploadDate; i != nil { inputs["certificateUploadDate"] = i.ToStringOutput() }
+		if i := state.CloudfrontDomainName; i != nil { inputs["cloudfrontDomainName"] = i.ToStringOutput() }
+		if i := state.CloudfrontZoneId; i != nil { inputs["cloudfrontZoneId"] = i.ToStringOutput() }
+		if i := state.DomainName; i != nil { inputs["domainName"] = i.ToStringOutput() }
+		if i := state.EndpointConfiguration; i != nil { inputs["endpointConfiguration"] = i.ToDomainNameEndpointConfigurationOutput() }
+		if i := state.RegionalCertificateArn; i != nil { inputs["regionalCertificateArn"] = i.ToStringOutput() }
+		if i := state.RegionalCertificateName; i != nil { inputs["regionalCertificateName"] = i.ToStringOutput() }
+		if i := state.RegionalDomainName; i != nil { inputs["regionalDomainName"] = i.ToStringOutput() }
+		if i := state.RegionalZoneId; i != nil { inputs["regionalZoneId"] = i.ToStringOutput() }
+		if i := state.SecurityPolicy; i != nil { inputs["securityPolicy"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:apigateway/domainName:DomainName", name, id, inputs, opts...)
+	var resource DomainName
+	err := ctx.ReadResource("aws:apigateway/domainName:DomainName", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DomainName{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DomainName) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DomainName) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Amazon Resource Name (ARN)
-func (r *DomainName) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
-func (r *DomainName) CertificateArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateArn"])
-}
-
-// The certificate issued for the domain name
-// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
-// `regionalCertificateName`.
-func (r *DomainName) CertificateBody() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateBody"])
-}
-
-// The certificate for the CA that issued the
-// certificate, along with any intermediate CA certificates required to
-// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
-// `regionalCertificateArn`, and `regionalCertificateName`.
-func (r *DomainName) CertificateChain() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateChain"])
-}
-
-// The unique name to use when registering this
-// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
-// `regionalCertificateName`. Required if `certificateArn` is not set.
-func (r *DomainName) CertificateName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateName"])
-}
-
-// The private key associated with the
-// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-func (r *DomainName) CertificatePrivateKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificatePrivateKey"])
-}
-
-// The upload date associated with the domain certificate.
-func (r *DomainName) CertificateUploadDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateUploadDate"])
-}
-
-// The hostname created by Cloudfront to represent
-// the distribution that implements this domain name mapping.
-func (r *DomainName) CloudfrontDomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudfrontDomainName"])
-}
-
-// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
-// that can be used to create a Route53 alias record for the distribution.
-func (r *DomainName) CloudfrontZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cloudfrontZoneId"])
-}
-
-// The fully-qualified domain name to register
-func (r *DomainName) DomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainName"])
-}
-
-// Configuration block defining API endpoint information including type. Defined below.
-func (r *DomainName) EndpointConfiguration() pulumi.Output {
-	return r.s.State["endpointConfiguration"]
-}
-
-// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-func (r *DomainName) RegionalCertificateArn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["regionalCertificateArn"])
-}
-
-// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
-// `certificatePrivateKey`.
-func (r *DomainName) RegionalCertificateName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["regionalCertificateName"])
-}
-
-// The hostname for the custom domain's regional endpoint.
-func (r *DomainName) RegionalDomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["regionalDomainName"])
-}
-
-// The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-func (r *DomainName) RegionalZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["regionalZoneId"])
-}
-
-// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-func (r *DomainName) SecurityPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["securityPolicy"])
-}
-
-// Key-value mapping of resource tags
-func (r *DomainName) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DomainName resources.
 type DomainNameState struct {
 	// Amazon Resource Name (ARN)
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The certificate issued for the domain name
 	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
 	// `regionalCertificateName`.
-	CertificateBody interface{}
+	CertificateBody pulumi.StringInput `pulumi:"certificateBody"`
 	// The certificate for the CA that issued the
 	// certificate, along with any intermediate CA certificates required to
 	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
 	// `regionalCertificateArn`, and `regionalCertificateName`.
-	CertificateChain interface{}
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 	// The unique name to use when registering this
 	// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
 	// `regionalCertificateName`. Required if `certificateArn` is not set.
-	CertificateName interface{}
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
 	// The private key associated with the
 	// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-	CertificatePrivateKey interface{}
+	CertificatePrivateKey pulumi.StringInput `pulumi:"certificatePrivateKey"`
 	// The upload date associated with the domain certificate.
-	CertificateUploadDate interface{}
+	CertificateUploadDate pulumi.StringInput `pulumi:"certificateUploadDate"`
 	// The hostname created by Cloudfront to represent
 	// the distribution that implements this domain name mapping.
-	CloudfrontDomainName interface{}
+	CloudfrontDomainName pulumi.StringInput `pulumi:"cloudfrontDomainName"`
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
 	// that can be used to create a Route53 alias record for the distribution.
-	CloudfrontZoneId interface{}
+	CloudfrontZoneId pulumi.StringInput `pulumi:"cloudfrontZoneId"`
 	// The fully-qualified domain name to register
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Configuration block defining API endpoint information including type. Defined below.
-	EndpointConfiguration interface{}
+	EndpointConfiguration DomainNameEndpointConfigurationInput `pulumi:"endpointConfiguration"`
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	RegionalCertificateArn interface{}
+	RegionalCertificateArn pulumi.StringInput `pulumi:"regionalCertificateArn"`
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
 	// `certificatePrivateKey`.
-	RegionalCertificateName interface{}
+	RegionalCertificateName pulumi.StringInput `pulumi:"regionalCertificateName"`
 	// The hostname for the custom domain's regional endpoint.
-	RegionalDomainName interface{}
+	RegionalDomainName pulumi.StringInput `pulumi:"regionalDomainName"`
 	// The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-	RegionalZoneId interface{}
+	RegionalZoneId pulumi.StringInput `pulumi:"regionalZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-	SecurityPolicy interface{}
+	SecurityPolicy pulumi.StringInput `pulumi:"securityPolicy"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
-	CertificateArn interface{}
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The certificate issued for the domain name
 	// being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
 	// `regionalCertificateName`.
-	CertificateBody interface{}
+	CertificateBody pulumi.StringInput `pulumi:"certificateBody"`
 	// The certificate for the CA that issued the
 	// certificate, along with any intermediate CA certificates required to
 	// create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
 	// `regionalCertificateArn`, and `regionalCertificateName`.
-	CertificateChain interface{}
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 	// The unique name to use when registering this
 	// certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
 	// `regionalCertificateName`. Required if `certificateArn` is not set.
-	CertificateName interface{}
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
 	// The private key associated with the
 	// domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-	CertificatePrivateKey interface{}
+	CertificatePrivateKey pulumi.StringInput `pulumi:"certificatePrivateKey"`
 	// The fully-qualified domain name to register
-	DomainName interface{}
+	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Configuration block defining API endpoint information including type. Defined below.
-	EndpointConfiguration interface{}
+	EndpointConfiguration DomainNameEndpointConfigurationInput `pulumi:"endpointConfiguration"`
 	// The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	RegionalCertificateArn interface{}
+	RegionalCertificateArn pulumi.StringInput `pulumi:"regionalCertificateArn"`
 	// The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
 	// `certificatePrivateKey`.
-	RegionalCertificateName interface{}
+	RegionalCertificateName pulumi.StringInput `pulumi:"regionalCertificateName"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-	SecurityPolicy interface{}
+	SecurityPolicy pulumi.StringInput `pulumi:"securityPolicy"`
 	// Key-value mapping of resource tags
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type DomainNameEndpointConfiguration struct {
+	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	Types string `pulumi:"types"`
+}
+var domainNameEndpointConfigurationType = reflect.TypeOf((*DomainNameEndpointConfiguration)(nil)).Elem()
+
+type DomainNameEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainNameEndpointConfigurationOutput() DomainNameEndpointConfigurationOutput
+	ToDomainNameEndpointConfigurationOutputWithContext(ctx context.Context) DomainNameEndpointConfigurationOutput
+}
+
+type DomainNameEndpointConfigurationArgs struct {
+	// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+	Types pulumi.StringInput `pulumi:"types"`
+}
+
+func (DomainNameEndpointConfigurationArgs) ElementType() reflect.Type {
+	return domainNameEndpointConfigurationType
+}
+
+func (a DomainNameEndpointConfigurationArgs) ToDomainNameEndpointConfigurationOutput() DomainNameEndpointConfigurationOutput {
+	return pulumi.ToOutput(a).(DomainNameEndpointConfigurationOutput)
+}
+
+func (a DomainNameEndpointConfigurationArgs) ToDomainNameEndpointConfigurationOutputWithContext(ctx context.Context) DomainNameEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainNameEndpointConfigurationOutput)
+}
+
+type DomainNameEndpointConfigurationOutput struct { *pulumi.OutputState }
+
+// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringOutput {
+	return o.Apply(func(v DomainNameEndpointConfiguration) string {
+		return v.Types
+	}).(pulumi.StringOutput)
+}
+
+func (DomainNameEndpointConfigurationOutput) ElementType() reflect.Type {
+	return domainNameEndpointConfigurationType
+}
+
+func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfigurationOutput() DomainNameEndpointConfigurationOutput {
+	return o
+}
+
+func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfigurationOutputWithContext(ctx context.Context) DomainNameEndpointConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{}) }
+

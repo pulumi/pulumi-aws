@@ -13,108 +13,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
 type Agent struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
+	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
+
+	// Amazon Resource Name (ARN) of the DataSync Agent.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+
+	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+
+	// Name of the DataSync Agent.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Key-value pairs of resource tags to assign to the DataSync Agent.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAgent registers a new resource with the given unique name, arguments, and options.
 func NewAgent(ctx *pulumi.Context,
-	name string, args *AgentArgs, opts ...pulumi.ResourceOpt) (*Agent, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["activationKey"] = nil
-		inputs["ipAddress"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["activationKey"] = args.ActivationKey
-		inputs["ipAddress"] = args.IpAddress
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *AgentArgs, opts ...pulumi.ResourceOption) (*Agent, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActivationKey; i != nil { inputs["activationKey"] = i.ToStringOutput() }
+		if i := args.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	inputs["arn"] = nil
-	s, err := ctx.RegisterResource("aws:datasync/agent:Agent", name, true, inputs, opts...)
+	var resource Agent
+	err := ctx.RegisterResource("aws:datasync/agent:Agent", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Agent{s: s}, nil
+	return &resource, nil
 }
 
 // GetAgent gets an existing Agent resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAgent(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AgentState, opts ...pulumi.ResourceOpt) (*Agent, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AgentState, opts ...pulumi.ResourceOption) (*Agent, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activationKey"] = state.ActivationKey
-		inputs["arn"] = state.Arn
-		inputs["ipAddress"] = state.IpAddress
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.ActivationKey; i != nil { inputs["activationKey"] = i.ToStringOutput() }
+		if i := state.Arn; i != nil { inputs["arn"] = i.ToStringOutput() }
+		if i := state.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.ReadResource("aws:datasync/agent:Agent", name, id, inputs, opts...)
+	var resource Agent
+	err := ctx.ReadResource("aws:datasync/agent:Agent", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Agent{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Agent) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Agent) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
-func (r *Agent) ActivationKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["activationKey"])
-}
-
-// Amazon Resource Name (ARN) of the DataSync Agent.
-func (r *Agent) Arn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["arn"])
-}
-
-// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
-func (r *Agent) IpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddress"])
-}
-
-// Name of the DataSync Agent.
-func (r *Agent) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Key-value pairs of resource tags to assign to the DataSync Agent.
-func (r *Agent) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Agent resources.
 type AgentState struct {
 	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
-	ActivationKey interface{}
+	ActivationKey pulumi.StringInput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the DataSync Agent.
-	Arn interface{}
+	Arn pulumi.StringInput `pulumi:"arn"`
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Name of the DataSync Agent.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Agent resource.
 type AgentArgs struct {
 	// DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
-	ActivationKey interface{}
+	ActivationKey pulumi.StringInput `pulumi:"activationKey"`
 	// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Name of the DataSync Agent.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

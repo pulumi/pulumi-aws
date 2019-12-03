@@ -10,33 +10,21 @@ import (
 // Use this data source to get information about a CloudHSM v2 cluster
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
-func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs) (*GetClusterResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["clusterId"] = args.ClusterId
-		inputs["clusterState"] = args.ClusterState
-	}
-	outputs, err := ctx.Invoke("aws:cloudhsmv2/getCluster:getCluster", inputs)
+func LookupCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
+	var rv GetClusterResult
+	err := ctx.Invoke("aws:cloudhsmv2/getCluster:getCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetClusterResult{
-		ClusterCertificates: outputs["clusterCertificates"],
-		ClusterId: outputs["clusterId"],
-		ClusterState: outputs["clusterState"],
-		SecurityGroupId: outputs["securityGroupId"],
-		SubnetIds: outputs["subnetIds"],
-		VpcId: outputs["vpcId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCluster.
 type GetClusterArgs struct {
 	// The id of Cloud HSM v2 cluster.
-	ClusterId interface{}
+	ClusterId string `pulumi:"clusterId"`
 	// The state of the cluster to be found.
-	ClusterState interface{}
+	ClusterState *string `pulumi:"clusterState"`
 }
 
 // A collection of values returned by getCluster.
@@ -48,15 +36,22 @@ type GetClusterResult struct {
 	// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
 	// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	// The number of available cluster certificates may vary depending on state of the cluster.
-	ClusterCertificates interface{}
-	ClusterId interface{}
-	ClusterState interface{}
+	ClusterCertificates GetClusterClusterCertificatesResult `pulumi:"clusterCertificates"`
+	ClusterId string `pulumi:"clusterId"`
+	ClusterState string `pulumi:"clusterState"`
 	// The ID of the security group associated with the CloudHSM cluster.
-	SecurityGroupId interface{}
+	SecurityGroupId string `pulumi:"securityGroupId"`
 	// The IDs of subnets in which cluster operates.
-	SubnetIds interface{}
+	SubnetIds []string `pulumi:"subnetIds"`
 	// The id of the VPC that the CloudHSM cluster resides in.
-	VpcId interface{}
+	VpcId string `pulumi:"vpcId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetClusterClusterCertificatesResult struct {
+	AwsHardwareCertificate string `pulumi:"awsHardwareCertificate"`
+	ClusterCertificate string `pulumi:"clusterCertificate"`
+	ClusterCsr string `pulumi:"clusterCsr"`
+	HsmCertificate string `pulumi:"hsmCertificate"`
+	ManufacturerHardwareCertificate string `pulumi:"manufacturerHardwareCertificate"`
 }
