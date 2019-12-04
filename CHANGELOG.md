@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
 
 ---
 
