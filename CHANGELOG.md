@@ -8,6 +8,12 @@ _(none)_
 
 ---
 
+## 1.14.1 (2019-12-04)
+* Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
+
+## 1.14.0 (2019-12-04)
+* Upgrade to v2.41.0 of the AWS Terraform Provider
+
 ## 1.13.0 (2019-12-02)
 * Allow `iam.GroupPolicyAttachment` to pass the `group` as a name or an `iam.Group`
 * Allow `iam.UserPolicyAttachment` to pass the `user` as a name or an `iam.User`

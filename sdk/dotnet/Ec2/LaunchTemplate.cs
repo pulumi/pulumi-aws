@@ -1111,7 +1111,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateNetworkInterfacesArgs : Pulumi.ResourceArgs
     {
         [Input("associatePublicIpAddress")]
-        public Input<bool>? AssociatePublicIpAddress { get; set; }
+        public Input<string>? AssociatePublicIpAddress { get; set; }
 
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
@@ -1172,7 +1172,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateNetworkInterfacesGetArgs : Pulumi.ResourceArgs
     {
         [Input("associatePublicIpAddress")]
-        public Input<bool>? AssociatePublicIpAddress { get; set; }
+        public Input<string>? AssociatePublicIpAddress { get; set; }
 
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
@@ -1555,7 +1555,7 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class LaunchTemplateNetworkInterfaces
     {
-        public readonly bool? AssociatePublicIpAddress;
+        public readonly string? AssociatePublicIpAddress;
         public readonly bool? DeleteOnTermination;
         /// <summary>
         /// Description of the launch template.
@@ -1573,7 +1573,7 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private LaunchTemplateNetworkInterfaces(
-            bool? associatePublicIpAddress,
+            string? associatePublicIpAddress,
             bool? deleteOnTermination,
             string? description,
             int? deviceIndex,

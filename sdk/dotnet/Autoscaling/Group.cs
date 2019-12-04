@@ -156,7 +156,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> LaunchConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.GroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
@@ -167,6 +167,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<string>> LoadBalancers { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum amount of time, in seconds, that an instance can be in service
+        /// </summary>
+        [Output("maxInstanceLifetime")]
+        public Output<int?> MaxInstanceLifetime { get; private set; } = null!;
 
         /// <summary>
         /// The maximum size of the auto scale group.
@@ -421,7 +427,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? LaunchConfiguration { get; set; }
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -438,6 +444,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _loadBalancers ?? (_loadBalancers = new InputList<string>());
             set => _loadBalancers = value;
         }
+
+        /// <summary>
+        /// The maximum amount of time, in seconds, that an instance can be in service
+        /// </summary>
+        [Input("maxInstanceLifetime")]
+        public Input<int>? MaxInstanceLifetime { get; set; }
 
         /// <summary>
         /// The maximum size of the auto scale group.
@@ -695,7 +707,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? LaunchConfiguration { get; set; }
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -712,6 +724,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _loadBalancers ?? (_loadBalancers = new InputList<string>());
             set => _loadBalancers = value;
         }
+
+        /// <summary>
+        /// The maximum amount of time, in seconds, that an instance can be in service
+        /// </summary>
+        [Input("maxInstanceLifetime")]
+        public Input<int>? MaxInstanceLifetime { get; set; }
 
         /// <summary>
         /// The maximum size of the auto scale group.
@@ -995,7 +1013,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<GroupMixedInstancesPolicyInstancesDistributionArgs>? InstancesDistribution { get; set; }
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
         [Input("launchTemplate", required: true)]
         public Input<GroupMixedInstancesPolicyLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;
@@ -1014,7 +1032,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<GroupMixedInstancesPolicyInstancesDistributionGetArgs>? InstancesDistribution { get; set; }
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
         [Input("launchTemplate", required: true)]
         public Input<GroupMixedInstancesPolicyLaunchTemplateGetArgs> LaunchTemplate { get; set; } = null!;
@@ -1218,6 +1236,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
+        /// </summary>
+        [Input("weightedCapacity")]
+        public Input<string>? WeightedCapacity { get; set; }
+
         public GroupMixedInstancesPolicyLaunchTemplateOverridesArgs()
         {
         }
@@ -1230,6 +1254,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
+        /// </summary>
+        [Input("weightedCapacity")]
+        public Input<string>? WeightedCapacity { get; set; }
 
         public GroupMixedInstancesPolicyLaunchTemplateOverridesGetArgs()
         {
@@ -1362,7 +1392,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly GroupMixedInstancesPolicyInstancesDistribution? InstancesDistribution;
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         /// </summary>
         public readonly GroupMixedInstancesPolicyLaunchTemplate LaunchTemplate;
 
@@ -1479,11 +1509,18 @@ namespace Pulumi.Aws.AutoScaling
         /// Override the instance type in the Launch Template.
         /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
+        /// </summary>
+        public readonly string? WeightedCapacity;
 
         [OutputConstructor]
-        private GroupMixedInstancesPolicyLaunchTemplateOverrides(string? instanceType)
+        private GroupMixedInstancesPolicyLaunchTemplateOverrides(
+            string? instanceType,
+            string? weightedCapacity)
         {
             InstanceType = instanceType;
+            WeightedCapacity = weightedCapacity;
         }
     }
 

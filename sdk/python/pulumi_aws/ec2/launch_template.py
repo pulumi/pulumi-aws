@@ -153,7 +153,7 @@ class LaunchTemplate(pulumi.CustomResource):
     Customize network interfaces to be attached at instance boot time. See Network
     Interfaces below for more details.
     
-      * `associate_public_ip_address` (`bool`)
+      * `associate_public_ip_address` (`str`)
       * `deleteOnTermination` (`bool`)
       * `description` (`str`) - Description of the launch template.
       * `device_index` (`float`)
@@ -311,7 +311,7 @@ class LaunchTemplate(pulumi.CustomResource):
         
         The **network_interfaces** object supports the following:
         
-          * `associate_public_ip_address` (`pulumi.Input[bool]`)
+          * `associate_public_ip_address` (`pulumi.Input[str]`)
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `description` (`pulumi.Input[str]`) - Description of the launch template.
           * `device_index` (`pulumi.Input[float]`)
@@ -505,7 +505,7 @@ class LaunchTemplate(pulumi.CustomResource):
         
         The **network_interfaces** object supports the following:
         
-          * `associate_public_ip_address` (`pulumi.Input[bool]`)
+          * `associate_public_ip_address` (`pulumi.Input[str]`)
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `description` (`pulumi.Input[str]`) - Description of the launch template.
           * `device_index` (`pulumi.Input[float]`)

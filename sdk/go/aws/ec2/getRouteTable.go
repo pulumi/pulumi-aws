@@ -18,6 +18,7 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["filters"] = args.Filters
+		inputs["gatewayId"] = args.GatewayId
 		inputs["routeTableId"] = args.RouteTableId
 		inputs["subnetId"] = args.SubnetId
 		inputs["tags"] = args.Tags
@@ -30,6 +31,7 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	return &GetRouteTableResult{
 		Associations: outputs["associations"],
 		Filters: outputs["filters"],
+		GatewayId: outputs["gatewayId"],
 		OwnerId: outputs["ownerId"],
 		RouteTableId: outputs["routeTableId"],
 		Routes: outputs["routes"],
@@ -44,9 +46,11 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 type GetRouteTableArgs struct {
 	// Custom filter block as described below.
 	Filters interface{}
+	// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+	GatewayId interface{}
 	// The id of the specific Route Table to retrieve.
 	RouteTableId interface{}
-	// The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+	// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
 	SubnetId interface{}
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired Route Table.
@@ -59,12 +63,14 @@ type GetRouteTableArgs struct {
 type GetRouteTableResult struct {
 	Associations interface{}
 	Filters interface{}
+	// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+	GatewayId interface{}
 	// The ID of the AWS account that owns the route table
 	OwnerId interface{}
 	// The Route Table ID.
 	RouteTableId interface{}
 	Routes interface{}
-	// The Subnet ID.
+	// The Subnet ID. Only set when associated with a Subnet.
 	SubnetId interface{}
 	Tags interface{}
 	VpcId interface{}

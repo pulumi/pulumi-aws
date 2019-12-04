@@ -18,6 +18,7 @@ class Cluster(pulumi.CustomResource):
     """
     A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
     """
+    arn: pulumi.Output[str]
     autoscaling_role: pulumi.Output[str]
     """
     An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -473,6 +474,7 @@ class Cluster(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['termination_protection'] = termination_protection
             __props__['visible_to_all_users'] = visible_to_all_users
+            __props__['arn'] = None
             __props__['cluster_state'] = None
             __props__['master_public_dns'] = None
         super(Cluster, __self__).__init__(
@@ -482,7 +484,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, cluster_state=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, master_public_dns=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None):
+    def get(resource_name, id, opts=None, additional_info=None, applications=None, arn=None, autoscaling_role=None, bootstrap_actions=None, cluster_state=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, master_public_dns=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -612,6 +614,7 @@ class Cluster(pulumi.CustomResource):
         __props__ = dict()
         __props__["additional_info"] = additional_info
         __props__["applications"] = applications
+        __props__["arn"] = arn
         __props__["autoscaling_role"] = autoscaling_role
         __props__["bootstrap_actions"] = bootstrap_actions
         __props__["cluster_state"] = cluster_state

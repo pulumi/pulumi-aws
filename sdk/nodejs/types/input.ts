@@ -1794,7 +1794,7 @@ export namespace autoscaling {
          */
         instancesDistribution?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution>;
         /**
-         * Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+         * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
          */
         launchTemplate: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplate>;
     }
@@ -1857,6 +1857,10 @@ export namespace autoscaling {
          * Override the instance type in the Launch Template.
          */
         instanceType?: pulumi.Input<string>;
+        /**
+         * The number of capacity units, which gives the instance type a proportional weight to other instance types.
+         */
+        weightedCapacity?: pulumi.Input<string>;
     }
 
     export interface GroupTag {
@@ -3058,7 +3062,7 @@ export namespace codebuild {
          */
         certificate?: pulumi.Input<string>;
         /**
-         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` need to be `BUILD_GENERAL1_LARGE`.
          */
         computeType: pulumi.Input<string>;
         /**
@@ -5032,7 +5036,7 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateNetworkInterface {
-        associatePublicIpAddress?: pulumi.Input<boolean>;
+        associatePublicIpAddress?: pulumi.Input<string>;
         deleteOnTermination?: pulumi.Input<boolean>;
         /**
          * Description of the launch template.
@@ -5780,6 +5784,17 @@ export namespace eks {
          * The VPC associated with your cluster.
          */
         vpcId?: pulumi.Input<string>;
+    }
+
+    export interface FargateProfileSelector {
+        /**
+         * Key-value mapping of Kubernetes labels for selection.
+         */
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Kubernetes namespace for selection.
+         */
+        namespace: pulumi.Input<string>;
     }
 
     export interface NodeGroupRemoteAccess {

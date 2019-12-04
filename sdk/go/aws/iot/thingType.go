@@ -78,6 +78,7 @@ func (r *ThingType) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// , Configuration block that can contain the following properties of the thing type:
 func (r *ThingType) Properties() pulumi.Output {
 	return r.s.State["properties"]
 }
@@ -90,6 +91,7 @@ type ThingTypeState struct {
 	Deprecated interface{}
 	// The name of the thing type.
 	Name interface{}
+	// , Configuration block that can contain the following properties of the thing type:
 	Properties interface{}
 }
 
@@ -99,5 +101,6 @@ type ThingTypeArgs struct {
 	Deprecated interface{}
 	// The name of the thing type.
 	Name interface{}
+	// , Configuration block that can contain the following properties of the thing type:
 	Properties interface{}
 }

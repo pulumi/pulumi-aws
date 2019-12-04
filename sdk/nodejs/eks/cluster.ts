@@ -11,24 +11,35 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
+ * ### Example IAM Role for EKS Cluster
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const example = new aws.eks.Cluster("example", {
- *     roleArn: aws_iam_role_example.arn,
- *     vpcConfig: {
- *         subnetIds: [
- *             aws_subnet_example1.id,
- *             aws_subnet_example2.id,
- *         ],
- *     },
+ * const example = new aws.iam.Role("example", {
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "eks.amazonaws.com"
+ *       },
+ *       "Action": "sts:AssumeRole"
+ *     }
+ *   ]
+ * }
+ * `,
  * });
- * 
- * export const endpoint = example.endpoint;
- * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
+ * const example_AmazonEKSClusterPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+ *     role: example.name,
+ * });
+ * const example_AmazonEKSServicePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSServicePolicy", {
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
+ *     role: example.name,
+ * });
  * ```
  * 
  * ### Enabling Control Plane Logging
@@ -151,7 +162,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly platformVersion!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -263,7 +274,7 @@ export interface ClusterState {
      */
     readonly platformVersion?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
@@ -297,7 +308,7 @@ export interface ClusterArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) if using the [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html) or [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html), otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
     readonly roleArn: pulumi.Input<string>;
     /**

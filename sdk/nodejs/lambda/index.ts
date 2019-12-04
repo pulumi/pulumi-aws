@@ -11,4 +11,5 @@ export * from "./getLayerVersion";
 export * from "./lambdaMixins";
 export * from "./layerVersion";
 export * from "./permission";
+export * from "./provisionedConcurrencyConfig";
 export * from "./runtimes";

@@ -7,19 +7,8 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to create an association between a subnet and routing table.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("a", {
- *     routeTableId: aws_route_table_bar.id,
- *     subnetId: aws_subnet_foo.id,
- * });
- * ```
+ * Provides a resource to create an association between a route table and a subnet or a route table and an
+ * internet gateway or virtual private gateway.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
  */
@@ -51,13 +40,17 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The gateway ID to create an association. Conflicts with `subnetId`.
+     */
+    public readonly gatewayId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the routing table to associate with.
      */
     public readonly routeTableId!: pulumi.Output<string>;
     /**
-     * The subnet ID to create an association.
+     * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RouteTableAssociation resource with the given unique name, arguments, and options.
@@ -71,6 +64,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
+            inputs["gatewayId"] = state ? state.gatewayId : undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -78,9 +72,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             if (!args || args.routeTableId === undefined) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if (!args || args.subnetId === undefined) {
-                throw new Error("Missing required property 'subnetId'");
-            }
+            inputs["gatewayId"] = args ? args.gatewayId : undefined;
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
@@ -100,11 +92,15 @@ export class RouteTableAssociation extends pulumi.CustomResource {
  */
 export interface RouteTableAssociationState {
     /**
+     * The gateway ID to create an association. Conflicts with `subnetId`.
+     */
+    readonly gatewayId?: pulumi.Input<string>;
+    /**
      * The ID of the routing table to associate with.
      */
     readonly routeTableId?: pulumi.Input<string>;
     /**
-     * The subnet ID to create an association.
+     * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
     readonly subnetId?: pulumi.Input<string>;
 }
@@ -114,11 +110,15 @@ export interface RouteTableAssociationState {
  */
 export interface RouteTableAssociationArgs {
     /**
+     * The gateway ID to create an association. Conflicts with `subnetId`.
+     */
+    readonly gatewayId?: pulumi.Input<string>;
+    /**
      * The ID of the routing table to associate with.
      */
     readonly routeTableId: pulumi.Input<string>;
     /**
-     * The subnet ID to create an association.
+     * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    readonly subnetId: pulumi.Input<string>;
+    readonly subnetId?: pulumi.Input<string>;
 }

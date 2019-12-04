@@ -1044,6 +1044,12 @@ func Provider() tfbridge.ProviderInfo {
 			// ECS for Kubernetes
 			"aws_eks_cluster":    {Tok: awsResource(eksMod, "Cluster")},
 			"aws_eks_node_group": {Tok: awsResource(eksMod, "NodeGroup")},
+			"aws_eks_fargate_profile": {
+				Tok: awsResource(eksMod, "FargateProfile"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"fargate_profile_name": tfbridge.AutoName("fargateProfileName", 255),
+				},
+			},
 			// Elastic Search
 			"aws_elasticsearch_domain": {
 				Tok: awsResource(elasticsearchMod, "Domain"),
@@ -1450,6 +1456,7 @@ func Provider() tfbridge.ProviderInfo {
 					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
 			},
+			"aws_lambda_provisioned_concurrency_config": {Tok: awsResource(lambdaMod, "ProvisionedConcurrencyConfig")},
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
