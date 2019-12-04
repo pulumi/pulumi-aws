@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
+_(none)_
 
 ---
+
+## 1.14.1 (2019-12-04)
+* Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
 
 ## 1.14.0 (2019-12-04)
 * Upgrade to v2.41.0 of the AWS Terraform Provider
