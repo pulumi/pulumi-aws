@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.41.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.14.0 (2019-12-04)
+* Upgrade to v2.41.0 of the AWS Terraform Provider
 
 ## 1.13.0 (2019-12-02)
 * Allow `iam.GroupPolicyAttachment` to pass the `group` as a name or an `iam.Group`
