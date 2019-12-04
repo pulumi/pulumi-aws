@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *     keyPairName: "someKeyName",
  * });
  * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("test", {
- *     instanceName: testInstance.name,
- *     staticIpName: testStaticIp.name,
+ *     instanceName: testInstance.id,
+ *     staticIpName: testStaticIp.id,
  * });
  * ```
  *

@@ -113,9 +113,11 @@ import {Metric, MetricsGranularity} from "./metrics";
  *             overrides: [
  *                 {
  *                     instanceType: "c4.large",
+ *                     weightedCapacity: "3",
  *                 },
  *                 {
  *                     instanceType: "c3.large",
+ *                     weightedCapacity: "2",
  *                 },
  *             ],
  *         },
@@ -316,7 +318,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly launchConfiguration!: pulumi.Output<string | undefined>;
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
     public readonly launchTemplate!: pulumi.Output<outputs.autoscaling.GroupLaunchTemplate | undefined>;
     /**
@@ -324,6 +326,10 @@ export class Group extends pulumi.CustomResource {
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
     public readonly loadBalancers!: pulumi.Output<string[]>;
+    /**
+     * The maximum amount of time, in seconds, that an instance can be in service
+     */
+    public readonly maxInstanceLifetime!: pulumi.Output<number | undefined>;
     /**
      * The maximum size of the auto scale group.
      */
@@ -430,6 +436,7 @@ export class Group extends pulumi.CustomResource {
             inputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
             inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            inputs["maxInstanceLifetime"] = state ? state.maxInstanceLifetime : undefined;
             inputs["maxSize"] = state ? state.maxSize : undefined;
             inputs["metricsGranularity"] = state ? state.metricsGranularity : undefined;
             inputs["minElbCapacity"] = state ? state.minElbCapacity : undefined;
@@ -467,6 +474,7 @@ export class Group extends pulumi.CustomResource {
             inputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
             inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            inputs["maxInstanceLifetime"] = args ? args.maxInstanceLifetime : undefined;
             inputs["maxSize"] = args ? args.maxSize : undefined;
             inputs["metricsGranularity"] = args ? args.metricsGranularity : undefined;
             inputs["minElbCapacity"] = args ? args.minElbCapacity : undefined;
@@ -560,7 +568,7 @@ export interface GroupState {
      */
     readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
     readonly launchTemplate?: pulumi.Input<inputs.autoscaling.GroupLaunchTemplate>;
     /**
@@ -568,6 +576,10 @@ export interface GroupState {
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum amount of time, in seconds, that an instance can be in service
+     */
+    readonly maxInstanceLifetime?: pulumi.Input<number>;
     /**
      * The maximum size of the auto scale group.
      */
@@ -709,7 +721,7 @@ export interface GroupArgs {
      */
     readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
     readonly launchTemplate?: pulumi.Input<inputs.autoscaling.GroupLaunchTemplate>;
     /**
@@ -717,6 +729,10 @@ export interface GroupArgs {
      * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum amount of time, in seconds, that an instance can be in service
+     */
+    readonly maxInstanceLifetime?: pulumi.Input<number>;
     /**
      * The maximum size of the auto scale group.
      */

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Iam
     public partial class AccessKey : Pulumi.CustomResource
     {
         /// <summary>
-        /// The encrypted secret, base64 encoded.
+        /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
         /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
         /// for example: `... | base64 --decode | keybase pgp decrypt`.
         /// </summary>
@@ -31,15 +31,18 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a
-        /// keybase username in the form `keybase:some_person_that_exists`.
+        /// keybase username in the form `keybase:some_person_that_exists`, for use
+        /// in the `encrypted_secret` output attribute.
         /// </summary>
         [Output("pgpKey")]
         public Output<string?> PgpKey { get; private set; } = null!;
 
         /// <summary>
         /// The secret access key. Note that this will be written
-        /// to the state file. Please supply a `pgp_key` instead, which will prevent the
-        /// secret from being stored in plain text
+        /// to the state file. If you use this, please protect your backend state file
+        /// judiciously. Alternatively, you may supply a `pgp_key` instead, which will
+        /// prevent the secret from being stored in plaintext, at the cost of preventing
+        /// the use of the secret key in automation.
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
@@ -113,7 +116,8 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a
-        /// keybase username in the form `keybase:some_person_that_exists`.
+        /// keybase username in the form `keybase:some_person_that_exists`, for use
+        /// in the `encrypted_secret` output attribute.
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
@@ -139,7 +143,7 @@ namespace Pulumi.Aws.Iam
     public sealed class AccessKeyState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The encrypted secret, base64 encoded.
+        /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
         /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
         /// for example: `... | base64 --decode | keybase pgp decrypt`.
         /// </summary>
@@ -155,15 +159,18 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a
-        /// keybase username in the form `keybase:some_person_that_exists`.
+        /// keybase username in the form `keybase:some_person_that_exists`, for use
+        /// in the `encrypted_secret` output attribute.
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
         /// <summary>
         /// The secret access key. Note that this will be written
-        /// to the state file. Please supply a `pgp_key` instead, which will prevent the
-        /// secret from being stored in plain text
+        /// to the state file. If you use this, please protect your backend state file
+        /// judiciously. Alternatively, you may supply a `pgp_key` instead, which will
+        /// prevent the secret from being stored in plaintext, at the cost of preventing
+        /// the use of the secret key in automation.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }

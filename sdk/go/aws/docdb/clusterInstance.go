@@ -36,6 +36,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["applyImmediately"] = nil
 		inputs["autoMinorVersionUpgrade"] = nil
 		inputs["availabilityZone"] = nil
+		inputs["caCertIdentifier"] = nil
 		inputs["clusterIdentifier"] = nil
 		inputs["engine"] = nil
 		inputs["identifier"] = nil
@@ -48,6 +49,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["applyImmediately"] = args.ApplyImmediately
 		inputs["autoMinorVersionUpgrade"] = args.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = args.AvailabilityZone
+		inputs["caCertIdentifier"] = args.CaCertIdentifier
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
 		inputs["engine"] = args.Engine
 		inputs["identifier"] = args.Identifier
@@ -85,6 +87,7 @@ func GetClusterInstance(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = state.AvailabilityZone
+		inputs["caCertIdentifier"] = state.CaCertIdentifier
 		inputs["clusterIdentifier"] = state.ClusterIdentifier
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
 		inputs["dbiResourceId"] = state.DbiResourceId
@@ -140,6 +143,11 @@ func (r *ClusterInstance) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 // The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 func (r *ClusterInstance) AvailabilityZone() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
+}
+
+// (Optional) The identifier of the CA certificate for the DB instance.
+func (r *ClusterInstance) CaCertIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["caCertIdentifier"])
 }
 
 // The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
@@ -250,6 +258,8 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
+	// (Optional) The identifier of the CA certificate for the DB instance.
+	CaCertIdentifier interface{}
 	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The DB subnet group to associate with this DB instance.
@@ -304,6 +314,8 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
+	// (Optional) The identifier of the CA certificate for the DB instance.
+	CaCertIdentifier interface{}
 	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.

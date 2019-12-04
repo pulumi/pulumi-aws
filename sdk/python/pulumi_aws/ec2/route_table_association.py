@@ -10,22 +10,28 @@ from typing import Union
 from .. import utilities, tables
 
 class RouteTableAssociation(pulumi.CustomResource):
+    gateway_id: pulumi.Output[str]
+    """
+    The gateway ID to create an association. Conflicts with `subnet_id`.
+    """
     route_table_id: pulumi.Output[str]
     """
     The ID of the routing table to associate with.
     """
     subnet_id: pulumi.Output[str]
     """
-    The subnet ID to create an association.
+    The subnet ID to create an association. Conflicts with `gateway_id`.
     """
-    def __init__(__self__, resource_name, opts=None, route_table_id=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, gateway_id=None, route_table_id=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a resource to create an association between a subnet and routing table.
+        Provides a resource to create an association between a route table and a subnet or a route table and an
+        internet gateway or virtual private gateway.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
-        :param pulumi.Input[str] subnet_id: The subnet ID to create an association.
+        :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
         """
@@ -46,11 +52,10 @@ class RouteTableAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['gateway_id'] = gateway_id
             if route_table_id is None:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__['route_table_id'] = route_table_id
-            if subnet_id is None:
-                raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
         super(RouteTableAssociation, __self__).__init__(
             'aws:ec2/routeTableAssociation:RouteTableAssociation',
@@ -59,7 +64,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, route_table_id=None, subnet_id=None):
+    def get(resource_name, id, opts=None, gateway_id=None, route_table_id=None, subnet_id=None):
         """
         Get an existing RouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -67,14 +72,16 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
-        :param pulumi.Input[str] subnet_id: The subnet ID to create an association.
+        :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["gateway_id"] = gateway_id
         __props__["route_table_id"] = route_table_id
         __props__["subnet_id"] = subnet_id
         return RouteTableAssociation(resource_name, opts=opts, __props__=__props__)

@@ -48,6 +48,7 @@ export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOpti
     }
     const promise: Promise<GetRouteTableResult> = pulumi.runtime.invoke("aws:ec2/getRouteTable:getRouteTable", {
         "filters": args.filters,
+        "gatewayId": args.gatewayId,
         "routeTableId": args.routeTableId,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -66,11 +67,15 @@ export interface GetRouteTableArgs {
      */
     readonly filters?: inputs.ec2.GetRouteTableFilter[];
     /**
+     * The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+     */
+    readonly gatewayId?: string;
+    /**
      * The id of the specific Route Table to retrieve.
      */
     readonly routeTableId?: string;
     /**
-     * The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+     * The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
      */
     readonly subnetId?: string;
     /**
@@ -91,6 +96,10 @@ export interface GetRouteTableResult {
     readonly associations: outputs.ec2.GetRouteTableAssociation[];
     readonly filters?: outputs.ec2.GetRouteTableFilter[];
     /**
+     * The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+     */
+    readonly gatewayId: string;
+    /**
      * The ID of the AWS account that owns the route table
      */
     readonly ownerId: string;
@@ -100,7 +109,7 @@ export interface GetRouteTableResult {
     readonly routeTableId: string;
     readonly routes: outputs.ec2.GetRouteTableRoute[];
     /**
-     * The Subnet ID.
+     * The Subnet ID. Only set when associated with a Subnet.
      */
     readonly subnetId: string;
     readonly tags: {[key: string]: any};
