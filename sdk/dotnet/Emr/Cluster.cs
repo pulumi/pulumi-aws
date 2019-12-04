@@ -135,6 +135,9 @@ namespace Pulumi.Aws.Emr
         [Output("applications")]
         public Output<ImmutableArray<string>> Applications { get; private set; } = null!;
 
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         /// </summary>
@@ -557,6 +560,9 @@ namespace Pulumi.Aws.Emr
             get => _applications ?? (_applications = new InputList<string>());
             set => _applications = value;
         }
+
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.

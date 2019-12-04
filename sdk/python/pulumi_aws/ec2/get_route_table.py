@@ -13,13 +13,19 @@ class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, associations=None, filters=None, owner_id=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None, id=None):
+    def __init__(__self__, associations=None, filters=None, gateway_id=None, owner_id=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None, id=None):
         if associations and not isinstance(associations, list):
             raise TypeError("Expected argument 'associations' to be a list")
         __self__.associations = associations
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if gateway_id and not isinstance(gateway_id, str):
+            raise TypeError("Expected argument 'gateway_id' to be a str")
+        __self__.gateway_id = gateway_id
+        """
+        The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+        """
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         __self__.owner_id = owner_id
@@ -39,7 +45,7 @@ class GetRouteTableResult:
             raise TypeError("Expected argument 'subnet_id' to be a str")
         __self__.subnet_id = subnet_id
         """
-        The Subnet ID.
+        The Subnet ID. Only set when associated with a Subnet.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -61,6 +67,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
         return GetRouteTableResult(
             associations=self.associations,
             filters=self.filters,
+            gateway_id=self.gateway_id,
             owner_id=self.owner_id,
             route_table_id=self.route_table_id,
             routes=self.routes,
@@ -69,7 +76,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             vpc_id=self.vpc_id,
             id=self.id)
 
-def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
+def get_route_table(filters=None,gateway_id=None,route_table_id=None,subnet_id=None,tags=None,vpc_id=None,opts=None):
     """
     `ec2.RouteTable` provides details about a specific Route Table.
     
@@ -78,8 +85,9 @@ def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vp
     the Route Table.
     
     :param list filters: Custom filter block as described below.
+    :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param str route_table_id: The id of the specific Route Table to retrieve.
-    :param str subnet_id: The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+    :param str subnet_id: The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired Route Table.
     :param str vpc_id: The id of the VPC that the desired Route Table belongs to.
@@ -96,6 +104,7 @@ def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vp
     __args__ = dict()
 
     __args__['filters'] = filters
+    __args__['gatewayId'] = gateway_id
     __args__['routeTableId'] = route_table_id
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
@@ -109,6 +118,7 @@ def get_route_table(filters=None,route_table_id=None,subnet_id=None,tags=None,vp
     return AwaitableGetRouteTableResult(
         associations=__ret__.get('associations'),
         filters=__ret__.get('filters'),
+        gateway_id=__ret__.get('gatewayId'),
         owner_id=__ret__.get('ownerId'),
         route_table_id=__ret__.get('routeTableId'),
         routes=__ret__.get('routes'),

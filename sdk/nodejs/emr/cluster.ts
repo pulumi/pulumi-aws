@@ -583,6 +583,7 @@ export class Cluster extends pulumi.CustomResource {
      * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
     public readonly applications!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
@@ -704,6 +705,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
             inputs["applications"] = state ? state.applications : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
             inputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
             inputs["clusterState"] = state ? state.clusterState : undefined;
@@ -766,6 +768,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["clusterState"] = undefined /*out*/;
             inputs["masterPublicDns"] = undefined /*out*/;
         }
@@ -792,6 +795,7 @@ export interface ClusterState {
      * A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
      */
     readonly applications?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly arn?: pulumi.Input<string>;
     /**
      * An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */

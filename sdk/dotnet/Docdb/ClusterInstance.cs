@@ -47,6 +47,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// </summary>
+        [Output("caCertIdentifier")]
+        public Output<string> CaCertIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
         /// </summary>
         [Output("clusterIdentifier")]
@@ -225,6 +231,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// </summary>
+        [Input("caCertIdentifier")]
+        public Input<string>? CaCertIdentifier { get; set; }
+
+        /// <summary>
         /// The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
@@ -317,6 +329,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// </summary>
+        [Input("caCertIdentifier")]
+        public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
         /// The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.

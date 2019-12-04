@@ -12,7 +12,7 @@ from .. import utilities, tables
 class AccessKey(pulumi.CustomResource):
     encrypted_secret: pulumi.Output[str]
     """
-    The encrypted secret, base64 encoded.
+    The encrypted secret, base64 encoded, if `pgp_key` was specified.
     > **NOTE:** The encrypted secret may be decrypted using the command line,
     for example: `... | base64 --decode | keybase pgp decrypt`.
     """
@@ -24,13 +24,16 @@ class AccessKey(pulumi.CustomResource):
     pgp_key: pulumi.Output[str]
     """
     Either a base-64 encoded PGP public key, or a
-    keybase username in the form `keybase:some_person_that_exists`.
+    keybase username in the form `keybase:some_person_that_exists`, for use
+    in the `encrypted_secret` output attribute.
     """
     secret: pulumi.Output[str]
     """
     The secret access key. Note that this will be written
-    to the state file. Please supply a `pgp_key` instead, which will prevent the
-    secret from being stored in plain text
+    to the state file. If you use this, please protect your backend state file
+    judiciously. Alternatively, you may supply a `pgp_key` instead, which will
+    prevent the secret from being stored in plaintext, at the cost of preventing
+    the use of the secret key in automation.
     """
     ses_smtp_password: pulumi.Output[str]
     """
@@ -54,7 +57,8 @@ class AccessKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
-               keybase username in the form `keybase:some_person_that_exists`.
+               keybase username in the form `keybase:some_person_that_exists`, for use
+               in the `encrypted_secret` output attribute.
         :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
                Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
@@ -102,16 +106,19 @@ class AccessKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encrypted_secret: The encrypted secret, base64 encoded.
+        :param pulumi.Input[str] encrypted_secret: The encrypted secret, base64 encoded, if `pgp_key` was specified.
                > **NOTE:** The encrypted secret may be decrypted using the command line,
                for example: `... | base64 --decode | keybase pgp decrypt`.
         :param pulumi.Input[str] key_fingerprint: The fingerprint of the PGP key used to encrypt
                the secret
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
-               keybase username in the form `keybase:some_person_that_exists`.
+               keybase username in the form `keybase:some_person_that_exists`, for use
+               in the `encrypted_secret` output attribute.
         :param pulumi.Input[str] secret: The secret access key. Note that this will be written
-               to the state file. Please supply a `pgp_key` instead, which will prevent the
-               secret from being stored in plain text
+               to the state file. If you use this, please protect your backend state file
+               judiciously. Alternatively, you may supply a `pgp_key` instead, which will
+               prevent the secret from being stored in plaintext, at the cost of preventing
+               the use of the secret key in automation.
         :param pulumi.Input[str] ses_smtp_password: The secret access key converted into an SES SMTP
                password by applying [AWS's documented conversion
                algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).

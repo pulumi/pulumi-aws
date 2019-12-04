@@ -37,13 +37,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        /// </summary>
+        [Input("gatewayId")]
+        public Input<string>? GatewayId { get; set; }
+
+        /// <summary>
         /// The id of the specific Route Table to retrieve.
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
         /// <summary>
-        /// The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+        /// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -78,6 +84,10 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetRouteTableAssociationsResult> Associations;
         public readonly ImmutableArray<Outputs.GetRouteTableFiltersResult> Filters;
         /// <summary>
+        /// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
+        /// </summary>
+        public readonly string GatewayId;
+        /// <summary>
         /// The ID of the AWS account that owns the route table
         /// </summary>
         public readonly string OwnerId;
@@ -87,7 +97,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string RouteTableId;
         public readonly ImmutableArray<Outputs.GetRouteTableRoutesResult> Routes;
         /// <summary>
-        /// The Subnet ID.
+        /// The Subnet ID. Only set when associated with a Subnet.
         /// </summary>
         public readonly string SubnetId;
         public readonly ImmutableDictionary<string, object> Tags;
@@ -101,6 +111,7 @@ namespace Pulumi.Aws.Ec2
         private GetRouteTableResult(
             ImmutableArray<Outputs.GetRouteTableAssociationsResult> associations,
             ImmutableArray<Outputs.GetRouteTableFiltersResult> filters,
+            string gatewayId,
             string ownerId,
             string routeTableId,
             ImmutableArray<Outputs.GetRouteTableRoutesResult> routes,
@@ -111,6 +122,7 @@ namespace Pulumi.Aws.Ec2
         {
             Associations = associations;
             Filters = filters;
+            GatewayId = gatewayId;
             OwnerId = ownerId;
             RouteTableId = routeTableId;
             Routes = routes;
@@ -159,11 +171,15 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetRouteTableAssociationsResult
     {
         /// <summary>
+        /// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        /// </summary>
+        public readonly string GatewayId;
+        /// <summary>
         /// If the Association due to the Main Route Table.
         /// </summary>
         public readonly bool Main;
         /// <summary>
-        /// The Association ID .
+        /// The Association ID.
         /// </summary>
         public readonly string RouteTableAssociationId;
         /// <summary>
@@ -171,17 +187,19 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string RouteTableId;
         /// <summary>
-        /// The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+        /// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
         /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
         private GetRouteTableAssociationsResult(
+            string gatewayId,
             bool main,
             string routeTableAssociationId,
             string routeTableId,
             string subnetId)
         {
+            GatewayId = gatewayId;
             Main = main;
             RouteTableAssociationId = routeTableAssociationId;
             RouteTableId = routeTableId;
@@ -225,7 +243,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string EgressOnlyGatewayId;
         /// <summary>
-        /// The Internet Gateway ID.
+        /// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
         /// </summary>
         public readonly string GatewayId;
         /// <summary>

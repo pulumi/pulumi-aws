@@ -73,7 +73,7 @@ func (r *AccessKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The encrypted secret, base64 encoded.
+// The encrypted secret, base64 encoded, if `pgpKey` was specified.
 // > **NOTE:** The encrypted secret may be decrypted using the command line,
 // for example: `... | base64 --decode | keybase pgp decrypt`.
 func (r *AccessKey) EncryptedSecret() pulumi.StringOutput {
@@ -87,14 +87,17 @@ func (r *AccessKey) KeyFingerprint() pulumi.StringOutput {
 }
 
 // Either a base-64 encoded PGP public key, or a
-// keybase username in the form `keybase:some_person_that_exists`.
+// keybase username in the form `keybase:some_person_that_exists`, for use
+// in the `encryptedSecret` output attribute.
 func (r *AccessKey) PgpKey() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["pgpKey"])
 }
 
 // The secret access key. Note that this will be written
-// to the state file. Please supply a `pgpKey` instead, which will prevent the
-// secret from being stored in plain text
+// to the state file. If you use this, please protect your backend state file
+// judiciously. Alternatively, you may supply a `pgpKey` instead, which will
+// prevent the secret from being stored in plaintext, at the cost of preventing
+// the use of the secret key in automation.
 func (r *AccessKey) Secret() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["secret"])
 }
@@ -119,7 +122,7 @@ func (r *AccessKey) User() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering AccessKey resources.
 type AccessKeyState struct {
-	// The encrypted secret, base64 encoded.
+	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
 	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	// for example: `... | base64 --decode | keybase pgp decrypt`.
 	EncryptedSecret interface{}
@@ -127,11 +130,14 @@ type AccessKeyState struct {
 	// the secret
 	KeyFingerprint interface{}
 	// Either a base-64 encoded PGP public key, or a
-	// keybase username in the form `keybase:some_person_that_exists`.
+	// keybase username in the form `keybase:some_person_that_exists`, for use
+	// in the `encryptedSecret` output attribute.
 	PgpKey interface{}
 	// The secret access key. Note that this will be written
-	// to the state file. Please supply a `pgpKey` instead, which will prevent the
-	// secret from being stored in plain text
+	// to the state file. If you use this, please protect your backend state file
+	// judiciously. Alternatively, you may supply a `pgpKey` instead, which will
+	// prevent the secret from being stored in plaintext, at the cost of preventing
+	// the use of the secret key in automation.
 	Secret interface{}
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
@@ -147,7 +153,8 @@ type AccessKeyState struct {
 // The set of arguments for constructing a AccessKey resource.
 type AccessKeyArgs struct {
 	// Either a base-64 encoded PGP public key, or a
-	// keybase username in the form `keybase:some_person_that_exists`.
+	// keybase username in the form `keybase:some_person_that_exists`, for use
+	// in the `encryptedSecret` output attribute.
 	PgpKey interface{}
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.

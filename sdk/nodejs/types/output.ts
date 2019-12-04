@@ -1830,7 +1830,7 @@ export namespace autoscaling {
          */
         instancesDistribution?: outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution;
         /**
-         * Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+         * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
          */
         launchTemplate: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplate;
     }
@@ -1893,6 +1893,10 @@ export namespace autoscaling {
          * Override the instance type in the Launch Template.
          */
         instanceType?: string;
+        /**
+         * The number of capacity units, which gives the instance type a proportional weight to other instance types.
+         */
+        weightedCapacity?: string;
     }
 
     export interface GroupTag {
@@ -3107,7 +3111,7 @@ export namespace codebuild {
          */
         certificate?: string;
         /**
-         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`
+         * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` need to be `BUILD_GENERAL1_LARGE`.
          */
         computeType: string;
         /**
@@ -5024,11 +5028,15 @@ export namespace ec2 {
 
     export interface GetRouteTableAssociation {
         /**
+         * The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+         */
+        gatewayId: string;
+        /**
          * If the Association due to the Main Route Table.
          */
         main: boolean;
         /**
-         * The Association ID .
+         * The Association ID.
          */
         routeTableAssociationId: string;
         /**
@@ -5036,7 +5044,7 @@ export namespace ec2 {
          */
         routeTableId: string;
         /**
-         * The id of a Subnet which is connected to the Route Table (not be exported if not given in parameter).
+         * The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
          */
         subnetId: string;
     }
@@ -5064,7 +5072,7 @@ export namespace ec2 {
          */
         egressOnlyGatewayId: string;
         /**
-         * The Internet Gateway ID.
+         * The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
          */
         gatewayId: string;
         /**
@@ -5477,7 +5485,7 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateNetworkInterface {
-        associatePublicIpAddress?: boolean;
+        associatePublicIpAddress?: string;
         deleteOnTermination?: boolean;
         /**
          * Description of the launch template.
@@ -6230,6 +6238,17 @@ export namespace eks {
          * The VPC associated with your cluster.
          */
         vpcId: string;
+    }
+
+    export interface FargateProfileSelector {
+        /**
+         * Key-value mapping of Kubernetes labels for selection.
+         */
+        labels?: {[key: string]: string};
+        /**
+         * Kubernetes namespace for selection.
+         */
+        namespace: string;
     }
 
     export interface GetClusterCertificateAuthority {

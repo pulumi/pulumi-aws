@@ -27,6 +27,10 @@ class ClusterInstance(pulumi.CustomResource):
     """
     The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
     """
+    ca_cert_identifier: pulumi.Output[str]
+    """
+    (Optional) The identifier of the CA certificate for the DB instance.
+    """
     cluster_identifier: pulumi.Output[str]
     """
     The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
@@ -104,7 +108,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, engine=None, identifier=None, identifier_prefix=None, instance_class=None, preferred_maintenance_window=None, promotion_tier=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, ca_cert_identifier=None, cluster_identifier=None, engine=None, identifier=None, identifier_prefix=None, instance_class=None, preferred_maintenance_window=None, promotion_tier=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
         attributes that are specific to a single instance in a [DocDB Cluster][1].
@@ -121,6 +125,7 @@ class ClusterInstance(pulumi.CustomResource):
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+        :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
@@ -160,6 +165,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__['apply_immediately'] = apply_immediately
             __props__['auto_minor_version_upgrade'] = auto_minor_version_upgrade
             __props__['availability_zone'] = availability_zone
+            __props__['ca_cert_identifier'] = ca_cert_identifier
             if cluster_identifier is None:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__['cluster_identifier'] = cluster_identifier
@@ -190,7 +196,7 @@ class ClusterInstance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, db_subnet_group_name=None, dbi_resource_id=None, endpoint=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, kms_key_id=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, storage_encrypted=None, tags=None, writer=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, auto_minor_version_upgrade=None, availability_zone=None, ca_cert_identifier=None, cluster_identifier=None, db_subnet_group_name=None, dbi_resource_id=None, endpoint=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, kms_key_id=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, storage_encrypted=None, tags=None, writer=None):
         """
         Get an existing ClusterInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -203,6 +209,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster instance
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+        :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
@@ -238,6 +245,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__["availability_zone"] = availability_zone
+        __props__["ca_cert_identifier"] = ca_cert_identifier
         __props__["cluster_identifier"] = cluster_identifier
         __props__["db_subnet_group_name"] = db_subnet_group_name
         __props__["dbi_resource_id"] = dbi_resource_id

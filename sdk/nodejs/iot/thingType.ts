@@ -59,6 +59,9 @@ export class ThingType extends pulumi.CustomResource {
      * The name of the thing type.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * , Configuration block that can contain the following properties of the thing type:
+     */
     public readonly properties!: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
 
     /**
@@ -111,6 +114,9 @@ export interface ThingTypeState {
      * The name of the thing type.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * , Configuration block that can contain the following properties of the thing type:
+     */
     readonly properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
 }
 
@@ -126,5 +132,8 @@ export interface ThingTypeArgs {
      * The name of the thing type.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * , Configuration block that can contain the following properties of the thing type:
+     */
     readonly properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
 }

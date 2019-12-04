@@ -32,6 +32,9 @@ namespace Pulumi.Aws.Iot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
         [Output("properties")]
         public Output<Outputs.ThingTypeProperties?> Properties { get; private set; } = null!;
 
@@ -93,6 +96,9 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
         [Input("properties")]
         public Input<Inputs.ThingTypePropertiesArgs>? Properties { get; set; }
 
@@ -121,6 +127,9 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
         [Input("properties")]
         public Input<Inputs.ThingTypePropertiesGetArgs>? Properties { get; set; }
 

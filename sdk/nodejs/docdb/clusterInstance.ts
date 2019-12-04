@@ -87,6 +87,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
+     * (Optional) The identifier of the CA certificate for the DB instance.
+     */
+    public readonly caCertIdentifier!: pulumi.Output<string>;
+    /**
      * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
@@ -180,6 +184,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            inputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             inputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
@@ -209,6 +214,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
@@ -261,6 +267,10 @@ export interface ClusterInstanceState {
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * (Optional) The identifier of the CA certificate for the DB instance.
+     */
+    readonly caCertIdentifier?: pulumi.Input<string>;
     /**
      * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */
@@ -357,6 +367,10 @@ export interface ClusterInstanceArgs {
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     readonly availabilityZone?: pulumi.Input<string>;
+    /**
+     * (Optional) The identifier of the CA certificate for the DB instance.
+     */
+    readonly caCertIdentifier?: pulumi.Input<string>;
     /**
      * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
      */

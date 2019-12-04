@@ -191,6 +191,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["terminationProtection"] = args.TerminationProtection
 		inputs["visibleToAllUsers"] = args.VisibleToAllUsers
 	}
+	inputs["arn"] = nil
 	inputs["clusterState"] = nil
 	inputs["masterPublicDns"] = nil
 	s, err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, true, inputs, opts...)
@@ -208,6 +209,7 @@ func GetCluster(ctx *pulumi.Context,
 	if state != nil {
 		inputs["additionalInfo"] = state.AdditionalInfo
 		inputs["applications"] = state.Applications
+		inputs["arn"] = state.Arn
 		inputs["autoscalingRole"] = state.AutoscalingRole
 		inputs["bootstrapActions"] = state.BootstrapActions
 		inputs["clusterState"] = state.ClusterState
@@ -261,6 +263,10 @@ func (r *Cluster) AdditionalInfo() pulumi.StringOutput {
 // A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 func (r *Cluster) Applications() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["applications"])
+}
+
+func (r *Cluster) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -404,6 +410,7 @@ type ClusterState struct {
 	AdditionalInfo interface{}
 	// A list of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive
 	Applications interface{}
+	Arn interface{}
 	// An IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole interface{}
 	// List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below

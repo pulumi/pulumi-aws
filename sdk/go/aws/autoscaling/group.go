@@ -101,6 +101,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["launchConfiguration"] = nil
 		inputs["launchTemplate"] = nil
 		inputs["loadBalancers"] = nil
+		inputs["maxInstanceLifetime"] = nil
 		inputs["maxSize"] = nil
 		inputs["metricsGranularity"] = nil
 		inputs["minElbCapacity"] = nil
@@ -131,6 +132,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["launchConfiguration"] = args.LaunchConfiguration
 		inputs["launchTemplate"] = args.LaunchTemplate
 		inputs["loadBalancers"] = args.LoadBalancers
+		inputs["maxInstanceLifetime"] = args.MaxInstanceLifetime
 		inputs["maxSize"] = args.MaxSize
 		inputs["metricsGranularity"] = args.MetricsGranularity
 		inputs["minElbCapacity"] = args.MinElbCapacity
@@ -176,6 +178,7 @@ func GetGroup(ctx *pulumi.Context,
 		inputs["launchConfiguration"] = state.LaunchConfiguration
 		inputs["launchTemplate"] = state.LaunchTemplate
 		inputs["loadBalancers"] = state.LoadBalancers
+		inputs["maxInstanceLifetime"] = state.MaxInstanceLifetime
 		inputs["maxSize"] = state.MaxSize
 		inputs["metricsGranularity"] = state.MetricsGranularity
 		inputs["minElbCapacity"] = state.MinElbCapacity
@@ -279,7 +282,7 @@ func (r *Group) LaunchConfiguration() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["launchConfiguration"])
 }
 
-// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 func (r *Group) LaunchTemplate() pulumi.Output {
 	return r.s.State["launchTemplate"]
 }
@@ -288,6 +291,11 @@ func (r *Group) LaunchTemplate() pulumi.Output {
 // group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 func (r *Group) LoadBalancers() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
+}
+
+// The maximum amount of time, in seconds, that an instance can be in service
+func (r *Group) MaxInstanceLifetime() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxInstanceLifetime"])
 }
 
 // The maximum size of the auto scale group.
@@ -430,11 +438,13 @@ type GroupState struct {
 	InitialLifecycleHooks interface{}
 	// The name of the launch configuration to use.
 	LaunchConfiguration interface{}
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 	LaunchTemplate interface{}
 	// A list of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 	LoadBalancers interface{}
+	// The maximum amount of time, in seconds, that an instance can be in service
+	MaxInstanceLifetime interface{}
 	// The maximum size of the auto scale group.
 	MaxSize interface{}
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
@@ -521,11 +531,13 @@ type GroupArgs struct {
 	InitialLifecycleHooks interface{}
 	// The name of the launch configuration to use.
 	LaunchConfiguration interface{}
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types. Defined below.
+	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 	LaunchTemplate interface{}
 	// A list of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 	LoadBalancers interface{}
+	// The maximum amount of time, in seconds, that an instance can be in service
+	MaxInstanceLifetime interface{}
 	// The maximum size of the auto scale group.
 	MaxSize interface{}
 	// The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
