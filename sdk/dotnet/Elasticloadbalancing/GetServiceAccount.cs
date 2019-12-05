@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticloadbalancing
+namespace Pulumi.Aws.ElasticLoadBalancing
 {
     public static partial class Invokes
     {
