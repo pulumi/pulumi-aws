@@ -153,28 +153,36 @@ var namespaceMap = map[string]string{
 	"aws": "Aws",
 }
 
-// awsMember manufactures a type token for the AWS package and the given module and type.
-func awsMember(moduleTitle, fn, mem string) tokens.ModuleMember {
+// awsMember manufactures a type token for the AWS package and the given module, file name, and type.
+func awsMember(moduleTitle string, fn string, mem string) tokens.ModuleMember {
 	moduleName := strings.ToLower(moduleTitle)
 	namespaceMap[moduleName] = moduleTitle
-	token := moduleName + "/" + fn
-	return tokens.ModuleMember(awsPkg + ":" + token + ":" + mem)
+	if fn != "" {
+		moduleName += "/" + fn
+	}
+	return tokens.ModuleMember(awsPkg + ":" + moduleName + ":" + mem)
 }
 
 // awsType manufactures a type token for the AWS package and the given module, file name, and type.
-func awsFileAndType(mod, fn, typ string) tokens.Type {
+func awsType(mod string, fn string, typ string) tokens.Type {
 	return tokens.Type(awsMember(mod, fn, typ))
 }
 
-// awsType manufactures a type token for the AWS package and the given module and type.  It automatically
-// names the file by simply lower casing the member's first character.
-func awsType(mod string, typ string) tokens.Type {
-	fn := string(unicode.ToLower(rune(typ[0]))) + typ[1:]
-	return awsFileAndType(mod, fn, typ)
+// awsTypeNoFile manufactures a type token for the AWS package and the given module and type.  It does not append any
+// file name to the module.
+func awsTypeNoFile(mod string, typ string) tokens.Type {
+	return tokens.Type(awsMember(mod, "", typ))
 }
 
-// awsDataSource manufactures a standard member given a module and resource name.  It automatically
-//  names the file by simply lower casing the member's first character.
+// awsResource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
+// package and names the file by simply lower casing the type's first character.
+func awsTypeDefaultFile(mod string, typ string) tokens.Type {
+	fn := string(unicode.ToLower(rune(typ[0]))) + typ[1:]
+	return awsType(mod, fn, typ)
+}
+
+// awsDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
+// package and names the file by simply lower casing the data source's first character.
 func awsDataSource(mod string, res string) tokens.ModuleMember {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
 	return awsMember(mod, fn, res)
@@ -182,7 +190,7 @@ func awsDataSource(mod string, res string) tokens.ModuleMember {
 
 // awsResource manufactures a standard resource token given a module and resource name.
 func awsResource(mod string, res string) tokens.Type {
-	return awsType(mod, res)
+	return awsTypeDefaultFile(mod, res)
 }
 
 // boolRef returns a reference to the bool argument.
@@ -242,7 +250,7 @@ func Provider() tfbridge.ProviderInfo {
 		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
-				Type: awsType("region", "Region"),
+				Type: awsTypeNoFile("region", "Region"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
@@ -307,7 +315,7 @@ func Provider() tfbridge.ProviderInfo {
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"rest_api_id": {
 									Name: "restApi",
-									Type: awsType(apigatewayMod, "RestApi"),
+									Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 								},
 							},
 						},
@@ -319,7 +327,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -328,7 +336,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -338,7 +346,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -357,7 +365,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -366,7 +374,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -375,7 +383,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -384,7 +392,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				}},
 			"aws_api_gateway_method_settings": {
@@ -392,7 +400,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				}},
 			"aws_api_gateway_model": {
@@ -400,7 +408,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				}},
 			"aws_api_gateway_request_validator": {
@@ -408,21 +416,21 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
 			"aws_api_gateway_resource": {
 				Tok: awsResource(apigatewayMod, "Resource"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// TODO[pulumi/terraform-bridge#5] Strongly type the parent reference to align with other uses
+					// TODO[pulumi/terraform-bridge#5] Strongly type the parent refernence to align with other uses
 					// "parent_id": {
 					// 	Name: "parent",
-					// 	Type: awsType(apigatewayMod, "Resource"),
+					// 	Type: awsTypeDefaultFile(apigatewayMod, "Resource"),
 					// },
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -433,11 +441,11 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"deployment_id": {
 						Name: "deployment",
-						Type: awsType(apigatewayMod, "Deployment"),
+						Type: awsTypeDefaultFile(apigatewayMod, "Deployment"),
 					},
 					"rest_api_id": {
 						Name: "restApi",
-						Type: awsType(apigatewayMod, "RestApi"),
+						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
 					},
 				},
 			},
@@ -482,11 +490,11 @@ func Provider() tfbridge.ProviderInfo {
 						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
 					},
 					"enabled_metrics": {
-						Elem: &tfbridge.SchemaInfo{Type: awsFileAndType(autoscalingMod, "metrics", "Metric")},
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "metrics", "Metric")},
 					},
 					"metrics_granularity": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsFileAndType(autoscalingMod, "metrics", "MetricsGranularity")},
+						AltTypes: []tokens.Type{awsType(autoscalingMod, "metrics", "MetricsGranularity")},
 					},
 					"tag": {
 						// Explicitly map tag => tags to avoid confusion with tags => tagsCollection below.
@@ -510,7 +518,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(autoscalingMod, "Notification"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"notifications": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "NotificationType")},
+						Elem: &tfbridge.SchemaInfo{Type: awsTypeDefaultFile(autoscalingMod, "NotificationType")},
 					},
 				},
 			},
@@ -662,22 +670,22 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_efs": {
 				Tok: awsResource(datasyncMod, "EfsLocation"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"efs_file_system_arn": {Type: awsType(awsMod, "ARN")},
+					"efs_file_system_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
 			"aws_datasync_location_nfs": {Tok: awsResource(datasyncMod, "NfsLocation")},
 			"aws_datasync_location_s3": {
 				Tok: awsResource(datasyncMod, "S3Location"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"s3_bucket_arn": {Type: awsType(awsMod, "ARN")},
+					"s3_bucket_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
 			"aws_datasync_task": {
 				Tok: awsResource(datasyncMod, "Task"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"destination_location_arn": {Type: awsType(awsMod, "ARN")},
-					"source_location_arn":      {Type: awsType(awsMod, "ARN")},
-					"cloudwatch_log_group_arn": {Type: awsType(awsMod, "ARN")},
+					"destination_location_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
+					"source_location_arn":      {Type: awsTypeNoFile(awsMod, "ARN")},
+					"cloudwatch_log_group_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
 			// Data Lifecycle Manager
@@ -842,10 +850,10 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "InstanceProfile")},
+						AltTypes: []tokens.Type{awsTypeNoFile(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
-						Type: awsType(ec2Mod, "InstanceType"),
+						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
 					},
 					"instance_state": {
 						CSharpName: "State",
@@ -864,7 +872,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "InstanceProfile")},
+						AltTypes: []tokens.Type{awsTypeNoFile(iamMod, "InstanceProfile")},
 					},
 				},
 			},
@@ -899,7 +907,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "PlacementGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"strategy": {
-						Type: awsType(ec2Mod, "PlacementStrategy"),
+						Type: awsTypeDefaultFile(ec2Mod, "PlacementStrategy"),
 					},
 				},
 			},
@@ -911,13 +919,13 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "CapacityReservation"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"instance_type": {
-						Type: awsType(ec2Mod, "InstanceType"),
+						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
 					},
 					"instance_platform": {
-						Type: awsType(ec2Mod, "InstancePlatform"),
+						Type: awsTypeDefaultFile(ec2Mod, "InstancePlatform"),
 					},
 					"tenancy": {
-						Type: awsType(ec2Mod, "Tenancy"),
+						Type: awsTypeDefaultFile(ec2Mod, "Tenancy"),
 					},
 				},
 			},
@@ -996,7 +1004,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway": {
 				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsType(awsMod, "ARN")},
+					"arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
 			"aws_ec2_transit_gateway_route": {
@@ -1018,7 +1026,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1028,7 +1036,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(ecrMod, "LifecyclePolicyDocument")},
+						AltTypes:  []tokens.Type{awsTypeDefaultFile(ecrMod, "LifecyclePolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1079,7 +1087,7 @@ func Provider() tfbridge.ProviderInfo {
 					"snapshot_options": {Name: "snapshotOptions"},
 					"access_policies": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1089,7 +1097,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"access_policies": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1197,7 +1205,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1209,11 +1217,11 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"group": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "Group")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1225,12 +1233,12 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "Role")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
 					},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsType(iamMod, "Role")},
+							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
 						},
 					},
 				},
@@ -1241,7 +1249,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:       "string",
-						AltTypes:   []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:   []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform:  tfbridge.TransformJSONDocument,
 						CSharpName: "PolicyDocument",
 					},
@@ -1253,24 +1261,24 @@ func Provider() tfbridge.ProviderInfo {
 					"users": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsType(iamMod, "User")},
+							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
 						},
 					},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsType(iamMod, "Role")},
+							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
 						},
 					},
 					"groups": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsType(iamMod, "Group")},
+							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
 						},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1282,11 +1290,11 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "Role")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1298,11 +1306,11 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "Role")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
 					},
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1313,7 +1321,7 @@ func Provider() tfbridge.ProviderInfo {
 					"name": tfbridge.AutoName("name", 64),
 					"assume_role_policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1327,11 +1335,11 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"user": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iamMod, "User")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1343,7 +1351,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1371,10 +1379,10 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(iotMod, "Policy")},
+						AltTypes: []tokens.Type{awsTypeNoFile(iotMod, "Policy")},
 					},
 					"target": {
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 			},
@@ -1384,7 +1392,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"principal": {
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 			},
@@ -1412,7 +1420,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"arn": {
-						Type: awsType(awsMod, "ARN"),
+						Type: awsTypeNoFile(awsMod, "ARN"),
 					},
 				},
 			},
@@ -1428,7 +1436,7 @@ func Provider() tfbridge.ProviderInfo {
 				IDFields: []string{"function_name"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": tfbridge.AutoName("name", 64),
-					"role":          {Type: awsType(awsMod, "ARN")},
+					"role":          {Type: awsTypeNoFile(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Pulumi's asset model, we will hijack the filename property.  A Pulumi archive is passed in
 					// its stead and we will turn around and emit the archive as a temp file that Terraform can read.
@@ -1468,7 +1476,7 @@ func Provider() tfbridge.ProviderInfo {
 					"function_name": {
 						Name:     "function",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(lambdaMod, "Function")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(lambdaMod, "Function")},
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100),
 				},
@@ -1577,7 +1585,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"instance_class": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "InstanceType")},
 					},
 				},
 			},
@@ -1612,11 +1620,11 @@ func Provider() tfbridge.ProviderInfo {
 					"name": {Name: "name"},
 					"instance_class": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "InstanceType")},
 					},
 					"storage_type": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(rdsMod, "StorageType")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(rdsMod, "StorageType")},
 					},
 				},
 			},
@@ -1695,7 +1703,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"type": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(route53Mod, "RecordType")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(route53Mod, "RecordType")},
 					},
 				},
 			},
@@ -1758,7 +1766,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"acl": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(s3Mod, "CannedAcl")},
 					},
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
@@ -1772,7 +1780,7 @@ func Provider() tfbridge.ProviderInfo {
 								"routing_rules": {
 									Name:      "routingRules",
 									Type:      "string",
-									AltTypes:  []tokens.Type{awsType(s3Mod, "RoutingRule[]")},
+									AltTypes:  []tokens.Type{awsType(s3Mod, "routingRules", "RoutingRule[]")},
 									Transform: tfbridge.TransformJSONDocument,
 								},
 							},
@@ -1780,7 +1788,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1820,7 +1828,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsFileAndType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1846,7 +1854,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ssmMod, "Parameter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"type": {
-						Type: awsType(ssmMod, "ParameterType"),
+						Type: awsTypeDefaultFile(ssmMod, "ParameterType"),
 					},
 				},
 			},
@@ -1875,7 +1883,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sns_topic": {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsType(awsMod, "ARN")},
+					"arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
 			"aws_sns_topic_policy": {Tok: awsResource(snsMod, "TopicPolicy")},
