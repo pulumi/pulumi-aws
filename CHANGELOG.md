@@ -2,9 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.5.2 of pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 1.15.0 (2019-12-12)
+* Upgrade to v1.5.2 of pulumi-terraform-bridge
+* Namespace names in .NET SDK are adjusted to PascalCase
+([#819](https://github.com/pulumi/pulumi-aws/pull/819)).
 
 ## 1.14.1 (2019-12-04)
 * Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
