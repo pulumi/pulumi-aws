@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 1.15.0 (2019-12-11)
+* Updated to 1.7.0 version of @pulumi/pulumi.
+
 ## 1.14.1 (2019-12-04)
 * Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
 
