@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticloadbalancing
+namespace Pulumi.Aws.ElasticLoadBalancing
 {
     /// <summary>
     /// Provides a load balancer policy, which can be attached to an ELB listener or backend server.

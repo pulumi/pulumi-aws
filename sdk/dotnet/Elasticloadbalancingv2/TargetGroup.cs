@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Elasticloadbalancingv2
+namespace Pulumi.Aws.ElasticLoadBalancingV2
 {
     /// <summary>
     /// Provides a Target Group resource for use with Load Balancer resources.

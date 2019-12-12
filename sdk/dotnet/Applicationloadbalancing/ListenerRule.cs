@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Applicationloadbalancing
+namespace Pulumi.Aws.ApplicationLoadBalancing
 {
     /// <summary>
     /// Provides a Load Balancer Listener Rule resource.
