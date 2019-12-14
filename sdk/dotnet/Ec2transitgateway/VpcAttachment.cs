@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -140,14 +140,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 
@@ -207,14 +207,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 

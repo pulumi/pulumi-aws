@@ -24,6 +24,7 @@ func NewUsagePlan(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["productCode"] = nil
 		inputs["quotaSettings"] = nil
+		inputs["tags"] = nil
 		inputs["throttleSettings"] = nil
 	} else {
 		inputs["apiStages"] = args.ApiStages
@@ -31,8 +32,10 @@ func NewUsagePlan(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["productCode"] = args.ProductCode
 		inputs["quotaSettings"] = args.QuotaSettings
+		inputs["tags"] = args.Tags
 		inputs["throttleSettings"] = args.ThrottleSettings
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:apigateway/usagePlan:UsagePlan", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -47,10 +50,12 @@ func GetUsagePlan(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["apiStages"] = state.ApiStages
+		inputs["arn"] = state.Arn
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["productCode"] = state.ProductCode
 		inputs["quotaSettings"] = state.QuotaSettings
+		inputs["tags"] = state.Tags
 		inputs["throttleSettings"] = state.ThrottleSettings
 	}
 	s, err := ctx.ReadResource("aws:apigateway/usagePlan:UsagePlan", name, id, inputs, opts...)
@@ -75,6 +80,11 @@ func (r *UsagePlan) ApiStages() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["apiStages"])
 }
 
+// Amazon Resource Name (ARN)
+func (r *UsagePlan) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // The description of a usage plan.
 func (r *UsagePlan) Description() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["description"])
@@ -95,6 +105,11 @@ func (r *UsagePlan) QuotaSettings() pulumi.Output {
 	return r.s.State["quotaSettings"]
 }
 
+// Key-value mapping of resource tags
+func (r *UsagePlan) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // The throttling limits of the usage plan.
 func (r *UsagePlan) ThrottleSettings() pulumi.Output {
 	return r.s.State["throttleSettings"]
@@ -104,6 +119,8 @@ func (r *UsagePlan) ThrottleSettings() pulumi.Output {
 type UsagePlanState struct {
 	// The associated API stages of the usage plan.
 	ApiStages interface{}
+	// Amazon Resource Name (ARN)
+	Arn interface{}
 	// The description of a usage plan.
 	Description interface{}
 	// The name of the usage plan.
@@ -112,6 +129,8 @@ type UsagePlanState struct {
 	ProductCode interface{}
 	// The quota settings of the usage plan.
 	QuotaSettings interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The throttling limits of the usage plan.
 	ThrottleSettings interface{}
 }
@@ -128,6 +147,8 @@ type UsagePlanArgs struct {
 	ProductCode interface{}
 	// The quota settings of the usage plan.
 	QuotaSettings interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// The throttling limits of the usage plan.
 	ThrottleSettings interface{}
 }

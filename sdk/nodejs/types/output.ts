@@ -562,13 +562,87 @@ export namespace alb {
 
     export interface ListenerRuleCondition {
         /**
-         * The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
          */
-        field?: string;
+        field: string;
         /**
-         * The path patterns to match. A maximum of 1 can be defined.
+         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        values?: string;
+        hostHeader: outputs.alb.ListenerRuleConditionHostHeader;
+        /**
+         * HTTP headers to match. HTTP Header block fields documented below.
+         */
+        httpHeader?: outputs.alb.ListenerRuleConditionHttpHeader;
+        /**
+         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         */
+        httpRequestMethod?: outputs.alb.ListenerRuleConditionHttpRequestMethod;
+        /**
+         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         */
+        pathPattern: outputs.alb.ListenerRuleConditionPathPattern;
+        /**
+         * Query strings to match. Query String block fields documented below.
+         */
+        queryStrings?: outputs.alb.ListenerRuleConditionQueryString[];
+        /**
+         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         */
+        sourceIp?: outputs.alb.ListenerRuleConditionSourceIp;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string;
+    }
+
+    export interface ListenerRuleConditionHostHeader {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpHeader {
+        /**
+         * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+         */
+        httpHeaderName: string;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpRequestMethod {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionPathPattern {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionQueryString {
+        /**
+         * Query string key pattern to match.
+         */
+        key?: string;
+        /**
+         * Query string value pattern to match.
+         */
+        value: string;
+    }
+
+    export interface ListenerRuleConditionSourceIp {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
     }
 
     export interface LoadBalancerAccessLogs {
@@ -1232,13 +1306,87 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleCondition {
         /**
-         * The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
          */
-        field?: string;
+        field: string;
         /**
-         * The path patterns to match. A maximum of 1 can be defined.
+         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        values?: string;
+        hostHeader: outputs.applicationloadbalancing.ListenerRuleConditionHostHeader;
+        /**
+         * HTTP headers to match. HTTP Header block fields documented below.
+         */
+        httpHeader?: outputs.applicationloadbalancing.ListenerRuleConditionHttpHeader;
+        /**
+         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         */
+        httpRequestMethod?: outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod;
+        /**
+         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         */
+        pathPattern: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
+        /**
+         * Query strings to match. Query String block fields documented below.
+         */
+        queryStrings?: outputs.applicationloadbalancing.ListenerRuleConditionQueryString[];
+        /**
+         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         */
+        sourceIp?: outputs.applicationloadbalancing.ListenerRuleConditionSourceIp;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string;
+    }
+
+    export interface ListenerRuleConditionHostHeader {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpHeader {
+        /**
+         * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+         */
+        httpHeaderName: string;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpRequestMethod {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionPathPattern {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionQueryString {
+        /**
+         * Query string key pattern to match.
+         */
+        key?: string;
+        /**
+         * Query string value pattern to match.
+         */
+        value: string;
+    }
+
+    export interface ListenerRuleConditionSourceIp {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
     }
 
     export interface LoadBalancerAccessLogs {
@@ -6066,6 +6214,25 @@ export namespace ecr {
 }
 
 export namespace ecs {
+    export interface CapacityProviderAutoScalingGroupProvider {
+        autoScalingGroupArn: string;
+        managedScaling: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
+        managedTerminationProtection: string;
+    }
+
+    export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
+        maximumScalingStepSize: number;
+        minimumScalingStepSize: number;
+        status: string;
+        targetCapacity: number;
+    }
+
+    export interface ClusterDefaultCapacityProviderStrategy {
+        base?: number;
+        capacityProvider: string;
+        weight?: number;
+    }
+
     export interface ClusterSetting {
         /**
          * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -6077,6 +6244,12 @@ export namespace ecs {
     export interface GetClusterSetting {
         name: string;
         value: string;
+    }
+
+    export interface ServiceCapacityProviderStrategy {
+        base?: number;
+        capacityProvider: string;
+        weight?: number;
     }
 
     export interface ServiceDeploymentController {
@@ -6962,13 +7135,87 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleCondition {
         /**
-         * The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
          */
-        field?: string;
+        field: string;
         /**
-         * The path patterns to match. A maximum of 1 can be defined.
+         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        values?: string;
+        hostHeader: outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader;
+        /**
+         * HTTP headers to match. HTTP Header block fields documented below.
+         */
+        httpHeader?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpHeader;
+        /**
+         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         */
+        httpRequestMethod?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod;
+        /**
+         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         */
+        pathPattern: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
+        /**
+         * Query strings to match. Query String block fields documented below.
+         */
+        queryStrings?: outputs.elasticloadbalancingv2.ListenerRuleConditionQueryString[];
+        /**
+         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         */
+        sourceIp?: outputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string;
+    }
+
+    export interface ListenerRuleConditionHostHeader {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpHeader {
+        /**
+         * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+         */
+        httpHeaderName: string;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpRequestMethod {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionPathPattern {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionQueryString {
+        /**
+         * Query string key pattern to match.
+         */
+        key?: string;
+        /**
+         * Query string value pattern to match.
+         */
+        value: string;
+    }
+
+    export interface ListenerRuleConditionSourceIp {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
     }
 
     export interface LoadBalancerAccessLogs {
@@ -10146,13 +10393,87 @@ export namespace lb {
 
     export interface ListenerRuleCondition {
         /**
-         * The name of the field. Must be one of `path-pattern` for path based routing or `host-header` for host based routing.
+         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
          */
-        field?: string;
+        field: string;
         /**
-         * The path patterns to match. A maximum of 1 can be defined.
+         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        values?: string;
+        hostHeader: outputs.lb.ListenerRuleConditionHostHeader;
+        /**
+         * HTTP headers to match. HTTP Header block fields documented below.
+         */
+        httpHeader?: outputs.lb.ListenerRuleConditionHttpHeader;
+        /**
+         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         */
+        httpRequestMethod?: outputs.lb.ListenerRuleConditionHttpRequestMethod;
+        /**
+         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         */
+        pathPattern: outputs.lb.ListenerRuleConditionPathPattern;
+        /**
+         * Query strings to match. Query String block fields documented below.
+         */
+        queryStrings?: outputs.lb.ListenerRuleConditionQueryString[];
+        /**
+         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         */
+        sourceIp?: outputs.lb.ListenerRuleConditionSourceIp;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string;
+    }
+
+    export interface ListenerRuleConditionHostHeader {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpHeader {
+        /**
+         * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+         */
+        httpHeaderName: string;
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionHttpRequestMethod {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionPathPattern {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
+    }
+
+    export interface ListenerRuleConditionQueryString {
+        /**
+         * Query string key pattern to match.
+         */
+        key?: string;
+        /**
+         * Query string value pattern to match.
+         */
+        value: string;
+    }
+
+    export interface ListenerRuleConditionSourceIp {
+        /**
+         * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         */
+        values: string[];
     }
 
     export interface LoadBalancerAccessLogs {
@@ -10246,6 +10567,23 @@ export namespace macie {
          * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
          */
         oneTime?: string;
+    }
+}
+
+export namespace mediaconvert {
+    export interface QueueReservationPlanSettings {
+        /**
+         * The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+         */
+        commitment: string;
+        /**
+         * Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+         */
+        renewalType: string;
+        /**
+         * Specifies the number of reserved transcode slots (RTS) for queue.
+         */
+        reservedSlots: number;
     }
 }
 
@@ -12870,5 +13208,16 @@ export namespace workspaces {
          * The size of the user storage.
          */
         capacity: string;
+    }
+
+    export interface IpGroupRule {
+        /**
+         * The description.
+         */
+        description?: string;
+        /**
+         * The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+         */
+        source: string;
     }
 }

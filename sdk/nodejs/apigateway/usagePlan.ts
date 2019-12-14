@@ -83,6 +83,10 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
+     * Amazon Resource Name (ARN)
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The description of a usage plan.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -98,6 +102,10 @@ export class UsagePlan extends pulumi.CustomResource {
      * The quota settings of the usage plan.
      */
     public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -116,10 +124,12 @@ export class UsagePlan extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as UsagePlanState | undefined;
             inputs["apiStages"] = state ? state.apiStages : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["productCode"] = state ? state.productCode : undefined;
             inputs["quotaSettings"] = state ? state.quotaSettings : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as UsagePlanArgs | undefined;
@@ -128,7 +138,9 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["productCode"] = args ? args.productCode : undefined;
             inputs["quotaSettings"] = args ? args.quotaSettings : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["throttleSettings"] = args ? args.throttleSettings : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -150,6 +162,10 @@ export interface UsagePlanState {
      */
     readonly apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
     /**
+     * Amazon Resource Name (ARN)
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The description of a usage plan.
      */
     readonly description?: pulumi.Input<string>;
@@ -165,6 +181,10 @@ export interface UsagePlanState {
      * The quota settings of the usage plan.
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The throttling limits of the usage plan.
      */
@@ -195,6 +215,10 @@ export interface UsagePlanArgs {
      * The quota settings of the usage plan.
      */
     readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The throttling limits of the usage plan.
      */

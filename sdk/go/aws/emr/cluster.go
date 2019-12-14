@@ -159,6 +159,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["securityConfiguration"] = nil
 		inputs["serviceRole"] = nil
 		inputs["steps"] = nil
+		inputs["stepConcurrencyLevel"] = nil
 		inputs["tags"] = nil
 		inputs["terminationProtection"] = nil
 		inputs["visibleToAllUsers"] = nil
@@ -187,6 +188,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["securityConfiguration"] = args.SecurityConfiguration
 		inputs["serviceRole"] = args.ServiceRole
 		inputs["steps"] = args.Steps
+		inputs["stepConcurrencyLevel"] = args.StepConcurrencyLevel
 		inputs["tags"] = args.Tags
 		inputs["terminationProtection"] = args.TerminationProtection
 		inputs["visibleToAllUsers"] = args.VisibleToAllUsers
@@ -234,6 +236,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["securityConfiguration"] = state.SecurityConfiguration
 		inputs["serviceRole"] = state.ServiceRole
 		inputs["steps"] = state.Steps
+		inputs["stepConcurrencyLevel"] = state.StepConcurrencyLevel
 		inputs["tags"] = state.Tags
 		inputs["terminationProtection"] = state.TerminationProtection
 		inputs["visibleToAllUsers"] = state.VisibleToAllUsers
@@ -389,6 +392,11 @@ func (r *Cluster) Steps() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["steps"])
 }
 
+// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
+func (r *Cluster) StepConcurrencyLevel() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["stepConcurrencyLevel"])
+}
+
 // list of tags to apply to the EMR Cluster
 func (r *Cluster) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
@@ -459,6 +467,8 @@ type ClusterState struct {
 	ServiceRole interface{}
 	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Steps interface{}
+	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
+	StepConcurrencyLevel interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
@@ -517,6 +527,8 @@ type ClusterArgs struct {
 	ServiceRole interface{}
 	// List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Steps interface{}
+	// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
+	StepConcurrencyLevel interface{}
 	// list of tags to apply to the EMR Cluster
 	Tags interface{}
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.

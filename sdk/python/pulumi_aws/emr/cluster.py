@@ -184,6 +184,10 @@ class Cluster(pulumi.CustomResource):
     
       * `name` (`str`) - The name of the job flow
     """
+    step_concurrency_level: pulumi.Output[float]
+    """
+    The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+    """
     tags: pulumi.Output[dict]
     """
     list of tags to apply to the EMR Cluster
@@ -196,7 +200,7 @@ class Cluster(pulumi.CustomResource):
     """
     Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
     """
-    def __init__(__self__, resource_name, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, step_concurrency_level=None, tags=None, termination_protection=None, visible_to_all_users=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic MapReduce Cluster, a web service that makes it easy to
         process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
@@ -335,6 +339,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources
         :param pulumi.Input[list] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        :param pulumi.Input[float] step_concurrency_level: The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
@@ -471,6 +476,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_role'")
             __props__['service_role'] = service_role
             __props__['steps'] = steps
+            __props__['step_concurrency_level'] = step_concurrency_level
             __props__['tags'] = tags
             __props__['termination_protection'] = termination_protection
             __props__['visible_to_all_users'] = visible_to_all_users
@@ -484,7 +490,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_info=None, applications=None, arn=None, autoscaling_role=None, bootstrap_actions=None, cluster_state=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, master_public_dns=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None):
+    def get(resource_name, id, opts=None, additional_info=None, applications=None, arn=None, autoscaling_role=None, bootstrap_actions=None, cluster_state=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, master_public_dns=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, step_concurrency_level=None, tags=None, termination_protection=None, visible_to_all_users=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -518,6 +524,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources
         :param pulumi.Input[list] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+        :param pulumi.Input[float] step_concurrency_level: The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
@@ -639,6 +646,7 @@ class Cluster(pulumi.CustomResource):
         __props__["security_configuration"] = security_configuration
         __props__["service_role"] = service_role
         __props__["steps"] = steps
+        __props__["step_concurrency_level"] = step_concurrency_level
         __props__["tags"] = tags
         __props__["termination_protection"] = termination_protection
         __props__["visible_to_all_users"] = visible_to_all_users

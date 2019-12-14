@@ -88,7 +88,7 @@ func (r *ListenerRule) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// A Condition block. Condition blocks are documented below.
+// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 func (r *ListenerRule) Conditions() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["conditions"])
 }
@@ -109,7 +109,7 @@ type ListenerRuleState struct {
 	Actions interface{}
 	// The ARN of the rule (matches `id`)
 	Arn interface{}
-	// A Condition block. Condition blocks are documented below.
+	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions interface{}
 	// The ARN of the listener to which to attach the rule.
 	ListenerArn interface{}
@@ -121,7 +121,7 @@ type ListenerRuleState struct {
 type ListenerRuleArgs struct {
 	// An Action block. Action blocks are documented below.
 	Actions interface{}
-	// A Condition block. Condition blocks are documented below.
+	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions interface{}
 	// The ARN of the listener to which to attach the rule.
 	ListenerArn interface{}

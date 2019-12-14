@@ -111,6 +111,7 @@ func (r *FirehoseDeliveryStream) DestinationId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["destinationId"])
 }
 
+// Configuration options if elasticsearch is the destination. More details are given below.
 func (r *FirehoseDeliveryStream) ElasticsearchConfiguration() pulumi.Output {
 	return r.s.State["elasticsearchConfiguration"]
 }
@@ -171,6 +172,7 @@ type FirehoseDeliveryStreamState struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
 	Destination interface{}
 	DestinationId interface{}
+	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration interface{}
 	// Enhanced configuration options for the s3 destination. More details are given below.
 	ExtendedS3Configuration interface{}
@@ -203,6 +205,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, and `splunk`.
 	Destination interface{}
 	DestinationId interface{}
+	// Configuration options if elasticsearch is the destination. More details are given below.
 	ElasticsearchConfiguration interface{}
 	// Enhanced configuration options for the s3 destination. More details are given below.
 	ExtendedS3Configuration interface{}

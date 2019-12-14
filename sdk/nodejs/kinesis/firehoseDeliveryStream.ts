@@ -255,6 +255,9 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<string>;
     public readonly destinationId!: pulumi.Output<string>;
+    /**
+     * Configuration options if elasticsearch is the destination. More details are given below.
+     */
     public readonly elasticsearchConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration | undefined>;
     /**
      * Enhanced configuration options for the s3 destination. More details are given below.
@@ -363,6 +366,9 @@ export interface FirehoseDeliveryStreamState {
      */
     readonly destination?: pulumi.Input<string>;
     readonly destinationId?: pulumi.Input<string>;
+    /**
+     * Configuration options if elasticsearch is the destination. More details are given below.
+     */
     readonly elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
     /**
      * Enhanced configuration options for the s3 destination. More details are given below.
@@ -417,6 +423,9 @@ export interface FirehoseDeliveryStreamArgs {
      */
     readonly destination: pulumi.Input<string>;
     readonly destinationId?: pulumi.Input<string>;
+    /**
+     * Configuration options if elasticsearch is the destination. More details are given below.
+     */
     readonly elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
     /**
      * Enhanced configuration options for the s3 destination. More details are given below.

@@ -104,6 +104,7 @@ const (
 	licensemanagerMod    = "LicenseManager"    // License Manager
 	lightsailMod         = "LightSail"         // LightSail
 	macieMod             = "Macie"             // Macie
+	mediaconvertMod      = "MediaConvert"      // Media Convert
 	mediapackageMod      = "MediaPackage"      // Elemental MediaPackage
 	mediastoreMod        = "MediaStore"        // Elemental MediaStore
 	mqMod                = "Mq"                // MQ
@@ -1054,7 +1055,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_ecs_task_definition": {Tok: awsResource(ecsMod, "TaskDefinition")},
+			"aws_ecs_task_definition":   {Tok: awsResource(ecsMod, "TaskDefinition")},
+			"aws_ecs_capacity_provider": {Tok: awsResource(ecsMod, "CapacityProvider")},
 			// Elastic File System
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
@@ -1503,6 +1505,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			// MediaConvert
+			"aws_media_convert_queue": {Tok: awsResource(mediaconvertMod, "Queue")},
 			// Elemental MediaStore
 			"aws_media_store_container":        {Tok: awsResource(mediastoreMod, "Container")},
 			"aws_media_store_container_policy": {Tok: awsResource(mediastoreMod, "ContainerPolicy")},
@@ -1964,6 +1968,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_fms_admin_account": {Tok: awsResource(fmsMod, "AdminAccount")},
 			// QLDB
 			"aws_qldb_ledger": {Tok: awsResource(qldbMod, "Ledger")},
+			// Workspaces
+			"aws_workspaces_ip_group": {Tok: awsResource(workspacesMod, "IpGroup")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS

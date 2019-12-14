@@ -18,6 +18,14 @@ namespace Pulumi.Aws.Ecs
     /// * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
     /// * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
     /// 
+    /// ## default_capacity_provider_strategy
+    /// 
+    /// The `default_capacity_provider_strategy` configuration block supports the following:
+    /// 
+    /// * `capacity_provider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+    /// * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+    /// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
@@ -27,6 +35,18 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// </summary>
+        [Output("capacityProviders")]
+        public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
+
+        /// <summary>
+        /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        /// </summary>
+        [Output("defaultCapacityProviderStrategies")]
+        public Output<ImmutableArray<Outputs.ClusterDefaultCapacityProviderStrategies>> DefaultCapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -92,6 +112,30 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
+        [Input("capacityProviders")]
+        private InputList<string>? _capacityProviders;
+
+        /// <summary>
+        /// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// </summary>
+        public InputList<string> CapacityProviders
+        {
+            get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
+            set => _capacityProviders = value;
+        }
+
+        [Input("defaultCapacityProviderStrategies")]
+        private InputList<Inputs.ClusterDefaultCapacityProviderStrategiesArgs>? _defaultCapacityProviderStrategies;
+
+        /// <summary>
+        /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        /// </summary>
+        public InputList<Inputs.ClusterDefaultCapacityProviderStrategiesArgs> DefaultCapacityProviderStrategies
+        {
+            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategiesArgs>());
+            set => _defaultCapacityProviderStrategies = value;
+        }
+
         /// <summary>
         /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         /// </summary>
@@ -135,6 +179,30 @@ namespace Pulumi.Aws.Ecs
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("capacityProviders")]
+        private InputList<string>? _capacityProviders;
+
+        /// <summary>
+        /// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// </summary>
+        public InputList<string> CapacityProviders
+        {
+            get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
+            set => _capacityProviders = value;
+        }
+
+        [Input("defaultCapacityProviderStrategies")]
+        private InputList<Inputs.ClusterDefaultCapacityProviderStrategiesGetArgs>? _defaultCapacityProviderStrategies;
+
+        /// <summary>
+        /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+        /// </summary>
+        public InputList<Inputs.ClusterDefaultCapacityProviderStrategiesGetArgs> DefaultCapacityProviderStrategies
+        {
+            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategiesGetArgs>());
+            set => _defaultCapacityProviderStrategies = value;
+        }
+
         /// <summary>
         /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         /// </summary>
@@ -173,6 +241,38 @@ namespace Pulumi.Aws.Ecs
     namespace Inputs
     {
 
+    public sealed class ClusterDefaultCapacityProviderStrategiesArgs : Pulumi.ResourceArgs
+    {
+        [Input("base")]
+        public Input<int>? Base { get; set; }
+
+        [Input("capacityProvider", required: true)]
+        public Input<string> CapacityProvider { get; set; } = null!;
+
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
+
+        public ClusterDefaultCapacityProviderStrategiesArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterDefaultCapacityProviderStrategiesGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("base")]
+        public Input<int>? Base { get; set; }
+
+        [Input("capacityProvider", required: true)]
+        public Input<string> CapacityProvider { get; set; } = null!;
+
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
+
+        public ClusterDefaultCapacityProviderStrategiesGetArgs()
+        {
+        }
+    }
+
     public sealed class ClusterSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -208,6 +308,25 @@ namespace Pulumi.Aws.Ecs
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class ClusterDefaultCapacityProviderStrategies
+    {
+        public readonly int? Base;
+        public readonly string CapacityProvider;
+        public readonly int? Weight;
+
+        [OutputConstructor]
+        private ClusterDefaultCapacityProviderStrategies(
+            int? @base,
+            string capacityProvider,
+            int? weight)
+        {
+            Base = @base;
+            CapacityProvider = capacityProvider;
+            Weight = weight;
+        }
+    }
 
     [OutputType]
     public sealed class ClusterSettings

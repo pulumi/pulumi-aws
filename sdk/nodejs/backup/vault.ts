@@ -68,7 +68,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -129,7 +129,7 @@ export interface VaultState {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface VaultArgs {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

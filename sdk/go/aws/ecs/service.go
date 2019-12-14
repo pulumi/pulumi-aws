@@ -14,6 +14,14 @@ import (
 // 
 // See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 // 
+// ## capacityProviderStrategy
+// 
+// The `capacityProviderStrategy` configuration block supports the following:
+// 
+// * `capacityProvider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+// * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+// 
 // ## deploymentController
 // 
 // The `deploymentController` configuration block supports the following:
@@ -86,6 +94,7 @@ func NewService(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["capacityProviderStrategies"] = nil
 		inputs["cluster"] = nil
 		inputs["deploymentController"] = nil
 		inputs["deploymentMaximumPercent"] = nil
@@ -108,6 +117,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["taskDefinition"] = nil
 		inputs["waitForSteadyState"] = nil
 	} else {
+		inputs["capacityProviderStrategies"] = args.CapacityProviderStrategies
 		inputs["cluster"] = args.Cluster
 		inputs["deploymentController"] = args.DeploymentController
 		inputs["deploymentMaximumPercent"] = args.DeploymentMaximumPercent
@@ -143,6 +153,7 @@ func GetService(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["capacityProviderStrategies"] = state.CapacityProviderStrategies
 		inputs["cluster"] = state.Cluster
 		inputs["deploymentController"] = state.DeploymentController
 		inputs["deploymentMaximumPercent"] = state.DeploymentMaximumPercent
@@ -180,6 +191,11 @@ func (r *Service) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+func (r *Service) CapacityProviderStrategies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["capacityProviderStrategies"])
 }
 
 // ARN of an ECS cluster
@@ -290,6 +306,8 @@ func (r *Service) WaitForSteadyState() pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
+	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	CapacityProviderStrategies interface{}
 	// ARN of an ECS cluster
 	Cluster interface{}
 	// Configuration block containing deployment controller configuration. Defined below.
@@ -337,6 +355,8 @@ type ServiceState struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	CapacityProviderStrategies interface{}
 	// ARN of an ECS cluster
 	Cluster interface{}
 	// Configuration block containing deployment controller configuration. Defined below.

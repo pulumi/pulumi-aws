@@ -22,6 +22,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableArray<Outputs.UsagePlanApiStages>> ApiStages { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The description of a usage plan.
         /// </summary>
         [Output("description")]
@@ -44,6 +50,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("quotaSettings")]
         public Output<Outputs.UsagePlanQuotaSettings?> QuotaSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The throttling limits of the usage plan.
@@ -133,6 +145,18 @@ namespace Pulumi.Aws.ApiGateway
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? QuotaSettings { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The throttling limits of the usage plan.
         /// </summary>
@@ -159,6 +183,12 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
+        /// Amazon Resource Name (ARN)
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The description of a usage plan.
         /// </summary>
         [Input("description")]
@@ -181,6 +211,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsGetArgs>? QuotaSettings { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The throttling limits of the usage plan.

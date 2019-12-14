@@ -20,6 +20,37 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     """
     destination_id: pulumi.Output[str]
     elasticsearch_configuration: pulumi.Output[dict]
+    """
+    Configuration options if elasticsearch is the destination. More details are given below.
+    
+      * `bufferingInterval` (`float`) - Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+      * `bufferingSize` (`float`) - Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+      * `cloudwatch_logging_options` (`dict`) - The CloudWatch Logging Options for the delivery stream. More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `log_group_name` (`str`) - The CloudWatch group name for logging. This value is required if `enabled` is true.
+        * `logStreamName` (`str`) - The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+    
+      * `domainArn` (`str`) - The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
+      * `indexName` (`str`) - The Elasticsearch index name.
+      * `indexRotationPeriod` (`str`) - The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+      * `processingConfiguration` (`dict`) - The data processing configuration.  More details are given below.
+    
+        * `enabled` (`bool`) - Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        * `processors` (`list`) - Array of data processors. More details are given below
+    
+          * `parameters` (`list`) - Array of processor parameters. More details are given below
+    
+            * `parameterName` (`str`) - Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+            * `parameterValue` (`str`) - Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+    
+          * `type` (`str`) - The type of processor. Valid Values: `Lambda`
+    
+      * `retryDuration` (`float`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+      * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+      * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+      * `typeName` (`str`) - The Elasticsearch type name with maximum length of 100 characters.
+    """
     extended_s3_configuration: pulumi.Output[dict]
     """
     Enhanced configuration options for the s3 destination. More details are given below.
@@ -235,6 +266,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
         :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        :param pulumi.Input[dict] elasticsearch_configuration: Configuration options if elasticsearch is the destination. More details are given below.
         :param pulumi.Input[dict] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input[dict] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the
@@ -534,6 +566,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
         :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, and `splunk`.
+        :param pulumi.Input[dict] elasticsearch_configuration: Configuration options if elasticsearch is the destination. More details are given below.
         :param pulumi.Input[dict] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
         :param pulumi.Input[dict] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the

@@ -372,6 +372,7 @@
         "ecr/lifecyclePolicyDocument.ts",
         "ecr/repository.ts",
         "ecr/repositoryPolicy.ts",
+        "ecs/capacityProvider.ts",
         "ecs/cluster.ts",
         "ecs/container.ts",
         "ecs/getCluster.ts",
@@ -604,6 +605,8 @@
         "macie/index.ts",
         "macie/memberAccountAssociation.ts",
         "macie/s3BucketAssociation.ts",
+        "mediaconvert/index.ts",
+        "mediaconvert/queue.ts",
         "mediapackage/channel.ts",
         "mediapackage/index.ts",
         "mediastore/container.ts",
@@ -886,6 +889,7 @@
         "worklink/websiteCertificateAuthorityAssociation.ts",
         "workspaces/getBundle.ts",
         "workspaces/index.ts",
+        "workspaces/ipGroup.ts",
         "xray/index.ts",
         "xray/samplingRule.ts"
     ]

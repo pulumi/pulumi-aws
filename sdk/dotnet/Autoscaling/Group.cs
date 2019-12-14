@@ -170,7 +170,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service
+        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         /// </summary>
         [Output("maxInstanceLifetime")]
         public Output<int?> MaxInstanceLifetime { get; private set; } = null!;
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service
+        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
         public Input<int>? MaxInstanceLifetime { get; set; }
@@ -727,7 +727,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service
+        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
         public Input<int>? MaxInstanceLifetime { get; set; }

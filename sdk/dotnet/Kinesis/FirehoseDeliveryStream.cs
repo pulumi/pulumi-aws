@@ -32,6 +32,9 @@ namespace Pulumi.Aws.Kinesis
         [Output("destinationId")]
         public Output<string> DestinationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration options if elasticsearch is the destination. More details are given below.
+        /// </summary>
         [Output("elasticsearchConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamElasticsearchConfiguration?> ElasticsearchConfiguration { get; private set; } = null!;
 
@@ -152,6 +155,9 @@ namespace Pulumi.Aws.Kinesis
         [Input("destinationId")]
         public Input<string>? DestinationId { get; set; }
 
+        /// <summary>
+        /// Configuration options if elasticsearch is the destination. More details are given below.
+        /// </summary>
         [Input("elasticsearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs>? ElasticsearchConfiguration { get; set; }
 
@@ -239,6 +245,9 @@ namespace Pulumi.Aws.Kinesis
         [Input("destinationId")]
         public Input<string>? DestinationId { get; set; }
 
+        /// <summary>
+        /// Configuration options if elasticsearch is the destination. More details are given below.
+        /// </summary>
         [Input("elasticsearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationGetArgs>? ElasticsearchConfiguration { get; set; }
 

@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     autoMinorVersionUpgrade: true,
  *     availabilityZone: "us-west-2c",
- *     engineVersion: "1.9.0",
+ *     engineVersion: "3.1.4",
  *     kmsKeyArn: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
  *     multiAz: false,
  *     preferredMaintenanceWindow: "sun:10:30-sun:14:30",

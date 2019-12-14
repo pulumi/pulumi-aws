@@ -293,7 +293,7 @@ func (r *Group) LoadBalancers() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["loadBalancers"])
 }
 
-// The maximum amount of time, in seconds, that an instance can be in service
+// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
 func (r *Group) MaxInstanceLifetime() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["maxInstanceLifetime"])
 }
@@ -443,7 +443,7 @@ type GroupState struct {
 	// A list of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 	LoadBalancers interface{}
-	// The maximum amount of time, in seconds, that an instance can be in service
+	// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
 	MaxInstanceLifetime interface{}
 	// The maximum size of the auto scale group.
 	MaxSize interface{}
@@ -536,7 +536,7 @@ type GroupArgs struct {
 	// A list of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
 	LoadBalancers interface{}
-	// The maximum amount of time, in seconds, that an instance can be in service
+	// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
 	MaxInstanceLifetime interface{}
 	// The maximum size of the auto scale group.
 	MaxSize interface{}

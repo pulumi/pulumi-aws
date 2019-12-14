@@ -217,6 +217,9 @@ namespace Pulumi.Aws
 
     public sealed class ProviderEndpointsArgs : Pulumi.ResourceArgs
     {
+        [Input("accessanalyzer")]
+        public Input<string>? Accessanalyzer { get; set; }
+
         [Input("acm")]
         public Input<string>? Acm { get; set; }
 
@@ -312,6 +315,9 @@ namespace Pulumi.Aws
 
         [Input("cur")]
         public Input<string>? Cur { get; set; }
+
+        [Input("dataexchange")]
+        public Input<string>? Dataexchange { get; set; }
 
         [Input("datapipeline")]
         public Input<string>? Datapipeline { get; set; }
@@ -409,6 +415,9 @@ namespace Pulumi.Aws
         [Input("iam")]
         public Input<string>? Iam { get; set; }
 
+        [Input("imagebuilder")]
+        public Input<string>? Imagebuilder { get; set; }
+
         [Input("inspector")]
         public Input<string>? Inspector { get; set; }
 
@@ -459,6 +468,9 @@ namespace Pulumi.Aws
 
         [Input("managedblockchain")]
         public Input<string>? Managedblockchain { get; set; }
+
+        [Input("marketplacecatalog")]
+        public Input<string>? Marketplacecatalog { get; set; }
 
         [Input("mediaconnect")]
         public Input<string>? Mediaconnect { get; set; }
