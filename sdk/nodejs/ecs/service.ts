@@ -42,6 +42,14 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ## capacityProviderStrategy
+ * 
+ * The `capacityProviderStrategy` configuration block supports the following:
+ * 
+ * * `capacityProvider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+ * * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+ * * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+ * 
  * ## deploymentController
  * 
  * The `deploymentController` configuration block supports the following:
@@ -131,6 +139,10 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
+     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     */
+    public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategy[] | undefined>;
+    /**
      * ARN of an ECS cluster
      */
     public readonly cluster!: pulumi.Output<string>;
@@ -165,7 +177,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
      */
-    public readonly launchType!: pulumi.Output<string | undefined>;
+    public readonly launchType!: pulumi.Output<string>;
     /**
      * A load balancer block. Load balancers documented below.
      */
@@ -228,6 +240,7 @@ export class Service extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ServiceState | undefined;
+            inputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             inputs["cluster"] = state ? state.cluster : undefined;
             inputs["deploymentController"] = state ? state.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
@@ -254,6 +267,7 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.taskDefinition === undefined) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
+            inputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
             inputs["cluster"] = args ? args.cluster : undefined;
             inputs["deploymentController"] = args ? args.deploymentController : undefined;
             inputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
@@ -291,6 +305,10 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
+    /**
+     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     */
+    readonly capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
      * ARN of an ECS cluster
      */
@@ -382,6 +400,10 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     */
+    readonly capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
      * ARN of an ECS cluster
      */

@@ -15,6 +15,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
     /// 
+    /// ## capacity_provider_strategy
+    /// 
+    /// The `capacity_provider_strategy` configuration block supports the following:
+    /// 
+    /// * `capacity_provider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+    /// * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+    /// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+    /// 
     /// ## deployment_controller
     /// 
     /// The `deployment_controller` configuration block supports the following:
@@ -79,6 +87,12 @@ namespace Pulumi.Aws.Ecs
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
+        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// </summary>
+        [Output("capacityProviderStrategies")]
+        public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategies>> CapacityProviderStrategies { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an ECS cluster
         /// </summary>
         [Output("cluster")]
@@ -130,7 +144,7 @@ namespace Pulumi.Aws.Ecs
         /// The launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
         /// </summary>
         [Output("launchType")]
-        public Output<string?> LaunchType { get; private set; } = null!;
+        public Output<string> LaunchType { get; private set; } = null!;
 
         /// <summary>
         /// A load balancer block. Load balancers documented below.
@@ -251,6 +265,18 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
+        [Input("capacityProviderStrategies")]
+        private InputList<Inputs.ServiceCapacityProviderStrategiesArgs>? _capacityProviderStrategies;
+
+        /// <summary>
+        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// </summary>
+        public InputList<Inputs.ServiceCapacityProviderStrategiesArgs> CapacityProviderStrategies
+        {
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategiesArgs>());
+            set => _capacityProviderStrategies = value;
+        }
+
         /// <summary>
         /// ARN of an ECS cluster
         /// </summary>
@@ -409,6 +435,18 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
+        [Input("capacityProviderStrategies")]
+        private InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs>? _capacityProviderStrategies;
+
+        /// <summary>
+        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// </summary>
+        public InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs> CapacityProviderStrategies
+        {
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs>());
+            set => _capacityProviderStrategies = value;
+        }
+
         /// <summary>
         /// ARN of an ECS cluster
         /// </summary>
@@ -567,6 +605,38 @@ namespace Pulumi.Aws.Ecs
 
     namespace Inputs
     {
+
+    public sealed class ServiceCapacityProviderStrategiesArgs : Pulumi.ResourceArgs
+    {
+        [Input("base")]
+        public Input<int>? Base { get; set; }
+
+        [Input("capacityProvider", required: true)]
+        public Input<string> CapacityProvider { get; set; } = null!;
+
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
+
+        public ServiceCapacityProviderStrategiesArgs()
+        {
+        }
+    }
+
+    public sealed class ServiceCapacityProviderStrategiesGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("base")]
+        public Input<int>? Base { get; set; }
+
+        [Input("capacityProvider", required: true)]
+        public Input<string> CapacityProvider { get; set; } = null!;
+
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
+
+        public ServiceCapacityProviderStrategiesGetArgs()
+        {
+        }
+    }
 
     public sealed class ServiceDeploymentControllerArgs : Pulumi.ResourceArgs
     {
@@ -771,6 +841,25 @@ namespace Pulumi.Aws.Ecs
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class ServiceCapacityProviderStrategies
+    {
+        public readonly int? Base;
+        public readonly string CapacityProvider;
+        public readonly int? Weight;
+
+        [OutputConstructor]
+        private ServiceCapacityProviderStrategies(
+            int? @base,
+            string capacityProvider,
+            int? weight)
+        {
+            Base = @base;
+            CapacityProvider = capacityProvider;
+            Weight = weight;
+        }
+    }
 
     [OutputType]
     public sealed class ServiceDeploymentController

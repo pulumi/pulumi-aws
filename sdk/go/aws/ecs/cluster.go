@@ -15,6 +15,14 @@ import (
 // 
 // * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
 // * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
+// 
+// ## defaultCapacityProviderStrategy
+// 
+// The `defaultCapacityProviderStrategy` configuration block supports the following:
+// 
+// * `capacityProvider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+// * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
 type Cluster struct {
@@ -26,10 +34,14 @@ func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["capacityProviders"] = nil
+		inputs["defaultCapacityProviderStrategies"] = nil
 		inputs["name"] = nil
 		inputs["settings"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["capacityProviders"] = args.CapacityProviders
+		inputs["defaultCapacityProviderStrategies"] = args.DefaultCapacityProviderStrategies
 		inputs["name"] = args.Name
 		inputs["settings"] = args.Settings
 		inputs["tags"] = args.Tags
@@ -49,6 +61,8 @@ func GetCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["capacityProviders"] = state.CapacityProviders
+		inputs["defaultCapacityProviderStrategies"] = state.DefaultCapacityProviderStrategies
 		inputs["name"] = state.Name
 		inputs["settings"] = state.Settings
 		inputs["tags"] = state.Tags
@@ -75,6 +89,16 @@ func (r *Cluster) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+func (r *Cluster) CapacityProviders() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["capacityProviders"])
+}
+
+// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+func (r *Cluster) DefaultCapacityProviderStrategies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["defaultCapacityProviderStrategies"])
+}
+
 // The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 func (r *Cluster) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
@@ -94,6 +118,10 @@ func (r *Cluster) Tags() pulumi.MapOutput {
 type ClusterState struct {
 	// The Amazon Resource Name (ARN) that identifies the cluster
 	Arn interface{}
+	// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders interface{}
+	// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+	DefaultCapacityProviderStrategies interface{}
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name interface{}
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
@@ -104,6 +132,10 @@ type ClusterState struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	CapacityProviders interface{}
+	// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+	DefaultCapacityProviderStrategies interface{}
 	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name interface{}
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.

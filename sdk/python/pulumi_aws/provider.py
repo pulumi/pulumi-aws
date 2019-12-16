@@ -29,6 +29,7 @@ class Provider(pulumi.ProviderResource):
         
         The **endpoints** object supports the following:
         
+          * `accessanalyzer` (`pulumi.Input[str]`)
           * `acm` (`pulumi.Input[str]`)
           * `acmpca` (`pulumi.Input[str]`)
           * `amplify` (`pulumi.Input[str]`)
@@ -61,6 +62,7 @@ class Provider(pulumi.ProviderResource):
           * `cognitoidp` (`pulumi.Input[str]`)
           * `configservice` (`pulumi.Input[str]`)
           * `cur` (`pulumi.Input[str]`)
+          * `dataexchange` (`pulumi.Input[str]`)
           * `datapipeline` (`pulumi.Input[str]`)
           * `datasync` (`pulumi.Input[str]`)
           * `dax` (`pulumi.Input[str]`)
@@ -93,6 +95,7 @@ class Provider(pulumi.ProviderResource):
           * `greengrass` (`pulumi.Input[str]`)
           * `guardduty` (`pulumi.Input[str]`)
           * `iam` (`pulumi.Input[str]`)
+          * `imagebuilder` (`pulumi.Input[str]`)
           * `inspector` (`pulumi.Input[str]`)
           * `iot` (`pulumi.Input[str]`)
           * `iotanalytics` (`pulumi.Input[str]`)
@@ -110,6 +113,7 @@ class Provider(pulumi.ProviderResource):
           * `lightsail` (`pulumi.Input[str]`)
           * `macie` (`pulumi.Input[str]`)
           * `managedblockchain` (`pulumi.Input[str]`)
+          * `marketplacecatalog` (`pulumi.Input[str]`)
           * `mediaconnect` (`pulumi.Input[str]`)
           * `mediaconvert` (`pulumi.Input[str]`)
           * `medialive` (`pulumi.Input[str]`)

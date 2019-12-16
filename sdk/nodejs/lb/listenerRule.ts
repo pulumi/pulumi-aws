@@ -24,10 +24,18 @@ import * as utilities from "../utilities";
  *         targetGroupArn: aws_lb_target_group_static.arn,
  *         type: "forward",
  *     }],
- *     conditions: [{
- *         field: "path-pattern",
- *         values: "/static/*",
- *     }],
+ *     conditions: [
+ *         {
+ *             pathPattern: {
+ *                 values: ["/static/*"],
+ *             },
+ *         },
+ *         {
+ *             hostHeader: {
+ *                 values: ["example.com"],
+ *             },
+ *         },
+ *     ],
  *     listenerArn: frontEndListener.arn,
  *     priority: 100,
  * });
@@ -37,8 +45,9 @@ import * as utilities from "../utilities";
  *         type: "forward",
  *     }],
  *     conditions: [{
- *         field: "host-header",
- *         values: "my-service.*.mydomain.io",
+ *         hostHeader: {
+ *             values: ["my-service.*.mydomain.io"],
+ *         },
  *     }],
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
@@ -53,8 +62,10 @@ import * as utilities from "../utilities";
  *         type: "redirect",
  *     }],
  *     conditions: [{
- *         field: "host-header",
- *         values: "my-service.*.mydomain.io",
+ *         httpHeader: {
+ *             httpHeaderName: "X-Forwarded-For",
+ *             values: ["192.168.1.*"],
+ *         },
  *     }],
  *     listenerArn: frontEndListener.arn,
  * });
@@ -68,8 +79,15 @@ import * as utilities from "../utilities";
  *         type: "fixed-response",
  *     }],
  *     conditions: [{
- *         field: "path-pattern",
- *         values: "/health",
+ *         queryStrings: [
+ *             {
+ *                 key: "health",
+ *                 value: "check",
+ *             },
+ *             {
+ *                 value: "bar",
+ *             },
+ *         ],
  *     }],
  *     listenerArn: frontEndListener.arn,
  * });
@@ -136,7 +154,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A Condition block. Condition blocks are documented below.
+     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
     public readonly conditions!: pulumi.Output<outputs.lb.ListenerRuleCondition[]>;
     /**
@@ -208,7 +226,7 @@ export interface ListenerRuleState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * A Condition block. Condition blocks are documented below.
+     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
     readonly conditions?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleCondition>[]>;
     /**
@@ -230,7 +248,7 @@ export interface ListenerRuleArgs {
      */
     readonly actions: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleAction>[]>;
     /**
-     * A Condition block. Condition blocks are documented below.
+     * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
     readonly conditions: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleCondition>[]>;
     /**

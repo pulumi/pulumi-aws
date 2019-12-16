@@ -90,7 +90,7 @@ class Group(pulumi.CustomResource):
     """
     max_instance_lifetime: pulumi.Output[float]
     """
-    The maximum amount of time, in seconds, that an instance can be in service
+    The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
     """
     max_size: pulumi.Output[float]
     """
@@ -299,7 +299,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service
+        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         :param pulumi.Input[float] max_size: The maximum size of the auto scale group.
         :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         :param pulumi.Input[float] min_elb_capacity: Setting this causes this provider to wait for
@@ -476,7 +476,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service
+        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         :param pulumi.Input[float] max_size: The maximum size of the auto scale group.
         :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         :param pulumi.Input[float] min_elb_capacity: Setting this causes this provider to wait for

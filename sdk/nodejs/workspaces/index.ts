@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./getBundle";
+export * from "./ipGroup";

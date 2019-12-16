@@ -1,7 +1,7 @@
 module github.com/pulumi/pulumi-aws
 
 require (
-	github.com/aws/aws-sdk-go v1.25.47
+	github.com/aws/aws-sdk-go v1.25.50
 	github.com/hashicorp/aws-sdk-go-base v0.4.0
 	github.com/hashicorp/terraform-plugin-sdk v1.4.0
 	github.com/mitchellh/go-homedir v1.1.0
@@ -15,7 +15,7 @@ require (
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20191204184341-a85427e2fc9a
+	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20191214220420-1f7573bd7321
 )
 
 go 1.13

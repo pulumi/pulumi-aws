@@ -10,6 +10,14 @@ from typing import Union
 from .. import utilities, tables
 
 class Service(pulumi.CustomResource):
+    capacity_provider_strategies: pulumi.Output[list]
+    """
+    The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+    
+      * `base` (`float`)
+      * `capacityProvider` (`str`)
+      * `weight` (`float`)
+    """
     cluster: pulumi.Output[str]
     """
     ARN of an ECS cluster
@@ -117,13 +125,21 @@ class Service(pulumi.CustomResource):
     """
     If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
     """
-    def __init__(__self__, resource_name, opts=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capacity_provider_strategies=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None, __props__=None, __name__=None, __opts__=None):
         """
         > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
         
         Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
         
         See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
+        
+        ## capacity_provider_strategy
+        
+        The `capacity_provider_strategy` configuration block supports the following:
+        
+        * `capacity_provider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
         
         ## deployment_controller
         
@@ -186,6 +202,7 @@ class Service(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster
         :param pulumi.Input[dict] deployment_controller: Configuration block containing deployment controller configuration. Defined below.
         :param pulumi.Input[float] deployment_maximum_percent: The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -208,6 +225,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        
+        The **capacity_provider_strategies** object supports the following:
+        
+          * `base` (`pulumi.Input[float]`)
+          * `capacityProvider` (`pulumi.Input[str]`)
+          * `weight` (`pulumi.Input[float]`)
         
         The **deployment_controller** object supports the following:
         
@@ -262,6 +285,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['capacity_provider_strategies'] = capacity_provider_strategies
             __props__['cluster'] = cluster
             __props__['deployment_controller'] = deployment_controller
             __props__['deployment_maximum_percent'] = deployment_maximum_percent
@@ -292,7 +316,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None):
+    def get(resource_name, id, opts=None, capacity_provider_strategies=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -300,6 +324,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster
         :param pulumi.Input[dict] deployment_controller: Configuration block containing deployment controller configuration. Defined below.
         :param pulumi.Input[float] deployment_maximum_percent: The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
@@ -322,6 +347,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        
+        The **capacity_provider_strategies** object supports the following:
+        
+          * `base` (`pulumi.Input[float]`)
+          * `capacityProvider` (`pulumi.Input[str]`)
+          * `weight` (`pulumi.Input[float]`)
         
         The **deployment_controller** object supports the following:
         
@@ -362,6 +393,7 @@ class Service(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["capacity_provider_strategies"] = capacity_provider_strategies
         __props__["cluster"] = cluster
         __props__["deployment_controller"] = deployment_controller
         __props__["deployment_maximum_percent"] = deployment_maximum_percent

@@ -282,6 +282,12 @@ namespace Pulumi.Aws.Emr
         public Output<ImmutableArray<Outputs.ClusterSteps>> Steps { get; private set; } = null!;
 
         /// <summary>
+        /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        /// </summary>
+        [Output("stepConcurrencyLevel")]
+        public Output<int?> StepConcurrencyLevel { get; private set; } = null!;
+
+        /// <summary>
         /// list of tags to apply to the EMR Cluster
         /// </summary>
         [Output("tags")]
@@ -513,6 +519,12 @@ namespace Pulumi.Aws.Emr
             set => _steps = value;
         }
 
+        /// <summary>
+        /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        /// </summary>
+        [Input("stepConcurrencyLevel")]
+        public Input<int>? StepConcurrencyLevel { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -724,6 +736,12 @@ namespace Pulumi.Aws.Emr
             get => _steps ?? (_steps = new InputList<Inputs.ClusterStepsGetArgs>());
             set => _steps = value;
         }
+
+        /// <summary>
+        /// The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        /// </summary>
+        [Input("stepConcurrencyLevel")]
+        public Input<int>? StepConcurrencyLevel { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;

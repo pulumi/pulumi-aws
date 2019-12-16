@@ -327,7 +327,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
     public readonly maxInstanceLifetime!: pulumi.Output<number | undefined>;
     /**
@@ -577,7 +577,7 @@ export interface GroupState {
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
     readonly maxInstanceLifetime?: pulumi.Input<number>;
     /**
@@ -730,7 +730,7 @@ export interface GroupArgs {
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
     readonly maxInstanceLifetime?: pulumi.Input<number>;
     /**
