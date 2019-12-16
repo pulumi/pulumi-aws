@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.42.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.16.0 (2019-12-16)
+* Upgrade to v2.42.0 of the AWS Terraform Provider
 
 ## 1.15.0 (2019-12-12)
 * Upgrade to v1.5.2 of pulumi-terraform-bridge
