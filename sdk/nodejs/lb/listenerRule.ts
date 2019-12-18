@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *     }],
  *     conditions: [
  *         {
- *             pathPattern: {
+ *             pathPattern: [{
  *                 values: ["/static/*"],
- *             },
+ *             }],
  *         },
  *         {
- *             hostHeader: {
+ *             hostHeader: [{
  *                 values: ["example.com"],
- *             },
+ *             }],
  *         },
  *     ],
  *     listenerArn: frontEndListener.arn,
@@ -45,9 +45,9 @@ import * as utilities from "../utilities";
  *         type: "forward",
  *     }],
  *     conditions: [{
- *         hostHeader: {
+ *         hostHeader: [{
  *             values: ["my-service.*.mydomain.io"],
- *         },
+ *         }],
  *     }],
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
@@ -62,10 +62,10 @@ import * as utilities from "../utilities";
  *         type: "redirect",
  *     }],
  *     conditions: [{
- *         httpHeader: {
+ *         httpHeader: [{
  *             httpHeaderName: "X-Forwarded-For",
  *             values: ["192.168.1.*"],
- *         },
+ *         }],
  *     }],
  *     listenerArn: frontEndListener.arn,
  * });
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *         type: "fixed-response",
  *     }],
  *     conditions: [{
- *         queryStrings: [
+ *         queryString: [
  *             {
  *                 key: "health",
  *                 value: "check",

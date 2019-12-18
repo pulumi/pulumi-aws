@@ -4,21 +4,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { asset } from "@pulumi/pulumi";
 
-const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+const config = new pulumi.Config();
+const azCount = config.getNumber("azCount") || 2;
 
-let layer = new aws.lambda.LayerVersion("my-layer-version", {
-    code: new asset.AssetArchive({
-        "index.js": new asset.StringAsset(
-            "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});",
-        ),
-    }),
-    compatibleRuntimes: [
-        aws.lambda.NodeJS8d10Runtime,
-        aws.lambda.NodeJS10dXRuntime,
-    ],
-    layerName: "lambda_layer_name",
-}, providerOpts);
-
-export let layerSize = layer.sourceCodeSize;
-export let layerArn = layer.arn;
+const available = aws.getAvailabilityZones();
+const mainVpc = new aws.ec2.Vpc("main", {
+    cidrBlock: "10.10.0.0/16",
+});
+const mainSubnet: aws.ec2.Subnet[] = [];
+for (let i = 0; i < azCount; i++) {
+    mainSubnet.push(new aws.ec2.Subnet(`main-${i}`, {
+        availabilityZone: available.names[i],
+        cidrBlock: mainVpc.cidrBlock.apply(cidrBlock => {
+            throw "tf2pulumi error: NYI: call to cidrsubnet";
+        }),
+        // cidrBlock: mainVpc.cidrBlock.apply(cidrBlock => (() => {
+        //     throw "tf2pulumi error: NYI: call to cidrsubnet";
+        //     return (() => { throw "NYI: call to cidrsubnet"; })();
+        // })()),
+        vpcId: mainVpc.id,
+    }));
+}
