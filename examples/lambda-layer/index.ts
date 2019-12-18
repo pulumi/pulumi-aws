@@ -4,8 +4,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { asset } from "@pulumi/pulumi";
 
-const config = new pulumi.Config();
-const azCount = config.getNumber("azCount") || 2;
+const config = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
 let layer = new aws.lambda.LayerVersion("my-layer-version", {
     code: new asset.AssetArchive({
