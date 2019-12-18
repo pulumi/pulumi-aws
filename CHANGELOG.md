@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Default Lambda NodeJS usage to Node JS 12.x  
+  **Please Note:** Existing lambdas will stay on their specified version. Users need to explicitly create a replacement to move them 
 
 ---
 

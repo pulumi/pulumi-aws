@@ -7,21 +7,18 @@ import { asset } from "@pulumi/pulumi";
 const config = new pulumi.Config();
 const azCount = config.getNumber("azCount") || 2;
 
-const available = aws.getAvailabilityZones();
-const mainVpc = new aws.ec2.Vpc("main", {
-    cidrBlock: "10.10.0.0/16",
-});
-const mainSubnet: aws.ec2.Subnet[] = [];
-for (let i = 0; i < azCount; i++) {
-    mainSubnet.push(new aws.ec2.Subnet(`main-${i}`, {
-        availabilityZone: available.names[i],
-        cidrBlock: mainVpc.cidrBlock.apply(cidrBlock => {
-            throw "tf2pulumi error: NYI: call to cidrsubnet";
-        }),
-        // cidrBlock: mainVpc.cidrBlock.apply(cidrBlock => (() => {
-        //     throw "tf2pulumi error: NYI: call to cidrsubnet";
-        //     return (() => { throw "NYI: call to cidrsubnet"; })();
-        // })()),
-        vpcId: mainVpc.id,
-    }));
-}
+let layer = new aws.lambda.LayerVersion("my-layer-version", {
+    code: new asset.AssetArchive({
+        "index.js": new asset.StringAsset(
+            "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});",
+        ),
+    }),
+    compatibleRuntimes: [
+        aws.lambda.NodeJS10dXRuntime,
+        aws.lambda.NodeJS12dXRuntime,
+    ],
+    layerName: "lambda_layer_name",
+}, providerOpts);
+
+export let layerSize = layer.sourceCodeSize;
+export let layerArn = layer.arn;
