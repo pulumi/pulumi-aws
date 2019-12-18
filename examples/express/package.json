@@ -8,7 +8,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "=1.8.0-alpha.1576638249",
+        "@pulumi/pulumi": "feature-dedeasync6",
         "express": "^4.16.3",
         "aws-serverless-express": "^3.3.5",
         "@pulumi/aws": "latest"

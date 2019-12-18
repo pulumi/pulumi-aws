@@ -2183,7 +2183,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "=1.8.0-alpha.1576638249",
+				"@pulumi/pulumi":    "feature-dedeasync6",
 				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
