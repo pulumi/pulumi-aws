@@ -156,7 +156,7 @@ import * as utilities from "../utilities";
  *         },
  *         name: "Setup Hadoop Debugging",
  *     }],
- * }, {ignoreChanges: ["steps"]});
+ * }, {ignoreChanges: ["stepConcurrencyLevel", "steps"]});
  * ```
  * 
  * ### Multiple Node Master Instance Group
