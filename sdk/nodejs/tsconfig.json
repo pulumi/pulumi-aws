@@ -13,6 +13,8 @@
         "strict": true
     },
     "files": [
+        "accessanalyzer/analyzer.ts",
+        "accessanalyzer/index.ts",
         "acm/certificate.ts",
         "acm/certificateValidation.ts",
         "acm/getCertificate.ts",
@@ -574,6 +576,7 @@
         "lambda/alias.ts",
         "lambda/eventSourceMapping.ts",
         "lambda/function.ts",
+        "lambda/functionEventInvokeConfig.ts",
         "lambda/getFunction.ts",
         "lambda/getInvocation.ts",
         "lambda/getLayerVersion.ts",
@@ -648,6 +651,7 @@
         "opsworks/userProfile.ts",
         "organizations/account.ts",
         "organizations/getOrganization.ts",
+        "organizations/getOrganizationalUnits.ts",
         "organizations/index.ts",
         "organizations/organization.ts",
         "organizations/organizationalUnit.ts",

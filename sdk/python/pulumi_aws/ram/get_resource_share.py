@@ -61,7 +61,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             status=self.status,
             tags=self.tags)
 
-def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
+def get_resource_share(filters=None,name=None,resource_owner=None,tags=None,opts=None):
     """
     `ram.ResourceShare` Retrieve information about a RAM Resource Share.
     
@@ -81,6 +81,7 @@ def get_resource_share(filters=None,name=None,resource_owner=None,opts=None):
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['resourceOwner'] = resource_owner
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

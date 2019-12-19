@@ -28,6 +28,7 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs) (*GetLoa
 	}
 	return &GetLoadBalancerResult{
 		AccessLogs: outputs["accessLogs"],
+		Arn: outputs["arn"],
 		AvailabilityZones: outputs["availabilityZones"],
 		ConnectionDraining: outputs["connectionDraining"],
 		ConnectionDrainingTimeout: outputs["connectionDrainingTimeout"],
@@ -59,6 +60,7 @@ type GetLoadBalancerArgs struct {
 // A collection of values returned by getLoadBalancer.
 type GetLoadBalancerResult struct {
 	AccessLogs interface{}
+	Arn interface{}
 	AvailabilityZones interface{}
 	ConnectionDraining interface{}
 	ConnectionDrainingTimeout interface{}

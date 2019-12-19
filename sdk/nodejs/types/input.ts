@@ -9153,6 +9153,31 @@ export namespace lambda {
         variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface FunctionEventInvokeConfigDestinationConfig {
+        /**
+         * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+         */
+        onFailure?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfigOnFailure>;
+        /**
+         * Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+         */
+        onSuccess?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfigOnSuccess>;
+    }
+
+    export interface FunctionEventInvokeConfigDestinationConfigOnFailure {
+        /**
+         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+         */
+        destination: pulumi.Input<string>;
+    }
+
+    export interface FunctionEventInvokeConfigDestinationConfigOnSuccess {
+        /**
+         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+         */
+        destination: pulumi.Input<string>;
+    }
+
     export interface FunctionTracingConfig {
         /**
          * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
@@ -9921,6 +9946,7 @@ export namespace opsworks {
     }
 
     export interface CustomLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -9930,6 +9956,7 @@ export namespace opsworks {
     }
 
     export interface GangliaLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -9939,6 +9966,7 @@ export namespace opsworks {
     }
 
     export interface HaproxyLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -9969,6 +9997,7 @@ export namespace opsworks {
     }
 
     export interface JavaAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -9978,6 +10007,7 @@ export namespace opsworks {
     }
 
     export interface MemcachedLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -9987,6 +10017,7 @@ export namespace opsworks {
     }
 
     export interface MysqlLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -9996,6 +10027,7 @@ export namespace opsworks {
     }
 
     export interface NodejsAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -10005,6 +10037,7 @@ export namespace opsworks {
     }
 
     export interface PhpAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -10014,6 +10047,7 @@ export namespace opsworks {
     }
 
     export interface RailsAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;
@@ -10032,6 +10066,7 @@ export namespace opsworks {
     }
 
     export interface StaticWebLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         mountPoint: pulumi.Input<string>;
         numberOfDisks: pulumi.Input<number>;

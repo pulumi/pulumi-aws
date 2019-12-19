@@ -45,6 +45,14 @@ namespace Pulumi.Aws.Ram
         [Input("resourceOwner", required: true)]
         public string ResourceOwner { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetResourceShareArgs()
         {
         }

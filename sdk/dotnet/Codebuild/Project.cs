@@ -82,6 +82,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// </summary>
+        [Output("queuedTimeout")]
+        public Output<int?> QueuedTimeout { get; private set; } = null!;
+
+        /// <summary>
         /// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
         /// </summary>
         [Output("secondaryArtifacts")]
@@ -217,6 +223,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// </summary>
+        [Input("queuedTimeout")]
+        public Input<int>? QueuedTimeout { get; set; }
+
         [Input("secondaryArtifacts")]
         private InputList<Inputs.ProjectSecondaryArtifactsArgs>? _secondaryArtifacts;
 
@@ -343,6 +355,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+        /// </summary>
+        [Input("queuedTimeout")]
+        public Input<int>? QueuedTimeout { get; set; }
 
         [Input("secondaryArtifacts")]
         private InputList<Inputs.ProjectSecondaryArtifactsGetArgs>? _secondaryArtifacts;

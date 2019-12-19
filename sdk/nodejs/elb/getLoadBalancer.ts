@@ -63,6 +63,7 @@ export interface GetLoadBalancerArgs {
  */
 export interface GetLoadBalancerResult {
     readonly accessLogs: outputs.elb.GetLoadBalancerAccessLogs;
+    readonly arn: string;
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
     readonly connectionDrainingTimeout: number;

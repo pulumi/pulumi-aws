@@ -173,7 +173,7 @@ func (r *WindowsFileSystem) SkipFinalBackup() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["skipFinalBackup"])
 }
 
-// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
 func (r *WindowsFileSystem) StorageCapacity() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["storageCapacity"])
 }
@@ -229,7 +229,7 @@ type WindowsFileSystemState struct {
 	SelfManagedActiveDirectory interface{}
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup interface{}
-	// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
 	StorageCapacity interface{}
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds interface{}
@@ -261,7 +261,7 @@ type WindowsFileSystemArgs struct {
 	SelfManagedActiveDirectory interface{}
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup interface{}
-	// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
 	StorageCapacity interface{}
 	// A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
 	SubnetIds interface{}

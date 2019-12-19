@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int> StorageCapacity { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
         /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }

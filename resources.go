@@ -40,6 +40,7 @@ const (
 	awsMod               = "index"             // the root index.
 	acmMod               = "Acm"               // AWS Certificate Manager
 	acmpcaMod            = "Acmpca"            // AWS Private Certificate Authority
+	accessAnalyzerMod    = "AccessAnalyzer"    // Access Analyzer
 	appsyncMod           = "AppSync"           // AppSync
 	appmeshMod           = "AppMesh"           // AppMesh
 	apigatewayMod        = "ApiGateway"        // API Gateway
@@ -1489,6 +1490,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_lambda_provisioned_concurrency_config": {Tok: awsResource(lambdaMod, "ProvisionedConcurrencyConfig")},
+			"aws_lambda_function_event_invoke_config":   {Tok: awsResource(lambdaMod, "FunctionEventInvokeConfig")},
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
@@ -1975,6 +1977,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_qldb_ledger": {Tok: awsResource(qldbMod, "Ledger")},
 			// Workspaces
 			"aws_workspaces_ip_group": {Tok: awsResource(workspacesMod, "IpGroup")},
+			// Access Analyzer
+			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS
@@ -2178,7 +2182,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_ipset":           {Tok: awsDataSource(wafregionalMod, "getIpset")},
 			"aws_wafregional_rate_based_rule": {Tok: awsDataSource(wafregionalMod, "getRateBasedMod")},
 			// Organizations
-			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			"aws_organizations_organization":         {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			"aws_organizations_organizational_units": {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
 			// ElasticSearch
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 			// QLDB

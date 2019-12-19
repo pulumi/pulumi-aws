@@ -67,7 +67,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     """
     storage_capacity: pulumi.Output[float]
     """
-    Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+    Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
     """
     subnet_ids: pulumi.Output[str]
     """
@@ -105,7 +105,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[list] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[dict] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[float] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+        :param pulumi.Input[float] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
         :param pulumi.Input[float] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
@@ -190,7 +190,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[list] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[dict] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[float] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+        :param pulumi.Input[float] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the file system.
         :param pulumi.Input[float] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.

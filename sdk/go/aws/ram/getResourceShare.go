@@ -16,6 +16,7 @@ func LookupResourceShare(ctx *pulumi.Context, args *GetResourceShareArgs) (*GetR
 		inputs["filters"] = args.Filters
 		inputs["name"] = args.Name
 		inputs["resourceOwner"] = args.ResourceOwner
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:ram/getResourceShare:getResourceShare", inputs)
 	if err != nil {
@@ -40,6 +41,7 @@ type GetResourceShareArgs struct {
 	Name interface{}
 	// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
 	ResourceOwner interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getResourceShare.
