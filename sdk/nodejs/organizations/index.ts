@@ -4,6 +4,7 @@
 // Export members:
 export * from "./account";
 export * from "./getOrganization";
+export * from "./getOrganizationalUnits";
 export * from "./organization";
 export * from "./organizationalUnit";
 export * from "./policy";

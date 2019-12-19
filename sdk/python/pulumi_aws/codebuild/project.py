@@ -98,6 +98,10 @@ class Project(pulumi.CustomResource):
     """
     The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
     """
+    queued_timeout: pulumi.Output[float]
+    """
+    How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+    """
     secondary_artifacts: pulumi.Output[list]
     """
     A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
@@ -161,7 +165,7 @@ class Project(pulumi.CustomResource):
       * `subnets` (`list`) - The subnet IDs within which to run builds.
       * `vpc_id` (`str`) - The ID of the VPC within which to run builds.
     """
-    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CodeBuild Project resource. See also the [`codebuild.Webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
         
@@ -176,6 +180,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[dict] environment: Information about the project's build environment. Environment blocks are documented below.
         :param pulumi.Input[dict] logs_config: Configuration for the builds to store log data to CloudWatch or S3.
         :param pulumi.Input[str] name: The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[float] queued_timeout: How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         :param pulumi.Input[list] secondary_artifacts: A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
         :param pulumi.Input[list] secondary_sources: A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
         :param pulumi.Input[str] service_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
@@ -314,6 +319,7 @@ class Project(pulumi.CustomResource):
             __props__['environment'] = environment
             __props__['logs_config'] = logs_config
             __props__['name'] = name
+            __props__['queued_timeout'] = queued_timeout
             __props__['secondary_artifacts'] = secondary_artifacts
             __props__['secondary_sources'] = secondary_sources
             if service_role is None:
@@ -333,7 +339,7 @@ class Project(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, artifacts=None, badge_enabled=None, badge_url=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None):
+    def get(resource_name, id, opts=None, arn=None, artifacts=None, badge_enabled=None, badge_url=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None):
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -352,6 +358,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[dict] environment: Information about the project's build environment. Environment blocks are documented below.
         :param pulumi.Input[dict] logs_config: Configuration for the builds to store log data to CloudWatch or S3.
         :param pulumi.Input[str] name: The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param pulumi.Input[float] queued_timeout: How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         :param pulumi.Input[list] secondary_artifacts: A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
         :param pulumi.Input[list] secondary_sources: A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
         :param pulumi.Input[str] service_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
@@ -474,6 +481,7 @@ class Project(pulumi.CustomResource):
         __props__["environment"] = environment
         __props__["logs_config"] = logs_config
         __props__["name"] = name
+        __props__["queued_timeout"] = queued_timeout
         __props__["secondary_artifacts"] = secondary_artifacts
         __props__["secondary_sources"] = secondary_sources
         __props__["service_role"] = service_role

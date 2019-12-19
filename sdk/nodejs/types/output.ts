@@ -9968,6 +9968,31 @@ export namespace lambda {
         variables?: {[key: string]: string};
     }
 
+    export interface FunctionEventInvokeConfigDestinationConfig {
+        /**
+         * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+         */
+        onFailure?: outputs.lambda.FunctionEventInvokeConfigDestinationConfigOnFailure;
+        /**
+         * Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+         */
+        onSuccess?: outputs.lambda.FunctionEventInvokeConfigDestinationConfigOnSuccess;
+    }
+
+    export interface FunctionEventInvokeConfigDestinationConfigOnFailure {
+        /**
+         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+         */
+        destination: string;
+    }
+
+    export interface FunctionEventInvokeConfigDestinationConfigOnSuccess {
+        /**
+         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+         */
+        destination: string;
+    }
+
     export interface FunctionTracingConfig {
         /**
          * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
@@ -10864,6 +10889,7 @@ export namespace opsworks {
     }
 
     export interface CustomLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10873,6 +10899,7 @@ export namespace opsworks {
     }
 
     export interface GangliaLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10882,6 +10909,7 @@ export namespace opsworks {
     }
 
     export interface HaproxyLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10912,6 +10940,7 @@ export namespace opsworks {
     }
 
     export interface JavaAppLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10921,6 +10950,7 @@ export namespace opsworks {
     }
 
     export interface MemcachedLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10930,6 +10960,7 @@ export namespace opsworks {
     }
 
     export interface MysqlLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10939,6 +10970,7 @@ export namespace opsworks {
     }
 
     export interface NodejsAppLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10948,6 +10980,7 @@ export namespace opsworks {
     }
 
     export interface PhpAppLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10957,6 +10990,7 @@ export namespace opsworks {
     }
 
     export interface RailsAppLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -10975,6 +11009,7 @@ export namespace opsworks {
     }
 
     export interface StaticWebLayerEbsVolume {
+        encrypted?: boolean;
         iops?: number;
         mountPoint: string;
         numberOfDisks: number;
@@ -11048,6 +11083,21 @@ export namespace organizations {
          */
         status: string;
         type: string;
+    }
+
+    export interface GetOrganizationalUnitsChildren {
+        /**
+         * ARN of the organizational unit
+         */
+        arn: string;
+        /**
+         * ID of the organizational unit
+         */
+        id: string;
+        /**
+         * Name of the organizational unit
+         */
+        name: string;
     }
 
     export interface OrganizationAccount {

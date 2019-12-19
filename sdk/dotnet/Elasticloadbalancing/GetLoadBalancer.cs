@@ -50,6 +50,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     public sealed class GetLoadBalancerResult
     {
         public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
+        public readonly string Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly bool ConnectionDraining;
         public readonly int ConnectionDrainingTimeout;
@@ -75,6 +76,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         [OutputConstructor]
         private GetLoadBalancerResult(
             Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+            string arn,
             ImmutableArray<string> availabilityZones,
             bool connectionDraining,
             int connectionDrainingTimeout,
@@ -95,6 +97,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
             string id)
         {
             AccessLogs = accessLogs;
+            Arn = arn;
             AvailabilityZones = availabilityZones;
             ConnectionDraining = connectionDraining;
             ConnectionDrainingTimeout = connectionDrainingTimeout;

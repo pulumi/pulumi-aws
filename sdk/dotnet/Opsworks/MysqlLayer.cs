@@ -518,6 +518,9 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class MysqlLayerEbsVolumesArgs : Pulumi.ResourceArgs
     {
+        [Input("encrypted")]
+        public Input<bool>? Encrypted { get; set; }
+
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
@@ -543,6 +546,9 @@ namespace Pulumi.Aws.OpsWorks
 
     public sealed class MysqlLayerEbsVolumesGetArgs : Pulumi.ResourceArgs
     {
+        [Input("encrypted")]
+        public Input<bool>? Encrypted { get; set; }
+
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
@@ -573,6 +579,7 @@ namespace Pulumi.Aws.OpsWorks
     [OutputType]
     public sealed class MysqlLayerEbsVolumes
     {
+        public readonly bool? Encrypted;
         public readonly int? Iops;
         public readonly string MountPoint;
         public readonly int NumberOfDisks;
@@ -582,6 +589,7 @@ namespace Pulumi.Aws.OpsWorks
 
         [OutputConstructor]
         private MysqlLayerEbsVolumes(
+            bool? encrypted,
             int? iops,
             string mountPoint,
             int numberOfDisks,
@@ -589,6 +597,7 @@ namespace Pulumi.Aws.OpsWorks
             int size,
             string? type)
         {
+            Encrypted = encrypted;
             Iops = iops;
             MountPoint = mountPoint;
             NumberOfDisks = numberOfDisks;

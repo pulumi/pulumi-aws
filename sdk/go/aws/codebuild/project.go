@@ -41,6 +41,7 @@ func NewProject(ctx *pulumi.Context,
 		inputs["environment"] = nil
 		inputs["logsConfig"] = nil
 		inputs["name"] = nil
+		inputs["queuedTimeout"] = nil
 		inputs["secondaryArtifacts"] = nil
 		inputs["secondarySources"] = nil
 		inputs["serviceRole"] = nil
@@ -57,6 +58,7 @@ func NewProject(ctx *pulumi.Context,
 		inputs["environment"] = args.Environment
 		inputs["logsConfig"] = args.LogsConfig
 		inputs["name"] = args.Name
+		inputs["queuedTimeout"] = args.QueuedTimeout
 		inputs["secondaryArtifacts"] = args.SecondaryArtifacts
 		inputs["secondarySources"] = args.SecondarySources
 		inputs["serviceRole"] = args.ServiceRole
@@ -90,6 +92,7 @@ func GetProject(ctx *pulumi.Context,
 		inputs["environment"] = state.Environment
 		inputs["logsConfig"] = state.LogsConfig
 		inputs["name"] = state.Name
+		inputs["queuedTimeout"] = state.QueuedTimeout
 		inputs["secondaryArtifacts"] = state.SecondaryArtifacts
 		inputs["secondarySources"] = state.SecondarySources
 		inputs["serviceRole"] = state.ServiceRole
@@ -169,6 +172,11 @@ func (r *Project) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+func (r *Project) QueuedTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["queuedTimeout"])
+}
+
 // A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
 func (r *Project) SecondaryArtifacts() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["secondaryArtifacts"])
@@ -223,6 +231,8 @@ type ProjectState struct {
 	LogsConfig interface{}
 	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name interface{}
+	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	QueuedTimeout interface{}
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
 	SecondaryArtifacts interface{}
 	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
@@ -257,6 +267,8 @@ type ProjectArgs struct {
 	LogsConfig interface{}
 	// The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name interface{}
+	// How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	QueuedTimeout interface{}
 	// A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
 	SecondaryArtifacts interface{}
 	// A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
