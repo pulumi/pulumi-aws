@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Default Lambda NodeJS usage to Node JS 12.x  
-  **Please Note:** Existing lambdas will stay on their specified version. Users need to explicitly create a replacement to move them 
-* Autoname the `nodeGroupName` property of `aws.eks.NodeGroup`
-* Upgrade to v2.43.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.17.0 (2019-12-19)
+* Default Lambda NodeJS usage to Node JS 12.x  
+  **Please Note:** Existing lambdas will stay on their specified version. Users need to explicitly create a replacement to move them
+* Autoname the `nodeGroupName` property of `aws.eks.NodeGroup`
+* Upgrade to v2.43.0 of the AWS Terraform Provider
 
 ## 1.16.0 (2019-12-16)
 * Upgrade to v2.42.0 of the AWS Terraform Provider
