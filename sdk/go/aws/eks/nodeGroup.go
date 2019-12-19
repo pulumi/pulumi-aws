@@ -21,9 +21,6 @@ func NewNodeGroup(ctx *pulumi.Context,
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
-	if args == nil || args.NodeGroupName == nil {
-		return nil, errors.New("missing required argument 'NodeGroupName'")
-	}
 	if args == nil || args.NodeRoleArn == nil {
 		return nil, errors.New("missing required argument 'NodeRoleArn'")
 	}

@@ -128,8 +128,6 @@ class NodeGroup(pulumi.CustomResource):
             __props__['disk_size'] = disk_size
             __props__['instance_types'] = instance_types
             __props__['labels'] = labels
-            if node_group_name is None:
-                raise TypeError("Missing required property 'node_group_name'")
             __props__['node_group_name'] = node_group_name
             if node_role_arn is None:
                 raise TypeError("Missing required property 'node_role_arn'")

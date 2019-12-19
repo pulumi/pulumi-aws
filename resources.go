@@ -1069,8 +1069,13 @@ func Provider() tfbridge.ProviderInfo {
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster":    {Tok: awsResource(eksMod, "Cluster")},
-			"aws_eks_node_group": {Tok: awsResource(eksMod, "NodeGroup")},
+			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
+			"aws_eks_node_group": {
+				Tok: awsResource(eksMod, "NodeGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"node_group_name": tfbridge.AutoName("nodeGroupName", 255),
+				},
+			},
 			"aws_eks_fargate_profile": {
 				Tok: awsResource(eksMod, "FargateProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{

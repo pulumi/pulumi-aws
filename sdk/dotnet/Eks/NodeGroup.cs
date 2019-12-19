@@ -175,8 +175,8 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Name of the EKS Node Group.
         /// </summary>
-        [Input("nodeGroupName", required: true)]
-        public Input<string> NodeGroupName { get; set; } = null!;
+        [Input("nodeGroupName")]
+        public Input<string>? NodeGroupName { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.

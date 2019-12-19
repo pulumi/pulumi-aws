@@ -124,9 +124,6 @@ export class NodeGroup extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.nodeGroupName === undefined) {
-                throw new Error("Missing required property 'nodeGroupName'");
-            }
             if (!args || args.nodeRoleArn === undefined) {
                 throw new Error("Missing required property 'nodeRoleArn'");
             }
@@ -240,7 +237,7 @@ export interface NodeGroupArgs {
     /**
      * Name of the EKS Node Group.
      */
-    readonly nodeGroupName: pulumi.Input<string>;
+    readonly nodeGroupName?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
