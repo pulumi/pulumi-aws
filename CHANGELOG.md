@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Expose EKS KubeConfig on EKS Cluster resource
 
 ---
 

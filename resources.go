@@ -2266,6 +2266,11 @@ func Provider() tfbridge.ProviderInfo {
 							"container.ts", // Container definition JSON schema
 						},
 					},
+					"eks": {
+						DestFiles: []string{
+							"clusterMixins.ts", //generate cluster kubeConfig
+						},
+					},
 					"iam": {
 						DestFiles: []string{
 							"documents.ts",       // policy document schemas.

@@ -390,6 +390,7 @@
         "efs/index.ts",
         "efs/mountTarget.ts",
         "eks/cluster.ts",
+        "eks/clusterMixins.ts",
         "eks/fargateProfile.ts",
         "eks/getCluster.ts",
         "eks/getClusterAuth.ts",

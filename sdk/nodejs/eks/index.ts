@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./cluster";
+export * from "./clusterMixins";
 export * from "./fargateProfile";
 export * from "./getCluster";
 export * from "./getClusterAuth";
