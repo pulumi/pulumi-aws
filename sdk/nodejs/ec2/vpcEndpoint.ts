@@ -80,6 +80,7 @@ import * as utilities from "../utilities";
  *     vpcId: var_vpc_id,
  * });
  * const ptfeServiceRecord = new aws.route53.Record("ptfeService", {
+ *     name: `ptfe.${internal.name!}`,
  *     records: [ptfeServiceVpcEndpoint.dnsEntries.apply(dnsEntries => (<any>dnsEntries[0])["dnsName"])],
  *     ttl: 300,
  *     type: "CNAME",

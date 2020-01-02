@@ -222,8 +222,8 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("records")]
         private InputList<string>? _records;

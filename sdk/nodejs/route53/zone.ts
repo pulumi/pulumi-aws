@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const devNs = new aws.route53.Record("dev-ns", {
+ *     name: "dev.example.com",
  *     records: [
  *         dev.nameServers[0],
  *         dev.nameServers[1],

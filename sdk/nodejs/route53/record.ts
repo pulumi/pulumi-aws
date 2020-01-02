@@ -20,6 +20,7 @@ import {RecordType} from "./recordType";
  * import * as aws from "@pulumi/aws";
  * 
  * const www = new aws.route53.Record("www", {
+ *     name: "www.example.com",
  *     records: [aws_eip_lb.publicIp],
  *     ttl: 300,
  *     type: "A",
@@ -35,6 +36,7 @@ import {RecordType} from "./recordType";
  * import * as aws from "@pulumi/aws";
  * 
  * const wwwDev = new aws.route53.Record("www-dev", {
+ *     name: "www",
  *     records: ["dev.example.com"],
  *     setIdentifier: "dev",
  *     ttl: 5,
@@ -45,6 +47,7 @@ import {RecordType} from "./recordType";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * const wwwLive = new aws.route53.Record("www-live", {
+ *     name: "www",
  *     records: ["live.example.com"],
  *     setIdentifier: "live",
  *     ttl: 5,
@@ -82,6 +85,7 @@ import {RecordType} from "./recordType";
  *         name: main.dnsName,
  *         zoneId: main.zoneId,
  *     }],
+ *     name: "example.com",
  *     type: "A",
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
@@ -98,6 +102,7 @@ import {RecordType} from "./recordType";
  * const exampleZone = new aws.route53.Zone("example", {});
  * const exampleRecord = new aws.route53.Record("example", {
  *     allowOverwrite: true,
+ *     name: "test.example.com",
  *     records: [
  *         exampleZone.nameServers[0],
  *         exampleZone.nameServers[1],
@@ -230,6 +235,9 @@ export class Record extends pulumi.CustomResource {
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as RecordArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
@@ -366,7 +374,7 @@ export interface RecordArgs {
     /**
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the configuration string (e.g. `"first255characters\"\"morecharacters"`).
      */
