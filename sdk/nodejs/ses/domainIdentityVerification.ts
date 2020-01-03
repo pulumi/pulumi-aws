@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *     domain: "example.com",
  * });
  * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
+ *     name: pulumi.interpolate`_amazonses.${example.id}`,
  *     records: [example.verificationToken],
  *     ttl: 600,
  *     type: "TXT",

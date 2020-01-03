@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *     privateZone: true,
  * });
  * const www = new aws.route53.Record("www", {
+ *     name: `www.${selected.name!}`,
  *     records: ["10.0.0.1"],
  *     ttl: 300,
  *     type: "A",

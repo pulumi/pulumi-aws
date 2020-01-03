@@ -1716,6 +1716,9 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(route53Mod, "RecordType")},
 					},
+					// Do not autoname Route53 records, as the "name" of these is actually the true
+					// domain name of the DNS record.
+					"name": {Name: "name"},
 				},
 			},
 			"aws_route53_resolver_endpoint":         {Tok: awsResource(route53Mod, "ResolverEndpoint")},

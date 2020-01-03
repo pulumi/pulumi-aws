@@ -21,12 +21,13 @@ const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>
 const example_zone = new aws.route53.Zone("example.com", {}, providerOpts);
 
 const www_dev = new aws.route53.Record("www-dev", {
-     records: ["dev.example.com"],
-     setIdentifier: "dev",
-     ttl: 5,
-     type: aws.route53.RecordTypes.CNAME,
-     weightedRoutingPolicies: [{
-         weight: 10,
-     }],
-     zoneId: example_zone.zoneId,
+    name: "www",
+    records: ["dev.example.com"],
+    setIdentifier: "dev",
+    ttl: 5,
+    type: aws.route53.RecordTypes.CNAME,
+    weightedRoutingPolicies: [{
+        weight: 10,
+    }],
+    zoneId: example_zone.zoneId,
 }, providerOpts);

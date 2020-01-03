@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *         name: aws_elb_main.dnsName,
  *         zoneId: main.id,
  *     }],
+ *     name: "example.com",
  *     type: "A",
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
