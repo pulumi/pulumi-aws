@@ -425,9 +425,6 @@ func TestAccWebserverCs(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "webserver-cs"),
-			ExtraRuntimeValidation: validateAPITest(func(body string) {
-				assert.Equal(t, body, "Hello Pulumi")
-			}),
 		})
 
 	integration.ProgramTest(t, &test)
