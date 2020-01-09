@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about a Workspaces Bundle.
+ * Use this data source to get information about a WorkSpaces Bundle.
  * 
  * ## Example Usage
  * 

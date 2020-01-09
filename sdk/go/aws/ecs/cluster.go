@@ -20,7 +20,7 @@ import (
 // 
 // The `defaultCapacityProviderStrategy` configuration block supports the following:
 // 
-// * `capacityProvider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+// * `capacityProvider` - (Required) The short name of the capacity provider.
 // * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
 // * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 //
@@ -89,7 +89,7 @@ func (r *Cluster) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 func (r *Cluster) CapacityProviders() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["capacityProviders"])
 }
@@ -118,7 +118,7 @@ func (r *Cluster) Tags() pulumi.MapOutput {
 type ClusterState struct {
 	// The Amazon Resource Name (ARN) that identifies the cluster
 	Arn interface{}
-	// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders interface{}
 	// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
 	DefaultCapacityProviderStrategies interface{}
@@ -132,7 +132,7 @@ type ClusterState struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders interface{}
 	// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
 	DefaultCapacityProviderStrategies interface{}

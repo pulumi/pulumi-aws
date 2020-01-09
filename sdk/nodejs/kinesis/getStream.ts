@@ -35,6 +35,7 @@ export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Pro
     }
     const promise: Promise<GetStreamResult> = pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -48,6 +49,7 @@ export interface GetStreamArgs {
      * The name of the Kinesis Stream.
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

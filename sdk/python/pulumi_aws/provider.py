@@ -158,6 +158,7 @@ class Provider(pulumi.ProviderResource):
           * `transfer` (`pulumi.Input[str]`)
           * `waf` (`pulumi.Input[str]`)
           * `wafregional` (`pulumi.Input[str]`)
+          * `wafv2` (`pulumi.Input[str]`)
           * `worklink` (`pulumi.Input[str]`)
           * `workspaces` (`pulumi.Input[str]`)
           * `xray` (`pulumi.Input[str]`)

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// The `default_capacity_provider_strategy` configuration block supports the following:
     /// 
-    /// * `capacity_provider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+    /// * `capacity_provider` - (Required) The short name of the capacity provider.
     /// * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
     /// * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
     /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         /// </summary>
         [Output("capacityProviders")]
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<string>? _capacityProviders;
 
         /// <summary>
-        /// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         /// </summary>
         public InputList<string> CapacityProviders
         {
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<string>? _capacityProviders;
 
         /// <summary>
-        /// List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         /// </summary>
         public InputList<string> CapacityProviders
         {

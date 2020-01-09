@@ -246,6 +246,7 @@ namespace Pulumi.Aws
         public string? Transfer { get; set; }
         public string? Waf { get; set; }
         public string? Wafregional { get; set; }
+        public string? Wafv2 { get; set; }
         public string? Worklink { get; set; }
         public string? Workspaces { get; set; }
         public string? Xray { get; set; }

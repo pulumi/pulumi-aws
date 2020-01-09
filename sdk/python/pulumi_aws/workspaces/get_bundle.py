@@ -76,7 +76,7 @@ class AwaitableGetBundleResult(GetBundleResult):
 
 def get_bundle(bundle_id=None,opts=None):
     """
-    Use this data source to get information about a Workspaces Bundle.
+    Use this data source to get information about a WorkSpaces Bundle.
     
     :param str bundle_id: The ID of the bundle.
 

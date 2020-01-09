@@ -105,7 +105,7 @@ class UserPool(pulumi.CustomResource):
     """
     schemas: pulumi.Output[list]
     """
-    A container with the schema attributes of a user pool. Maximum of 50 attributes.
+    A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
     
       * `attributeDataType` (`str`) - The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
       * `developerOnlyAttribute` (`bool`) - Specifies whether the attribute type is developer only.
@@ -179,7 +179,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] mfa_configuration: Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
         :param pulumi.Input[str] name: The name of the attribute.
         :param pulumi.Input[dict] password_policy: A container for information about the user pool password policy.
-        :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Maximum of 50 attributes.
+        :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
         :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
         :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
@@ -338,7 +338,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] mfa_configuration: Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
         :param pulumi.Input[str] name: The name of the attribute.
         :param pulumi.Input[dict] password_policy: A container for information about the user pool password policy.
-        :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Maximum of 50 attributes.
+        :param pulumi.Input[list] schemas: A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
         :param pulumi.Input[dict] sms_configuration: The SMS Configuration.
         :param pulumi.Input[str] sms_verification_message: A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.

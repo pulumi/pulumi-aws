@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get information about a Workspaces Bundle.
+// Use this data source to get information about a WorkSpaces Bundle.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
 func LookupBundle(ctx *pulumi.Context, args *GetBundleArgs) (*GetBundleResult, error) {

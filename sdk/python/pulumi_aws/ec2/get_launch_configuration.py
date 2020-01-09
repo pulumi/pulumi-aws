@@ -13,7 +13,13 @@ class GetLaunchConfigurationResult:
     """
     A collection of values returned by getLaunchConfiguration.
     """
-    def __init__(__self__, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, id=None):
+    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The Amazon Resource Name of the launch configuration.
+        """
         if associate_public_ip_address and not isinstance(associate_public_ip_address, bool):
             raise TypeError("Expected argument 'associate_public_ip_address' to be a bool")
         __self__.associate_public_ip_address = associate_public_ip_address
@@ -128,6 +134,7 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
         if False:
             yield self
         return GetLaunchConfigurationResult(
+            arn=self.arn,
             associate_public_ip_address=self.associate_public_ip_address,
             ebs_block_devices=self.ebs_block_devices,
             ebs_optimized=self.ebs_optimized,
@@ -165,6 +172,7 @@ def get_launch_configuration(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts).value
 
     return AwaitableGetLaunchConfigurationResult(
+        arn=__ret__.get('arn'),
         associate_public_ip_address=__ret__.get('associatePublicIpAddress'),
         ebs_block_devices=__ret__.get('ebsBlockDevices'),
         ebs_optimized=__ret__.get('ebsOptimized'),

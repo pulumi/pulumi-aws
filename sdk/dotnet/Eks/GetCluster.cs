@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// Nested attribute containing VPC configuration for the cluster.
+        /// Nested list containing VPC configuration for the cluster.
         /// </summary>
         public readonly Outputs.GetClusterVpcConfigResult VpcConfig;
         /// <summary>
@@ -195,6 +195,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly bool EndpointPublicAccess;
         /// <summary>
+        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
+        /// </summary>
+        public readonly ImmutableArray<string> PublicAccessCidrs;
+        /// <summary>
         /// List of security group IDs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -212,6 +216,7 @@ namespace Pulumi.Aws.Eks
             string clusterSecurityGroupId,
             bool endpointPrivateAccess,
             bool endpointPublicAccess,
+            ImmutableArray<string> publicAccessCidrs,
             ImmutableArray<string> securityGroupIds,
             ImmutableArray<string> subnetIds,
             string vpcId)
@@ -219,6 +224,7 @@ namespace Pulumi.Aws.Eks
             ClusterSecurityGroupId = clusterSecurityGroupId;
             EndpointPrivateAccess = endpointPrivateAccess;
             EndpointPublicAccess = endpointPublicAccess;
+            PublicAccessCidrs = publicAccessCidrs;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcId = vpcId;

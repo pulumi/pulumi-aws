@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides an IP access control group in AWS Workspaces Service
+ * Provides an IP access control group in AWS WorkSpaces Service
  * 
  * ## Example Usage
  * 

@@ -17,6 +17,7 @@ class Cluster(pulumi.CustomResource):
     `false`. See [Amazon ElastiCache Documentation for more information.][1]
     (Available since v0.6.0)
     """
+    arn: pulumi.Output[str]
     availability_zone: pulumi.Output[str]
     """
     The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
@@ -249,6 +250,7 @@ class Cluster(pulumi.CustomResource):
             __props__['snapshot_window'] = snapshot_window
             __props__['subnet_group_name'] = subnet_group_name
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['cache_nodes'] = None
             __props__['cluster_address'] = None
             __props__['configuration_endpoint'] = None
@@ -259,7 +261,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, availability_zone=None, az_mode=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_availability_zones=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zone=None, az_mode=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_availability_zones=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_arns=None, snapshot_name=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -334,6 +336,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["apply_immediately"] = apply_immediately
+        __props__["arn"] = arn
         __props__["availability_zone"] = availability_zone
         __props__["az_mode"] = az_mode
         __props__["cache_nodes"] = cache_nodes

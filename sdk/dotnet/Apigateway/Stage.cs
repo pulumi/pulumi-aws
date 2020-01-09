@@ -364,7 +364,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageAccessLogSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+        /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
@@ -384,7 +384,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageAccessLogSettingsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+        /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
@@ -409,7 +409,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class StageAccessLogSettings
     {
         /// <summary>
-        /// ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+        /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
         /// </summary>
         public readonly string DestinationArn;
         /// <summary>

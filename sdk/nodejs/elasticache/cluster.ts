@@ -100,6 +100,7 @@ export class Cluster extends pulumi.CustomResource {
      * (Available since v0.6.0)
      */
     public readonly applyImmediately!: pulumi.Output<boolean>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
      */
@@ -235,6 +236,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["azMode"] = state ? state.azMode : undefined;
             inputs["cacheNodes"] = state ? state.cacheNodes : undefined;
@@ -283,6 +285,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["cacheNodes"] = undefined /*out*/;
             inputs["clusterAddress"] = undefined /*out*/;
             inputs["configurationEndpoint"] = undefined /*out*/;
@@ -309,6 +312,7 @@ export interface ClusterState {
      * (Available since v0.6.0)
      */
     readonly applyImmediately?: pulumi.Input<boolean>;
+    readonly arn?: pulumi.Input<string>;
     /**
      * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
      */

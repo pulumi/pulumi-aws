@@ -690,7 +690,7 @@ export namespace alb {
          */
         path: string;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
@@ -818,7 +818,7 @@ export namespace apigateway {
 
     export interface StageAccessLogSettings {
         /**
-         * ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
          */
         destinationArn: string;
         /**
@@ -1434,7 +1434,7 @@ export namespace applicationloadbalancing {
          */
         path: string;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
@@ -2211,6 +2211,10 @@ export namespace backup {
 
 export namespace batch {
     export interface ComputeEnvironmentComputeResources {
+        /**
+         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+         */
+        allocationStrategy?: string;
         /**
          * Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
          */
@@ -4264,6 +4268,36 @@ export namespace directoryservice {
         subnetIds: string[];
         /**
          * The identifier of the VPC that the directory is in.
+         */
+        vpcId: string;
+    }
+
+    export interface GetDirectoryConnectSetting {
+        /**
+         * The DNS IP addresses of the domain to connect to.
+         */
+        customerDnsIps: string[];
+        /**
+         * The username corresponding to the password provided.
+         */
+        customerUsername: string;
+        /**
+         * The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+         */
+        subnetIds: string[];
+        /**
+         * The ID of the VPC that the connector is in.
+         */
+        vpcId: string;
+    }
+
+    export interface GetDirectoryVpcSetting {
+        /**
+         * The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
+         */
+        subnetIds: string[];
+        /**
+         * The ID of the VPC that the connector is in.
          */
         vpcId: string;
     }
@@ -6400,6 +6434,10 @@ export namespace eks {
          */
         endpointPublicAccess?: boolean;
         /**
+         * <elided>
+         */
+        publicAccessCidrs: string[];
+        /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
          */
         securityGroupIds?: string[];
@@ -6458,6 +6496,10 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled.
          */
         endpointPublicAccess: boolean;
+        /**
+         * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
+         */
+        publicAccessCidrs: string[];
         /**
          * List of security group IDs
          */
@@ -7263,7 +7305,7 @@ export namespace elasticloadbalancingv2 {
          */
         path: string;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
@@ -10546,7 +10588,7 @@ export namespace lb {
          */
         path: string;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: string;
         /**
@@ -13239,6 +13281,29 @@ export namespace worklink {
 }
 
 export namespace workspaces {
+    export interface DirectorySelfServicePermissions {
+        /**
+         * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+         */
+        changeComputeType?: boolean;
+        /**
+         * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+         */
+        increaseVolumeSize?: boolean;
+        /**
+         * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+         */
+        rebuildWorkspace?: boolean;
+        /**
+         * Whether WorkSpaces directory users can restart their workspace. Default `true`.
+         */
+        restartWorkspace?: boolean;
+        /**
+         * Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+         */
+        switchRunningMode?: boolean;
+    }
+
     export interface GetBundleComputeType {
         /**
          * The name of the compute type.

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolPasswordPolicy> PasswordPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+        /// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         /// </summary>
         [Output("schemas")]
         public Output<ImmutableArray<Outputs.UserPoolSchemas>> Schemas { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<Inputs.UserPoolSchemasArgs>? _schemas;
 
         /// <summary>
-        /// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+        /// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         /// </summary>
         public InputList<Inputs.UserPoolSchemasArgs> Schemas
         {
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<Inputs.UserPoolSchemasGetArgs>? _schemas;
 
         /// <summary>
-        /// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+        /// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
         /// </summary>
         public InputList<Inputs.UserPoolSchemasGetArgs> Schemas
         {

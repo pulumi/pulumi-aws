@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Workspaces
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get information about a Workspaces Bundle.
+        /// Use this data source to get information about a WorkSpaces Bundle.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
         /// </summary>

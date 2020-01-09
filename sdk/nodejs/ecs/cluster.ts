@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * 
  * The `defaultCapacityProviderStrategy` configuration block supports the following:
  * 
- * * `capacityProvider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
+ * * `capacityProvider` - (Required) The short name of the capacity provider.
  * * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
  * * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
  *
@@ -67,7 +67,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
     public readonly capacityProviders!: pulumi.Output<string[] | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
     readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -160,7 +160,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * List of short names or full Amazon Resource Names (ARNs) of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
     readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**

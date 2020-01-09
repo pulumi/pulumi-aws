@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class LaunchConfiguration(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name of the launch configuration.
+    """
     associate_public_ip_address: pulumi.Output[bool]
     """
     Associate a public ip address with an instance in a VPC.
@@ -268,6 +272,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__['user_data_base64'] = user_data_base64
             __props__['vpc_classic_link_id'] = vpc_classic_link_id
             __props__['vpc_classic_link_security_groups'] = vpc_classic_link_security_groups
+            __props__['arn'] = None
         super(LaunchConfiguration, __self__).__init__(
             'aws:ec2/launchConfiguration:LaunchConfiguration',
             resource_name,
@@ -275,7 +280,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
+    def get(resource_name, id, opts=None, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
         """
         Get an existing LaunchConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -283,6 +288,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name of the launch configuration.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
                instance.  See Block Devices below for details.
@@ -340,6 +346,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["associate_public_ip_address"] = associate_public_ip_address
         __props__["ebs_block_devices"] = ebs_block_devices
         __props__["ebs_optimized"] = ebs_optimized

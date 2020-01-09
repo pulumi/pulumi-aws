@@ -17,6 +17,7 @@ func LookupStream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, e
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:kinesis/getStream:getStream", inputs)
 	if err != nil {
@@ -40,6 +41,7 @@ func LookupStream(ctx *pulumi.Context, args *GetStreamArgs) (*GetStreamResult, e
 type GetStreamArgs struct {
 	// The name of the Kinesis Stream.
 	Name interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getStream.

@@ -60,7 +60,7 @@ namespace Pulumi.Aws.LB
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
@@ -556,7 +556,7 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+        /// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         /// </summary>
         public readonly string? Port;
         /// <summary>

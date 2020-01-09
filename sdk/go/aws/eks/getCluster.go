@@ -70,7 +70,7 @@ type GetClusterResult struct {
 	Tags interface{}
 	// The Kubernetes server version for the cluster.
 	Version interface{}
-	// Nested attribute containing VPC configuration for the cluster.
+	// Nested list containing VPC configuration for the cluster.
 	VpcConfig interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

@@ -28,7 +28,7 @@ class IpGroup(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     def __init__(__self__, resource_name, opts=None, description=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an IP access control group in AWS Workspaces Service
+        Provides an IP access control group in AWS WorkSpaces Service
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
