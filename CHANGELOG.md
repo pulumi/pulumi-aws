@@ -6,6 +6,7 @@ CHANGELOG
   name of the record.  This is a breaking change for code which relied on the auto-naming, but such
   code was almost certainly not behaving as intended (registering incorrect domain names).
   [#842](https://github.com/pulumi/pulumi-aws/pull/842)
+* Upgrade to v2.44.0 of the AWS Terraform Provider
 
 ---
 
