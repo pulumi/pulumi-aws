@@ -20,6 +20,7 @@ func LookupLaunchConfiguration(ctx *pulumi.Context, args *GetLaunchConfiguration
 		return nil, err
 	}
 	return &GetLaunchConfigurationResult{
+		Arn: outputs["arn"],
 		AssociatePublicIpAddress: outputs["associatePublicIpAddress"],
 		EbsBlockDevices: outputs["ebsBlockDevices"],
 		EbsOptimized: outputs["ebsOptimized"],
@@ -49,6 +50,8 @@ type GetLaunchConfigurationArgs struct {
 
 // A collection of values returned by getLaunchConfiguration.
 type GetLaunchConfigurationResult struct {
+	// The Amazon Resource Name of the launch configuration.
+	Arn interface{}
 	// Whether a Public IP address is associated with the instance.
 	AssociatePublicIpAddress interface{}
 	// The EBS Block Devices attached to the instance.

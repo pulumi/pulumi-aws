@@ -132,7 +132,7 @@ func (r *TargetGroup) NamePrefix() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["namePrefix"])
 }
 
-// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 func (r *TargetGroup) Port() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["port"])
 }
@@ -193,7 +193,7 @@ type TargetGroupState struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix interface{}
-	// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+	// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 	Port interface{}
 	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol interface{}
@@ -228,7 +228,7 @@ type TargetGroupArgs struct {
 	Name interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix interface{}
-	// The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+	// The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
 	Port interface{}
 	// The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol interface{}

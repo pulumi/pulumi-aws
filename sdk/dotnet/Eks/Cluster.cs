@@ -357,6 +357,14 @@ namespace Pulumi.Aws.Eks
         [Input("endpointPublicAccess")]
         public Input<bool>? EndpointPublicAccess { get; set; }
 
+        [Input("publicAccessCidrs")]
+        private InputList<string>? _publicAccessCidrs;
+        public InputList<string> PublicAccessCidrs
+        {
+            get => _publicAccessCidrs ?? (_publicAccessCidrs = new InputList<string>());
+            set => _publicAccessCidrs = value;
+        }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -411,6 +419,14 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("endpointPublicAccess")]
         public Input<bool>? EndpointPublicAccess { get; set; }
+
+        [Input("publicAccessCidrs")]
+        private InputList<string>? _publicAccessCidrs;
+        public InputList<string> PublicAccessCidrs
+        {
+            get => _publicAccessCidrs ?? (_publicAccessCidrs = new InputList<string>());
+            set => _publicAccessCidrs = value;
+        }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -511,6 +527,7 @@ namespace Pulumi.Aws.Eks
         /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
         /// </summary>
         public readonly bool? EndpointPublicAccess;
+        public readonly ImmutableArray<string> PublicAccessCidrs;
         /// <summary>
         /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
         /// </summary>
@@ -529,6 +546,7 @@ namespace Pulumi.Aws.Eks
             string clusterSecurityGroupId,
             bool? endpointPrivateAccess,
             bool? endpointPublicAccess,
+            ImmutableArray<string> publicAccessCidrs,
             ImmutableArray<string> securityGroupIds,
             ImmutableArray<string> subnetIds,
             string vpcId)
@@ -536,6 +554,7 @@ namespace Pulumi.Aws.Eks
             ClusterSecurityGroupId = clusterSecurityGroupId;
             EndpointPrivateAccess = endpointPrivateAccess;
             EndpointPublicAccess = endpointPublicAccess;
+            PublicAccessCidrs = publicAccessCidrs;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcId = vpcId;

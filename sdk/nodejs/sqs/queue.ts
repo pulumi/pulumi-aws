@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * 
- * const queue = new aws.sqs.Queue("queue", {
- *     delaySeconds: 90,
- *     maxMessageSize: 2048,
- *     messageRetentionSeconds: 86400,
- *     receiveWaitTimeSeconds: 10,
- *     redrivePolicy: pulumi.interpolate`{"deadLetterTargetArn":"${aws_sqs_queue_queue_deadletter.arn}","maxReceiveCount":4}`,
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * 
  * ## FIFO queue
  * 
  * ```typescript

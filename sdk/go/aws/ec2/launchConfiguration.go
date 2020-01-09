@@ -122,6 +122,7 @@ func NewLaunchConfiguration(ctx *pulumi.Context,
 		inputs["vpcClassicLinkId"] = args.VpcClassicLinkId
 		inputs["vpcClassicLinkSecurityGroups"] = args.VpcClassicLinkSecurityGroups
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -135,6 +136,7 @@ func GetLaunchConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *LaunchConfigurationState, opts ...pulumi.ResourceOpt) (*LaunchConfiguration, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["associatePublicIpAddress"] = state.AssociatePublicIpAddress
 		inputs["ebsBlockDevices"] = state.EbsBlockDevices
 		inputs["ebsOptimized"] = state.EbsOptimized
@@ -170,6 +172,11 @@ func (r *LaunchConfiguration) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *LaunchConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The Amazon Resource Name of the launch configuration.
+func (r *LaunchConfiguration) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // Associate a public ip address with an instance in a VPC.
@@ -277,6 +284,8 @@ func (r *LaunchConfiguration) VpcClassicLinkSecurityGroups() pulumi.ArrayOutput 
 
 // Input properties used for looking up and filtering LaunchConfiguration resources.
 type LaunchConfigurationState struct {
+	// The Amazon Resource Name of the launch configuration.
+	Arn interface{}
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress interface{}
 	// Additional EBS block devices to attach to the

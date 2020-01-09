@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * For information about compute environment, see [Compute Environments][2] .
  * 
  * > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicyAttachment`;
- *    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
+ * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
  * 
  * ## Example Usage
  * 
@@ -126,10 +126,11 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the compute environment.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-     */
     public readonly computeEnvironmentName!: pulumi.Output<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+     */
+    public readonly computeEnvironmentNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
@@ -173,6 +174,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             const state = argsOrState as ComputeEnvironmentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["computeEnvironmentName"] = state ? state.computeEnvironmentName : undefined;
+            inputs["computeEnvironmentNamePrefix"] = state ? state.computeEnvironmentNamePrefix : undefined;
             inputs["computeResources"] = state ? state.computeResources : undefined;
             inputs["ecsClusterArn"] = state ? state.ecsClusterArn : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
@@ -182,9 +184,6 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
-            if (!args || args.computeEnvironmentName === undefined) {
-                throw new Error("Missing required property 'computeEnvironmentName'");
-            }
             if (!args || args.serviceRole === undefined) {
                 throw new Error("Missing required property 'serviceRole'");
             }
@@ -192,6 +191,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
+            inputs["computeEnvironmentNamePrefix"] = args ? args.computeEnvironmentNamePrefix : undefined;
             inputs["computeResources"] = args ? args.computeResources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["state"] = args ? args.state : undefined;
@@ -220,10 +220,11 @@ export interface ComputeEnvironmentState {
      * The Amazon Resource Name (ARN) of the compute environment.
      */
     readonly arn?: pulumi.Input<string>;
-    /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-     */
     readonly computeEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+     */
+    readonly computeEnvironmentNamePrefix?: pulumi.Input<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
@@ -258,10 +259,11 @@ export interface ComputeEnvironmentState {
  * The set of arguments for constructing a ComputeEnvironment resource.
  */
 export interface ComputeEnvironmentArgs {
+    readonly computeEnvironmentName?: pulumi.Input<string>;
     /**
-     * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+     * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
      */
-    readonly computeEnvironmentName: pulumi.Input<string>;
+    readonly computeEnvironmentNamePrefix?: pulumi.Input<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */

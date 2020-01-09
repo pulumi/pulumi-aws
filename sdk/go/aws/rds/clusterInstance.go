@@ -27,6 +27,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["applyImmediately"] = nil
 		inputs["autoMinorVersionUpgrade"] = nil
 		inputs["availabilityZone"] = nil
+		inputs["caCertIdentifier"] = nil
 		inputs["clusterIdentifier"] = nil
 		inputs["copyTagsToSnapshot"] = nil
 		inputs["dbParameterGroupName"] = nil
@@ -49,6 +50,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 		inputs["applyImmediately"] = args.ApplyImmediately
 		inputs["autoMinorVersionUpgrade"] = args.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = args.AvailabilityZone
+		inputs["caCertIdentifier"] = args.CaCertIdentifier
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
 		inputs["copyTagsToSnapshot"] = args.CopyTagsToSnapshot
 		inputs["dbParameterGroupName"] = args.DbParameterGroupName
@@ -92,6 +94,7 @@ func GetClusterInstance(ctx *pulumi.Context,
 		inputs["arn"] = state.Arn
 		inputs["autoMinorVersionUpgrade"] = state.AutoMinorVersionUpgrade
 		inputs["availabilityZone"] = state.AvailabilityZone
+		inputs["caCertIdentifier"] = state.CaCertIdentifier
 		inputs["clusterIdentifier"] = state.ClusterIdentifier
 		inputs["copyTagsToSnapshot"] = state.CopyTagsToSnapshot
 		inputs["dbParameterGroupName"] = state.DbParameterGroupName
@@ -153,6 +156,11 @@ func (r *ClusterInstance) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 // The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
 func (r *ClusterInstance) AvailabilityZone() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["availabilityZone"])
+}
+
+// The identifier of the CA certificate for the DB instance.
+func (r *ClusterInstance) CaCertIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["caCertIdentifier"])
 }
 
 // The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
@@ -296,6 +304,8 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
+	// The identifier of the CA certificate for the DB instance.
+	CaCertIdentifier interface{}
 	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
@@ -365,6 +375,8 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade interface{}
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
 	AvailabilityZone interface{}
+	// The identifier of the CA certificate for the DB instance.
+	CaCertIdentifier interface{}
 	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
 	ClusterIdentifier interface{}
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.

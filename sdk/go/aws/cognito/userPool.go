@@ -192,7 +192,7 @@ func (r *UserPool) PasswordPolicy() pulumi.Output {
 	return r.s.State["passwordPolicy"]
 }
 
-// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 func (r *UserPool) Schemas() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["schemas"])
 }
@@ -264,7 +264,7 @@ type UserPoolState struct {
 	Name interface{}
 	// A container for information about the user pool password policy.
 	PasswordPolicy interface{}
-	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas interface{}
 	// A string representing the SMS authentication message.
 	SmsAuthenticationMessage interface{}
@@ -306,7 +306,7 @@ type UserPoolArgs struct {
 	Name interface{}
 	// A container for information about the user pool password policy.
 	PasswordPolicy interface{}
-	// A container with the schema attributes of a user pool. Maximum of 50 attributes.
+	// A container with the schema attributes of a user pool. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Maximum of 50 attributes.
 	Schemas interface{}
 	// A string representing the SMS authentication message.
 	SmsAuthenticationMessage interface{}

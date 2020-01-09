@@ -36,6 +36,10 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLaunchConfigurationResult
     {
         /// <summary>
+        /// The Amazon Resource Name of the launch configuration.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Whether a Public IP address is associated with the instance.
         /// </summary>
         public readonly bool AssociatePublicIpAddress;
@@ -110,6 +114,7 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetLaunchConfigurationResult(
+            string arn,
             bool associatePublicIpAddress,
             ImmutableArray<Outputs.GetLaunchConfigurationEbsBlockDevicesResult> ebsBlockDevices,
             bool ebsOptimized,
@@ -129,6 +134,7 @@ namespace Pulumi.Aws.Ec2
             ImmutableArray<string> vpcClassicLinkSecurityGroups,
             string id)
         {
+            Arn = arn;
             AssociatePublicIpAddress = associatePublicIpAddress;
             EbsBlockDevices = ebsBlockDevices;
             EbsOptimized = ebsOptimized;

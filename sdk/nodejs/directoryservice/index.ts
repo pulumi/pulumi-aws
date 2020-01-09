@@ -4,4 +4,5 @@
 // Export members:
 export * from "./conditionalForwader";
 export * from "./directory";
+export * from "./getDirectory";
 export * from "./logService";

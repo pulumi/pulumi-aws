@@ -115,7 +115,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
-     * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+     * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface TargetGroupState {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+     * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
      */
     readonly port?: pulumi.Input<number>;
     /**
@@ -304,7 +304,7 @@ export interface TargetGroupArgs {
      */
     readonly namePrefix?: pulumi.Input<string>;
     /**
-     * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+     * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
      */
     readonly port?: pulumi.Input<number>;
     /**

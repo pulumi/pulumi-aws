@@ -172,6 +172,7 @@ export interface ProviderEndpoint {
     transfer?: pulumi.Input<string>;
     waf?: pulumi.Input<string>;
     wafregional?: pulumi.Input<string>;
+    wafv2?: pulumi.Input<string>;
     worklink?: pulumi.Input<string>;
     workspaces?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
@@ -740,7 +741,7 @@ export namespace alb {
          */
         path?: pulumi.Input<string>;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: pulumi.Input<string>;
         /**
@@ -868,7 +869,7 @@ export namespace apigateway {
 
     export interface StageAccessLogSettings {
         /**
-         * ARN of the log group to send the logs to. Automatically removes trailing `:*` if present.
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
          */
         destinationArn: pulumi.Input<string>;
         /**
@@ -1402,7 +1403,7 @@ export namespace applicationloadbalancing {
          */
         path?: pulumi.Input<string>;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: pulumi.Input<string>;
         /**
@@ -2179,6 +2180,10 @@ export namespace backup {
 
 export namespace batch {
     export interface ComputeEnvironmentComputeResources {
+        /**
+         * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+         */
+        allocationStrategy?: pulumi.Input<string>;
         /**
          * Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
          */
@@ -5950,6 +5955,10 @@ export namespace eks {
          */
         endpointPublicAccess?: pulumi.Input<boolean>;
         /**
+         * <elided>
+         */
+        publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -6627,7 +6636,7 @@ export namespace elasticloadbalancingv2 {
          */
         path?: pulumi.Input<string>;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: pulumi.Input<string>;
         /**
@@ -9631,7 +9640,7 @@ export namespace lb {
          */
         path?: pulumi.Input<string>;
         /**
-         * The port to use to connect with the target. Valid values are either ports 1-65536, or `traffic-port`. Defaults to `traffic-port`.
+         * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
         port?: pulumi.Input<string>;
         /**
@@ -12212,6 +12221,29 @@ export namespace worklink {
 }
 
 export namespace workspaces {
+    export interface DirectorySelfServicePermissions {
+        /**
+         * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+         */
+        changeComputeType?: pulumi.Input<boolean>;
+        /**
+         * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+         */
+        increaseVolumeSize?: pulumi.Input<boolean>;
+        /**
+         * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+         */
+        rebuildWorkspace?: pulumi.Input<boolean>;
+        /**
+         * Whether WorkSpaces directory users can restart their workspace. Default `true`.
+         */
+        restartWorkspace?: pulumi.Input<boolean>;
+        /**
+         * Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+         */
+        switchRunningMode?: pulumi.Input<boolean>;
+    }
+
     export interface IpGroupRule {
         /**
          * The description.

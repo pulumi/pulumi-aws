@@ -177,7 +177,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly keyPairName!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Lightsail Instance
+     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
@@ -300,7 +300,7 @@ export interface InstanceState {
      */
     readonly keyPairName?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail Instance
+     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
     readonly name?: pulumi.Input<string>;
     readonly privateIpAddress?: pulumi.Input<string>;
@@ -341,7 +341,7 @@ export interface InstanceArgs {
      */
     readonly keyPairName?: pulumi.Input<string>;
     /**
-     * The name of the Lightsail Instance
+     * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
     readonly name?: pulumi.Input<string>;
     /**

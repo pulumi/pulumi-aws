@@ -156,7 +156,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string?> KeyPairName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Lightsail Instance
+        /// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? KeyPairName { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail Instance
+        /// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? KeyPairName { get; set; }
 
         /// <summary>
-        /// The name of the Lightsail Instance
+        /// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

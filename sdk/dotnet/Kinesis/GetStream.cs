@@ -30,6 +30,14 @@ namespace Pulumi.Aws.Kinesis
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetStreamArgs()
         {
         }

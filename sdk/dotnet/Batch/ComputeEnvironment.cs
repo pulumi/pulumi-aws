@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Batch
     /// For information about compute environment, see [Compute Environments][2] .
     /// 
     /// &gt; **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws.iam.RolePolicyAttachment`;
-    ///    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
+    /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
     /// </summary>
@@ -27,11 +27,14 @@ namespace Pulumi.Aws.Batch
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-        /// </summary>
         [Output("computeEnvironmentName")]
         public Output<string> ComputeEnvironmentName { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
+        /// </summary>
+        [Output("computeEnvironmentNamePrefix")]
+        public Output<string?> ComputeEnvironmentNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -121,11 +124,14 @@ namespace Pulumi.Aws.Batch
 
     public sealed class ComputeEnvironmentArgs : Pulumi.ResourceArgs
     {
+        [Input("computeEnvironmentName")]
+        public Input<string>? ComputeEnvironmentName { get; set; }
+
         /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         /// </summary>
-        [Input("computeEnvironmentName", required: true)]
-        public Input<string> ComputeEnvironmentName { get; set; } = null!;
+        [Input("computeEnvironmentNamePrefix")]
+        public Input<string>? ComputeEnvironmentNamePrefix { get; set; }
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -164,11 +170,14 @@ namespace Pulumi.Aws.Batch
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
-        /// </summary>
         [Input("computeEnvironmentName")]
         public Input<string>? ComputeEnvironmentName { get; set; }
+
+        /// <summary>
+        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
+        /// </summary>
+        [Input("computeEnvironmentNamePrefix")]
+        public Input<string>? ComputeEnvironmentNamePrefix { get; set; }
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -222,6 +231,12 @@ namespace Pulumi.Aws.Batch
 
     public sealed class ComputeEnvironmentComputeResourcesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+        /// </summary>
+        [Input("allocationStrategy")]
+        public Input<string>? AllocationStrategy { get; set; }
+
         /// <summary>
         /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
         /// </summary>
@@ -337,6 +352,12 @@ namespace Pulumi.Aws.Batch
 
     public sealed class ComputeEnvironmentComputeResourcesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+        /// </summary>
+        [Input("allocationStrategy")]
+        public Input<string>? AllocationStrategy { get; set; }
+
         /// <summary>
         /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
         /// </summary>
@@ -508,6 +529,10 @@ namespace Pulumi.Aws.Batch
     public sealed class ComputeEnvironmentComputeResources
     {
         /// <summary>
+        /// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
+        /// </summary>
+        public readonly string? AllocationStrategy;
+        /// <summary>
         /// Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
         /// </summary>
         public readonly int? BidPercentage;
@@ -566,6 +591,7 @@ namespace Pulumi.Aws.Batch
 
         [OutputConstructor]
         private ComputeEnvironmentComputeResources(
+            string? allocationStrategy,
             int? bidPercentage,
             int? desiredVcpus,
             string? ec2KeyPair,
@@ -581,6 +607,7 @@ namespace Pulumi.Aws.Batch
             ImmutableDictionary<string, object>? tags,
             string type)
         {
+            AllocationStrategy = allocationStrategy;
             BidPercentage = bidPercentage;
             DesiredVcpus = desiredVcpus;
             Ec2KeyPair = ec2KeyPair;

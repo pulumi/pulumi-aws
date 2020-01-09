@@ -74,6 +74,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["subnetGroupName"] = args.SubnetGroupName
 		inputs["tags"] = args.Tags
 	}
+	inputs["arn"] = nil
 	inputs["cacheNodes"] = nil
 	inputs["clusterAddress"] = nil
 	inputs["configurationEndpoint"] = nil
@@ -91,6 +92,7 @@ func GetCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["applyImmediately"] = state.ApplyImmediately
+		inputs["arn"] = state.Arn
 		inputs["availabilityZone"] = state.AvailabilityZone
 		inputs["azMode"] = state.AzMode
 		inputs["cacheNodes"] = state.CacheNodes
@@ -139,6 +141,10 @@ func (r *Cluster) ID() pulumi.IDOutput {
 // (Available since v0.6.0)
 func (r *Cluster) ApplyImmediately() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["applyImmediately"])
+}
+
+func (r *Cluster) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
 // The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
@@ -293,6 +299,7 @@ type ClusterState struct {
 	// `false`. See [Amazon ElastiCache Documentation for more information.][1]
 	// (Available since v0.6.0)
 	ApplyImmediately interface{}
+	Arn interface{}
 	// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
 	AvailabilityZone interface{}
 	// Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`

@@ -1979,7 +1979,8 @@ func Provider() tfbridge.ProviderInfo {
 			// QLDB
 			"aws_qldb_ledger": {Tok: awsResource(qldbMod, "Ledger")},
 			// Workspaces
-			"aws_workspaces_ip_group": {Tok: awsResource(workspacesMod, "IpGroup")},
+			"aws_workspaces_ip_group":  {Tok: awsResource(workspacesMod, "IpGroup")},
+			"aws_workspaces_directory": {Tok: awsResource(workspacesMod, "Directory")},
 			// Access Analyzer
 			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
 		},
@@ -2193,6 +2194,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_qldb_ledger": {Tok: awsDataSource(qldbMod, "getLedger")},
 			// GuardDuty
 			"aws_guardduty_detector": {Tok: awsDataSource(guarddutyMod, "getDetector")},
+			// Directory Service
+			"aws_directory_service_directory": {Tok: awsDataSource(directoryserviceMod, "getDirectory")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

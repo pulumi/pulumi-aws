@@ -14,7 +14,7 @@ import (
 // For information about compute environment, see [Compute Environments][2] .
 // 
 // > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `iam.RolePolicyAttachment`;
-//    otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
+// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
 type ComputeEnvironment struct {
@@ -24,9 +24,6 @@ type ComputeEnvironment struct {
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewComputeEnvironment(ctx *pulumi.Context,
 	name string, args *ComputeEnvironmentArgs, opts ...pulumi.ResourceOpt) (*ComputeEnvironment, error) {
-	if args == nil || args.ComputeEnvironmentName == nil {
-		return nil, errors.New("missing required argument 'ComputeEnvironmentName'")
-	}
 	if args == nil || args.ServiceRole == nil {
 		return nil, errors.New("missing required argument 'ServiceRole'")
 	}
@@ -36,12 +33,14 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["computeEnvironmentName"] = nil
+		inputs["computeEnvironmentNamePrefix"] = nil
 		inputs["computeResources"] = nil
 		inputs["serviceRole"] = nil
 		inputs["state"] = nil
 		inputs["type"] = nil
 	} else {
 		inputs["computeEnvironmentName"] = args.ComputeEnvironmentName
+		inputs["computeEnvironmentNamePrefix"] = args.ComputeEnvironmentNamePrefix
 		inputs["computeResources"] = args.ComputeResources
 		inputs["serviceRole"] = args.ServiceRole
 		inputs["state"] = args.State
@@ -66,6 +65,7 @@ func GetComputeEnvironment(ctx *pulumi.Context,
 	if state != nil {
 		inputs["arn"] = state.Arn
 		inputs["computeEnvironmentName"] = state.ComputeEnvironmentName
+		inputs["computeEnvironmentNamePrefix"] = state.ComputeEnvironmentNamePrefix
 		inputs["computeResources"] = state.ComputeResources
 		inputs["ecsClusterArn"] = state.EcsClusterArn
 		inputs["serviceRole"] = state.ServiceRole
@@ -96,9 +96,13 @@ func (r *ComputeEnvironment) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
 func (r *ComputeEnvironment) ComputeEnvironmentName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["computeEnvironmentName"])
+}
+
+// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+func (r *ComputeEnvironment) ComputeEnvironmentNamePrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["computeEnvironmentNamePrefix"])
 }
 
 // Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -140,8 +144,9 @@ func (r *ComputeEnvironment) Type() pulumi.StringOutput {
 type ComputeEnvironmentState struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	Arn interface{}
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
 	ComputeEnvironmentName interface{}
+	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+	ComputeEnvironmentNamePrefix interface{}
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources interface{}
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -160,8 +165,9 @@ type ComputeEnvironmentState struct {
 
 // The set of arguments for constructing a ComputeEnvironment resource.
 type ComputeEnvironmentArgs struct {
-	// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
 	ComputeEnvironmentName interface{}
+	// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
+	ComputeEnvironmentNamePrefix interface{}
 	// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
 	ComputeResources interface{}
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.

@@ -87,7 +87,7 @@ class GetClusterResult:
             raise TypeError("Expected argument 'vpc_config' to be a dict")
         __self__.vpc_config = vpc_config
         """
-        Nested attribute containing VPC configuration for the cluster.
+        Nested list containing VPC configuration for the cluster.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

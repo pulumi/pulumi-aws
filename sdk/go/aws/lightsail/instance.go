@@ -238,7 +238,7 @@ func (r *Instance) KeyPairName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["keyPairName"])
 }
 
-// The name of the Lightsail Instance
+// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 func (r *Instance) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
@@ -294,7 +294,7 @@ type InstanceState struct {
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName interface{}
-	// The name of the Lightsail Instance
+	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name interface{}
 	PrivateIpAddress interface{}
 	PublicIpAddress interface{}
@@ -319,7 +319,7 @@ type InstanceArgs struct {
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName interface{}
-	// The name of the Lightsail Instance
+	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

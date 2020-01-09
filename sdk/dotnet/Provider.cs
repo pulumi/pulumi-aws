@@ -604,6 +604,9 @@ namespace Pulumi.Aws
         [Input("wafregional")]
         public Input<string>? Wafregional { get; set; }
 
+        [Input("wafv2")]
+        public Input<string>? Wafv2 { get; set; }
+
         [Input("worklink")]
         public Input<string>? Worklink { get; set; }
 

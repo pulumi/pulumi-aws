@@ -6,3 +6,4 @@
 from .conditional_forwader import *
 from .directory import *
 from .log_service import *
+from .get_directory import *
