@@ -16,7 +16,6 @@ replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20200109195834-03fe729f91ec
-	golang.org/x/sys v0.0.0-20191008105621-543471e840be => golang.org/x/sys v0.0.0-20190922100055-0a153f010e69
 )
 
 go 1.13
