@@ -2,13 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {InstancePlatform} from "./instancePlatform";
-import {InstanceType} from "./instanceType";
-import {Tenancy} from "./tenancy";
+import {InstancePlatform, InstanceType, Tenancy} from "./index";
 
 /**
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
@@ -26,7 +22,7 @@ import {Tenancy} from "./tenancy";
  *     instanceType: "t2.micro",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.
  */
 export class CapacityReservation extends pulumi.CustomResource {

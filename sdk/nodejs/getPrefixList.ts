@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *     toPort: 443,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/prefix_list.html.markdown.
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> & GetPrefixListResult {
@@ -86,12 +86,12 @@ export interface GetPrefixListResult {
      */
     readonly cidrBlocks: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the selected prefix list.
      */
     readonly name: string;
     readonly prefixListId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

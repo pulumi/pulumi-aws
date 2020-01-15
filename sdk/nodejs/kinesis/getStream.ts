@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "stream-name",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kinesis_stream.html.markdown.
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> & GetStreamResult {
@@ -67,6 +67,10 @@ export interface GetStreamResult {
      */
     readonly creationTimestamp: number;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the Kinesis Stream.
      */
     readonly name: string;
@@ -90,8 +94,4 @@ export interface GetStreamResult {
      * A mapping of tags to assigned to the stream.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

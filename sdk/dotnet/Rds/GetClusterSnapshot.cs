@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Rds
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterSnapshotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -78,6 +79,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterSnapshotResult
     {
@@ -106,6 +108,10 @@ namespace Pulumi.Aws.Rds
         /// Version of the database engine for this DB cluster snapshot.
         /// </summary>
         public readonly string EngineVersion;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
@@ -143,34 +149,50 @@ namespace Pulumi.Aws.Rds
         /// The VPC ID associated with the DB cluster snapshot.
         /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterSnapshotResult(
             int allocatedStorage,
+
             ImmutableArray<string> availabilityZones,
+
             string? dbClusterIdentifier,
+
             string dbClusterSnapshotArn,
+
             string? dbClusterSnapshotIdentifier,
+
             string engine,
+
             string engineVersion,
+
+            string id,
+
             bool? includePublic,
+
             bool? includeShared,
+
             string kmsKeyId,
+
             string licenseModel,
+
             bool? mostRecent,
+
             int port,
+
             string snapshotCreateTime,
+
             string? snapshotType,
+
             string sourceDbClusterSnapshotArn,
+
             string status,
+
             bool storageEncrypted,
+
             ImmutableDictionary<string, object> tags,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             AllocatedStorage = allocatedStorage;
             AvailabilityZones = availabilityZones;
@@ -179,6 +201,7 @@ namespace Pulumi.Aws.Rds
             DbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             Engine = engine;
             EngineVersion = engineVersion;
+            Id = id;
             IncludePublic = includePublic;
             IncludeShared = includeShared;
             KmsKeyId = kmsKeyId;
@@ -192,7 +215,6 @@ namespace Pulumi.Aws.Rds
             StorageEncrypted = storageEncrypted;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
     }
 }

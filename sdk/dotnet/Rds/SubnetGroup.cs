@@ -197,7 +197,6 @@ namespace Pulumi.Aws.Rds
 
         public SubnetGroupState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  * }, {provider: peer});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
  */
 export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {

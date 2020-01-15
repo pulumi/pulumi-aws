@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {IpAddressType} from "./ipAddressType";
-import {LoadBalancerType} from "./loadBalancerType";
+import {IpAddressType, LoadBalancerType} from "./index";
 
 /**
  * Provides a Load Balancer resource.
@@ -76,7 +75,7 @@ import {LoadBalancerType} from "./loadBalancerType";
  *     ],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {
@@ -246,7 +245,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/loadBalancer:LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/loadBalancer:LoadBalancer"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }

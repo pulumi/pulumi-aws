@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {
@@ -243,7 +243,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }

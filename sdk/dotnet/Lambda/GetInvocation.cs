@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Lambda
             => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetInvocationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -47,10 +48,15 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
+
     [OutputType]
     public sealed class GetInvocationResult
     {
         public readonly string FunctionName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Input;
         public readonly string? Qualifier;
         /// <summary>
@@ -61,26 +67,27 @@ namespace Pulumi.Aws.Lambda
         /// This field is set only if result is a map of primitive types, where the map is string keys and string values.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ResultMap;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInvocationResult(
             string functionName,
+
+            string id,
+
             string input,
+
             string? qualifier,
+
             string result,
-            ImmutableDictionary<string, string> resultMap,
-            string id)
+
+            ImmutableDictionary<string, string> resultMap)
         {
             FunctionName = functionName;
+            Id = id;
             Input = input;
             Qualifier = qualifier;
             Result = result;
             ResultMap = resultMap;
-            Id = id;
         }
     }
 }

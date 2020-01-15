@@ -19,6 +19,7 @@ namespace Pulumi.Aws.RedShift
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.RedShift
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetClusterResult
@@ -117,6 +119,10 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly ImmutableArray<string> IamRoles;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The KMS encryption key associated to the cluster
         /// </summary>
         public readonly string KmsKeyId;
@@ -160,44 +166,70 @@ namespace Pulumi.Aws.RedShift
         /// The VPC security group Ids associated with the cluster
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             bool allowVersionUpgrade,
+
             int automatedSnapshotRetentionPeriod,
+
             string availabilityZone,
+
             string bucketName,
+
             string clusterIdentifier,
+
             string clusterParameterGroupName,
+
             string clusterPublicKey,
+
             string clusterRevisionNumber,
+
             ImmutableArray<string> clusterSecurityGroups,
+
             string clusterSubnetGroupName,
+
             string clusterType,
+
             string clusterVersion,
+
             string databaseName,
+
             string elasticIp,
+
             bool enableLogging,
+
             bool encrypted,
+
             string endpoint,
+
             bool enhancedVpcRouting,
+
             ImmutableArray<string> iamRoles,
+
+            string id,
+
             string kmsKeyId,
+
             string masterUsername,
+
             string nodeType,
+
             int numberOfNodes,
+
             int port,
+
             string preferredMaintenanceWindow,
+
             bool publiclyAccessible,
+
             string s3KeyPrefix,
+
             ImmutableDictionary<string, object>? tags,
+
             string vpcId,
-            ImmutableArray<string> vpcSecurityGroupIds,
-            string id)
+
+            ImmutableArray<string> vpcSecurityGroupIds)
         {
             AllowVersionUpgrade = allowVersionUpgrade;
             AutomatedSnapshotRetentionPeriod = automatedSnapshotRetentionPeriod;
@@ -218,6 +250,7 @@ namespace Pulumi.Aws.RedShift
             Endpoint = endpoint;
             EnhancedVpcRouting = enhancedVpcRouting;
             IamRoles = iamRoles;
+            Id = id;
             KmsKeyId = kmsKeyId;
             MasterUsername = masterUsername;
             NodeType = nodeType;
@@ -229,7 +262,6 @@ namespace Pulumi.Aws.RedShift
             Tags = tags;
             VpcId = vpcId;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
-            Id = id;
         }
     }
 }

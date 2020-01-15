@@ -64,7 +64,7 @@ class Integration(pulumi.CustomResource):
     """
     The API resource ID.
     """
-    rest_api: pulumi.Output[str]
+    rest_api: pulumi.Output[dict]
     """
     The ID of the associated REST API.
     """
@@ -85,7 +85,9 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cache_key_parameters=None, cache_namespace=None, connection_id=None, connection_type=None, content_handling=None, credentials=None, http_method=None, integration_http_method=None, passthrough_behavior=None, request_parameters=None, request_templates=None, resource_id=None, rest_api=None, timeout_milliseconds=None, type=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Integration for an API Gateway Integration.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cache_key_parameters: A list of cache key parameters for the integration.
@@ -106,14 +108,12 @@ class Integration(pulumi.CustomResource):
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[dict] request_templates: A map of the integration's request templates.
         :param pulumi.Input[str] resource_id: The API resource ID.
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API.
+        :param pulumi.Input[dict] rest_api: The ID of the associated REST API.
         :param pulumi.Input[float] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
         :param pulumi.Input[str] type: The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
                e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -167,7 +167,7 @@ class Integration(pulumi.CustomResource):
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,18 +189,17 @@ class Integration(pulumi.CustomResource):
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[dict] request_templates: A map of the integration's request templates.
         :param pulumi.Input[str] resource_id: The API resource ID.
-        :param pulumi.Input[str] rest_api: The ID of the associated REST API.
+        :param pulumi.Input[dict] rest_api: The ID of the associated REST API.
         :param pulumi.Input[float] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
         :param pulumi.Input[str] type: The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: The input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
                e.g. `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cache_key_parameters"] = cache_key_parameters
         __props__["cache_namespace"] = cache_namespace
         __props__["connection_id"] = connection_id

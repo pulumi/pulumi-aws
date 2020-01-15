@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Cognito
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetUserPoolsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,31 +33,35 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
+
     [OutputType]
     public sealed class GetUserPoolsResult
     {
         public readonly ImmutableArray<string> Arns;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of cognito user pool ids.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Name;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserPoolsResult(
             ImmutableArray<string> arns,
+
+            string id,
+
             ImmutableArray<string> ids,
-            string name,
-            string id)
+
+            string name)
         {
             Arns = arns;
+            Id = id;
             Ids = ids;
             Name = name;
-            Id = id;
         }
     }
 }

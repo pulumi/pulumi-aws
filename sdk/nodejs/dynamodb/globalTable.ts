@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     ],
  * }, {provider: us_east_1,dependsOn: [us_east_1Table, us_west_2Table]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
  */
 export class GlobalTable extends pulumi.CustomResource {

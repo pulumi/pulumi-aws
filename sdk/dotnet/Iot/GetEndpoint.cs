@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Iot
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.Iot
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetEndpointResult
@@ -53,7 +55,9 @@ namespace Pulumi.Aws.Iot
         [OutputConstructor]
         private GetEndpointResult(
             string endpointAddress,
+
             string? endpointType,
+
             string id)
         {
             EndpointAddress = endpointAddress;

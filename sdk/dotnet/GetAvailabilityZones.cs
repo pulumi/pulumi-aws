@@ -24,6 +24,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZonesResult>("aws:index/getAvailabilityZones:getAvailabilityZones", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetAvailabilityZonesArgs : Pulumi.InvokeArgs
     {
         [Input("blacklistedNames")]
@@ -64,11 +65,16 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetAvailabilityZonesResult
     {
         public readonly ImmutableArray<string> BlacklistedNames;
         public readonly ImmutableArray<string> BlacklistedZoneIds;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A list of the Availability Zone names available to the account.
         /// </summary>
@@ -78,26 +84,27 @@ namespace Pulumi.Aws
         /// A list of the Availability Zone IDs available to the account.
         /// </summary>
         public readonly ImmutableArray<string> ZoneIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAvailabilityZonesResult(
             ImmutableArray<string> blacklistedNames,
+
             ImmutableArray<string> blacklistedZoneIds,
+
+            string id,
+
             ImmutableArray<string> names,
+
             string? state,
-            ImmutableArray<string> zoneIds,
-            string id)
+
+            ImmutableArray<string> zoneIds)
         {
             BlacklistedNames = blacklistedNames;
             BlacklistedZoneIds = blacklistedZoneIds;
+            Id = id;
             Names = names;
             State = state;
             ZoneIds = zoneIds;
-            Id = id;
         }
     }
 }

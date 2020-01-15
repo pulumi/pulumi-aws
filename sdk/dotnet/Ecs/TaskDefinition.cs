@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Ecs
         /// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
         /// </summary>
         [Output("placementConstraints")]
-        public Output<ImmutableArray<Outputs.TaskDefinitionPlacementConstraints>> PlacementConstraints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
         /// <summary>
         /// The proxy configuration details for the App Mesh proxy.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ecs
         /// A set of volume blocks that containers in your task may use.
         /// </summary>
         [Output("volumes")]
-        public Output<ImmutableArray<Outputs.TaskDefinitionVolumes>> Volumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TaskDefinitionVolume>> Volumes { get; private set; } = null!;
 
 
         /// <summary>
@@ -216,14 +216,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PidMode { get; set; }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.TaskDefinitionPlacementConstraintsArgs>? _placementConstraints;
+        private InputList<Inputs.TaskDefinitionPlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
         /// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
         /// </summary>
-        public InputList<Inputs.TaskDefinitionPlacementConstraintsArgs> PlacementConstraints
+        public InputList<Inputs.TaskDefinitionPlacementConstraintArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintsArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintArgs>());
             set => _placementConstraints = value;
         }
 
@@ -264,14 +264,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskRoleArn { get; set; }
 
         [Input("volumes")]
-        private InputList<Inputs.TaskDefinitionVolumesArgs>? _volumes;
+        private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;
 
         /// <summary>
         /// A set of volume blocks that containers in your task may use.
         /// </summary>
-        public InputList<Inputs.TaskDefinitionVolumesArgs> Volumes
+        public InputList<Inputs.TaskDefinitionVolumeArgs> Volumes
         {
-            get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumesArgs>());
+            get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumeArgs>());
             set => _volumes = value;
         }
 
@@ -342,14 +342,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PidMode { get; set; }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.TaskDefinitionPlacementConstraintsGetArgs>? _placementConstraints;
+        private InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
         /// A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
         /// </summary>
-        public InputList<Inputs.TaskDefinitionPlacementConstraintsGetArgs> PlacementConstraints
+        public InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintsGetArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs>());
             set => _placementConstraints = value;
         }
 
@@ -396,405 +396,19 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskRoleArn { get; set; }
 
         [Input("volumes")]
-        private InputList<Inputs.TaskDefinitionVolumesGetArgs>? _volumes;
+        private InputList<Inputs.TaskDefinitionVolumeGetArgs>? _volumes;
 
         /// <summary>
         /// A set of volume blocks that containers in your task may use.
         /// </summary>
-        public InputList<Inputs.TaskDefinitionVolumesGetArgs> Volumes
+        public InputList<Inputs.TaskDefinitionVolumeGetArgs> Volumes
         {
-            get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumesGetArgs>());
+            get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumeGetArgs>());
             set => _volumes = value;
         }
 
         public TaskDefinitionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TaskDefinitionPlacementConstraintsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Cluster Query Language expression to apply to the constraint.
-        /// For more information, see [Cluster Query Language in the Amazon EC2 Container
-        /// Service Developer
-        /// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        /// </summary>
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TaskDefinitionPlacementConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionPlacementConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Cluster Query Language expression to apply to the constraint.
-        /// For more information, see [Cluster Query Language in the Amazon EC2 Container
-        /// Service Developer
-        /// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        /// </summary>
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TaskDefinitionPlacementConstraintsGetArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionProxyConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the container that will serve as the App Mesh proxy.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        [Input("properties")]
-        private InputMap<string>? _properties;
-
-        /// <summary>
-        /// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-        /// </summary>
-        public InputMap<string> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<string>());
-            set => _properties = value;
-        }
-
-        /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public TaskDefinitionProxyConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionProxyConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the container that will serve as the App Mesh proxy.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        [Input("properties")]
-        private InputMap<string>? _properties;
-
-        /// <summary>
-        /// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-        /// </summary>
-        public InputMap<string> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<string>());
-            set => _properties = value;
-        }
-
-        /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public TaskDefinitionProxyConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionVolumesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Used to configure a docker volume
-        /// </summary>
-        [Input("dockerVolumeConfiguration")]
-        public Input<TaskDefinitionVolumesDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
-
-        /// <summary>
-        /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-        /// </summary>
-        [Input("hostPath")]
-        public Input<string>? HostPath { get; set; }
-
-        /// <summary>
-        /// The name of the volume. This name is referenced in the `sourceVolume`
-        /// parameter of container definition in the `mountPoints` section.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public TaskDefinitionVolumesArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionVolumesDockerVolumeConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
-        /// </summary>
-        [Input("autoprovision")]
-        public Input<bool>? Autoprovision { get; set; }
-
-        /// <summary>
-        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
-        /// </summary>
-        [Input("driver")]
-        public Input<string>? Driver { get; set; }
-
-        [Input("driverOpts")]
-        private InputMap<string>? _driverOpts;
-
-        /// <summary>
-        /// A map of Docker driver specific options.
-        /// </summary>
-        public InputMap<string> DriverOpts
-        {
-            get => _driverOpts ?? (_driverOpts = new InputMap<string>());
-            set => _driverOpts = value;
-        }
-
-        [Input("labels")]
-        private InputMap<string>? _labels;
-
-        /// <summary>
-        /// A map of custom metadata to add to your Docker volume.
-        /// </summary>
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
-        /// <summary>
-        /// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        public TaskDefinitionVolumesDockerVolumeConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionVolumesDockerVolumeConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
-        /// </summary>
-        [Input("autoprovision")]
-        public Input<bool>? Autoprovision { get; set; }
-
-        /// <summary>
-        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
-        /// </summary>
-        [Input("driver")]
-        public Input<string>? Driver { get; set; }
-
-        [Input("driverOpts")]
-        private InputMap<string>? _driverOpts;
-
-        /// <summary>
-        /// A map of Docker driver specific options.
-        /// </summary>
-        public InputMap<string> DriverOpts
-        {
-            get => _driverOpts ?? (_driverOpts = new InputMap<string>());
-            set => _driverOpts = value;
-        }
-
-        [Input("labels")]
-        private InputMap<string>? _labels;
-
-        /// <summary>
-        /// A map of custom metadata to add to your Docker volume.
-        /// </summary>
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
-        /// <summary>
-        /// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
-        /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
-
-        public TaskDefinitionVolumesDockerVolumeConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class TaskDefinitionVolumesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Used to configure a docker volume
-        /// </summary>
-        [Input("dockerVolumeConfiguration")]
-        public Input<TaskDefinitionVolumesDockerVolumeConfigurationGetArgs>? DockerVolumeConfiguration { get; set; }
-
-        /// <summary>
-        /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-        /// </summary>
-        [Input("hostPath")]
-        public Input<string>? HostPath { get; set; }
-
-        /// <summary>
-        /// The name of the volume. This name is referenced in the `sourceVolume`
-        /// parameter of container definition in the `mountPoints` section.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public TaskDefinitionVolumesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TaskDefinitionPlacementConstraints
-    {
-        /// <summary>
-        /// Cluster Query Language expression to apply to the constraint.
-        /// For more information, see [Cluster Query Language in the Amazon EC2 Container
-        /// Service Developer
-        /// Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        /// </summary>
-        public readonly string? Expression;
-        /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private TaskDefinitionPlacementConstraints(
-            string? expression,
-            string type)
-        {
-            Expression = expression;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class TaskDefinitionProxyConfiguration
-    {
-        /// <summary>
-        /// The name of the container that will serve as the App Mesh proxy.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Properties;
-        /// <summary>
-        /// The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private TaskDefinitionProxyConfiguration(
-            string containerName,
-            ImmutableDictionary<string, string>? properties,
-            string? type)
-        {
-            ContainerName = containerName;
-            Properties = properties;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class TaskDefinitionVolumes
-    {
-        /// <summary>
-        /// Used to configure a docker volume
-        /// </summary>
-        public readonly TaskDefinitionVolumesDockerVolumeConfiguration? DockerVolumeConfiguration;
-        /// <summary>
-        /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-        /// </summary>
-        public readonly string? HostPath;
-        /// <summary>
-        /// The name of the volume. This name is referenced in the `sourceVolume`
-        /// parameter of container definition in the `mountPoints` section.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private TaskDefinitionVolumes(
-            TaskDefinitionVolumesDockerVolumeConfiguration? dockerVolumeConfiguration,
-            string? hostPath,
-            string name)
-        {
-            DockerVolumeConfiguration = dockerVolumeConfiguration;
-            HostPath = hostPath;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class TaskDefinitionVolumesDockerVolumeConfiguration
-    {
-        /// <summary>
-        /// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
-        /// </summary>
-        public readonly bool? Autoprovision;
-        /// <summary>
-        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
-        /// </summary>
-        public readonly string? Driver;
-        /// <summary>
-        /// A map of Docker driver specific options.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? DriverOpts;
-        /// <summary>
-        /// A map of custom metadata to add to your Docker volume.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Labels;
-        /// <summary>
-        /// The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
-        /// </summary>
-        public readonly string Scope;
-
-        [OutputConstructor]
-        private TaskDefinitionVolumesDockerVolumeConfiguration(
-            bool? autoprovision,
-            string? driver,
-            ImmutableDictionary<string, string>? driverOpts,
-            ImmutableDictionary<string, string>? labels,
-            string scope)
-        {
-            Autoprovision = autoprovision;
-            Driver = driver;
-            DriverOpts = driverOpts;
-            Labels = labels;
-            Scope = scope;
-        }
-    }
     }
 }

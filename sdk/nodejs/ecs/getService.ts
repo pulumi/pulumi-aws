@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     serviceName: "example",
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> & GetServiceResult {
@@ -68,6 +68,10 @@ export interface GetServiceResult {
      */
     readonly desiredCount: number;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The launch type for the ECS Service
      */
     readonly launchType: string;
@@ -80,8 +84,4 @@ export interface GetServiceResult {
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

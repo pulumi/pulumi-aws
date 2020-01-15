@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * 
  * export const example = exampleNetworkInterfaces.ids;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> & GetNetworkInterfacesResult {
@@ -92,12 +92,12 @@ export interface GetNetworkInterfacesArgs {
 export interface GetNetworkInterfacesResult {
     readonly filters?: outputs.ec2.GetNetworkInterfacesFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the network interface ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

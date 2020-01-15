@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     versionStage: "example",
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> & GetSecretVersionResult {
@@ -82,6 +82,10 @@ export interface GetSecretVersionResult {
      */
     readonly arn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      */
     readonly secretBinary: string;
@@ -96,8 +100,4 @@ export interface GetSecretVersionResult {
     readonly versionId: string;
     readonly versionStage?: string;
     readonly versionStages: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

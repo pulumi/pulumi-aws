@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "tableName",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> & GetTableResult {
@@ -60,6 +60,10 @@ export interface GetTableResult {
     readonly billingMode: string;
     readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
     readonly hashKey: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
     readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
@@ -73,8 +77,4 @@ export interface GetTableResult {
     readonly tags: {[key: string]: any};
     readonly ttl: outputs.dynamodb.GetTableTtl;
     readonly writeCapacity: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

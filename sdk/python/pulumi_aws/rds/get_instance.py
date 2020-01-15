@@ -13,7 +13,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None, id=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         __self__.address = address
@@ -131,6 +131,12 @@ class GetInstanceResult:
         """
         The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if iops and not isinstance(iops, float):
             raise TypeError("Expected argument 'iops' to be a float")
         __self__.iops = iops
@@ -242,12 +248,6 @@ class GetInstanceResult:
         """
         Provides a list of VPC security group elements that the DB instance belongs to.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -274,6 +274,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             engine=self.engine,
             engine_version=self.engine_version,
             hosted_zone_id=self.hosted_zone_id,
+            id=self.id,
             iops=self.iops,
             kms_key_id=self.kms_key_id,
             license_model=self.license_model,
@@ -292,18 +293,19 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             storage_type=self.storage_type,
             tags=self.tags,
             timezone=self.timezone,
-            vpc_security_groups=self.vpc_security_groups,
-            id=self.id)
+            vpc_security_groups=self.vpc_security_groups)
 
 def get_instance(db_instance_identifier=None,tags=None,opts=None):
     """
     Use this data source to get information about an RDS instance
-    
-    :param str db_instance_identifier: The name of the RDS instance
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
+
+
+    :param str db_instance_identifier: The name of the RDS instance
     """
     __args__ = dict()
+
 
     __args__['dbInstanceIdentifier'] = db_instance_identifier
     __args__['tags'] = tags
@@ -334,6 +336,7 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
         engine=__ret__.get('engine'),
         engine_version=__ret__.get('engineVersion'),
         hosted_zone_id=__ret__.get('hostedZoneId'),
+        id=__ret__.get('id'),
         iops=__ret__.get('iops'),
         kms_key_id=__ret__.get('kmsKeyId'),
         license_model=__ret__.get('licenseModel'),
@@ -352,5 +355,4 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
         storage_type=__ret__.get('storageType'),
         tags=__ret__.get('tags'),
         timezone=__ret__.get('timezone'),
-        vpc_security_groups=__ret__.get('vpcSecurityGroups'),
-        id=__ret__.get('id'))
+        vpc_security_groups=__ret__.get('vpcSecurityGroups'))

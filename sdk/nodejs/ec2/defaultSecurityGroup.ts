@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  * from your configuration will remove it from your statefile and management, but
  * will not destroy the Security Group. All ingress or egress rules will be left as
  * they are at the time of removal. You can resume managing them via the AWS Console.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
  */
 export class DefaultSecurityGroup extends pulumi.CustomResource {

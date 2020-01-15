@@ -19,29 +19,30 @@ namespace Pulumi.Aws.Glue
             => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws:glue/getScript:getScript", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetScriptArgs : Pulumi.InvokeArgs
     {
         [Input("dagEdges", required: true)]
-        private List<Inputs.GetScriptDagEdgesArgs>? _dagEdges;
+        private List<Inputs.GetScriptDagEdgeArgs>? _dagEdges;
 
         /// <summary>
         /// A list of the edges in the DAG. Defined below.
         /// </summary>
-        public List<Inputs.GetScriptDagEdgesArgs> DagEdges
+        public List<Inputs.GetScriptDagEdgeArgs> DagEdges
         {
-            get => _dagEdges ?? (_dagEdges = new List<Inputs.GetScriptDagEdgesArgs>());
+            get => _dagEdges ?? (_dagEdges = new List<Inputs.GetScriptDagEdgeArgs>());
             set => _dagEdges = value;
         }
 
         [Input("dagNodes", required: true)]
-        private List<Inputs.GetScriptDagNodesArgs>? _dagNodes;
+        private List<Inputs.GetScriptDagNodeArgs>? _dagNodes;
 
         /// <summary>
         /// A list of the nodes in the DAG. Defined below.
         /// </summary>
-        public List<Inputs.GetScriptDagNodesArgs> DagNodes
+        public List<Inputs.GetScriptDagNodeArgs> DagNodes
         {
-            get => _dagNodes ?? (_dagNodes = new List<Inputs.GetScriptDagNodesArgs>());
+            get => _dagNodes ?? (_dagNodes = new List<Inputs.GetScriptDagNodeArgs>());
             set => _dagNodes = value;
         }
 
@@ -56,11 +57,16 @@ namespace Pulumi.Aws.Glue
         }
     }
 
+
     [OutputType]
     public sealed class GetScriptResult
     {
-        public readonly ImmutableArray<Outputs.GetScriptDagEdgesResult> DagEdges;
-        public readonly ImmutableArray<Outputs.GetScriptDagNodesResult> DagNodes;
+        public readonly ImmutableArray<Outputs.GetScriptDagEdgeResult> DagEdges;
+        public readonly ImmutableArray<Outputs.GetScriptDagNodeResult> DagNodes;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? Language;
         /// <summary>
         /// The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
@@ -70,211 +76,27 @@ namespace Pulumi.Aws.Glue
         /// The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         /// </summary>
         public readonly string ScalaCode;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetScriptResult(
-            ImmutableArray<Outputs.GetScriptDagEdgesResult> dagEdges,
-            ImmutableArray<Outputs.GetScriptDagNodesResult> dagNodes,
+            ImmutableArray<Outputs.GetScriptDagEdgeResult> dagEdges,
+
+            ImmutableArray<Outputs.GetScriptDagNodeResult> dagNodes,
+
+            string id,
+
             string? language,
+
             string pythonScript,
-            string scalaCode,
-            string id)
+
+            string scalaCode)
         {
             DagEdges = dagEdges;
             DagNodes = dagNodes;
+            Id = id;
             Language = language;
             PythonScript = pythonScript;
             ScalaCode = scalaCode;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetScriptDagEdgesArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The ID of the node at which the edge starts.
-        /// </summary>
-        [Input("source", required: true)]
-        public string Source { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the node at which the edge ends.
-        /// </summary>
-        [Input("target", required: true)]
-        public string Target { get; set; } = null!;
-
-        /// <summary>
-        /// The target of the edge.
-        /// </summary>
-        [Input("targetParameter")]
-        public string? TargetParameter { get; set; }
-
-        public GetScriptDagEdgesArgs()
-        {
-        }
-    }
-
-    public sealed class GetScriptDagNodesArgs : Pulumi.InvokeArgs
-    {
-        [Input("args", required: true)]
-        private List<GetScriptDagNodesArgsArgs>? _args;
-
-        /// <summary>
-        /// Nested configuration an argument or property of a node. Defined below.
-        /// </summary>
-        public List<GetScriptDagNodesArgsArgs> Args
-        {
-            get => _args ?? (_args = new List<GetScriptDagNodesArgsArgs>());
-            set => _args = value;
-        }
-
-        /// <summary>
-        /// A node identifier that is unique within the node's graph.
-        /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
-
-        /// <summary>
-        /// The line number of the node.
-        /// </summary>
-        [Input("lineNumber")]
-        public int? LineNumber { get; set; }
-
-        /// <summary>
-        /// The type of node this is.
-        /// </summary>
-        [Input("nodeType", required: true)]
-        public string NodeType { get; set; } = null!;
-
-        public GetScriptDagNodesArgs()
-        {
-        }
-    }
-
-    public sealed class GetScriptDagNodesArgsArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the argument or property.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `false`.
-        /// </summary>
-        [Input("param")]
-        public bool? Param { get; set; }
-
-        /// <summary>
-        /// The value of the argument or property.
-        /// </summary>
-        [Input("value", required: true)]
-        public string Value { get; set; } = null!;
-
-        public GetScriptDagNodesArgsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetScriptDagEdgesResult
-    {
-        /// <summary>
-        /// The ID of the node at which the edge starts.
-        /// </summary>
-        public readonly string Source;
-        /// <summary>
-        /// The ID of the node at which the edge ends.
-        /// </summary>
-        public readonly string Target;
-        /// <summary>
-        /// The target of the edge.
-        /// </summary>
-        public readonly string? TargetParameter;
-
-        [OutputConstructor]
-        private GetScriptDagEdgesResult(
-            string source,
-            string target,
-            string? targetParameter)
-        {
-            Source = source;
-            Target = target;
-            TargetParameter = targetParameter;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScriptDagNodesArgsResult
-    {
-        /// <summary>
-        /// The name of the argument or property.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Param;
-        /// <summary>
-        /// The value of the argument or property.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GetScriptDagNodesArgsResult(
-            string name,
-            bool? param,
-            string value)
-        {
-            Name = name;
-            Param = param;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScriptDagNodesResult
-    {
-        /// <summary>
-        /// Nested configuration an argument or property of a node. Defined below.
-        /// </summary>
-        public readonly ImmutableArray<GetScriptDagNodesArgsResult> Args;
-        /// <summary>
-        /// A node identifier that is unique within the node's graph.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The line number of the node.
-        /// </summary>
-        public readonly int? LineNumber;
-        /// <summary>
-        /// The type of node this is.
-        /// </summary>
-        public readonly string NodeType;
-
-        [OutputConstructor]
-        private GetScriptDagNodesResult(
-            ImmutableArray<GetScriptDagNodesArgsResult> args,
-            string id,
-            int? lineNumber,
-            string nodeType)
-        {
-            Args = args;
-            Id = id;
-            LineNumber = lineNumber;
-            NodeType = nodeType;
-        }
-    }
     }
 }

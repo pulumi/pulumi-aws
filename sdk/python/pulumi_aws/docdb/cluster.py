@@ -131,18 +131,20 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a DocDB Cluster.
-        
+
         Changes to a DocDB Cluster can occur when you manually change a
         parameter, such as `port`, and are reflected in the next maintenance
         window. Because of this, this provider may report a difference in its planning
         phase because a modification has not yet taken place. You can use the
         `apply_immediately` flag to instruct the service to apply the change immediately
         (see documentation below).
-        
+
         > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications
@@ -176,8 +178,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -235,7 +235,7 @@ class Cluster(pulumi.CustomResource):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,12 +275,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the DB cluster.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["apply_immediately"] = apply_immediately
         __props__["arn"] = arn
         __props__["availability_zones"] = availability_zones

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ssm
             => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetParameterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -38,37 +39,44 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
+
     [OutputType]
     public sealed class GetParameterResult
     {
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string Type;
         public readonly string Value;
         public readonly int Version;
         public readonly bool? WithDecryption;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetParameterResult(
             string arn,
+
+            string id,
+
             string name,
+
             string type,
+
             string value,
+
             int version,
-            bool? withDecryption,
-            string id)
+
+            bool? withDecryption)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             Type = type;
             Value = value;
             Version = version;
             WithDecryption = withDecryption;
-            Id = id;
         }
     }
 }

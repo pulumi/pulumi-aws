@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "tfWAFRule",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rule.html.markdown.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> & GetRuleResult {
@@ -51,9 +51,9 @@ export interface GetRuleArgs {
  * A collection of values returned by getRule.
  */
 export interface GetRuleResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

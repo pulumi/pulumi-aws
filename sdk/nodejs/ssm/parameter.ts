@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ParameterType} from "./parameterType";
+import {ParameterType} from "./index";
 
 /**
  * Provides an SSM Parameter resource.
@@ -55,7 +53,7 @@ import {ParameterType} from "./parameterType";
  * 
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_parameter.html.markdown.
  */
 export class Parameter extends pulumi.CustomResource {

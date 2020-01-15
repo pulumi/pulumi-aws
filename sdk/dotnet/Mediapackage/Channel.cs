@@ -37,7 +37,7 @@ namespace Pulumi.Aws.MediaPackage
         /// A single item list of HLS ingest information
         /// </summary>
         [Output("hlsIngests")]
-        public Output<ImmutableArray<Outputs.ChannelHlsIngests>> HlsIngests { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ChannelHlsIngest>> HlsIngests { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -142,14 +142,14 @@ namespace Pulumi.Aws.MediaPackage
         public Input<string>? Description { get; set; }
 
         [Input("hlsIngests")]
-        private InputList<Inputs.ChannelHlsIngestsGetArgs>? _hlsIngests;
+        private InputList<Inputs.ChannelHlsIngestGetArgs>? _hlsIngests;
 
         /// <summary>
         /// A single item list of HLS ingest information
         /// </summary>
-        public InputList<Inputs.ChannelHlsIngestsGetArgs> HlsIngests
+        public InputList<Inputs.ChannelHlsIngestGetArgs> HlsIngests
         {
-            get => _hlsIngests ?? (_hlsIngests = new InputList<Inputs.ChannelHlsIngestsGetArgs>());
+            get => _hlsIngests ?? (_hlsIngests = new InputList<Inputs.ChannelHlsIngestGetArgs>());
             set => _hlsIngests = value;
         }
 
@@ -167,102 +167,6 @@ namespace Pulumi.Aws.MediaPackage
 
         public ChannelState()
         {
-            Description = "Managed by Pulumi";
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ChannelHlsIngestsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("ingestEndpoints")]
-        private InputList<ChannelHlsIngestsIngestEndpointsGetArgs>? _ingestEndpoints;
-
-        /// <summary>
-        /// A list of the ingest endpoints
-        /// </summary>
-        public InputList<ChannelHlsIngestsIngestEndpointsGetArgs> IngestEndpoints
-        {
-            get => _ingestEndpoints ?? (_ingestEndpoints = new InputList<ChannelHlsIngestsIngestEndpointsGetArgs>());
-            set => _ingestEndpoints = value;
-        }
-
-        public ChannelHlsIngestsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ChannelHlsIngestsIngestEndpointsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The password
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        /// <summary>
-        /// The URL
-        /// </summary>
-        [Input("url")]
-        public Input<string>? Url { get; set; }
-
-        /// <summary>
-        /// The username
-        /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public ChannelHlsIngestsIngestEndpointsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ChannelHlsIngests
-    {
-        /// <summary>
-        /// A list of the ingest endpoints
-        /// </summary>
-        public readonly ImmutableArray<ChannelHlsIngestsIngestEndpoints> IngestEndpoints;
-
-        [OutputConstructor]
-        private ChannelHlsIngests(ImmutableArray<ChannelHlsIngestsIngestEndpoints> ingestEndpoints)
-        {
-            IngestEndpoints = ingestEndpoints;
-        }
-    }
-
-    [OutputType]
-    public sealed class ChannelHlsIngestsIngestEndpoints
-    {
-        /// <summary>
-        /// The password
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The URL
-        /// </summary>
-        public readonly string Url;
-        /// <summary>
-        /// The username
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private ChannelHlsIngestsIngestEndpoints(
-            string password,
-            string url,
-            string username)
-        {
-            Password = password;
-            Url = url;
-            Username = username;
-        }
-    }
     }
 }

@@ -19,17 +19,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetRouteTableFiltersArgs>? _filters;
+        private List<Inputs.GetRouteTableFilterArgs>? _filters;
 
         /// <summary>
         /// One or more configuration blocks containing name-values filters. Detailed below.
         /// </summary>
-        public List<Inputs.GetRouteTableFiltersArgs> Filters
+        public List<Inputs.GetRouteTableFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetRouteTableFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetRouteTableFilterArgs>());
             set => _filters = value;
         }
 
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetRouteTableResult
     {
@@ -63,7 +65,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Boolean whether this is the default propagation route table for the EC2 Transit Gateway
         /// </summary>
         public readonly bool DefaultPropagationRouteTable;
-        public readonly ImmutableArray<Outputs.GetRouteTableFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetRouteTableFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway Route Table identifier
         /// </summary>
@@ -80,10 +82,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [OutputConstructor]
         private GetRouteTableResult(
             bool defaultAssociationRouteTable,
+
             bool defaultPropagationRouteTable,
-            ImmutableArray<Outputs.GetRouteTableFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetRouteTableFilterResult> filters,
+
             string? id,
+
             ImmutableDictionary<string, object> tags,
+
             string transitGatewayId)
         {
             DefaultAssociationRouteTable = defaultAssociationRouteTable;
@@ -93,60 +100,5 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Tags = tags;
             TransitGatewayId = transitGatewayId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetRouteTableFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetRouteTableFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRouteTableFiltersResult
-    {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetRouteTableFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

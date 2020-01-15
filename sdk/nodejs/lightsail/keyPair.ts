@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_key_pair.html.markdown.
  */
 export class KeyPair extends pulumi.CustomResource {

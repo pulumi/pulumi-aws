@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     availabilityZone: available.names[1],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zones.html.markdown.
  */
 export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> & GetAvailabilityZonesResult {
@@ -80,6 +80,10 @@ export interface GetAvailabilityZonesResult {
     readonly blacklistedNames?: string[];
     readonly blacklistedZoneIds?: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of the Availability Zone names available to the account.
      */
     readonly names: string[];
@@ -88,8 +92,4 @@ export interface GetAvailabilityZonesResult {
      * A list of the Availability Zone IDs available to the account.
      */
     readonly zoneIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

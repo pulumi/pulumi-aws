@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing.html.markdown.
  */
 export class Thing extends pulumi.CustomResource {

@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     owners: ["self"],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
@@ -101,6 +101,10 @@ export interface GetSnapshotResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetSnapshotFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -136,8 +140,4 @@ export interface GetSnapshotResult {
      * The size of the drive in GiBs.
      */
     readonly volumeSize: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

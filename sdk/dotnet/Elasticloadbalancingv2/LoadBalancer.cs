@@ -109,7 +109,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// A subnet mapping block as documented below.
         /// </summary>
         [Output("subnetMappings")]
-        public Output<ImmutableArray<Outputs.LoadBalancerSubnetMappings>> SubnetMappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancerSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         /// <summary>
         /// A list of subnet IDs to attach to the LB. Subnets
@@ -257,14 +257,14 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         }
 
         [Input("subnetMappings")]
-        private InputList<Inputs.LoadBalancerSubnetMappingsArgs>? _subnetMappings;
+        private InputList<Inputs.LoadBalancerSubnetMappingArgs>? _subnetMappings;
 
         /// <summary>
         /// A subnet mapping block as documented below.
         /// </summary>
-        public InputList<Inputs.LoadBalancerSubnetMappingsArgs> SubnetMappings
+        public InputList<Inputs.LoadBalancerSubnetMappingArgs> SubnetMappings
         {
-            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingsArgs>());
+            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingArgs>());
             set => _subnetMappings = value;
         }
 
@@ -396,14 +396,14 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         }
 
         [Input("subnetMappings")]
-        private InputList<Inputs.LoadBalancerSubnetMappingsGetArgs>? _subnetMappings;
+        private InputList<Inputs.LoadBalancerSubnetMappingGetArgs>? _subnetMappings;
 
         /// <summary>
         /// A subnet mapping block as documented below.
         /// </summary>
-        public InputList<Inputs.LoadBalancerSubnetMappingsGetArgs> SubnetMappings
+        public InputList<Inputs.LoadBalancerSubnetMappingGetArgs> SubnetMappings
         {
-            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingsGetArgs>());
+            get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingGetArgs>());
             set => _subnetMappings = value;
         }
 
@@ -445,151 +445,5 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public LoadBalancerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LoadBalancerAccessLogsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
-        [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public LoadBalancerAccessLogsArgs()
-        {
-        }
-    }
-
-    public sealed class LoadBalancerAccessLogsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
-        [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public LoadBalancerAccessLogsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LoadBalancerSubnetMappingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The allocation ID of the Elastic IP address.
-        /// </summary>
-        [Input("allocationId")]
-        public Input<string>? AllocationId { get; set; }
-
-        /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public LoadBalancerSubnetMappingsArgs()
-        {
-        }
-    }
-
-    public sealed class LoadBalancerSubnetMappingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The allocation ID of the Elastic IP address.
-        /// </summary>
-        [Input("allocationId")]
-        public Input<string>? AllocationId { get; set; }
-
-        /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public LoadBalancerSubnetMappingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LoadBalancerAccessLogs
-    {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
-        public readonly string Bucket;
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
-        public readonly string? Prefix;
-
-        [OutputConstructor]
-        private LoadBalancerAccessLogs(
-            string bucket,
-            bool? enabled,
-            string? prefix)
-        {
-            Bucket = bucket;
-            Enabled = enabled;
-            Prefix = prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class LoadBalancerSubnetMappings
-    {
-        /// <summary>
-        /// The allocation ID of the Elastic IP address.
-        /// </summary>
-        public readonly string? AllocationId;
-        /// <summary>
-        /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private LoadBalancerSubnetMappings(
-            string? allocationId,
-            string subnetId)
-        {
-            AllocationId = allocationId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

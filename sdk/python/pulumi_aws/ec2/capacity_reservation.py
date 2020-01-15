@@ -38,11 +38,11 @@ class CapacityReservation(pulumi.CustomResource):
     """
     Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
     """
-    instance_platform: pulumi.Output[str]
+    instance_platform: pulumi.Output[dict]
     """
     The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
     """
-    instance_type: pulumi.Output[str]
+    instance_type: pulumi.Output[dict]
     """
     The instance type for which to reserve capacity.
     """
@@ -50,14 +50,16 @@ class CapacityReservation(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    tenancy: pulumi.Output[str]
+    tenancy: pulumi.Output[dict]
     """
     Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
     """
     def __init__(__self__, resource_name, opts=None, availability_zone=None, ebs_optimized=None, end_date=None, end_date_type=None, ephemeral_storage=None, instance_count=None, instance_match_criteria=None, instance_platform=None, instance_type=None, tags=None, tenancy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
@@ -67,12 +69,10 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         :param pulumi.Input[float] instance_count: The number of instances for which to reserve capacity.
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[str] instance_type: The instance type for which to reserve capacity.
+        :param pulumi.Input[dict] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
+        :param pulumi.Input[dict] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.
+        :param pulumi.Input[dict] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Get an existing CapacityReservation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,16 +132,15 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         :param pulumi.Input[float] instance_count: The number of instances for which to reserve capacity.
         :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[str] instance_type: The instance type for which to reserve capacity.
+        :param pulumi.Input[dict] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
+        :param pulumi.Input[dict] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_capacity_reservation.html.markdown.
+        :param pulumi.Input[dict] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["availability_zone"] = availability_zone
         __props__["ebs_optimized"] = ebs_optimized
         __props__["end_date"] = end_date

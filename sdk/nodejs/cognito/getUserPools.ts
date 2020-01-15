@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     type: "COGNITO_USER_POOLS",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
  */
 export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> & GetUserPoolsResult {
@@ -61,12 +61,12 @@ export interface GetUserPoolsArgs {
 export interface GetUserPoolsResult {
     readonly arns: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The list of cognito user pool ids.
      */
     readonly ids: string[];
     readonly name: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

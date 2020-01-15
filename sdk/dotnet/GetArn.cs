@@ -19,6 +19,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetArnArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetArnResult
     {
@@ -40,6 +42,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Account;
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The partition that the resource is in.
         /// </summary>
@@ -58,28 +64,30 @@ namespace Pulumi.Aws
         /// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
         /// </summary>
         public readonly string Service;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetArnResult(
             string account,
+
             string arn,
+
+            string id,
+
             string partition,
+
             string region,
+
             string resource,
-            string service,
-            string id)
+
+            string service)
         {
             Account = account;
             Arn = arn;
+            Id = id;
             Partition = partition;
             Region = region;
             Resource = resource;
             Service = service;
-            Id = id;
         }
     }
 }

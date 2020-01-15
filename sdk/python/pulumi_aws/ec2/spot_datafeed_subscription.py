@@ -21,16 +21,16 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bucket=None, prefix=None, __props__=None, __name__=None, __opts__=None):
         """
         > **Note:** There is only a single subscription allowed per account.
-        
+
         To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_datafeed_subscription.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[str] prefix: Path of folder inside bucket to place spot pricing data.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_datafeed_subscription.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,18 +64,17 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         """
         Get an existing SpotDatafeedSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[str] prefix: Path of folder inside bucket to place spot pricing data.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_datafeed_subscription.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bucket"] = bucket
         __props__["prefix"] = prefix
         return SpotDatafeedSubscription(resource_name, opts=opts, __props__=__props__)

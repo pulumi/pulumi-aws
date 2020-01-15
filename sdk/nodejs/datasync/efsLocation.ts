@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Manages an AWS DataSync EFS Location.
@@ -29,7 +29,7 @@ import {ARN} from "../index";
  *     efsFileSystemArn: aws_efs_mount_target_example.fileSystemArn,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_efs.html.markdown.
  */
 export class EfsLocation extends pulumi.CustomResource {

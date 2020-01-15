@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     platformCredential: "<GCM API KEY>",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
  */
 export class PlatformApplication extends pulumi.CustomResource {

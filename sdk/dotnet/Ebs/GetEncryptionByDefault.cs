@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ebs
             => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetEncryptionByDefaultResult
     {
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Ebs
         [OutputConstructor]
         private GetEncryptionByDefaultResult(
             bool enabled,
+
             string id)
         {
             Enabled = enabled;

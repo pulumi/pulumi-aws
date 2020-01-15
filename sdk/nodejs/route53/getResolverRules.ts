@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
  */
 export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> & GetResolverRulesResult {
@@ -72,6 +72,10 @@ export interface GetResolverRulesArgs {
  * A collection of values returned by getResolverRules.
  */
 export interface GetResolverRulesResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ownerId?: string;
     readonly resolverEndpointId?: string;
     /**
@@ -80,8 +84,4 @@ export interface GetResolverRulesResult {
     readonly resolverRuleIds: string[];
     readonly ruleType?: string;
     readonly shareStatus?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

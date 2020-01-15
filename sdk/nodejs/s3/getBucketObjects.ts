@@ -77,6 +77,10 @@ export interface GetBucketObjectsResult {
     readonly encodingType?: string;
     readonly fetchOwner?: boolean;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of strings representing object keys
      */
     readonly keys: string[];
@@ -87,8 +91,4 @@ export interface GetBucketObjectsResult {
     readonly owners: string[];
     readonly prefix?: string;
     readonly startAfter?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

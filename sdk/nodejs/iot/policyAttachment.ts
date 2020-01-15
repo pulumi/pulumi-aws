@@ -4,8 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Policy} from ".";
-import {ARN} from "../index";
+import {ARN} from "..";
+import {Policy} from "./index";
 
 /**
  * Provides an IoT policy attachment.
@@ -41,7 +41,7 @@ import {ARN} from "../index";
  *     target: cert.arn,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
  */
 export class PolicyAttachment extends pulumi.CustomResource {
@@ -123,7 +123,7 @@ export interface PolicyAttachmentState {
     /**
      * The name of the policy to attach.
      */
-    readonly policy?: pulumi.Input<string | Policy>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<Policy>;
     /**
      * The identity to which the policy is attached.
      */
@@ -137,7 +137,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The name of the policy to attach.
      */
-    readonly policy: pulumi.Input<string | Policy>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<Policy>;
     /**
      * The identity to which the policy is attached.
      */

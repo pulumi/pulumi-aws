@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Decrypt multiple secrets from data encrypted with the AWS KMS service.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_secrets.html.markdown.
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> & GetSecretsResult {
@@ -41,12 +41,12 @@ export interface GetSecretsArgs {
  */
 export interface GetSecretsResult {
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Map containing each `secret` `name` as the key with its decrypted plaintext value
      */
     readonly plaintext: {[key: string]: string};
     readonly secrets: outputs.kms.GetSecretsSecret[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

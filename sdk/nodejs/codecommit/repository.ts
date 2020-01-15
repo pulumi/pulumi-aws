@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     repositoryName: "MyTestRepository",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_repository.html.markdown.
  */
 export class Repository extends pulumi.CustomResource {

@@ -19,6 +19,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetBillingServiceAccountResult
     {
@@ -34,6 +35,7 @@ namespace Pulumi.Aws
         [OutputConstructor]
         private GetBillingServiceAccountResult(
             string arn,
+
             string id)
         {
             Arn = arn;

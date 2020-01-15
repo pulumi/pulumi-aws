@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     owners: ["self"],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> & GetSnapshotIdsResult {
@@ -76,11 +76,11 @@ export interface GetSnapshotIdsArgs {
  */
 export interface GetSnapshotIdsResult {
     readonly filters?: outputs.ebs.GetSnapshotIdsFilter[];
-    readonly ids: string[];
-    readonly owners?: string[];
-    readonly restorableByUserIds?: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids: string[];
+    readonly owners?: string[];
+    readonly restorableByUserIds?: string[];
 }

@@ -20,6 +20,7 @@ namespace Pulumi.Aws.ApiGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetResourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -39,9 +40,14 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetResourceResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Set to the ID of the parent Resource.
         /// </summary>
@@ -52,24 +58,24 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string PathPart;
         public readonly string RestApiId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetResourceResult(
+            string id,
+
             string parentId,
+
             string path,
+
             string pathPart,
-            string restApiId,
-            string id)
+
+            string restApiId)
         {
+            Id = id;
             ParentId = parentId;
             Path = path;
             PathPart = pathPart;
             RestApiId = restApiId;
-            Id = id;
         }
     }
 }

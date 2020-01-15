@@ -88,7 +88,7 @@ namespace Pulumi.Aws.OpsWorks
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
-        public Output<ImmutableArray<Outputs.JavaAppLayerEbsVolumes>> EbsVolumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JavaAppLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
@@ -297,14 +297,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.JavaAppLayerEbsVolumesArgs>? _ebsVolumes;
+        private InputList<Inputs.JavaAppLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.JavaAppLayerEbsVolumesArgs> EbsVolumes
+        public InputList<Inputs.JavaAppLayerEbsVolumeArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.JavaAppLayerEbsVolumesArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.JavaAppLayerEbsVolumeArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -482,14 +482,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.JavaAppLayerEbsVolumesGetArgs>? _ebsVolumes;
+        private InputList<Inputs.JavaAppLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.JavaAppLayerEbsVolumesGetArgs> EbsVolumes
+        public InputList<Inputs.JavaAppLayerEbsVolumeGetArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.JavaAppLayerEbsVolumesGetArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.JavaAppLayerEbsVolumeGetArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -562,100 +562,5 @@ namespace Pulumi.Aws.OpsWorks
         public JavaAppLayerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class JavaAppLayerEbsVolumesArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public JavaAppLayerEbsVolumesArgs()
-        {
-        }
-    }
-
-    public sealed class JavaAppLayerEbsVolumesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public JavaAppLayerEbsVolumesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class JavaAppLayerEbsVolumes
-    {
-        public readonly bool? Encrypted;
-        public readonly int? Iops;
-        public readonly string MountPoint;
-        public readonly int NumberOfDisks;
-        public readonly string? RaidLevel;
-        public readonly int Size;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private JavaAppLayerEbsVolumes(
-            bool? encrypted,
-            int? iops,
-            string mountPoint,
-            int numberOfDisks,
-            string? raidLevel,
-            int size,
-            string? type)
-        {
-            Encrypted = encrypted;
-            Iops = iops;
-            MountPoint = mountPoint;
-            NumberOfDisks = numberOfDisks;
-            RaidLevel = raidLevel;
-            Size = size;
-            Type = type;
-        }
-    }
     }
 }

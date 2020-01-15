@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     targetType: "lambda",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_legacy.html.markdown.
  */
 export class TargetGroup extends pulumi.CustomResource {

@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * 
  * export const foo = fooVpcs.ids;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpcs.html.markdown.
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> & GetVpcsResult {
@@ -86,12 +86,12 @@ export interface GetVpcsArgs {
 export interface GetVpcsResult {
     readonly filters?: outputs.ec2.GetVpcsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the VPC Ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

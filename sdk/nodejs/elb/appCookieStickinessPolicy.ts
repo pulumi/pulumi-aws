@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     loadBalancer: lb.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/app_cookie_stickiness_policy.html.markdown.
  */
 export class AppCookieStickinessPolicy extends pulumi.CustomResource {
@@ -117,7 +117,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AppCookieStickinessPolicy.__pulumiType, name, inputs, opts);
     }

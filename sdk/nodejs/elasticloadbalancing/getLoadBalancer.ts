@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     name: lbName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_legacy.html.markdown.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
@@ -70,6 +70,10 @@ export interface GetLoadBalancerResult {
     readonly crossZoneLoadBalancing: boolean;
     readonly dnsName: string;
     readonly healthCheck: outputs.elasticloadbalancing.GetLoadBalancerHealthCheck;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly instances: string[];
     readonly internal: boolean;
@@ -81,8 +85,4 @@ export interface GetLoadBalancerResult {
     readonly subnets: string[];
     readonly tags: {[key: string]: any};
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -19,17 +19,18 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetCustomerGatewayArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetCustomerGatewayFiltersArgs>? _filters;
+        private List<Inputs.GetCustomerGatewayFilterArgs>? _filters;
 
         /// <summary>
         /// One or more [name-value pairs][dcg-filters] to filter by.
         /// </summary>
-        public List<Inputs.GetCustomerGatewayFiltersArgs> Filters
+        public List<Inputs.GetCustomerGatewayFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetCustomerGatewayFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetCustomerGatewayFilterArgs>());
             set => _filters = value;
         }
 
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetCustomerGatewayResult
     {
@@ -59,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         public readonly int BgpAsn;
-        public readonly ImmutableArray<Outputs.GetCustomerGatewayFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetCustomerGatewayFilterResult> Filters;
         public readonly string? Id;
         /// <summary>
         /// (Optional) The IP address of the gateway's Internet-routable external interface.
@@ -77,10 +79,15 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetCustomerGatewayResult(
             int bgpAsn,
-            ImmutableArray<Outputs.GetCustomerGatewayFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetCustomerGatewayFilterResult> filters,
+
             string? id,
+
             string ipAddress,
+
             ImmutableDictionary<string, object> tags,
+
             string type)
         {
             BgpAsn = bgpAsn;
@@ -90,47 +97,5 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             Type = type;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetCustomerGatewayFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetCustomerGatewayFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetCustomerGatewayFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetCustomerGatewayFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

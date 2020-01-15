@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
  */
 export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> & GetPartitionResult {
@@ -46,9 +46,9 @@ export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionR
  */
 export interface GetPartitionResult {
     readonly dnsSuffix: string;
-    readonly partition: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly partition: string;
 }

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     loadBalancer: lb.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/app_cookie_stickiness_policy_legacy.html.markdown.
  */
 export class AppCookieStickinessPolicy extends pulumi.CustomResource {

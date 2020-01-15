@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     s3ObjectVersion: lambda.versionId!,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
  */
 export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> & GetBucketObjectResult {
@@ -141,6 +141,10 @@ export interface GetBucketObjectResult {
      * The date and time at which the object is no longer cacheable.
      */
     readonly expires: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly key: string;
     /**
      * Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
@@ -187,8 +191,4 @@ export interface GetBucketObjectResult {
      * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
      */
     readonly websiteRedirectLocation: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

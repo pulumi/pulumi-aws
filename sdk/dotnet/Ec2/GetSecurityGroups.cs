@@ -20,19 +20,20 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSecurityGroupsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSecurityGroupsFiltersArgs>? _filters;
+        private List<Inputs.GetSecurityGroupsFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [describe-security-groups in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetSecurityGroupsFiltersArgs> Filters
+        public List<Inputs.GetSecurityGroupsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupsFilterArgs>());
             set => _filters = value;
         }
 
@@ -54,10 +55,15 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetSecurityGroupsResult
     {
-        public readonly ImmutableArray<Outputs.GetSecurityGroupsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSecurityGroupsFilterResult> Filters;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// IDs of the matches security groups.
         /// </summary>
@@ -68,66 +74,24 @@ namespace Pulumi.Aws.Ec2
         /// unless the `vpc-id` filter is also used.
         /// </summary>
         public readonly ImmutableArray<string> VpcIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSecurityGroupsResult(
-            ImmutableArray<Outputs.GetSecurityGroupsFiltersResult> filters,
+            ImmutableArray<Outputs.GetSecurityGroupsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableDictionary<string, object> tags,
-            ImmutableArray<string> vpcIds,
-            string id)
+
+            ImmutableArray<string> vpcIds)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Tags = tags;
             VpcIds = vpcIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSecurityGroupsFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSecurityGroupsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSecurityGroupsFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSecurityGroupsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

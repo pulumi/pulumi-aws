@@ -88,7 +88,7 @@ namespace Pulumi.Aws.OpsWorks
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
-        public Output<ImmutableArray<Outputs.RailsAppLayerEbsVolumes>> EbsVolumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RailsAppLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
@@ -303,14 +303,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.RailsAppLayerEbsVolumesArgs>? _ebsVolumes;
+        private InputList<Inputs.RailsAppLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.RailsAppLayerEbsVolumesArgs> EbsVolumes
+        public InputList<Inputs.RailsAppLayerEbsVolumeArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.RailsAppLayerEbsVolumesArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.RailsAppLayerEbsVolumeArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -494,14 +494,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.RailsAppLayerEbsVolumesGetArgs>? _ebsVolumes;
+        private InputList<Inputs.RailsAppLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.RailsAppLayerEbsVolumesGetArgs> EbsVolumes
+        public InputList<Inputs.RailsAppLayerEbsVolumeGetArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.RailsAppLayerEbsVolumesGetArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.RailsAppLayerEbsVolumeGetArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -580,100 +580,5 @@ namespace Pulumi.Aws.OpsWorks
         public RailsAppLayerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RailsAppLayerEbsVolumesArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RailsAppLayerEbsVolumesArgs()
-        {
-        }
-    }
-
-    public sealed class RailsAppLayerEbsVolumesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RailsAppLayerEbsVolumesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RailsAppLayerEbsVolumes
-    {
-        public readonly bool? Encrypted;
-        public readonly int? Iops;
-        public readonly string MountPoint;
-        public readonly int NumberOfDisks;
-        public readonly string? RaidLevel;
-        public readonly int Size;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private RailsAppLayerEbsVolumes(
-            bool? encrypted,
-            int? iops,
-            string mountPoint,
-            int numberOfDisks,
-            string? raidLevel,
-            int size,
-            string? type)
-        {
-            Encrypted = encrypted;
-            Iops = iops;
-            MountPoint = mountPoint;
-            NumberOfDisks = numberOfDisks;
-            RaidLevel = raidLevel;
-            Size = size;
-            Type = type;
-        }
-    }
     }
 }

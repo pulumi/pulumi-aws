@@ -13,7 +13,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, arn=None, endpoint=None, identity_provider_type=None, invocation_role=None, logging_role=None, server_id=None, url=None, id=None):
+    def __init__(__self__, arn=None, endpoint=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, server_id=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -25,6 +25,12 @@ class GetServerResult:
         __self__.endpoint = endpoint
         """
         The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if identity_provider_type and not isinstance(identity_provider_type, str):
             raise TypeError("Expected argument 'identity_provider_type' to be a str")
@@ -53,12 +59,6 @@ class GetServerResult:
         """
         URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -67,23 +67,25 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             arn=self.arn,
             endpoint=self.endpoint,
+            id=self.id,
             identity_provider_type=self.identity_provider_type,
             invocation_role=self.invocation_role,
             logging_role=self.logging_role,
             server_id=self.server_id,
-            url=self.url,
-            id=self.id)
+            url=self.url)
 
 def get_server(server_id=None,opts=None):
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
     resources.
-    
-    :param str server_id: ID for an SFTP server.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/transfer_server.html.markdown.
+
+
+    :param str server_id: ID for an SFTP server.
     """
     __args__ = dict()
+
 
     __args__['serverId'] = server_id
     if opts is None:
@@ -95,9 +97,9 @@ def get_server(server_id=None,opts=None):
     return AwaitableGetServerResult(
         arn=__ret__.get('arn'),
         endpoint=__ret__.get('endpoint'),
+        id=__ret__.get('id'),
         identity_provider_type=__ret__.get('identityProviderType'),
         invocation_role=__ret__.get('invocationRole'),
         logging_role=__ret__.get('loggingRole'),
         server_id=__ret__.get('serverId'),
-        url=__ret__.get('url'),
-        id=__ret__.get('id'))
+        url=__ret__.get('url'))

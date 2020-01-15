@@ -73,7 +73,7 @@ namespace Pulumi.Aws.OpsWorks
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
-        public Output<ImmutableArray<Outputs.StaticWebLayerEbsVolumes>> EbsVolumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StaticWebLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
@@ -249,14 +249,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.StaticWebLayerEbsVolumesArgs>? _ebsVolumes;
+        private InputList<Inputs.StaticWebLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.StaticWebLayerEbsVolumesArgs> EbsVolumes
+        public InputList<Inputs.StaticWebLayerEbsVolumeArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.StaticWebLayerEbsVolumesArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.StaticWebLayerEbsVolumeArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -401,14 +401,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.StaticWebLayerEbsVolumesGetArgs>? _ebsVolumes;
+        private InputList<Inputs.StaticWebLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.StaticWebLayerEbsVolumesGetArgs> EbsVolumes
+        public InputList<Inputs.StaticWebLayerEbsVolumeGetArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.StaticWebLayerEbsVolumesGetArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.StaticWebLayerEbsVolumeGetArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -463,100 +463,5 @@ namespace Pulumi.Aws.OpsWorks
         public StaticWebLayerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class StaticWebLayerEbsVolumesArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public StaticWebLayerEbsVolumesArgs()
-        {
-        }
-    }
-
-    public sealed class StaticWebLayerEbsVolumesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public StaticWebLayerEbsVolumesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class StaticWebLayerEbsVolumes
-    {
-        public readonly bool? Encrypted;
-        public readonly int? Iops;
-        public readonly string MountPoint;
-        public readonly int NumberOfDisks;
-        public readonly string? RaidLevel;
-        public readonly int Size;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private StaticWebLayerEbsVolumes(
-            bool? encrypted,
-            int? iops,
-            string mountPoint,
-            int numberOfDisks,
-            string? raidLevel,
-            int size,
-            string? type)
-        {
-            Encrypted = encrypted;
-            Iops = iops;
-            MountPoint = mountPoint;
-            NumberOfDisks = numberOfDisks;
-            RaidLevel = raidLevel;
-            Size = size;
-            Type = type;
-        }
-    }
     }
 }

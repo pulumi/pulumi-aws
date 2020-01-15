@@ -37,12 +37,11 @@ class Trail(pulumi.CustomResource):
     event_selectors: pulumi.Output[list]
     """
     Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
-    
+
       * `dataResources` (`list`) - Specifies logging data events. Fields documented below.
-    
         * `type` (`str`) - The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
         * `values` (`list`) - A list of ARN for the specified S3 buckets and object prefixes..
-    
+
       * `includeManagementEvents` (`bool`) - Specify if you want your event selector to include management events for your trail.
       * `readWriteType` (`str`) - Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
     """
@@ -93,11 +92,13 @@ class Trail(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cloud_watch_logs_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, enable_logging=None, event_selectors=None, include_global_service_events=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, name=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CloudTrail resource.
-        
+
         > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
-        
+
         > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Specifies a log group name using an Amazon Resource Name (ARN),
@@ -122,18 +123,15 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic
                defined for notification of log file delivery.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the trail
-        
+
         The **event_selectors** object supports the following:
-        
+
           * `dataResources` (`pulumi.Input[list]`) - Specifies logging data events. Fields documented below.
-        
             * `type` (`pulumi.Input[str]`) - The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
             * `values` (`pulumi.Input[list]`) - A list of ARN for the specified S3 buckets and object prefixes..
-        
+
           * `includeManagementEvents` (`pulumi.Input[bool]`) - Specify if you want your event selector to include management events for your trail.
           * `readWriteType` (`pulumi.Input[str]`) - Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -181,7 +179,7 @@ class Trail(pulumi.CustomResource):
         """
         Get an existing Trail resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,22 +207,20 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic
                defined for notification of log file delivery.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the trail
-        
+
         The **event_selectors** object supports the following:
-        
+
           * `dataResources` (`pulumi.Input[list]`) - Specifies logging data events. Fields documented below.
-        
             * `type` (`pulumi.Input[str]`) - The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
             * `values` (`pulumi.Input[list]`) - A list of ARN for the specified S3 buckets and object prefixes..
-        
+
           * `includeManagementEvents` (`pulumi.Input[bool]`) - Specify if you want your event selector to include management events for your trail.
           * `readWriteType` (`pulumi.Input[str]`) - Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudtrail.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["cloud_watch_logs_group_arn"] = cloud_watch_logs_group_arn
         __props__["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn

@@ -27,14 +27,14 @@ class Workflow(pulumi.CustomResource):
         Provides a Glue Workflow resource.
         The workflow graph (DAG) can be build using the `glue.Trigger` resource. 
         See the example below for creating a graph with four nodes (two triggers and two jobs). 
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_workflow.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[str] name: The name you assign to this workflow.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_workflow.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,19 +67,18 @@ class Workflow(pulumi.CustomResource):
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[str] name: The name you assign to this workflow.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_workflow.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["default_run_properties"] = default_run_properties
         __props__["description"] = description
         __props__["name"] = name

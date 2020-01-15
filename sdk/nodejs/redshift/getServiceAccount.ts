@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_service_account.html.markdown.
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> & GetServiceAccountResult {
@@ -83,9 +83,9 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS Redshift service account in the selected region.
      */
     readonly arn: string;
-    readonly region?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM role.
@@ -58,7 +58,7 @@ import {PolicyDocument} from "./documents";
  *     path: "/system/",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role.html.markdown.
  */
 export class Role extends pulumi.CustomResource {
@@ -202,7 +202,7 @@ export interface RoleState {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
+    readonly assumeRolePolicy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The creation date of the IAM role.
      */
@@ -253,7 +253,7 @@ export interface RoleArgs {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
+    readonly assumeRolePolicy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The description of the role.
      */

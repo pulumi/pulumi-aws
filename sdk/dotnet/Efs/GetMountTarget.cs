@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Efs
             => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetMountTargetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.Efs
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetMountTargetResult
@@ -48,6 +50,10 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Address at which the file system may be mounted via the mount target.
         /// </summary>
         public readonly string IpAddress;
@@ -64,32 +70,36 @@ namespace Pulumi.Aws.Efs
         /// ID of the mount target's subnet.
         /// </summary>
         public readonly string SubnetId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetMountTargetResult(
             string dnsName,
+
             string fileSystemArn,
+
             string fileSystemId,
+
+            string id,
+
             string ipAddress,
+
             string mountTargetId,
+
             string networkInterfaceId,
+
             ImmutableArray<string> securityGroups,
-            string subnetId,
-            string id)
+
+            string subnetId)
         {
             DnsName = dnsName;
             FileSystemArn = fileSystemArn;
             FileSystemId = fileSystemId;
+            Id = id;
             IpAddress = ipAddress;
             MountTargetId = mountTargetId;
             NetworkInterfaceId = networkInterfaceId;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;
-            Id = id;
         }
     }
 }

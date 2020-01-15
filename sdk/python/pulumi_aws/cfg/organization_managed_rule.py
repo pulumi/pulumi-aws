@@ -57,11 +57,13 @@ class OrganizationManagedRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, excluded_accounts=None, input_parameters=None, maximum_execution_frequency=None, name=None, resource_id_scope=None, resource_types_scopes=None, rule_identifier=None, tag_key_scope=None, tag_value_scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Config Organization Managed Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Custom Rules (those invoking a custom Lambda Function), see the [`cfg.OrganizationCustomRule` resource](https://www.terraform.io/docs/providers/aws/r/config_organization_custom_rule.html).
-        
+
         > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
-        
+
         > **NOTE:** Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the rule will successfully create or update. See also the [`cfg.Recorder` resource](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_managed_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
@@ -74,8 +76,6 @@ class OrganizationManagedRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_managed_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,7 +118,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         """
         Get an existing OrganizationManagedRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,12 +133,11 @@ class OrganizationManagedRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_organization_managed_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["excluded_accounts"] = excluded_accounts

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -26,7 +28,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_stack.html.markdown.
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> & GetStackResult {
@@ -76,6 +78,10 @@ export interface GetStackResult {
      * The ARN of the IAM role used to create the stack.
      */
     readonly iamRoleArn: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * A list of SNS topic ARNs to publish stack related events
@@ -101,8 +107,4 @@ export interface GetStackResult {
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`
      */
     readonly timeoutInMinutes: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

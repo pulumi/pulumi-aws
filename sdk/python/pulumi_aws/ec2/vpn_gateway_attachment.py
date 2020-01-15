@@ -22,17 +22,17 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         """
         Provides a Virtual Private Gateway attachment resource, allowing for an existing
         hardware VPN gateway to be attached and/or detached from a VPC.
-        
+
         > **Note:** The `ec2.VpnGateway`
         resource can also automatically attach the Virtual Private Gateway it creates
         to an existing VPC by setting the `vpc_id` attribute accordingly.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,18 +68,17 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         """
         Get an existing VpnGatewayAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_attachment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["vpc_id"] = vpc_id
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return VpnGatewayAttachment(resource_name, opts=opts, __props__=__props__)

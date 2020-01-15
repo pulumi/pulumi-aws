@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RecordType} from "./recordType";
+import {RecordType} from "./index";
 
 /**
  * Provides a Route53 record resource.
@@ -114,7 +114,7 @@ import {RecordType} from "./recordType";
  *     zoneId: exampleZone.zoneId,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_record.html.markdown.
  */
 export class Record extends pulumi.CustomResource {
@@ -327,7 +327,7 @@ export interface RecordState {
     /**
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      */
-    readonly type?: pulumi.Input<string | RecordType>;
+    readonly type?: pulumi.Input<string> | pulumi.Input<RecordType>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
@@ -390,7 +390,7 @@ export interface RecordArgs {
     /**
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      */
-    readonly type: pulumi.Input<string | RecordType>;
+    readonly type: pulumi.Input<string> | pulumi.Input<RecordType>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */

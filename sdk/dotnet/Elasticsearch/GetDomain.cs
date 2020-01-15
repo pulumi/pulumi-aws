@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticSearch
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws:elasticsearch/getDomain:getDomain", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetDomainArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.ElasticSearch
         }
     }
 
+
     [OutputType]
     public sealed class GetDomainResult
     {
@@ -58,11 +60,11 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// Cluster configuration of the domain.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainClusterConfigsResult> ClusterConfigs;
+        public readonly ImmutableArray<Outputs.GetDomainClusterConfigResult> ClusterConfigs;
         /// <summary>
         /// Domain Amazon Cognito Authentication options for Kibana.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainCognitoOptionsResult> CognitoOptions;
+        public readonly ImmutableArray<Outputs.GetDomainCognitoOptionResult> CognitoOptions;
         /// <summary>
         /// Status of the creation of the domain.
         /// </summary>
@@ -79,7 +81,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// EBS Options for the instances in the domain.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainEbsOptionsResult> EbsOptions;
+        public readonly ImmutableArray<Outputs.GetDomainEbsOptionResult> EbsOptions;
         /// <summary>
         /// ElasticSearch version for the domain.
         /// </summary>
@@ -87,11 +89,15 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// Domain encryption at rest related options.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainEncryptionAtRestsResult> EncryptionAtRests;
+        public readonly ImmutableArray<Outputs.GetDomainEncryptionAtRestResult> EncryptionAtRests;
         /// <summary>
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Domain-specific endpoint used to access the Kibana application.
         /// </summary>
@@ -99,17 +105,17 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// Domain log publishing related options.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainLogPublishingOptionsResult> LogPublishingOptions;
+        public readonly ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> LogPublishingOptions;
         /// <summary>
         /// Domain in transit encryption related options.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionsResult> NodeToNodeEncryptions;
+        public readonly ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> NodeToNodeEncryptions;
         /// <summary>
         /// Status of a configuration change in the domain.
         /// * `snapshot_options` – Domain snapshot related options.
         /// </summary>
         public readonly string Processing;
-        public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionsResult> SnapshotOptions;
+        public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
         /// <summary>
         /// The tags assigned to the domain.
         /// </summary>
@@ -117,35 +123,51 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// VPC Options for private Elasticsearch domains.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDomainVpcOptionsResult> VpcOptions;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetDomainVpcOptionResult> VpcOptions;
 
         [OutputConstructor]
         private GetDomainResult(
             string accessPolicies,
+
             ImmutableDictionary<string, object> advancedOptions,
+
             string arn,
-            ImmutableArray<Outputs.GetDomainClusterConfigsResult> clusterConfigs,
-            ImmutableArray<Outputs.GetDomainCognitoOptionsResult> cognitoOptions,
+
+            ImmutableArray<Outputs.GetDomainClusterConfigResult> clusterConfigs,
+
+            ImmutableArray<Outputs.GetDomainCognitoOptionResult> cognitoOptions,
+
             bool created,
+
             bool deleted,
+
             string domainId,
+
             string domainName,
-            ImmutableArray<Outputs.GetDomainEbsOptionsResult> ebsOptions,
+
+            ImmutableArray<Outputs.GetDomainEbsOptionResult> ebsOptions,
+
             string elasticsearchVersion,
-            ImmutableArray<Outputs.GetDomainEncryptionAtRestsResult> encryptionAtRests,
+
+            ImmutableArray<Outputs.GetDomainEncryptionAtRestResult> encryptionAtRests,
+
             string endpoint,
+
+            string id,
+
             string kibanaEndpoint,
-            ImmutableArray<Outputs.GetDomainLogPublishingOptionsResult> logPublishingOptions,
-            ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionsResult> nodeToNodeEncryptions,
+
+            ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> logPublishingOptions,
+
+            ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> nodeToNodeEncryptions,
+
             string processing,
-            ImmutableArray<Outputs.GetDomainSnapshotOptionsResult> snapshotOptions,
+
+            ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
+
             ImmutableDictionary<string, object> tags,
-            ImmutableArray<Outputs.GetDomainVpcOptionsResult> vpcOptions,
-            string id)
+
+            ImmutableArray<Outputs.GetDomainVpcOptionResult> vpcOptions)
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
@@ -160,6 +182,7 @@ namespace Pulumi.Aws.ElasticSearch
             ElasticsearchVersion = elasticsearchVersion;
             EncryptionAtRests = encryptionAtRests;
             Endpoint = endpoint;
+            Id = id;
             KibanaEndpoint = kibanaEndpoint;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptions = nodeToNodeEncryptions;
@@ -167,262 +190,6 @@ namespace Pulumi.Aws.ElasticSearch
             SnapshotOptions = snapshotOptions;
             Tags = tags;
             VpcOptions = vpcOptions;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetDomainClusterConfigsResult
-    {
-        /// <summary>
-        /// Number of dedicated master nodes in the cluster.
-        /// </summary>
-        public readonly int DedicatedMasterCount;
-        /// <summary>
-        /// Indicates whether dedicated master nodes are enabled for the cluster.
-        /// </summary>
-        public readonly bool DedicatedMasterEnabled;
-        /// <summary>
-        /// Instance type of the dedicated master nodes in the cluster.
-        /// </summary>
-        public readonly string DedicatedMasterType;
-        /// <summary>
-        /// Number of instances in the cluster.
-        /// </summary>
-        public readonly int InstanceCount;
-        /// <summary>
-        /// Instance type of data nodes in the cluster.
-        /// </summary>
-        public readonly string InstanceType;
-        /// <summary>
-        /// Configuration block containing zone awareness settings.
-        /// </summary>
-        public readonly ImmutableArray<GetDomainClusterConfigsZoneAwarenessConfigsResult> ZoneAwarenessConfigs;
-        /// <summary>
-        /// Indicates whether zone awareness is enabled.
-        /// </summary>
-        public readonly bool ZoneAwarenessEnabled;
-
-        [OutputConstructor]
-        private GetDomainClusterConfigsResult(
-            int dedicatedMasterCount,
-            bool dedicatedMasterEnabled,
-            string dedicatedMasterType,
-            int instanceCount,
-            string instanceType,
-            ImmutableArray<GetDomainClusterConfigsZoneAwarenessConfigsResult> zoneAwarenessConfigs,
-            bool zoneAwarenessEnabled)
-        {
-            DedicatedMasterCount = dedicatedMasterCount;
-            DedicatedMasterEnabled = dedicatedMasterEnabled;
-            DedicatedMasterType = dedicatedMasterType;
-            InstanceCount = instanceCount;
-            InstanceType = instanceType;
-            ZoneAwarenessConfigs = zoneAwarenessConfigs;
-            ZoneAwarenessEnabled = zoneAwarenessEnabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainClusterConfigsZoneAwarenessConfigsResult
-    {
-        /// <summary>
-        /// Number of availability zones used.
-        /// </summary>
-        public readonly int AvailabilityZoneCount;
-
-        [OutputConstructor]
-        private GetDomainClusterConfigsZoneAwarenessConfigsResult(int availabilityZoneCount)
-        {
-            AvailabilityZoneCount = availabilityZoneCount;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainCognitoOptionsResult
-    {
-        /// <summary>
-        /// Whether node to node encryption is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// The Cognito Identity pool used by the domain.
-        /// </summary>
-        public readonly string IdentityPoolId;
-        /// <summary>
-        /// The IAM Role with the AmazonESCognitoAccess policy attached.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// The Cognito User pool used by the domain.
-        /// </summary>
-        public readonly string UserPoolId;
-
-        [OutputConstructor]
-        private GetDomainCognitoOptionsResult(
-            bool enabled,
-            string identityPoolId,
-            string roleArn,
-            string userPoolId)
-        {
-            Enabled = enabled;
-            IdentityPoolId = identityPoolId;
-            RoleArn = roleArn;
-            UserPoolId = userPoolId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainEbsOptionsResult
-    {
-        /// <summary>
-        /// Whether EBS volumes are attached to data nodes in the domain.
-        /// </summary>
-        public readonly bool EbsEnabled;
-        /// <summary>
-        /// The baseline input/output (I/O) performance of EBS volumes
-        /// attached to data nodes.
-        /// </summary>
-        public readonly int Iops;
-        /// <summary>
-        /// The size of EBS volumes attached to data nodes (in GB).
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of EBS volumes attached to data nodes.
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private GetDomainEbsOptionsResult(
-            bool ebsEnabled,
-            int iops,
-            int volumeSize,
-            string volumeType)
-        {
-            EbsEnabled = ebsEnabled;
-            Iops = iops;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainEncryptionAtRestsResult
-    {
-        /// <summary>
-        /// Whether node to node encryption is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// The KMS key id used to encrypt data at rest.
-        /// </summary>
-        public readonly string KmsKeyId;
-
-        [OutputConstructor]
-        private GetDomainEncryptionAtRestsResult(
-            bool enabled,
-            string kmsKeyId)
-        {
-            Enabled = enabled;
-            KmsKeyId = kmsKeyId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainLogPublishingOptionsResult
-    {
-        /// <summary>
-        /// The CloudWatch Log Group where the logs are published.
-        /// </summary>
-        public readonly string CloudwatchLogGroupArn;
-        /// <summary>
-        /// Whether node to node encryption is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// The type of Elasticsearch log being published.
-        /// </summary>
-        public readonly string LogType;
-
-        [OutputConstructor]
-        private GetDomainLogPublishingOptionsResult(
-            string cloudwatchLogGroupArn,
-            bool enabled,
-            string logType)
-        {
-            CloudwatchLogGroupArn = cloudwatchLogGroupArn;
-            Enabled = enabled;
-            LogType = logType;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainNodeToNodeEncryptionsResult
-    {
-        /// <summary>
-        /// Whether node to node encryption is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private GetDomainNodeToNodeEncryptionsResult(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainSnapshotOptionsResult
-    {
-        /// <summary>
-        /// Hour during which the service takes an automated daily
-        /// snapshot of the indices in the domain.
-        /// </summary>
-        public readonly int AutomatedSnapshotStartHour;
-
-        [OutputConstructor]
-        private GetDomainSnapshotOptionsResult(int automatedSnapshotStartHour)
-        {
-            AutomatedSnapshotStartHour = automatedSnapshotStartHour;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetDomainVpcOptionsResult
-    {
-        /// <summary>
-        /// The availability zones used by the domain.
-        /// </summary>
-        public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// The security groups used by the domain.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The subnets used by the domain.
-        /// </summary>
-        public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC used by the domain.
-        /// </summary>
-        public readonly string VpcId;
-
-        [OutputConstructor]
-        private GetDomainVpcOptionsResult(
-            ImmutableArray<string> availabilityZones,
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnetIds,
-            string vpcId)
-        {
-            AvailabilityZones = availabilityZones;
-            SecurityGroupIds = securityGroupIds;
-            SubnetIds = subnetIds;
-            VpcId = vpcId;
-        }
-    }
     }
 }

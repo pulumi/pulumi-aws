@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     snapshotIdentifier: latestProdSnapshot.id,
  * }, {ignoreChanges: ["snapshotIdentifier"]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_snapshot.html.markdown.
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
@@ -130,6 +130,10 @@ export interface GetSnapshotResult {
      * Specifies the version of the database engine.
      */
     readonly engineVersion: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -175,8 +179,4 @@ export interface GetSnapshotResult {
      * Specifies the ID of the VPC associated with the DB snapshot.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     name: "tf-test-batch-job-queue",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> & GetJobQueueResult {
@@ -63,6 +63,10 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
     readonly computeEnvironmentOrders: outputs.batch.GetJobQueueComputeEnvironmentOrder[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -82,8 +86,4 @@ export interface GetJobQueueResult {
      * of the job queue.
      */
     readonly statusReason: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * 
  * const awesomeDevices = new aws.devicefarm.Project("awesomeDevices", {});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/devicefarm_project.html.markdown.
  */
 export class Project extends pulumi.CustomResource {

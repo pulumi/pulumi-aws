@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Iam
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetServerCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -55,6 +56,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetServerCertificateResult
     {
@@ -62,42 +64,52 @@ namespace Pulumi.Aws.Iam
         public readonly string CertificateBody;
         public readonly string CertificateChain;
         public readonly string ExpirationDate;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? Latest;
         public readonly string Name;
         public readonly string? NamePrefix;
         public readonly string Path;
         public readonly string? PathPrefix;
         public readonly string UploadDate;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServerCertificateResult(
             string arn,
+
             string certificateBody,
+
             string certificateChain,
+
             string expirationDate,
+
+            string id,
+
             bool? latest,
+
             string name,
+
             string? namePrefix,
+
             string path,
+
             string? pathPrefix,
-            string uploadDate,
-            string id)
+
+            string uploadDate)
         {
             Arn = arn;
             CertificateBody = certificateBody;
             CertificateChain = certificateChain;
             ExpirationDate = expirationDate;
+            Id = id;
             Latest = latest;
             Name = name;
             NamePrefix = namePrefix;
             Path = path;
             PathPrefix = pathPrefix;
             UploadDate = uploadDate;
-            Id = id;
         }
     }
 }

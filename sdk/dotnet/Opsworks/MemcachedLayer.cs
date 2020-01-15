@@ -82,7 +82,7 @@ namespace Pulumi.Aws.OpsWorks
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
-        public Output<ImmutableArray<Outputs.MemcachedLayerEbsVolumes>> EbsVolumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MemcachedLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
@@ -267,14 +267,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.MemcachedLayerEbsVolumesArgs>? _ebsVolumes;
+        private InputList<Inputs.MemcachedLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.MemcachedLayerEbsVolumesArgs> EbsVolumes
+        public InputList<Inputs.MemcachedLayerEbsVolumeArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.MemcachedLayerEbsVolumesArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.MemcachedLayerEbsVolumeArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -428,14 +428,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.MemcachedLayerEbsVolumesGetArgs>? _ebsVolumes;
+        private InputList<Inputs.MemcachedLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.MemcachedLayerEbsVolumesGetArgs> EbsVolumes
+        public InputList<Inputs.MemcachedLayerEbsVolumeGetArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.MemcachedLayerEbsVolumesGetArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.MemcachedLayerEbsVolumeGetArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -490,100 +490,5 @@ namespace Pulumi.Aws.OpsWorks
         public MemcachedLayerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MemcachedLayerEbsVolumesArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public MemcachedLayerEbsVolumesArgs()
-        {
-        }
-    }
-
-    public sealed class MemcachedLayerEbsVolumesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public MemcachedLayerEbsVolumesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MemcachedLayerEbsVolumes
-    {
-        public readonly bool? Encrypted;
-        public readonly int? Iops;
-        public readonly string MountPoint;
-        public readonly int NumberOfDisks;
-        public readonly string? RaidLevel;
-        public readonly int Size;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private MemcachedLayerEbsVolumes(
-            bool? encrypted,
-            int? iops,
-            string mountPoint,
-            int numberOfDisks,
-            string? raidLevel,
-            int size,
-            string? type)
-        {
-            Encrypted = encrypted;
-            Iops = iops;
-            MountPoint = mountPoint;
-            NumberOfDisks = numberOfDisks;
-            RaidLevel = raidLevel;
-            Size = size;
-            Type = type;
-        }
-    }
     }
 }

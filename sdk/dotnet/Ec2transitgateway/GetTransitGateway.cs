@@ -19,17 +19,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayResult>("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetTransitGatewayArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetTransitGatewayFiltersArgs>? _filters;
+        private List<Inputs.GetTransitGatewayFilterArgs>? _filters;
 
         /// <summary>
         /// One or more configuration blocks containing name-values filters. Detailed below.
         /// </summary>
-        public List<Inputs.GetTransitGatewayFiltersArgs> Filters
+        public List<Inputs.GetTransitGatewayFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetTransitGatewayFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetTransitGatewayFilterArgs>());
             set => _filters = value;
         }
 
@@ -51,6 +52,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetTransitGatewayResult
@@ -87,7 +89,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Whether DNS support is enabled.
         /// </summary>
         public readonly string DnsSupport;
-        public readonly ImmutableArray<Outputs.GetTransitGatewayFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetTransitGatewayFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway identifier
         /// </summary>
@@ -112,18 +114,31 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [OutputConstructor]
         private GetTransitGatewayResult(
             int amazonSideAsn,
+
             string arn,
+
             string associationDefaultRouteTableId,
+
             string autoAcceptSharedAttachments,
+
             string defaultRouteTableAssociation,
+
             string defaultRouteTablePropagation,
+
             string description,
+
             string dnsSupport,
-            ImmutableArray<Outputs.GetTransitGatewayFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetTransitGatewayFilterResult> filters,
+
             string? id,
+
             string ownerId,
+
             string propagationDefaultRouteTableId,
+
             ImmutableDictionary<string, object> tags,
+
             string vpnEcmpSupport)
         {
             AmazonSideAsn = amazonSideAsn;
@@ -141,60 +156,5 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Tags = tags;
             VpnEcmpSupport = vpnEcmpSupport;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetTransitGatewayFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetTransitGatewayFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetTransitGatewayFiltersResult
-    {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetTransitGatewayFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

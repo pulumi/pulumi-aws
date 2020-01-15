@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     enable: true,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/guardduty_detector.html.markdown.
  */
 export class Detector extends pulumi.CustomResource {

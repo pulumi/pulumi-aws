@@ -29,14 +29,14 @@ class AggregateAuthorization(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_id=None, region=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Config Aggregate Authorization
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Account ID
         :param pulumi.Input[str] region: Region
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,7 +74,7 @@ class AggregateAuthorization(pulumi.CustomResource):
         """
         Get an existing AggregateAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,12 +82,11 @@ class AggregateAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the authorization
         :param pulumi.Input[str] region: Region
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_aggregate_authorization.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_id"] = account_id
         __props__["arn"] = arn
         __props__["region"] = region

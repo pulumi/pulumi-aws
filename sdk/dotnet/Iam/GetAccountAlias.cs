@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Iam
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountAliasResult>("aws:iam/getAccountAlias:getAccountAlias", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetAccountAliasResult
     {
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.Iam
         [OutputConstructor]
         private GetAccountAliasResult(
             string accountAlias,
+
             string id)
         {
             AccountAlias = accountAlias;

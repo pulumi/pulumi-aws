@@ -135,7 +135,7 @@ import * as utilities from "../utilities";
  * 
  * * `predefinedMetricType` - (Required) The metric type.
  * * `resourceLabel` - (Optional) Reserved for future use.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {

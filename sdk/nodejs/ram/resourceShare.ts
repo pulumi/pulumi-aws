@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share.html.markdown.
  */
 export class ResourceShare extends pulumi.CustomResource {

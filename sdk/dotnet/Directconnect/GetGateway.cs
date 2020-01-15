@@ -19,6 +19,7 @@ namespace Pulumi.Aws.DirectConnect
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
+
     [OutputType]
     public sealed class GetGatewayResult
     {
@@ -39,27 +41,30 @@ namespace Pulumi.Aws.DirectConnect
         /// The ASN on the Amazon side of the connection.
         /// </summary>
         public readonly string AmazonSideAsn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// AWS Account ID of the gateway.
         /// </summary>
         public readonly string OwnerAccountId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetGatewayResult(
             string amazonSideAsn,
+
+            string id,
+
             string name,
-            string ownerAccountId,
-            string id)
+
+            string ownerAccountId)
         {
             AmazonSideAsn = amazonSideAsn;
+            Id = id;
             Name = name;
             OwnerAccountId = ownerAccountId;
-            Id = id;
         }
     }
 }

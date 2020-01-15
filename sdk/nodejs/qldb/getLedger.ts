@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -17,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "anExampleLedger",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> & GetLedgerResult {
@@ -57,9 +59,9 @@ export interface GetLedgerResult {
      * Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
      */
     readonly deletionProtection: boolean;
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.AutoScaling
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:autoscaling/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.AutoScaling
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetGroupResult
@@ -56,6 +58,10 @@ namespace Pulumi.Aws.AutoScaling
         /// The service to use for the health checks. The valid values are EC2 and ELB.
         /// </summary>
         public readonly string HealthCheckType;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The name of the associated launch configuration.
         /// </summary>
@@ -101,32 +107,46 @@ namespace Pulumi.Aws.AutoScaling
         /// VPC ID for the group.
         /// </summary>
         public readonly string VpcZoneIdentifier;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetGroupResult(
             string arn,
+
             ImmutableArray<string> availabilityZones,
+
             int defaultCooldown,
+
             int desiredCapacity,
+
             int healthCheckGracePeriod,
+
             string healthCheckType,
+
+            string id,
+
             string launchConfiguration,
+
             ImmutableArray<string> loadBalancers,
+
             int maxSize,
+
             int minSize,
+
             string name,
+
             bool newInstancesProtectedFromScaleIn,
+
             string placementGroup,
+
             string serviceLinkedRoleArn,
+
             string status,
+
             ImmutableArray<string> targetGroupArns,
+
             ImmutableArray<string> terminationPolicies,
-            string vpcZoneIdentifier,
-            string id)
+
+            string vpcZoneIdentifier)
         {
             Arn = arn;
             AvailabilityZones = availabilityZones;
@@ -134,6 +154,7 @@ namespace Pulumi.Aws.AutoScaling
             DesiredCapacity = desiredCapacity;
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
+            Id = id;
             LaunchConfiguration = launchConfiguration;
             LoadBalancers = loadBalancers;
             MaxSize = maxSize;
@@ -146,7 +167,6 @@ namespace Pulumi.Aws.AutoScaling
             TargetGroupArns = targetGroupArns;
             TerminationPolicies = terminationPolicies;
             VpcZoneIdentifier = vpcZoneIdentifier;
-            Id = id;
         }
     }
 }

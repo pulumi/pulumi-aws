@@ -13,7 +13,7 @@ class GetLedgerResult:
     """
     A collection of values returned by getLedger.
     """
-    def __init__(__self__, arn=None, deletion_protection=None, name=None, id=None):
+    def __init__(__self__, arn=None, deletion_protection=None, id=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -26,15 +26,15 @@ class GetLedgerResult:
         """
         Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 class AwaitableGetLedgerResult(GetLedgerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -43,18 +43,20 @@ class AwaitableGetLedgerResult(GetLedgerResult):
         return GetLedgerResult(
             arn=self.arn,
             deletion_protection=self.deletion_protection,
-            name=self.name,
-            id=self.id)
+            id=self.id,
+            name=self.name)
 
 def get_ledger(name=None,opts=None):
     """
     Use this data source to fetch information about a Quantum Ledger Database.
-    
-    :param str name: The friendly name of the ledger to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
+
+
+    :param str name: The friendly name of the ledger to match.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -66,5 +68,5 @@ def get_ledger(name=None,opts=None):
     return AwaitableGetLedgerResult(
         arn=__ret__.get('arn'),
         deletion_protection=__ret__.get('deletionProtection'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

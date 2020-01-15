@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     gatewayArn: aws_storagegateway_gateway_example.arn,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_cache.html.markdown.
  */
 export class Cache extends pulumi.CustomResource {

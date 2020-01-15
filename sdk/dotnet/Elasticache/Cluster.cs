@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
         [Output("cacheNodes")]
-        public Output<ImmutableArray<Outputs.ClusterCacheNodes>> CacheNodes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterCacheNode>> CacheNodes { get; private set; } = null!;
 
         /// <summary>
         /// (Memcached only) The DNS name of the cache cluster without the port appended.
@@ -466,15 +466,15 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? AzMode { get; set; }
 
         [Input("cacheNodes")]
-        private InputList<Inputs.ClusterCacheNodesGetArgs>? _cacheNodes;
+        private InputList<Inputs.ClusterCacheNodeGetArgs>? _cacheNodes;
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and `availability_zone`.
         /// Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
-        public InputList<Inputs.ClusterCacheNodesGetArgs> CacheNodes
+        public InputList<Inputs.ClusterCacheNodeGetArgs> CacheNodes
         {
-            get => _cacheNodes ?? (_cacheNodes = new InputList<Inputs.ClusterCacheNodesGetArgs>());
+            get => _cacheNodes ?? (_cacheNodes = new InputList<Inputs.ClusterCacheNodeGetArgs>());
             set => _cacheNodes = value;
         }
 
@@ -661,66 +661,5 @@ namespace Pulumi.Aws.ElastiCache
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterCacheNodesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("address")]
-        public Input<string>? Address { get; set; }
-
-        /// <summary>
-        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
-        /// </summary>
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        public ClusterCacheNodesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterCacheNodes
-    {
-        public readonly string Address;
-        /// <summary>
-        /// The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
-        /// </summary>
-        public readonly string AvailabilityZone;
-        public readonly string Id;
-        /// <summary>
-        /// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
-        /// </summary>
-        public readonly int Port;
-
-        [OutputConstructor]
-        private ClusterCacheNodes(
-            string address,
-            string availabilityZone,
-            string id,
-            int port)
-        {
-            Address = address;
-            AvailabilityZone = availabilityZone;
-            Id = id;
-            Port = port;
-        }
-    }
     }
 }

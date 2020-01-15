@@ -22,6 +22,7 @@ namespace Pulumi.Aws.CloudFormation
             => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetExportArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.CloudFormation
         }
     }
 
+
     [OutputType]
     public sealed class GetExportResult
     {
@@ -42,27 +44,30 @@ namespace Pulumi.Aws.CloudFormation
         /// The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html) 
         /// </summary>
         public readonly string ExportingStackId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
         public readonly string Value;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetExportResult(
             string exportingStackId,
+
+            string id,
+
             string name,
-            string value,
-            string id)
+
+            string value)
         {
             ExportingStackId = exportingStackId;
+            Id = id;
             Name = name;
             Value = value;
-            Id = id;
         }
     }
 }

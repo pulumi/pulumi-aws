@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Kms
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetAliasArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
+
     [OutputType]
     public sealed class GetAliasResult
     {
@@ -41,6 +43,10 @@ namespace Pulumi.Aws.Kms
         /// The Amazon Resource Name(ARN) of the key alias.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// ARN pointed to by the alias.
@@ -50,24 +56,24 @@ namespace Pulumi.Aws.Kms
         /// Key identifier pointed to by the alias.
         /// </summary>
         public readonly string TargetKeyId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAliasResult(
             string arn,
+
+            string id,
+
             string name,
+
             string targetKeyArn,
-            string targetKeyId,
-            string id)
+
+            string targetKeyId)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             TargetKeyArn = targetKeyArn;
             TargetKeyId = targetKeyId;
-            Id = id;
         }
     }
 }

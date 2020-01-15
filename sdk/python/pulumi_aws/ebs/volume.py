@@ -49,7 +49,9 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, availability_zone=None, encrypted=None, iops=None, kms_key_id=None, size=None, snapshot_id=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a single EBS volume.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
@@ -60,8 +62,6 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,7 +102,7 @@ class Volume(pulumi.CustomResource):
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,12 +115,11 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["availability_zone"] = availability_zone
         __props__["encrypted"] = encrypted

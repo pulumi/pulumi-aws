@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     functionName: functionName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_function.html.markdown.
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> & GetFunctionResult {
@@ -82,6 +82,10 @@ export interface GetFunctionResult {
      * The function entrypoint in your code.
      */
     readonly handler: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway.
      */
@@ -144,8 +148,4 @@ export interface GetFunctionResult {
      * VPC configuration associated with your Lambda function.
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

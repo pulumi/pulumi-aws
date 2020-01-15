@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
@@ -20,7 +21,7 @@ import * as utilities from "../utilities";
  *     groupName: "anExampleGroupName",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
@@ -62,6 +63,10 @@ export interface GetGroupResult {
     readonly groupId: string;
     readonly groupName: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The path to the iam user.
      */
     readonly path: string;
@@ -69,8 +74,4 @@ export interface GetGroupResult {
      * List of objects containing group member information. See supported fields below.
      */
     readonly users: outputs.iam.GetGroupUser[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     name: lbTgName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group.html.markdown.
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> & GetTargetGroupResult {
@@ -74,6 +74,10 @@ export interface GetTargetGroupResult {
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
     readonly healthCheck: outputs.alb.GetTargetGroupHealthCheck;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly name: string;
     readonly port: number;
@@ -84,8 +88,4 @@ export interface GetTargetGroupResult {
     readonly tags: {[key: string]: any};
     readonly targetType: string;
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

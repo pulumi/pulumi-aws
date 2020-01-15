@@ -20,6 +20,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetCallerIdentityResult
     {
@@ -32,25 +33,28 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The unique identifier of the calling entity.
-        /// </summary>
-        public readonly string UserId;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The unique identifier of the calling entity.
+        /// </summary>
+        public readonly string UserId;
 
         [OutputConstructor]
         private GetCallerIdentityResult(
             string accountId,
+
             string arn,
-            string userId,
-            string id)
+
+            string id,
+
+            string userId)
         {
             AccountId = accountId;
             Arn = arn;
-            UserId = userId;
             Id = id;
+            UserId = userId;
         }
     }
 }

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     bundleId: "wsb-b0s22j3d7",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
  */
 export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> & GetBundleResult {
@@ -61,6 +61,10 @@ export interface GetBundleResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the compute type.
      */
     readonly name: string;
@@ -76,8 +80,4 @@ export interface GetBundleResult {
      * The user storage. See supported fields below.
      */
     readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

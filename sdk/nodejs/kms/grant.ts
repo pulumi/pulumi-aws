@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
  */
 export class Grant extends pulumi.CustomResource {

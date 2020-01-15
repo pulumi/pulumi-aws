@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     type: "AMAZON_DYNAMODB",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
  */
 export class DataSource extends pulumi.CustomResource {

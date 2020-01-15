@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     staticIpName: testStaticIp.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_static_ip_attachment.html.markdown.
  */
 export class StaticIpAttachment extends pulumi.CustomResource {

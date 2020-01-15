@@ -13,12 +13,18 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, name=None, registry_id=None, repository_url=None, tags=None, id=None):
+    def __init__(__self__, arn=None, id=None, name=None, registry_id=None, repository_url=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         Full ARN of the repository.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -41,12 +47,6 @@ class GetRepositoryResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -54,21 +54,23 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             yield self
         return GetRepositoryResult(
             arn=self.arn,
+            id=self.id,
             name=self.name,
             registry_id=self.registry_id,
             repository_url=self.repository_url,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_repository(name=None,tags=None,opts=None):
     """
     The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-    
-    :param str name: The name of the ECR Repository.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
+
+
+    :param str name: The name of the ECR Repository.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -80,8 +82,8 @@ def get_repository(name=None,tags=None,opts=None):
 
     return AwaitableGetRepositoryResult(
         arn=__ret__.get('arn'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         registry_id=__ret__.get('registryId'),
         repository_url=__ret__.get('repositoryUrl'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

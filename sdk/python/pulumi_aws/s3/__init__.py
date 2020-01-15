@@ -5,7 +5,6 @@
 # Export this package's modules as members:
 from .account_public_access_block import *
 from .bucket import *
-from .inventory import *
 from .bucket_metric import *
 from .bucket_notification import *
 from .bucket_object import *
@@ -14,3 +13,4 @@ from .bucket_public_access_block import *
 from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *
+from .inventory import *

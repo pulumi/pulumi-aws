@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     mountTargetId: mountTargetId,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
  */
 export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> & GetMountTargetResult {
@@ -67,6 +67,10 @@ export interface GetMountTargetResult {
      */
     readonly fileSystemId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Address at which the file system may be mounted via the mount target.
      */
     readonly ipAddress: string;
@@ -83,8 +87,4 @@ export interface GetMountTargetResult {
      * ID of the mount target's subnet.
      */
     readonly subnetId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

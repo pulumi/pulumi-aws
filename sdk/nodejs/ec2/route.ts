@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,7 +12,7 @@ import * as utilities from "../utilities";
  * defined in-line. At this time you cannot use a Route Table with in-line routes
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.GameLift
         /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         /// </summary>
         [Output("ec2InboundPermissions")]
-        public Output<ImmutableArray<Outputs.FleetEc2InboundPermissions>> Ec2InboundPermissions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FleetEc2InboundPermission>> Ec2InboundPermissions { get; private set; } = null!;
 
         /// <summary>
         /// Name of an EC2 instance type. e.g. `t2.micro`
@@ -143,14 +143,14 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Description { get; set; }
 
         [Input("ec2InboundPermissions")]
-        private InputList<Inputs.FleetEc2InboundPermissionsArgs>? _ec2InboundPermissions;
+        private InputList<Inputs.FleetEc2InboundPermissionArgs>? _ec2InboundPermissions;
 
         /// <summary>
         /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         /// </summary>
-        public InputList<Inputs.FleetEc2InboundPermissionsArgs> Ec2InboundPermissions
+        public InputList<Inputs.FleetEc2InboundPermissionArgs> Ec2InboundPermissions
         {
-            get => _ec2InboundPermissions ?? (_ec2InboundPermissions = new InputList<Inputs.FleetEc2InboundPermissionsArgs>());
+            get => _ec2InboundPermissions ?? (_ec2InboundPermissions = new InputList<Inputs.FleetEc2InboundPermissionArgs>());
             set => _ec2InboundPermissions = value;
         }
 
@@ -222,14 +222,14 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Description { get; set; }
 
         [Input("ec2InboundPermissions")]
-        private InputList<Inputs.FleetEc2InboundPermissionsGetArgs>? _ec2InboundPermissions;
+        private InputList<Inputs.FleetEc2InboundPermissionGetArgs>? _ec2InboundPermissions;
 
         /// <summary>
         /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         /// </summary>
-        public InputList<Inputs.FleetEc2InboundPermissionsGetArgs> Ec2InboundPermissions
+        public InputList<Inputs.FleetEc2InboundPermissionGetArgs> Ec2InboundPermissions
         {
-            get => _ec2InboundPermissions ?? (_ec2InboundPermissions = new InputList<Inputs.FleetEc2InboundPermissionsGetArgs>());
+            get => _ec2InboundPermissions ?? (_ec2InboundPermissions = new InputList<Inputs.FleetEc2InboundPermissionGetArgs>());
             set => _ec2InboundPermissions = value;
         }
 
@@ -292,337 +292,5 @@ namespace Pulumi.Aws.GameLift
         public FleetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FleetEc2InboundPermissionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Starting value for a range of allowed port numbers.
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        /// <summary>
-        /// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-        /// </summary>
-        [Input("ipRange", required: true)]
-        public Input<string> IpRange { get; set; } = null!;
-
-        /// <summary>
-        /// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public FleetEc2InboundPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class FleetEc2InboundPermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Starting value for a range of allowed port numbers.
-        /// </summary>
-        [Input("fromPort", required: true)]
-        public Input<int> FromPort { get; set; } = null!;
-
-        /// <summary>
-        /// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-        /// </summary>
-        [Input("ipRange", required: true)]
-        public Input<string> IpRange { get; set; } = null!;
-
-        /// <summary>
-        /// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
-        /// </summary>
-        [Input("toPort", required: true)]
-        public Input<int> ToPort { get; set; } = null!;
-
-        public FleetEc2InboundPermissionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FleetResourceCreationLimitPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum number of game sessions that an individual can create during the policy period.
-        /// </summary>
-        [Input("newGameSessionsPerCreator")]
-        public Input<int>? NewGameSessionsPerCreator { get; set; }
-
-        /// <summary>
-        /// Time span used in evaluating the resource creation limit policy.
-        /// </summary>
-        [Input("policyPeriodInMinutes")]
-        public Input<int>? PolicyPeriodInMinutes { get; set; }
-
-        public FleetResourceCreationLimitPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class FleetResourceCreationLimitPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum number of game sessions that an individual can create during the policy period.
-        /// </summary>
-        [Input("newGameSessionsPerCreator")]
-        public Input<int>? NewGameSessionsPerCreator { get; set; }
-
-        /// <summary>
-        /// Time span used in evaluating the resource creation limit policy.
-        /// </summary>
-        [Input("policyPeriodInMinutes")]
-        public Input<int>? PolicyPeriodInMinutes { get; set; }
-
-        public FleetResourceCreationLimitPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class FleetRuntimeConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-        /// </summary>
-        [Input("gameSessionActivationTimeoutSeconds")]
-        public Input<int>? GameSessionActivationTimeoutSeconds { get; set; }
-
-        /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
-        /// </summary>
-        [Input("maxConcurrentGameSessionActivations")]
-        public Input<int>? MaxConcurrentGameSessionActivations { get; set; }
-
-        [Input("serverProcesses")]
-        private InputList<FleetRuntimeConfigurationServerProcessesArgs>? _serverProcesses;
-
-        /// <summary>
-        /// Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        /// </summary>
-        public InputList<FleetRuntimeConfigurationServerProcessesArgs> ServerProcesses
-        {
-            get => _serverProcesses ?? (_serverProcesses = new InputList<FleetRuntimeConfigurationServerProcessesArgs>());
-            set => _serverProcesses = value;
-        }
-
-        public FleetRuntimeConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class FleetRuntimeConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-        /// </summary>
-        [Input("gameSessionActivationTimeoutSeconds")]
-        public Input<int>? GameSessionActivationTimeoutSeconds { get; set; }
-
-        /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
-        /// </summary>
-        [Input("maxConcurrentGameSessionActivations")]
-        public Input<int>? MaxConcurrentGameSessionActivations { get; set; }
-
-        [Input("serverProcesses")]
-        private InputList<FleetRuntimeConfigurationServerProcessesGetArgs>? _serverProcesses;
-
-        /// <summary>
-        /// Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        /// </summary>
-        public InputList<FleetRuntimeConfigurationServerProcessesGetArgs> ServerProcesses
-        {
-            get => _serverProcesses ?? (_serverProcesses = new InputList<FleetRuntimeConfigurationServerProcessesGetArgs>());
-            set => _serverProcesses = value;
-        }
-
-        public FleetRuntimeConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class FleetRuntimeConfigurationServerProcessesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Number of server processes using this configuration to run concurrently on an instance.
-        /// </summary>
-        [Input("concurrentExecutions", required: true)]
-        public Input<int> ConcurrentExecutions { get; set; } = null!;
-
-        /// <summary>
-        /// Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-        /// </summary>
-        [Input("launchPath", required: true)]
-        public Input<string> LaunchPath { get; set; } = null!;
-
-        /// <summary>
-        /// Optional list of parameters to pass to the server executable on launch.
-        /// </summary>
-        [Input("parameters")]
-        public Input<string>? Parameters { get; set; }
-
-        public FleetRuntimeConfigurationServerProcessesArgs()
-        {
-        }
-    }
-
-    public sealed class FleetRuntimeConfigurationServerProcessesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Number of server processes using this configuration to run concurrently on an instance.
-        /// </summary>
-        [Input("concurrentExecutions", required: true)]
-        public Input<int> ConcurrentExecutions { get; set; } = null!;
-
-        /// <summary>
-        /// Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-        /// </summary>
-        [Input("launchPath", required: true)]
-        public Input<string> LaunchPath { get; set; } = null!;
-
-        /// <summary>
-        /// Optional list of parameters to pass to the server executable on launch.
-        /// </summary>
-        [Input("parameters")]
-        public Input<string>? Parameters { get; set; }
-
-        public FleetRuntimeConfigurationServerProcessesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FleetEc2InboundPermissions
-    {
-        /// <summary>
-        /// Starting value for a range of allowed port numbers.
-        /// </summary>
-        public readonly int FromPort;
-        /// <summary>
-        /// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-        /// </summary>
-        public readonly string IpRange;
-        /// <summary>
-        /// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
-        /// </summary>
-        public readonly int ToPort;
-
-        [OutputConstructor]
-        private FleetEc2InboundPermissions(
-            int fromPort,
-            string ipRange,
-            string protocol,
-            int toPort)
-        {
-            FromPort = fromPort;
-            IpRange = ipRange;
-            Protocol = protocol;
-            ToPort = toPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class FleetResourceCreationLimitPolicy
-    {
-        /// <summary>
-        /// Maximum number of game sessions that an individual can create during the policy period.
-        /// </summary>
-        public readonly int? NewGameSessionsPerCreator;
-        /// <summary>
-        /// Time span used in evaluating the resource creation limit policy.
-        /// </summary>
-        public readonly int? PolicyPeriodInMinutes;
-
-        [OutputConstructor]
-        private FleetResourceCreationLimitPolicy(
-            int? newGameSessionsPerCreator,
-            int? policyPeriodInMinutes)
-        {
-            NewGameSessionsPerCreator = newGameSessionsPerCreator;
-            PolicyPeriodInMinutes = policyPeriodInMinutes;
-        }
-    }
-
-    [OutputType]
-    public sealed class FleetRuntimeConfiguration
-    {
-        /// <summary>
-        /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-        /// </summary>
-        public readonly int? GameSessionActivationTimeoutSeconds;
-        /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
-        /// </summary>
-        public readonly int? MaxConcurrentGameSessionActivations;
-        /// <summary>
-        /// Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        /// </summary>
-        public readonly ImmutableArray<FleetRuntimeConfigurationServerProcesses> ServerProcesses;
-
-        [OutputConstructor]
-        private FleetRuntimeConfiguration(
-            int? gameSessionActivationTimeoutSeconds,
-            int? maxConcurrentGameSessionActivations,
-            ImmutableArray<FleetRuntimeConfigurationServerProcesses> serverProcesses)
-        {
-            GameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
-            MaxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
-            ServerProcesses = serverProcesses;
-        }
-    }
-
-    [OutputType]
-    public sealed class FleetRuntimeConfigurationServerProcesses
-    {
-        /// <summary>
-        /// Number of server processes using this configuration to run concurrently on an instance.
-        /// </summary>
-        public readonly int ConcurrentExecutions;
-        /// <summary>
-        /// Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-        /// </summary>
-        public readonly string LaunchPath;
-        /// <summary>
-        /// Optional list of parameters to pass to the server executable on launch.
-        /// </summary>
-        public readonly string? Parameters;
-
-        [OutputConstructor]
-        private FleetRuntimeConfigurationServerProcesses(
-            int concurrentExecutions,
-            string launchPath,
-            string? parameters)
-        {
-            ConcurrentExecutions = concurrentExecutions;
-            LaunchPath = launchPath;
-            Parameters = parameters;
-        }
-    }
     }
 }

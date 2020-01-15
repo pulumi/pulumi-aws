@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "tfWAFRateBasedRule",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
  */
 export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> & GetRateBasedRuleResult {
@@ -51,9 +51,9 @@ export interface GetRateBasedRuleArgs {
  * A collection of values returned by getRateBasedRule.
  */
 export interface GetRateBasedRuleResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

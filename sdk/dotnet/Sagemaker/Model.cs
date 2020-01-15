@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
         [Output("containers")]
-        public Output<ImmutableArray<Outputs.ModelContainers>> Containers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ModelContainer>> Containers { get; private set; } = null!;
 
         /// <summary>
         /// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
@@ -110,14 +110,14 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class ModelArgs : Pulumi.ResourceArgs
     {
         [Input("containers")]
-        private InputList<Inputs.ModelContainersArgs>? _containers;
+        private InputList<Inputs.ModelContainerArgs>? _containers;
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
-        public InputList<Inputs.ModelContainersArgs> Containers
+        public InputList<Inputs.ModelContainerArgs> Containers
         {
-            get => _containers ?? (_containers = new InputList<Inputs.ModelContainersArgs>());
+            get => _containers ?? (_containers = new InputList<Inputs.ModelContainerArgs>());
             set => _containers = value;
         }
 
@@ -177,14 +177,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         [Input("containers")]
-        private InputList<Inputs.ModelContainersGetArgs>? _containers;
+        private InputList<Inputs.ModelContainerGetArgs>? _containers;
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
-        public InputList<Inputs.ModelContainersGetArgs> Containers
+        public InputList<Inputs.ModelContainerGetArgs> Containers
         {
-            get => _containers ?? (_containers = new InputList<Inputs.ModelContainersGetArgs>());
+            get => _containers ?? (_containers = new InputList<Inputs.ModelContainerGetArgs>());
             set => _containers = value;
         }
 
@@ -233,215 +233,5 @@ namespace Pulumi.Aws.Sagemaker
         public ModelState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ModelContainersArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelContainersArgs()
-        {
-        }
-    }
-
-    public sealed class ModelContainersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelContainersGetArgs()
-        {
-        }
-    }
-
-    public sealed class ModelPrimaryContainerArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelPrimaryContainerArgs()
-        {
-        }
-    }
-
-    public sealed class ModelPrimaryContainerGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerHostname")]
-        public Input<string>? ContainerHostname { get; set; }
-
-        [Input("environment")]
-        private InputMap<object>? _environment;
-        public InputMap<object> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<object>());
-            set => _environment = value;
-        }
-
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
-
-        [Input("modelDataUrl")]
-        public Input<string>? ModelDataUrl { get; set; }
-
-        public ModelPrimaryContainerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ModelVpcConfigArgs : Pulumi.ResourceArgs
-    {
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ModelVpcConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ModelVpcConfigGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("securityGroupIds", required: true)]
-        private InputList<string>? _securityGroupIds;
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ModelVpcConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ModelContainers
-    {
-        public readonly string? ContainerHostname;
-        public readonly ImmutableDictionary<string, object>? Environment;
-        public readonly string Image;
-        public readonly string? ModelDataUrl;
-
-        [OutputConstructor]
-        private ModelContainers(
-            string? containerHostname,
-            ImmutableDictionary<string, object>? environment,
-            string image,
-            string? modelDataUrl)
-        {
-            ContainerHostname = containerHostname;
-            Environment = environment;
-            Image = image;
-            ModelDataUrl = modelDataUrl;
-        }
-    }
-
-    [OutputType]
-    public sealed class ModelPrimaryContainer
-    {
-        public readonly string? ContainerHostname;
-        public readonly ImmutableDictionary<string, object>? Environment;
-        public readonly string Image;
-        public readonly string? ModelDataUrl;
-
-        [OutputConstructor]
-        private ModelPrimaryContainer(
-            string? containerHostname,
-            ImmutableDictionary<string, object>? environment,
-            string image,
-            string? modelDataUrl)
-        {
-            ContainerHostname = containerHostname;
-            Environment = environment;
-            Image = image;
-            ModelDataUrl = modelDataUrl;
-        }
-    }
-
-    [OutputType]
-    public sealed class ModelVpcConfig
-    {
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        public readonly ImmutableArray<string> Subnets;
-
-        [OutputConstructor]
-        private ModelVpcConfig(
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnets)
-        {
-            SecurityGroupIds = securityGroupIds;
-            Subnets = subnets;
-        }
-    }
     }
 }

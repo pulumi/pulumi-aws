@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetHostedZoneArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,25 +33,27 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
+
     [OutputType]
     public sealed class GetHostedZoneResult
     {
         /// <summary>
-        /// The region of the hosted zone.
-        /// </summary>
-        public readonly string? Region;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The region of the hosted zone.
+        /// </summary>
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetHostedZoneResult(
-            string? region,
-            string id)
+            string id,
+
+            string? region)
         {
-            Region = region;
             Id = id;
+            Region = region;
         }
     }
 }

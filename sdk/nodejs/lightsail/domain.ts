@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     domainName: "mydomain.com",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_domain.html.markdown.
  */
 export class Domain extends pulumi.CustomResource {

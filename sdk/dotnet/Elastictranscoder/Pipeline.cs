@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// The permissions for the `content_config` object. (documented below)
         /// </summary>
         [Output("contentConfigPermissions")]
-        public Output<ImmutableArray<Outputs.PipelineContentConfigPermissions>> ContentConfigPermissions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PipelineContentConfigPermission>> ContentConfigPermissions { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// The permissions for the `thumbnail_config` object. (documented below)
         /// </summary>
         [Output("thumbnailConfigPermissions")]
-        public Output<ImmutableArray<Outputs.PipelineThumbnailConfigPermissions>> ThumbnailConfigPermissions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PipelineThumbnailConfigPermission>> ThumbnailConfigPermissions { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,14 +137,14 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PipelineContentConfigArgs>? ContentConfig { get; set; }
 
         [Input("contentConfigPermissions")]
-        private InputList<Inputs.PipelineContentConfigPermissionsArgs>? _contentConfigPermissions;
+        private InputList<Inputs.PipelineContentConfigPermissionArgs>? _contentConfigPermissions;
 
         /// <summary>
         /// The permissions for the `content_config` object. (documented below)
         /// </summary>
-        public InputList<Inputs.PipelineContentConfigPermissionsArgs> ContentConfigPermissions
+        public InputList<Inputs.PipelineContentConfigPermissionArgs> ContentConfigPermissions
         {
-            get => _contentConfigPermissions ?? (_contentConfigPermissions = new InputList<Inputs.PipelineContentConfigPermissionsArgs>());
+            get => _contentConfigPermissions ?? (_contentConfigPermissions = new InputList<Inputs.PipelineContentConfigPermissionArgs>());
             set => _contentConfigPermissions = value;
         }
 
@@ -185,14 +185,14 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PipelineThumbnailConfigArgs>? ThumbnailConfig { get; set; }
 
         [Input("thumbnailConfigPermissions")]
-        private InputList<Inputs.PipelineThumbnailConfigPermissionsArgs>? _thumbnailConfigPermissions;
+        private InputList<Inputs.PipelineThumbnailConfigPermissionArgs>? _thumbnailConfigPermissions;
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
         /// </summary>
-        public InputList<Inputs.PipelineThumbnailConfigPermissionsArgs> ThumbnailConfigPermissions
+        public InputList<Inputs.PipelineThumbnailConfigPermissionArgs> ThumbnailConfigPermissions
         {
-            get => _thumbnailConfigPermissions ?? (_thumbnailConfigPermissions = new InputList<Inputs.PipelineThumbnailConfigPermissionsArgs>());
+            get => _thumbnailConfigPermissions ?? (_thumbnailConfigPermissions = new InputList<Inputs.PipelineThumbnailConfigPermissionArgs>());
             set => _thumbnailConfigPermissions = value;
         }
 
@@ -219,14 +219,14 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PipelineContentConfigGetArgs>? ContentConfig { get; set; }
 
         [Input("contentConfigPermissions")]
-        private InputList<Inputs.PipelineContentConfigPermissionsGetArgs>? _contentConfigPermissions;
+        private InputList<Inputs.PipelineContentConfigPermissionGetArgs>? _contentConfigPermissions;
 
         /// <summary>
         /// The permissions for the `content_config` object. (documented below)
         /// </summary>
-        public InputList<Inputs.PipelineContentConfigPermissionsGetArgs> ContentConfigPermissions
+        public InputList<Inputs.PipelineContentConfigPermissionGetArgs> ContentConfigPermissions
         {
-            get => _contentConfigPermissions ?? (_contentConfigPermissions = new InputList<Inputs.PipelineContentConfigPermissionsGetArgs>());
+            get => _contentConfigPermissions ?? (_contentConfigPermissions = new InputList<Inputs.PipelineContentConfigPermissionGetArgs>());
             set => _contentConfigPermissions = value;
         }
 
@@ -267,423 +267,19 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PipelineThumbnailConfigGetArgs>? ThumbnailConfig { get; set; }
 
         [Input("thumbnailConfigPermissions")]
-        private InputList<Inputs.PipelineThumbnailConfigPermissionsGetArgs>? _thumbnailConfigPermissions;
+        private InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs>? _thumbnailConfigPermissions;
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
         /// </summary>
-        public InputList<Inputs.PipelineThumbnailConfigPermissionsGetArgs> ThumbnailConfigPermissions
+        public InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs> ThumbnailConfigPermissions
         {
-            get => _thumbnailConfigPermissions ?? (_thumbnailConfigPermissions = new InputList<Inputs.PipelineThumbnailConfigPermissionsGetArgs>());
+            get => _thumbnailConfigPermissions ?? (_thumbnailConfigPermissions = new InputList<Inputs.PipelineThumbnailConfigPermissionGetArgs>());
             set => _thumbnailConfigPermissions = value;
         }
 
         public PipelineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PipelineContentConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-        /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        /// </summary>
-        [Input("storageClass")]
-        public Input<string>? StorageClass { get; set; }
-
-        public PipelineContentConfigArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineContentConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-        /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        /// </summary>
-        [Input("storageClass")]
-        public Input<string>? StorageClass { get; set; }
-
-        public PipelineContentConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineContentConfigPermissionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("accesses")]
-        private InputList<string>? _accesses;
-
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-        /// </summary>
-        public InputList<string> Accesses
-        {
-            get => _accesses ?? (_accesses = new InputList<string>());
-            set => _accesses = value;
-        }
-
-        /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
-        /// </summary>
-        [Input("grantee")]
-        public Input<string>? Grantee { get; set; }
-
-        /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        /// </summary>
-        [Input("granteeType")]
-        public Input<string>? GranteeType { get; set; }
-
-        public PipelineContentConfigPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineContentConfigPermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accesses")]
-        private InputList<string>? _accesses;
-
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-        /// </summary>
-        public InputList<string> Accesses
-        {
-            get => _accesses ?? (_accesses = new InputList<string>());
-            set => _accesses = value;
-        }
-
-        /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
-        /// </summary>
-        [Input("grantee")]
-        public Input<string>? Grantee { get; set; }
-
-        /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        /// </summary>
-        [Input("granteeType")]
-        public Input<string>? GranteeType { get; set; }
-
-        public PipelineContentConfigPermissionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineNotificationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-        /// </summary>
-        [Input("completed")]
-        public Input<string>? Completed { get; set; }
-
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-        /// </summary>
-        [Input("error")]
-        public Input<string>? Error { get; set; }
-
-        /// <summary>
-        /// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-        /// </summary>
-        [Input("progressing")]
-        public Input<string>? Progressing { get; set; }
-
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        /// </summary>
-        [Input("warning")]
-        public Input<string>? Warning { get; set; }
-
-        public PipelineNotificationsArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineNotificationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-        /// </summary>
-        [Input("completed")]
-        public Input<string>? Completed { get; set; }
-
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-        /// </summary>
-        [Input("error")]
-        public Input<string>? Error { get; set; }
-
-        /// <summary>
-        /// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-        /// </summary>
-        [Input("progressing")]
-        public Input<string>? Progressing { get; set; }
-
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        /// </summary>
-        [Input("warning")]
-        public Input<string>? Warning { get; set; }
-
-        public PipelineNotificationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineThumbnailConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-        /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        /// </summary>
-        [Input("storageClass")]
-        public Input<string>? StorageClass { get; set; }
-
-        public PipelineThumbnailConfigArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineThumbnailConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-        /// </summary>
-        [Input("bucket")]
-        public Input<string>? Bucket { get; set; }
-
-        /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        /// </summary>
-        [Input("storageClass")]
-        public Input<string>? StorageClass { get; set; }
-
-        public PipelineThumbnailConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineThumbnailConfigPermissionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("accesses")]
-        private InputList<string>? _accesses;
-
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-        /// </summary>
-        public InputList<string> Accesses
-        {
-            get => _accesses ?? (_accesses = new InputList<string>());
-            set => _accesses = value;
-        }
-
-        /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
-        /// </summary>
-        [Input("grantee")]
-        public Input<string>? Grantee { get; set; }
-
-        /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        /// </summary>
-        [Input("granteeType")]
-        public Input<string>? GranteeType { get; set; }
-
-        public PipelineThumbnailConfigPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class PipelineThumbnailConfigPermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accesses")]
-        private InputList<string>? _accesses;
-
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-        /// </summary>
-        public InputList<string> Accesses
-        {
-            get => _accesses ?? (_accesses = new InputList<string>());
-            set => _accesses = value;
-        }
-
-        /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
-        /// </summary>
-        [Input("grantee")]
-        public Input<string>? Grantee { get; set; }
-
-        /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        /// </summary>
-        [Input("granteeType")]
-        public Input<string>? GranteeType { get; set; }
-
-        public PipelineThumbnailConfigPermissionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PipelineContentConfig
-    {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-        /// </summary>
-        public readonly string Bucket;
-        /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        /// </summary>
-        public readonly string? StorageClass;
-
-        [OutputConstructor]
-        private PipelineContentConfig(
-            string bucket,
-            string? storageClass)
-        {
-            Bucket = bucket;
-            StorageClass = storageClass;
-        }
-    }
-
-    [OutputType]
-    public sealed class PipelineContentConfigPermissions
-    {
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-        /// </summary>
-        public readonly ImmutableArray<string> Accesses;
-        /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
-        /// </summary>
-        public readonly string? Grantee;
-        /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        /// </summary>
-        public readonly string? GranteeType;
-
-        [OutputConstructor]
-        private PipelineContentConfigPermissions(
-            ImmutableArray<string> accesses,
-            string? grantee,
-            string? granteeType)
-        {
-            Accesses = accesses;
-            Grantee = grantee;
-            GranteeType = granteeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class PipelineNotifications
-    {
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-        /// </summary>
-        public readonly string? Completed;
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-        /// </summary>
-        public readonly string? Error;
-        /// <summary>
-        /// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-        /// </summary>
-        public readonly string? Progressing;
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        /// </summary>
-        public readonly string? Warning;
-
-        [OutputConstructor]
-        private PipelineNotifications(
-            string? completed,
-            string? error,
-            string? progressing,
-            string? warning)
-        {
-            Completed = completed;
-            Error = error;
-            Progressing = progressing;
-            Warning = warning;
-        }
-    }
-
-    [OutputType]
-    public sealed class PipelineThumbnailConfig
-    {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-        /// </summary>
-        public readonly string Bucket;
-        /// <summary>
-        /// The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        /// </summary>
-        public readonly string? StorageClass;
-
-        [OutputConstructor]
-        private PipelineThumbnailConfig(
-            string bucket,
-            string? storageClass)
-        {
-            Bucket = bucket;
-            StorageClass = storageClass;
-        }
-    }
-
-    [OutputType]
-    public sealed class PipelineThumbnailConfigPermissions
-    {
-        /// <summary>
-        /// The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-        /// </summary>
-        public readonly ImmutableArray<string> Accesses;
-        /// <summary>
-        /// The AWS user or group that you want to have access to thumbnail files.
-        /// </summary>
-        public readonly string? Grantee;
-        /// <summary>
-        /// Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        /// </summary>
-        public readonly string? GranteeType;
-
-        [OutputConstructor]
-        private PipelineThumbnailConfigPermissions(
-            ImmutableArray<string> accesses,
-            string? grantee,
-            string? granteeType)
-        {
-            Accesses = accesses;
-            Grantee = grantee;
-            GranteeType = granteeType;
-        }
-    }
     }
 }

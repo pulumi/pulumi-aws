@@ -141,7 +141,6 @@ namespace Pulumi.Aws.ElastiCache
 
         public SubnetGroupState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

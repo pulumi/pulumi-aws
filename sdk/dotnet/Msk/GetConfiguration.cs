@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Msk
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("aws:msk/getConfiguration:getConfiguration", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Msk
         }
     }
 
+
     [OutputType]
     public sealed class GetConfigurationResult
     {
@@ -43,6 +45,10 @@ namespace Pulumi.Aws.Msk
         /// Description of the configuration.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// List of Apache Kafka versions which can use this configuration.
         /// </summary>
@@ -56,28 +62,30 @@ namespace Pulumi.Aws.Msk
         /// Contents of the server.properties file.
         /// </summary>
         public readonly string ServerProperties;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetConfigurationResult(
             string arn,
+
             string description,
+
+            string id,
+
             ImmutableArray<string> kafkaVersions,
+
             int latestRevision,
+
             string name,
-            string serverProperties,
-            string id)
+
+            string serverProperties)
         {
             Arn = arn;
             Description = description;
+            Id = id;
             KafkaVersions = kafkaVersions;
             LatestRevision = latestRevision;
             Name = name;
             ServerProperties = serverProperties;
-            Id = id;
         }
     }
 }

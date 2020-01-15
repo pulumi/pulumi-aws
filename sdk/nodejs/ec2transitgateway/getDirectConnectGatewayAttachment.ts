@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     transitGatewayId: aws_ec2_transit_gateway_exampleId,
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_dx_gateway_attachment.html.markdown.
  */
 export function getDirectConnectGatewayAttachment(args: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> & GetDirectConnectGatewayAttachmentResult {
@@ -63,12 +63,12 @@ export interface GetDirectConnectGatewayAttachmentArgs {
 export interface GetDirectConnectGatewayAttachmentResult {
     readonly dxGatewayId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Key-value tags for the EC2 Transit Gateway Attachment
      */
     readonly tags: {[key: string]: any};
     readonly transitGatewayId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

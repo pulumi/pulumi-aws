@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "tfWAFIPSet",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_ipset.html.markdown.
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> & GetIpsetResult {
@@ -51,9 +51,9 @@ export interface GetIpsetArgs {
  * A collection of values returned by getIpset.
  */
 export interface GetIpsetResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

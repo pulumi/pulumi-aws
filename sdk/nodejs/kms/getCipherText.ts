@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * `,
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> & GetCipherTextResult {
@@ -81,10 +81,10 @@ export interface GetCipherTextResult {
      */
     readonly ciphertextBlob: string;
     readonly context?: {[key: string]: string};
-    readonly keyId: string;
-    readonly plaintext: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyId: string;
+    readonly plaintext: string;
 }

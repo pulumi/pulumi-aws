@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetEventCategoriesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -27,6 +28,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetEventCategoriesResult
     {
@@ -34,21 +36,23 @@ namespace Pulumi.Aws.Rds
         /// A list of the event categories.
         /// </summary>
         public readonly ImmutableArray<string> EventCategories;
-        public readonly string? SourceType;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? SourceType;
 
         [OutputConstructor]
         private GetEventCategoriesResult(
             ImmutableArray<string> eventCategories,
-            string? sourceType,
-            string id)
+
+            string id,
+
+            string? sourceType)
         {
             EventCategories = eventCategories;
-            SourceType = sourceType;
             Id = id;
+            SourceType = sourceType;
         }
     }
 }

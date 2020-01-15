@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// below in Option Settings
         /// </summary>
         [Output("settings")]
-        public Output<ImmutableArray<Outputs.ConfigurationTemplateSettings>> Settings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConfigurationTemplateSetting>> Settings { get; private set; } = null!;
 
         /// <summary>
         /// A solution stack to base your Template
@@ -136,16 +136,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Name { get; set; }
 
         [Input("settings")]
-        private InputList<Inputs.ConfigurationTemplateSettingsArgs>? _settings;
+        private InputList<Inputs.ConfigurationTemplateSettingArgs>? _settings;
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        public InputList<Inputs.ConfigurationTemplateSettingsArgs> Settings
+        public InputList<Inputs.ConfigurationTemplateSettingArgs> Settings
         {
-            get => _settings ?? (_settings = new InputList<Inputs.ConfigurationTemplateSettingsArgs>());
+            get => _settings ?? (_settings = new InputList<Inputs.ConfigurationTemplateSettingArgs>());
             set => _settings = value;
         }
 
@@ -188,16 +188,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? Name { get; set; }
 
         [Input("settings")]
-        private InputList<Inputs.ConfigurationTemplateSettingsGetArgs>? _settings;
+        private InputList<Inputs.ConfigurationTemplateSettingGetArgs>? _settings;
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        public InputList<Inputs.ConfigurationTemplateSettingsGetArgs> Settings
+        public InputList<Inputs.ConfigurationTemplateSettingGetArgs> Settings
         {
-            get => _settings ?? (_settings = new InputList<Inputs.ConfigurationTemplateSettingsGetArgs>());
+            get => _settings ?? (_settings = new InputList<Inputs.ConfigurationTemplateSettingGetArgs>());
             set => _settings = value;
         }
 
@@ -211,82 +211,5 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ConfigurationTemplateState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ConfigurationTemplateSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique name for this Template.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ConfigurationTemplateSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class ConfigurationTemplateSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique name for this Template.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ConfigurationTemplateSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ConfigurationTemplateSettings
-    {
-        /// <summary>
-        /// A unique name for this Template.
-        /// </summary>
-        public readonly string Name;
-        public readonly string Namespace;
-        public readonly string? Resource;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ConfigurationTemplateSettings(
-            string name,
-            string @namespace,
-            string? resource,
-            string value)
-        {
-            Name = name;
-            Namespace = @namespace;
-            Resource = resource;
-            Value = value;
-        }
-    }
     }
 }

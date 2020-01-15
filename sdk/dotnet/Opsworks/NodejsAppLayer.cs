@@ -76,7 +76,7 @@ namespace Pulumi.Aws.OpsWorks
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Output("ebsVolumes")]
-        public Output<ImmutableArray<Outputs.NodejsAppLayerEbsVolumes>> EbsVolumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NodejsAppLayerEbsVolume>> EbsVolumes { get; private set; } = null!;
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
@@ -261,14 +261,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.NodejsAppLayerEbsVolumesArgs>? _ebsVolumes;
+        private InputList<Inputs.NodejsAppLayerEbsVolumeArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.NodejsAppLayerEbsVolumesArgs> EbsVolumes
+        public InputList<Inputs.NodejsAppLayerEbsVolumeArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.NodejsAppLayerEbsVolumesArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.NodejsAppLayerEbsVolumeArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -422,14 +422,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DrainElbOnShutdown { get; set; }
 
         [Input("ebsVolumes")]
-        private InputList<Inputs.NodejsAppLayerEbsVolumesGetArgs>? _ebsVolumes;
+        private InputList<Inputs.NodejsAppLayerEbsVolumeGetArgs>? _ebsVolumes;
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        public InputList<Inputs.NodejsAppLayerEbsVolumesGetArgs> EbsVolumes
+        public InputList<Inputs.NodejsAppLayerEbsVolumeGetArgs> EbsVolumes
         {
-            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.NodejsAppLayerEbsVolumesGetArgs>());
+            get => _ebsVolumes ?? (_ebsVolumes = new InputList<Inputs.NodejsAppLayerEbsVolumeGetArgs>());
             set => _ebsVolumes = value;
         }
 
@@ -490,100 +490,5 @@ namespace Pulumi.Aws.OpsWorks
         public NodejsAppLayerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NodejsAppLayerEbsVolumesArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public NodejsAppLayerEbsVolumesArgs()
-        {
-        }
-    }
-
-    public sealed class NodejsAppLayerEbsVolumesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("mountPoint", required: true)]
-        public Input<string> MountPoint { get; set; } = null!;
-
-        [Input("numberOfDisks", required: true)]
-        public Input<int> NumberOfDisks { get; set; } = null!;
-
-        [Input("raidLevel")]
-        public Input<string>? RaidLevel { get; set; }
-
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public NodejsAppLayerEbsVolumesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NodejsAppLayerEbsVolumes
-    {
-        public readonly bool? Encrypted;
-        public readonly int? Iops;
-        public readonly string MountPoint;
-        public readonly int NumberOfDisks;
-        public readonly string? RaidLevel;
-        public readonly int Size;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private NodejsAppLayerEbsVolumes(
-            bool? encrypted,
-            int? iops,
-            string mountPoint,
-            int numberOfDisks,
-            string? raidLevel,
-            int size,
-            string? type)
-        {
-            Encrypted = encrypted;
-            Iops = iops;
-            MountPoint = mountPoint;
-            NumberOfDisks = numberOfDisks;
-            RaidLevel = raidLevel;
-            Size = size;
-            Type = type;
-        }
-    }
     }
 }

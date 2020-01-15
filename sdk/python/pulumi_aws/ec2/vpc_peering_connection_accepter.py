@@ -18,12 +18,12 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     """
     A configuration block that describes [VPC Peering Connection]
     (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the accepter VPC.
-    
-      * `allowClassicLinkToRemoteVpc` (`bool`) - Indicates whether a local ClassicLink connection can communicate
+
+      * `allow_classic_link_to_remote_vpc` (`bool`) - Indicates whether a local ClassicLink connection can communicate
         with the peer VPC over the VPC Peering Connection.
-      * `allowRemoteVpcDnsResolution` (`bool`) - Indicates whether a local VPC can resolve public DNS hostnames to
+      * `allow_remote_vpc_dns_resolution` (`bool`) - Indicates whether a local VPC can resolve public DNS hostnames to
         private IP addresses when queried from instances in a peer VPC.
-      * `allowVpcToRemoteClassicLink` (`bool`) - Indicates whether a local VPC can communicate with a ClassicLink
+      * `allow_vpc_to_remote_classic_link` (`bool`) - Indicates whether a local VPC can communicate with a ClassicLink
         connection in the peer VPC over the VPC Peering Connection.
     """
     auto_accept: pulumi.Output[bool]
@@ -46,12 +46,12 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     """
     A configuration block that describes [VPC Peering Connection]
     (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
-    
-      * `allowClassicLinkToRemoteVpc` (`bool`) - Indicates whether a local ClassicLink connection can communicate
+
+      * `allow_classic_link_to_remote_vpc` (`bool`) - Indicates whether a local ClassicLink connection can communicate
         with the peer VPC over the VPC Peering Connection.
-      * `allowRemoteVpcDnsResolution` (`bool`) - Indicates whether a local VPC can resolve public DNS hostnames to
+      * `allow_remote_vpc_dns_resolution` (`bool`) - Indicates whether a local VPC can resolve public DNS hostnames to
         private IP addresses when queried from instances in a peer VPC.
-      * `allowVpcToRemoteClassicLink` (`bool`) - Indicates whether a local VPC can communicate with a ClassicLink
+      * `allow_vpc_to_remote_classic_link` (`bool`) - Indicates whether a local VPC can communicate with a ClassicLink
         connection in the peer VPC over the VPC Peering Connection.
     """
     tags: pulumi.Output[dict]
@@ -69,14 +69,16 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, accepter=None, auto_accept=None, requester=None, tags=None, vpc_peering_connection_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage the accepter's side of a VPC Peering Connection.
-        
+
         When a cross-account (requester's AWS account differs from the accepter's AWS account) or an inter-region
         VPC Peering Connection is created, a VPC Peering Connection resource is automatically created in the
         accepter's account.
         The requester can use the `ec2.VpcPeeringConnection` resource to manage its side of the connection
         and the accepter can use the `ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
         connection into management.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] accepter: A configuration block that describes [VPC Peering Connection]
@@ -86,26 +88,24 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
                (http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide) options set for the requester VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
-        
+
         The **accepter** object supports the following:
-        
-          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
+
+          * `allow_classic_link_to_remote_vpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
             with the peer VPC over the VPC Peering Connection.
-          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
+          * `allow_remote_vpc_dns_resolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
             private IP addresses when queried from instances in a peer VPC.
-          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
-            connection in the peer VPC over the VPC Peering Connection.
-        
-        The **requester** object supports the following:
-        
-          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
-            with the peer VPC over the VPC Peering Connection.
-          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
-            private IP addresses when queried from instances in a peer VPC.
-          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
+          * `allow_vpc_to_remote_classic_link` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
             connection in the peer VPC over the VPC Peering Connection.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
+        The **requester** object supports the following:
+
+          * `allow_classic_link_to_remote_vpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
+            with the peer VPC over the VPC Peering Connection.
+          * `allow_remote_vpc_dns_resolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
+            private IP addresses when queried from instances in a peer VPC.
+          * `allow_vpc_to_remote_classic_link` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
+            connection in the peer VPC over the VPC Peering Connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +147,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         """
         Get an existing VpcPeeringConnectionAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,30 +163,29 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the accepter VPC.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
-        
+
         The **accepter** object supports the following:
-        
-          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
+
+          * `allow_classic_link_to_remote_vpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
             with the peer VPC over the VPC Peering Connection.
-          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
+          * `allow_remote_vpc_dns_resolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
             private IP addresses when queried from instances in a peer VPC.
-          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
-            connection in the peer VPC over the VPC Peering Connection.
-        
-        The **requester** object supports the following:
-        
-          * `allowClassicLinkToRemoteVpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
-            with the peer VPC over the VPC Peering Connection.
-          * `allowRemoteVpcDnsResolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
-            private IP addresses when queried from instances in a peer VPC.
-          * `allowVpcToRemoteClassicLink` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
+          * `allow_vpc_to_remote_classic_link` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
             connection in the peer VPC over the VPC Peering Connection.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_peering_connection_accepter.html.markdown.
+        The **requester** object supports the following:
+
+          * `allow_classic_link_to_remote_vpc` (`pulumi.Input[bool]`) - Indicates whether a local ClassicLink connection can communicate
+            with the peer VPC over the VPC Peering Connection.
+          * `allow_remote_vpc_dns_resolution` (`pulumi.Input[bool]`) - Indicates whether a local VPC can resolve public DNS hostnames to
+            private IP addresses when queried from instances in a peer VPC.
+          * `allow_vpc_to_remote_classic_link` (`pulumi.Input[bool]`) - Indicates whether a local VPC can communicate with a ClassicLink
+            connection in the peer VPC over the VPC Peering Connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accept_status"] = accept_status
         __props__["accepter"] = accepter
         __props__["auto_accept"] = auto_accept

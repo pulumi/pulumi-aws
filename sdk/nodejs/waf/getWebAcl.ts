@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "tfWAFWebACL",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> & GetWebAclResult {
@@ -51,9 +51,9 @@ export interface GetWebAclArgs {
  * A collection of values returned by getWebAcl.
  */
 export interface GetWebAclResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafRegional
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
         [Output("xssMatchTuples")]
-        public Output<ImmutableArray<Outputs.XssMatchSetXssMatchTuples>> XssMatchTuples { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.XssMatchSetXssMatchTuple>> XssMatchTuples { get; private set; } = null!;
 
 
         /// <summary>
@@ -80,14 +80,14 @@ namespace Pulumi.Aws.WafRegional
         public Input<string>? Name { get; set; }
 
         [Input("xssMatchTuples")]
-        private InputList<Inputs.XssMatchSetXssMatchTuplesArgs>? _xssMatchTuples;
+        private InputList<Inputs.XssMatchSetXssMatchTupleArgs>? _xssMatchTuples;
 
         /// <summary>
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
-        public InputList<Inputs.XssMatchSetXssMatchTuplesArgs> XssMatchTuples
+        public InputList<Inputs.XssMatchSetXssMatchTupleArgs> XssMatchTuples
         {
-            get => _xssMatchTuples ?? (_xssMatchTuples = new InputList<Inputs.XssMatchSetXssMatchTuplesArgs>());
+            get => _xssMatchTuples ?? (_xssMatchTuples = new InputList<Inputs.XssMatchSetXssMatchTupleArgs>());
             set => _xssMatchTuples = value;
         }
 
@@ -105,147 +105,19 @@ namespace Pulumi.Aws.WafRegional
         public Input<string>? Name { get; set; }
 
         [Input("xssMatchTuples")]
-        private InputList<Inputs.XssMatchSetXssMatchTuplesGetArgs>? _xssMatchTuples;
+        private InputList<Inputs.XssMatchSetXssMatchTupleGetArgs>? _xssMatchTuples;
 
         /// <summary>
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
-        public InputList<Inputs.XssMatchSetXssMatchTuplesGetArgs> XssMatchTuples
+        public InputList<Inputs.XssMatchSetXssMatchTupleGetArgs> XssMatchTuples
         {
-            get => _xssMatchTuples ?? (_xssMatchTuples = new InputList<Inputs.XssMatchSetXssMatchTuplesGetArgs>());
+            get => _xssMatchTuples ?? (_xssMatchTuples = new InputList<Inputs.XssMatchSetXssMatchTupleGetArgs>());
             set => _xssMatchTuples = value;
         }
 
         public XssMatchSetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class XssMatchSetXssMatchTuplesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies where in a web request to look for cross-site scripting attacks.
-        /// </summary>
-        [Input("fieldToMatch", required: true)]
-        public Input<XssMatchSetXssMatchTuplesFieldToMatchArgs> FieldToMatch { get; set; } = null!;
-
-        /// <summary>
-        /// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-        /// </summary>
-        [Input("textTransformation", required: true)]
-        public Input<string> TextTransformation { get; set; } = null!;
-
-        public XssMatchSetXssMatchTuplesArgs()
-        {
-        }
-    }
-
-    public sealed class XssMatchSetXssMatchTuplesFieldToMatchArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public XssMatchSetXssMatchTuplesFieldToMatchArgs()
-        {
-        }
-    }
-
-    public sealed class XssMatchSetXssMatchTuplesFieldToMatchGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public XssMatchSetXssMatchTuplesFieldToMatchGetArgs()
-        {
-        }
-    }
-
-    public sealed class XssMatchSetXssMatchTuplesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies where in a web request to look for cross-site scripting attacks.
-        /// </summary>
-        [Input("fieldToMatch", required: true)]
-        public Input<XssMatchSetXssMatchTuplesFieldToMatchGetArgs> FieldToMatch { get; set; } = null!;
-
-        /// <summary>
-        /// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-        /// </summary>
-        [Input("textTransformation", required: true)]
-        public Input<string> TextTransformation { get; set; } = null!;
-
-        public XssMatchSetXssMatchTuplesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class XssMatchSetXssMatchTuples
-    {
-        /// <summary>
-        /// Specifies where in a web request to look for cross-site scripting attacks.
-        /// </summary>
-        public readonly XssMatchSetXssMatchTuplesFieldToMatch FieldToMatch;
-        /// <summary>
-        /// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-        /// </summary>
-        public readonly string TextTransformation;
-
-        [OutputConstructor]
-        private XssMatchSetXssMatchTuples(
-            XssMatchSetXssMatchTuplesFieldToMatch fieldToMatch,
-            string textTransformation)
-        {
-            FieldToMatch = fieldToMatch;
-            TextTransformation = textTransformation;
-        }
-    }
-
-    [OutputType]
-    public sealed class XssMatchSetXssMatchTuplesFieldToMatch
-    {
-        /// <summary>
-        /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-        /// </summary>
-        public readonly string? Data;
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private XssMatchSetXssMatchTuplesFieldToMatch(
-            string? data,
-            string type)
-        {
-            Data = data;
-            Type = type;
-        }
-    }
     }
 }

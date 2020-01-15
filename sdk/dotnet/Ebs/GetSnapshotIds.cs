@@ -20,19 +20,20 @@ namespace Pulumi.Aws.Ebs
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSnapshotIdsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSnapshotIdsFiltersArgs>? _filters;
+        private List<Inputs.GetSnapshotIdsFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-volumes in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetSnapshotIdsFiltersArgs> Filters
+        public List<Inputs.GetSnapshotIdsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSnapshotIdsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSnapshotIdsFilterArgs>());
             set => _filters = value;
         }
 
@@ -65,73 +66,36 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotIdsResult
     {
-        public readonly ImmutableArray<Outputs.GetSnapshotIdsFiltersResult> Filters;
-        public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableArray<string> Owners;
-        public readonly ImmutableArray<string> RestorableByUserIds;
+        public readonly ImmutableArray<Outputs.GetSnapshotIdsFilterResult> Filters;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<string> Ids;
+        public readonly ImmutableArray<string> Owners;
+        public readonly ImmutableArray<string> RestorableByUserIds;
 
         [OutputConstructor]
         private GetSnapshotIdsResult(
-            ImmutableArray<Outputs.GetSnapshotIdsFiltersResult> filters,
+            ImmutableArray<Outputs.GetSnapshotIdsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableArray<string> owners,
-            ImmutableArray<string> restorableByUserIds,
-            string id)
+
+            ImmutableArray<string> restorableByUserIds)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Owners = owners;
             RestorableByUserIds = restorableByUserIds;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSnapshotIdsFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSnapshotIdsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSnapshotIdsFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSnapshotIdsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

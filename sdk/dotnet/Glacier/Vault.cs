@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Glacier
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
         [Output("notifications")]
-        public Output<ImmutableArray<Outputs.VaultNotifications>> Notifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VaultNotification>> Notifications { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -114,14 +114,14 @@ namespace Pulumi.Aws.Glacier
         public Input<string>? Name { get; set; }
 
         [Input("notifications")]
-        private InputList<Inputs.VaultNotificationsArgs>? _notifications;
+        private InputList<Inputs.VaultNotificationArgs>? _notifications;
 
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        public InputList<Inputs.VaultNotificationsArgs> Notifications
+        public InputList<Inputs.VaultNotificationArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationsArgs>());
+            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationArgs>());
             set => _notifications = value;
         }
 
@@ -170,14 +170,14 @@ namespace Pulumi.Aws.Glacier
         public Input<string>? Name { get; set; }
 
         [Input("notifications")]
-        private InputList<Inputs.VaultNotificationsGetArgs>? _notifications;
+        private InputList<Inputs.VaultNotificationGetArgs>? _notifications;
 
         /// <summary>
         /// The notifications for the Vault. Fields documented below.
         /// </summary>
-        public InputList<Inputs.VaultNotificationsGetArgs> Notifications
+        public InputList<Inputs.VaultNotificationGetArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationsGetArgs>());
+            get => _notifications ?? (_notifications = new InputList<Inputs.VaultNotificationGetArgs>());
             set => _notifications = value;
         }
 
@@ -196,85 +196,5 @@ namespace Pulumi.Aws.Glacier
         public VaultState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VaultNotificationsArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
-        [Input("snsTopic", required: true)]
-        public Input<string> SnsTopic { get; set; } = null!;
-
-        public VaultNotificationsArgs()
-        {
-        }
-    }
-
-    public sealed class VaultNotificationsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("events", required: true)]
-        private InputList<string>? _events;
-
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
-        public InputList<string> Events
-        {
-            get => _events ?? (_events = new InputList<string>());
-            set => _events = value;
-        }
-
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
-        [Input("snsTopic", required: true)]
-        public Input<string> SnsTopic { get; set; } = null!;
-
-        public VaultNotificationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VaultNotifications
-    {
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
-        public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
-        public readonly string SnsTopic;
-
-        [OutputConstructor]
-        private VaultNotifications(
-            ImmutableArray<string> events,
-            string snsTopic)
-        {
-            Events = events;
-            SnsTopic = snsTopic;
-        }
-    }
     }
 }

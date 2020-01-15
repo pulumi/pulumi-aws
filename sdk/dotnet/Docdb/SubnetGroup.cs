@@ -197,7 +197,6 @@ namespace Pulumi.Aws.DocDB
 
         public SubnetGroupState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

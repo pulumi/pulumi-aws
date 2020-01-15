@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "ecr-repository",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> & GetRepositoryResult {
@@ -57,6 +57,10 @@ export interface GetRepositoryResult {
      * Full ARN of the repository.
      */
     readonly arn: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The registry ID where the repository was created.
@@ -70,8 +74,4 @@ export interface GetRepositoryResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElastiCache
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetReplicationGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.ElastiCache
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetReplicationGroupResult
@@ -47,6 +49,10 @@ namespace Pulumi.Aws.ElastiCache
         /// The configuration endpoint address to allow host discovery.
         /// </summary>
         public readonly string ConfigurationEndpointAddress;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The identifiers of all the nodes that are part of this replication group.
         /// </summary>
@@ -83,30 +89,39 @@ namespace Pulumi.Aws.ElastiCache
         /// The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         /// </summary>
         public readonly string SnapshotWindow;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetReplicationGroupResult(
             bool authTokenEnabled,
+
             bool automaticFailoverEnabled,
+
             string configurationEndpointAddress,
+
+            string id,
+
             ImmutableArray<string> memberClusters,
+
             string nodeType,
+
             int numberCacheClusters,
+
             int port,
+
             string primaryEndpointAddress,
+
             string replicationGroupDescription,
+
             string replicationGroupId,
+
             int snapshotRetentionLimit,
-            string snapshotWindow,
-            string id)
+
+            string snapshotWindow)
         {
             AuthTokenEnabled = authTokenEnabled;
             AutomaticFailoverEnabled = automaticFailoverEnabled;
             ConfigurationEndpointAddress = configurationEndpointAddress;
+            Id = id;
             MemberClusters = memberClusters;
             NodeType = nodeType;
             NumberCacheClusters = numberCacheClusters;
@@ -116,7 +131,6 @@ namespace Pulumi.Aws.ElastiCache
             ReplicationGroupId = replicationGroupId;
             SnapshotRetentionLimit = snapshotRetentionLimit;
             SnapshotWindow = snapshotWindow;
-            Id = id;
         }
     }
 }

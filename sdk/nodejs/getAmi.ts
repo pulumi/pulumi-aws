@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  *     owners: ["self"],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
  */
 export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> & GetAmiResult {
@@ -137,6 +137,10 @@ export interface GetAmiResult {
      */
     readonly hypervisor: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the AMI. Should be the same as the resource `id`.
      */
     readonly imageId: string;
@@ -227,8 +231,4 @@ export interface GetAmiResult {
      * `paravirtual`).
      */
     readonly virtualizationType: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

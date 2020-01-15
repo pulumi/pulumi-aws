@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> & GetSolutionStackResult {
@@ -60,14 +60,14 @@ export interface GetSolutionStackArgs {
  * A collection of values returned by getSolutionStack.
  */
 export interface GetSolutionStackResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly mostRecent?: boolean;
     /**
      * The name of the solution stack.
      */
     readonly name: string;
     readonly nameRegex: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

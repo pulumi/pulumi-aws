@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Batch
             => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws:batch/getComputeEnvironment:getComputeEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Batch
         }
     }
 
+
     [OutputType]
     public sealed class GetComputeEnvironmentResult
     {
@@ -45,6 +47,10 @@ namespace Pulumi.Aws.Batch
         /// The ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         public readonly string EcsClusterArn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
@@ -65,32 +71,36 @@ namespace Pulumi.Aws.Batch
         /// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
             string arn,
+
             string computeEnvironmentName,
+
             string ecsClusterArn,
+
+            string id,
+
             string serviceRole,
+
             string state,
+
             string status,
+
             string statusReason,
-            string type,
-            string id)
+
+            string type)
         {
             Arn = arn;
             ComputeEnvironmentName = computeEnvironmentName;
             EcsClusterArn = ecsClusterArn;
+            Id = id;
             ServiceRole = serviceRole;
             State = state;
             Status = status;
             StatusReason = statusReason;
             Type = type;
-            Id = id;
         }
     }
 }

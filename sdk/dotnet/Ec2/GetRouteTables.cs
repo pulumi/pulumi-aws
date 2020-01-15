@@ -19,17 +19,18 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRouteTablesArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetRouteTablesFiltersArgs>? _filters;
+        private List<Inputs.GetRouteTablesFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetRouteTablesFiltersArgs> Filters
+        public List<Inputs.GetRouteTablesFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetRouteTablesFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetRouteTablesFilterArgs>());
             set => _filters = value;
         }
 
@@ -57,93 +58,39 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetRouteTablesResult
     {
-        public readonly ImmutableArray<Outputs.GetRouteTablesFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetRouteTablesFilterResult> Filters;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A list of all the route table ids found. This data source will fail if none are found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string? VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRouteTablesResult(
-            ImmutableArray<Outputs.GetRouteTablesFiltersResult> filters,
+            ImmutableArray<Outputs.GetRouteTablesFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableDictionary<string, object> tags,
-            string? vpcId,
-            string id)
+
+            string? vpcId)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetRouteTablesFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A Route Table will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetRouteTablesFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRouteTablesFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A Route Table will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetRouteTablesFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

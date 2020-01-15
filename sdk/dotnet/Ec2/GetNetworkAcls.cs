@@ -14,17 +14,18 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclsResult>("aws:ec2/getNetworkAcls:getNetworkAcls", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetNetworkAclsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetNetworkAclsFiltersArgs>? _filters;
+        private List<Inputs.GetNetworkAclsFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetNetworkAclsFiltersArgs> Filters
+        public List<Inputs.GetNetworkAclsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetNetworkAclsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetNetworkAclsFilterArgs>());
             set => _filters = value;
         }
 
@@ -52,93 +53,39 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetNetworkAclsResult
     {
-        public readonly ImmutableArray<Outputs.GetNetworkAclsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetNetworkAclsFilterResult> Filters;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A list of all the network ACL ids found. This data source will fail if none are found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string? VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNetworkAclsResult(
-            ImmutableArray<Outputs.GetNetworkAclsFiltersResult> filters,
+            ImmutableArray<Outputs.GetNetworkAclsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableDictionary<string, object> tags,
-            string? vpcId,
-            string id)
+
+            string? vpcId)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetNetworkAclsFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetNetworkAclsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetNetworkAclsFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetNetworkAclsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

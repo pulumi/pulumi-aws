@@ -13,12 +13,18 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, arn=None, path=None, permissions_boundary=None, user_id=None, user_name=None, id=None):
+    def __init__(__self__, arn=None, id=None, path=None, permissions_boundary=None, user_id=None, user_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) assigned by AWS for this user.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if path and not isinstance(path, str):
             raise TypeError("Expected argument 'path' to be a str")
@@ -44,12 +50,6 @@ class GetUserResult:
         """
         The name associated to this User
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -57,23 +57,25 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             arn=self.arn,
+            id=self.id,
             path=self.path,
             permissions_boundary=self.permissions_boundary,
             user_id=self.user_id,
-            user_name=self.user_name,
-            id=self.id)
+            user_name=self.user_name)
 
 def get_user(user_name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM user. By using this data source, you can reference IAM user
     properties without having to hard code ARNs or unique IDs as input.
-    
-    :param str user_name: The friendly IAM user name to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
+
+
+    :param str user_name: The friendly IAM user name to match.
     """
     __args__ = dict()
+
 
     __args__['userName'] = user_name
     if opts is None:
@@ -84,8 +86,8 @@ def get_user(user_name=None,opts=None):
 
     return AwaitableGetUserResult(
         arn=__ret__.get('arn'),
+        id=__ret__.get('id'),
         path=__ret__.get('path'),
         permissions_boundary=__ret__.get('permissionsBoundary'),
         user_id=__ret__.get('userId'),
-        user_name=__ret__.get('userName'),
-        id=__ret__.get('id'))
+        user_name=__ret__.get('userName'))

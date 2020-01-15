@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "anExampleRoleName",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> & GetRoleResult {
@@ -70,6 +70,10 @@ export interface GetRoleResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Maximum session duration.
      */
     readonly maxSessionDuration: number;
@@ -86,8 +90,4 @@ export interface GetRoleResult {
      * The stable and unique string identifying the role.
      */
     readonly uniqueId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

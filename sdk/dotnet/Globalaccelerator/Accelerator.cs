@@ -37,7 +37,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// IP address set associated with the accelerator.
         /// </summary>
         [Output("ipSets")]
-        public Output<ImmutableArray<Outputs.AcceleratorIpSets>> IpSets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AcceleratorIpSet>> IpSets { get; private set; } = null!;
 
         /// <summary>
         /// The name of the accelerator.
@@ -141,14 +141,14 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? IpAddressType { get; set; }
 
         [Input("ipSets")]
-        private InputList<Inputs.AcceleratorIpSetsGetArgs>? _ipSets;
+        private InputList<Inputs.AcceleratorIpSetGetArgs>? _ipSets;
 
         /// <summary>
         /// IP address set associated with the accelerator.
         /// </summary>
-        public InputList<Inputs.AcceleratorIpSetsGetArgs> IpSets
+        public InputList<Inputs.AcceleratorIpSetGetArgs> IpSets
         {
-            get => _ipSets ?? (_ipSets = new InputList<Inputs.AcceleratorIpSetsGetArgs>());
+            get => _ipSets ?? (_ipSets = new InputList<Inputs.AcceleratorIpSetGetArgs>());
             set => _ipSets = value;
         }
 
@@ -161,138 +161,5 @@ namespace Pulumi.Aws.GlobalAccelerator
         public AcceleratorState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AcceleratorAttributesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether flow logs are enabled.
-        /// </summary>
-        [Input("flowLogsEnabled")]
-        public Input<bool>? FlowLogsEnabled { get; set; }
-
-        /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs.
-        /// </summary>
-        [Input("flowLogsS3Bucket")]
-        public Input<string>? FlowLogsS3Bucket { get; set; }
-
-        /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
-        /// </summary>
-        [Input("flowLogsS3Prefix")]
-        public Input<string>? FlowLogsS3Prefix { get; set; }
-
-        public AcceleratorAttributesArgs()
-        {
-        }
-    }
-
-    public sealed class AcceleratorAttributesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates whether flow logs are enabled.
-        /// </summary>
-        [Input("flowLogsEnabled")]
-        public Input<bool>? FlowLogsEnabled { get; set; }
-
-        /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs.
-        /// </summary>
-        [Input("flowLogsS3Bucket")]
-        public Input<string>? FlowLogsS3Bucket { get; set; }
-
-        /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
-        /// </summary>
-        [Input("flowLogsS3Prefix")]
-        public Input<string>? FlowLogsS3Prefix { get; set; }
-
-        public AcceleratorAttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class AcceleratorIpSetsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("ipAddresses")]
-        private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// The array of IP addresses in the IP address set.
-        /// </summary>
-        public InputList<string> IpAddresses
-        {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
-            set => _ipAddresses = value;
-        }
-
-        /// <summary>
-        /// The types of IP addresses included in this IP set.
-        /// </summary>
-        [Input("ipFamily")]
-        public Input<string>? IpFamily { get; set; }
-
-        public AcceleratorIpSetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AcceleratorAttributes
-    {
-        /// <summary>
-        /// Indicates whether flow logs are enabled.
-        /// </summary>
-        public readonly bool? FlowLogsEnabled;
-        /// <summary>
-        /// The name of the Amazon S3 bucket for the flow logs.
-        /// </summary>
-        public readonly string? FlowLogsS3Bucket;
-        /// <summary>
-        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
-        /// </summary>
-        public readonly string? FlowLogsS3Prefix;
-
-        [OutputConstructor]
-        private AcceleratorAttributes(
-            bool? flowLogsEnabled,
-            string? flowLogsS3Bucket,
-            string? flowLogsS3Prefix)
-        {
-            FlowLogsEnabled = flowLogsEnabled;
-            FlowLogsS3Bucket = flowLogsS3Bucket;
-            FlowLogsS3Prefix = flowLogsS3Prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class AcceleratorIpSets
-    {
-        /// <summary>
-        /// The array of IP addresses in the IP address set.
-        /// </summary>
-        public readonly ImmutableArray<string> IpAddresses;
-        /// <summary>
-        /// The types of IP addresses included in this IP set.
-        /// </summary>
-        public readonly string IpFamily;
-
-        [OutputConstructor]
-        private AcceleratorIpSets(
-            ImmutableArray<string> ipAddresses,
-            string ipFamily)
-        {
-            IpAddresses = ipAddresses;
-            IpFamily = ipFamily;
-        }
-    }
     }
 }

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     url: "https://accounts.google.com",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_openid_connect_provider.html.markdown.
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {

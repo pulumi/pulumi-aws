@@ -13,7 +13,7 @@ class GetAutoscalingGroupsResult:
     """
     A collection of values returned by getAutoscalingGroups.
     """
-    def __init__(__self__, arns=None, filters=None, names=None, id=None):
+    def __init__(__self__, arns=None, filters=None, id=None, names=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         __self__.arns = arns
@@ -23,17 +23,17 @@ class GetAutoscalingGroupsResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
-        if names and not isinstance(names, list):
-            raise TypeError("Expected argument 'names' to be a list")
-        __self__.names = names
-        """
-        A list of the Autoscaling Groups in the current region.
-        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if names and not isinstance(names, list):
+            raise TypeError("Expected argument 'names' to be a list")
+        __self__.names = names
+        """
+        A list of the Autoscaling Groups in the current region.
         """
 class AwaitableGetAutoscalingGroupsResult(GetAutoscalingGroupsResult):
     # pylint: disable=using-constant-test
@@ -43,24 +43,26 @@ class AwaitableGetAutoscalingGroupsResult(GetAutoscalingGroupsResult):
         return GetAutoscalingGroupsResult(
             arns=self.arns,
             filters=self.filters,
-            names=self.names,
-            id=self.id)
+            id=self.id,
+            names=self.names)
 
 def get_autoscaling_groups(filters=None,opts=None):
     """
     The Autoscaling Groups data source allows access to the list of AWS
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-    
-    :param list filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-    
-    The **filters** object supports the following:
-    
-      * `name` (`str`) - The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-      * `values` (`list`) - The value of the filter.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
+
+
+    :param list filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+      * `values` (`list`) - The value of the filter.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     if opts is None:
@@ -72,5 +74,5 @@ def get_autoscaling_groups(filters=None,opts=None):
     return AwaitableGetAutoscalingGroupsResult(
         arns=__ret__.get('arns'),
         filters=__ret__.get('filters'),
-        names=__ret__.get('names'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        names=__ret__.get('names'))

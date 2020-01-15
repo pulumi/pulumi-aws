@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *     topicArn: "TOPIC ARN",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_groups.html.markdown.
  */
 export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscalingGroupsResult> & GetAutoscalingGroupsResult {
@@ -78,11 +78,11 @@ export interface GetAutoscalingGroupsResult {
     readonly arns: string[];
     readonly filters?: outputs.GetAutoscalingGroupsFilter[];
     /**
-     * A list of the Autoscaling Groups in the current region.
-     */
-    readonly names: string[];
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A list of the Autoscaling Groups in the current region.
+     */
+    readonly names: string[];
 }

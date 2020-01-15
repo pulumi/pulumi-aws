@@ -40,7 +40,9 @@ class LogGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, kms_key_id=None, name=None, name_prefix=None, retention_in_days=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Log Group resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kms_key_id: The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
@@ -51,8 +53,6 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[float] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,7 +88,7 @@ class LogGroup(pulumi.CustomResource):
         """
         Get an existing LogGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,12 +101,11 @@ class LogGroup(pulumi.CustomResource):
         :param pulumi.Input[float] retention_in_days: Specifies the number of days
                you want to retain log events in the specified log group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["kms_key_id"] = kms_key_id
         __props__["name"] = name

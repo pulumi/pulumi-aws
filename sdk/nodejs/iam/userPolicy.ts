@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM policy attached to a user.
@@ -38,7 +38,7 @@ import {PolicyDocument} from "./documents";
  *     user: lbUser.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy.html.markdown.
  */
 export class UserPolicy extends pulumi.CustomResource {
@@ -134,7 +134,7 @@ export interface UserPolicyState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * IAM user to which to attach this policy.
      */
@@ -153,7 +153,7 @@ export interface UserPolicyArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * IAM user to which to attach this policy.
      */

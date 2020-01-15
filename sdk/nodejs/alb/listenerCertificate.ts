@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -27,7 +25,7 @@ import * as utilities from "../utilities";
  *     listenerArn: frontEndListener.arn,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_certificate.html.markdown.
  */
 export class ListenerCertificate extends pulumi.CustomResource {
@@ -98,7 +96,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ListenerCertificate.__pulumiType, name, inputs, opts);
     }

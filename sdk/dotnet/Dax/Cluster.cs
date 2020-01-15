@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Dax
         /// `${aws_dax_cluster.test.nodes.0.address}`
         /// </summary>
         [Output("nodes")]
-        public Output<ImmutableArray<Outputs.ClusterNodes>> Nodes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterNode>> Nodes { get; private set; } = null!;
 
         /// <summary>
         /// An Amazon Resource Name (ARN) of an
@@ -375,16 +375,16 @@ namespace Pulumi.Aws.Dax
         public Input<string>? NodeType { get; set; }
 
         [Input("nodes")]
-        private InputList<Inputs.ClusterNodesGetArgs>? _nodes;
+        private InputList<Inputs.ClusterNodeGetArgs>? _nodes;
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and
         /// `availability_zone`. Referenceable e.g. as
         /// `${aws_dax_cluster.test.nodes.0.address}`
         /// </summary>
-        public InputList<Inputs.ClusterNodesGetArgs> Nodes
+        public InputList<Inputs.ClusterNodeGetArgs> Nodes
         {
-            get => _nodes ?? (_nodes = new InputList<Inputs.ClusterNodesGetArgs>());
+            get => _nodes ?? (_nodes = new InputList<Inputs.ClusterNodeGetArgs>());
             set => _nodes = value;
         }
 
@@ -458,101 +458,5 @@ namespace Pulumi.Aws.Dax
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterNodesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("address")]
-        public Input<string>? Address { get; set; }
-
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The port used by the configuration endpoint
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        public ClusterNodesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServerSideEncryptionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable encryption at rest. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServerSideEncryptionArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterServerSideEncryptionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable encryption at rest. Defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public ClusterServerSideEncryptionGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterNodes
-    {
-        public readonly string Address;
-        public readonly string AvailabilityZone;
-        public readonly string Id;
-        /// <summary>
-        /// The port used by the configuration endpoint
-        /// </summary>
-        public readonly int Port;
-
-        [OutputConstructor]
-        private ClusterNodes(
-            string address,
-            string availabilityZone,
-            string id,
-            int port)
-        {
-            Address = address;
-            AvailabilityZone = availabilityZone;
-            Id = id;
-            Port = port;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterServerSideEncryption
-    {
-        /// <summary>
-        /// Whether to enable encryption at rest. Defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private ClusterServerSideEncryption(bool? enabled)
-        {
-            Enabled = enabled;
-        }
-    }
     }
 }

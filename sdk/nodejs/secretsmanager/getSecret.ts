@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> & GetSecretResult {
@@ -79,6 +79,10 @@ export interface GetSecretResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
@@ -103,8 +107,4 @@ export interface GetSecretResult {
      * Tags of the secret.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

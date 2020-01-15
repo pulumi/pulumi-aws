@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     blockPublicPolicy: true,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_account_public_access_block.html.markdown.
  */
 export class AccountPublicAccessBlock extends pulumi.CustomResource {

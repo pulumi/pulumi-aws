@@ -22,6 +22,7 @@ namespace Pulumi.Aws.ApiGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRestApiArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -36,28 +37,31 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetRestApiResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
         /// </summary>
         public readonly string RootResourceId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRestApiResult(
+            string id,
+
             string name,
-            string rootResourceId,
-            string id)
+
+            string rootResourceId)
         {
+            Id = id;
             Name = name;
             RootResourceId = rootResourceId;
-            Id = id;
         }
     }
 }

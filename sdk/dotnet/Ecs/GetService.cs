@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ecs
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
@@ -52,6 +54,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int DesiredCount;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The launch type for the ECS Service
         /// </summary>
         public readonly string LaunchType;
@@ -64,30 +70,33 @@ namespace Pulumi.Aws.Ecs
         /// The family for the latest ACTIVE revision
         /// </summary>
         public readonly string TaskDefinition;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
             string arn,
+
             string clusterArn,
+
             int desiredCount,
+
+            string id,
+
             string launchType,
+
             string schedulingStrategy,
+
             string serviceName,
-            string taskDefinition,
-            string id)
+
+            string taskDefinition)
         {
             Arn = arn;
             ClusterArn = clusterArn;
             DesiredCount = desiredCount;
+            Id = id;
             LaunchType = launchType;
             SchedulingStrategy = schedulingStrategy;
             ServiceName = serviceName;
             TaskDefinition = taskDefinition;
-            Id = id;
         }
     }
 }

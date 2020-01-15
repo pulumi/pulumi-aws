@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Cognito
         /// A List of Role Mapping.
         /// </summary>
         [Output("roleMappings")]
-        public Output<ImmutableArray<Outputs.IdentityPoolRoleAttachmentRoleMappings>> RoleMappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IdentityPoolRoleAttachmentRoleMapping>> RoleMappings { get; private set; } = null!;
 
         /// <summary>
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
@@ -86,14 +86,14 @@ namespace Pulumi.Aws.Cognito
         public Input<string> IdentityPoolId { get; set; } = null!;
 
         [Input("roleMappings")]
-        private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingsArgs>? _roleMappings;
+        private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>? _roleMappings;
 
         /// <summary>
         /// A List of Role Mapping.
         /// </summary>
-        public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingsArgs> RoleMappings
+        public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs> RoleMappings
         {
-            get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingsArgs>());
+            get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>());
             set => _roleMappings = value;
         }
 
@@ -117,14 +117,14 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? IdentityPoolId { get; set; }
 
         [Input("roleMappings")]
-        private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingsGetArgs>? _roleMappings;
+        private InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>? _roleMappings;
 
         /// <summary>
         /// A List of Role Mapping.
         /// </summary>
-        public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingsGetArgs> RoleMappings
+        public InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs> RoleMappings
         {
-            get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingsGetArgs>());
+            get => _roleMappings ?? (_roleMappings = new InputList<Inputs.IdentityPoolRoleAttachmentRoleMappingGetArgs>());
             set => _roleMappings = value;
         }
 
@@ -137,259 +137,5 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolRoleAttachmentState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class IdentityPoolRoleAttachmentRoleMappingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        /// </summary>
-        [Input("ambiguousRoleResolution")]
-        public Input<string>? AmbiguousRoleResolution { get; set; }
-
-        /// <summary>
-        /// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-        /// </summary>
-        [Input("identityProvider", required: true)]
-        public Input<string> IdentityProvider { get; set; } = null!;
-
-        [Input("mappingRules")]
-        private InputList<IdentityPoolRoleAttachmentRoleMappingsMappingRulesArgs>? _mappingRules;
-
-        /// <summary>
-        /// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        /// </summary>
-        public InputList<IdentityPoolRoleAttachmentRoleMappingsMappingRulesArgs> MappingRules
-        {
-            get => _mappingRules ?? (_mappingRules = new InputList<IdentityPoolRoleAttachmentRoleMappingsMappingRulesArgs>());
-            set => _mappingRules = value;
-        }
-
-        /// <summary>
-        /// The role mapping type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public IdentityPoolRoleAttachmentRoleMappingsArgs()
-        {
-        }
-    }
-
-    public sealed class IdentityPoolRoleAttachmentRoleMappingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        /// </summary>
-        [Input("ambiguousRoleResolution")]
-        public Input<string>? AmbiguousRoleResolution { get; set; }
-
-        /// <summary>
-        /// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-        /// </summary>
-        [Input("identityProvider", required: true)]
-        public Input<string> IdentityProvider { get; set; } = null!;
-
-        [Input("mappingRules")]
-        private InputList<IdentityPoolRoleAttachmentRoleMappingsMappingRulesGetArgs>? _mappingRules;
-
-        /// <summary>
-        /// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        /// </summary>
-        public InputList<IdentityPoolRoleAttachmentRoleMappingsMappingRulesGetArgs> MappingRules
-        {
-            get => _mappingRules ?? (_mappingRules = new InputList<IdentityPoolRoleAttachmentRoleMappingsMappingRulesGetArgs>());
-            set => _mappingRules = value;
-        }
-
-        /// <summary>
-        /// The role mapping type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public IdentityPoolRoleAttachmentRoleMappingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class IdentityPoolRoleAttachmentRoleMappingsMappingRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        /// </summary>
-        [Input("claim", required: true)]
-        public Input<string> Claim { get; set; } = null!;
-
-        /// <summary>
-        /// The match condition that specifies how closely the claim value in the IdP token must match Value.
-        /// </summary>
-        [Input("matchType", required: true)]
-        public Input<string> MatchType { get; set; } = null!;
-
-        /// <summary>
-        /// The role ARN.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// A brief string that the claim must match, for example, "paid" or "yes".
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public IdentityPoolRoleAttachmentRoleMappingsMappingRulesArgs()
-        {
-        }
-    }
-
-    public sealed class IdentityPoolRoleAttachmentRoleMappingsMappingRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        /// </summary>
-        [Input("claim", required: true)]
-        public Input<string> Claim { get; set; } = null!;
-
-        /// <summary>
-        /// The match condition that specifies how closely the claim value in the IdP token must match Value.
-        /// </summary>
-        [Input("matchType", required: true)]
-        public Input<string> MatchType { get; set; } = null!;
-
-        /// <summary>
-        /// The role ARN.
-        /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
-        /// <summary>
-        /// A brief string that the claim must match, for example, "paid" or "yes".
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public IdentityPoolRoleAttachmentRoleMappingsMappingRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class IdentityPoolRoleAttachmentRolesArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticated")]
-        public Input<string>? Authenticated { get; set; }
-
-        [Input("unauthenticated")]
-        public Input<string>? Unauthenticated { get; set; }
-
-        public IdentityPoolRoleAttachmentRolesArgs()
-        {
-        }
-    }
-
-    public sealed class IdentityPoolRoleAttachmentRolesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("authenticated")]
-        public Input<string>? Authenticated { get; set; }
-
-        [Input("unauthenticated")]
-        public Input<string>? Unauthenticated { get; set; }
-
-        public IdentityPoolRoleAttachmentRolesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class IdentityPoolRoleAttachmentRoleMappings
-    {
-        /// <summary>
-        /// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        /// </summary>
-        public readonly string? AmbiguousRoleResolution;
-        /// <summary>
-        /// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-        /// </summary>
-        public readonly string IdentityProvider;
-        /// <summary>
-        /// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        /// </summary>
-        public readonly ImmutableArray<IdentityPoolRoleAttachmentRoleMappingsMappingRules> MappingRules;
-        /// <summary>
-        /// The role mapping type.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private IdentityPoolRoleAttachmentRoleMappings(
-            string? ambiguousRoleResolution,
-            string identityProvider,
-            ImmutableArray<IdentityPoolRoleAttachmentRoleMappingsMappingRules> mappingRules,
-            string type)
-        {
-            AmbiguousRoleResolution = ambiguousRoleResolution;
-            IdentityProvider = identityProvider;
-            MappingRules = mappingRules;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class IdentityPoolRoleAttachmentRoleMappingsMappingRules
-    {
-        /// <summary>
-        /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        /// </summary>
-        public readonly string Claim;
-        /// <summary>
-        /// The match condition that specifies how closely the claim value in the IdP token must match Value.
-        /// </summary>
-        public readonly string MatchType;
-        /// <summary>
-        /// The role ARN.
-        /// </summary>
-        public readonly string RoleArn;
-        /// <summary>
-        /// A brief string that the claim must match, for example, "paid" or "yes".
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private IdentityPoolRoleAttachmentRoleMappingsMappingRules(
-            string claim,
-            string matchType,
-            string roleArn,
-            string value)
-        {
-            Claim = claim;
-            MatchType = matchType;
-            RoleArn = roleArn;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class IdentityPoolRoleAttachmentRoles
-    {
-        public readonly string? Authenticated;
-        public readonly string? Unauthenticated;
-
-        [OutputConstructor]
-        private IdentityPoolRoleAttachmentRoles(
-            string? authenticated,
-            string? unauthenticated)
-        {
-            Authenticated = authenticated;
-            Unauthenticated = unauthenticated;
-        }
-    }
     }
 }

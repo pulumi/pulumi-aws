@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     restApiId: myRestApi.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> & GetResourceResult {
@@ -62,6 +62,10 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the ID of the parent Resource.
      */
     readonly parentId: string;
@@ -71,8 +75,4 @@ export interface GetResourceResult {
      */
     readonly pathPart: string;
     readonly restApiId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

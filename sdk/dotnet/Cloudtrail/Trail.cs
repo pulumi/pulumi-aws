@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CloudTrail
         /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         /// </summary>
         [Output("eventSelectors")]
-        public Output<ImmutableArray<Outputs.TrailEventSelectors>> EventSelectors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrailEventSelector>> EventSelectors { get; private set; } = null!;
 
         /// <summary>
         /// The region in which the trail was created.
@@ -198,14 +198,14 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? EnableLogging { get; set; }
 
         [Input("eventSelectors")]
-        private InputList<Inputs.TrailEventSelectorsArgs>? _eventSelectors;
+        private InputList<Inputs.TrailEventSelectorArgs>? _eventSelectors;
 
         /// <summary>
         /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         /// </summary>
-        public InputList<Inputs.TrailEventSelectorsArgs> EventSelectors
+        public InputList<Inputs.TrailEventSelectorArgs> EventSelectors
         {
-            get => _eventSelectors ?? (_eventSelectors = new InputList<Inputs.TrailEventSelectorsArgs>());
+            get => _eventSelectors ?? (_eventSelectors = new InputList<Inputs.TrailEventSelectorArgs>());
             set => _eventSelectors = value;
         }
 
@@ -315,14 +315,14 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? EnableLogging { get; set; }
 
         [Input("eventSelectors")]
-        private InputList<Inputs.TrailEventSelectorsGetArgs>? _eventSelectors;
+        private InputList<Inputs.TrailEventSelectorGetArgs>? _eventSelectors;
 
         /// <summary>
         /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         /// </summary>
-        public InputList<Inputs.TrailEventSelectorsGetArgs> EventSelectors
+        public InputList<Inputs.TrailEventSelectorGetArgs> EventSelectors
         {
-            get => _eventSelectors ?? (_eventSelectors = new InputList<Inputs.TrailEventSelectorsGetArgs>());
+            get => _eventSelectors ?? (_eventSelectors = new InputList<Inputs.TrailEventSelectorGetArgs>());
             set => _eventSelectors = value;
         }
 
@@ -399,175 +399,5 @@ namespace Pulumi.Aws.CloudTrail
         public TrailState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TrailEventSelectorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("dataResources")]
-        private InputList<TrailEventSelectorsDataResourcesArgs>? _dataResources;
-
-        /// <summary>
-        /// Specifies logging data events. Fields documented below.
-        /// </summary>
-        public InputList<TrailEventSelectorsDataResourcesArgs> DataResources
-        {
-            get => _dataResources ?? (_dataResources = new InputList<TrailEventSelectorsDataResourcesArgs>());
-            set => _dataResources = value;
-        }
-
-        /// <summary>
-        /// Specify if you want your event selector to include management events for your trail.
-        /// </summary>
-        [Input("includeManagementEvents")]
-        public Input<bool>? IncludeManagementEvents { get; set; }
-
-        /// <summary>
-        /// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
-        /// </summary>
-        [Input("readWriteType")]
-        public Input<string>? ReadWriteType { get; set; }
-
-        public TrailEventSelectorsArgs()
-        {
-        }
-    }
-
-    public sealed class TrailEventSelectorsDataResourcesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// A list of ARN for the specified S3 buckets and object prefixes..
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public TrailEventSelectorsDataResourcesArgs()
-        {
-        }
-    }
-
-    public sealed class TrailEventSelectorsDataResourcesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// A list of ARN for the specified S3 buckets and object prefixes..
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public TrailEventSelectorsDataResourcesGetArgs()
-        {
-        }
-    }
-
-    public sealed class TrailEventSelectorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dataResources")]
-        private InputList<TrailEventSelectorsDataResourcesGetArgs>? _dataResources;
-
-        /// <summary>
-        /// Specifies logging data events. Fields documented below.
-        /// </summary>
-        public InputList<TrailEventSelectorsDataResourcesGetArgs> DataResources
-        {
-            get => _dataResources ?? (_dataResources = new InputList<TrailEventSelectorsDataResourcesGetArgs>());
-            set => _dataResources = value;
-        }
-
-        /// <summary>
-        /// Specify if you want your event selector to include management events for your trail.
-        /// </summary>
-        [Input("includeManagementEvents")]
-        public Input<bool>? IncludeManagementEvents { get; set; }
-
-        /// <summary>
-        /// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
-        /// </summary>
-        [Input("readWriteType")]
-        public Input<string>? ReadWriteType { get; set; }
-
-        public TrailEventSelectorsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TrailEventSelectors
-    {
-        /// <summary>
-        /// Specifies logging data events. Fields documented below.
-        /// </summary>
-        public readonly ImmutableArray<TrailEventSelectorsDataResources> DataResources;
-        /// <summary>
-        /// Specify if you want your event selector to include management events for your trail.
-        /// </summary>
-        public readonly bool? IncludeManagementEvents;
-        /// <summary>
-        /// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
-        /// </summary>
-        public readonly string? ReadWriteType;
-
-        [OutputConstructor]
-        private TrailEventSelectors(
-            ImmutableArray<TrailEventSelectorsDataResources> dataResources,
-            bool? includeManagementEvents,
-            string? readWriteType)
-        {
-            DataResources = dataResources;
-            IncludeManagementEvents = includeManagementEvents;
-            ReadWriteType = readWriteType;
-        }
-    }
-
-    [OutputType]
-    public sealed class TrailEventSelectorsDataResources
-    {
-        /// <summary>
-        /// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// A list of ARN for the specified S3 buckets and object prefixes..
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private TrailEventSelectorsDataResources(
-            string type,
-            ImmutableArray<string> values)
-        {
-            Type = type;
-            Values = values;
-        }
-    }
     }
 }

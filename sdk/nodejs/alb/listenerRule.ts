@@ -115,7 +115,7 @@ import * as utilities from "../utilities";
  *     listenerArn: frontEndListener.arn,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_listener_rule.html.markdown.
  */
 export class ListenerRule extends pulumi.CustomResource {
@@ -207,7 +207,7 @@ export class ListenerRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerRule:ListenerRule" }] };
+        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerRule:ListenerRule"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ListenerRule.__pulumiType, name, inputs, opts);
     }

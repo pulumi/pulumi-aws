@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     loadBalancer: lb.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_ssl_negotiation_policy.html.markdown.
  */
 export class SslNegotiationPolicy extends pulumi.CustomResource {
@@ -146,7 +146,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SslNegotiationPolicy.__pulumiType, name, inputs, opts);
     }

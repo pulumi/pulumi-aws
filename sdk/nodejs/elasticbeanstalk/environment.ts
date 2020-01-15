@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Application} from "./application";
-import {ApplicationVersion} from "./applicationVersion";
+import {Application, ApplicationVersion} from "./index";
 
 /**
  * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
@@ -70,7 +69,7 @@ import {ApplicationVersion} from "./applicationVersion";
  *     solutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
  */
 export class Environment extends pulumi.CustomResource {

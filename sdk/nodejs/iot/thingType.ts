@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const foo = new aws.iot.ThingType("foo", {});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
  */
 export class ThingType extends pulumi.CustomResource {

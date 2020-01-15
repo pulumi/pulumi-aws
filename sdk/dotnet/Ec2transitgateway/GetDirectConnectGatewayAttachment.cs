@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetDirectConnectGatewayAttachmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -46,31 +47,35 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetDirectConnectGatewayAttachmentResult
     {
         public readonly string DxGatewayId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Attachment
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string TransitGatewayId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDirectConnectGatewayAttachmentResult(
             string dxGatewayId,
+
+            string id,
+
             ImmutableDictionary<string, object> tags,
-            string transitGatewayId,
-            string id)
+
+            string transitGatewayId)
         {
             DxGatewayId = dxGatewayId;
+            Id = id;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
-            Id = id;
         }
     }
 }

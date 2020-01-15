@@ -54,6 +54,10 @@ export interface GetInstancesArgs {
 export interface GetInstancesResult {
     readonly filters?: outputs.ec2.GetInstancesFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * IDs of instances found through the filter
      */
     readonly ids: string[];
@@ -67,8 +71,4 @@ export interface GetInstancesResult {
      * Public IP addresses of instances found through the filter
      */
     readonly publicIps: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

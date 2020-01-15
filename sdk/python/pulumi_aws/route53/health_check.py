@@ -90,7 +90,9 @@ class HealthCheck(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, child_health_threshold=None, child_healthchecks=None, cloudwatch_alarm_name=None, cloudwatch_alarm_region=None, enable_sni=None, failure_threshold=None, fqdn=None, insufficient_data_health_status=None, invert_healthcheck=None, ip_address=None, measure_latency=None, port=None, reference_name=None, regions=None, request_interval=None, resource_path=None, search_string=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Route53 health check.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
@@ -113,8 +115,6 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the health check.
         :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -165,7 +165,7 @@ class HealthCheck(pulumi.CustomResource):
         """
         Get an existing HealthCheck resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,12 +189,11 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the health check.
         :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_health_check.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["child_health_threshold"] = child_health_threshold
         __props__["child_healthchecks"] = child_healthchecks
         __props__["cloudwatch_alarm_name"] = cloudwatch_alarm_name

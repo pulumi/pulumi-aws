@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "tfWAFRegionalRateBasedRule",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
  */
 export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> & GetRateBasedModResult {
@@ -51,9 +51,9 @@ export interface GetRateBasedModArgs {
  * A collection of values returned by getRateBasedMod.
  */
 export interface GetRateBasedModResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

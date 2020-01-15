@@ -37,7 +37,7 @@ namespace Pulumi.Aws.GameLift
         /// One or more policies used to choose fleet based on player latency. See below.
         /// </summary>
         [Output("playerLatencyPolicies")]
-        public Output<ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicies>> PlayerLatencyPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicy>> PlayerLatencyPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Maximum time a game session request can remain in the queue.
@@ -110,14 +110,14 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         [Input("playerLatencyPolicies")]
-        private InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesArgs>? _playerLatencyPolicies;
+        private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>? _playerLatencyPolicies;
 
         /// <summary>
         /// One or more policies used to choose fleet based on player latency. See below.
         /// </summary>
-        public InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesArgs> PlayerLatencyPolicies
+        public InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs> PlayerLatencyPolicies
         {
-            get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesArgs>());
+            get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>());
             set => _playerLatencyPolicies = value;
         }
 
@@ -159,14 +159,14 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         [Input("playerLatencyPolicies")]
-        private InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesGetArgs>? _playerLatencyPolicies;
+        private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs>? _playerLatencyPolicies;
 
         /// <summary>
         /// One or more policies used to choose fleet based on player latency. See below.
         /// </summary>
-        public InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesGetArgs> PlayerLatencyPolicies
+        public InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs> PlayerLatencyPolicies
         {
-            get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesGetArgs>());
+            get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs>());
             set => _playerLatencyPolicies = value;
         }
 
@@ -179,73 +179,5 @@ namespace Pulumi.Aws.GameLift
         public GameSessionQueueState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GameSessionQueuePlayerLatencyPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum latency value that is allowed for any player.
-        /// </summary>
-        [Input("maximumIndividualPlayerLatencyMilliseconds", required: true)]
-        public Input<int> MaximumIndividualPlayerLatencyMilliseconds { get; set; } = null!;
-
-        /// <summary>
-        /// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
-        /// </summary>
-        [Input("policyDurationSeconds")]
-        public Input<int>? PolicyDurationSeconds { get; set; }
-
-        public GameSessionQueuePlayerLatencyPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class GameSessionQueuePlayerLatencyPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum latency value that is allowed for any player.
-        /// </summary>
-        [Input("maximumIndividualPlayerLatencyMilliseconds", required: true)]
-        public Input<int> MaximumIndividualPlayerLatencyMilliseconds { get; set; } = null!;
-
-        /// <summary>
-        /// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
-        /// </summary>
-        [Input("policyDurationSeconds")]
-        public Input<int>? PolicyDurationSeconds { get; set; }
-
-        public GameSessionQueuePlayerLatencyPoliciesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GameSessionQueuePlayerLatencyPolicies
-    {
-        /// <summary>
-        /// Maximum latency value that is allowed for any player.
-        /// </summary>
-        public readonly int MaximumIndividualPlayerLatencyMilliseconds;
-        /// <summary>
-        /// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
-        /// </summary>
-        public readonly int? PolicyDurationSeconds;
-
-        [OutputConstructor]
-        private GameSessionQueuePlayerLatencyPolicies(
-            int maximumIndividualPlayerLatencyMilliseconds,
-            int? policyDurationSeconds)
-        {
-            MaximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
-            PolicyDurationSeconds = policyDurationSeconds;
-        }
-    }
     }
 }

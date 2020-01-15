@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetVpcEndpointServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -47,6 +48,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcEndpointServiceResult
     {
@@ -62,6 +64,10 @@ namespace Pulumi.Aws.Ec2
         /// The DNS names for the service.
         /// </summary>
         public readonly ImmutableArray<string> BaseEndpointDnsNames;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
@@ -92,30 +98,39 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the service supports endpoint policies - `true` or `false`.
         /// </summary>
         public readonly bool VpcEndpointPolicySupported;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVpcEndpointServiceResult(
             bool acceptanceRequired,
+
             ImmutableArray<string> availabilityZones,
+
             ImmutableArray<string> baseEndpointDnsNames,
+
+            string id,
+
             bool managesVpcEndpoints,
+
             string owner,
+
             string privateDnsName,
+
             string? service,
+
             string serviceId,
+
             string serviceName,
+
             string serviceType,
+
             ImmutableDictionary<string, object> tags,
-            bool vpcEndpointPolicySupported,
-            string id)
+
+            bool vpcEndpointPolicySupported)
         {
             AcceptanceRequired = acceptanceRequired;
             AvailabilityZones = availabilityZones;
             BaseEndpointDnsNames = baseEndpointDnsNames;
+            Id = id;
             ManagesVpcEndpoints = managesVpcEndpoints;
             Owner = owner;
             PrivateDnsName = privateDnsName;
@@ -125,7 +140,6 @@ namespace Pulumi.Aws.Ec2
             ServiceType = serviceType;
             Tags = tags;
             VpcEndpointPolicySupported = vpcEndpointPolicySupported;
-            Id = id;
         }
     }
 }

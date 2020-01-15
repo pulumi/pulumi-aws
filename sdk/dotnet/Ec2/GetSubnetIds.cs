@@ -21,17 +21,18 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSubnetIdsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSubnetIdsFiltersArgs>? _filters;
+        private List<Inputs.GetSubnetIdsFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetSubnetIdsFiltersArgs> Filters
+        public List<Inputs.GetSubnetIdsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSubnetIdsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSubnetIdsFilterArgs>());
             set => _filters = value;
         }
 
@@ -59,95 +60,39 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetSubnetIdsResult
     {
-        public readonly ImmutableArray<Outputs.GetSubnetIdsFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSubnetIdsFilterResult> Filters;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A set of all the subnet ids found. This data source will fail if none are found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSubnetIdsResult(
-            ImmutableArray<Outputs.GetSubnetIdsFiltersResult> filters,
+            ImmutableArray<Outputs.GetSubnetIdsFilterResult> filters,
+
+            string id,
+
             ImmutableArray<string> ids,
+
             ImmutableDictionary<string, object> tags,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             Filters = filters;
+            Id = id;
             Ids = ids;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSubnetIdsFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        /// For example, if matching against tag `Name`, use:
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// Subnet IDs will be selected if any one of the given values match.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSubnetIdsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSubnetIdsFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        /// For example, if matching against tag `Name`, use:
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// Subnet IDs will be selected if any one of the given values match.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSubnetIdsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

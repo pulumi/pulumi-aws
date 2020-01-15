@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +78,7 @@ import * as utilities from "../utilities";
  * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  * [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
  * [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
  */
 export class OriginAccessIdentity extends pulumi.CustomResource {

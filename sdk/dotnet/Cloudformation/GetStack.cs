@@ -20,6 +20,7 @@ namespace Pulumi.Aws.CloudFormation
             => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetStackArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.CloudFormation
         }
     }
 
+
     [OutputType]
     public sealed class GetStackResult
     {
@@ -60,6 +62,10 @@ namespace Pulumi.Aws.CloudFormation
         /// The ARN of the IAM role used to create the stack.
         /// </summary>
         public readonly string IamRoleArn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// A list of SNS topic ARNs to publish stack related events
@@ -85,30 +91,38 @@ namespace Pulumi.Aws.CloudFormation
         /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`
         /// </summary>
         public readonly int TimeoutInMinutes;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetStackResult(
             ImmutableArray<string> capabilities,
+
             string description,
+
             bool disableRollback,
+
             string iamRoleArn,
+
+            string id,
+
             string name,
+
             ImmutableArray<string> notificationArns,
+
             ImmutableDictionary<string, object> outputs,
+
             ImmutableDictionary<string, object> parameters,
+
             ImmutableDictionary<string, object> tags,
+
             string templateBody,
-            int timeoutInMinutes,
-            string id)
+
+            int timeoutInMinutes)
         {
             Capabilities = capabilities;
             Description = description;
             DisableRollback = disableRollback;
             IamRoleArn = iamRoleArn;
+            Id = id;
             Name = name;
             NotificationArns = notificationArns;
             Outputs = outputs;
@@ -116,7 +130,6 @@ namespace Pulumi.Aws.CloudFormation
             Tags = tags;
             TemplateBody = templateBody;
             TimeoutInMinutes = timeoutInMinutes;
-            Id = id;
         }
     }
 }

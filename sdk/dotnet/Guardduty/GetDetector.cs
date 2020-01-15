@@ -19,6 +19,7 @@ namespace Pulumi.Aws.GuardDuty
             => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws:guardduty/getDetector:getDetector", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetDetectorArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.GuardDuty
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetDetectorResult
@@ -52,8 +54,11 @@ namespace Pulumi.Aws.GuardDuty
         [OutputConstructor]
         private GetDetectorResult(
             string findingPublishingFrequency,
+
             string? id,
+
             string serviceRoleArn,
+
             string status)
         {
             FindingPublishingFrequency = findingPublishingFrequency;

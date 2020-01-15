@@ -53,7 +53,10 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
     """
     The VPN Gateway data source provides details about
     a specific VPN gateway.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
+
+
     :param str amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
     :param str attached_vpc_id: The ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: The Availability Zone of the specific VPN Gateway to retrieve.
@@ -62,17 +65,16 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
     :param str state: The state of the specific VPN Gateway to retrieve.
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
       * `values` (`list`) - Set of values that are accepted for the given field.
         A VPN Gateway will be selected if any one of the given values matches.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpn_gateway.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['amazonSideAsn'] = amazon_side_asn
     __args__['attachedVpcId'] = attached_vpc_id

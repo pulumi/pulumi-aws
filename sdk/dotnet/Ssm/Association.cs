@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Ssm
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
         [Output("targets")]
-        public Output<ImmutableArray<Outputs.AssociationTargets>> Targets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
 
 
         /// <summary>
@@ -200,14 +200,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ScheduleExpression { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.AssociationTargetsArgs>? _targets;
+        private InputList<Inputs.AssociationTargetArgs>? _targets;
 
         /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
-        public InputList<Inputs.AssociationTargetsArgs> Targets
+        public InputList<Inputs.AssociationTargetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetsArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetArgs>());
             set => _targets = value;
         }
 
@@ -291,159 +291,19 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ScheduleExpression { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.AssociationTargetsGetArgs>? _targets;
+        private InputList<Inputs.AssociationTargetGetArgs>? _targets;
 
         /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
-        public InputList<Inputs.AssociationTargetsGetArgs> Targets
+        public InputList<Inputs.AssociationTargetGetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetsGetArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.AssociationTargetGetArgs>());
             set => _targets = value;
         }
 
         public AssociationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AssociationOutputLocationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
-        [Input("s3BucketName", required: true)]
-        public Input<string> S3BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
-        [Input("s3KeyPrefix")]
-        public Input<string>? S3KeyPrefix { get; set; }
-
-        public AssociationOutputLocationArgs()
-        {
-        }
-    }
-
-    public sealed class AssociationOutputLocationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
-        [Input("s3BucketName", required: true)]
-        public Input<string> S3BucketName { get; set; } = null!;
-
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
-        [Input("s3KeyPrefix")]
-        public Input<string>? S3KeyPrefix { get; set; }
-
-        public AssociationOutputLocationGetArgs()
-        {
-        }
-    }
-
-    public sealed class AssociationTargetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public AssociationTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class AssociationTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public AssociationTargetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AssociationOutputLocation
-    {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
-        public readonly string S3BucketName;
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
-        public readonly string? S3KeyPrefix;
-
-        [OutputConstructor]
-        private AssociationOutputLocation(
-            string s3BucketName,
-            string? s3KeyPrefix)
-        {
-            S3BucketName = s3BucketName;
-            S3KeyPrefix = s3KeyPrefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class AssociationTargets
-    {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private AssociationTargets(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
     }
 }

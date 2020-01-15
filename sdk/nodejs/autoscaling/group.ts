@@ -6,9 +6,8 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {LaunchConfiguration} from "../ec2/launchConfiguration";
-import {PlacementGroup} from "../ec2/placementGroup";
-import {Metric, MetricsGranularity} from "./metrics";
+import {LaunchConfiguration, PlacementGroup} from "../ec2";
+import {Metric, MetricsGranularity} from "./index";
 
 /**
  * Provides an AutoScaling Group resource.
@@ -230,7 +229,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  * number of configuration problems. See the [AWS Docs on Load Balancer
  * Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
  * for more information.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_group.html.markdown.
  */
 export class Group extends pulumi.CustomResource {
@@ -566,7 +565,7 @@ export interface GroupState {
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
+    readonly launchConfiguration?: pulumi.Input<string> | pulumi.Input<LaunchConfiguration>;
     /**
      * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
@@ -587,7 +586,7 @@ export interface GroupState {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
+    readonly metricsGranularity?: pulumi.Input<string> | pulumi.Input<MetricsGranularity>;
     /**
      * Setting this causes this provider to wait for
      * this number of instances from this autoscaling group to show up healthy in the
@@ -616,7 +615,7 @@ export interface GroupState {
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
+    readonly placementGroup?: pulumi.Input<string> | pulumi.Input<PlacementGroup>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination
@@ -719,7 +718,7 @@ export interface GroupArgs {
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
+    readonly launchConfiguration?: pulumi.Input<string> | pulumi.Input<LaunchConfiguration>;
     /**
      * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
@@ -740,7 +739,7 @@ export interface GroupArgs {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
+    readonly metricsGranularity?: pulumi.Input<string> | pulumi.Input<MetricsGranularity>;
     /**
      * Setting this causes this provider to wait for
      * this number of instances from this autoscaling group to show up healthy in the
@@ -769,7 +768,7 @@ export interface GroupArgs {
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
+    readonly placementGroup?: pulumi.Input<string> | pulumi.Input<PlacementGroup>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination

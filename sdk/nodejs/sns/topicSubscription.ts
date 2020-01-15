@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Topic} from "./topic";
+import {Topic} from "./index";
 
 /**
  *   Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
@@ -177,7 +177,7 @@ import {Topic} from "./topic";
  *     topic: sns_topicTopic.arn,
  * }, {provider: sns2sqs});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic_subscription.html.markdown.
  */
 export class TopicSubscription extends pulumi.CustomResource {

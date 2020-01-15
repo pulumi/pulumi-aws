@@ -20,6 +20,7 @@ namespace Pulumi.Aws.ApiGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.ApiGateway
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetKeyResult
@@ -52,7 +54,9 @@ namespace Pulumi.Aws.ApiGateway
         [OutputConstructor]
         private GetKeyResult(
             string id,
+
             string name,
+
             string value)
         {
             Id = id;

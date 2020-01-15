@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Organizations
         /// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         /// </summary>
         [Output("accounts")]
-        public Output<ImmutableArray<Outputs.OrganizationalUnitAccounts>> Accounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OrganizationalUnitAccount>> Accounts { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the organizational unit
@@ -105,14 +105,14 @@ namespace Pulumi.Aws.Organizations
     public sealed class OrganizationalUnitState : Pulumi.ResourceArgs
     {
         [Input("accounts")]
-        private InputList<Inputs.OrganizationalUnitAccountsGetArgs>? _accounts;
+        private InputList<Inputs.OrganizationalUnitAccountGetArgs>? _accounts;
 
         /// <summary>
         /// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         /// </summary>
-        public InputList<Inputs.OrganizationalUnitAccountsGetArgs> Accounts
+        public InputList<Inputs.OrganizationalUnitAccountGetArgs> Accounts
         {
-            get => _accounts ?? (_accounts = new InputList<Inputs.OrganizationalUnitAccountsGetArgs>());
+            get => _accounts ?? (_accounts = new InputList<Inputs.OrganizationalUnitAccountGetArgs>());
             set => _accounts = value;
         }
 
@@ -137,78 +137,5 @@ namespace Pulumi.Aws.Organizations
         public OrganizationalUnitState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OrganizationalUnitAccountsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// ARN of the organizational unit
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        [Input("email")]
-        public Input<string>? Email { get; set; }
-
-        /// <summary>
-        /// Identifier of the organization unit
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name for the organizational unit
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public OrganizationalUnitAccountsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OrganizationalUnitAccounts
-    {
-        /// <summary>
-        /// ARN of the organizational unit
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// Email of the account
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
-        /// Identifier of the organization unit
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name for the organizational unit
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private OrganizationalUnitAccounts(
-            string arn,
-            string email,
-            string id,
-            string name)
-        {
-            Arn = arn;
-            Email = email;
-            Id = id;
-            Name = name;
-        }
-    }
     }
 }

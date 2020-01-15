@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
  */
 export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitsResult> & GetOrganizationalUnitsResult {
@@ -44,9 +44,9 @@ export interface GetOrganizationalUnitsResult {
      * List of child organizational units, which have the following attributes:
      */
     readonly childrens: outputs.organizations.GetOrganizationalUnitsChildren[];
-    readonly parentId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly parentId: string;
 }

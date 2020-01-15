@@ -22,6 +22,7 @@ namespace Pulumi.Aws.S3
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetBucketArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.S3
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetBucketResult
@@ -56,6 +58,10 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string HostedZoneId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The AWS region this bucket resides in.
         /// </summary>
         public readonly string Region;
@@ -67,32 +73,36 @@ namespace Pulumi.Aws.S3
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         /// </summary>
         public readonly string WebsiteEndpoint;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetBucketResult(
             string arn,
+
             string bucket,
+
             string bucketDomainName,
+
             string bucketRegionalDomainName,
+
             string hostedZoneId,
+
+            string id,
+
             string region,
+
             string websiteDomain,
-            string websiteEndpoint,
-            string id)
+
+            string websiteEndpoint)
         {
             Arn = arn;
             Bucket = bucket;
             BucketDomainName = bucketDomainName;
             BucketRegionalDomainName = bucketRegionalDomainName;
             HostedZoneId = hostedZoneId;
+            Id = id;
             Region = region;
             WebsiteDomain = websiteDomain;
             WebsiteEndpoint = websiteEndpoint;
-            Id = id;
         }
     }
 }

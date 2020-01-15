@@ -41,7 +41,9 @@ class GatewayAssociationProposal(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, associated_gateway_id=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`directconnect.GatewayAssociation` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association_proposal.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -49,8 +51,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association_proposal.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +91,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         """
         Get an existing GatewayAssociationProposal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,12 +102,11 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway_association_proposal.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allowed_prefixes"] = allowed_prefixes
         __props__["associated_gateway_id"] = associated_gateway_id
         __props__["associated_gateway_owner_account_id"] = associated_gateway_owner_account_id

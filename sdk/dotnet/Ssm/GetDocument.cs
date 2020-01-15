@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ssm
             => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetDocumentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
+
     [OutputType]
     public sealed class GetDocumentResult
     {
@@ -61,29 +63,35 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string DocumentType;
         public readonly string? DocumentVersion;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetDocumentResult(
             string arn,
+
             string content,
+
             string? documentFormat,
+
             string documentType,
+
             string? documentVersion,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
             Content = content;
             DocumentFormat = documentFormat;
             DocumentType = documentType;
             DocumentVersion = documentVersion;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

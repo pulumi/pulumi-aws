@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * 
  * * `name` - (Required) The name of the parameter.
  * * `value` - (Required) The value for the parameter.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
  */
 export class ParameterGroup extends pulumi.CustomResource {

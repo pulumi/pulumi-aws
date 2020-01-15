@@ -22,13 +22,13 @@ class IdentityPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, identity=None, name=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[str] name: Name of the policy.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,18 +65,17 @@ class IdentityPolicy(pulumi.CustomResource):
         """
         Get an existing IdentityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[str] name: Name of the policy.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_identity_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["identity"] = identity
         __props__["name"] = name
         __props__["policy"] = policy

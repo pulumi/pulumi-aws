@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     port: 443,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_listener_legacy.html.markdown.
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> & GetListenerResult {
@@ -81,12 +81,12 @@ export interface GetListenerResult {
     readonly arn: string;
     readonly certificateArn: string;
     readonly defaultActions: outputs.applicationloadbalancing.GetListenerDefaultAction[];
-    readonly loadBalancerArn: string;
-    readonly port: number;
-    readonly protocol: string;
-    readonly sslPolicy: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly loadBalancerArn: string;
+    readonly port: number;
+    readonly protocol: string;
+    readonly sslPolicy: string;
 }

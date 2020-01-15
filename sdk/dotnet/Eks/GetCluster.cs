@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Eks
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.Eks
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetClusterResult
@@ -64,9 +66,13 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`aws.eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetClusterIdentitiesResult> Identities;
+        public readonly ImmutableArray<Outputs.GetClusterIdentityResult> Identities;
         public readonly string Name;
         /// <summary>
         /// The platform version for the cluster.
@@ -92,33 +98,43 @@ namespace Pulumi.Aws.Eks
         /// Nested attribute containing VPC configuration for the cluster.
         /// </summary>
         public readonly Outputs.GetClusterVpcConfigResult VpcConfig;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             Outputs.GetClusterCertificateAuthorityResult certificateAuthority,
+
             string createdAt,
+
             ImmutableArray<string> enabledClusterLogTypes,
+
             string endpoint,
-            ImmutableArray<Outputs.GetClusterIdentitiesResult> identities,
+
+            string id,
+
+            ImmutableArray<Outputs.GetClusterIdentityResult> identities,
+
             string name,
+
             string platformVersion,
+
             string roleArn,
+
             string status,
+
             ImmutableDictionary<string, object> tags,
+
             string version,
-            Outputs.GetClusterVpcConfigResult vpcConfig,
-            string id)
+
+            Outputs.GetClusterVpcConfigResult vpcConfig)
         {
             Arn = arn;
             CertificateAuthority = certificateAuthority;
             CreatedAt = createdAt;
             EnabledClusterLogTypes = enabledClusterLogTypes;
             Endpoint = endpoint;
+            Id = id;
             Identities = identities;
             Name = name;
             PlatformVersion = platformVersion;
@@ -127,102 +143,6 @@ namespace Pulumi.Aws.Eks
             Tags = tags;
             Version = version;
             VpcConfig = vpcConfig;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetClusterCertificateAuthorityResult
-    {
-        /// <summary>
-        /// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        /// </summary>
-        public readonly string Data;
-
-        [OutputConstructor]
-        private GetClusterCertificateAuthorityResult(string data)
-        {
-            Data = data;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetClusterIdentitiesOidcsResult
-    {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
-        public readonly string Issuer;
-
-        [OutputConstructor]
-        private GetClusterIdentitiesOidcsResult(string issuer)
-        {
-            Issuer = issuer;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetClusterIdentitiesResult
-    {
-        /// <summary>
-        /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        /// </summary>
-        public readonly ImmutableArray<GetClusterIdentitiesOidcsResult> Oidcs;
-
-        [OutputConstructor]
-        private GetClusterIdentitiesResult(ImmutableArray<GetClusterIdentitiesOidcsResult> oidcs)
-        {
-            Oidcs = oidcs;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetClusterVpcConfigResult
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster. 
-        /// </summary>
-        public readonly string ClusterSecurityGroupId;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-        /// </summary>
-        public readonly bool EndpointPrivateAccess;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-        /// </summary>
-        public readonly bool EndpointPublicAccess;
-        /// <summary>
-        /// List of security group IDs
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnet IDs
-        /// </summary>
-        public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        public readonly string VpcId;
-
-        [OutputConstructor]
-        private GetClusterVpcConfigResult(
-            string clusterSecurityGroupId,
-            bool endpointPrivateAccess,
-            bool endpointPublicAccess,
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnetIds,
-            string vpcId)
-        {
-            ClusterSecurityGroupId = clusterSecurityGroupId;
-            EndpointPrivateAccess = endpointPrivateAccess;
-            EndpointPublicAccess = endpointPublicAccess;
-            SecurityGroupIds = securityGroupIds;
-            SubnetIds = subnetIds;
-            VpcId = vpcId;
-        }
-    }
     }
 }

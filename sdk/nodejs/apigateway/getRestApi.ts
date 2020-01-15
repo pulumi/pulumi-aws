@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "my-rest-api",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> & GetRestApiResult {
@@ -55,13 +55,13 @@ export interface GetRestApiArgs {
  * A collection of values returned by getRestApi.
  */
 export interface GetRestApiResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
      */
     readonly rootResourceId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

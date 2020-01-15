@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     mostRecent: true,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> & GetVolumeResult {
@@ -87,6 +87,10 @@ export interface GetVolumeResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetVolumeFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The amount of IOPS for the disk.
      */
     readonly iops: number;
@@ -115,8 +119,4 @@ export interface GetVolumeResult {
      * The type of EBS volume.
      */
     readonly volumeType: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     name: lbName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_legacy.html.markdown.
  */
 export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
@@ -75,6 +75,10 @@ export interface GetLoadBalancerResult {
     readonly arnSuffix: string;
     readonly dnsName: string;
     readonly enableDeletionProtection: boolean;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly internal: boolean;
     readonly loadBalancerType: string;
@@ -85,8 +89,4 @@ export interface GetLoadBalancerResult {
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

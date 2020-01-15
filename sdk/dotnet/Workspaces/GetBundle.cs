@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Workspaces
             => Pulumi.Deployment.Instance.InvokeAsync<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetBundleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Workspaces
         }
     }
 
+
     [OutputType]
     public sealed class GetBundleResult
     {
@@ -39,11 +41,15 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The compute type. See supported fields below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetBundleComputeTypesResult> ComputeTypes;
+        public readonly ImmutableArray<Outputs.GetBundleComputeTypeResult> ComputeTypes;
         /// <summary>
         /// The description of the bundle.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The name of the compute type.
         /// </summary>
@@ -55,84 +61,38 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The root volume. See supported fields below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetBundleRootStoragesResult> RootStorages;
+        public readonly ImmutableArray<Outputs.GetBundleRootStorageResult> RootStorages;
         /// <summary>
         /// The user storage. See supported fields below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetBundleUserStoragesResult> UserStorages;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetBundleUserStorageResult> UserStorages;
 
         [OutputConstructor]
         private GetBundleResult(
             string bundleId,
-            ImmutableArray<Outputs.GetBundleComputeTypesResult> computeTypes,
+
+            ImmutableArray<Outputs.GetBundleComputeTypeResult> computeTypes,
+
             string description,
+
+            string id,
+
             string name,
+
             string owner,
-            ImmutableArray<Outputs.GetBundleRootStoragesResult> rootStorages,
-            ImmutableArray<Outputs.GetBundleUserStoragesResult> userStorages,
-            string id)
+
+            ImmutableArray<Outputs.GetBundleRootStorageResult> rootStorages,
+
+            ImmutableArray<Outputs.GetBundleUserStorageResult> userStorages)
         {
             BundleId = bundleId;
             ComputeTypes = computeTypes;
             Description = description;
+            Id = id;
             Name = name;
             Owner = owner;
             RootStorages = rootStorages;
             UserStorages = userStorages;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetBundleComputeTypesResult
-    {
-        /// <summary>
-        /// The name of the compute type.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetBundleComputeTypesResult(string name)
-        {
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetBundleRootStoragesResult
-    {
-        /// <summary>
-        /// The size of the user storage.
-        /// </summary>
-        public readonly string Capacity;
-
-        [OutputConstructor]
-        private GetBundleRootStoragesResult(string capacity)
-        {
-            Capacity = capacity;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetBundleUserStoragesResult
-    {
-        /// <summary>
-        /// The size of the user storage.
-        /// </summary>
-        public readonly string Capacity;
-
-        [OutputConstructor]
-        private GetBundleUserStoragesResult(string capacity)
-        {
-            Capacity = capacity;
-        }
-    }
     }
 }

@@ -13,7 +13,7 @@ class GetServiceQuotaResult:
     """
     A collection of values returned by getServiceQuota.
     """
-    def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, quota_code=None, quota_name=None, service_code=None, service_name=None, value=None, id=None):
+    def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, id=None, quota_code=None, quota_name=None, service_code=None, service_name=None, value=None):
         if adjustable and not isinstance(adjustable, bool):
             raise TypeError("Expected argument 'adjustable' to be a bool")
         __self__.adjustable = adjustable
@@ -38,6 +38,12 @@ class GetServiceQuotaResult:
         """
         Whether the service quota is global for the AWS account.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if quota_code and not isinstance(quota_code, str):
             raise TypeError("Expected argument 'quota_code' to be a str")
         __self__.quota_code = quota_code
@@ -59,12 +65,6 @@ class GetServiceQuotaResult:
         """
         Current value of the service quota.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -75,24 +75,26 @@ class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
             arn=self.arn,
             default_value=self.default_value,
             global_quota=self.global_quota,
+            id=self.id,
             quota_code=self.quota_code,
             quota_name=self.quota_name,
             service_code=self.service_code,
             service_name=self.service_name,
-            value=self.value,
-            id=self.id)
+            value=self.value)
 
 def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=None):
     """
     Retrieve information about a Service Quota.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service_quota.html.markdown.
+
+
     :param str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
     :param str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
     :param str service_code: Service code for the quota. Available values can be found with the [`servicequotas.getService` data source](https://www.terraform.io/docs/providers/aws/d/servicequotas_service.html) or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/servicequotas_service_quota.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['quotaCode'] = quota_code
     __args__['quotaName'] = quota_name
@@ -108,9 +110,9 @@ def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=Non
         arn=__ret__.get('arn'),
         default_value=__ret__.get('defaultValue'),
         global_quota=__ret__.get('globalQuota'),
+        id=__ret__.get('id'),
         quota_code=__ret__.get('quotaCode'),
         quota_name=__ret__.get('quotaName'),
         service_code=__ret__.get('serviceCode'),
         service_name=__ret__.get('serviceName'),
-        value=__ret__.get('value'),
-        id=__ret__.get('id'))
+        value=__ret__.get('value'))

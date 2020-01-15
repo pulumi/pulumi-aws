@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     vlan: 4094,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_transit_virtual_interface.html.markdown.
  */
 export class HostedTransitVirtualInterface extends pulumi.CustomResource {

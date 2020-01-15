@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
             => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSolutionStackArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -41,31 +42,35 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
+
     [OutputType]
     public sealed class GetSolutionStackResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? MostRecent;
         /// <summary>
         /// The name of the solution stack.
         /// </summary>
         public readonly string Name;
         public readonly string NameRegex;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSolutionStackResult(
+            string id,
+
             bool? mostRecent,
+
             string name,
-            string nameRegex,
-            string id)
+
+            string nameRegex)
         {
+            Id = id;
             MostRecent = mostRecent;
             Name = name;
             NameRegex = nameRegex;
-            Id = id;
         }
     }
 }

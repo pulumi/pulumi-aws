@@ -19,6 +19,7 @@ namespace Pulumi.Aws.WafRegional
             => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRateBasedModArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,22 +33,24 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
+
     [OutputType]
     public sealed class GetRateBasedModResult
     {
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetRateBasedModResult(
-            string name,
-            string id)
+            string id,
+
+            string name)
         {
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Organizations
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetOrganizationalUnitsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,60 +33,31 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
+
     [OutputType]
     public sealed class GetOrganizationalUnitsResult
     {
         /// <summary>
         /// List of child organizational units, which have the following attributes:
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetOrganizationalUnitsChildrensResult> Childrens;
-        public readonly string ParentId;
+        public readonly ImmutableArray<Outputs.GetOrganizationalUnitsChildrenResult> Childrens;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string ParentId;
 
         [OutputConstructor]
         private GetOrganizationalUnitsResult(
-            ImmutableArray<Outputs.GetOrganizationalUnitsChildrensResult> childrens,
-            string parentId,
-            string id)
+            ImmutableArray<Outputs.GetOrganizationalUnitsChildrenResult> childrens,
+
+            string id,
+
+            string parentId)
         {
             Childrens = childrens;
+            Id = id;
             ParentId = parentId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetOrganizationalUnitsChildrensResult
-    {
-        /// <summary>
-        /// ARN of the organizational unit
-        /// </summary>
-        public readonly string Arn;
-        /// <summary>
-        /// ID of the organizational unit
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Name of the organizational unit
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetOrganizationalUnitsChildrensResult(
-            string arn,
-            string id,
-            string name)
-        {
-            Arn = arn;
-            Id = id;
-            Name = name;
-        }
-    }
     }
 }

@@ -58,11 +58,14 @@ class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
 def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts=None):
     """
     `ec2.SecurityGroup` provides details about a specific Security Group.
-    
+
     This resource can prove useful when a module accepts a Security Group id as
     an input variable and needs to, for example, determine the id of the
     VPC that the security group belongs to.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
+
+
     :param list filters: Custom filter block as described below.
     :param str id: The id of the specific security group to retrieve.
     :param str name: The name of the field to filter by, as defined by
@@ -70,17 +73,16 @@ def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired security group.
     :param str vpc_id: The id of the VPC that the desired security group belongs to.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
       * `values` (`list`) - Set of values that are accepted for the given field.
         A Security Group will be selected if any one of the given values matches.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['id'] = id

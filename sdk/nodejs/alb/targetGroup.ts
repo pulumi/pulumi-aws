@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     targetType: "lambda",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group.html.markdown.
  */
 export class TargetGroup extends pulumi.CustomResource {
@@ -204,7 +204,7 @@ export class TargetGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/targetGroup:TargetGroup" }] };
+        const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/targetGroup:TargetGroup"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TargetGroup.__pulumiType, name, inputs, opts);
     }

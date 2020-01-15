@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CodePipeline
         /// One or more `filter` blocks. Filter blocks are documented below.
         /// </summary>
         [Output("filters")]
-        public Output<ImmutableArray<Outputs.WebhookFilters>> Filters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebhookFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
         /// The name of the webhook.
@@ -122,14 +122,14 @@ namespace Pulumi.Aws.CodePipeline
         public Input<Inputs.WebhookAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
 
         [Input("filters", required: true)]
-        private InputList<Inputs.WebhookFiltersArgs>? _filters;
+        private InputList<Inputs.WebhookFilterArgs>? _filters;
 
         /// <summary>
         /// One or more `filter` blocks. Filter blocks are documented below.
         /// </summary>
-        public InputList<Inputs.WebhookFiltersArgs> Filters
+        public InputList<Inputs.WebhookFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.WebhookFiltersArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.WebhookFilterArgs>());
             set => _filters = value;
         }
 
@@ -183,14 +183,14 @@ namespace Pulumi.Aws.CodePipeline
         public Input<Inputs.WebhookAuthenticationConfigurationGetArgs>? AuthenticationConfiguration { get; set; }
 
         [Input("filters")]
-        private InputList<Inputs.WebhookFiltersGetArgs>? _filters;
+        private InputList<Inputs.WebhookFilterGetArgs>? _filters;
 
         /// <summary>
         /// One or more `filter` blocks. Filter blocks are documented below.
         /// </summary>
-        public InputList<Inputs.WebhookFiltersGetArgs> Filters
+        public InputList<Inputs.WebhookFilterGetArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.WebhookFiltersGetArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.WebhookFilterGetArgs>());
             set => _filters = value;
         }
 
@@ -233,97 +233,5 @@ namespace Pulumi.Aws.CodePipeline
         public WebhookState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WebhookAuthenticationConfigurationArgs : Pulumi.ResourceArgs
-    {
-        [Input("allowedIpRange")]
-        public Input<string>? AllowedIpRange { get; set; }
-
-        [Input("secretToken")]
-        public Input<string>? SecretToken { get; set; }
-
-        public WebhookAuthenticationConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class WebhookAuthenticationConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("allowedIpRange")]
-        public Input<string>? AllowedIpRange { get; set; }
-
-        [Input("secretToken")]
-        public Input<string>? SecretToken { get; set; }
-
-        public WebhookAuthenticationConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class WebhookFiltersArgs : Pulumi.ResourceArgs
-    {
-        [Input("jsonPath", required: true)]
-        public Input<string> JsonPath { get; set; } = null!;
-
-        [Input("matchEquals", required: true)]
-        public Input<string> MatchEquals { get; set; } = null!;
-
-        public WebhookFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class WebhookFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("jsonPath", required: true)]
-        public Input<string> JsonPath { get; set; } = null!;
-
-        [Input("matchEquals", required: true)]
-        public Input<string> MatchEquals { get; set; } = null!;
-
-        public WebhookFiltersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WebhookAuthenticationConfiguration
-    {
-        public readonly string? AllowedIpRange;
-        public readonly string? SecretToken;
-
-        [OutputConstructor]
-        private WebhookAuthenticationConfiguration(
-            string? allowedIpRange,
-            string? secretToken)
-        {
-            AllowedIpRange = allowedIpRange;
-            SecretToken = secretToken;
-        }
-    }
-
-    [OutputType]
-    public sealed class WebhookFilters
-    {
-        public readonly string JsonPath;
-        public readonly string MatchEquals;
-
-        [OutputConstructor]
-        private WebhookFilters(
-            string jsonPath,
-            string matchEquals)
-        {
-            JsonPath = jsonPath;
-            MatchEquals = matchEquals;
-        }
-    }
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         /// </summary>
         [Output("filterGroups")]
-        public Output<ImmutableArray<Outputs.WebhookFilterGroups>> FilterGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebhookFilterGroup>> FilterGroups { get; private set; } = null!;
 
         /// <summary>
         /// The CodeBuild endpoint where webhook events are sent.
@@ -104,14 +104,14 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? BranchFilter { get; set; }
 
         [Input("filterGroups")]
-        private InputList<Inputs.WebhookFilterGroupsArgs>? _filterGroups;
+        private InputList<Inputs.WebhookFilterGroupArgs>? _filterGroups;
 
         /// <summary>
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         /// </summary>
-        public InputList<Inputs.WebhookFilterGroupsArgs> FilterGroups
+        public InputList<Inputs.WebhookFilterGroupArgs> FilterGroups
         {
-            get => _filterGroups ?? (_filterGroups = new InputList<Inputs.WebhookFilterGroupsArgs>());
+            get => _filterGroups ?? (_filterGroups = new InputList<Inputs.WebhookFilterGroupArgs>());
             set => _filterGroups = value;
         }
 
@@ -135,14 +135,14 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? BranchFilter { get; set; }
 
         [Input("filterGroups")]
-        private InputList<Inputs.WebhookFilterGroupsGetArgs>? _filterGroups;
+        private InputList<Inputs.WebhookFilterGroupGetArgs>? _filterGroups;
 
         /// <summary>
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         /// </summary>
-        public InputList<Inputs.WebhookFilterGroupsGetArgs> FilterGroups
+        public InputList<Inputs.WebhookFilterGroupGetArgs> FilterGroups
         {
-            get => _filterGroups ?? (_filterGroups = new InputList<Inputs.WebhookFilterGroupsGetArgs>());
+            get => _filterGroups ?? (_filterGroups = new InputList<Inputs.WebhookFilterGroupGetArgs>());
             set => _filterGroups = value;
         }
 
@@ -173,144 +173,5 @@ namespace Pulumi.Aws.CodeBuild
         public WebhookState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WebhookFilterGroupsArgs : Pulumi.ResourceArgs
-    {
-        [Input("filters")]
-        private InputList<WebhookFilterGroupsFiltersArgs>? _filters;
-
-        /// <summary>
-        /// A webhook filter for the group. Filter blocks are documented below.
-        /// </summary>
-        public InputList<WebhookFilterGroupsFiltersArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<WebhookFilterGroupsFiltersArgs>());
-            set => _filters = value;
-        }
-
-        public WebhookFilterGroupsArgs()
-        {
-        }
-    }
-
-    public sealed class WebhookFilterGroupsFiltersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        /// </summary>
-        [Input("excludeMatchedPattern")]
-        public Input<bool>? ExcludeMatchedPattern { get; set; }
-
-        /// <summary>
-        /// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub &amp; GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        /// </summary>
-        [Input("pattern", required: true)]
-        public Input<string> Pattern { get; set; } = null!;
-
-        /// <summary>
-        /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WebhookFilterGroupsFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class WebhookFilterGroupsFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        /// </summary>
-        [Input("excludeMatchedPattern")]
-        public Input<bool>? ExcludeMatchedPattern { get; set; }
-
-        /// <summary>
-        /// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub &amp; GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        /// </summary>
-        [Input("pattern", required: true)]
-        public Input<string> Pattern { get; set; } = null!;
-
-        /// <summary>
-        /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WebhookFilterGroupsFiltersGetArgs()
-        {
-        }
-    }
-
-    public sealed class WebhookFilterGroupsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("filters")]
-        private InputList<WebhookFilterGroupsFiltersGetArgs>? _filters;
-
-        /// <summary>
-        /// A webhook filter for the group. Filter blocks are documented below.
-        /// </summary>
-        public InputList<WebhookFilterGroupsFiltersGetArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<WebhookFilterGroupsFiltersGetArgs>());
-            set => _filters = value;
-        }
-
-        public WebhookFilterGroupsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WebhookFilterGroups
-    {
-        /// <summary>
-        /// A webhook filter for the group. Filter blocks are documented below.
-        /// </summary>
-        public readonly ImmutableArray<WebhookFilterGroupsFilters> Filters;
-
-        [OutputConstructor]
-        private WebhookFilterGroups(ImmutableArray<WebhookFilterGroupsFilters> filters)
-        {
-            Filters = filters;
-        }
-    }
-
-    [OutputType]
-    public sealed class WebhookFilterGroupsFilters
-    {
-        /// <summary>
-        /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        /// </summary>
-        public readonly bool? ExcludeMatchedPattern;
-        /// <summary>
-        /// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub &amp; GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        /// </summary>
-        public readonly string Pattern;
-        /// <summary>
-        /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private WebhookFilterGroupsFilters(
-            bool? excludeMatchedPattern,
-            string pattern,
-            string type)
-        {
-            ExcludeMatchedPattern = excludeMatchedPattern;
-            Pattern = pattern;
-            Type = type;
-        }
-    }
     }
 }

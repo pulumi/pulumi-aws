@@ -39,8 +39,8 @@ class Instance(pulumi.CustomResource):
     credit_specification: pulumi.Output[dict]
     """
     Customize the credit specification of the instance. See Credit Specification below for more details.
-    
-      * `cpuCredits` (`str`)
+
+      * `cpu_credits` (`str`)
     """
     disable_api_termination: pulumi.Output[bool]
     """
@@ -51,8 +51,8 @@ class Instance(pulumi.CustomResource):
     """
     Additional EBS block devices to attach to the
     instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
-    
-      * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
+
+      * `delete_on_termination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
       * `device_name` (`str`) - The name of the block device to mount on the instance.
       * `encrypted` (`bool`) - Enables [EBS
@@ -65,7 +65,7 @@ class Instance(pulumi.CustomResource):
       * `snapshot_id` (`str`) - The Snapshot ID to mount.
       * `volume_id` (`str`)
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
-      * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
+      * `volume_type` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
         or `"io1"`. (Default: `"standard"`).
     """
     ebs_optimized: pulumi.Output[bool]
@@ -80,7 +80,7 @@ class Instance(pulumi.CustomResource):
     """
     Customize Ephemeral (also known as
     "Instance Store") volumes on the instance. See Block Devices below for details.
-    
+
       * `device_name` (`str`) - The name of the block device to mount on the instance.
       * `noDevice` (`bool`) - Suppresses the specified device included in the AMI's block device mapping.
       * `virtualName` (`str`) - The [Instance Store Device
@@ -112,7 +112,7 @@ class Instance(pulumi.CustomResource):
     """
     The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
     """
-    instance_type: pulumi.Output[str]
+    instance_type: pulumi.Output[dict]
     """
     The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
     """
@@ -132,8 +132,8 @@ class Instance(pulumi.CustomResource):
     network_interfaces: pulumi.Output[list]
     """
     Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-    
-      * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
+
+      * `delete_on_termination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
       * `device_index` (`float`)
       * `network_interface_id` (`str`)
@@ -178,8 +178,8 @@ class Instance(pulumi.CustomResource):
     """
     Customize details about the root block
     device of the instance. See Block Devices below for details.
-    
-      * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
+
+      * `delete_on_termination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
       * `encrypted` (`bool`) - Enables [EBS
         encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -190,7 +190,7 @@ class Instance(pulumi.CustomResource):
       * `kms_key_id` (`str`) - Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
       * `volume_id` (`str`)
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
-      * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
+      * `volume_type` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
         or `"io1"`. (Default: `"standard"`).
     """
     security_groups: pulumi.Output[list]
@@ -234,7 +234,9 @@ class Instance(pulumi.CustomResource):
         """
         Provides an EC2 instance resource. This allows instances to be created, updated,
         and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ami: The AMI to use for the instance.
@@ -258,14 +260,14 @@ class Instance(pulumi.CustomResource):
                "Instance Store") volumes on the instance. See Block Devices below for details.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[str] host_id: The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        :param pulumi.Input[str] iam_instance_profile: The IAM Instance Profile to
+        :param pulumi.Input[dict] iam_instance_profile: The IAM Instance Profile to
                launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
                * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the
                instance. Amazon defaults this to `stop` for EBS-backed instances and
                `terminate` for instance-store instances. Cannot be set on instance-store
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[dict] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -285,14 +287,14 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[dict] volume_tags: A mapping of tags to assign to the devices created by the instance at launch time.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
-        
+
         The **credit_specification** object supports the following:
-        
-          * `cpuCredits` (`pulumi.Input[str]`)
-        
+
+          * `cpu_credits` (`pulumi.Input[str]`)
+
         The **ebs_block_devices** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
+
+          * `delete_on_termination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
@@ -305,27 +307,27 @@ class Instance(pulumi.CustomResource):
           * `snapshot_id` (`pulumi.Input[str]`) - The Snapshot ID to mount.
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
-          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
+          * `volume_type` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
           * `noDevice` (`pulumi.Input[bool]`) - Suppresses the specified device included in the AMI's block device mapping.
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
-        
+
         The **network_interfaces** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
+
+          * `delete_on_termination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_index` (`pulumi.Input[float]`)
           * `network_interface_id` (`pulumi.Input[str]`)
-        
+
         The **root_block_device** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
+
+          * `delete_on_termination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
             encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -336,10 +338,8 @@ class Instance(pulumi.CustomResource):
           * `kms_key_id` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
-          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
+          * `volume_type` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -412,7 +412,7 @@ class Instance(pulumi.CustomResource):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -438,7 +438,7 @@ class Instance(pulumi.CustomResource):
                "Instance Store") volumes on the instance. See Block Devices below for details.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[str] host_id: The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
-        :param pulumi.Input[str] iam_instance_profile: The IAM Instance Profile to
+        :param pulumi.Input[dict] iam_instance_profile: The IAM Instance Profile to
                launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
                * `ipv6_address_count`- (Optional) A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the
@@ -446,7 +446,7 @@ class Instance(pulumi.CustomResource):
                `terminate` for instance-store instances. Cannot be set on instance-store
                instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_state: The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        :param pulumi.Input[str] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[dict] instance_type: The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[list] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -478,14 +478,14 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[dict] volume_tags: A mapping of tags to assign to the devices created by the instance at launch time.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
-        
+
         The **credit_specification** object supports the following:
-        
-          * `cpuCredits` (`pulumi.Input[str]`)
-        
+
+          * `cpu_credits` (`pulumi.Input[str]`)
+
         The **ebs_block_devices** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
+
+          * `delete_on_termination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
@@ -498,27 +498,27 @@ class Instance(pulumi.CustomResource):
           * `snapshot_id` (`pulumi.Input[str]`) - The Snapshot ID to mount.
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
-          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
+          * `volume_type` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
           * `noDevice` (`pulumi.Input[bool]`) - Suppresses the specified device included in the AMI's block device mapping.
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
-        
+
         The **network_interfaces** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
+
+          * `delete_on_termination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_index` (`pulumi.Input[float]`)
           * `network_interface_id` (`pulumi.Input[str]`)
-        
+
         The **root_block_device** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
+
+          * `delete_on_termination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
             encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
@@ -529,14 +529,13 @@ class Instance(pulumi.CustomResource):
           * `kms_key_id` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
-          * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
+          * `volume_type` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["ami"] = ami
         __props__["arn"] = arn
         __props__["associate_public_ip_address"] = associate_public_ip_address

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Rds
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetInstanceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.Rds
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetInstanceResult
@@ -121,6 +123,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string HostedZoneId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the Provisioned IOPS (I/O operations per second) value.
         /// </summary>
         public readonly int Iops;
@@ -193,53 +199,88 @@ namespace Pulumi.Aws.Rds
         /// Provides a list of VPC security group elements that the DB instance belongs to.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroups;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInstanceResult(
             string address,
+
             int allocatedStorage,
+
             bool autoMinorVersionUpgrade,
+
             string availabilityZone,
+
             int backupRetentionPeriod,
+
             string caCertIdentifier,
+
             string dbClusterIdentifier,
+
             string dbInstanceArn,
+
             string dbInstanceClass,
+
             string dbInstanceIdentifier,
+
             int dbInstancePort,
+
             string dbName,
+
             ImmutableArray<string> dbParameterGroups,
+
             ImmutableArray<string> dbSecurityGroups,
+
             string dbSubnetGroup,
+
             ImmutableArray<string> enabledCloudwatchLogsExports,
+
             string endpoint,
+
             string engine,
+
             string engineVersion,
+
             string hostedZoneId,
+
+            string id,
+
             int iops,
+
             string kmsKeyId,
+
             string licenseModel,
+
             string masterUsername,
+
             int monitoringInterval,
+
             string monitoringRoleArn,
+
             bool multiAz,
+
             ImmutableArray<string> optionGroupMemberships,
+
             int port,
+
             string preferredBackupWindow,
+
             string preferredMaintenanceWindow,
+
             bool publiclyAccessible,
+
             string replicateSourceDb,
+
             string resourceId,
+
             bool storageEncrypted,
+
             string storageType,
+
             ImmutableDictionary<string, object> tags,
+
             string timezone,
-            ImmutableArray<string> vpcSecurityGroups,
-            string id)
+
+            ImmutableArray<string> vpcSecurityGroups)
         {
             Address = address;
             AllocatedStorage = allocatedStorage;
@@ -261,6 +302,7 @@ namespace Pulumi.Aws.Rds
             Engine = engine;
             EngineVersion = engineVersion;
             HostedZoneId = hostedZoneId;
+            Id = id;
             Iops = iops;
             KmsKeyId = kmsKeyId;
             LicenseModel = licenseModel;
@@ -280,7 +322,6 @@ namespace Pulumi.Aws.Rds
             Tags = tags;
             Timezone = timezone;
             VpcSecurityGroups = vpcSecurityGroups;
-            Id = id;
         }
     }
 }

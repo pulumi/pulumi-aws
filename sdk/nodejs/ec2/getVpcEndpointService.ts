@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> & GetVpcEndpointServiceResult {
@@ -96,6 +96,10 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly baseEndpointDnsNames: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
     readonly managesVpcEndpoints: boolean;
@@ -125,8 +129,4 @@ export interface GetVpcEndpointServiceResult {
      * Whether or not the service supports endpoint policies - `true` or `false`.
      */
     readonly vpcEndpointPolicySupported: boolean;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

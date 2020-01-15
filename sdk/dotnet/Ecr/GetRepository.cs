@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ecr
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:ecr/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
+
     [OutputType]
     public sealed class GetRepositoryResult
     {
@@ -47,6 +49,10 @@ namespace Pulumi.Aws.Ecr
         /// Full ARN of the repository.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The registry ID where the repository was created.
@@ -60,26 +66,27 @@ namespace Pulumi.Aws.Ecr
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRepositoryResult(
             string arn,
+
+            string id,
+
             string name,
+
             string registryId,
+
             string repositoryUrl,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;
             Tags = tags;
-            Id = id;
         }
     }
 }

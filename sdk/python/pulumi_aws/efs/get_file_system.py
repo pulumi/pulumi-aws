@@ -13,7 +13,7 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, kms_key_id=None, performance_mode=None, tags=None, id=None):
+    def __init__(__self__, arn=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, performance_mode=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -38,6 +38,12 @@ class GetFileSystemResult:
         if file_system_id and not isinstance(file_system_id, str):
             raise TypeError("Expected argument 'file_system_id' to be a str")
         __self__.file_system_id = file_system_id
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         __self__.kms_key_id = kms_key_id
@@ -56,12 +62,6 @@ class GetFileSystemResult:
         """
         The list of tags assigned to the file system.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetFileSystemResult(GetFileSystemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -73,21 +73,23 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             dns_name=self.dns_name,
             encrypted=self.encrypted,
             file_system_id=self.file_system_id,
+            id=self.id,
             kms_key_id=self.kms_key_id,
             performance_mode=self.performance_mode,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None):
     """
     Provides information about an Elastic File System (EFS).
-    
-    :param str creation_token: Restricts the list to the file system with this creation token.
-    :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
+
+
+    :param str creation_token: Restricts the list to the file system with this creation token.
+    :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
     """
     __args__ = dict()
+
 
     __args__['creationToken'] = creation_token
     __args__['fileSystemId'] = file_system_id
@@ -104,7 +106,7 @@ def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None)
         dns_name=__ret__.get('dnsName'),
         encrypted=__ret__.get('encrypted'),
         file_system_id=__ret__.get('fileSystemId'),
+        id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
         performance_mode=__ret__.get('performanceMode'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

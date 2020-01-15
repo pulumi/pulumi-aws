@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  * `,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/billing_service_account.html.markdown.
  */
 export function getBillingServiceAccount(opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> & GetBillingServiceAccountResult {

@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Deployment} from "./deployment";
-import {RestApi} from "./restApi";
+import {Deployment, RestApi} from "./index";
 
 /**
  * Provides an API Gateway Stage.
@@ -79,7 +78,7 @@ import {RestApi} from "./restApi";
  *     name: stageName,
  * }, {dependsOn: [exampleLogGroup]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_stage.html.markdown.
  */
 export class Stage extends pulumi.CustomResource {

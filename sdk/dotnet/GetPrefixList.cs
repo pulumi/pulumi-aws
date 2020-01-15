@@ -25,6 +25,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:index/getPrefixList:getPrefixList", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetPrefixListArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -44,6 +45,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetPrefixListResult
     {
@@ -53,26 +55,29 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the selected prefix list.
         /// </summary>
         public readonly string Name;
         public readonly string? PrefixListId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPrefixListResult(
             ImmutableArray<string> cidrBlocks,
+
+            string id,
+
             string name,
-            string? prefixListId,
-            string id)
+
+            string? prefixListId)
         {
             CidrBlocks = cidrBlocks;
+            Id = id;
             Name = name;
             PrefixListId = prefixListId;
-            Id = id;
         }
     }
 }

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * export const arn = example.arn;
  * export const description = example.description;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_application.html.markdown.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> & GetApplicationResult {
@@ -63,9 +63,9 @@ export interface GetApplicationResult {
      * Short description of the application
      */
     readonly description: string;
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

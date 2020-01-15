@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const current = aws.elasticbeanstalk.getHostedZone();
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
  */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> & GetHostedZoneResult {
@@ -51,11 +51,11 @@ export interface GetHostedZoneArgs {
  */
 export interface GetHostedZoneResult {
     /**
-     * The region of the hosted zone.
-     */
-    readonly region?: string;
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The region of the hosted zone.
+     */
+    readonly region?: string;
 }

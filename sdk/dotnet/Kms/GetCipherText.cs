@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Kms
             => Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetCipherTextArgs : Pulumi.InvokeArgs
     {
         [Input("context")]
@@ -56,6 +57,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
+
     [OutputType]
     public sealed class GetCipherTextResult
     {
@@ -64,26 +66,30 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CiphertextBlob;
         public readonly ImmutableDictionary<string, string>? Context;
-        public readonly string KeyId;
-        public readonly string Plaintext;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KeyId;
+        public readonly string Plaintext;
 
         [OutputConstructor]
         private GetCipherTextResult(
             string ciphertextBlob,
+
             ImmutableDictionary<string, string>? context,
+
+            string id,
+
             string keyId,
-            string plaintext,
-            string id)
+
+            string plaintext)
         {
             CiphertextBlob = ciphertextBlob;
             Context = context;
+            Id = id;
             KeyId = keyId;
             Plaintext = plaintext;
-            Id = id;
         }
     }
 }

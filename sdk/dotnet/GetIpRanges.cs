@@ -19,6 +19,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetIpRangesArgs : Pulumi.InvokeArgs
     {
         [Input("regions")]
@@ -59,6 +60,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetIpRangesResult
     {
@@ -71,6 +73,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string CreateDate;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The lexically ordered list of IPv6 CIDR blocks.
         /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
@@ -82,30 +88,33 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly int SyncToken;
         public readonly string? Url;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetIpRangesResult(
             ImmutableArray<string> cidrBlocks,
+
             string createDate,
+
+            string id,
+
             ImmutableArray<string> ipv6CidrBlocks,
+
             ImmutableArray<string> regions,
+
             ImmutableArray<string> services,
+
             int syncToken,
-            string? url,
-            string id)
+
+            string? url)
         {
             CidrBlocks = cidrBlocks;
             CreateDate = createDate;
+            Id = id;
             Ipv6CidrBlocks = ipv6CidrBlocks;
             Regions = regions;
             Services = services;
             SyncToken = syncToken;
             Url = url;
-            Id = id;
         }
     }
 }

@@ -49,7 +49,9 @@ class VpcAttachment(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, dns_support=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_default_route_table_association=None, transit_gateway_default_route_table_propagation=None, transit_gateway_id=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -60,8 +62,6 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,7 +106,7 @@ class VpcAttachment(pulumi.CustomResource):
         """
         Get an existing VpcAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,12 +119,11 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
         :param pulumi.Input[str] vpc_owner_id: Identifier of the AWS account that owns the EC2 VPC.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_vpc_attachment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["dns_support"] = dns_support
         __props__["ipv6_support"] = ipv6_support
         __props__["subnet_ids"] = subnet_ids

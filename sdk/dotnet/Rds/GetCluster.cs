@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Rds
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:rds/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -60,6 +62,10 @@ namespace Pulumi.Aws.Rds
         public readonly string HostedZoneId;
         public readonly bool IamDatabaseAuthenticationEnabled;
         public readonly ImmutableArray<string> IamRoles;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string KmsKeyId;
         public readonly string MasterUsername;
         public readonly int Port;
@@ -70,41 +76,64 @@ namespace Pulumi.Aws.Rds
         public readonly bool StorageEncrypted;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             ImmutableArray<string> availabilityZones,
+
             int backupRetentionPeriod,
+
             string clusterIdentifier,
+
             ImmutableArray<string> clusterMembers,
+
             string clusterResourceId,
+
             string databaseName,
+
             string dbClusterParameterGroupName,
+
             string dbSubnetGroupName,
+
             ImmutableArray<string> enabledCloudwatchLogsExports,
+
             string endpoint,
+
             string engine,
+
             string engineVersion,
+
             string finalSnapshotIdentifier,
+
             string hostedZoneId,
+
             bool iamDatabaseAuthenticationEnabled,
+
             ImmutableArray<string> iamRoles,
+
+            string id,
+
             string kmsKeyId,
+
             string masterUsername,
+
             int port,
+
             string preferredBackupWindow,
+
             string preferredMaintenanceWindow,
+
             string readerEndpoint,
+
             string replicationSourceIdentifier,
+
             bool storageEncrypted,
+
             ImmutableDictionary<string, object> tags,
-            ImmutableArray<string> vpcSecurityGroupIds,
-            string id)
+
+            ImmutableArray<string> vpcSecurityGroupIds)
         {
             Arn = arn;
             AvailabilityZones = availabilityZones;
@@ -123,6 +152,7 @@ namespace Pulumi.Aws.Rds
             HostedZoneId = hostedZoneId;
             IamDatabaseAuthenticationEnabled = iamDatabaseAuthenticationEnabled;
             IamRoles = iamRoles;
+            Id = id;
             KmsKeyId = kmsKeyId;
             MasterUsername = masterUsername;
             Port = port;
@@ -133,7 +163,6 @@ namespace Pulumi.Aws.Rds
             StorageEncrypted = storageEncrypted;
             Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
-            Id = id;
         }
     }
 }

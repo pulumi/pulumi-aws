@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     productArn: `arn:aws:securityhub:${current.name!}:733251395267:product/alertlogic/althreatmanagement`,
  * }, {dependsOn: [exampleAccount]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.html.markdown.
  */
 export class ProductSubscription extends pulumi.CustomResource {

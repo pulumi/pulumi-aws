@@ -25,7 +25,7 @@ class GameSessionQueue(pulumi.CustomResource):
     player_latency_policies: pulumi.Output[list]
     """
     One or more policies used to choose fleet based on player latency. See below.
-    
+
       * `maximumIndividualPlayerLatencyMilliseconds` (`float`) - Maximum latency value that is allowed for any player.
       * `policyDurationSeconds` (`float`) - Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
     """
@@ -36,20 +36,20 @@ class GameSessionQueue(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, destinations=None, name=None, player_latency_policies=None, timeout_in_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Gamelift Game Session Queue resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
-        
+
         The **player_latency_policies** object supports the following:
-        
+
           * `maximumIndividualPlayerLatencyMilliseconds` (`pulumi.Input[float]`) - Maximum latency value that is allowed for any player.
           * `policyDurationSeconds` (`pulumi.Input[float]`) - Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,7 +84,7 @@ class GameSessionQueue(pulumi.CustomResource):
         """
         Get an existing GameSessionQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,17 +93,16 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
-        
+
         The **player_latency_policies** object supports the following:
-        
+
           * `maximumIndividualPlayerLatencyMilliseconds` (`pulumi.Input[float]`) - Maximum latency value that is allowed for any player.
           * `policyDurationSeconds` (`pulumi.Input[float]`) - Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_game_session_queue.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["destinations"] = destinations
         __props__["name"] = name

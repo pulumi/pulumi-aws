@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     taskDefinition: id,
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
  */
 export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> & GetContainerDefinitionResult {
@@ -76,6 +76,10 @@ export interface GetContainerDefinitionResult {
      */
     readonly environment: {[key: string]: string};
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The docker image in use, including the digest
      */
     readonly image: string;
@@ -92,8 +96,4 @@ export interface GetContainerDefinitionResult {
      */
     readonly memoryReservation: number;
     readonly taskDefinition: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

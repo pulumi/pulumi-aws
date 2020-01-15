@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Eks
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterAuthResult>("aws:eks/getClusterAuth:getClusterAuth", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterAuthArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -37,28 +38,31 @@ namespace Pulumi.Aws.Eks
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterAuthResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The token to use to authenticate with the cluster.
         /// </summary>
         public readonly string Token;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterAuthResult(
+            string id,
+
             string name,
-            string token,
-            string id)
+
+            string token)
         {
+            Id = id;
             Name = name;
             Token = token;
-            Id = id;
         }
     }
 }

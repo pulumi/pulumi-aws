@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Lambda
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetFunctionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
+
     [OutputType]
     public sealed class GetFunctionResult
     {
@@ -70,6 +72,10 @@ namespace Pulumi.Aws.Lambda
         /// The function entrypoint in your code.
         /// </summary>
         public readonly string Handler;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway.
         /// </summary>
@@ -132,37 +138,56 @@ namespace Pulumi.Aws.Lambda
         /// VPC configuration associated with your Lambda function.
         /// </summary>
         public readonly Outputs.GetFunctionVpcConfigResult VpcConfig;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetFunctionResult(
             string arn,
+
             Outputs.GetFunctionDeadLetterConfigResult deadLetterConfig,
+
             string description,
+
             Outputs.GetFunctionEnvironmentResult environment,
+
             string functionName,
+
             string handler,
+
+            string id,
+
             string invokeArn,
+
             string kmsKeyArn,
+
             string lastModified,
+
             ImmutableArray<string> layers,
+
             int memorySize,
+
             string qualifiedArn,
+
             string? qualifier,
+
             int reservedConcurrentExecutions,
+
             string role,
+
             string runtime,
+
             string sourceCodeHash,
+
             int sourceCodeSize,
+
             ImmutableDictionary<string, object> tags,
+
             int timeout,
+
             Outputs.GetFunctionTracingConfigResult tracingConfig,
+
             string version,
-            Outputs.GetFunctionVpcConfigResult vpcConfig,
-            string id)
+
+            Outputs.GetFunctionVpcConfigResult vpcConfig)
         {
             Arn = arn;
             DeadLetterConfig = deadLetterConfig;
@@ -170,6 +195,7 @@ namespace Pulumi.Aws.Lambda
             Environment = environment;
             FunctionName = functionName;
             Handler = handler;
+            Id = id;
             InvokeArn = invokeArn;
             KmsKeyArn = kmsKeyArn;
             LastModified = lastModified;
@@ -187,66 +213,6 @@ namespace Pulumi.Aws.Lambda
             TracingConfig = tracingConfig;
             Version = version;
             VpcConfig = vpcConfig;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetFunctionDeadLetterConfigResult
-    {
-        public readonly string TargetArn;
-
-        [OutputConstructor]
-        private GetFunctionDeadLetterConfigResult(string targetArn)
-        {
-            TargetArn = targetArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetFunctionEnvironmentResult
-    {
-        public readonly ImmutableDictionary<string, string> Variables;
-
-        [OutputConstructor]
-        private GetFunctionEnvironmentResult(ImmutableDictionary<string, string> variables)
-        {
-            Variables = variables;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetFunctionTracingConfigResult
-    {
-        public readonly string Mode;
-
-        [OutputConstructor]
-        private GetFunctionTracingConfigResult(string mode)
-        {
-            Mode = mode;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetFunctionVpcConfigResult
-    {
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        public readonly ImmutableArray<string> SubnetIds;
-        public readonly string VpcId;
-
-        [OutputConstructor]
-        private GetFunctionVpcConfigResult(
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnetIds,
-            string vpcId)
-        {
-            SecurityGroupIds = securityGroupIds;
-            SubnetIds = subnetIds;
-            VpcId = vpcId;
-        }
-    }
     }
 }

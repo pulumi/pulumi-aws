@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Emr
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ebsConfigs")]
-        public Output<ImmutableArray<Outputs.InstanceGroupEbsConfigs>> EbsConfigs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceGroupEbsConfig>> EbsConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -151,14 +151,14 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ConfigurationsJson { get; set; }
 
         [Input("ebsConfigs")]
-        private InputList<Inputs.InstanceGroupEbsConfigsArgs>? _ebsConfigs;
+        private InputList<Inputs.InstanceGroupEbsConfigArgs>? _ebsConfigs;
 
         /// <summary>
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.InstanceGroupEbsConfigsArgs> EbsConfigs
+        public InputList<Inputs.InstanceGroupEbsConfigArgs> EbsConfigs
         {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<Inputs.InstanceGroupEbsConfigsArgs>());
+            get => _ebsConfigs ?? (_ebsConfigs = new InputList<Inputs.InstanceGroupEbsConfigArgs>());
             set => _ebsConfigs = value;
         }
 
@@ -218,14 +218,14 @@ namespace Pulumi.Aws.Emr
         public Input<string>? ConfigurationsJson { get; set; }
 
         [Input("ebsConfigs")]
-        private InputList<Inputs.InstanceGroupEbsConfigsGetArgs>? _ebsConfigs;
+        private InputList<Inputs.InstanceGroupEbsConfigGetArgs>? _ebsConfigs;
 
         /// <summary>
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.InstanceGroupEbsConfigsGetArgs> EbsConfigs
+        public InputList<Inputs.InstanceGroupEbsConfigGetArgs> EbsConfigs
         {
-            get => _ebsConfigs ?? (_ebsConfigs = new InputList<Inputs.InstanceGroupEbsConfigsGetArgs>());
+            get => _ebsConfigs ?? (_ebsConfigs = new InputList<Inputs.InstanceGroupEbsConfigGetArgs>());
             set => _ebsConfigs = value;
         }
 
@@ -262,109 +262,5 @@ namespace Pulumi.Aws.Emr
         public InstanceGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class InstanceGroupEbsConfigsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of I/O operations per second (IOPS) that the volume supports.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-        /// </summary>
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        /// <summary>
-        /// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The number of EBS Volumes to attach per instance.
-        /// </summary>
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public InstanceGroupEbsConfigsArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceGroupEbsConfigsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of I/O operations per second (IOPS) that the volume supports.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-        /// </summary>
-        [Input("size", required: true)]
-        public Input<int> Size { get; set; } = null!;
-
-        /// <summary>
-        /// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The number of EBS Volumes to attach per instance.
-        /// </summary>
-        [Input("volumesPerInstance")]
-        public Input<int>? VolumesPerInstance { get; set; }
-
-        public InstanceGroupEbsConfigsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class InstanceGroupEbsConfigs
-    {
-        /// <summary>
-        /// The number of I/O operations per second (IOPS) that the volume supports.
-        /// </summary>
-        public readonly int? Iops;
-        /// <summary>
-        /// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-        /// </summary>
-        public readonly int Size;
-        /// <summary>
-        /// The volume type. Valid options are 'gp2', 'io1' and 'standard'.
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The number of EBS Volumes to attach per instance.
-        /// </summary>
-        public readonly int? VolumesPerInstance;
-
-        [OutputConstructor]
-        private InstanceGroupEbsConfigs(
-            int? iops,
-            int size,
-            string type,
-            int? volumesPerInstance)
-        {
-            Iops = iops;
-            Size = size;
-            Type = type;
-            VolumesPerInstance = volumesPerInstance;
-        }
-    }
     }
 }

@@ -13,7 +13,7 @@ class LoadBalancer(pulumi.CustomResource):
     access_logs: pulumi.Output[dict]
     """
     An Access Logs block. Access Logs documented below.
-    
+
       * `bucket` (`str`) - The S3 bucket name to store the logs in.
       * `enabled` (`bool`) - Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
       * `prefix` (`str`) - The S3 bucket prefix. Logs are stored in the root if not configured.
@@ -52,11 +52,11 @@ class LoadBalancer(pulumi.CustomResource):
     """
     If true, the LB will be internal.
     """
-    ip_address_type: pulumi.Output[str]
+    ip_address_type: pulumi.Output[dict]
     """
     The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
     """
-    load_balancer_type: pulumi.Output[str]
+    load_balancer_type: pulumi.Output[dict]
     """
     The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
     """
@@ -77,9 +77,9 @@ class LoadBalancer(pulumi.CustomResource):
     subnet_mappings: pulumi.Output[list]
     """
     A subnet mapping block as documented below.
-    
-      * `allocationId` (`str`) - The allocation ID of the Elastic IP address.
-      * `subnetId` (`str`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+
+      * `allocation_id` (`str`) - The allocation ID of the Elastic IP address.
+      * `subnet_id` (`str`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
     """
     subnets: pulumi.Output[list]
     """
@@ -99,9 +99,11 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, access_logs=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, name_prefix=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer resource.
-        
+
         > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.
@@ -112,8 +114,8 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[float] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        :param pulumi.Input[dict] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+        :param pulumi.Input[dict] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
                must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
                this provider will autogenerate a name beginning with `tf-lb`.
@@ -124,19 +126,17 @@ class LoadBalancer(pulumi.CustomResource):
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **access_logs** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
           * `prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
-        
-        The **subnet_mappings** object supports the following:
-        
-          * `allocationId` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
-          * `subnetId` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
+        The **subnet_mappings** object supports the following:
+
+          * `allocation_id` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -185,7 +185,7 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,8 +200,8 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         :param pulumi.Input[float] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
+        :param pulumi.Input[dict] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
+        :param pulumi.Input[dict] load_balancer_type: The type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
         :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
                must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
                this provider will autogenerate a name beginning with `tf-lb`.
@@ -213,23 +213,22 @@ class LoadBalancer(pulumi.CustomResource):
                for load balancers of type `network` will force a recreation of the resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        
+
         The **access_logs** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
           * `prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
-        
-        The **subnet_mappings** object supports the following:
-        
-          * `allocationId` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
-          * `subnetId` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
+        The **subnet_mappings** object supports the following:
+
+          * `allocation_id` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_logs"] = access_logs
         __props__["arn"] = arn
         __props__["arn_suffix"] = arn_suffix

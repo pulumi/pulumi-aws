@@ -29,7 +29,7 @@ class ParameterGroup(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     A list of Neptune parameters to apply.
-    
+
       * `applyMethod` (`str`) - The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
       * `name` (`str`) - The name of the Neptune parameter.
       * `value` (`str`) - The value of the Neptune parameter.
@@ -41,7 +41,9 @@ class ParameterGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, parameters=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Neptune Parameter Group
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
@@ -49,14 +51,12 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **parameters** object supports the following:
-        
+
           * `applyMethod` (`pulumi.Input[str]`) - The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
           * `name` (`pulumi.Input[str]`) - The name of the Neptune parameter.
           * `value` (`pulumi.Input[str]`) - The value of the Neptune parameter.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,18 +104,17 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Neptune parameter.
         :param pulumi.Input[list] parameters: A list of Neptune parameters to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **parameters** object supports the following:
-        
+
           * `applyMethod` (`pulumi.Input[str]`) - The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
           * `name` (`pulumi.Input[str]`) - The name of the Neptune parameter.
           * `value` (`pulumi.Input[str]`) - The value of the Neptune parameter.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_parameter_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["family"] = family

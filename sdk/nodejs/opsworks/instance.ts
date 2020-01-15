@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  * resources cannot be automatically detected by this provider. After making updates
  * to block device configuration, resource recreation can be manually triggered by
  * using the [`taint` command](https://www.terraform.io/docs/commands/taint.html).
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {

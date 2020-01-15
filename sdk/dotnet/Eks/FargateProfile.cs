@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Eks
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
         [Output("selectors")]
-        public Output<ImmutableArray<Outputs.FargateProfileSelectors>> Selectors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FargateProfileSelector>> Selectors { get; private set; } = null!;
 
         /// <summary>
         /// Status of the EKS Fargate Profile.
@@ -128,14 +128,14 @@ namespace Pulumi.Aws.Eks
         public Input<string> PodExecutionRoleArn { get; set; } = null!;
 
         [Input("selectors", required: true)]
-        private InputList<Inputs.FargateProfileSelectorsArgs>? _selectors;
+        private InputList<Inputs.FargateProfileSelectorArgs>? _selectors;
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
-        public InputList<Inputs.FargateProfileSelectorsArgs> Selectors
+        public InputList<Inputs.FargateProfileSelectorArgs> Selectors
         {
-            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorsArgs>());
+            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorArgs>());
             set => _selectors = value;
         }
 
@@ -195,14 +195,14 @@ namespace Pulumi.Aws.Eks
         public Input<string>? PodExecutionRoleArn { get; set; }
 
         [Input("selectors")]
-        private InputList<Inputs.FargateProfileSelectorsGetArgs>? _selectors;
+        private InputList<Inputs.FargateProfileSelectorGetArgs>? _selectors;
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
-        public InputList<Inputs.FargateProfileSelectorsGetArgs> Selectors
+        public InputList<Inputs.FargateProfileSelectorGetArgs> Selectors
         {
-            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorsGetArgs>());
+            get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorGetArgs>());
             set => _selectors = value;
         }
 
@@ -239,85 +239,5 @@ namespace Pulumi.Aws.Eks
         public FargateProfileState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FargateProfileSelectorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("labels")]
-        private InputMap<string>? _labels;
-
-        /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
-        /// </summary>
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        public FargateProfileSelectorsArgs()
-        {
-        }
-    }
-
-    public sealed class FargateProfileSelectorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("labels")]
-        private InputMap<string>? _labels;
-
-        /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
-        /// </summary>
-        public InputMap<string> Labels
-        {
-            get => _labels ?? (_labels = new InputMap<string>());
-            set => _labels = value;
-        }
-
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        public FargateProfileSelectorsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FargateProfileSelectors
-    {
-        /// <summary>
-        /// Key-value mapping of Kubernetes labels for selection.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Labels;
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
-        public readonly string Namespace;
-
-        [OutputConstructor]
-        private FargateProfileSelectors(
-            ImmutableDictionary<string, string>? labels,
-            string @namespace)
-        {
-            Labels = labels;
-            Namespace = @namespace;
-        }
-    }
     }
 }

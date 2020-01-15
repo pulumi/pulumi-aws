@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ecs
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
         [Output("capacityProviderStrategies")]
-        public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategies>> CapacityProviderStrategies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategy>> CapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
         /// ARN of an ECS cluster
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ecs
         /// A load balancer block. Load balancers documented below.
         /// </summary>
         [Output("loadBalancers")]
-        public Output<ImmutableArray<Outputs.ServiceLoadBalancers>> LoadBalancers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
         /// The name of the service (up to 255 letters, numbers, hyphens, and underscores)
@@ -168,14 +168,14 @@ namespace Pulumi.Aws.Ecs
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
         [Output("orderedPlacementStrategies")]
-        public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategies>> OrderedPlacementStrategies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategy>> OrderedPlacementStrategies { get; private set; } = null!;
 
         /// <summary>
         /// rules that are taken into consideration during task placement. Maximum number of
         /// `placement_constraints` is `10`. Defined below.
         /// </summary>
         [Output("placementConstraints")]
-        public Output<ImmutableArray<Outputs.ServicePlacementConstraints>> PlacementConstraints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServicePlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
         /// <summary>
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -266,14 +266,14 @@ namespace Pulumi.Aws.Ecs
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
-        private InputList<Inputs.ServiceCapacityProviderStrategiesArgs>? _capacityProviderStrategies;
+        private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceCapacityProviderStrategiesArgs> CapacityProviderStrategies
+        public InputList<Inputs.ServiceCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
-            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategiesArgs>());
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategyArgs>());
             set => _capacityProviderStrategies = value;
         }
 
@@ -332,14 +332,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
-        private InputList<Inputs.ServiceLoadBalancersArgs>? _loadBalancers;
+        private InputList<Inputs.ServiceLoadBalancerArgs>? _loadBalancers;
 
         /// <summary>
         /// A load balancer block. Load balancers documented below.
         /// </summary>
-        public InputList<Inputs.ServiceLoadBalancersArgs> LoadBalancers
+        public InputList<Inputs.ServiceLoadBalancerArgs> LoadBalancers
         {
-            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancersArgs>());
+            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
 
@@ -356,27 +356,27 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         [Input("orderedPlacementStrategies")]
-        private InputList<Inputs.ServiceOrderedPlacementStrategiesArgs>? _orderedPlacementStrategies;
+        private InputList<Inputs.ServiceOrderedPlacementStrategyArgs>? _orderedPlacementStrategies;
 
         /// <summary>
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceOrderedPlacementStrategiesArgs> OrderedPlacementStrategies
+        public InputList<Inputs.ServiceOrderedPlacementStrategyArgs> OrderedPlacementStrategies
         {
-            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategiesArgs>());
+            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategyArgs>());
             set => _orderedPlacementStrategies = value;
         }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.ServicePlacementConstraintsArgs>? _placementConstraints;
+        private InputList<Inputs.ServicePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
         /// rules that are taken into consideration during task placement. Maximum number of
         /// `placement_constraints` is `10`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServicePlacementConstraintsArgs> PlacementConstraints
+        public InputList<Inputs.ServicePlacementConstraintArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintsArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintArgs>());
             set => _placementConstraints = value;
         }
 
@@ -436,14 +436,14 @@ namespace Pulumi.Aws.Ecs
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
         [Input("capacityProviderStrategies")]
-        private InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs>? _capacityProviderStrategies;
+        private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs> CapacityProviderStrategies
+        public InputList<Inputs.ServiceCapacityProviderStrategyGetArgs> CapacityProviderStrategies
         {
-            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategiesGetArgs>());
+            get => _capacityProviderStrategies ?? (_capacityProviderStrategies = new InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>());
             set => _capacityProviderStrategies = value;
         }
 
@@ -502,14 +502,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
-        private InputList<Inputs.ServiceLoadBalancersGetArgs>? _loadBalancers;
+        private InputList<Inputs.ServiceLoadBalancerGetArgs>? _loadBalancers;
 
         /// <summary>
         /// A load balancer block. Load balancers documented below.
         /// </summary>
-        public InputList<Inputs.ServiceLoadBalancersGetArgs> LoadBalancers
+        public InputList<Inputs.ServiceLoadBalancerGetArgs> LoadBalancers
         {
-            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancersGetArgs>());
+            get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancerGetArgs>());
             set => _loadBalancers = value;
         }
 
@@ -526,27 +526,27 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.ServiceNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         [Input("orderedPlacementStrategies")]
-        private InputList<Inputs.ServiceOrderedPlacementStrategiesGetArgs>? _orderedPlacementStrategies;
+        private InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>? _orderedPlacementStrategies;
 
         /// <summary>
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of `ordered_placement_strategy` blocks is `5`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServiceOrderedPlacementStrategiesGetArgs> OrderedPlacementStrategies
+        public InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs> OrderedPlacementStrategies
         {
-            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategiesGetArgs>());
+            get => _orderedPlacementStrategies ?? (_orderedPlacementStrategies = new InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>());
             set => _orderedPlacementStrategies = value;
         }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.ServicePlacementConstraintsGetArgs>? _placementConstraints;
+        private InputList<Inputs.ServicePlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
         /// rules that are taken into consideration during task placement. Maximum number of
         /// `placement_constraints` is `10`. Defined below.
         /// </summary>
-        public InputList<Inputs.ServicePlacementConstraintsGetArgs> PlacementConstraints
+        public InputList<Inputs.ServicePlacementConstraintGetArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintsGetArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintGetArgs>());
             set => _placementConstraints = value;
         }
 
@@ -601,371 +601,5 @@ namespace Pulumi.Aws.Ecs
         public ServiceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServiceCapacityProviderStrategiesArgs : Pulumi.ResourceArgs
-    {
-        [Input("base")]
-        public Input<int>? Base { get; set; }
-
-        [Input("capacityProvider", required: true)]
-        public Input<string> CapacityProvider { get; set; } = null!;
-
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public ServiceCapacityProviderStrategiesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceCapacityProviderStrategiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("base")]
-        public Input<int>? Base { get; set; }
-
-        [Input("capacityProvider", required: true)]
-        public Input<string> CapacityProvider { get; set; } = null!;
-
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public ServiceCapacityProviderStrategiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceDeploymentControllerArgs : Pulumi.ResourceArgs
-    {
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public ServiceDeploymentControllerArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceDeploymentControllerGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public ServiceDeploymentControllerGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLoadBalancersArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        [Input("containerPort", required: true)]
-        public Input<int> ContainerPort { get; set; } = null!;
-
-        [Input("elbName")]
-        public Input<string>? ElbName { get; set; }
-
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
-
-        public ServiceLoadBalancersArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLoadBalancersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        [Input("containerPort", required: true)]
-        public Input<int> ContainerPort { get; set; } = null!;
-
-        [Input("elbName")]
-        public Input<string>? ElbName { get; set; }
-
-        [Input("targetGroupArn")]
-        public Input<string>? TargetGroupArn { get; set; }
-
-        public ServiceLoadBalancersGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceNetworkConfigurationArgs : Pulumi.ResourceArgs
-    {
-        [Input("assignPublicIp")]
-        public Input<bool>? AssignPublicIp { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ServiceNetworkConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceNetworkConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("assignPublicIp")]
-        public Input<bool>? AssignPublicIp { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        [Input("subnets", required: true)]
-        private InputList<string>? _subnets;
-        public InputList<string> Subnets
-        {
-            get => _subnets ?? (_subnets = new InputList<string>());
-            set => _subnets = value;
-        }
-
-        public ServiceNetworkConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceOrderedPlacementStrategiesArgs : Pulumi.ResourceArgs
-    {
-        [Input("field")]
-        public Input<string>? Field { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServiceOrderedPlacementStrategiesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceOrderedPlacementStrategiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("field")]
-        public Input<string>? Field { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServiceOrderedPlacementStrategiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServicePlacementConstraintsArgs : Pulumi.ResourceArgs
-    {
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServicePlacementConstraintsArgs()
-        {
-        }
-    }
-
-    public sealed class ServicePlacementConstraintsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServicePlacementConstraintsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceServiceRegistriesArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
-
-        [Input("containerPort")]
-        public Input<int>? ContainerPort { get; set; }
-
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        [Input("registryArn", required: true)]
-        public Input<string> RegistryArn { get; set; } = null!;
-
-        public ServiceServiceRegistriesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceServiceRegistriesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
-
-        [Input("containerPort")]
-        public Input<int>? ContainerPort { get; set; }
-
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        [Input("registryArn", required: true)]
-        public Input<string> RegistryArn { get; set; } = null!;
-
-        public ServiceServiceRegistriesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServiceCapacityProviderStrategies
-    {
-        public readonly int? Base;
-        public readonly string CapacityProvider;
-        public readonly int? Weight;
-
-        [OutputConstructor]
-        private ServiceCapacityProviderStrategies(
-            int? @base,
-            string capacityProvider,
-            int? weight)
-        {
-            Base = @base;
-            CapacityProvider = capacityProvider;
-            Weight = weight;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceDeploymentController
-    {
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private ServiceDeploymentController(string? type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceLoadBalancers
-    {
-        public readonly string ContainerName;
-        public readonly int ContainerPort;
-        public readonly string? ElbName;
-        public readonly string? TargetGroupArn;
-
-        [OutputConstructor]
-        private ServiceLoadBalancers(
-            string containerName,
-            int containerPort,
-            string? elbName,
-            string? targetGroupArn)
-        {
-            ContainerName = containerName;
-            ContainerPort = containerPort;
-            ElbName = elbName;
-            TargetGroupArn = targetGroupArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceNetworkConfiguration
-    {
-        public readonly bool? AssignPublicIp;
-        public readonly ImmutableArray<string> SecurityGroups;
-        public readonly ImmutableArray<string> Subnets;
-
-        [OutputConstructor]
-        private ServiceNetworkConfiguration(
-            bool? assignPublicIp,
-            ImmutableArray<string> securityGroups,
-            ImmutableArray<string> subnets)
-        {
-            AssignPublicIp = assignPublicIp;
-            SecurityGroups = securityGroups;
-            Subnets = subnets;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceOrderedPlacementStrategies
-    {
-        public readonly string? Field;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ServiceOrderedPlacementStrategies(
-            string? field,
-            string type)
-        {
-            Field = field;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServicePlacementConstraints
-    {
-        public readonly string? Expression;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ServicePlacementConstraints(
-            string? expression,
-            string type)
-        {
-            Expression = expression;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceServiceRegistries
-    {
-        public readonly string? ContainerName;
-        public readonly int? ContainerPort;
-        public readonly int? Port;
-        public readonly string RegistryArn;
-
-        [OutputConstructor]
-        private ServiceServiceRegistries(
-            string? containerName,
-            int? containerPort,
-            int? port,
-            string registryArn)
-        {
-            ContainerName = containerName;
-            ContainerPort = containerPort;
-            Port = port;
-            RegistryArn = registryArn;
-        }
-    }
     }
 }

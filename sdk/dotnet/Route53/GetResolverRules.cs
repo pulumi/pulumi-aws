@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Route53
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRulesResult>("aws:route53/getResolverRules:getResolverRules", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetResolverRulesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -51,9 +52,14 @@ namespace Pulumi.Aws.Route53
         }
     }
 
+
     [OutputType]
     public sealed class GetResolverRulesResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? OwnerId;
         public readonly string? ResolverEndpointId;
         /// <summary>
@@ -62,26 +68,27 @@ namespace Pulumi.Aws.Route53
         public readonly ImmutableArray<string> ResolverRuleIds;
         public readonly string? RuleType;
         public readonly string? ShareStatus;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetResolverRulesResult(
+            string id,
+
             string? ownerId,
+
             string? resolverEndpointId,
+
             ImmutableArray<string> resolverRuleIds,
+
             string? ruleType,
-            string? shareStatus,
-            string id)
+
+            string? shareStatus)
         {
+            Id = id;
             OwnerId = ownerId;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleIds = resolverRuleIds;
             RuleType = ruleType;
             ShareStatus = shareStatus;
-            Id = id;
         }
     }
 }

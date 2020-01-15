@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Elb
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetHostedZoneIdArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,22 +35,24 @@ namespace Pulumi.Aws.Elb
         }
     }
 
+
     [OutputType]
     public sealed class GetHostedZoneIdResult
     {
-        public readonly string? Region;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetHostedZoneIdResult(
-            string? region,
-            string id)
+            string id,
+
+            string? region)
         {
-            Region = region;
             Id = id;
+            Region = region;
         }
     }
 }

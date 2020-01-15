@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Iam
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetUserResult
     {
@@ -41,6 +43,10 @@ namespace Pulumi.Aws.Iam
         /// The Amazon Resource Name (ARN) assigned by AWS for this user.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Path in which this user was created.
         /// </summary>
@@ -57,26 +63,27 @@ namespace Pulumi.Aws.Iam
         /// The name associated to this User
         /// </summary>
         public readonly string UserName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserResult(
             string arn,
+
+            string id,
+
             string path,
+
             string permissionsBoundary,
+
             string userId,
-            string userName,
-            string id)
+
+            string userName)
         {
             Arn = arn;
+            Id = id;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
             UserId = userId;
             UserName = userName;
-            Id = id;
         }
     }
 }

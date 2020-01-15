@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     role: role.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_topic_rule.html.markdown.
  */
 export class TopicRule extends pulumi.CustomResource {

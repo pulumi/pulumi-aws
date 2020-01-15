@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     zoneId: "ABCDEFGHIJ123",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
  */
 export class DomainIdentity extends pulumi.CustomResource {

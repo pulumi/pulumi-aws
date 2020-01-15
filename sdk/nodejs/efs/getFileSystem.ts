@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     fileSystemId: fileSystemId,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_file_system.html.markdown.
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> & GetFileSystemResult {
@@ -77,6 +77,10 @@ export interface GetFileSystemResult {
     readonly encrypted: boolean;
     readonly fileSystemId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -88,8 +92,4 @@ export interface GetFileSystemResult {
      * The list of tags assigned to the file system.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

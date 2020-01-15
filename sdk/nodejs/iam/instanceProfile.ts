@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Role} from "./role";
+import {Role} from "./index";
 
 /**
  * Provides an IAM instance profile.
@@ -36,7 +36,7 @@ import {Role} from "./role";
  *     role: role.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_instance_profile.html.markdown.
  */
 export class InstanceProfile extends pulumi.CustomResource {
@@ -169,12 +169,12 @@ export interface InstanceProfileState {
     /**
      * The role name to include in the profile.
      */
-    readonly role?: pulumi.Input<string | Role>;
+    readonly role?: pulumi.Input<string> | pulumi.Input<Role>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Role>[]>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -200,10 +200,10 @@ export interface InstanceProfileArgs {
     /**
      * The role name to include in the profile.
      */
-    readonly role?: pulumi.Input<string | Role>;
+    readonly role?: pulumi.Input<string> | pulumi.Input<Role>;
     /**
      * 
      * A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Role>[]>;
 }

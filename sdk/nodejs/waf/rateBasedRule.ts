@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     rateLimit: 100,
  * }, {dependsOn: [ipset]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_rate_based_rule.html.markdown.
  */
 export class RateBasedRule extends pulumi.CustomResource {

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Sns
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("aws:sns/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetTopicArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Sns
         }
     }
 
+
     [OutputType]
     public sealed class GetTopicResult
     {
@@ -41,21 +43,23 @@ namespace Pulumi.Aws.Sns
         /// Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
         /// </summary>
         public readonly string Arn;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetTopicResult(
             string arn,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

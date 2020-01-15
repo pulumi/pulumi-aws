@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *     type: "MANAGED",
  * }, {dependsOn: [awsBatchServiceRoleRolePolicyAttachment]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
  */
 export class ComputeEnvironment extends pulumi.CustomResource {

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "my-launch-template",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
  */
 export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> & GetLaunchTemplateResult {
@@ -94,6 +94,10 @@ export interface GetLaunchTemplateResult {
      */
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The AMI from which to launch the instance.
      */
     readonly imageId: string;
@@ -162,8 +166,4 @@ export interface GetLaunchTemplateResult {
      * A list of security group IDs to associate with.
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

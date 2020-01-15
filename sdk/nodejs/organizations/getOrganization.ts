@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     policy: snsTopicPolicyPolicyDocument.json,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organization.html.markdown.
  */
 export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> & GetOrganizationResult {
@@ -85,6 +85,10 @@ export interface GetOrganizationResult {
      */
     readonly featureSet: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
      */
     readonly masterAccountArn: string;
@@ -104,8 +108,4 @@ export interface GetOrganizationResult {
      * List of organization roots. All elements have these attributes:
      */
     readonly roots: outputs.organizations.GetOrganizationRoot[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Inspector
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetRulesPackagesResult
     {
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.Inspector
         [OutputConstructor]
         private GetRulesPackagesResult(
             ImmutableArray<string> arns,
+
             string id)
         {
             Arns = arns;

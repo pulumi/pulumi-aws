@@ -37,7 +37,9 @@ class SmsPreferences(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, default_sender_id=None, default_sms_type=None, delivery_status_iam_role_arn=None, delivery_status_success_sampling_rate=None, monthly_spend_limit=None, usage_report_s3_bucket=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a way to set SNS SMS preferences.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -46,8 +48,6 @@ class SmsPreferences(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         :param pulumi.Input[str] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class SmsPreferences(pulumi.CustomResource):
         """
         Get an existing SmsPreferences resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,12 +93,11 @@ class SmsPreferences(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         :param pulumi.Input[str] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_sms_preferences.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["default_sender_id"] = default_sender_id
         __props__["default_sms_type"] = default_sms_type
         __props__["delivery_status_iam_role_arn"] = delivery_status_iam_role_arn

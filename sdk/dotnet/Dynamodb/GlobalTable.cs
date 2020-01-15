@@ -33,7 +33,7 @@ namespace Pulumi.Aws.DynamoDB
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
         [Output("replicas")]
-        public Output<ImmutableArray<Outputs.GlobalTableReplicas>> Replicas { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GlobalTableReplica>> Replicas { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,14 +88,14 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Name { get; set; }
 
         [Input("replicas", required: true)]
-        private InputList<Inputs.GlobalTableReplicasArgs>? _replicas;
+        private InputList<Inputs.GlobalTableReplicaArgs>? _replicas;
 
         /// <summary>
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
-        public InputList<Inputs.GlobalTableReplicasArgs> Replicas
+        public InputList<Inputs.GlobalTableReplicaArgs> Replicas
         {
-            get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicasArgs>());
+            get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicaArgs>());
             set => _replicas = value;
         }
 
@@ -119,68 +119,19 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Name { get; set; }
 
         [Input("replicas")]
-        private InputList<Inputs.GlobalTableReplicasGetArgs>? _replicas;
+        private InputList<Inputs.GlobalTableReplicaGetArgs>? _replicas;
 
         /// <summary>
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
-        public InputList<Inputs.GlobalTableReplicasGetArgs> Replicas
+        public InputList<Inputs.GlobalTableReplicaGetArgs> Replicas
         {
-            get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicasGetArgs>());
+            get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicaGetArgs>());
             set => _replicas = value;
         }
 
         public GlobalTableState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GlobalTableReplicasArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// AWS region name of replica DynamoDB Table. e.g. `us-east-1`
-        /// </summary>
-        [Input("regionName", required: true)]
-        public Input<string> RegionName { get; set; } = null!;
-
-        public GlobalTableReplicasArgs()
-        {
-        }
-    }
-
-    public sealed class GlobalTableReplicasGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// AWS region name of replica DynamoDB Table. e.g. `us-east-1`
-        /// </summary>
-        [Input("regionName", required: true)]
-        public Input<string> RegionName { get; set; } = null!;
-
-        public GlobalTableReplicasGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GlobalTableReplicas
-    {
-        /// <summary>
-        /// AWS region name of replica DynamoDB Table. e.g. `us-east-1`
-        /// </summary>
-        public readonly string RegionName;
-
-        [OutputConstructor]
-        private GlobalTableReplicas(string regionName)
-        {
-            RegionName = regionName;
-        }
-    }
     }
 }

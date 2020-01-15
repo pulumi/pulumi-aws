@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     clusterName: "ecs-mongo-production",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -58,6 +58,10 @@ export interface GetClusterResult {
     readonly arn: string;
     readonly clusterName: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The number of pending tasks for the ECS Cluster
      */
     readonly pendingTasksCount: number;
@@ -77,8 +81,4 @@ export interface GetClusterResult {
      * The status of the ECS Cluster
      */
     readonly status: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -13,7 +13,7 @@ class GetComputeEnvironmentResult:
     """
     A collection of values returned by getComputeEnvironment.
     """
-    def __init__(__self__, arn=None, compute_environment_name=None, ecs_cluster_arn=None, service_role=None, state=None, status=None, status_reason=None, type=None, id=None):
+    def __init__(__self__, arn=None, compute_environment_name=None, ecs_cluster_arn=None, id=None, service_role=None, state=None, status=None, status_reason=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetComputeEnvironmentResult:
         __self__.ecs_cluster_arn = ecs_cluster_arn
         """
         The ARN of the underlying Amazon ECS cluster used by the compute environment.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
@@ -59,12 +65,6 @@ class GetComputeEnvironmentResult:
         """
         The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -74,23 +74,25 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             arn=self.arn,
             compute_environment_name=self.compute_environment_name,
             ecs_cluster_arn=self.ecs_cluster_arn,
+            id=self.id,
             service_role=self.service_role,
             state=self.state,
             status=self.status,
             status_reason=self.status_reason,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_compute_environment(compute_environment_name=None,opts=None):
     """
     The Batch Compute Environment data source allows access to details of a specific
     compute environment within AWS Batch.
-    
-    :param str compute_environment_name: The name of the Batch Compute Environment
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
+
+
+    :param str compute_environment_name: The name of the Batch Compute Environment
     """
     __args__ = dict()
+
 
     __args__['computeEnvironmentName'] = compute_environment_name
     if opts is None:
@@ -103,9 +105,9 @@ def get_compute_environment(compute_environment_name=None,opts=None):
         arn=__ret__.get('arn'),
         compute_environment_name=__ret__.get('computeEnvironmentName'),
         ecs_cluster_arn=__ret__.get('ecsClusterArn'),
+        id=__ret__.get('id'),
         service_role=__ret__.get('serviceRole'),
         state=__ret__.get('state'),
         status=__ret__.get('status'),
         status_reason=__ret__.get('statusReason'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

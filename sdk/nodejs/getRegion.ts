@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * 
  * const current = aws.getRegion();
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
  */
 export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> & GetRegionResult {
@@ -72,11 +72,11 @@ export interface GetRegionResult {
      */
     readonly endpoint: string;
     /**
-     * The name of the selected region.
-     */
-    readonly name: string;
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the selected region.
+     */
+    readonly name: string;
 }

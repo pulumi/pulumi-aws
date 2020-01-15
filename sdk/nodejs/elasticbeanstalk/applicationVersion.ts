@@ -2,12 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Bucket} from "../s3/bucket";
-import {Application} from "./application";
+import {Bucket} from "../s3";
+import {Application} from "./index";
 
 /**
  * Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
@@ -49,7 +47,7 @@ import {Application} from "./application";
  *     key: defaultBucketObject.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
  */
 export class ApplicationVersion extends pulumi.CustomResource {
@@ -179,7 +177,7 @@ export interface ApplicationVersionState {
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    readonly bucket?: pulumi.Input<string | Bucket>;
+    readonly bucket?: pulumi.Input<string> | pulumi.Input<Bucket>;
     /**
      * Short description of the Application Version.
      */
@@ -214,7 +212,7 @@ export interface ApplicationVersionArgs {
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    readonly bucket: pulumi.Input<string | Bucket>;
+    readonly bucket: pulumi.Input<string> | pulumi.Input<Bucket>;
     /**
      * Short description of the Application Version.
      */

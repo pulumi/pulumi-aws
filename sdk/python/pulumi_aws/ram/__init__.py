@@ -3,8 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_resource_share import *
 from .principal_association import *
 from .resource_association import *
 from .resource_share import *
 from .resource_share_accepter import *
-from .get_resource_share import *

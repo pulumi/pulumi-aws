@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     clusterId: "cluster-testclusterid",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -69,6 +69,10 @@ export interface GetClusterResult {
     readonly clusterId: string;
     readonly clusterState: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
     readonly securityGroupId: string;
@@ -80,8 +84,4 @@ export interface GetClusterResult {
      * The id of the VPC that the CloudHSM cluster resides in.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

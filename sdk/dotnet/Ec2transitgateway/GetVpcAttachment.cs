@@ -19,17 +19,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentResult>("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetVpcAttachmentArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetVpcAttachmentFiltersArgs>? _filters;
+        private List<Inputs.GetVpcAttachmentFilterArgs>? _filters;
 
         /// <summary>
         /// One or more configuration blocks containing name-values filters. Detailed below.
         /// </summary>
-        public List<Inputs.GetVpcAttachmentFiltersArgs> Filters
+        public List<Inputs.GetVpcAttachmentFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcAttachmentFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcAttachmentFilterArgs>());
             set => _filters = value;
         }
 
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcAttachmentResult
     {
@@ -59,7 +61,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Whether DNS support is enabled.
         /// </summary>
         public readonly string DnsSupport;
-        public readonly ImmutableArray<Outputs.GetVpcAttachmentFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcAttachmentFilterResult> Filters;
         /// <summary>
         /// EC2 Transit Gateway VPC Attachment identifier
         /// </summary>
@@ -92,13 +94,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [OutputConstructor]
         private GetVpcAttachmentResult(
             string dnsSupport,
-            ImmutableArray<Outputs.GetVpcAttachmentFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpcAttachmentFilterResult> filters,
+
             string? id,
+
             string ipv6Support,
+
             ImmutableArray<string> subnetIds,
+
             ImmutableDictionary<string, object> tags,
+
             string transitGatewayId,
+
             string vpcId,
+
             string vpcOwnerId)
         {
             DnsSupport = dnsSupport;
@@ -111,60 +121,5 @@ namespace Pulumi.Aws.Ec2TransitGateway
             VpcId = vpcId;
             VpcOwnerId = vpcOwnerId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpcAttachmentFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpcAttachmentFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpcAttachmentFiltersResult
-    {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpcAttachmentFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

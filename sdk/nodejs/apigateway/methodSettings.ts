@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an API Gateway Method Settings, e.g. logging or monitoring.
@@ -62,7 +62,7 @@ import {RestApi} from "./restApi";
  *     stageName: testStage.stageName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
  */
 export class MethodSettings extends pulumi.CustomResource {

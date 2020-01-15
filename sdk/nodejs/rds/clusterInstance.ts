@@ -2,12 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {EngineType} from "./engineType";
-import {InstanceType} from "./instanceType";
+import {EngineType, InstanceType} from "./index";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
@@ -319,7 +316,7 @@ export interface ClusterInstanceState {
      * The instance class to use. For details on CPU
      * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
      */
-    readonly instanceClass?: pulumi.Input<string | InstanceType>;
+    readonly instanceClass?: pulumi.Input<string> | pulumi.Input<InstanceType>;
     /**
      * The ARN for the KMS encryption key if one is set to the cluster.
      */
@@ -436,7 +433,7 @@ export interface ClusterInstanceArgs {
      * The instance class to use. For details on CPU
      * and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
      */
-    readonly instanceClass: pulumi.Input<string | InstanceType>;
+    readonly instanceClass: pulumi.Input<string> | pulumi.Input<InstanceType>;
     /**
      * The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */

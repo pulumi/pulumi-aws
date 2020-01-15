@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     vpcId: var_vpc_id,
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
  */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> & GetNetworkAclsResult {
@@ -98,13 +98,13 @@ export interface GetNetworkAclsArgs {
 export interface GetNetworkAclsResult {
     readonly filters?: outputs.ec2.GetNetworkAclsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the network ACL ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

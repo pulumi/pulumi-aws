@@ -19,6 +19,7 @@ namespace Pulumi.Aws.CloudWatch
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetLogGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
+
     [OutputType]
     public sealed class GetLogGroupResult
     {
@@ -43,23 +45,26 @@ namespace Pulumi.Aws.CloudWatch
         /// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         /// </summary>
         public readonly int CreationTime;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetLogGroupResult(
             string arn,
+
             int creationTime,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
             CreationTime = creationTime;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

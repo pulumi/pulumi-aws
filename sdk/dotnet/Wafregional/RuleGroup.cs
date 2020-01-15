@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafRegional
         /// A list of activated rules, see below
         /// </summary>
         [Output("activatedRules")]
-        public Output<ImmutableArray<Outputs.RuleGroupActivatedRules>> ActivatedRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RuleGroupActivatedRule>> ActivatedRules { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the WAF Regional Rule Group.
@@ -92,14 +92,14 @@ namespace Pulumi.Aws.WafRegional
     public sealed class RuleGroupArgs : Pulumi.ResourceArgs
     {
         [Input("activatedRules")]
-        private InputList<Inputs.RuleGroupActivatedRulesArgs>? _activatedRules;
+        private InputList<Inputs.RuleGroupActivatedRuleArgs>? _activatedRules;
 
         /// <summary>
         /// A list of activated rules, see below
         /// </summary>
-        public InputList<Inputs.RuleGroupActivatedRulesArgs> ActivatedRules
+        public InputList<Inputs.RuleGroupActivatedRuleArgs> ActivatedRules
         {
-            get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRulesArgs>());
+            get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRuleArgs>());
             set => _activatedRules = value;
         }
 
@@ -135,14 +135,14 @@ namespace Pulumi.Aws.WafRegional
     public sealed class RuleGroupState : Pulumi.ResourceArgs
     {
         [Input("activatedRules")]
-        private InputList<Inputs.RuleGroupActivatedRulesGetArgs>? _activatedRules;
+        private InputList<Inputs.RuleGroupActivatedRuleGetArgs>? _activatedRules;
 
         /// <summary>
         /// A list of activated rules, see below
         /// </summary>
-        public InputList<Inputs.RuleGroupActivatedRulesGetArgs> ActivatedRules
+        public InputList<Inputs.RuleGroupActivatedRuleGetArgs> ActivatedRules
         {
-            get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRulesGetArgs>());
+            get => _activatedRules ?? (_activatedRules = new InputList<Inputs.RuleGroupActivatedRuleGetArgs>());
             set => _activatedRules = value;
         }
 
@@ -179,150 +179,5 @@ namespace Pulumi.Aws.WafRegional
         public RuleGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RuleGroupActivatedRulesActionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RuleGroupActivatedRulesActionArgs()
-        {
-        }
-    }
-
-    public sealed class RuleGroupActivatedRulesActionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RuleGroupActivatedRulesActionGetArgs()
-        {
-        }
-    }
-
-    public sealed class RuleGroupActivatedRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<RuleGroupActivatedRulesActionArgs> Action { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
-        /// </summary>
-        [Input("ruleId", required: true)]
-        public Input<string> RuleId { get; set; } = null!;
-
-        /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleGroupActivatedRulesArgs()
-        {
-        }
-    }
-
-    public sealed class RuleGroupActivatedRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<RuleGroupActivatedRulesActionGetArgs> Action { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
-        /// </summary>
-        [Input("ruleId", required: true)]
-        public Input<string> RuleId { get; set; } = null!;
-
-        /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public RuleGroupActivatedRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RuleGroupActivatedRules
-    {
-        /// <summary>
-        /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-        /// </summary>
-        public readonly RuleGroupActivatedRulesAction Action;
-        /// <summary>
-        /// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-        /// </summary>
-        public readonly int Priority;
-        /// <summary>
-        /// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
-        /// </summary>
-        public readonly string RuleId;
-        /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private RuleGroupActivatedRules(
-            RuleGroupActivatedRulesAction action,
-            int priority,
-            string ruleId,
-            string? type)
-        {
-            Action = action;
-            Priority = priority;
-            RuleId = ruleId;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class RuleGroupActivatedRulesAction
-    {
-        /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private RuleGroupActivatedRulesAction(string type)
-        {
-            Type = type;
-        }
-    }
     }
 }

@@ -19,25 +19,28 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetPartitionResult
     {
         public readonly string DnsSuffix;
-        public readonly string Partition;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Partition;
 
         [OutputConstructor]
         private GetPartitionResult(
             string dnsSuffix,
-            string partition,
-            string id)
+
+            string id,
+
+            string partition)
         {
             DnsSuffix = dnsSuffix;
-            Partition = partition;
             Id = id;
+            Partition = partition;
         }
     }
 }

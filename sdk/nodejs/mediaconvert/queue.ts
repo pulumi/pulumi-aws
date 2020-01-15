@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const test = new aws.mediaconvert.Queue("test", {});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/media_convert_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {

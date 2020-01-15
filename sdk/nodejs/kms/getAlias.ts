@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "alias/aws/s3",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_alias.html.markdown.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> & GetAliasResult {
@@ -57,6 +57,10 @@ export interface GetAliasResult {
      * The Amazon Resource Name(ARN) of the key alias.
      */
     readonly arn: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * ARN pointed to by the alias.
@@ -66,8 +70,4 @@ export interface GetAliasResult {
      * Key identifier pointed to by the alias.
      */
     readonly targetKeyId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

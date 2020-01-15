@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *     serviceCode: "AmazonRedshift",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> & GetProductResult {
@@ -104,12 +104,12 @@ export interface GetProductArgs {
 export interface GetProductResult {
     readonly filters: outputs.pricing.GetProductFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the product returned from the API.
      */
     readonly result: string;
     readonly serviceCode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

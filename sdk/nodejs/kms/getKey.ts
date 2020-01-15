@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> & GetKeyResult {
@@ -71,14 +71,14 @@ export interface GetKeyResult {
     readonly enabled: boolean;
     readonly expirationModel: string;
     readonly grantTokens?: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyId: string;
     readonly keyManager: string;
     readonly keyState: string;
     readonly keyUsage: string;
     readonly origin: string;
     readonly validTo: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Budgets
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         /// </summary>
         [Output("notifications")]
-        public Output<ImmutableArray<Outputs.BudgetNotifications>> Notifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BudgetNotification>> Notifications { get; private set; } = null!;
 
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
@@ -188,14 +188,14 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? NamePrefix { get; set; }
 
         [Input("notifications")]
-        private InputList<Inputs.BudgetNotificationsArgs>? _notifications;
+        private InputList<Inputs.BudgetNotificationArgs>? _notifications;
 
         /// <summary>
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         /// </summary>
-        public InputList<Inputs.BudgetNotificationsArgs> Notifications
+        public InputList<Inputs.BudgetNotificationArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputList<Inputs.BudgetNotificationsArgs>());
+            get => _notifications ?? (_notifications = new InputList<Inputs.BudgetNotificationArgs>());
             set => _notifications = value;
         }
 
@@ -279,14 +279,14 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? NamePrefix { get; set; }
 
         [Input("notifications")]
-        private InputList<Inputs.BudgetNotificationsGetArgs>? _notifications;
+        private InputList<Inputs.BudgetNotificationGetArgs>? _notifications;
 
         /// <summary>
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         /// </summary>
-        public InputList<Inputs.BudgetNotificationsGetArgs> Notifications
+        public InputList<Inputs.BudgetNotificationGetArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputList<Inputs.BudgetNotificationsGetArgs>());
+            get => _notifications ?? (_notifications = new InputList<Inputs.BudgetNotificationGetArgs>());
             set => _notifications = value;
         }
 
@@ -311,391 +311,5 @@ namespace Pulumi.Aws.Budgets
         public BudgetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BudgetCostTypesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A boolean value whether to include credits in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeCredit")]
-        public Input<bool>? IncludeCredit { get; set; }
-
-        /// <summary>
-        /// Specifies whether a budget includes discounts. Defaults to `true`
-        /// </summary>
-        [Input("includeDiscount")]
-        public Input<bool>? IncludeDiscount { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeOtherSubscription")]
-        public Input<bool>? IncludeOtherSubscription { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeRecurring")]
-        public Input<bool>? IncludeRecurring { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeRefund")]
-        public Input<bool>? IncludeRefund { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeSubscription")]
-        public Input<bool>? IncludeSubscription { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeSupport")]
-        public Input<bool>? IncludeSupport { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include tax in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeTax")]
-        public Input<bool>? IncludeTax { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeUpfront")]
-        public Input<bool>? IncludeUpfront { get; set; }
-
-        /// <summary>
-        /// Specifies whether a budget uses the amortized rate. Defaults to `false`
-        /// </summary>
-        [Input("useAmortized")]
-        public Input<bool>? UseAmortized { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-        /// </summary>
-        [Input("useBlended")]
-        public Input<bool>? UseBlended { get; set; }
-
-        public BudgetCostTypesArgs()
-        {
-        }
-    }
-
-    public sealed class BudgetCostTypesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A boolean value whether to include credits in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeCredit")]
-        public Input<bool>? IncludeCredit { get; set; }
-
-        /// <summary>
-        /// Specifies whether a budget includes discounts. Defaults to `true`
-        /// </summary>
-        [Input("includeDiscount")]
-        public Input<bool>? IncludeDiscount { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeOtherSubscription")]
-        public Input<bool>? IncludeOtherSubscription { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeRecurring")]
-        public Input<bool>? IncludeRecurring { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeRefund")]
-        public Input<bool>? IncludeRefund { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeSubscription")]
-        public Input<bool>? IncludeSubscription { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeSupport")]
-        public Input<bool>? IncludeSupport { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include tax in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeTax")]
-        public Input<bool>? IncludeTax { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        /// </summary>
-        [Input("includeUpfront")]
-        public Input<bool>? IncludeUpfront { get; set; }
-
-        /// <summary>
-        /// Specifies whether a budget uses the amortized rate. Defaults to `false`
-        /// </summary>
-        [Input("useAmortized")]
-        public Input<bool>? UseAmortized { get; set; }
-
-        /// <summary>
-        /// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-        /// </summary>
-        [Input("useBlended")]
-        public Input<bool>? UseBlended { get; set; }
-
-        public BudgetCostTypesGetArgs()
-        {
-        }
-    }
-
-    public sealed class BudgetNotificationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        /// </summary>
-        [Input("comparisonOperator", required: true)]
-        public Input<string> ComparisonOperator { get; set; } = null!;
-
-        /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        /// </summary>
-        [Input("notificationType", required: true)]
-        public Input<string> NotificationType { get; set; } = null!;
-
-        [Input("subscriberEmailAddresses")]
-        private InputList<string>? _subscriberEmailAddresses;
-
-        /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        /// </summary>
-        public InputList<string> SubscriberEmailAddresses
-        {
-            get => _subscriberEmailAddresses ?? (_subscriberEmailAddresses = new InputList<string>());
-            set => _subscriberEmailAddresses = value;
-        }
-
-        [Input("subscriberSnsTopicArns")]
-        private InputList<string>? _subscriberSnsTopicArns;
-
-        /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        /// </summary>
-        public InputList<string> SubscriberSnsTopicArns
-        {
-            get => _subscriberSnsTopicArns ?? (_subscriberSnsTopicArns = new InputList<string>());
-            set => _subscriberSnsTopicArns = value;
-        }
-
-        /// <summary>
-        /// (Required) Threshold when the notification should be sent.
-        /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        /// <summary>
-        /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        /// </summary>
-        [Input("thresholdType", required: true)]
-        public Input<string> ThresholdType { get; set; } = null!;
-
-        public BudgetNotificationsArgs()
-        {
-        }
-    }
-
-    public sealed class BudgetNotificationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        /// </summary>
-        [Input("comparisonOperator", required: true)]
-        public Input<string> ComparisonOperator { get; set; } = null!;
-
-        /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        /// </summary>
-        [Input("notificationType", required: true)]
-        public Input<string> NotificationType { get; set; } = null!;
-
-        [Input("subscriberEmailAddresses")]
-        private InputList<string>? _subscriberEmailAddresses;
-
-        /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        /// </summary>
-        public InputList<string> SubscriberEmailAddresses
-        {
-            get => _subscriberEmailAddresses ?? (_subscriberEmailAddresses = new InputList<string>());
-            set => _subscriberEmailAddresses = value;
-        }
-
-        [Input("subscriberSnsTopicArns")]
-        private InputList<string>? _subscriberSnsTopicArns;
-
-        /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        /// </summary>
-        public InputList<string> SubscriberSnsTopicArns
-        {
-            get => _subscriberSnsTopicArns ?? (_subscriberSnsTopicArns = new InputList<string>());
-            set => _subscriberSnsTopicArns = value;
-        }
-
-        /// <summary>
-        /// (Required) Threshold when the notification should be sent.
-        /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        /// <summary>
-        /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        /// </summary>
-        [Input("thresholdType", required: true)]
-        public Input<string> ThresholdType { get; set; } = null!;
-
-        public BudgetNotificationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BudgetCostTypes
-    {
-        /// <summary>
-        /// A boolean value whether to include credits in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeCredit;
-        /// <summary>
-        /// Specifies whether a budget includes discounts. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeDiscount;
-        /// <summary>
-        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeOtherSubscription;
-        /// <summary>
-        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeRecurring;
-        /// <summary>
-        /// A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeRefund;
-        /// <summary>
-        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeSubscription;
-        /// <summary>
-        /// A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeSupport;
-        /// <summary>
-        /// A boolean value whether to include tax in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeTax;
-        /// <summary>
-        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        /// </summary>
-        public readonly bool? IncludeUpfront;
-        /// <summary>
-        /// Specifies whether a budget uses the amortized rate. Defaults to `false`
-        /// </summary>
-        public readonly bool? UseAmortized;
-        /// <summary>
-        /// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-        /// </summary>
-        public readonly bool? UseBlended;
-
-        [OutputConstructor]
-        private BudgetCostTypes(
-            bool? includeCredit,
-            bool? includeDiscount,
-            bool? includeOtherSubscription,
-            bool? includeRecurring,
-            bool? includeRefund,
-            bool? includeSubscription,
-            bool? includeSupport,
-            bool? includeTax,
-            bool? includeUpfront,
-            bool? useAmortized,
-            bool? useBlended)
-        {
-            IncludeCredit = includeCredit;
-            IncludeDiscount = includeDiscount;
-            IncludeOtherSubscription = includeOtherSubscription;
-            IncludeRecurring = includeRecurring;
-            IncludeRefund = includeRefund;
-            IncludeSubscription = includeSubscription;
-            IncludeSupport = includeSupport;
-            IncludeTax = includeTax;
-            IncludeUpfront = includeUpfront;
-            UseAmortized = useAmortized;
-            UseBlended = useBlended;
-        }
-    }
-
-    [OutputType]
-    public sealed class BudgetNotifications
-    {
-        /// <summary>
-        /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        /// </summary>
-        public readonly string ComparisonOperator;
-        /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        /// </summary>
-        public readonly string NotificationType;
-        /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        /// </summary>
-        public readonly ImmutableArray<string> SubscriberEmailAddresses;
-        /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        /// </summary>
-        public readonly ImmutableArray<string> SubscriberSnsTopicArns;
-        /// <summary>
-        /// (Required) Threshold when the notification should be sent.
-        /// </summary>
-        public readonly double Threshold;
-        /// <summary>
-        /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        /// </summary>
-        public readonly string ThresholdType;
-
-        [OutputConstructor]
-        private BudgetNotifications(
-            string comparisonOperator,
-            string notificationType,
-            ImmutableArray<string> subscriberEmailAddresses,
-            ImmutableArray<string> subscriberSnsTopicArns,
-            double threshold,
-            string thresholdType)
-        {
-            ComparisonOperator = comparisonOperator;
-            NotificationType = notificationType;
-            SubscriberEmailAddresses = subscriberEmailAddresses;
-            SubscriberSnsTopicArns = subscriberSnsTopicArns;
-            Threshold = threshold;
-            ThresholdType = thresholdType;
-        }
-    }
     }
 }

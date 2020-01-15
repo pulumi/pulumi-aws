@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "clusterName",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -70,6 +70,10 @@ export interface GetClusterResult {
     readonly hostedZoneId: string;
     readonly iamDatabaseAuthenticationEnabled: boolean;
     readonly iamRoles: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly kmsKeyId: string;
     readonly masterUsername: string;
     readonly port: number;
@@ -80,8 +84,4 @@ export interface GetClusterResult {
     readonly storageEncrypted: boolean;
     readonly tags: {[key: string]: any};
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

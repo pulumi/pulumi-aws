@@ -19,6 +19,7 @@ namespace Pulumi.Aws.SecretsManager
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -38,6 +39,7 @@ namespace Pulumi.Aws.SecretsManager
         }
     }
 
+
     [OutputType]
     public sealed class GetSecretResult
     {
@@ -49,6 +51,10 @@ namespace Pulumi.Aws.SecretsManager
         /// A description of the secret.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         /// </summary>
@@ -69,31 +75,37 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Rotation rules if rotation is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetSecretRotationRulesResult> RotationRules;
+        public readonly ImmutableArray<Outputs.GetSecretRotationRuleResult> RotationRules;
         /// <summary>
         /// Tags of the secret.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSecretResult(
             string arn,
+
             string description,
+
+            string id,
+
             string kmsKeyId,
+
             string name,
+
             string policy,
+
             bool rotationEnabled,
+
             string rotationLambdaArn,
-            ImmutableArray<Outputs.GetSecretRotationRulesResult> rotationRules,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableArray<Outputs.GetSecretRotationRuleResult> rotationRules,
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
             Description = description;
+            Id = id;
             KmsKeyId = kmsKeyId;
             Name = name;
             Policy = policy;
@@ -101,23 +113,6 @@ namespace Pulumi.Aws.SecretsManager
             RotationLambdaArn = rotationLambdaArn;
             RotationRules = rotationRules;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSecretRotationRulesResult
-    {
-        public readonly int AutomaticallyAfterDays;
-
-        [OutputConstructor]
-        private GetSecretRotationRulesResult(int automaticallyAfterDays)
-        {
-            AutomaticallyAfterDays = automaticallyAfterDays;
-        }
-    }
     }
 }

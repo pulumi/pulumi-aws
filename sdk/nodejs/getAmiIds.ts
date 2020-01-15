@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *     owners: ["099720109477"],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
  */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> & GetAmiIdsResult {
@@ -84,12 +84,12 @@ export interface GetAmiIdsArgs {
 export interface GetAmiIdsResult {
     readonly executableUsers?: string[];
     readonly filters?: outputs.GetAmiIdsFilter[];
-    readonly ids: string[];
-    readonly nameRegex?: string;
-    readonly owners: string[];
-    readonly sortAscending?: boolean;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids: string[];
+    readonly nameRegex?: string;
+    readonly owners: string[];
+    readonly sortAscending?: boolean;
 }

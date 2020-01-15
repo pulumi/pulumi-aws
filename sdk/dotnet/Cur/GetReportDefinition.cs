@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Cur
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetReportDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.Cur
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetReportDefinitionResult
@@ -55,6 +57,10 @@ namespace Pulumi.Aws.Cur
         /// Preferred compression format for report.
         /// </summary>
         public readonly string Format;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string ReportName;
         /// <summary>
         /// Name of customer S3 bucket.
@@ -72,34 +78,39 @@ namespace Pulumi.Aws.Cur
         /// The frequency on which report data are measured and displayed.
         /// </summary>
         public readonly string TimeUnit;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetReportDefinitionResult(
             ImmutableArray<string> additionalArtifacts,
+
             ImmutableArray<string> additionalSchemaElements,
+
             string compression,
+
             string format,
+
+            string id,
+
             string reportName,
+
             string s3Bucket,
+
             string s3Prefix,
+
             string s3Region,
-            string timeUnit,
-            string id)
+
+            string timeUnit)
         {
             AdditionalArtifacts = additionalArtifacts;
             AdditionalSchemaElements = additionalSchemaElements;
             Compression = compression;
             Format = format;
+            Id = id;
             ReportName = reportName;
             S3Bucket = s3Bucket;
             S3Prefix = s3Prefix;
             S3Region = s3Region;
             TimeUnit = timeUnit;
-            Id = id;
         }
     }
 }

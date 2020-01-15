@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElastiCache
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:elasticache/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -52,7 +54,7 @@ namespace Pulumi.Aws.ElastiCache
         /// List of node objects including `id`, `address`, `port` and `availability_zone`.
         /// Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetClusterCacheNodesResult> CacheNodes;
+        public readonly ImmutableArray<Outputs.GetClusterCacheNodeResult> CacheNodes;
         /// <summary>
         /// (Memcached only) The DNS name of the cache cluster without the port appended.
         /// </summary>
@@ -70,6 +72,10 @@ namespace Pulumi.Aws.ElastiCache
         /// Version number of the cache engine.
         /// </summary>
         public readonly string EngineVersion;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed.
@@ -127,35 +133,52 @@ namespace Pulumi.Aws.ElastiCache
         /// The tags assigned to the resource
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             string availabilityZone,
-            ImmutableArray<Outputs.GetClusterCacheNodesResult> cacheNodes,
+
+            ImmutableArray<Outputs.GetClusterCacheNodeResult> cacheNodes,
+
             string clusterAddress,
+
             string clusterId,
+
             string configurationEndpoint,
+
             string engine,
+
             string engineVersion,
+
+            string id,
+
             string maintenanceWindow,
+
             string nodeType,
+
             string notificationTopicArn,
+
             int numCacheNodes,
+
             string parameterGroupName,
+
             int port,
+
             string replicationGroupId,
+
             ImmutableArray<string> securityGroupIds,
+
             ImmutableArray<string> securityGroupNames,
+
             int snapshotRetentionLimit,
+
             string snapshotWindow,
+
             string subnetGroupName,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;
@@ -165,6 +188,7 @@ namespace Pulumi.Aws.ElastiCache
             ConfigurationEndpoint = configurationEndpoint;
             Engine = engine;
             EngineVersion = engineVersion;
+            Id = id;
             MaintenanceWindow = maintenanceWindow;
             NodeType = nodeType;
             NotificationTopicArn = notificationTopicArn;
@@ -178,40 +202,6 @@ namespace Pulumi.Aws.ElastiCache
             SnapshotWindow = snapshotWindow;
             SubnetGroupName = subnetGroupName;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetClusterCacheNodesResult
-    {
-        public readonly string Address;
-        /// <summary>
-        /// The Availability Zone for the cache cluster.
-        /// </summary>
-        public readonly string AvailabilityZone;
-        public readonly string Id;
-        /// <summary>
-        /// The port number on which each of the cache nodes will
-        /// accept connections.
-        /// </summary>
-        public readonly int Port;
-
-        [OutputConstructor]
-        private GetClusterCacheNodesResult(
-            string address,
-            string availabilityZone,
-            string id,
-            int port)
-        {
-            Address = address;
-            AvailabilityZone = availabilityZone;
-            Id = id;
-            Port = port;
-        }
-    }
     }
 }

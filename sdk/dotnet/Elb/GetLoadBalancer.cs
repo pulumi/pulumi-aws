@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Elb
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elb/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
+
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
@@ -57,10 +59,14 @@ namespace Pulumi.Aws.Elb
         public readonly bool CrossZoneLoadBalancing;
         public readonly string DnsName;
         public readonly Outputs.GetLoadBalancerHealthCheckResult HealthCheck;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly int IdleTimeout;
         public readonly ImmutableArray<string> Instances;
         public readonly bool Internal;
-        public readonly ImmutableArray<Outputs.GetLoadBalancerListenersResult> Listeners;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerListenerResult> Listeners;
         public readonly string Name;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly string SourceSecurityGroup;
@@ -68,33 +74,48 @@ namespace Pulumi.Aws.Elb
         public readonly ImmutableArray<string> Subnets;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string ZoneId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
             Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+
             string arn,
+
             ImmutableArray<string> availabilityZones,
+
             bool connectionDraining,
+
             int connectionDrainingTimeout,
+
             bool crossZoneLoadBalancing,
+
             string dnsName,
+
             Outputs.GetLoadBalancerHealthCheckResult healthCheck,
+
+            string id,
+
             int idleTimeout,
+
             ImmutableArray<string> instances,
+
             bool @internal,
-            ImmutableArray<Outputs.GetLoadBalancerListenersResult> listeners,
+
+            ImmutableArray<Outputs.GetLoadBalancerListenerResult> listeners,
+
             string name,
+
             ImmutableArray<string> securityGroups,
+
             string sourceSecurityGroup,
+
             string sourceSecurityGroupId,
+
             ImmutableArray<string> subnets,
+
             ImmutableDictionary<string, object> tags,
-            string zoneId,
-            string id)
+
+            string zoneId)
         {
             AccessLogs = accessLogs;
             Arn = arn;
@@ -104,6 +125,7 @@ namespace Pulumi.Aws.Elb
             CrossZoneLoadBalancing = crossZoneLoadBalancing;
             DnsName = dnsName;
             HealthCheck = healthCheck;
+            Id = id;
             IdleTimeout = idleTimeout;
             Instances = instances;
             Internal = @internal;
@@ -115,83 +137,6 @@ namespace Pulumi.Aws.Elb
             Subnets = subnets;
             Tags = tags;
             ZoneId = zoneId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLoadBalancerAccessLogsResult
-    {
-        public readonly string Bucket;
-        public readonly string BucketPrefix;
-        public readonly bool Enabled;
-        public readonly int Interval;
-
-        [OutputConstructor]
-        private GetLoadBalancerAccessLogsResult(
-            string bucket,
-            string bucketPrefix,
-            bool enabled,
-            int interval)
-        {
-            Bucket = bucket;
-            BucketPrefix = bucketPrefix;
-            Enabled = enabled;
-            Interval = interval;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLoadBalancerHealthCheckResult
-    {
-        public readonly int HealthyThreshold;
-        public readonly int Interval;
-        public readonly string Target;
-        public readonly int Timeout;
-        public readonly int UnhealthyThreshold;
-
-        [OutputConstructor]
-        private GetLoadBalancerHealthCheckResult(
-            int healthyThreshold,
-            int interval,
-            string target,
-            int timeout,
-            int unhealthyThreshold)
-        {
-            HealthyThreshold = healthyThreshold;
-            Interval = interval;
-            Target = target;
-            Timeout = timeout;
-            UnhealthyThreshold = unhealthyThreshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLoadBalancerListenersResult
-    {
-        public readonly int InstancePort;
-        public readonly string InstanceProtocol;
-        public readonly int LbPort;
-        public readonly string LbProtocol;
-        public readonly string SslCertificateId;
-
-        [OutputConstructor]
-        private GetLoadBalancerListenersResult(
-            int instancePort,
-            string instanceProtocol,
-            int lbPort,
-            string lbProtocol,
-            string sslCertificateId)
-        {
-            InstancePort = instancePort;
-            InstanceProtocol = instanceProtocol;
-            LbPort = lbPort;
-            LbProtocol = lbProtocol;
-            SslCertificateId = sslCertificateId;
-        }
-    }
     }
 }

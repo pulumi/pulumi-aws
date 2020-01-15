@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Eks
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
         /// </summary>
         [Output("identities")]
-        public Output<ImmutableArray<Outputs.ClusterIdentities>> Identities { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterIdentity>> Identities { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cluster.
@@ -225,14 +225,14 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Endpoint { get; set; }
 
         [Input("identities")]
-        private InputList<Inputs.ClusterIdentitiesGetArgs>? _identities;
+        private InputList<Inputs.ClusterIdentityGetArgs>? _identities;
 
         /// <summary>
         /// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
         /// </summary>
-        public InputList<Inputs.ClusterIdentitiesGetArgs> Identities
+        public InputList<Inputs.ClusterIdentityGetArgs> Identities
         {
-            get => _identities ?? (_identities = new InputList<Inputs.ClusterIdentitiesGetArgs>());
+            get => _identities ?? (_identities = new InputList<Inputs.ClusterIdentityGetArgs>());
             set => _identities = value;
         }
 
@@ -287,259 +287,5 @@ namespace Pulumi.Aws.Eks
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterCertificateAuthorityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        public ClusterCertificateAuthorityGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterIdentitiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("oidcs")]
-        private InputList<ClusterIdentitiesOidcsGetArgs>? _oidcs;
-
-        /// <summary>
-        /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        /// </summary>
-        public InputList<ClusterIdentitiesOidcsGetArgs> Oidcs
-        {
-            get => _oidcs ?? (_oidcs = new InputList<ClusterIdentitiesOidcsGetArgs>());
-            set => _oidcs = value;
-        }
-
-        public ClusterIdentitiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterIdentitiesOidcsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
-        [Input("issuer")]
-        public Input<string>? Issuer { get; set; }
-
-        public ClusterIdentitiesOidcsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterVpcConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
-        [Input("clusterSecurityGroupId")]
-        public Input<string>? ClusterSecurityGroupId { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        /// </summary>
-        [Input("endpointPrivateAccess")]
-        public Input<bool>? EndpointPrivateAccess { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        /// </summary>
-        [Input("endpointPublicAccess")]
-        public Input<bool>? EndpointPublicAccess { get; set; }
-
-        [Input("securityGroupIds")]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnetIds", required: true)]
-        private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SubnetIds
-        {
-            get => _subnetIds ?? (_subnetIds = new InputList<string>());
-            set => _subnetIds = value;
-        }
-
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
-
-        public ClusterVpcConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterVpcConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
-        [Input("clusterSecurityGroupId")]
-        public Input<string>? ClusterSecurityGroupId { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        /// </summary>
-        [Input("endpointPrivateAccess")]
-        public Input<bool>? EndpointPrivateAccess { get; set; }
-
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        /// </summary>
-        [Input("endpointPublicAccess")]
-        public Input<bool>? EndpointPublicAccess { get; set; }
-
-        [Input("securityGroupIds")]
-        private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SecurityGroupIds
-        {
-            get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
-            set => _securityGroupIds = value;
-        }
-
-        [Input("subnetIds", required: true)]
-        private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public InputList<string> SubnetIds
-        {
-            get => _subnetIds ?? (_subnetIds = new InputList<string>());
-            set => _subnetIds = value;
-        }
-
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        [Input("vpcId")]
-        public Input<string>? VpcId { get; set; }
-
-        public ClusterVpcConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterCertificateAuthority
-    {
-        /// <summary>
-        /// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-        /// </summary>
-        public readonly string Data;
-
-        [OutputConstructor]
-        private ClusterCertificateAuthority(string data)
-        {
-            Data = data;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterIdentities
-    {
-        /// <summary>
-        /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        /// </summary>
-        public readonly ImmutableArray<ClusterIdentitiesOidcs> Oidcs;
-
-        [OutputConstructor]
-        private ClusterIdentities(ImmutableArray<ClusterIdentitiesOidcs> oidcs)
-        {
-            Oidcs = oidcs;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterIdentitiesOidcs
-    {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
-        public readonly string Issuer;
-
-        [OutputConstructor]
-        private ClusterIdentitiesOidcs(string issuer)
-        {
-            Issuer = issuer;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterVpcConfig
-    {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
-        public readonly string ClusterSecurityGroupId;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
-        /// </summary>
-        public readonly bool? EndpointPrivateAccess;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
-        /// </summary>
-        public readonly bool? EndpointPublicAccess;
-        /// <summary>
-        /// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        /// </summary>
-        public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
-        public readonly string VpcId;
-
-        [OutputConstructor]
-        private ClusterVpcConfig(
-            string clusterSecurityGroupId,
-            bool? endpointPrivateAccess,
-            bool? endpointPublicAccess,
-            ImmutableArray<string> securityGroupIds,
-            ImmutableArray<string> subnetIds,
-            string vpcId)
-        {
-            ClusterSecurityGroupId = clusterSecurityGroupId;
-            EndpointPrivateAccess = endpointPrivateAccess;
-            EndpointPublicAccess = endpointPublicAccess;
-            SecurityGroupIds = securityGroupIds;
-            SubnetIds = subnetIds;
-            VpcId = vpcId;
-        }
-    }
     }
 }

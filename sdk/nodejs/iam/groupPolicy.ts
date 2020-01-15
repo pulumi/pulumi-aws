@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM policy attached to a group.
@@ -35,7 +35,7 @@ import {PolicyDocument} from "./documents";
  * `,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
  */
 export class GroupPolicy extends pulumi.CustomResource {
@@ -139,7 +139,7 @@ export interface GroupPolicyState {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }
 
 /**
@@ -160,5 +160,5 @@ export interface GroupPolicyArgs {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }

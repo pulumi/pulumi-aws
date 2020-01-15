@@ -6,9 +6,8 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
-import {CannedAcl} from "./cannedAcl";
-import {RoutingRule} from "./routingRules";
+import {PolicyDocument} from "../iam";
+import {CannedAcl} from "./index";
 
 /**
  * Provides a S3 bucket resource.
@@ -288,7 +287,7 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
  */
 export class Bucket extends pulumi.CustomResource {
@@ -498,7 +497,7 @@ export interface BucketState {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: pulumi.Input<string> | pulumi.Input<CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -546,7 +545,7 @@ export interface BucketState {
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */
@@ -600,7 +599,7 @@ export interface BucketArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: pulumi.Input<string> | pulumi.Input<CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -640,7 +639,7 @@ export interface BucketArgs {
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */

@@ -37,13 +37,13 @@ class ClientCertificate(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Client Certificate.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_client_certificate.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the client certificate.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_client_certificate.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class ClientCertificate(pulumi.CustomResource):
         """
         Get an existing ClientCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,12 +89,11 @@ class ClientCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: The date when the client certificate will expire.
         :param pulumi.Input[str] pem_encoded_certificate: The PEM-encoded public key of the client certificate.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_client_certificate.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["created_date"] = created_date
         __props__["description"] = description

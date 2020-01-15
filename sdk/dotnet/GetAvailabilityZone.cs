@@ -29,6 +29,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetAvailabilityZoneArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -55,9 +56,14 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetAvailabilityZoneResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The name of the selected availability zone.
         /// </summary>
@@ -81,26 +87,27 @@ namespace Pulumi.Aws
         /// (Optional) The zone ID of the selected availability zone.
         /// </summary>
         public readonly string ZoneId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAvailabilityZoneResult(
+            string id,
+
             string name,
+
             string nameSuffix,
+
             string region,
+
             string state,
-            string zoneId,
-            string id)
+
+            string zoneId)
         {
+            Id = id;
             Name = name;
             NameSuffix = nameSuffix;
             Region = region;
             State = state;
             ZoneId = zoneId;
-            Id = id;
         }
     }
 }

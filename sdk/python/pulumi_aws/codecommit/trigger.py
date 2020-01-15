@@ -19,24 +19,24 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, repository_name=None, triggers=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CodeCommit Trigger Resource.
-        
+
         > **NOTE on CodeCommit**: The CodeCommit is not yet rolled out
         in all regions - available regions are listed
         [the AWS Docs](https://docs.aws.amazon.com/general/latest/gr/rande.html#codecommit_region).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        
+
         The **triggers** object supports the following:
-        
+
           * `branches` (`pulumi.Input[list]`) - The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
           * `customData` (`pulumi.Input[str]`) - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-          * `destination_arn` (`pulumi.Input[str]`) - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+          * `destinationArn` (`pulumi.Input[str]`) - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
           * `events` (`pulumi.Input[list]`) - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
           * `name` (`pulumi.Input[str]`) - The name of the trigger.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,25 +73,24 @@ class Trigger(pulumi.CustomResource):
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        
+
         The **triggers** object supports the following:
-        
+
           * `branches` (`pulumi.Input[list]`) - The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
           * `customData` (`pulumi.Input[str]`) - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-          * `destination_arn` (`pulumi.Input[str]`) - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+          * `destinationArn` (`pulumi.Input[str]`) - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
           * `events` (`pulumi.Input[list]`) - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
           * `name` (`pulumi.Input[str]`) - The name of the trigger.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codecommit_trigger.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["configuration_id"] = configuration_id
         __props__["repository_name"] = repository_name
         __props__["triggers"] = triggers

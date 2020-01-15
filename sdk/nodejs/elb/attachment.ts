@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -28,7 +26,7 @@ import * as utilities from "../utilities";
  *     instance: aws_instance_foo.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment.html.markdown.
  */
 export class Attachment extends pulumi.CustomResource {
@@ -99,7 +97,7 @@ export class Attachment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment" }] };
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Attachment.__pulumiType, name, inputs, opts);
     }

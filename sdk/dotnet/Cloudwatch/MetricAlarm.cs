@@ -34,12 +34,6 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> AlarmDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The descriptive name for the alarm. This name must be unique within the user's AWS account
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
         /// The ARN of the cloudwatch metric alarm.
         /// </summary>
         [Output("arn")]
@@ -103,7 +97,13 @@ namespace Pulumi.Aws.CloudWatch
         /// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         /// </summary>
         [Output("metricQueries")]
-        public Output<ImmutableArray<Outputs.MetricAlarmMetricQueries>> MetricQueries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricAlarmMetricQuery>> MetricQueries { get; private set; } = null!;
+
+        /// <summary>
+        /// The descriptive name for the alarm. This name must be unique within the user's AWS account
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
@@ -232,12 +232,6 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? AlarmDescription { get; set; }
 
         /// <summary>
-        /// The descriptive name for the alarm. This name must be unique within the user's AWS account
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         /// </summary>
         [Input("comparisonOperator", required: true)]
@@ -304,16 +298,22 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? MetricName { get; set; }
 
         [Input("metricQueries")]
-        private InputList<Inputs.MetricAlarmMetricQueriesArgs>? _metricQueries;
+        private InputList<Inputs.MetricAlarmMetricQueryArgs>? _metricQueries;
 
         /// <summary>
         /// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         /// </summary>
-        public InputList<Inputs.MetricAlarmMetricQueriesArgs> MetricQueries
+        public InputList<Inputs.MetricAlarmMetricQueryArgs> MetricQueries
         {
-            get => _metricQueries ?? (_metricQueries = new InputList<Inputs.MetricAlarmMetricQueriesArgs>());
+            get => _metricQueries ?? (_metricQueries = new InputList<Inputs.MetricAlarmMetricQueryArgs>());
             set => _metricQueries = value;
         }
+
+        /// <summary>
+        /// The descriptive name for the alarm. This name must be unique within the user's AWS account
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
@@ -415,12 +415,6 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? AlarmDescription { get; set; }
 
         /// <summary>
-        /// The descriptive name for the alarm. This name must be unique within the user's AWS account
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The ARN of the cloudwatch metric alarm.
         /// </summary>
         [Input("arn")]
@@ -493,16 +487,22 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? MetricName { get; set; }
 
         [Input("metricQueries")]
-        private InputList<Inputs.MetricAlarmMetricQueriesGetArgs>? _metricQueries;
+        private InputList<Inputs.MetricAlarmMetricQueryGetArgs>? _metricQueries;
 
         /// <summary>
         /// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         /// </summary>
-        public InputList<Inputs.MetricAlarmMetricQueriesGetArgs> MetricQueries
+        public InputList<Inputs.MetricAlarmMetricQueryGetArgs> MetricQueries
         {
-            get => _metricQueries ?? (_metricQueries = new InputList<Inputs.MetricAlarmMetricQueriesGetArgs>());
+            get => _metricQueries ?? (_metricQueries = new InputList<Inputs.MetricAlarmMetricQueryGetArgs>());
             set => _metricQueries = value;
         }
+
+        /// <summary>
+        /// The descriptive name for the alarm. This name must be unique within the user's AWS account
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
@@ -575,280 +575,5 @@ namespace Pulumi.Aws.CloudWatch
         public MetricAlarmState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MetricAlarmMetricQueriesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-        /// </summary>
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        /// <summary>
-        /// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        /// </summary>
-        [Input("label")]
-        public Input<string>? Label { get; set; }
-
-        /// <summary>
-        /// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        /// </summary>
-        [Input("metric")]
-        public Input<MetricAlarmMetricQueriesMetricArgs>? Metric { get; set; }
-
-        /// <summary>
-        /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-        /// </summary>
-        [Input("returnData")]
-        public Input<bool>? ReturnData { get; set; }
-
-        public MetricAlarmMetricQueriesArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlarmMetricQueriesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-        /// </summary>
-        [Input("expression")]
-        public Input<string>? Expression { get; set; }
-
-        /// <summary>
-        /// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        /// </summary>
-        [Input("label")]
-        public Input<string>? Label { get; set; }
-
-        /// <summary>
-        /// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        /// </summary>
-        [Input("metric")]
-        public Input<MetricAlarmMetricQueriesMetricGetArgs>? Metric { get; set; }
-
-        /// <summary>
-        /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-        /// </summary>
-        [Input("returnData")]
-        public Input<bool>? ReturnData { get; set; }
-
-        public MetricAlarmMetricQueriesGetArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlarmMetricQueriesMetricArgs : Pulumi.ResourceArgs
-    {
-        [Input("dimensions")]
-        private InputMap<object>? _dimensions;
-
-        /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        public InputMap<object> Dimensions
-        {
-            get => _dimensions ?? (_dimensions = new InputMap<object>());
-            set => _dimensions = value;
-        }
-
-        /// <summary>
-        /// The name for this metric.
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<int> Period { get; set; } = null!;
-
-        /// <summary>
-        /// The statistic to apply to this metric.
-        /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-        /// </summary>
-        [Input("stat", required: true)]
-        public Input<string> Stat { get; set; } = null!;
-
-        /// <summary>
-        /// The unit for this metric.
-        /// </summary>
-        [Input("unit")]
-        public Input<string>? Unit { get; set; }
-
-        public MetricAlarmMetricQueriesMetricArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlarmMetricQueriesMetricGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dimensions")]
-        private InputMap<object>? _dimensions;
-
-        /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        public InputMap<object> Dimensions
-        {
-            get => _dimensions ?? (_dimensions = new InputMap<object>());
-            set => _dimensions = value;
-        }
-
-        /// <summary>
-        /// The name for this metric.
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<int> Period { get; set; } = null!;
-
-        /// <summary>
-        /// The statistic to apply to this metric.
-        /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-        /// </summary>
-        [Input("stat", required: true)]
-        public Input<string> Stat { get; set; } = null!;
-
-        /// <summary>
-        /// The unit for this metric.
-        /// </summary>
-        [Input("unit")]
-        public Input<string>? Unit { get; set; }
-
-        public MetricAlarmMetricQueriesMetricGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MetricAlarmMetricQueries
-    {
-        /// <summary>
-        /// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-        /// </summary>
-        public readonly string? Expression;
-        /// <summary>
-        /// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        /// </summary>
-        public readonly string? Label;
-        /// <summary>
-        /// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        /// </summary>
-        public readonly MetricAlarmMetricQueriesMetric? Metric;
-        /// <summary>
-        /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-        /// </summary>
-        public readonly bool? ReturnData;
-
-        [OutputConstructor]
-        private MetricAlarmMetricQueries(
-            string? expression,
-            string id,
-            string? label,
-            MetricAlarmMetricQueriesMetric? metric,
-            bool? returnData)
-        {
-            Expression = expression;
-            Id = id;
-            Label = label;
-            Metric = metric;
-            ReturnData = returnData;
-        }
-    }
-
-    [OutputType]
-    public sealed class MetricAlarmMetricQueriesMetric
-    {
-        /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Dimensions;
-        /// <summary>
-        /// The name for this metric.
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        public readonly string MetricName;
-        /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
-        public readonly string? Namespace;
-        /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
-        /// </summary>
-        public readonly int Period;
-        /// <summary>
-        /// The statistic to apply to this metric.
-        /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
-        /// </summary>
-        public readonly string Stat;
-        /// <summary>
-        /// The unit for this metric.
-        /// </summary>
-        public readonly string? Unit;
-
-        [OutputConstructor]
-        private MetricAlarmMetricQueriesMetric(
-            ImmutableDictionary<string, object>? dimensions,
-            string metricName,
-            string? @namespace,
-            int period,
-            string stat,
-            string? unit)
-        {
-            Dimensions = dimensions;
-            MetricName = metricName;
-            Namespace = @namespace;
-            Period = period;
-            Stat = stat;
-            Unit = unit;
-        }
-    }
     }
 }

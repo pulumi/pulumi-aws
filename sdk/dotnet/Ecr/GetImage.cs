@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ecr
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:ecr/getImage:getImage", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetImageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -50,9 +51,14 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
+
     [OutputType]
     public sealed class GetImageResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string ImageDigest;
         /// <summary>
         /// The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
@@ -69,22 +75,26 @@ namespace Pulumi.Aws.Ecr
         public readonly ImmutableArray<string> ImageTags;
         public readonly string RegistryId;
         public readonly string RepositoryName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetImageResult(
+            string id,
+
             string imageDigest,
+
             int imagePushedAt,
+
             int imageSizeInBytes,
+
             string? imageTag,
+
             ImmutableArray<string> imageTags,
+
             string registryId,
-            string repositoryName,
-            string id)
+
+            string repositoryName)
         {
+            Id = id;
             ImageDigest = imageDigest;
             ImagePushedAt = imagePushedAt;
             ImageSizeInBytes = imageSizeInBytes;
@@ -92,7 +102,6 @@ namespace Pulumi.Aws.Ecr
             ImageTags = imageTags;
             RegistryId = registryId;
             RepositoryName = repositoryName;
-            Id = id;
         }
     }
 }

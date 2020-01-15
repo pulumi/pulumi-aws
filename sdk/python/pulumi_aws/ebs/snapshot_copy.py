@@ -52,7 +52,9 @@ class SnapshotCopy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, encrypted=None, kms_key_id=None, source_region=None, source_snapshot_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a Snapshot of a snapshot.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.
@@ -61,8 +63,6 @@ class SnapshotCopy(pulumi.CustomResource):
                * `source_snapshot_id` The ARN for the snapshot to be copied.
                * `source_region` The region of the source snapshot.
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class SnapshotCopy(pulumi.CustomResource):
         """
         Get an existing SnapshotCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,12 +123,11 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[dict] tags: A mapping of tags for the snapshot.
         :param pulumi.Input[float] volume_size: The size of the drive in GiBs.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_snapshot_copy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["data_encryption_key_id"] = data_encryption_key_id
         __props__["description"] = description
         __props__["encrypted"] = encrypted

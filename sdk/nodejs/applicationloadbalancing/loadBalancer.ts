@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {IpAddressType} from "../alb/ipAddressType";
-import {LoadBalancerType} from "../alb/loadBalancerType";
+import {IpAddressType, LoadBalancerType} from "../alb";
 
 /**
  * Provides a Load Balancer resource.
@@ -76,7 +75,7 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  *     ],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
  */
 export class LoadBalancer extends pulumi.CustomResource {

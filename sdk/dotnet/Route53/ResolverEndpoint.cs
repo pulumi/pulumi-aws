@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Route53
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
         [Output("ipAddresses")]
-        public Output<ImmutableArray<Outputs.ResolverEndpointIpAddresses>> IpAddresses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResolverEndpointIpAddress>> IpAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name of the Route 53 Resolver endpoint.
@@ -115,15 +115,15 @@ namespace Pulumi.Aws.Route53
         public Input<string> Direction { get; set; } = null!;
 
         [Input("ipAddresses", required: true)]
-        private InputList<Inputs.ResolverEndpointIpAddressesArgs>? _ipAddresses;
+        private InputList<Inputs.ResolverEndpointIpAddressArgs>? _ipAddresses;
 
         /// <summary>
         /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
-        public InputList<Inputs.ResolverEndpointIpAddressesArgs> IpAddresses
+        public InputList<Inputs.ResolverEndpointIpAddressArgs> IpAddresses
         {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressesArgs>());
+            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressArgs>());
             set => _ipAddresses = value;
         }
 
@@ -185,15 +185,15 @@ namespace Pulumi.Aws.Route53
         public Input<string>? HostVpcId { get; set; }
 
         [Input("ipAddresses")]
-        private InputList<Inputs.ResolverEndpointIpAddressesGetArgs>? _ipAddresses;
+        private InputList<Inputs.ResolverEndpointIpAddressGetArgs>? _ipAddresses;
 
         /// <summary>
         /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
-        public InputList<Inputs.ResolverEndpointIpAddressesGetArgs> IpAddresses
+        public InputList<Inputs.ResolverEndpointIpAddressGetArgs> IpAddresses
         {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressesGetArgs>());
+            get => _ipAddresses ?? (_ipAddresses = new InputList<Inputs.ResolverEndpointIpAddressGetArgs>());
             set => _ipAddresses = value;
         }
 
@@ -230,82 +230,5 @@ namespace Pulumi.Aws.Route53
         public ResolverEndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ResolverEndpointIpAddressesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
-        /// </summary>
-        [Input("ip")]
-        public Input<string>? Ip { get; set; }
-
-        [Input("ipId")]
-        public Input<string>? IpId { get; set; }
-
-        /// <summary>
-        /// The ID of the subnet that contains the IP address.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ResolverEndpointIpAddressesArgs()
-        {
-        }
-    }
-
-    public sealed class ResolverEndpointIpAddressesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
-        /// </summary>
-        [Input("ip")]
-        public Input<string>? Ip { get; set; }
-
-        [Input("ipId")]
-        public Input<string>? IpId { get; set; }
-
-        /// <summary>
-        /// The ID of the subnet that contains the IP address.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ResolverEndpointIpAddressesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ResolverEndpointIpAddresses
-    {
-        /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
-        /// </summary>
-        public readonly string Ip;
-        public readonly string IpId;
-        /// <summary>
-        /// The ID of the subnet that contains the IP address.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private ResolverEndpointIpAddresses(
-            string ip,
-            string ipId,
-            string subnetId)
-        {
-            Ip = ip;
-            IpId = ipId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

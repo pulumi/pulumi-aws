@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
+import {LifecyclePolicyDocument} from "./index";
 
 /**
  * Manages an ECR repository lifecycle policy.
@@ -74,7 +74,7 @@ import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
  *     repository: foo.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_lifecycle_policy.html.markdown.
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
@@ -156,7 +156,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LifecyclePolicy resources.
  */
 export interface LifecyclePolicyState {
-    readonly policy?: pulumi.Input<string | LifecyclePolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<LifecyclePolicyDocument>;
     /**
      * The registry ID where the repository was created.
      */
@@ -171,7 +171,7 @@ export interface LifecyclePolicyState {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
-    readonly policy: pulumi.Input<string | LifecyclePolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<LifecyclePolicyDocument>;
     /**
      * Name of the repository to apply the policy.
      */

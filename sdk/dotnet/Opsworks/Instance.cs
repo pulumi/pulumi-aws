@@ -114,7 +114,7 @@ namespace Pulumi.Aws.OpsWorks
         /// instance.  See Block Devices below for details.
         /// </summary>
         [Output("ebsBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceEbsBlockDevices>> EbsBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.OpsWorks
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Output("ephemeralBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevices>> EphemeralBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// The instance's host name.
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.OpsWorks
         /// device of the instance. See Block Devices below for details.
         /// </summary>
         [Output("rootBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceRootBlockDevices>> RootBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceRootBlockDevice>> RootBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// Name of the type of root device instances will have by default.  Can be either `"ebs"` or `"instance-store"`
@@ -380,15 +380,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DeleteEip { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.InstanceEbsBlockDevicesArgs>? _ebsBlockDevices;
+        private InputList<Inputs.InstanceEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEbsBlockDevicesArgs> EbsBlockDevices
+        public InputList<Inputs.InstanceEbsBlockDeviceArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDevicesArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -405,15 +405,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ElasticIp { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.InstanceEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.InstanceEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEphemeralBlockDevicesArgs> EphemeralBlockDevices
+        public InputList<Inputs.InstanceEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDevicesArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -508,15 +508,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ReportedOsVersion { get; set; }
 
         [Input("rootBlockDevices")]
-        private InputList<Inputs.InstanceRootBlockDevicesArgs>? _rootBlockDevices;
+        private InputList<Inputs.InstanceRootBlockDeviceArgs>? _rootBlockDevices;
 
         /// <summary>
         /// Customize details about the root block
         /// device of the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceRootBlockDevicesArgs> RootBlockDevices
+        public InputList<Inputs.InstanceRootBlockDeviceArgs> RootBlockDevices
         {
-            get => _rootBlockDevices ?? (_rootBlockDevices = new InputList<Inputs.InstanceRootBlockDevicesArgs>());
+            get => _rootBlockDevices ?? (_rootBlockDevices = new InputList<Inputs.InstanceRootBlockDeviceArgs>());
             set => _rootBlockDevices = value;
         }
 
@@ -635,15 +635,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? DeleteEip { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.InstanceEbsBlockDevicesGetArgs>? _ebsBlockDevices;
+        private InputList<Inputs.InstanceEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEbsBlockDevicesGetArgs> EbsBlockDevices
+        public InputList<Inputs.InstanceEbsBlockDeviceGetArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDevicesGetArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -666,15 +666,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ElasticIp { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
+        public InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -769,15 +769,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ReportedOsVersion { get; set; }
 
         [Input("rootBlockDevices")]
-        private InputList<Inputs.InstanceRootBlockDevicesGetArgs>? _rootBlockDevices;
+        private InputList<Inputs.InstanceRootBlockDeviceGetArgs>? _rootBlockDevices;
 
         /// <summary>
         /// Customize details about the root block
         /// device of the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceRootBlockDevicesGetArgs> RootBlockDevices
+        public InputList<Inputs.InstanceRootBlockDeviceGetArgs> RootBlockDevices
         {
-            get => _rootBlockDevices ?? (_rootBlockDevices = new InputList<Inputs.InstanceRootBlockDevicesGetArgs>());
+            get => _rootBlockDevices ?? (_rootBlockDevices = new InputList<Inputs.InstanceRootBlockDeviceGetArgs>());
             set => _rootBlockDevices = value;
         }
 
@@ -851,193 +851,5 @@ namespace Pulumi.Aws.OpsWorks
         public InstanceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class InstanceEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public InstanceEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public InstanceEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceRootBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceRootBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceRootBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceRootBlockDevicesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class InstanceEbsBlockDevices
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly string DeviceName;
-        public readonly int Iops;
-        public readonly string SnapshotId;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private InstanceEbsBlockDevices(
-            bool? deleteOnTermination,
-            string deviceName,
-            int iops,
-            string snapshotId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Iops = iops;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceEphemeralBlockDevices
-    {
-        public readonly string DeviceName;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private InstanceEphemeralBlockDevices(
-            string deviceName,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceRootBlockDevices
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly int Iops;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private InstanceRootBlockDevices(
-            bool? deleteOnTermination,
-            int iops,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Iops = iops;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
     }
 }

@@ -20,17 +20,18 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetAutoscalingGroupsArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetAutoscalingGroupsFiltersArgs>? _filters;
+        private List<Inputs.GetAutoscalingGroupsFilterArgs>? _filters;
 
         /// <summary>
         /// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
-        public List<Inputs.GetAutoscalingGroupsFiltersArgs> Filters
+        public List<Inputs.GetAutoscalingGroupsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetAutoscalingGroupsFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetAutoscalingGroupsFilterArgs>());
             set => _filters = value;
         }
 
@@ -39,6 +40,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetAutoscalingGroupsResult
     {
@@ -46,82 +48,30 @@ namespace Pulumi.Aws
         /// A list of the Autoscaling Groups Arns in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
-        public readonly ImmutableArray<Outputs.GetAutoscalingGroupsFiltersResult> Filters;
-        /// <summary>
-        /// A list of the Autoscaling Groups in the current region.
-        /// </summary>
-        public readonly ImmutableArray<string> Names;
+        public readonly ImmutableArray<Outputs.GetAutoscalingGroupsFilterResult> Filters;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A list of the Autoscaling Groups in the current region.
+        /// </summary>
+        public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]
         private GetAutoscalingGroupsResult(
             ImmutableArray<string> arns,
-            ImmutableArray<Outputs.GetAutoscalingGroupsFiltersResult> filters,
-            ImmutableArray<string> names,
-            string id)
+
+            ImmutableArray<Outputs.GetAutoscalingGroupsFilterResult> filters,
+
+            string id,
+
+            ImmutableArray<string> names)
         {
             Arns = arns;
             Filters = filters;
-            Names = names;
             Id = id;
+            Names = names;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetAutoscalingGroupsFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// The value of the filter.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetAutoscalingGroupsFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAutoscalingGroupsFiltersResult
-    {
-        /// <summary>
-        /// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the filter.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetAutoscalingGroupsFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

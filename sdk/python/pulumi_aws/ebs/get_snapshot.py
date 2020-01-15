@@ -13,7 +13,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, filters=None, kms_key_id=None, most_recent=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, tags=None, volume_id=None, volume_size=None, id=None):
+    def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, tags=None, volume_id=None, volume_size=None):
         if data_encryption_key_id and not isinstance(data_encryption_key_id, str):
             raise TypeError("Expected argument 'data_encryption_key_id' to be a str")
         __self__.data_encryption_key_id = data_encryption_key_id
@@ -35,6 +35,12 @@ class GetSnapshotResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         __self__.kms_key_id = kms_key_id
@@ -95,12 +101,6 @@ class GetSnapshotResult:
         """
         The size of the drive in GiBs.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -111,6 +111,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             description=self.description,
             encrypted=self.encrypted,
             filters=self.filters,
+            id=self.id,
             kms_key_id=self.kms_key_id,
             most_recent=self.most_recent,
             owner_alias=self.owner_alias,
@@ -122,13 +123,15 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             state=self.state,
             tags=self.tags,
             volume_id=self.volume_id,
-            volume_size=self.volume_size,
-            id=self.id)
+            volume_size=self.volume_size)
 
 def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_ids=None,snapshot_ids=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
+
+
     :param list filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-snapshots in the AWS CLI reference][1].
@@ -136,15 +139,14 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     :param list owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param list restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param list snapshot_ids: Returns information on a specific snapshot_id.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`)
       * `values` (`list`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
@@ -163,6 +165,7 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
         description=__ret__.get('description'),
         encrypted=__ret__.get('encrypted'),
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
         most_recent=__ret__.get('mostRecent'),
         owner_alias=__ret__.get('ownerAlias'),
@@ -174,5 +177,4 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
         state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         volume_id=__ret__.get('volumeId'),
-        volume_size=__ret__.get('volumeSize'),
-        id=__ret__.get('id'))
+        volume_size=__ret__.get('volumeSize'))

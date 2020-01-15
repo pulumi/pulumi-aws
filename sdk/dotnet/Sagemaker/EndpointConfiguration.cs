@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Fields are documented below.
         /// </summary>
         [Output("productionVariants")]
-        public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariants>> ProductionVariants { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -104,14 +104,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         [Input("productionVariants", required: true)]
-        private InputList<Inputs.EndpointConfigurationProductionVariantsArgs>? _productionVariants;
+        private InputList<Inputs.EndpointConfigurationProductionVariantArgs>? _productionVariants;
 
         /// <summary>
         /// Fields are documented below.
         /// </summary>
-        public InputList<Inputs.EndpointConfigurationProductionVariantsArgs> ProductionVariants
+        public InputList<Inputs.EndpointConfigurationProductionVariantArgs> ProductionVariants
         {
-            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantsArgs>());
+            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantArgs>());
             set => _productionVariants = value;
         }
 
@@ -153,14 +153,14 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         [Input("productionVariants")]
-        private InputList<Inputs.EndpointConfigurationProductionVariantsGetArgs>? _productionVariants;
+        private InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>? _productionVariants;
 
         /// <summary>
         /// Fields are documented below.
         /// </summary>
-        public InputList<Inputs.EndpointConfigurationProductionVariantsGetArgs> ProductionVariants
+        public InputList<Inputs.EndpointConfigurationProductionVariantGetArgs> ProductionVariants
         {
-            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantsGetArgs>());
+            get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>());
             set => _productionVariants = value;
         }
 
@@ -179,91 +179,5 @@ namespace Pulumi.Aws.Sagemaker
         public EndpointConfigurationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointConfigurationProductionVariantsArgs : Pulumi.ResourceArgs
-    {
-        [Input("acceleratorType")]
-        public Input<string>? AcceleratorType { get; set; }
-
-        [Input("initialInstanceCount", required: true)]
-        public Input<int> InitialInstanceCount { get; set; } = null!;
-
-        [Input("initialVariantWeight")]
-        public Input<double>? InitialVariantWeight { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        [Input("modelName", required: true)]
-        public Input<string> ModelName { get; set; } = null!;
-
-        [Input("variantName")]
-        public Input<string>? VariantName { get; set; }
-
-        public EndpointConfigurationProductionVariantsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointConfigurationProductionVariantsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("acceleratorType")]
-        public Input<string>? AcceleratorType { get; set; }
-
-        [Input("initialInstanceCount", required: true)]
-        public Input<int> InitialInstanceCount { get; set; } = null!;
-
-        [Input("initialVariantWeight")]
-        public Input<double>? InitialVariantWeight { get; set; }
-
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
-
-        [Input("modelName", required: true)]
-        public Input<string> ModelName { get; set; } = null!;
-
-        [Input("variantName")]
-        public Input<string>? VariantName { get; set; }
-
-        public EndpointConfigurationProductionVariantsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointConfigurationProductionVariants
-    {
-        public readonly string? AcceleratorType;
-        public readonly int InitialInstanceCount;
-        public readonly double? InitialVariantWeight;
-        public readonly string InstanceType;
-        public readonly string ModelName;
-        public readonly string VariantName;
-
-        [OutputConstructor]
-        private EndpointConfigurationProductionVariants(
-            string? acceleratorType,
-            int initialInstanceCount,
-            double? initialVariantWeight,
-            string instanceType,
-            string modelName,
-            string variantName)
-        {
-            AcceleratorType = acceleratorType;
-            InitialInstanceCount = initialInstanceCount;
-            InitialVariantWeight = initialVariantWeight;
-            InstanceType = instanceType;
-            ModelName = modelName;
-            VariantName = variantName;
-        }
-    }
     }
 }

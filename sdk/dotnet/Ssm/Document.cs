@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ssm
         /// The parameters that are available to this document.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.DocumentParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DocumentParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Additional Permissions to attach to the document. See Permissions below for details.
@@ -300,14 +300,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Owner { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.DocumentParametersGetArgs>? _parameters;
+        private InputList<Inputs.DocumentParameterGetArgs>? _parameters;
 
         /// <summary>
         /// The parameters that are available to this document.
         /// </summary>
-        public InputList<Inputs.DocumentParametersGetArgs> Parameters
+        public InputList<Inputs.DocumentParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.DocumentParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.DocumentParameterGetArgs>());
             set => _parameters = value;
         }
 
@@ -356,108 +356,5 @@ namespace Pulumi.Aws.Ssm
         public DocumentState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DocumentParametersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("defaultValue")]
-        public Input<string>? DefaultValue { get; set; }
-
-        /// <summary>
-        /// The description of the document.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DocumentParametersGetArgs()
-        {
-        }
-    }
-
-    public sealed class DocumentPermissionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("accountIds", required: true)]
-        public Input<string> AccountIds { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DocumentPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class DocumentPermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accountIds", required: true)]
-        public Input<string> AccountIds { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DocumentPermissionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DocumentParameters
-    {
-        public readonly string? DefaultValue;
-        /// <summary>
-        /// The description of the document.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
-        public readonly string? Name;
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private DocumentParameters(
-            string? defaultValue,
-            string? description,
-            string? name,
-            string? type)
-        {
-            DefaultValue = defaultValue;
-            Description = description;
-            Name = name;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class DocumentPermissions
-    {
-        public readonly string AccountIds;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private DocumentPermissions(
-            string accountIds,
-            string type)
-        {
-            AccountIds = accountIds;
-            Type = type;
-        }
-    }
     }
 }

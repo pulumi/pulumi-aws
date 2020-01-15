@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Iam
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetPolicyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyResult
     {
@@ -45,6 +47,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the IAM policy.
         /// </summary>
         public readonly string Name;
@@ -56,26 +62,27 @@ namespace Pulumi.Aws.Iam
         /// The policy document of the policy.
         /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPolicyResult(
             string arn,
+
             string description,
+
+            string id,
+
             string name,
+
             string path,
-            string policy,
-            string id)
+
+            string policy)
         {
             Arn = arn;
             Description = description;
+            Id = id;
             Name = name;
             Path = path;
             Policy = policy;
-            Id = id;
         }
     }
 }

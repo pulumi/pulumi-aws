@@ -42,7 +42,9 @@ class ClusterEndpoint(pulumi.CustomResource):
         """
         Manages a RDS Aurora Cluster Endpoint.
         You can refer to the [User Guide][1].
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
@@ -50,8 +52,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[list] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[list] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         """
         Get an existing ClusterEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,12 +105,11 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: A custom endpoint for the Aurora cluster
         :param pulumi.Input[list] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[list] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["cluster_endpoint_identifier"] = cluster_endpoint_identifier
         __props__["cluster_identifier"] = cluster_identifier

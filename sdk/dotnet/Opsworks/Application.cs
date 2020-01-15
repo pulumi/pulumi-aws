@@ -19,7 +19,7 @@ namespace Pulumi.Aws.OpsWorks
         /// SCM configuration of the app as described below.
         /// </summary>
         [Output("appSources")]
-        public Output<ImmutableArray<Outputs.ApplicationAppSources>> AppSources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationAppSource>> AppSources { get; private set; } = null!;
 
         /// <summary>
         /// Run bundle install when deploying for application of type `rails`.
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.OpsWorks
         /// Object to define environment variables.  Object is described below.
         /// </summary>
         [Output("environments")]
-        public Output<ImmutableArray<Outputs.ApplicationEnvironments>> Environments { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationEnvironment>> Environments { get; private set; } = null!;
 
         /// <summary>
         /// A human-readable name for the application.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.OpsWorks
         /// The SSL configuration of the app. Object is described below.
         /// </summary>
         [Output("sslConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationSslConfigurations>> SslConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationSslConfiguration>> SslConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The id of the stack the application will belong to.
@@ -164,14 +164,14 @@ namespace Pulumi.Aws.OpsWorks
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         [Input("appSources")]
-        private InputList<Inputs.ApplicationAppSourcesArgs>? _appSources;
+        private InputList<Inputs.ApplicationAppSourceArgs>? _appSources;
 
         /// <summary>
         /// SCM configuration of the app as described below.
         /// </summary>
-        public InputList<Inputs.ApplicationAppSourcesArgs> AppSources
+        public InputList<Inputs.ApplicationAppSourceArgs> AppSources
         {
-            get => _appSources ?? (_appSources = new InputList<Inputs.ApplicationAppSourcesArgs>());
+            get => _appSources ?? (_appSources = new InputList<Inputs.ApplicationAppSourceArgs>());
             set => _appSources = value;
         }
 
@@ -236,14 +236,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? EnableSsl { get; set; }
 
         [Input("environments")]
-        private InputList<Inputs.ApplicationEnvironmentsArgs>? _environments;
+        private InputList<Inputs.ApplicationEnvironmentArgs>? _environments;
 
         /// <summary>
         /// Object to define environment variables.  Object is described below.
         /// </summary>
-        public InputList<Inputs.ApplicationEnvironmentsArgs> Environments
+        public InputList<Inputs.ApplicationEnvironmentArgs> Environments
         {
-            get => _environments ?? (_environments = new InputList<Inputs.ApplicationEnvironmentsArgs>());
+            get => _environments ?? (_environments = new InputList<Inputs.ApplicationEnvironmentArgs>());
             set => _environments = value;
         }
 
@@ -266,14 +266,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ShortName { get; set; }
 
         [Input("sslConfigurations")]
-        private InputList<Inputs.ApplicationSslConfigurationsArgs>? _sslConfigurations;
+        private InputList<Inputs.ApplicationSslConfigurationArgs>? _sslConfigurations;
 
         /// <summary>
         /// The SSL configuration of the app. Object is described below.
         /// </summary>
-        public InputList<Inputs.ApplicationSslConfigurationsArgs> SslConfigurations
+        public InputList<Inputs.ApplicationSslConfigurationArgs> SslConfigurations
         {
-            get => _sslConfigurations ?? (_sslConfigurations = new InputList<Inputs.ApplicationSslConfigurationsArgs>());
+            get => _sslConfigurations ?? (_sslConfigurations = new InputList<Inputs.ApplicationSslConfigurationArgs>());
             set => _sslConfigurations = value;
         }
 
@@ -297,14 +297,14 @@ namespace Pulumi.Aws.OpsWorks
     public sealed class ApplicationState : Pulumi.ResourceArgs
     {
         [Input("appSources")]
-        private InputList<Inputs.ApplicationAppSourcesGetArgs>? _appSources;
+        private InputList<Inputs.ApplicationAppSourceGetArgs>? _appSources;
 
         /// <summary>
         /// SCM configuration of the app as described below.
         /// </summary>
-        public InputList<Inputs.ApplicationAppSourcesGetArgs> AppSources
+        public InputList<Inputs.ApplicationAppSourceGetArgs> AppSources
         {
-            get => _appSources ?? (_appSources = new InputList<Inputs.ApplicationAppSourcesGetArgs>());
+            get => _appSources ?? (_appSources = new InputList<Inputs.ApplicationAppSourceGetArgs>());
             set => _appSources = value;
         }
 
@@ -369,14 +369,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<bool>? EnableSsl { get; set; }
 
         [Input("environments")]
-        private InputList<Inputs.ApplicationEnvironmentsGetArgs>? _environments;
+        private InputList<Inputs.ApplicationEnvironmentGetArgs>? _environments;
 
         /// <summary>
         /// Object to define environment variables.  Object is described below.
         /// </summary>
-        public InputList<Inputs.ApplicationEnvironmentsGetArgs> Environments
+        public InputList<Inputs.ApplicationEnvironmentGetArgs> Environments
         {
-            get => _environments ?? (_environments = new InputList<Inputs.ApplicationEnvironmentsGetArgs>());
+            get => _environments ?? (_environments = new InputList<Inputs.ApplicationEnvironmentGetArgs>());
             set => _environments = value;
         }
 
@@ -399,14 +399,14 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ShortName { get; set; }
 
         [Input("sslConfigurations")]
-        private InputList<Inputs.ApplicationSslConfigurationsGetArgs>? _sslConfigurations;
+        private InputList<Inputs.ApplicationSslConfigurationGetArgs>? _sslConfigurations;
 
         /// <summary>
         /// The SSL configuration of the app. Object is described below.
         /// </summary>
-        public InputList<Inputs.ApplicationSslConfigurationsGetArgs> SslConfigurations
+        public InputList<Inputs.ApplicationSslConfigurationGetArgs> SslConfigurations
         {
-            get => _sslConfigurations ?? (_sslConfigurations = new InputList<Inputs.ApplicationSslConfigurationsGetArgs>());
+            get => _sslConfigurations ?? (_sslConfigurations = new InputList<Inputs.ApplicationSslConfigurationGetArgs>());
             set => _sslConfigurations = value;
         }
 
@@ -425,229 +425,5 @@ namespace Pulumi.Aws.OpsWorks
         public ApplicationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ApplicationAppSourcesArgs : Pulumi.ResourceArgs
-    {
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        /// <summary>
-        /// For sources that are version-aware, the revision to use.
-        /// </summary>
-        [Input("revision")]
-        public Input<string>? Revision { get; set; }
-
-        [Input("sshKey")]
-        public Input<string>? SshKey { get; set; }
-
-        /// <summary>
-        /// The type of source to use. For example, "archive".
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The URL where the app resource can be found.
-        /// </summary>
-        [Input("url")]
-        public Input<string>? Url { get; set; }
-
-        /// <summary>
-        /// Username to use when authenticating to the source.
-        /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public ApplicationAppSourcesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationAppSourcesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        /// <summary>
-        /// For sources that are version-aware, the revision to use.
-        /// </summary>
-        [Input("revision")]
-        public Input<string>? Revision { get; set; }
-
-        [Input("sshKey")]
-        public Input<string>? SshKey { get; set; }
-
-        /// <summary>
-        /// The type of source to use. For example, "archive".
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The URL where the app resource can be found.
-        /// </summary>
-        [Input("url")]
-        public Input<string>? Url { get; set; }
-
-        /// <summary>
-        /// Username to use when authenticating to the source.
-        /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public ApplicationAppSourcesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationEnvironmentsArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("secure")]
-        public Input<bool>? Secure { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ApplicationEnvironmentsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationEnvironmentsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("secure")]
-        public Input<bool>? Secure { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ApplicationEnvironmentsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationSslConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificate", required: true)]
-        public Input<string> Certificate { get; set; } = null!;
-
-        [Input("chain")]
-        public Input<string>? Chain { get; set; }
-
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
-
-        public ApplicationSslConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationSslConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificate", required: true)]
-        public Input<string> Certificate { get; set; } = null!;
-
-        [Input("chain")]
-        public Input<string>? Chain { get; set; }
-
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
-
-        public ApplicationSslConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ApplicationAppSources
-    {
-        public readonly string? Password;
-        /// <summary>
-        /// For sources that are version-aware, the revision to use.
-        /// </summary>
-        public readonly string? Revision;
-        public readonly string? SshKey;
-        /// <summary>
-        /// The type of source to use. For example, "archive".
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The URL where the app resource can be found.
-        /// </summary>
-        public readonly string? Url;
-        /// <summary>
-        /// Username to use when authenticating to the source.
-        /// </summary>
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private ApplicationAppSources(
-            string? password,
-            string? revision,
-            string? sshKey,
-            string type,
-            string? url,
-            string? username)
-        {
-            Password = password;
-            Revision = revision;
-            SshKey = sshKey;
-            Type = type;
-            Url = url;
-            Username = username;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationEnvironments
-    {
-        public readonly string Key;
-        public readonly bool? Secure;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ApplicationEnvironments(
-            string key,
-            bool? secure,
-            string value)
-        {
-            Key = key;
-            Secure = secure;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationSslConfigurations
-    {
-        public readonly string Certificate;
-        public readonly string? Chain;
-        public readonly string PrivateKey;
-
-        [OutputConstructor]
-        private ApplicationSslConfigurations(
-            string certificate,
-            string? chain,
-            string privateKey)
-        {
-            Certificate = certificate;
-            Chain = chain;
-            PrivateKey = privateKey;
-        }
-    }
     }
 }

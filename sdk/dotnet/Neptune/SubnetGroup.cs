@@ -197,7 +197,6 @@ namespace Pulumi.Aws.Neptune
 
         public SubnetGroupState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

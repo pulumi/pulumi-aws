@@ -31,7 +31,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
         [Output("portRanges")]
-        public Output<ImmutableArray<Outputs.ListenerPortRanges>> PortRanges { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
 
         /// <summary>
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
@@ -98,14 +98,14 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? ClientAffinity { get; set; }
 
         [Input("portRanges", required: true)]
-        private InputList<Inputs.ListenerPortRangesArgs>? _portRanges;
+        private InputList<Inputs.ListenerPortRangeArgs>? _portRanges;
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
-        public InputList<Inputs.ListenerPortRangesArgs> PortRanges
+        public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
-            get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangesArgs>());
+            get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangeArgs>());
             set => _portRanges = value;
         }
 
@@ -135,14 +135,14 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? ClientAffinity { get; set; }
 
         [Input("portRanges")]
-        private InputList<Inputs.ListenerPortRangesGetArgs>? _portRanges;
+        private InputList<Inputs.ListenerPortRangeGetArgs>? _portRanges;
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
-        public InputList<Inputs.ListenerPortRangesGetArgs> PortRanges
+        public InputList<Inputs.ListenerPortRangeGetArgs> PortRanges
         {
-            get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangesGetArgs>());
+            get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangeGetArgs>());
             set => _portRanges = value;
         }
 
@@ -155,73 +155,5 @@ namespace Pulumi.Aws.GlobalAccelerator
         public ListenerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ListenerPortRangesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The first port in the range of ports, inclusive.
-        /// </summary>
-        [Input("fromPort")]
-        public Input<int>? FromPort { get; set; }
-
-        /// <summary>
-        /// The last port in the range of ports, inclusive.
-        /// </summary>
-        [Input("toPort")]
-        public Input<int>? ToPort { get; set; }
-
-        public ListenerPortRangesArgs()
-        {
-        }
-    }
-
-    public sealed class ListenerPortRangesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The first port in the range of ports, inclusive.
-        /// </summary>
-        [Input("fromPort")]
-        public Input<int>? FromPort { get; set; }
-
-        /// <summary>
-        /// The last port in the range of ports, inclusive.
-        /// </summary>
-        [Input("toPort")]
-        public Input<int>? ToPort { get; set; }
-
-        public ListenerPortRangesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ListenerPortRanges
-    {
-        /// <summary>
-        /// The first port in the range of ports, inclusive.
-        /// </summary>
-        public readonly int? FromPort;
-        /// <summary>
-        /// The last port in the range of ports, inclusive.
-        /// </summary>
-        public readonly int? ToPort;
-
-        [OutputConstructor]
-        private ListenerPortRanges(
-            int? fromPort,
-            int? toPort)
-        {
-            FromPort = fromPort;
-            ToPort = toPort;
-        }
-    }
     }
 }

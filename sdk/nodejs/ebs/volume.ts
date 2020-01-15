@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * ```
  * 
  * > **NOTE**: One of `size` or `snapshotId` is required when specifying an EBS volume
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ebs_volume.html.markdown.
  */
 export class Volume extends pulumi.CustomResource {

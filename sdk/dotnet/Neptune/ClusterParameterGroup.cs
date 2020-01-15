@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Neptune
         /// A list of neptune parameters to apply.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.ClusterParameterGroupParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -128,14 +128,14 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ClusterParameterGroupParametersArgs>? _parameters;
+        private InputList<Inputs.ClusterParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
         /// A list of neptune parameters to apply.
         /// </summary>
-        public InputList<Inputs.ClusterParameterGroupParametersArgs> Parameters
+        public InputList<Inputs.ClusterParameterGroupParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParametersArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParameterArgs>());
             set => _parameters = value;
         }
 
@@ -189,14 +189,14 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NamePrefix { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ClusterParameterGroupParametersGetArgs>? _parameters;
+        private InputList<Inputs.ClusterParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
         /// A list of neptune parameters to apply.
         /// </summary>
-        public InputList<Inputs.ClusterParameterGroupParametersGetArgs> Parameters
+        public InputList<Inputs.ClusterParameterGroupParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParameterGetArgs>());
             set => _parameters = value;
         }
 
@@ -215,91 +215,5 @@ namespace Pulumi.Aws.Neptune
         public ClusterParameterGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterParameterGroupParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
-        [Input("applyMethod")]
-        public Input<string>? ApplyMethod { get; set; }
-
-        /// <summary>
-        /// The name of the neptune parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the neptune parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ClusterParameterGroupParametersArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterParameterGroupParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
-        [Input("applyMethod")]
-        public Input<string>? ApplyMethod { get; set; }
-
-        /// <summary>
-        /// The name of the neptune parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of the neptune parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ClusterParameterGroupParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterParameterGroupParameters
-    {
-        /// <summary>
-        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
-        public readonly string? ApplyMethod;
-        /// <summary>
-        /// The name of the neptune parameter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of the neptune parameter.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ClusterParameterGroupParameters(
-            string? applyMethod,
-            string name,
-            string value)
-        {
-            ApplyMethod = applyMethod;
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

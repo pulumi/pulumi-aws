@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ecs
         /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         /// </summary>
         [Output("defaultCapacityProviderStrategies")]
-        public Output<ImmutableArray<Outputs.ClusterDefaultCapacityProviderStrategies>> DefaultCapacityProviderStrategies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterDefaultCapacityProviderStrategy>> DefaultCapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         /// </summary>
         [Output("settings")]
-        public Output<ImmutableArray<Outputs.ClusterSettings>> Settings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterSetting>> Settings { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags
@@ -125,14 +125,14 @@ namespace Pulumi.Aws.Ecs
         }
 
         [Input("defaultCapacityProviderStrategies")]
-        private InputList<Inputs.ClusterDefaultCapacityProviderStrategiesArgs>? _defaultCapacityProviderStrategies;
+        private InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs>? _defaultCapacityProviderStrategies;
 
         /// <summary>
         /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterDefaultCapacityProviderStrategiesArgs> DefaultCapacityProviderStrategies
+        public InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs> DefaultCapacityProviderStrategies
         {
-            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategiesArgs>());
+            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs>());
             set => _defaultCapacityProviderStrategies = value;
         }
 
@@ -143,14 +143,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         [Input("settings")]
-        private InputList<Inputs.ClusterSettingsArgs>? _settings;
+        private InputList<Inputs.ClusterSettingArgs>? _settings;
 
         /// <summary>
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterSettingsArgs> Settings
+        public InputList<Inputs.ClusterSettingArgs> Settings
         {
-            get => _settings ?? (_settings = new InputList<Inputs.ClusterSettingsArgs>());
+            get => _settings ?? (_settings = new InputList<Inputs.ClusterSettingArgs>());
             set => _settings = value;
         }
 
@@ -192,14 +192,14 @@ namespace Pulumi.Aws.Ecs
         }
 
         [Input("defaultCapacityProviderStrategies")]
-        private InputList<Inputs.ClusterDefaultCapacityProviderStrategiesGetArgs>? _defaultCapacityProviderStrategies;
+        private InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs>? _defaultCapacityProviderStrategies;
 
         /// <summary>
         /// The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterDefaultCapacityProviderStrategiesGetArgs> DefaultCapacityProviderStrategies
+        public InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs> DefaultCapacityProviderStrategies
         {
-            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategiesGetArgs>());
+            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs>());
             set => _defaultCapacityProviderStrategies = value;
         }
 
@@ -210,14 +210,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         [Input("settings")]
-        private InputList<Inputs.ClusterSettingsGetArgs>? _settings;
+        private InputList<Inputs.ClusterSettingGetArgs>? _settings;
 
         /// <summary>
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         /// </summary>
-        public InputList<Inputs.ClusterSettingsGetArgs> Settings
+        public InputList<Inputs.ClusterSettingGetArgs> Settings
         {
-            get => _settings ?? (_settings = new InputList<Inputs.ClusterSettingsGetArgs>());
+            get => _settings ?? (_settings = new InputList<Inputs.ClusterSettingGetArgs>());
             set => _settings = value;
         }
 
@@ -236,115 +236,5 @@ namespace Pulumi.Aws.Ecs
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterDefaultCapacityProviderStrategiesArgs : Pulumi.ResourceArgs
-    {
-        [Input("base")]
-        public Input<int>? Base { get; set; }
-
-        [Input("capacityProvider", required: true)]
-        public Input<string> CapacityProvider { get; set; } = null!;
-
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public ClusterDefaultCapacityProviderStrategiesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterDefaultCapacityProviderStrategiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("base")]
-        public Input<int>? Base { get; set; }
-
-        [Input("capacityProvider", required: true)]
-        public Input<string> CapacityProvider { get; set; } = null!;
-
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public ClusterDefaultCapacityProviderStrategiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ClusterSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ClusterSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterDefaultCapacityProviderStrategies
-    {
-        public readonly int? Base;
-        public readonly string CapacityProvider;
-        public readonly int? Weight;
-
-        [OutputConstructor]
-        private ClusterDefaultCapacityProviderStrategies(
-            int? @base,
-            string capacityProvider,
-            int? weight)
-        {
-            Base = @base;
-            CapacityProvider = capacityProvider;
-            Weight = weight;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterSettings
-    {
-        /// <summary>
-        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        /// </summary>
-        public readonly string Name;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ClusterSettings(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

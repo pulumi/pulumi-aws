@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     zoneId: selected.zoneId!,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_zone.html.markdown.
  */
 export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> & GetZoneResult {
@@ -97,6 +97,10 @@ export interface GetZoneResult {
      */
     readonly comment: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      */
     readonly linkedServiceDescription: string;
@@ -117,8 +121,4 @@ export interface GetZoneResult {
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

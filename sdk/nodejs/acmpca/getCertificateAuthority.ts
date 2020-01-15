@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
  */
 export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> & GetCertificateAuthorityResult {
@@ -69,6 +69,10 @@ export interface GetCertificateAuthorityResult {
      */
     readonly certificateSigningRequest: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
     readonly notAfter: string;
@@ -101,8 +105,4 @@ export interface GetCertificateAuthorityResult {
      * The type of the certificate authority.
      */
     readonly type: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

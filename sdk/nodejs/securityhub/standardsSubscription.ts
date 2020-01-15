@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
  * }, {dependsOn: [exampleAccount]});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_standards_subscription.html.markdown.
  */
 export class StandardsSubscription extends pulumi.CustomResource {

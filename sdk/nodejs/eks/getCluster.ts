@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * // Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
  * export const identityOidcIssuer = example.identities[0].oidcs[0].issuer;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -79,6 +79,10 @@ export interface GetClusterResult {
      */
     readonly endpoint: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`aws.eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
      */
     readonly identities: outputs.eks.GetClusterIdentity[];
@@ -107,8 +111,4 @@ export interface GetClusterResult {
      * Nested attribute containing VPC configuration for the cluster.
      */
     readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

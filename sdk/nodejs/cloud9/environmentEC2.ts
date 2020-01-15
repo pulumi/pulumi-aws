@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     instanceType: "t2.micro",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloud9_environment_ec2.html.markdown.
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {

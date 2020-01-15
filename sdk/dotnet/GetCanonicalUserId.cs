@@ -20,6 +20,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:index/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetCanonicalUserIdResult
     {
@@ -35,6 +36,7 @@ namespace Pulumi.Aws
         [OutputConstructor]
         private GetCanonicalUserIdResult(
             string displayName,
+
             string id)
         {
             DisplayName = displayName;

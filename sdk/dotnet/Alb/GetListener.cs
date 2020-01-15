@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Alb
             => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:alb/getListener:getListener", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetListenerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -50,202 +51,48 @@ namespace Pulumi.Aws.Alb
         }
     }
 
+
     [OutputType]
     public sealed class GetListenerResult
     {
         public readonly string Arn;
         public readonly string CertificateArn;
-        public readonly ImmutableArray<Outputs.GetListenerDefaultActionsResult> DefaultActions;
-        public readonly string LoadBalancerArn;
-        public readonly int Port;
-        public readonly string Protocol;
-        public readonly string SslPolicy;
+        public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string LoadBalancerArn;
+        public readonly int Port;
+        public readonly string Protocol;
+        public readonly string SslPolicy;
 
         [OutputConstructor]
         private GetListenerResult(
             string arn,
+
             string certificateArn,
-            ImmutableArray<Outputs.GetListenerDefaultActionsResult> defaultActions,
+
+            ImmutableArray<Outputs.GetListenerDefaultActionResult> defaultActions,
+
+            string id,
+
             string loadBalancerArn,
+
             int port,
+
             string protocol,
-            string sslPolicy,
-            string id)
+
+            string sslPolicy)
         {
             Arn = arn;
             CertificateArn = certificateArn;
             DefaultActions = defaultActions;
+            Id = id;
             LoadBalancerArn = loadBalancerArn;
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetListenerDefaultActionsAuthenticateCognitosResult
-    {
-        public readonly ImmutableDictionary<string, object> AuthenticationRequestExtraParams;
-        public readonly string OnUnauthenticatedRequest;
-        public readonly string Scope;
-        public readonly string SessionCookieName;
-        public readonly int SessionTimeout;
-        public readonly string UserPoolArn;
-        public readonly string UserPoolClientId;
-        public readonly string UserPoolDomain;
-
-        [OutputConstructor]
-        private GetListenerDefaultActionsAuthenticateCognitosResult(
-            ImmutableDictionary<string, object> authenticationRequestExtraParams,
-            string onUnauthenticatedRequest,
-            string scope,
-            string sessionCookieName,
-            int sessionTimeout,
-            string userPoolArn,
-            string userPoolClientId,
-            string userPoolDomain)
-        {
-            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
-            OnUnauthenticatedRequest = onUnauthenticatedRequest;
-            Scope = scope;
-            SessionCookieName = sessionCookieName;
-            SessionTimeout = sessionTimeout;
-            UserPoolArn = userPoolArn;
-            UserPoolClientId = userPoolClientId;
-            UserPoolDomain = userPoolDomain;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetListenerDefaultActionsAuthenticateOidcsResult
-    {
-        public readonly ImmutableDictionary<string, object> AuthenticationRequestExtraParams;
-        public readonly string AuthorizationEndpoint;
-        public readonly string ClientId;
-        public readonly string ClientSecret;
-        public readonly string Issuer;
-        public readonly string OnUnauthenticatedRequest;
-        public readonly string Scope;
-        public readonly string SessionCookieName;
-        public readonly int SessionTimeout;
-        public readonly string TokenEndpoint;
-        public readonly string UserInfoEndpoint;
-
-        [OutputConstructor]
-        private GetListenerDefaultActionsAuthenticateOidcsResult(
-            ImmutableDictionary<string, object> authenticationRequestExtraParams,
-            string authorizationEndpoint,
-            string clientId,
-            string clientSecret,
-            string issuer,
-            string onUnauthenticatedRequest,
-            string scope,
-            string sessionCookieName,
-            int sessionTimeout,
-            string tokenEndpoint,
-            string userInfoEndpoint)
-        {
-            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
-            AuthorizationEndpoint = authorizationEndpoint;
-            ClientId = clientId;
-            ClientSecret = clientSecret;
-            Issuer = issuer;
-            OnUnauthenticatedRequest = onUnauthenticatedRequest;
-            Scope = scope;
-            SessionCookieName = sessionCookieName;
-            SessionTimeout = sessionTimeout;
-            TokenEndpoint = tokenEndpoint;
-            UserInfoEndpoint = userInfoEndpoint;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetListenerDefaultActionsFixedResponsesResult
-    {
-        public readonly string ContentType;
-        public readonly string MessageBody;
-        public readonly string StatusCode;
-
-        [OutputConstructor]
-        private GetListenerDefaultActionsFixedResponsesResult(
-            string contentType,
-            string messageBody,
-            string statusCode)
-        {
-            ContentType = contentType;
-            MessageBody = messageBody;
-            StatusCode = statusCode;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetListenerDefaultActionsRedirectsResult
-    {
-        public readonly string Host;
-        public readonly string Path;
-        /// <summary>
-        /// The port of the listener. Required if `arn` is not set.
-        /// </summary>
-        public readonly string Port;
-        public readonly string Protocol;
-        public readonly string Query;
-        public readonly string StatusCode;
-
-        [OutputConstructor]
-        private GetListenerDefaultActionsRedirectsResult(
-            string host,
-            string path,
-            string port,
-            string protocol,
-            string query,
-            string statusCode)
-        {
-            Host = host;
-            Path = path;
-            Port = port;
-            Protocol = protocol;
-            Query = query;
-            StatusCode = statusCode;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetListenerDefaultActionsResult
-    {
-        public readonly ImmutableArray<GetListenerDefaultActionsAuthenticateCognitosResult> AuthenticateCognitos;
-        public readonly ImmutableArray<GetListenerDefaultActionsAuthenticateOidcsResult> AuthenticateOidcs;
-        public readonly ImmutableArray<GetListenerDefaultActionsFixedResponsesResult> FixedResponses;
-        public readonly int Order;
-        public readonly ImmutableArray<GetListenerDefaultActionsRedirectsResult> Redirects;
-        public readonly string TargetGroupArn;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetListenerDefaultActionsResult(
-            ImmutableArray<GetListenerDefaultActionsAuthenticateCognitosResult> authenticateCognitos,
-            ImmutableArray<GetListenerDefaultActionsAuthenticateOidcsResult> authenticateOidcs,
-            ImmutableArray<GetListenerDefaultActionsFixedResponsesResult> fixedResponses,
-            int order,
-            ImmutableArray<GetListenerDefaultActionsRedirectsResult> redirects,
-            string targetGroupArn,
-            string type)
-        {
-            AuthenticateCognitos = authenticateCognitos;
-            AuthenticateOidcs = authenticateOidcs;
-            FixedResponses = fixedResponses;
-            Order = order;
-            Redirects = redirects;
-            TargetGroupArn = targetGroupArn;
-            Type = type;
-        }
-    }
     }
 }

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.CodeCommit
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws:codecommit/getRepository:getRepository", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.CodeCommit
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetRepositoryResult
@@ -48,30 +50,35 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string CloneUrlSsh;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The ID of the repository
         /// </summary>
         public readonly string RepositoryId;
         public readonly string RepositoryName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRepositoryResult(
             string arn,
+
             string cloneUrlHttp,
+
             string cloneUrlSsh,
+
+            string id,
+
             string repositoryId,
-            string repositoryName,
-            string id)
+
+            string repositoryName)
         {
             Arn = arn;
             CloneUrlHttp = cloneUrlHttp;
             CloneUrlSsh = cloneUrlSsh;
+            Id = id;
             RepositoryId = repositoryId;
             RepositoryName = repositoryName;
-            Id = id;
         }
     }
 }

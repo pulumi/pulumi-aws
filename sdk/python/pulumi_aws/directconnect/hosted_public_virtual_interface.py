@@ -62,7 +62,9 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         """
         Provides a Direct Connect hosted public virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
         A hosted virtual interface is a virtual interface that is owned by another AWS account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -75,8 +77,6 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[str] owner_account_id: The AWS account that will own the new virtual interface.
         :param pulumi.Input[list] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[float] vlan: The VLAN ID.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,7 +130,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         """
         Get an existing HostedPublicVirtualInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,12 +146,11 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[str] owner_account_id: The AWS account that will own the new virtual interface.
         :param pulumi.Input[list] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[float] vlan: The VLAN ID.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_hosted_public_virtual_interface.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address_family"] = address_family
         __props__["amazon_address"] = amazon_address
         __props__["arn"] = arn

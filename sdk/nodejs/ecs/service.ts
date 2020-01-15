@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  * * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
  * * `containerPort` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.
  * * `containerName` - (Optional) The container name value, already specified in the task definition, to be used for your service discovery service.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_service.html.markdown.
  */
 export class Service extends pulumi.CustomResource {

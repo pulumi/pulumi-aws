@@ -145,7 +145,6 @@ namespace Pulumi.Aws.ElastiCache
 
         public SecurityGroupState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

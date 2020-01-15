@@ -13,7 +13,13 @@ class GetResourceResult:
     """
     A collection of values returned by getResource.
     """
-    def __init__(__self__, parent_id=None, path=None, path_part=None, rest_api_id=None, id=None):
+    def __init__(__self__, id=None, parent_id=None, path=None, path_part=None, rest_api_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if parent_id and not isinstance(parent_id, str):
             raise TypeError("Expected argument 'parent_id' to be a str")
         __self__.parent_id = parent_id
@@ -32,35 +38,31 @@ class GetResourceResult:
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         __self__.rest_api_id = rest_api_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetResourceResult(GetResourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetResourceResult(
+            id=self.id,
             parent_id=self.parent_id,
             path=self.path,
             path_part=self.path_part,
-            rest_api_id=self.rest_api_id,
-            id=self.id)
+            rest_api_id=self.rest_api_id)
 
 def get_resource(path=None,rest_api_id=None,opts=None):
     """
     Use this data source to get the id of a Resource in API Gateway. 
     To fetch the Resource, you must provide the REST API id as well as the full path.  
-    
-    :param str path: The full path of the resource.  If no path is found, an error will be returned.
-    :param str rest_api_id: The REST API id that owns the resource. If no REST API is found, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_resource.html.markdown.
+
+
+    :param str path: The full path of the resource.  If no path is found, an error will be returned.
+    :param str rest_api_id: The REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
+
 
     __args__['path'] = path
     __args__['restApiId'] = rest_api_id
@@ -71,8 +73,8 @@ def get_resource(path=None,rest_api_id=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts).value
 
     return AwaitableGetResourceResult(
+        id=__ret__.get('id'),
         parent_id=__ret__.get('parentId'),
         path=__ret__.get('path'),
         path_part=__ret__.get('pathPart'),
-        rest_api_id=__ret__.get('restApiId'),
-        id=__ret__.get('id'))
+        rest_api_id=__ret__.get('restApiId'))

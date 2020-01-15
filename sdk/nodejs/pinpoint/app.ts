@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.
  */
 export class App extends pulumi.CustomResource {

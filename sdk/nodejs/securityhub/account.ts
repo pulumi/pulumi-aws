@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.securityhub.Account("example", {});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_account.html.markdown.
  */
 export class Account extends pulumi.CustomResource {

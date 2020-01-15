@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: route.networkInterfaceId!,
  * }));
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route.html.markdown.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> & GetRouteResult {
@@ -117,14 +117,14 @@ export interface GetRouteResult {
     readonly destinationIpv6CidrBlock: string;
     readonly egressOnlyGatewayId: string;
     readonly gatewayId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instanceId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
     readonly routeTableId: string;
     readonly transitGatewayId: string;
     readonly vpcPeeringConnectionId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_default.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table.html.markdown.
  */
 export class RouteTable extends pulumi.CustomResource {

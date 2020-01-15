@@ -13,7 +13,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, enable_deletion_protection=None, idle_timeout=None, internal=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None, id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, enable_deletion_protection=None, id=None, idle_timeout=None, internal=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         __self__.access_logs = access_logs
@@ -29,6 +29,12 @@ class GetLoadBalancerResult:
         if enable_deletion_protection and not isinstance(enable_deletion_protection, bool):
             raise TypeError("Expected argument 'enable_deletion_protection' to be a bool")
         __self__.enable_deletion_protection = enable_deletion_protection
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if idle_timeout and not isinstance(idle_timeout, float):
             raise TypeError("Expected argument 'idle_timeout' to be a float")
         __self__.idle_timeout = idle_timeout
@@ -59,12 +65,6 @@ class GetLoadBalancerResult:
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         __self__.zone_id = zone_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -76,6 +76,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             arn_suffix=self.arn_suffix,
             dns_name=self.dns_name,
             enable_deletion_protection=self.enable_deletion_protection,
+            id=self.id,
             idle_timeout=self.idle_timeout,
             internal=self.internal,
             load_balancer_type=self.load_balancer_type,
@@ -85,25 +86,26 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             subnets=self.subnets,
             tags=self.tags,
             vpc_id=self.vpc_id,
-            zone_id=self.zone_id,
-            id=self.id)
+            zone_id=self.zone_id)
 
 def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     """
     > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-    
+
     Provides information about a Load Balancer.
-    
+
     This data source can prove useful when a module accepts an LB as an input
     variable and needs to, for example, determine the security groups associated
     with it, etc.
-    
-    :param str arn: The full ARN of the load balancer.
-    :param str name: The unique name of the load balancer.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_legacy.html.markdown.
+
+
+    :param str arn: The full ARN of the load balancer.
+    :param str name: The unique name of the load balancer.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     __args__['name'] = name
@@ -120,6 +122,7 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
         arn_suffix=__ret__.get('arnSuffix'),
         dns_name=__ret__.get('dnsName'),
         enable_deletion_protection=__ret__.get('enableDeletionProtection'),
+        id=__ret__.get('id'),
         idle_timeout=__ret__.get('idleTimeout'),
         internal=__ret__.get('internal'),
         load_balancer_type=__ret__.get('loadBalancerType'),
@@ -129,5 +132,4 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
         subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
         vpc_id=__ret__.get('vpcId'),
-        zone_id=__ret__.get('zoneId'),
-        id=__ret__.get('id'))
+        zone_id=__ret__.get('zoneId'))

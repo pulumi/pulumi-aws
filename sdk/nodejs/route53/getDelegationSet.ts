@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     id: "MQWGHCBFAKEID",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_delegation_set.html.markdown.
  */
 export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> & GetDelegationSetResult {

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     user: user1.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
  */
 export class UserGroupMembership extends pulumi.CustomResource {

@@ -137,7 +137,6 @@ namespace Pulumi.Aws.AppSync
 
         public ApiKeyState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

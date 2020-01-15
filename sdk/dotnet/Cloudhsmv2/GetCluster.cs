@@ -19,6 +19,7 @@ namespace Pulumi.Aws.CloudHsmV2
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:cloudhsmv2/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -38,6 +39,7 @@ namespace Pulumi.Aws.CloudHsmV2
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -54,6 +56,10 @@ namespace Pulumi.Aws.CloudHsmV2
         public readonly string ClusterId;
         public readonly string ClusterState;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.
         /// </summary>
         public readonly string SecurityGroupId;
@@ -65,57 +71,30 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The id of the VPC that the CloudHSM cluster resides in.
         /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             Outputs.GetClusterClusterCertificatesResult clusterCertificates,
+
             string clusterId,
+
             string clusterState,
+
+            string id,
+
             string securityGroupId,
+
             ImmutableArray<string> subnetIds,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             ClusterCertificates = clusterCertificates;
             ClusterId = clusterId;
             ClusterState = clusterState;
+            Id = id;
             SecurityGroupId = securityGroupId;
             SubnetIds = subnetIds;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetClusterClusterCertificatesResult
-    {
-        public readonly string AwsHardwareCertificate;
-        public readonly string ClusterCertificate;
-        public readonly string ClusterCsr;
-        public readonly string HsmCertificate;
-        public readonly string ManufacturerHardwareCertificate;
-
-        [OutputConstructor]
-        private GetClusterClusterCertificatesResult(
-            string awsHardwareCertificate,
-            string clusterCertificate,
-            string clusterCsr,
-            string hsmCertificate,
-            string manufacturerHardwareCertificate)
-        {
-            AwsHardwareCertificate = awsHardwareCertificate;
-            ClusterCertificate = clusterCertificate;
-            ClusterCsr = clusterCsr;
-            HsmCertificate = hsmCertificate;
-            ManufacturerHardwareCertificate = manufacturerHardwareCertificate;
-        }
-    }
     }
 }

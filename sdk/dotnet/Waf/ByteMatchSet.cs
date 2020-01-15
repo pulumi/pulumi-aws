@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Waf
         /// the location in requests that you want to search, and other settings.
         /// </summary>
         [Output("byteMatchTuples")]
-        public Output<ImmutableArray<Outputs.ByteMatchSetByteMatchTuples>> ByteMatchTuples { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ByteMatchSetByteMatchTuple>> ByteMatchTuples { get; private set; } = null!;
 
         /// <summary>
         /// The name or description of the Byte Match Set.
@@ -76,16 +76,16 @@ namespace Pulumi.Aws.Waf
     public sealed class ByteMatchSetArgs : Pulumi.ResourceArgs
     {
         [Input("byteMatchTuples")]
-        private InputList<Inputs.ByteMatchSetByteMatchTuplesArgs>? _byteMatchTuples;
+        private InputList<Inputs.ByteMatchSetByteMatchTupleArgs>? _byteMatchTuples;
 
         /// <summary>
         /// Specifies the bytes (typically a string that corresponds
         /// with ASCII characters) that you want to search for in web requests,
         /// the location in requests that you want to search, and other settings.
         /// </summary>
-        public InputList<Inputs.ByteMatchSetByteMatchTuplesArgs> ByteMatchTuples
+        public InputList<Inputs.ByteMatchSetByteMatchTupleArgs> ByteMatchTuples
         {
-            get => _byteMatchTuples ?? (_byteMatchTuples = new InputList<Inputs.ByteMatchSetByteMatchTuplesArgs>());
+            get => _byteMatchTuples ?? (_byteMatchTuples = new InputList<Inputs.ByteMatchSetByteMatchTupleArgs>());
             set => _byteMatchTuples = value;
         }
 
@@ -103,16 +103,16 @@ namespace Pulumi.Aws.Waf
     public sealed class ByteMatchSetState : Pulumi.ResourceArgs
     {
         [Input("byteMatchTuples")]
-        private InputList<Inputs.ByteMatchSetByteMatchTuplesGetArgs>? _byteMatchTuples;
+        private InputList<Inputs.ByteMatchSetByteMatchTupleGetArgs>? _byteMatchTuples;
 
         /// <summary>
         /// Specifies the bytes (typically a string that corresponds
         /// with ASCII characters) that you want to search for in web requests,
         /// the location in requests that you want to search, and other settings.
         /// </summary>
-        public InputList<Inputs.ByteMatchSetByteMatchTuplesGetArgs> ByteMatchTuples
+        public InputList<Inputs.ByteMatchSetByteMatchTupleGetArgs> ByteMatchTuples
         {
-            get => _byteMatchTuples ?? (_byteMatchTuples = new InputList<Inputs.ByteMatchSetByteMatchTuplesGetArgs>());
+            get => _byteMatchTuples ?? (_byteMatchTuples = new InputList<Inputs.ByteMatchSetByteMatchTupleGetArgs>());
             set => _byteMatchTuples = value;
         }
 
@@ -125,211 +125,5 @@ namespace Pulumi.Aws.Waf
         public ByteMatchSetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ByteMatchSetByteMatchTuplesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The part of a web request that you want to search, such as a specified header or a query string.
-        /// </summary>
-        [Input("fieldToMatch", required: true)]
-        public Input<ByteMatchSetByteMatchTuplesFieldToMatchArgs> FieldToMatch { get; set; } = null!;
-
-        /// <summary>
-        /// Within the portion of a web request that you want to search
-        /// (for example, in the query string, if any), specify where you want to search.
-        /// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-        /// for all supported values.
-        /// </summary>
-        [Input("positionalConstraint", required: true)]
-        public Input<string> PositionalConstraint { get; set; } = null!;
-
-        /// <summary>
-        /// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
-        /// for all supported values.
-        /// </summary>
-        [Input("targetString")]
-        public Input<string>? TargetString { get; set; }
-
-        /// <summary>
-        /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        /// If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-        /// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-        /// for all supported values.
-        /// </summary>
-        [Input("textTransformation", required: true)]
-        public Input<string> TextTransformation { get; set; } = null!;
-
-        public ByteMatchSetByteMatchTuplesArgs()
-        {
-        }
-    }
-
-    public sealed class ByteMatchSetByteMatchTuplesFieldToMatchArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
-        /// If `type` is any other value, omit this field.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string.
-        /// e.g. `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-        /// for all supported values.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ByteMatchSetByteMatchTuplesFieldToMatchArgs()
-        {
-        }
-    }
-
-    public sealed class ByteMatchSetByteMatchTuplesFieldToMatchGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
-        /// If `type` is any other value, omit this field.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string.
-        /// e.g. `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-        /// for all supported values.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ByteMatchSetByteMatchTuplesFieldToMatchGetArgs()
-        {
-        }
-    }
-
-    public sealed class ByteMatchSetByteMatchTuplesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The part of a web request that you want to search, such as a specified header or a query string.
-        /// </summary>
-        [Input("fieldToMatch", required: true)]
-        public Input<ByteMatchSetByteMatchTuplesFieldToMatchGetArgs> FieldToMatch { get; set; } = null!;
-
-        /// <summary>
-        /// Within the portion of a web request that you want to search
-        /// (for example, in the query string, if any), specify where you want to search.
-        /// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-        /// for all supported values.
-        /// </summary>
-        [Input("positionalConstraint", required: true)]
-        public Input<string> PositionalConstraint { get; set; } = null!;
-
-        /// <summary>
-        /// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
-        /// for all supported values.
-        /// </summary>
-        [Input("targetString")]
-        public Input<string>? TargetString { get; set; }
-
-        /// <summary>
-        /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        /// If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-        /// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-        /// for all supported values.
-        /// </summary>
-        [Input("textTransformation", required: true)]
-        public Input<string> TextTransformation { get; set; } = null!;
-
-        public ByteMatchSetByteMatchTuplesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ByteMatchSetByteMatchTuples
-    {
-        /// <summary>
-        /// The part of a web request that you want to search, such as a specified header or a query string.
-        /// </summary>
-        public readonly ByteMatchSetByteMatchTuplesFieldToMatch FieldToMatch;
-        /// <summary>
-        /// Within the portion of a web request that you want to search
-        /// (for example, in the query string, if any), specify where you want to search.
-        /// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-        /// for all supported values.
-        /// </summary>
-        public readonly string PositionalConstraint;
-        /// <summary>
-        /// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
-        /// for all supported values.
-        /// </summary>
-        public readonly string? TargetString;
-        /// <summary>
-        /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        /// If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-        /// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-        /// for all supported values.
-        /// </summary>
-        public readonly string TextTransformation;
-
-        [OutputConstructor]
-        private ByteMatchSetByteMatchTuples(
-            ByteMatchSetByteMatchTuplesFieldToMatch fieldToMatch,
-            string positionalConstraint,
-            string? targetString,
-            string textTransformation)
-        {
-            FieldToMatch = fieldToMatch;
-            PositionalConstraint = positionalConstraint;
-            TargetString = targetString;
-            TextTransformation = textTransformation;
-        }
-    }
-
-    [OutputType]
-    public sealed class ByteMatchSetByteMatchTuplesFieldToMatch
-    {
-        /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
-        /// If `type` is any other value, omit this field.
-        /// </summary>
-        public readonly string? Data;
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string.
-        /// e.g. `HEADER`, `METHOD` or `BODY`.
-        /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-        /// for all supported values.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ByteMatchSetByteMatchTuplesFieldToMatch(
-            string? data,
-            string type)
-        {
-            Data = data;
-            Type = type;
-        }
-    }
     }
 }

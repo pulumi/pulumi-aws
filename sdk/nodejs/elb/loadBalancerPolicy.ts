@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * ```
  * 
  * This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
  */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
@@ -176,7 +176,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancerPolicy.__pulumiType, name, inputs, opts);
     }

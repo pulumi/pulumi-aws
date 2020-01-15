@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Qldb
             => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetLedgerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Qldb
         }
     }
 
+
     [OutputType]
     public sealed class GetLedgerResult
     {
@@ -43,23 +45,26 @@ namespace Pulumi.Aws.Qldb
         /// Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
         /// </summary>
         public readonly bool DeletionProtection;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetLedgerResult(
             string arn,
+
             bool deletionProtection,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Arn = arn;
             DeletionProtection = deletionProtection;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

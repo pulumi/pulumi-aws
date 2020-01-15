@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         [Output("dnsEntries")]
-        public Output<ImmutableArray<Outputs.VpcEndpointDnsEntries>> DnsEntries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpcEndpointDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -276,14 +276,14 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("dnsEntries")]
-        private InputList<Inputs.VpcEndpointDnsEntriesGetArgs>? _dnsEntries;
+        private InputList<Inputs.VpcEndpointDnsEntryGetArgs>? _dnsEntries;
 
         /// <summary>
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
-        public InputList<Inputs.VpcEndpointDnsEntriesGetArgs> DnsEntries
+        public InputList<Inputs.VpcEndpointDnsEntryGetArgs> DnsEntries
         {
-            get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntriesGetArgs>());
+            get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
 
@@ -402,54 +402,5 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpcEndpointDnsEntriesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        [Input("dnsName")]
-        public Input<string>? DnsName { get; set; }
-
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        [Input("hostedZoneId")]
-        public Input<string>? HostedZoneId { get; set; }
-
-        public VpcEndpointDnsEntriesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpcEndpointDnsEntries
-    {
-        /// <summary>
-        /// The DNS name.
-        /// </summary>
-        public readonly string DnsName;
-        /// <summary>
-        /// The ID of the private hosted zone.
-        /// </summary>
-        public readonly string HostedZoneId;
-
-        [OutputConstructor]
-        private VpcEndpointDnsEntries(
-            string dnsName,
-            string hostedZoneId)
-        {
-            DnsName = dnsName;
-            HostedZoneId = hostedZoneId;
-        }
-    }
     }
 }

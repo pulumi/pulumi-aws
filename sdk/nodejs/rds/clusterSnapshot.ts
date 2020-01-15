@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_cluster_snapshot.html.markdown.
  */
 export class ClusterSnapshot extends pulumi.CustomResource {

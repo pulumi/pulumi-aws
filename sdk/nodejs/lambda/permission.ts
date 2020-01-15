@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Function} from "./function";
+import {Function} from "./index";
 
 /**
  * Creates a Lambda permission to allow external sources invoking the Lambda function
@@ -112,7 +110,7 @@ import {Function} from "./function";
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_permission.html.markdown.
  */
 export class Permission extends pulumi.CustomResource {
@@ -256,7 +254,7 @@ export interface PermissionState {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    readonly function?: pulumi.Input<string | Function>;
+    readonly function?: pulumi.Input<string> | pulumi.Input<Function>;
     /**
      * The principal who is getting this permission.
      * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal
@@ -307,7 +305,7 @@ export interface PermissionArgs {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    readonly function: pulumi.Input<string | Function>;
+    readonly function: pulumi.Input<string> | pulumi.Input<Function>;
     /**
      * The principal who is getting this permission.
      * e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal

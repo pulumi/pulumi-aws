@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Route53
             => Pulumi.Deployment.Instance.InvokeAsync<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetDelegationSetArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
+
     [OutputType]
     public sealed class GetDelegationSetResult
     {
@@ -44,7 +46,9 @@ namespace Pulumi.Aws.Route53
         [OutputConstructor]
         private GetDelegationSetResult(
             string callerReference,
+
             string id,
+
             ImmutableArray<string> nameServers)
         {
             CallerReference = callerReference;

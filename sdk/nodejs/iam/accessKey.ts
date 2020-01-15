@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * 
  * export const secret = lbAccessKey.encryptedSecret;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
  */
 export class AccessKey extends pulumi.CustomResource {

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone_primary.zoneId,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_hosted_zone_id_legacy.html.markdown.
  */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> & GetHostedZoneIdResult {
@@ -62,9 +62,9 @@ export interface GetHostedZoneIdArgs {
  * A collection of values returned by getHostedZoneId.
  */
 export interface GetHostedZoneIdResult {
-    readonly region?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Iam
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetInstanceProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
+
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
@@ -46,6 +48,10 @@ namespace Pulumi.Aws.Iam
         /// was created.
         /// </summary>
         public readonly string CreateDate;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The path to the instance profile.
@@ -63,30 +69,33 @@ namespace Pulumi.Aws.Iam
         /// The role name associated with this instance profile.
         /// </summary>
         public readonly string RoleName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInstanceProfileResult(
             string arn,
+
             string createDate,
+
+            string id,
+
             string name,
+
             string path,
+
             string roleArn,
+
             string roleId,
-            string roleName,
-            string id)
+
+            string roleName)
         {
             Arn = arn;
             CreateDate = createDate;
+            Id = id;
             Name = name;
             Path = path;
             RoleArn = roleArn;
             RoleId = roleId;
             RoleName = roleName;
-            Id = id;
         }
     }
 }

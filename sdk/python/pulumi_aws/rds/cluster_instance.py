@@ -51,7 +51,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     The DNS address for this instance. May not be writable
     """
-    engine: pulumi.Output[str]
+    engine: pulumi.Output[dict]
     """
     The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
     For information on the difference between the available Aurora MySQL engines
@@ -135,8 +135,8 @@ class ClusterInstance(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, cluster_identifier=None, copy_tags_to_snapshot=None, db_parameter_group_name=None, db_subnet_group_name=None, engine=None, engine_version=None, identifier=None, identifier_prefix=None, instance_class=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, preferred_backup_window=None, preferred_maintenance_window=None, promotion_tier=None, publicly_accessible=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a ClusterInstance resource with the given unique name, props, and options.
-        
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
@@ -147,14 +147,14 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
-        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        :param pulumi.Input[dict] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
+        :param pulumi.Input[dict] instance_class: The instance class to use. For details on CPU
                and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
         :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send
@@ -171,8 +171,6 @@ class ClusterInstance(pulumi.CustomResource):
                Default `false`. See the documentation on [Creating DB Instances][6] for more
                details on controlling this property.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -234,7 +232,7 @@ class ClusterInstance(pulumi.CustomResource):
         """
         Get an existing ClusterInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,14 +247,14 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
-        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        :param pulumi.Input[dict] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU
+        :param pulumi.Input[dict] instance_class: The instance class to use. For details on CPU
                and memory, see [Scaling Aurora DB Instances][4]. Aurora uses `db.*` instance classes/types. Please see [AWS Documentation][7] for currently available instance classes and complete details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
         :param pulumi.Input[float] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
@@ -277,12 +275,11 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["apply_immediately"] = apply_immediately
         __props__["arn"] = arn
         __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ec2
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
         [Output("ebsBlockDevices")]
-        public Output<ImmutableArray<Outputs.AmiEbsBlockDevices>> EbsBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AmiEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
         [Output("ephemeralBlockDevices")]
-        public Output<ImmutableArray<Outputs.AmiEphemeralBlockDevices>> EphemeralBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AmiEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g. created
@@ -176,15 +176,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.AmiEbsBlockDevicesArgs>? _ebsBlockDevices;
+        private InputList<Inputs.AmiEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiEbsBlockDevicesArgs> EbsBlockDevices
+        public InputList<Inputs.AmiEbsBlockDeviceArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiEbsBlockDevicesArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -195,15 +195,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnaSupport { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.AmiEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.AmiEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiEphemeralBlockDevicesArgs> EphemeralBlockDevices
+        public InputList<Inputs.AmiEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiEphemeralBlockDevicesArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -287,15 +287,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.AmiEbsBlockDevicesGetArgs>? _ebsBlockDevices;
+        private InputList<Inputs.AmiEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiEbsBlockDevicesGetArgs> EbsBlockDevices
+        public InputList<Inputs.AmiEbsBlockDeviceGetArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiEbsBlockDevicesGetArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -306,15 +306,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnaSupport { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.AmiEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.AmiEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
+        public InputList<Inputs.AmiEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiEphemeralBlockDevicesGetArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -390,142 +390,5 @@ namespace Pulumi.Aws.Ec2
         public AmiState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AmiEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public AmiEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class AmiEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public AmiEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class AmiEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public AmiEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class AmiEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        [Input("virtualName", required: true)]
-        public Input<string> VirtualName { get; set; } = null!;
-
-        public AmiEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AmiEbsBlockDevices
-    {
-        public readonly bool? DeleteOnTermination;
-        public readonly string DeviceName;
-        public readonly bool? Encrypted;
-        public readonly int? Iops;
-        public readonly string? SnapshotId;
-        public readonly int VolumeSize;
-        public readonly string? VolumeType;
-
-        [OutputConstructor]
-        private AmiEbsBlockDevices(
-            bool? deleteOnTermination,
-            string deviceName,
-            bool? encrypted,
-            int? iops,
-            string? snapshotId,
-            int volumeSize,
-            string? volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class AmiEphemeralBlockDevices
-    {
-        public readonly string DeviceName;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private AmiEphemeralBlockDevices(
-            string deviceName,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            VirtualName = virtualName;
-        }
-    }
     }
 }

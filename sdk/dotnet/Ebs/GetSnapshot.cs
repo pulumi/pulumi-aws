@@ -19,19 +19,20 @@ namespace Pulumi.Aws.Ebs
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetSnapshotFiltersArgs>? _filters;
+        private List<Inputs.GetSnapshotFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-snapshots in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetSnapshotFiltersArgs> Filters
+        public List<Inputs.GetSnapshotFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetSnapshotFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetSnapshotFilterArgs>());
             set => _filters = value;
         }
 
@@ -90,6 +91,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotResult
     {
@@ -105,7 +107,11 @@ namespace Pulumi.Aws.Ebs
         /// Whether the snapshot is encrypted.
         /// </summary>
         public readonly bool Encrypted;
-        public readonly ImmutableArray<Outputs.GetSnapshotFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetSnapshotFilterResult> Filters;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
@@ -142,35 +148,48 @@ namespace Pulumi.Aws.Ebs
         /// The size of the drive in GiBs.
         /// </summary>
         public readonly int VolumeSize;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotResult(
             string dataEncryptionKeyId,
+
             string description,
+
             bool encrypted,
-            ImmutableArray<Outputs.GetSnapshotFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetSnapshotFilterResult> filters,
+
+            string id,
+
             string kmsKeyId,
+
             bool? mostRecent,
+
             string ownerAlias,
+
             string ownerId,
+
             ImmutableArray<string> owners,
+
             ImmutableArray<string> restorableByUserIds,
+
             string snapshotId,
+
             ImmutableArray<string> snapshotIds,
+
             string state,
+
             ImmutableDictionary<string, object> tags,
+
             string volumeId,
-            int volumeSize,
-            string id)
+
+            int volumeSize)
         {
             DataEncryptionKeyId = dataEncryptionKeyId;
             Description = description;
             Encrypted = encrypted;
             Filters = filters;
+            Id = id;
             KmsKeyId = kmsKeyId;
             MostRecent = mostRecent;
             OwnerAlias = ownerAlias;
@@ -183,49 +202,6 @@ namespace Pulumi.Aws.Ebs
             Tags = tags;
             VolumeId = volumeId;
             VolumeSize = volumeSize;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSnapshotFiltersArgs : Pulumi.InvokeArgs
-    {
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetSnapshotFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSnapshotFiltersResult
-    {
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetSnapshotFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

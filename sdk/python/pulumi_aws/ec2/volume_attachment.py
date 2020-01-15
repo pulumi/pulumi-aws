@@ -42,9 +42,11 @@ class VolumeAttachment(pulumi.CustomResource):
         """
         Provides an AWS EBS Volume Attachment as a top level resource, to attach and
         detach volumes from AWS Instances.
-        
+
         > **NOTE on EBS block devices:** If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` + `aws_ebs_volume_attachment` resources for a given instance.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name to expose to the instance (for
@@ -60,8 +62,6 @@ class VolumeAttachment(pulumi.CustomResource):
                useful when destroying an instance which has volumes created by some other
                means attached.
         :param pulumi.Input[str] volume_id: ID of the Volume to be attached
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,7 +102,7 @@ class VolumeAttachment(pulumi.CustomResource):
         """
         Get an existing VolumeAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,12 +119,11 @@ class VolumeAttachment(pulumi.CustomResource):
                useful when destroying an instance which has volumes created by some other
                means attached.
         :param pulumi.Input[str] volume_id: ID of the Volume to be attached
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/volume_attachment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["device_name"] = device_name
         __props__["force_detach"] = force_detach
         __props__["instance_id"] = instance_id

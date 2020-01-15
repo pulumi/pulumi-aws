@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Acm
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -78,6 +79,7 @@ namespace Pulumi.Aws.Acm
         }
     }
 
+
     [OutputType]
     public sealed class GetCertificateResult
     {
@@ -86,32 +88,38 @@ namespace Pulumi.Aws.Acm
         /// </summary>
         public readonly string Arn;
         public readonly string Domain;
-        public readonly ImmutableArray<string> KeyTypes;
-        public readonly bool? MostRecent;
-        public readonly ImmutableArray<string> Statuses;
-        public readonly ImmutableArray<string> Types;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<string> KeyTypes;
+        public readonly bool? MostRecent;
+        public readonly ImmutableArray<string> Statuses;
+        public readonly ImmutableArray<string> Types;
 
         [OutputConstructor]
         private GetCertificateResult(
             string arn,
+
             string domain,
+
+            string id,
+
             ImmutableArray<string> keyTypes,
+
             bool? mostRecent,
+
             ImmutableArray<string> statuses,
-            ImmutableArray<string> types,
-            string id)
+
+            ImmutableArray<string> types)
         {
             Arn = arn;
             Domain = domain;
+            Id = id;
             KeyTypes = keyTypes;
             MostRecent = mostRecent;
             Statuses = statuses;
             Types = types;
-            Id = id;
         }
     }
 }

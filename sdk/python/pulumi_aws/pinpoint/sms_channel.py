@@ -37,15 +37,15 @@ class SmsChannel(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_id=None, enabled=None, sender_id=None, short_code=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Pinpoint SMS Channel resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] sender_id: Sender identifier of your messages.
         :param pulumi.Input[str] short_code: The Short Code registered with the phone provider.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +83,7 @@ class SmsChannel(pulumi.CustomResource):
         """
         Get an existing SmsChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,12 +93,11 @@ class SmsChannel(pulumi.CustomResource):
         :param pulumi.Input[str] sender_id: Sender identifier of your messages.
         :param pulumi.Input[str] short_code: The Short Code registered with the phone provider.
         :param pulumi.Input[float] transactional_messages_per_second: Transactional messages per second that can be sent.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_sms_channel.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_id"] = application_id
         __props__["enabled"] = enabled
         __props__["promotional_messages_per_second"] = promotional_messages_per_second

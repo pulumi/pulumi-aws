@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     layerName: layerName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_layer_version.html.markdown.
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> & GetLayerVersionResult {
@@ -82,6 +82,10 @@ export interface GetLayerVersionResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
     readonly layerArn: string;
@@ -102,8 +106,4 @@ export interface GetLayerVersionResult {
      * This Lamba Layer version.
      */
     readonly version: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

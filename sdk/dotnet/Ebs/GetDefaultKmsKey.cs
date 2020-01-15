@@ -19,25 +19,27 @@ namespace Pulumi.Aws.Ebs
             => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", InvokeArgs.Empty, options.WithVersion());
     }
 
+
     [OutputType]
     public sealed class GetDefaultKmsKeyResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-        /// </summary>
-        public readonly string KeyArn;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
+        /// </summary>
+        public readonly string KeyArn;
 
         [OutputConstructor]
         private GetDefaultKmsKeyResult(
-            string keyArn,
-            string id)
+            string id,
+
+            string keyArn)
         {
-            KeyArn = keyArn;
             Id = id;
+            KeyArn = keyArn;
         }
     }
 }

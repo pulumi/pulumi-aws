@@ -27,7 +27,7 @@ namespace Pulumi.Aws.DynamoDB
         /// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         /// </summary>
         [Output("attributes")]
-        public Output<ImmutableArray<Outputs.TableAttributes>> Attributes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TableAttribute>> Attributes { get; private set; } = null!;
 
         /// <summary>
         /// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.DynamoDB
         /// attributes, etc.
         /// </summary>
         [Output("globalSecondaryIndexes")]
-        public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndexes>> GlobalSecondaryIndexes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
         /// The name of the hash key in the index; must be
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DynamoDB
         /// definition after you have created the resource.
         /// </summary>
         [Output("localSecondaryIndexes")]
-        public Output<ImmutableArray<Outputs.TableLocalSecondaryIndexes>> LocalSecondaryIndexes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
         /// The name of the index
@@ -180,14 +180,14 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class TableArgs : Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
-        private InputList<Inputs.TableAttributesArgs>? _attributes;
+        private InputList<Inputs.TableAttributeArgs>? _attributes;
 
         /// <summary>
         /// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         /// </summary>
-        public InputList<Inputs.TableAttributesArgs> Attributes
+        public InputList<Inputs.TableAttributeArgs> Attributes
         {
-            get => _attributes ?? (_attributes = new InputList<Inputs.TableAttributesArgs>());
+            get => _attributes ?? (_attributes = new InputList<Inputs.TableAttributeArgs>());
             set => _attributes = value;
         }
 
@@ -198,16 +198,16 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? BillingMode { get; set; }
 
         [Input("globalSecondaryIndexes")]
-        private InputList<Inputs.TableGlobalSecondaryIndexesArgs>? _globalSecondaryIndexes;
+        private InputList<Inputs.TableGlobalSecondaryIndexArgs>? _globalSecondaryIndexes;
 
         /// <summary>
         /// Describe a GSI for the table;
         /// subject to the normal limits on the number of GSIs, projected
         /// attributes, etc.
         /// </summary>
-        public InputList<Inputs.TableGlobalSecondaryIndexesArgs> GlobalSecondaryIndexes
+        public InputList<Inputs.TableGlobalSecondaryIndexArgs> GlobalSecondaryIndexes
         {
-            get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexesArgs>());
+            get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexArgs>());
             set => _globalSecondaryIndexes = value;
         }
 
@@ -219,16 +219,16 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string> HashKey { get; set; } = null!;
 
         [Input("localSecondaryIndexes")]
-        private InputList<Inputs.TableLocalSecondaryIndexesArgs>? _localSecondaryIndexes;
+        private InputList<Inputs.TableLocalSecondaryIndexArgs>? _localSecondaryIndexes;
 
         /// <summary>
         /// Describe an LSI on the table;
         /// these can only be allocated *at creation* so you cannot change this
         /// definition after you have created the resource.
         /// </summary>
-        public InputList<Inputs.TableLocalSecondaryIndexesArgs> LocalSecondaryIndexes
+        public InputList<Inputs.TableLocalSecondaryIndexArgs> LocalSecondaryIndexes
         {
-            get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.TableLocalSecondaryIndexesArgs>());
+            get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.TableLocalSecondaryIndexArgs>());
             set => _localSecondaryIndexes = value;
         }
 
@@ -312,14 +312,14 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Arn { get; set; }
 
         [Input("attributes")]
-        private InputList<Inputs.TableAttributesGetArgs>? _attributes;
+        private InputList<Inputs.TableAttributeGetArgs>? _attributes;
 
         /// <summary>
         /// List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         /// </summary>
-        public InputList<Inputs.TableAttributesGetArgs> Attributes
+        public InputList<Inputs.TableAttributeGetArgs> Attributes
         {
-            get => _attributes ?? (_attributes = new InputList<Inputs.TableAttributesGetArgs>());
+            get => _attributes ?? (_attributes = new InputList<Inputs.TableAttributeGetArgs>());
             set => _attributes = value;
         }
 
@@ -330,16 +330,16 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? BillingMode { get; set; }
 
         [Input("globalSecondaryIndexes")]
-        private InputList<Inputs.TableGlobalSecondaryIndexesGetArgs>? _globalSecondaryIndexes;
+        private InputList<Inputs.TableGlobalSecondaryIndexGetArgs>? _globalSecondaryIndexes;
 
         /// <summary>
         /// Describe a GSI for the table;
         /// subject to the normal limits on the number of GSIs, projected
         /// attributes, etc.
         /// </summary>
-        public InputList<Inputs.TableGlobalSecondaryIndexesGetArgs> GlobalSecondaryIndexes
+        public InputList<Inputs.TableGlobalSecondaryIndexGetArgs> GlobalSecondaryIndexes
         {
-            get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexesGetArgs>());
+            get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.TableGlobalSecondaryIndexGetArgs>());
             set => _globalSecondaryIndexes = value;
         }
 
@@ -351,16 +351,16 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? HashKey { get; set; }
 
         [Input("localSecondaryIndexes")]
-        private InputList<Inputs.TableLocalSecondaryIndexesGetArgs>? _localSecondaryIndexes;
+        private InputList<Inputs.TableLocalSecondaryIndexGetArgs>? _localSecondaryIndexes;
 
         /// <summary>
         /// Describe an LSI on the table;
         /// these can only be allocated *at creation* so you cannot change this
         /// definition after you have created the resource.
         /// </summary>
-        public InputList<Inputs.TableLocalSecondaryIndexesGetArgs> LocalSecondaryIndexes
+        public InputList<Inputs.TableLocalSecondaryIndexGetArgs> LocalSecondaryIndexes
         {
-            get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.TableLocalSecondaryIndexesGetArgs>());
+            get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.TableLocalSecondaryIndexGetArgs>());
             set => _localSecondaryIndexes = value;
         }
 
@@ -448,524 +448,5 @@ namespace Pulumi.Aws.DynamoDB
         public TableState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TableAttributesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TableAttributesArgs()
-        {
-        }
-    }
-
-    public sealed class TableAttributesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public TableAttributesGetArgs()
-        {
-        }
-    }
-
-    public sealed class TableGlobalSecondaryIndexesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the hash key in the index; must be
-        /// defined as an attribute in the resource.
-        /// </summary>
-        [Input("hashKey", required: true)]
-        public Input<string> HashKey { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("nonKeyAttributes")]
-        private InputList<string>? _nonKeyAttributes;
-
-        /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
-        /// </summary>
-        public InputList<string> NonKeyAttributes
-        {
-            get => _nonKeyAttributes ?? (_nonKeyAttributes = new InputList<string>());
-            set => _nonKeyAttributes = value;
-        }
-
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
-        /// </summary>
-        [Input("projectionType", required: true)]
-        public Input<string> ProjectionType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the range key; must be defined
-        /// </summary>
-        [Input("rangeKey")]
-        public Input<string>? RangeKey { get; set; }
-
-        /// <summary>
-        /// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        /// </summary>
-        [Input("readCapacity")]
-        public Input<int>? ReadCapacity { get; set; }
-
-        /// <summary>
-        /// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
-        /// </summary>
-        [Input("writeCapacity")]
-        public Input<int>? WriteCapacity { get; set; }
-
-        public TableGlobalSecondaryIndexesArgs()
-        {
-        }
-    }
-
-    public sealed class TableGlobalSecondaryIndexesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the hash key in the index; must be
-        /// defined as an attribute in the resource.
-        /// </summary>
-        [Input("hashKey", required: true)]
-        public Input<string> HashKey { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("nonKeyAttributes")]
-        private InputList<string>? _nonKeyAttributes;
-
-        /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
-        /// </summary>
-        public InputList<string> NonKeyAttributes
-        {
-            get => _nonKeyAttributes ?? (_nonKeyAttributes = new InputList<string>());
-            set => _nonKeyAttributes = value;
-        }
-
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
-        /// </summary>
-        [Input("projectionType", required: true)]
-        public Input<string> ProjectionType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the range key; must be defined
-        /// </summary>
-        [Input("rangeKey")]
-        public Input<string>? RangeKey { get; set; }
-
-        /// <summary>
-        /// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        /// </summary>
-        [Input("readCapacity")]
-        public Input<int>? ReadCapacity { get; set; }
-
-        /// <summary>
-        /// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
-        /// </summary>
-        [Input("writeCapacity")]
-        public Input<int>? WriteCapacity { get; set; }
-
-        public TableGlobalSecondaryIndexesGetArgs()
-        {
-        }
-    }
-
-    public sealed class TableLocalSecondaryIndexesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("nonKeyAttributes")]
-        private InputList<string>? _nonKeyAttributes;
-
-        /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
-        /// </summary>
-        public InputList<string> NonKeyAttributes
-        {
-            get => _nonKeyAttributes ?? (_nonKeyAttributes = new InputList<string>());
-            set => _nonKeyAttributes = value;
-        }
-
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
-        /// </summary>
-        [Input("projectionType", required: true)]
-        public Input<string> ProjectionType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the range key; must be defined
-        /// </summary>
-        [Input("rangeKey", required: true)]
-        public Input<string> RangeKey { get; set; } = null!;
-
-        public TableLocalSecondaryIndexesArgs()
-        {
-        }
-    }
-
-    public sealed class TableLocalSecondaryIndexesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("nonKeyAttributes")]
-        private InputList<string>? _nonKeyAttributes;
-
-        /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
-        /// </summary>
-        public InputList<string> NonKeyAttributes
-        {
-            get => _nonKeyAttributes ?? (_nonKeyAttributes = new InputList<string>());
-            set => _nonKeyAttributes = value;
-        }
-
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
-        /// </summary>
-        [Input("projectionType", required: true)]
-        public Input<string> ProjectionType { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the range key; must be defined
-        /// </summary>
-        [Input("rangeKey", required: true)]
-        public Input<string> RangeKey { get; set; } = null!;
-
-        public TableLocalSecondaryIndexesGetArgs()
-        {
-        }
-    }
-
-    public sealed class TablePointInTimeRecoveryArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public TablePointInTimeRecoveryArgs()
-        {
-        }
-    }
-
-    public sealed class TablePointInTimeRecoveryGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public TablePointInTimeRecoveryGetArgs()
-        {
-        }
-    }
-
-    public sealed class TableServerSideEncryptionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public TableServerSideEncryptionArgs()
-        {
-        }
-    }
-
-    public sealed class TableServerSideEncryptionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public TableServerSideEncryptionGetArgs()
-        {
-        }
-    }
-
-    public sealed class TableTtlArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the table attribute to store the TTL timestamp in.
-        /// </summary>
-        [Input("attributeName", required: true)]
-        public Input<string> AttributeName { get; set; } = null!;
-
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public TableTtlArgs()
-        {
-        }
-    }
-
-    public sealed class TableTtlGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the table attribute to store the TTL timestamp in.
-        /// </summary>
-        [Input("attributeName", required: true)]
-        public Input<string> AttributeName { get; set; } = null!;
-
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        public TableTtlGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TableAttributes
-    {
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private TableAttributes(
-            string name,
-            string type)
-        {
-            Name = name;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class TableGlobalSecondaryIndexes
-    {
-        /// <summary>
-        /// The name of the hash key in the index; must be
-        /// defined as an attribute in the resource.
-        /// </summary>
-        public readonly string HashKey;
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
-        /// </summary>
-        public readonly ImmutableArray<string> NonKeyAttributes;
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
-        /// </summary>
-        public readonly string ProjectionType;
-        /// <summary>
-        /// The name of the range key; must be defined
-        /// </summary>
-        public readonly string? RangeKey;
-        /// <summary>
-        /// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        /// </summary>
-        public readonly int? ReadCapacity;
-        /// <summary>
-        /// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
-        /// </summary>
-        public readonly int? WriteCapacity;
-
-        [OutputConstructor]
-        private TableGlobalSecondaryIndexes(
-            string hashKey,
-            string name,
-            ImmutableArray<string> nonKeyAttributes,
-            string projectionType,
-            string? rangeKey,
-            int? readCapacity,
-            int? writeCapacity)
-        {
-            HashKey = hashKey;
-            Name = name;
-            NonKeyAttributes = nonKeyAttributes;
-            ProjectionType = projectionType;
-            RangeKey = rangeKey;
-            ReadCapacity = readCapacity;
-            WriteCapacity = writeCapacity;
-        }
-    }
-
-    [OutputType]
-    public sealed class TableLocalSecondaryIndexes
-    {
-        /// <summary>
-        /// The name of the index
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
-        /// </summary>
-        public readonly ImmutableArray<string> NonKeyAttributes;
-        /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
-        /// </summary>
-        public readonly string ProjectionType;
-        /// <summary>
-        /// The name of the range key; must be defined
-        /// </summary>
-        public readonly string RangeKey;
-
-        [OutputConstructor]
-        private TableLocalSecondaryIndexes(
-            string name,
-            ImmutableArray<string> nonKeyAttributes,
-            string projectionType,
-            string rangeKey)
-        {
-            Name = name;
-            NonKeyAttributes = nonKeyAttributes;
-            ProjectionType = projectionType;
-            RangeKey = rangeKey;
-        }
-    }
-
-    [OutputType]
-    public sealed class TablePointInTimeRecovery
-    {
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private TablePointInTimeRecovery(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class TableServerSideEncryption
-    {
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private TableServerSideEncryption(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class TableTtl
-    {
-        /// <summary>
-        /// The name of the table attribute to store the TTL timestamp in.
-        /// </summary>
-        public readonly string AttributeName;
-        /// <summary>
-        /// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
-        /// </summary>
-        public readonly bool? Enabled;
-
-        [OutputConstructor]
-        private TableTtl(
-            string attributeName,
-            bool? enabled)
-        {
-            AttributeName = attributeName;
-            Enabled = enabled;
-        }
-    }
     }
 }

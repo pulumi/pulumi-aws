@@ -19,7 +19,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
         [Output("endpointConfigurations")]
-        public Output<ImmutableArray<Outputs.EndpointGroupEndpointConfigurations>> EndpointConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointGroupEndpointConfiguration>> EndpointConfigurations { get; private set; } = null!;
 
         [Output("endpointGroupRegion")]
         public Output<string> EndpointGroupRegion { get; private set; } = null!;
@@ -113,14 +113,14 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class EndpointGroupArgs : Pulumi.ResourceArgs
     {
         [Input("endpointConfigurations")]
-        private InputList<Inputs.EndpointGroupEndpointConfigurationsArgs>? _endpointConfigurations;
+        private InputList<Inputs.EndpointGroupEndpointConfigurationArgs>? _endpointConfigurations;
 
         /// <summary>
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
-        public InputList<Inputs.EndpointGroupEndpointConfigurationsArgs> EndpointConfigurations
+        public InputList<Inputs.EndpointGroupEndpointConfigurationArgs> EndpointConfigurations
         {
-            get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<Inputs.EndpointGroupEndpointConfigurationsArgs>());
+            get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<Inputs.EndpointGroupEndpointConfigurationArgs>());
             set => _endpointConfigurations = value;
         }
 
@@ -177,14 +177,14 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class EndpointGroupState : Pulumi.ResourceArgs
     {
         [Input("endpointConfigurations")]
-        private InputList<Inputs.EndpointGroupEndpointConfigurationsGetArgs>? _endpointConfigurations;
+        private InputList<Inputs.EndpointGroupEndpointConfigurationGetArgs>? _endpointConfigurations;
 
         /// <summary>
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
-        public InputList<Inputs.EndpointGroupEndpointConfigurationsGetArgs> EndpointConfigurations
+        public InputList<Inputs.EndpointGroupEndpointConfigurationGetArgs> EndpointConfigurations
         {
-            get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<Inputs.EndpointGroupEndpointConfigurationsGetArgs>());
+            get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<Inputs.EndpointGroupEndpointConfigurationGetArgs>());
             set => _endpointConfigurations = value;
         }
 
@@ -236,73 +236,5 @@ namespace Pulumi.Aws.GlobalAccelerator
         public EndpointGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointGroupEndpointConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        /// </summary>
-        [Input("endpointId")]
-        public Input<string>? EndpointId { get; set; }
-
-        /// <summary>
-        /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
-        /// </summary>
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public EndpointGroupEndpointConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointGroupEndpointConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        /// </summary>
-        [Input("endpointId")]
-        public Input<string>? EndpointId { get; set; }
-
-        /// <summary>
-        /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
-        /// </summary>
-        [Input("weight")]
-        public Input<int>? Weight { get; set; }
-
-        public EndpointGroupEndpointConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointGroupEndpointConfigurations
-    {
-        /// <summary>
-        /// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        /// </summary>
-        public readonly string? EndpointId;
-        /// <summary>
-        /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
-        /// </summary>
-        public readonly int? Weight;
-
-        [OutputConstructor]
-        private EndpointGroupEndpointConfigurations(
-            string? endpointId,
-            int? weight)
-        {
-            EndpointId = endpointId;
-            Weight = weight;
-        }
-    }
     }
 }

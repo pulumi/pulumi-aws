@@ -23,17 +23,18 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetRouteTableFiltersArgs>? _filters;
+        private List<Inputs.GetRouteTableFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetRouteTableFiltersArgs> Filters
+        public List<Inputs.GetRouteTableFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetRouteTableFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetRouteTableFilterArgs>());
             set => _filters = value;
         }
 
@@ -79,15 +80,20 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetRouteTableResult
     {
-        public readonly ImmutableArray<Outputs.GetRouteTableAssociationsResult> Associations;
-        public readonly ImmutableArray<Outputs.GetRouteTableFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetRouteTableAssociationResult> Associations;
+        public readonly ImmutableArray<Outputs.GetRouteTableFilterResult> Filters;
         /// <summary>
         /// The Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
         /// </summary>
         public readonly string GatewayId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ID of the AWS account that owns the route table
         /// </summary>
@@ -96,204 +102,46 @@ namespace Pulumi.Aws.Ec2
         /// The Route Table ID.
         /// </summary>
         public readonly string RouteTableId;
-        public readonly ImmutableArray<Outputs.GetRouteTableRoutesResult> Routes;
+        public readonly ImmutableArray<Outputs.GetRouteTableRouteResult> Routes;
         /// <summary>
         /// The Subnet ID. Only set when associated with a Subnet.
         /// </summary>
         public readonly string SubnetId;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRouteTableResult(
-            ImmutableArray<Outputs.GetRouteTableAssociationsResult> associations,
-            ImmutableArray<Outputs.GetRouteTableFiltersResult> filters,
+            ImmutableArray<Outputs.GetRouteTableAssociationResult> associations,
+
+            ImmutableArray<Outputs.GetRouteTableFilterResult> filters,
+
             string gatewayId,
+
+            string id,
+
             string ownerId,
+
             string routeTableId,
-            ImmutableArray<Outputs.GetRouteTableRoutesResult> routes,
+
+            ImmutableArray<Outputs.GetRouteTableRouteResult> routes,
+
             string subnetId,
+
             ImmutableDictionary<string, object> tags,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             Associations = associations;
             Filters = filters;
             GatewayId = gatewayId;
+            Id = id;
             OwnerId = ownerId;
             RouteTableId = routeTableId;
             Routes = routes;
             SubnetId = subnetId;
             Tags = tags;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetRouteTableFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A Route Table will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetRouteTableFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRouteTableAssociationsResult
-    {
-        /// <summary>
-        /// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-        /// </summary>
-        public readonly string GatewayId;
-        /// <summary>
-        /// If the Association due to the Main Route Table.
-        /// </summary>
-        public readonly bool Main;
-        /// <summary>
-        /// The Association ID.
-        /// </summary>
-        public readonly string RouteTableAssociationId;
-        /// <summary>
-        /// The id of the specific Route Table to retrieve.
-        /// </summary>
-        public readonly string RouteTableId;
-        /// <summary>
-        /// The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetRouteTableAssociationsResult(
-            string gatewayId,
-            bool main,
-            string routeTableAssociationId,
-            string routeTableId,
-            string subnetId)
-        {
-            GatewayId = gatewayId;
-            Main = main;
-            RouteTableAssociationId = routeTableAssociationId;
-            RouteTableId = routeTableId;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetRouteTableFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A Route Table will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetRouteTableFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetRouteTableRoutesResult
-    {
-        /// <summary>
-        /// The CIDR block of the route.
-        /// </summary>
-        public readonly string CidrBlock;
-        /// <summary>
-        /// The ID of the Egress Only Internet Gateway.
-        /// </summary>
-        public readonly string EgressOnlyGatewayId;
-        /// <summary>
-        /// The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
-        /// </summary>
-        public readonly string GatewayId;
-        /// <summary>
-        /// The EC2 instance ID.
-        /// </summary>
-        public readonly string InstanceId;
-        /// <summary>
-        /// The IPv6 CIDR block of the route.
-        /// </summary>
-        public readonly string Ipv6CidrBlock;
-        /// <summary>
-        /// The NAT Gateway ID.
-        /// </summary>
-        public readonly string NatGatewayId;
-        /// <summary>
-        /// The ID of the elastic network interface (eni) to use.
-        /// </summary>
-        public readonly string NetworkInterfaceId;
-        /// <summary>
-        /// The EC2 Transit Gateway ID.
-        /// </summary>
-        public readonly string TransitGatewayId;
-        /// <summary>
-        /// The VPC Peering ID.
-        /// </summary>
-        public readonly string VpcPeeringConnectionId;
-
-        [OutputConstructor]
-        private GetRouteTableRoutesResult(
-            string cidrBlock,
-            string egressOnlyGatewayId,
-            string gatewayId,
-            string instanceId,
-            string ipv6CidrBlock,
-            string natGatewayId,
-            string networkInterfaceId,
-            string transitGatewayId,
-            string vpcPeeringConnectionId)
-        {
-            CidrBlock = cidrBlock;
-            EgressOnlyGatewayId = egressOnlyGatewayId;
-            GatewayId = gatewayId;
-            InstanceId = instanceId;
-            Ipv6CidrBlock = ipv6CidrBlock;
-            NatGatewayId = natGatewayId;
-            NetworkInterfaceId = networkInterfaceId;
-            TransitGatewayId = transitGatewayId;
-            VpcPeeringConnectionId = vpcPeeringConnectionId;
-        }
-    }
     }
 }

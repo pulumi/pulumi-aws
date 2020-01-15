@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ApiGateway
         /// The associated API stages of the usage plan.
         /// </summary>
         [Output("apiStages")]
-        public Output<ImmutableArray<Outputs.UsagePlanApiStages>> ApiStages { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -110,14 +110,14 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class UsagePlanArgs : Pulumi.ResourceArgs
     {
         [Input("apiStages")]
-        private InputList<Inputs.UsagePlanApiStagesArgs>? _apiStages;
+        private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
 
         /// <summary>
         /// The associated API stages of the usage plan.
         /// </summary>
-        public InputList<Inputs.UsagePlanApiStagesArgs> ApiStages
+        public InputList<Inputs.UsagePlanApiStageArgs> ApiStages
         {
-            get => _apiStages ?? (_apiStages = new InputList<Inputs.UsagePlanApiStagesArgs>());
+            get => _apiStages ?? (_apiStages = new InputList<Inputs.UsagePlanApiStageArgs>());
             set => _apiStages = value;
         }
 
@@ -171,14 +171,14 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class UsagePlanState : Pulumi.ResourceArgs
     {
         [Input("apiStages")]
-        private InputList<Inputs.UsagePlanApiStagesGetArgs>? _apiStages;
+        private InputList<Inputs.UsagePlanApiStageGetArgs>? _apiStages;
 
         /// <summary>
         /// The associated API stages of the usage plan.
         /// </summary>
-        public InputList<Inputs.UsagePlanApiStagesGetArgs> ApiStages
+        public InputList<Inputs.UsagePlanApiStageGetArgs> ApiStages
         {
-            get => _apiStages ?? (_apiStages = new InputList<Inputs.UsagePlanApiStagesGetArgs>());
+            get => _apiStages ?? (_apiStages = new InputList<Inputs.UsagePlanApiStageGetArgs>());
             set => _apiStages = value;
         }
 
@@ -233,211 +233,5 @@ namespace Pulumi.Aws.ApiGateway
         public UsagePlanState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class UsagePlanApiStagesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// API Id of the associated API stage in a usage plan.
-        /// </summary>
-        [Input("apiId", required: true)]
-        public Input<string> ApiId { get; set; } = null!;
-
-        /// <summary>
-        /// API stage name of the associated API stage in a usage plan.
-        /// </summary>
-        [Input("stage", required: true)]
-        public Input<string> Stage { get; set; } = null!;
-
-        public UsagePlanApiStagesArgs()
-        {
-        }
-    }
-
-    public sealed class UsagePlanApiStagesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// API Id of the associated API stage in a usage plan.
-        /// </summary>
-        [Input("apiId", required: true)]
-        public Input<string> ApiId { get; set; } = null!;
-
-        /// <summary>
-        /// API stage name of the associated API stage in a usage plan.
-        /// </summary>
-        [Input("stage", required: true)]
-        public Input<string> Stage { get; set; } = null!;
-
-        public UsagePlanApiStagesGetArgs()
-        {
-        }
-    }
-
-    public sealed class UsagePlanQuotaSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of requests that can be made in a given time period.
-        /// </summary>
-        [Input("limit", required: true)]
-        public Input<int> Limit { get; set; } = null!;
-
-        /// <summary>
-        /// The number of requests subtracted from the given limit in the initial time period.
-        /// </summary>
-        [Input("offset")]
-        public Input<int>? Offset { get; set; }
-
-        /// <summary>
-        /// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<string> Period { get; set; } = null!;
-
-        public UsagePlanQuotaSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class UsagePlanQuotaSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum number of requests that can be made in a given time period.
-        /// </summary>
-        [Input("limit", required: true)]
-        public Input<int> Limit { get; set; } = null!;
-
-        /// <summary>
-        /// The number of requests subtracted from the given limit in the initial time period.
-        /// </summary>
-        [Input("offset")]
-        public Input<int>? Offset { get; set; }
-
-        /// <summary>
-        /// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<string> Period { get; set; } = null!;
-
-        public UsagePlanQuotaSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class UsagePlanThrottleSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        /// </summary>
-        [Input("burstLimit")]
-        public Input<int>? BurstLimit { get; set; }
-
-        /// <summary>
-        /// The API request steady-state rate limit.
-        /// </summary>
-        [Input("rateLimit")]
-        public Input<double>? RateLimit { get; set; }
-
-        public UsagePlanThrottleSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class UsagePlanThrottleSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        /// </summary>
-        [Input("burstLimit")]
-        public Input<int>? BurstLimit { get; set; }
-
-        /// <summary>
-        /// The API request steady-state rate limit.
-        /// </summary>
-        [Input("rateLimit")]
-        public Input<double>? RateLimit { get; set; }
-
-        public UsagePlanThrottleSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class UsagePlanApiStages
-    {
-        /// <summary>
-        /// API Id of the associated API stage in a usage plan.
-        /// </summary>
-        public readonly string ApiId;
-        /// <summary>
-        /// API stage name of the associated API stage in a usage plan.
-        /// </summary>
-        public readonly string Stage;
-
-        [OutputConstructor]
-        private UsagePlanApiStages(
-            string apiId,
-            string stage)
-        {
-            ApiId = apiId;
-            Stage = stage;
-        }
-    }
-
-    [OutputType]
-    public sealed class UsagePlanQuotaSettings
-    {
-        /// <summary>
-        /// The maximum number of requests that can be made in a given time period.
-        /// </summary>
-        public readonly int Limit;
-        /// <summary>
-        /// The number of requests subtracted from the given limit in the initial time period.
-        /// </summary>
-        public readonly int? Offset;
-        /// <summary>
-        /// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        /// </summary>
-        public readonly string Period;
-
-        [OutputConstructor]
-        private UsagePlanQuotaSettings(
-            int limit,
-            int? offset,
-            string period)
-        {
-            Limit = limit;
-            Offset = offset;
-            Period = period;
-        }
-    }
-
-    [OutputType]
-    public sealed class UsagePlanThrottleSettings
-    {
-        /// <summary>
-        /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        /// </summary>
-        public readonly int? BurstLimit;
-        /// <summary>
-        /// The API request steady-state rate limit.
-        /// </summary>
-        public readonly double? RateLimit;
-
-        [OutputConstructor]
-        private UsagePlanThrottleSettings(
-            int? burstLimit,
-            double? rateLimit)
-        {
-            BurstLimit = burstLimit;
-            RateLimit = rateLimit;
-        }
-    }
     }
 }

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
  */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> & GetRouteTablesResult {
@@ -81,13 +81,13 @@ export interface GetRouteTablesArgs {
 export interface GetRouteTablesResult {
     readonly filters?: outputs.ec2.GetRouteTablesFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the route table ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

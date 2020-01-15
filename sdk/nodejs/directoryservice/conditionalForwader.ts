@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     remoteDomainName: "example.com",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_conditional_forwarder.html.markdown.
  */
 export class ConditionalForwader extends pulumi.CustomResource {

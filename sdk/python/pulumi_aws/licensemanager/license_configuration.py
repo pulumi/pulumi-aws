@@ -41,13 +41,13 @@ class LicenseConfiguration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, license_count=None, license_count_hard_limit=None, license_counting_type=None, license_rules=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a License Manager license configuration resource.
-        
+
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
-        
+
         ## Rules
-        
+
         License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
-        
+
         * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
         * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
         * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
@@ -55,7 +55,9 @@ class LicenseConfiguration(pulumi.CustomResource):
         * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
         * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
         * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_license_configuration.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the license configuration.
@@ -65,8 +67,6 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[list] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_license_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,7 +105,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         """
         Get an existing LicenseConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,12 +116,11 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[list] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_license_configuration.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["license_count"] = license_count
         __props__["license_count_hard_limit"] = license_count_hard_limit

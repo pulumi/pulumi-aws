@@ -13,7 +13,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, group_id=None, group_name=None, path=None, users=None, id=None):
+    def __init__(__self__, arn=None, group_id=None, group_name=None, id=None, path=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -29,6 +29,12 @@ class GetGroupResult:
         if group_name and not isinstance(group_name, str):
             raise TypeError("Expected argument 'group_name' to be a str")
         __self__.group_name = group_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if path and not isinstance(path, str):
             raise TypeError("Expected argument 'path' to be a str")
         __self__.path = path
@@ -41,12 +47,6 @@ class GetGroupResult:
         """
         List of objects containing group member information. See supported fields below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -56,21 +56,23 @@ class AwaitableGetGroupResult(GetGroupResult):
             arn=self.arn,
             group_id=self.group_id,
             group_name=self.group_name,
+            id=self.id,
             path=self.path,
-            users=self.users,
-            id=self.id)
+            users=self.users)
 
 def get_group(group_name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM group. By using this data source, you can reference IAM group
     properties without having to hard code ARNs as input.
-    
-    :param str group_name: The friendly IAM group name to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_group.html.markdown.
+
+
+    :param str group_name: The friendly IAM group name to match.
     """
     __args__ = dict()
+
 
     __args__['groupName'] = group_name
     if opts is None:
@@ -83,6 +85,6 @@ def get_group(group_name=None,opts=None):
         arn=__ret__.get('arn'),
         group_id=__ret__.get('groupId'),
         group_name=__ret__.get('groupName'),
+        id=__ret__.get('id'),
         path=__ret__.get('path'),
-        users=__ret__.get('users'),
-        id=__ret__.get('id'))
+        users=__ret__.get('users'))

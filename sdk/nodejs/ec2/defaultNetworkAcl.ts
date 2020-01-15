@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_network_acl.html.markdown.
  */
 export class DefaultNetworkAcl extends pulumi.CustomResource {

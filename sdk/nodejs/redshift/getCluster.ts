@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -146,6 +146,10 @@ export interface GetClusterResult {
      */
     readonly iamRoles: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The KMS encryption key associated to the cluster
      */
     readonly kmsKeyId: string;
@@ -189,8 +193,4 @@ export interface GetClusterResult {
      * The VPC security group Ids associated with the cluster
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

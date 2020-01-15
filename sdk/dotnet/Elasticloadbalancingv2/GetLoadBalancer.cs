@@ -25,6 +25,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elasticloadbalancingv2/getLoadBalancer:getLoadBalancer", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         }
     }
 
+
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
@@ -60,45 +62,61 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public readonly string ArnSuffix;
         public readonly string DnsName;
         public readonly bool EnableDeletionProtection;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly int IdleTimeout;
         public readonly bool Internal;
         public readonly string LoadBalancerType;
         public readonly string Name;
         public readonly ImmutableArray<string> SecurityGroups;
-        public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingsResult> SubnetMappings;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> SubnetMappings;
         public readonly ImmutableArray<string> Subnets;
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string VpcId;
         public readonly string ZoneId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLoadBalancerResult(
             Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+
             string arn,
+
             string arnSuffix,
+
             string dnsName,
+
             bool enableDeletionProtection,
+
+            string id,
+
             int idleTimeout,
+
             bool @internal,
+
             string loadBalancerType,
+
             string name,
+
             ImmutableArray<string> securityGroups,
-            ImmutableArray<Outputs.GetLoadBalancerSubnetMappingsResult> subnetMappings,
+
+            ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> subnetMappings,
+
             ImmutableArray<string> subnets,
+
             ImmutableDictionary<string, object> tags,
+
             string vpcId,
-            string zoneId,
-            string id)
+
+            string zoneId)
         {
             AccessLogs = accessLogs;
             Arn = arn;
             ArnSuffix = arnSuffix;
             DnsName = dnsName;
             EnableDeletionProtection = enableDeletionProtection;
+            Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;
             LoadBalancerType = loadBalancerType;
@@ -109,46 +127,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             Tags = tags;
             VpcId = vpcId;
             ZoneId = zoneId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLoadBalancerAccessLogsResult
-    {
-        public readonly string Bucket;
-        public readonly bool Enabled;
-        public readonly string Prefix;
-
-        [OutputConstructor]
-        private GetLoadBalancerAccessLogsResult(
-            string bucket,
-            bool enabled,
-            string prefix)
-        {
-            Bucket = bucket;
-            Enabled = enabled;
-            Prefix = prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetLoadBalancerSubnetMappingsResult
-    {
-        public readonly string? AllocationId;
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetLoadBalancerSubnetMappingsResult(
-            string? allocationId,
-            string subnetId)
-        {
-            AllocationId = allocationId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

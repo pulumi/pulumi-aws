@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> & GetArnResult {
@@ -57,6 +57,10 @@ export interface GetArnResult {
     readonly account: string;
     readonly arn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The partition that the resource is in.
      */
     readonly partition: string;
@@ -74,8 +78,4 @@ export interface GetArnResult {
      * The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      */
     readonly service: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

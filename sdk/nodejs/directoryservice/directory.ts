@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  *     type: "ADConnector",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_directory.html.markdown.
  */
 export class Directory extends pulumi.CustomResource {

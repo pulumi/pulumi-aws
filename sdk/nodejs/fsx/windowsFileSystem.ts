@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     throughputCapacity: 1024,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/fsx_windows_file_system.html.markdown.
  */
 export class WindowsFileSystem extends pulumi.CustomResource {

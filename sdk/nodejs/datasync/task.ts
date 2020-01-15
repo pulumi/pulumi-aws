@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
@@ -25,7 +25,7 @@ import {ARN} from "../index";
  *     sourceLocationArn: aws_datasync_location_nfs_source.arn,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_task.html.markdown.
  */
 export class Task extends pulumi.CustomResource {

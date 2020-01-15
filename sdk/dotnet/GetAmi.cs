@@ -20,6 +20,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetAmiArgs : Pulumi.InvokeArgs
     {
         [Input("executableUsers")]
@@ -36,16 +37,16 @@ namespace Pulumi.Aws
         }
 
         [Input("filters")]
-        private List<Inputs.GetAmiFiltersArgs>? _filters;
+        private List<Inputs.GetAmiFilterArgs>? _filters;
 
         /// <summary>
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-images in the AWS CLI reference][1].
         /// </summary>
-        public List<Inputs.GetAmiFiltersArgs> Filters
+        public List<Inputs.GetAmiFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetAmiFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetAmiFilterArgs>());
             set => _filters = value;
         }
 
@@ -91,6 +92,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetAmiResult
     {
@@ -115,7 +117,7 @@ namespace Pulumi.Aws
         /// * `block_device_mappings.#.virtual_name` - The virtual device name (for
         /// instance stores).
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetAmiBlockDeviceMappingsResult> BlockDeviceMappings;
+        public readonly ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> BlockDeviceMappings;
         /// <summary>
         /// The date and time the image was created.
         /// </summary>
@@ -126,11 +128,15 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Description;
         public readonly ImmutableArray<string> ExecutableUsers;
-        public readonly ImmutableArray<Outputs.GetAmiFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetAmiFilterResult> Filters;
         /// <summary>
         /// The hypervisor type of the image.
         /// </summary>
         public readonly string Hypervisor;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ID of the AMI. Should be the same as the resource `id`.
         /// </summary>
@@ -173,7 +179,7 @@ namespace Pulumi.Aws
         /// * `product_codes.#.product_code_id` - The product code.
         /// * `product_codes.#.product_code_type` - The type of product code.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetAmiProductCodesResult> ProductCodes;
+        public readonly ImmutableArray<Outputs.GetAmiProductCodeResult> ProductCodes;
         /// <summary>
         /// `true` if the image has public launch permissions.
         /// </summary>
@@ -222,43 +228,68 @@ namespace Pulumi.Aws
         /// `paravirtual`).
         /// </summary>
         public readonly string VirtualizationType;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAmiResult(
             string architecture,
-            ImmutableArray<Outputs.GetAmiBlockDeviceMappingsResult> blockDeviceMappings,
+
+            ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> blockDeviceMappings,
+
             string creationDate,
+
             string description,
+
             ImmutableArray<string> executableUsers,
-            ImmutableArray<Outputs.GetAmiFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetAmiFilterResult> filters,
+
             string hypervisor,
+
+            string id,
+
             string imageId,
+
             string imageLocation,
+
             string imageOwnerAlias,
+
             string imageType,
+
             string kernelId,
+
             bool? mostRecent,
+
             string name,
+
             string? nameRegex,
+
             string ownerId,
+
             ImmutableArray<string> owners,
+
             string platform,
-            ImmutableArray<Outputs.GetAmiProductCodesResult> productCodes,
+
+            ImmutableArray<Outputs.GetAmiProductCodeResult> productCodes,
+
             bool @public,
+
             string ramdiskId,
+
             string rootDeviceName,
+
             string rootDeviceType,
+
             string rootSnapshotId,
+
             string sriovNetSupport,
+
             string state,
+
             ImmutableDictionary<string, object> stateReason,
+
             ImmutableDictionary<string, object> tags,
-            string virtualizationType,
-            string id)
+
+            string virtualizationType)
         {
             Architecture = architecture;
             BlockDeviceMappings = blockDeviceMappings;
@@ -267,6 +298,7 @@ namespace Pulumi.Aws
             ExecutableUsers = executableUsers;
             Filters = filters;
             Hypervisor = hypervisor;
+            Id = id;
             ImageId = imageId;
             ImageLocation = imageLocation;
             ImageOwnerAlias = imageOwnerAlias;
@@ -289,93 +321,6 @@ namespace Pulumi.Aws
             StateReason = stateReason;
             Tags = tags;
             VirtualizationType = virtualizationType;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetAmiFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the AMI that was provided during image creation.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetAmiFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAmiBlockDeviceMappingsResult
-    {
-        public readonly string DeviceName;
-        public readonly ImmutableDictionary<string, object> Ebs;
-        public readonly string NoDevice;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private GetAmiBlockDeviceMappingsResult(
-            string deviceName,
-            ImmutableDictionary<string, object> ebs,
-            string noDevice,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            Ebs = ebs;
-            NoDevice = noDevice;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAmiFiltersResult
-    {
-        /// <summary>
-        /// The name of the AMI that was provided during image creation.
-        /// </summary>
-        public readonly string Name;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetAmiFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAmiProductCodesResult
-    {
-        public readonly string ProductCodeId;
-        public readonly string ProductCodeType;
-
-        [OutputConstructor]
-        private GetAmiProductCodesResult(
-            string productCodeId,
-            string productCodeType)
-        {
-            ProductCodeId = productCodeId;
-            ProductCodeType = productCodeType;
-        }
-    }
     }
 }

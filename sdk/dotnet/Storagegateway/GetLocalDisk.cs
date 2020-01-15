@@ -19,6 +19,7 @@ namespace Pulumi.Aws.StorageGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetLocalDiskArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetLocalDiskResult
     {
@@ -62,9 +64,13 @@ namespace Pulumi.Aws.StorageGateway
         [OutputConstructor]
         private GetLocalDiskResult(
             string diskId,
+
             string? diskNode,
+
             string? diskPath,
+
             string gatewayArn,
+
             string id)
         {
             DiskId = diskId;

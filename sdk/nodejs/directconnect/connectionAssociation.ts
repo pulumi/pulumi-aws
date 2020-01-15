@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     lagId: exampleLinkAggregationGroup.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
  */
 export class ConnectionAssociation extends pulumi.CustomResource {

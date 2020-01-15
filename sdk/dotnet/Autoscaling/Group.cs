@@ -148,7 +148,7 @@ namespace Pulumi.Aws.AutoScaling
         /// a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
         [Output("initialLifecycleHooks")]
-        public Output<ImmutableArray<Outputs.GroupInitialLifecycleHooks>> InitialLifecycleHooks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GroupInitialLifecycleHook>> InitialLifecycleHooks { get; private set; } = null!;
 
         /// <summary>
         /// The name of the launch configuration to use.
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.AutoScaling
         /// A list of tag blocks. Tags documented below.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.GroupTags>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A list of tag blocks (maps). Tags documented below.
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? HealthCheckType { get; set; }
 
         [Input("initialLifecycleHooks")]
-        private InputList<Inputs.GroupInitialLifecycleHooksArgs>? _initialLifecycleHooks;
+        private InputList<Inputs.GroupInitialLifecycleHookArgs>? _initialLifecycleHooks;
 
         /// <summary>
         /// One or more
@@ -415,9 +415,9 @@ namespace Pulumi.Aws.AutoScaling
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
-        public InputList<Inputs.GroupInitialLifecycleHooksArgs> InitialLifecycleHooks
+        public InputList<Inputs.GroupInitialLifecycleHookArgs> InitialLifecycleHooks
         {
-            get => _initialLifecycleHooks ?? (_initialLifecycleHooks = new InputList<Inputs.GroupInitialLifecycleHooksArgs>());
+            get => _initialLifecycleHooks ?? (_initialLifecycleHooks = new InputList<Inputs.GroupInitialLifecycleHookArgs>());
             set => _initialLifecycleHooks = value;
         }
 
@@ -533,14 +533,14 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         [Input("tags")]
-        private InputList<Inputs.GroupTagsArgs>? _tags;
+        private InputList<Inputs.GroupTagArgs>? _tags;
 
         /// <summary>
         /// A list of tag blocks. Tags documented below.
         /// </summary>
-        public InputList<Inputs.GroupTagsArgs> Tags
+        public InputList<Inputs.GroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GroupTagsArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.GroupTagArgs>());
             set => _tags = value;
         }
 
@@ -684,7 +684,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? HealthCheckType { get; set; }
 
         [Input("initialLifecycleHooks")]
-        private InputList<Inputs.GroupInitialLifecycleHooksGetArgs>? _initialLifecycleHooks;
+        private InputList<Inputs.GroupInitialLifecycleHookGetArgs>? _initialLifecycleHooks;
 
         /// <summary>
         /// One or more
@@ -695,9 +695,9 @@ namespace Pulumi.Aws.AutoScaling
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
-        public InputList<Inputs.GroupInitialLifecycleHooksGetArgs> InitialLifecycleHooks
+        public InputList<Inputs.GroupInitialLifecycleHookGetArgs> InitialLifecycleHooks
         {
-            get => _initialLifecycleHooks ?? (_initialLifecycleHooks = new InputList<Inputs.GroupInitialLifecycleHooksGetArgs>());
+            get => _initialLifecycleHooks ?? (_initialLifecycleHooks = new InputList<Inputs.GroupInitialLifecycleHookGetArgs>());
             set => _initialLifecycleHooks = value;
         }
 
@@ -813,14 +813,14 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         [Input("tags")]
-        private InputList<Inputs.GroupTagsGetArgs>? _tags;
+        private InputList<Inputs.GroupTagGetArgs>? _tags;
 
         /// <summary>
         /// A list of tag blocks. Tags documented below.
         /// </summary>
-        public InputList<Inputs.GroupTagsGetArgs> Tags
+        public InputList<Inputs.GroupTagGetArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.GroupTagsGetArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.GroupTagGetArgs>());
             set => _tags = value;
         }
 
@@ -888,670 +888,5 @@ namespace Pulumi.Aws.AutoScaling
         public GroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GroupInitialLifecycleHooksArgs : Pulumi.ResourceArgs
-    {
-        [Input("defaultResult")]
-        public Input<string>? DefaultResult { get; set; }
-
-        [Input("heartbeatTimeout")]
-        public Input<int>? HeartbeatTimeout { get; set; }
-
-        [Input("lifecycleTransition", required: true)]
-        public Input<string> LifecycleTransition { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the auto scaling group. By default generated by this provider.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("notificationMetadata")]
-        public Input<string>? NotificationMetadata { get; set; }
-
-        [Input("notificationTargetArn")]
-        public Input<string>? NotificationTargetArn { get; set; }
-
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
-
-        public GroupInitialLifecycleHooksArgs()
-        {
-        }
-    }
-
-    public sealed class GroupInitialLifecycleHooksGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("defaultResult")]
-        public Input<string>? DefaultResult { get; set; }
-
-        [Input("heartbeatTimeout")]
-        public Input<int>? HeartbeatTimeout { get; set; }
-
-        [Input("lifecycleTransition", required: true)]
-        public Input<string> LifecycleTransition { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the auto scaling group. By default generated by this provider.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("notificationMetadata")]
-        public Input<string>? NotificationMetadata { get; set; }
-
-        [Input("notificationTargetArn")]
-        public Input<string>? NotificationTargetArn { get; set; }
-
-        [Input("roleArn")]
-        public Input<string>? RoleArn { get; set; }
-
-        public GroupInitialLifecycleHooksGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupLaunchTemplateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The autoscaling group id.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the auto scaling group. By default generated by this provider.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public GroupLaunchTemplateArgs()
-        {
-        }
-    }
-
-    public sealed class GroupLaunchTemplateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The autoscaling group id.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the auto scaling group. By default generated by this provider.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public GroupLaunchTemplateGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-        /// </summary>
-        [Input("instancesDistribution")]
-        public Input<GroupMixedInstancesPolicyInstancesDistributionArgs>? InstancesDistribution { get; set; }
-
-        /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-        /// </summary>
-        [Input("launchTemplate", required: true)]
-        public Input<GroupMixedInstancesPolicyLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;
-
-        public GroupMixedInstancesPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-        /// </summary>
-        [Input("instancesDistribution")]
-        public Input<GroupMixedInstancesPolicyInstancesDistributionGetArgs>? InstancesDistribution { get; set; }
-
-        /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-        /// </summary>
-        [Input("launchTemplate", required: true)]
-        public Input<GroupMixedInstancesPolicyLaunchTemplateGetArgs> LaunchTemplate { get; set; } = null!;
-
-        public GroupMixedInstancesPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyInstancesDistributionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
-        /// </summary>
-        [Input("onDemandAllocationStrategy")]
-        public Input<string>? OnDemandAllocationStrategy { get; set; }
-
-        /// <summary>
-        /// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        /// </summary>
-        [Input("onDemandBaseCapacity")]
-        public Input<int>? OnDemandBaseCapacity { get; set; }
-
-        /// <summary>
-        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        /// </summary>
-        [Input("onDemandPercentageAboveBaseCapacity")]
-        public Input<int>? OnDemandPercentageAboveBaseCapacity { get; set; }
-
-        /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
-        /// </summary>
-        [Input("spotAllocationStrategy")]
-        public Input<string>? SpotAllocationStrategy { get; set; }
-
-        /// <summary>
-        /// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
-        /// </summary>
-        [Input("spotInstancePools")]
-        public Input<int>? SpotInstancePools { get; set; }
-
-        /// <summary>
-        /// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-        /// </summary>
-        [Input("spotMaxPrice")]
-        public Input<string>? SpotMaxPrice { get; set; }
-
-        public GroupMixedInstancesPolicyInstancesDistributionArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyInstancesDistributionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
-        /// </summary>
-        [Input("onDemandAllocationStrategy")]
-        public Input<string>? OnDemandAllocationStrategy { get; set; }
-
-        /// <summary>
-        /// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        /// </summary>
-        [Input("onDemandBaseCapacity")]
-        public Input<int>? OnDemandBaseCapacity { get; set; }
-
-        /// <summary>
-        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        /// </summary>
-        [Input("onDemandPercentageAboveBaseCapacity")]
-        public Input<int>? OnDemandPercentageAboveBaseCapacity { get; set; }
-
-        /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
-        /// </summary>
-        [Input("spotAllocationStrategy")]
-        public Input<string>? SpotAllocationStrategy { get; set; }
-
-        /// <summary>
-        /// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
-        /// </summary>
-        [Input("spotInstancePools")]
-        public Input<int>? SpotInstancePools { get; set; }
-
-        /// <summary>
-        /// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-        /// </summary>
-        [Input("spotMaxPrice")]
-        public Input<string>? SpotMaxPrice { get; set; }
-
-        public GroupMixedInstancesPolicyInstancesDistributionGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument defines the Launch Template. Defined below.
-        /// </summary>
-        [Input("launchTemplateSpecification", required: true)]
-        public Input<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> LaunchTemplateSpecification { get; set; } = null!;
-
-        [Input("overrides")]
-        private InputList<GroupMixedInstancesPolicyLaunchTemplateOverridesArgs>? _overrides;
-
-        /// <summary>
-        /// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-        /// </summary>
-        public InputList<GroupMixedInstancesPolicyLaunchTemplateOverridesArgs> Overrides
-        {
-            get => _overrides ?? (_overrides = new InputList<GroupMixedInstancesPolicyLaunchTemplateOverridesArgs>());
-            set => _overrides = value;
-        }
-
-        public GroupMixedInstancesPolicyLaunchTemplateArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Nested argument defines the Launch Template. Defined below.
-        /// </summary>
-        [Input("launchTemplateSpecification", required: true)]
-        public Input<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationGetArgs> LaunchTemplateSpecification { get; set; } = null!;
-
-        [Input("overrides")]
-        private InputList<GroupMixedInstancesPolicyLaunchTemplateOverridesGetArgs>? _overrides;
-
-        /// <summary>
-        /// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-        /// </summary>
-        public InputList<GroupMixedInstancesPolicyLaunchTemplateOverridesGetArgs> Overrides
-        {
-            get => _overrides ?? (_overrides = new InputList<GroupMixedInstancesPolicyLaunchTemplateOverridesGetArgs>());
-            set => _overrides = value;
-        }
-
-        public GroupMixedInstancesPolicyLaunchTemplateGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the launch template. Conflicts with `launch_template_name`.
-        /// </summary>
-        [Input("launchTemplateId")]
-        public Input<string>? LaunchTemplateId { get; set; }
-
-        /// <summary>
-        /// The name of the launch template. Conflicts with `launch_template_id`.
-        /// </summary>
-        [Input("launchTemplateName")]
-        public Input<string>? LaunchTemplateName { get; set; }
-
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the launch template. Conflicts with `launch_template_name`.
-        /// </summary>
-        [Input("launchTemplateId")]
-        public Input<string>? LaunchTemplateId { get; set; }
-
-        /// <summary>
-        /// The name of the launch template. Conflicts with `launch_template_id`.
-        /// </summary>
-        [Input("launchTemplateName")]
-        public Input<string>? LaunchTemplateName { get; set; }
-
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverridesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Override the instance type in the Launch Template.
-        /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
-
-        /// <summary>
-        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
-        /// </summary>
-        [Input("weightedCapacity")]
-        public Input<string>? WeightedCapacity { get; set; }
-
-        public GroupMixedInstancesPolicyLaunchTemplateOverridesArgs()
-        {
-        }
-    }
-
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverridesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Override the instance type in the Launch Template.
-        /// </summary>
-        [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
-
-        /// <summary>
-        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
-        /// </summary>
-        [Input("weightedCapacity")]
-        public Input<string>? WeightedCapacity { get; set; }
-
-        public GroupMixedInstancesPolicyLaunchTemplateOverridesGetArgs()
-        {
-        }
-    }
-
-    public sealed class GroupTagsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Key
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// Enables propagation of the tag to
-        /// Amazon EC2 instances launched via this ASG
-        /// </summary>
-        [Input("propagateAtLaunch", required: true)]
-        public Input<bool> PropagateAtLaunch { get; set; } = null!;
-
-        /// <summary>
-        /// Value
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public GroupTagsArgs()
-        {
-        }
-    }
-
-    public sealed class GroupTagsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Key
-        /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// Enables propagation of the tag to
-        /// Amazon EC2 instances launched via this ASG
-        /// </summary>
-        [Input("propagateAtLaunch", required: true)]
-        public Input<bool> PropagateAtLaunch { get; set; } = null!;
-
-        /// <summary>
-        /// Value
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public GroupTagsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GroupInitialLifecycleHooks
-    {
-        public readonly string DefaultResult;
-        public readonly int? HeartbeatTimeout;
-        public readonly string LifecycleTransition;
-        /// <summary>
-        /// The name of the auto scaling group. By default generated by this provider.
-        /// </summary>
-        public readonly string Name;
-        public readonly string? NotificationMetadata;
-        public readonly string? NotificationTargetArn;
-        public readonly string? RoleArn;
-
-        [OutputConstructor]
-        private GroupInitialLifecycleHooks(
-            string defaultResult,
-            int? heartbeatTimeout,
-            string lifecycleTransition,
-            string name,
-            string? notificationMetadata,
-            string? notificationTargetArn,
-            string? roleArn)
-        {
-            DefaultResult = defaultResult;
-            HeartbeatTimeout = heartbeatTimeout;
-            LifecycleTransition = lifecycleTransition;
-            Name = name;
-            NotificationMetadata = notificationMetadata;
-            NotificationTargetArn = notificationTargetArn;
-            RoleArn = roleArn;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupLaunchTemplate
-    {
-        /// <summary>
-        /// The autoscaling group id.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the auto scaling group. By default generated by this provider.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
-        public readonly string? Version;
-
-        [OutputConstructor]
-        private GroupLaunchTemplate(
-            string id,
-            string name,
-            string? version)
-        {
-            Id = id;
-            Name = name;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupMixedInstancesPolicy
-    {
-        /// <summary>
-        /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-        /// </summary>
-        public readonly GroupMixedInstancesPolicyInstancesDistribution? InstancesDistribution;
-        /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-        /// </summary>
-        public readonly GroupMixedInstancesPolicyLaunchTemplate LaunchTemplate;
-
-        [OutputConstructor]
-        private GroupMixedInstancesPolicy(
-            GroupMixedInstancesPolicyInstancesDistribution? instancesDistribution,
-            GroupMixedInstancesPolicyLaunchTemplate launchTemplate)
-        {
-            InstancesDistribution = instancesDistribution;
-            LaunchTemplate = launchTemplate;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupMixedInstancesPolicyInstancesDistribution
-    {
-        /// <summary>
-        /// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
-        /// </summary>
-        public readonly string? OnDemandAllocationStrategy;
-        /// <summary>
-        /// Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        /// </summary>
-        public readonly int? OnDemandBaseCapacity;
-        /// <summary>
-        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        /// </summary>
-        public readonly int? OnDemandPercentageAboveBaseCapacity;
-        /// <summary>
-        /// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
-        /// </summary>
-        public readonly string? SpotAllocationStrategy;
-        /// <summary>
-        /// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
-        /// </summary>
-        public readonly int SpotInstancePools;
-        /// <summary>
-        /// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-        /// </summary>
-        public readonly string? SpotMaxPrice;
-
-        [OutputConstructor]
-        private GroupMixedInstancesPolicyInstancesDistribution(
-            string? onDemandAllocationStrategy,
-            int? onDemandBaseCapacity,
-            int? onDemandPercentageAboveBaseCapacity,
-            string? spotAllocationStrategy,
-            int spotInstancePools,
-            string? spotMaxPrice)
-        {
-            OnDemandAllocationStrategy = onDemandAllocationStrategy;
-            OnDemandBaseCapacity = onDemandBaseCapacity;
-            OnDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
-            SpotAllocationStrategy = spotAllocationStrategy;
-            SpotInstancePools = spotInstancePools;
-            SpotMaxPrice = spotMaxPrice;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupMixedInstancesPolicyLaunchTemplate
-    {
-        /// <summary>
-        /// Nested argument defines the Launch Template. Defined below.
-        /// </summary>
-        public readonly GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification LaunchTemplateSpecification;
-        /// <summary>
-        /// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-        /// </summary>
-        public readonly ImmutableArray<GroupMixedInstancesPolicyLaunchTemplateOverrides> Overrides;
-
-        [OutputConstructor]
-        private GroupMixedInstancesPolicyLaunchTemplate(
-            GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification,
-            ImmutableArray<GroupMixedInstancesPolicyLaunchTemplateOverrides> overrides)
-        {
-            LaunchTemplateSpecification = launchTemplateSpecification;
-            Overrides = overrides;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
-    {
-        /// <summary>
-        /// The ID of the launch template. Conflicts with `launch_template_name`.
-        /// </summary>
-        public readonly string LaunchTemplateId;
-        /// <summary>
-        /// The name of the launch template. Conflicts with `launch_template_id`.
-        /// </summary>
-        public readonly string LaunchTemplateName;
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
-        public readonly string? Version;
-
-        [OutputConstructor]
-        private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(
-            string launchTemplateId,
-            string launchTemplateName,
-            string? version)
-        {
-            LaunchTemplateId = launchTemplateId;
-            LaunchTemplateName = launchTemplateName;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrides
-    {
-        /// <summary>
-        /// Override the instance type in the Launch Template.
-        /// </summary>
-        public readonly string? InstanceType;
-        /// <summary>
-        /// The number of capacity units, which gives the instance type a proportional weight to other instance types.
-        /// </summary>
-        public readonly string? WeightedCapacity;
-
-        [OutputConstructor]
-        private GroupMixedInstancesPolicyLaunchTemplateOverrides(
-            string? instanceType,
-            string? weightedCapacity)
-        {
-            InstanceType = instanceType;
-            WeightedCapacity = weightedCapacity;
-        }
-    }
-
-    [OutputType]
-    public sealed class GroupTags
-    {
-        /// <summary>
-        /// Key
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// Enables propagation of the tag to
-        /// Amazon EC2 instances launched via this ASG
-        /// </summary>
-        public readonly bool PropagateAtLaunch;
-        /// <summary>
-        /// Value
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GroupTags(
-            string key,
-            bool propagateAtLaunch,
-            string value)
-        {
-            Key = key;
-            PropagateAtLaunch = propagateAtLaunch;
-            Value = value;
-        }
-    }
     }
 }

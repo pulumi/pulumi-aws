@@ -53,7 +53,7 @@ namespace Pulumi.Aws.OpsWorks
         /// described below.
         /// </summary>
         [Output("customCookbooksSources")]
-        public Output<ImmutableArray<Outputs.StackCustomCookbooksSources>> CustomCookbooksSources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StackCustomCookbooksSource>> CustomCookbooksSources { get; private set; } = null!;
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.
@@ -237,15 +237,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ConfigurationManagerVersion { get; set; }
 
         [Input("customCookbooksSources")]
-        private InputList<Inputs.StackCustomCookbooksSourcesArgs>? _customCookbooksSources;
+        private InputList<Inputs.StackCustomCookbooksSourceArgs>? _customCookbooksSources;
 
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as
         /// described below.
         /// </summary>
-        public InputList<Inputs.StackCustomCookbooksSourcesArgs> CustomCookbooksSources
+        public InputList<Inputs.StackCustomCookbooksSourceArgs> CustomCookbooksSources
         {
-            get => _customCookbooksSources ?? (_customCookbooksSources = new InputList<Inputs.StackCustomCookbooksSourcesArgs>());
+            get => _customCookbooksSources ?? (_customCookbooksSources = new InputList<Inputs.StackCustomCookbooksSourceArgs>());
             set => _customCookbooksSources = value;
         }
 
@@ -398,15 +398,15 @@ namespace Pulumi.Aws.OpsWorks
         public Input<string>? ConfigurationManagerVersion { get; set; }
 
         [Input("customCookbooksSources")]
-        private InputList<Inputs.StackCustomCookbooksSourcesGetArgs>? _customCookbooksSources;
+        private InputList<Inputs.StackCustomCookbooksSourceGetArgs>? _customCookbooksSources;
 
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as
         /// described below.
         /// </summary>
-        public InputList<Inputs.StackCustomCookbooksSourcesGetArgs> CustomCookbooksSources
+        public InputList<Inputs.StackCustomCookbooksSourceGetArgs> CustomCookbooksSources
         {
-            get => _customCookbooksSources ?? (_customCookbooksSources = new InputList<Inputs.StackCustomCookbooksSourcesGetArgs>());
+            get => _customCookbooksSources ?? (_customCookbooksSources = new InputList<Inputs.StackCustomCookbooksSourceGetArgs>());
             set => _customCookbooksSources = value;
         }
 
@@ -524,91 +524,5 @@ namespace Pulumi.Aws.OpsWorks
         public StackState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class StackCustomCookbooksSourcesArgs : Pulumi.ResourceArgs
-    {
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("revision")]
-        public Input<string>? Revision { get; set; }
-
-        [Input("sshKey")]
-        public Input<string>? SshKey { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public StackCustomCookbooksSourcesArgs()
-        {
-        }
-    }
-
-    public sealed class StackCustomCookbooksSourcesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        [Input("revision")]
-        public Input<string>? Revision { get; set; }
-
-        [Input("sshKey")]
-        public Input<string>? SshKey { get; set; }
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        public StackCustomCookbooksSourcesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class StackCustomCookbooksSources
-    {
-        public readonly string? Password;
-        public readonly string? Revision;
-        public readonly string? SshKey;
-        public readonly string Type;
-        public readonly string Url;
-        public readonly string? Username;
-
-        [OutputConstructor]
-        private StackCustomCookbooksSources(
-            string? password,
-            string? revision,
-            string? sshKey,
-            string type,
-            string url,
-            string? username)
-        {
-            Password = password;
-            Revision = revision;
-            SshKey = sshKey;
-            Type = type;
-            Url = url;
-            Username = username;
-        }
-    }
     }
 }

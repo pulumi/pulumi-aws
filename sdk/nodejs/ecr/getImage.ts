@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     repositoryName: "my/service",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> & GetImageResult {
@@ -67,6 +67,10 @@ export interface GetImageArgs {
  * A collection of values returned by getImage.
  */
 export interface GetImageResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly imageDigest: string;
     /**
      * The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
@@ -83,8 +87,4 @@ export interface GetImageResult {
     readonly imageTags: string[];
     readonly registryId: string;
     readonly repositoryName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

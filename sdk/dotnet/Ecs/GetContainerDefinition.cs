@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ecs
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetContainerDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -38,6 +39,7 @@ namespace Pulumi.Aws.Ecs
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetContainerDefinitionResult
@@ -60,6 +62,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Environment;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The docker image in use, including the digest
         /// </summary>
         public readonly string Image;
@@ -76,36 +82,42 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int MemoryReservation;
         public readonly string TaskDefinition;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetContainerDefinitionResult(
             string containerName,
+
             int cpu,
+
             bool disableNetworking,
+
             ImmutableDictionary<string, string> dockerLabels,
+
             ImmutableDictionary<string, string> environment,
+
+            string id,
+
             string image,
+
             string imageDigest,
+
             int memory,
+
             int memoryReservation,
-            string taskDefinition,
-            string id)
+
+            string taskDefinition)
         {
             ContainerName = containerName;
             Cpu = cpu;
             DisableNetworking = disableNetworking;
             DockerLabels = dockerLabels;
             Environment = environment;
+            Id = id;
             Image = image;
             ImageDigest = imageDigest;
             Memory = memory;
             MemoryReservation = memoryReservation;
             TaskDefinition = taskDefinition;
-            Id = id;
         }
     }
 }

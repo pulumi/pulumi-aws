@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * 
  * 
  * > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
  */
 export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> & GetParameterResult {
@@ -63,13 +63,13 @@ export interface GetParameterArgs {
  */
 export interface GetParameterResult {
     readonly arn: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly type: string;
     readonly value: string;
     readonly version: number;
     readonly withDecryption?: boolean;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

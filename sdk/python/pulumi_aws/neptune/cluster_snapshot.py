@@ -67,13 +67,13 @@ class ClusterSnapshot(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, db_cluster_identifier=None, db_cluster_snapshot_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Neptune database cluster snapshot.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_snapshot.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_snapshot.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,7 +122,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         """
         Get an existing ClusterSnapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,12 +139,11 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[str] vpc_id: The VPC ID associated with the DB cluster snapshot.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/neptune_cluster_snapshot.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocated_storage"] = allocated_storage
         __props__["availability_zones"] = availability_zones
         __props__["db_cluster_identifier"] = db_cluster_identifier

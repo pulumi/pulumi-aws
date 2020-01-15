@@ -13,7 +13,13 @@ class GetSolutionStackResult:
     """
     A collection of values returned by getSolutionStack.
     """
-    def __init__(__self__, most_recent=None, name=None, name_regex=None, id=None):
+    def __init__(__self__, id=None, most_recent=None, name=None, name_regex=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         __self__.most_recent = most_recent
@@ -26,36 +32,32 @@ class GetSolutionStackResult:
         if name_regex and not isinstance(name_regex, str):
             raise TypeError("Expected argument 'name_regex' to be a str")
         __self__.name_regex = name_regex
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSolutionStackResult(GetSolutionStackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetSolutionStackResult(
+            id=self.id,
             most_recent=self.most_recent,
             name=self.name,
-            name_regex=self.name_regex,
-            id=self.id)
+            name_regex=self.name_regex)
 
 def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
+
+
     :param bool most_recent: If more than one result is returned, use the most
            recent solution stack.
     :param str name_regex: A regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
@@ -66,7 +68,7 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts).value
 
     return AwaitableGetSolutionStackResult(
+        id=__ret__.get('id'),
         most_recent=__ret__.get('mostRecent'),
         name=__ret__.get('name'),
-        name_regex=__ret__.get('nameRegex'),
-        id=__ret__.get('id'))
+        name_regex=__ret__.get('nameRegex'))

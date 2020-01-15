@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * 
  * export const password = exampleUserLoginProfile.encryptedPassword;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_login_profile.html.markdown.
  */
 export class UserLoginProfile extends pulumi.CustomResource {

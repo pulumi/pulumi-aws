@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ssm
         /// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
         /// </summary>
         [Output("targets")]
-        public Output<ImmutableArray<Outputs.MaintenanceWindowTargetTargets>> Targets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MaintenanceWindowTargetTarget>> Targets { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the maintenance window to register the target with.
@@ -122,14 +122,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string> ResourceType { get; set; } = null!;
 
         [Input("targets", required: true)]
-        private InputList<Inputs.MaintenanceWindowTargetTargetsArgs>? _targets;
+        private InputList<Inputs.MaintenanceWindowTargetTargetArgs>? _targets;
 
         /// <summary>
         /// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
         /// </summary>
-        public InputList<Inputs.MaintenanceWindowTargetTargetsArgs> Targets
+        public InputList<Inputs.MaintenanceWindowTargetTargetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetsArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetArgs>());
             set => _targets = value;
         }
 
@@ -171,14 +171,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? ResourceType { get; set; }
 
         [Input("targets")]
-        private InputList<Inputs.MaintenanceWindowTargetTargetsGetArgs>? _targets;
+        private InputList<Inputs.MaintenanceWindowTargetTargetGetArgs>? _targets;
 
         /// <summary>
         /// The targets (either instances or tags). Instances are specified using Key=InstanceIds,Values=InstanceId1,InstanceId2. Tags are specified using Key=tag name,Values=tag value.
         /// </summary>
-        public InputList<Inputs.MaintenanceWindowTargetTargetsGetArgs> Targets
+        public InputList<Inputs.MaintenanceWindowTargetTargetGetArgs> Targets
         {
-            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetsGetArgs>());
+            get => _targets ?? (_targets = new InputList<Inputs.MaintenanceWindowTargetTargetGetArgs>());
             set => _targets = value;
         }
 
@@ -191,65 +191,5 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTargetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MaintenanceWindowTargetTargetsArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTargetTargetsArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceWindowTargetTargetsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MaintenanceWindowTargetTargetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MaintenanceWindowTargetTargets
-    {
-        public readonly string Key;
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MaintenanceWindowTargetTargets(
-            string key,
-            ImmutableArray<string> values)
-        {
-            Key = key;
-            Values = values;
-        }
-    }
     }
 }

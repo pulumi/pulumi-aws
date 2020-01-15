@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     username: "test",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
  */
 export class Endpoint extends pulumi.CustomResource {

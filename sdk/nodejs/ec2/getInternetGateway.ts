@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
  */
 export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> & GetInternetGatewayResult {
@@ -71,14 +71,14 @@ export interface GetInternetGatewayArgs {
 export interface GetInternetGatewayResult {
     readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
     readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly internetGatewayId: string;
     /**
      * The ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId: string;
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

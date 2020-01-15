@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Waf
             => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,22 +33,24 @@ namespace Pulumi.Aws.Waf
         }
     }
 
+
     [OutputType]
     public sealed class GetRuleResult
     {
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetRuleResult(
-            string name,
-            string id)
+            string id,
+
+            string name)
         {
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

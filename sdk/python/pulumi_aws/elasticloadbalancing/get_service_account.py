@@ -13,22 +13,22 @@ class GetServiceAccountResult:
     """
     A collection of values returned by getServiceAccount.
     """
-    def __init__(__self__, arn=None, region=None, id=None):
+    def __init__(__self__, arn=None, id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The ARN of the AWS ELB service account in the selected region.
         """
-        if region and not isinstance(region, str):
-            raise TypeError("Expected argument 'region' to be a str")
-        __self__.region = region
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        __self__.region = region
 class AwaitableGetServiceAccountResult(GetServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -36,20 +36,22 @@ class AwaitableGetServiceAccountResult(GetServiceAccountResult):
             yield self
         return GetServiceAccountResult(
             arn=self.arn,
-            region=self.region,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 def get_service_account(region=None,opts=None):
     """
     Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
     in a given region for the purpose of whitelisting in S3 bucket policy.
-    
-    :param str region: Name of the region whose AWS ELB account ID is desired.
-           Defaults to the region from the AWS provider configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elb_service_account_legacy.html.markdown.
+
+
+    :param str region: Name of the region whose AWS ELB account ID is desired.
+           Defaults to the region from the AWS provider configuration.
     """
     __args__ = dict()
+
 
     __args__['region'] = region
     if opts is None:
@@ -60,5 +62,5 @@ def get_service_account(region=None,opts=None):
 
     return AwaitableGetServiceAccountResult(
         arn=__ret__.get('arn'),
-        region=__ret__.get('region'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        region=__ret__.get('region'))

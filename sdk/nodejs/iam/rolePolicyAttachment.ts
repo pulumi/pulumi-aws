@@ -4,8 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {Role} from "./role";
+import {ARN} from "..";
+import {Role} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM role
@@ -55,7 +55,7 @@ import {Role} from "./role";
  *     role: role.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy_attachment.html.markdown.
  */
 export class RolePolicyAttachment extends pulumi.CustomResource {
@@ -141,7 +141,7 @@ export interface RolePolicyAttachmentState {
     /**
      * The role the policy should be applied to
      */
-    readonly role?: pulumi.Input<string | Role>;
+    readonly role?: pulumi.Input<string> | pulumi.Input<Role>;
 }
 
 /**
@@ -155,5 +155,5 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The role the policy should be applied to
      */
-    readonly role: pulumi.Input<string | Role>;
+    readonly role: pulumi.Input<string> | pulumi.Input<Role>;
 }

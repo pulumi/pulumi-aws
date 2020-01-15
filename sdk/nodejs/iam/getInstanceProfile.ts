@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
@@ -20,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "anExampleInstanceProfileName",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> & GetInstanceProfileResult {
@@ -61,6 +62,10 @@ export interface GetInstanceProfileResult {
      * was created.
      */
     readonly createDate: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The path to the instance profile.
@@ -78,8 +83,4 @@ export interface GetInstanceProfileResult {
      * The role name associated with this instance profile.
      */
     readonly roleName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

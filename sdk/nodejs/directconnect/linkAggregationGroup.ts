@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     location: "EqDC2",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_lag.html.markdown.
  */
 export class LinkAggregationGroup extends pulumi.CustomResource {

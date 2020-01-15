@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PlacementStrategy} from "./placementStrategy";
+import {PlacementStrategy} from "./index";
 
 /**
  * Provides an EC2 placement group. Read more about placement groups
@@ -22,7 +20,7 @@ import {PlacementStrategy} from "./placementStrategy";
  *     strategy: "cluster",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/placement_group.html.markdown.
  */
 export class PlacementGroup extends pulumi.CustomResource {

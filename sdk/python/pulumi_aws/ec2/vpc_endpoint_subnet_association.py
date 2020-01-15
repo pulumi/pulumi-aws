@@ -21,19 +21,19 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, subnet_id=None, vpc_endpoint_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create an association between a VPC endpoint and a subnet.
-        
+
         > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
         both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
         and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
         attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
         Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,18 +69,17 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         """
         Get an existing VpcEndpointSubnetAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_subnet_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["subnet_id"] = subnet_id
         __props__["vpc_endpoint_id"] = vpc_endpoint_id
         return VpcEndpointSubnetAssociation(resource_name, opts=opts, __props__=__props__)

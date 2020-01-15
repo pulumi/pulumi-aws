@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Route53
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetResolverRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -64,6 +65,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
+
     [OutputType]
     public sealed class GetResolverRuleResult
     {
@@ -72,6 +74,10 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string Arn;
         public readonly string DomainName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -89,26 +95,32 @@ namespace Pulumi.Aws.Route53
         /// A mapping of tags assigned to the resolver rule.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetResolverRuleResult(
             string arn,
+
             string domainName,
+
+            string id,
+
             string name,
+
             string ownerId,
+
             string resolverEndpointId,
+
             string resolverRuleId,
+
             string ruleType,
+
             string shareStatus,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
             DomainName = domainName;
+            Id = id;
             Name = name;
             OwnerId = ownerId;
             ResolverEndpointId = resolverEndpointId;
@@ -116,7 +128,6 @@ namespace Pulumi.Aws.Route53
             RuleType = ruleType;
             ShareStatus = shareStatus;
             Tags = tags;
-            Id = id;
         }
     }
 }

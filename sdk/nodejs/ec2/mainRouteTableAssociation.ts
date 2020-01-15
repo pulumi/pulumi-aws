@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -29,7 +27,7 @@ import * as utilities from "../utilities";
  * this original table as the Main Route Table for the VPC. You'll see this
  * additional Route Table in the AWS console; it must remain intact in order for
  * the `mainRouteTableAssociation` delete to work properly.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
  */
 export class MainRouteTableAssociation extends pulumi.CustomResource {

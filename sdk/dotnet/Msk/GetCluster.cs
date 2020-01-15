@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Msk
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.Msk
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -57,6 +59,10 @@ namespace Pulumi.Aws.Msk
         public readonly string BootstrapBrokersTls;
         public readonly string ClusterName;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Apache Kafka version.
         /// </summary>
         public readonly string KafkaVersion;
@@ -72,32 +78,36 @@ namespace Pulumi.Aws.Msk
         /// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
         /// </summary>
         public readonly string ZookeeperConnectString;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string arn,
+
             string bootstrapBrokers,
+
             string bootstrapBrokersTls,
+
             string clusterName,
+
+            string id,
+
             string kafkaVersion,
+
             int numberOfBrokerNodes,
+
             ImmutableDictionary<string, object> tags,
-            string zookeeperConnectString,
-            string id)
+
+            string zookeeperConnectString)
         {
             Arn = arn;
             BootstrapBrokers = bootstrapBrokers;
             BootstrapBrokersTls = bootstrapBrokersTls;
             ClusterName = clusterName;
+            Id = id;
             KafkaVersion = kafkaVersion;
             NumberOfBrokerNodes = numberOfBrokerNodes;
             Tags = tags;
             ZookeeperConnectString = zookeeperConnectString;
-            Id = id;
         }
     }
 }

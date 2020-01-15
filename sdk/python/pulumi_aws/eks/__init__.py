@@ -5,6 +5,6 @@
 # Export this package's modules as members:
 from .cluster import *
 from .fargate_profile import *
-from .node_group import *
 from .get_cluster import *
 from .get_cluster_auth import *
+from .node_group import *

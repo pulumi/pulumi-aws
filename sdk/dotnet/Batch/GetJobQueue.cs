@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Batch
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetJobQueueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Batch
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetJobQueueResult
@@ -46,7 +48,11 @@ namespace Pulumi.Aws.Batch
         /// * `compute_environment_order.#.order` - The order of the compute environment.
         /// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrdersResult> ComputeEnvironmentOrders;
+        public readonly ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrderResult> ComputeEnvironmentOrders;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -66,50 +72,33 @@ namespace Pulumi.Aws.Batch
         /// of the job queue.
         /// </summary>
         public readonly string StatusReason;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetJobQueueResult(
             string arn,
-            ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrdersResult> computeEnvironmentOrders,
+
+            ImmutableArray<Outputs.GetJobQueueComputeEnvironmentOrderResult> computeEnvironmentOrders,
+
+            string id,
+
             string name,
+
             int priority,
+
             string state,
+
             string status,
-            string statusReason,
-            string id)
+
+            string statusReason)
         {
             Arn = arn;
             ComputeEnvironmentOrders = computeEnvironmentOrders;
+            Id = id;
             Name = name;
             Priority = priority;
             State = state;
             Status = status;
             StatusReason = statusReason;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetJobQueueComputeEnvironmentOrdersResult
-    {
-        public readonly string ComputeEnvironment;
-        public readonly int Order;
-
-        [OutputConstructor]
-        private GetJobQueueComputeEnvironmentOrdersResult(
-            string computeEnvironment,
-            int order)
-        {
-            ComputeEnvironment = computeEnvironment;
-            Order = order;
-        }
-    }
     }
 }

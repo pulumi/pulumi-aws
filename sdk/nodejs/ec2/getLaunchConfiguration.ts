@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "test-launch-config",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
  */
 export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> & GetLaunchConfigurationResult {
@@ -76,6 +76,10 @@ export interface GetLaunchConfigurationResult {
      */
     readonly iamInstanceProfile: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The EC2 Image ID of the instance.
      */
     readonly imageId: string;
@@ -119,8 +123,4 @@ export interface GetLaunchConfigurationResult {
      * The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      */
     readonly vpcClassicLinkSecurityGroups: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

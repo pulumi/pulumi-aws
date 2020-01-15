@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
  */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> & GetRouteTableResult {
@@ -100,6 +100,10 @@ export interface GetRouteTableResult {
      */
     readonly gatewayId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the AWS account that owns the route table
      */
     readonly ownerId: string;
@@ -114,8 +118,4 @@ export interface GetRouteTableResult {
     readonly subnetId: string;
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

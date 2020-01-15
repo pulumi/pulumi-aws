@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     ruleType: "SYSTEM",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
  */
 export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> & GetResolverRuleResult {
@@ -82,6 +82,10 @@ export interface GetResolverRuleResult {
      */
     readonly arn: string;
     readonly domainName: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -99,8 +103,4 @@ export interface GetResolverRuleResult {
      * A mapping of tags assigned to the resolver rule.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

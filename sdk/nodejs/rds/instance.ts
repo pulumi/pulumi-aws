@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {InstanceType} from "./instanceType";
-import {StorageType} from "./storageType";
+import {InstanceType, StorageType} from "./index";
 
 /**
  * Provides an RDS instance resource.  A DB instance is an isolated database
@@ -71,7 +70,7 @@ import {StorageType} from "./storageType";
  *     maxAllocatedStorage: 100,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {
@@ -692,7 +691,7 @@ export interface InstanceState {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass?: pulumi.Input<string | InstanceType>;
+    readonly instanceClass?: pulumi.Input<string> | pulumi.Input<InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
@@ -834,7 +833,7 @@ export interface InstanceState {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | StorageType>;
+    readonly storageType?: pulumi.Input<string> | pulumi.Input<StorageType>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -985,7 +984,7 @@ export interface InstanceArgs {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass: pulumi.Input<string | InstanceType>;
+    readonly instanceClass: pulumi.Input<string> | pulumi.Input<InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
@@ -1118,7 +1117,7 @@ export interface InstanceArgs {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | StorageType>;
+    readonly storageType?: pulumi.Input<string> | pulumi.Input<StorageType>;
     /**
      * A mapping of tags to assign to the resource.
      */

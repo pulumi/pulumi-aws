@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
         [Output("ebsBlockDevices")]
-        public Output<ImmutableArray<Outputs.AmiCopyEbsBlockDevices>> EbsBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AmiCopyEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
         [Output("ephemeralBlockDevices")]
-        public Output<ImmutableArray<Outputs.AmiCopyEphemeralBlockDevices>> EphemeralBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AmiCopyEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// Path to an S3 object containing an image manifest, e.g. created
@@ -196,15 +196,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.AmiCopyEbsBlockDevicesArgs>? _ebsBlockDevices;
+        private InputList<Inputs.AmiCopyEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiCopyEbsBlockDevicesArgs> EbsBlockDevices
+        public InputList<Inputs.AmiCopyEbsBlockDeviceArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiCopyEbsBlockDevicesArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiCopyEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -215,15 +215,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Encrypted { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.AmiCopyEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.AmiCopyEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiCopyEphemeralBlockDevicesArgs> EphemeralBlockDevices
+        public InputList<Inputs.AmiCopyEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiCopyEphemeralBlockDevicesArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiCopyEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -285,15 +285,15 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.AmiCopyEbsBlockDevicesGetArgs>? _ebsBlockDevices;
+        private InputList<Inputs.AmiCopyEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiCopyEbsBlockDevicesGetArgs> EbsBlockDevices
+        public InputList<Inputs.AmiCopyEbsBlockDeviceGetArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiCopyEbsBlockDevicesGetArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.AmiCopyEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -310,15 +310,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Encrypted { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.AmiCopyEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.AmiCopyEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
-        public InputList<Inputs.AmiCopyEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
+        public InputList<Inputs.AmiCopyEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiCopyEphemeralBlockDevicesGetArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.AmiCopyEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -411,151 +411,5 @@ namespace Pulumi.Aws.Ec2
         public AmiCopyState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AmiCopyEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
-
-        /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public AmiCopyEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class AmiCopyEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
-
-        /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public AmiCopyEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class AmiCopyEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
-
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public AmiCopyEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class AmiCopyEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
-
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public AmiCopyEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AmiCopyEbsBlockDevices
-    {
-        public readonly bool DeleteOnTermination;
-        public readonly string DeviceName;
-        /// <summary>
-        /// Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-        /// </summary>
-        public readonly bool Encrypted;
-        public readonly int Iops;
-        public readonly string SnapshotId;
-        public readonly int VolumeSize;
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private AmiCopyEbsBlockDevices(
-            bool deleteOnTermination,
-            string deviceName,
-            bool encrypted,
-            int iops,
-            string snapshotId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            SnapshotId = snapshotId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class AmiCopyEphemeralBlockDevices
-    {
-        public readonly string DeviceName;
-        public readonly string VirtualName;
-
-        [OutputConstructor]
-        private AmiCopyEphemeralBlockDevices(
-            string deviceName,
-            string virtualName)
-        {
-            DeviceName = deviceName;
-            VirtualName = virtualName;
-        }
-    }
     }
 }

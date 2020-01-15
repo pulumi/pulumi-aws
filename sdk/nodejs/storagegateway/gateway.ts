@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     gatewayType: "STORED",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
  */
 export class Gateway extends pulumi.CustomResource {

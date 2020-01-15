@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     featureSet: "ALL",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organization.html.markdown.
  */
 export class Organization extends pulumi.CustomResource {

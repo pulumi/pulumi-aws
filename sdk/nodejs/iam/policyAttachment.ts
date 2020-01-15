@@ -4,10 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {Group} from "./group";
-import {Role} from "./role";
-import {User} from "./user";
+import {ARN} from "..";
+import {Group, Role, User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
@@ -63,7 +61,7 @@ import {User} from "./user";
  *     users: [user.name],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy_attachment.html.markdown.
  */
 export class PolicyAttachment extends pulumi.CustomResource {
@@ -160,7 +158,7 @@ export interface PolicyAttachmentState {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    readonly groups?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -172,11 +170,11 @@ export interface PolicyAttachmentState {
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<string> | pulumi.Input<User>[]>;
 }
 
 /**
@@ -186,7 +184,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    readonly groups?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -198,9 +196,9 @@ export interface PolicyAttachmentArgs {
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<string> | pulumi.Input<User>[]>;
 }

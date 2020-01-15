@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     brokerName: brokerName,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> & GetBrokerResult {
@@ -78,6 +78,10 @@ export interface GetBrokerResult {
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
     readonly logs?: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
@@ -86,8 +90,4 @@ export interface GetBrokerResult {
     readonly subnetIds: string[];
     readonly tags: {[key: string]: any};
     readonly users: outputs.mq.GetBrokerUser[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -20,6 +20,7 @@ namespace Pulumi.Aws.CloudTrail
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetServiceAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.CloudTrail
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceAccountResult
     {
@@ -41,21 +43,23 @@ namespace Pulumi.Aws.CloudTrail
         /// The ARN of the AWS CloudTrail service account in the selected region.
         /// </summary>
         public readonly string Arn;
-        public readonly string? Region;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Region;
 
         [OutputConstructor]
         private GetServiceAccountResult(
             string arn,
-            string? region,
-            string id)
+
+            string id,
+
+            string? region)
         {
             Arn = arn;
-            Region = region;
             Id = id;
+            Region = region;
         }
     }
 }

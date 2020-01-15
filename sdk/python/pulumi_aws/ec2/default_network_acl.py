@@ -18,7 +18,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     egress: pulumi.Output[list]
     """
     Specifies an egress rule. Parameters defined below.
-    
+
       * `action` (`str`) - The action to take.
       * `cidr_block` (`str`) - The CIDR block to match. This must be a
         valid network mask.
@@ -34,7 +34,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     ingress: pulumi.Output[list]
     """
     Specifies an ingress rule. Parameters defined below.
-    
+
       * `action` (`str`) - The action to take.
       * `cidr_block` (`str`) - The CIDR block to match. This must be a
         valid network mask.
@@ -67,30 +67,32 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, default_network_acl_id=None, egress=None, ingress=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage the default AWS Network ACL. VPC Only.
-        
+
         Each VPC created in AWS comes with a Default Network ACL that can be managed, but not
         destroyed. **This is an advanced resource**, and has special caveats to be aware
         of when using it. Please read this document in its entirety before using this
         resource.
-        
+
         The `ec2.DefaultNetworkAcl` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead attempts to "adopt" it
         into management. We can do this because each VPC created has a Default Network
         ACL that cannot be destroyed, and is created with a known set of default rules.
-        
+
         When this provider first adopts the Default Network ACL, it **immediately removes all
         rules in the ACL**. It then proceeds to create any rules specified in the
         configuration. This step is required so that only the rules specified in the
         configuration are created.
-        
+
         This resource treats its inline rules as absolute; only the rules defined
         inline are created, and any additions/removals external to this resource will
         result in diffs being shown. For these reasons, this resource is incompatible with the
         `ec2.NetworkAclRule` resource.
-        
+
         For more information about Network ACLs, see the AWS Documentation on
         [Network ACLs][aws-network-acls].
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_network_acl.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This
@@ -100,23 +102,9 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
                notes below on managing Subnets in the Default Network ACL
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **egress** object supports the following:
-        
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
-        
-        The **ingress** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`) - The action to take.
           * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
             valid network mask.
@@ -129,7 +117,19 @@ class DefaultNetworkAcl(pulumi.CustomResource):
           * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
           * `to_port` (`pulumi.Input[float]`) - The to port to match.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_network_acl.html.markdown.
+        The **ingress** object supports the following:
+
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -168,7 +168,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         """
         Get an existing DefaultNetworkAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,23 +181,9 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                notes below on managing Subnets in the Default Network ACL
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC
-        
+
         The **egress** object supports the following:
-        
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
-        
-        The **ingress** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`) - The action to take.
           * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
             valid network mask.
@@ -210,11 +196,24 @@ class DefaultNetworkAcl(pulumi.CustomResource):
           * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
           * `to_port` (`pulumi.Input[float]`) - The to port to match.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_network_acl.html.markdown.
+        The **ingress** object supports the following:
+
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["default_network_acl_id"] = default_network_acl_id
         __props__["egress"] = egress
         __props__["ingress"] = ingress

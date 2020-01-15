@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetApplicationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
+
     [OutputType]
     public sealed class GetApplicationResult
     {
@@ -44,63 +46,29 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Short description of the application
         /// </summary>
         public readonly string Description;
-        public readonly string Name;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
 
         [OutputConstructor]
         private GetApplicationResult(
             Outputs.GetApplicationAppversionLifecycleResult appversionLifecycle,
+
             string arn,
+
             string description,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             AppversionLifecycle = appversionLifecycle;
             Arn = arn;
             Description = description;
-            Name = name;
             Id = id;
+            Name = name;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetApplicationAppversionLifecycleResult
-    {
-        /// <summary>
-        /// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-        /// </summary>
-        public readonly bool DeleteSourceFromS3;
-        /// <summary>
-        /// The number of days to retain an application version.
-        /// </summary>
-        public readonly int MaxAgeInDays;
-        /// <summary>
-        /// The maximum number of application versions to retain.
-        /// </summary>
-        public readonly int MaxCount;
-        /// <summary>
-        /// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        /// </summary>
-        public readonly string ServiceRole;
-
-        [OutputConstructor]
-        private GetApplicationAppversionLifecycleResult(
-            bool deleteSourceFromS3,
-            int maxAgeInDays,
-            int maxCount,
-            string serviceRole)
-        {
-            DeleteSourceFromS3 = deleteSourceFromS3;
-            MaxAgeInDays = maxAgeInDays;
-            MaxCount = maxCount;
-            ServiceRole = serviceRole;
-        }
-    }
     }
 }

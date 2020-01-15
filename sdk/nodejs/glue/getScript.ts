@@ -200,7 +200,7 @@ import * as utilities from "../utilities";
  * 
  * export const scalaCode = example.scalaCode;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/glue_script.html.markdown.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> & GetScriptResult {
@@ -244,6 +244,10 @@ export interface GetScriptArgs {
 export interface GetScriptResult {
     readonly dagEdges: outputs.glue.GetScriptDagEdge[];
     readonly dagNodes: outputs.glue.GetScriptDagNode[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly language?: string;
     /**
      * The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
@@ -253,8 +257,4 @@ export interface GetScriptResult {
      * The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
     readonly scalaCode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

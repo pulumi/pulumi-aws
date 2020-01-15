@@ -47,12 +47,14 @@ class EipAssociation(pulumi.CustomResource):
         """
         Provides an AWS EIP Association as a top level resource, to associate and
         disassociate Elastic IPs from AWS Instances and Network Interfaces.
-        
+
         > **NOTE:** Do not use this resource to associate an EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
-        
+
         > **NOTE:** `ec2.EipAssociation` is useful in scenarios where EIPs are either
         pre-existing or distributed to customers or users and therefore cannot be changed.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.
@@ -70,8 +72,6 @@ class EipAssociation(pulumi.CustomResource):
                specified, the Elastic IP address is associated with the primary private IP
                address.
         :param pulumi.Input[str] public_ip: The Elastic IP address. This is required for EC2-Classic.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class EipAssociation(pulumi.CustomResource):
         """
         Get an existing EipAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,12 +126,11 @@ class EipAssociation(pulumi.CustomResource):
                specified, the Elastic IP address is associated with the primary private IP
                address.
         :param pulumi.Input[str] public_ip: The Elastic IP address. This is required for EC2-Classic.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eip_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocation_id"] = allocation_id
         __props__["allow_reassociation"] = allow_reassociation
         __props__["instance_id"] = instance_id

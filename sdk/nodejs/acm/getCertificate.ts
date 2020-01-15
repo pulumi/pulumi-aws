@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     keyTypes: ["RSA_4096"],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acm_certificate.html.markdown.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> & GetCertificateResult {
@@ -82,12 +82,12 @@ export interface GetCertificateResult {
      */
     readonly arn: string;
     readonly domain: string;
-    readonly keyTypes?: string[];
-    readonly mostRecent?: boolean;
-    readonly statuses?: string[];
-    readonly types?: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyTypes?: string[];
+    readonly mostRecent?: boolean;
+    readonly statuses?: string[];
+    readonly types?: string[];
 }

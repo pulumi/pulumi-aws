@@ -19,17 +19,18 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetNatGatewayFiltersArgs>? _filters;
+        private List<Inputs.GetNatGatewayFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetNatGatewayFiltersArgs> Filters
+        public List<Inputs.GetNatGatewayFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetNatGatewayFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetNatGatewayFilterArgs>());
             set => _filters = value;
         }
 
@@ -75,6 +76,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetNatGatewayResult
     {
@@ -82,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// The Id of the EIP allocated to the selected Nat Gateway.
         /// </summary>
         public readonly string AllocationId;
-        public readonly ImmutableArray<Outputs.GetNatGatewayFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetNatGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
         /// The Id of the ENI allocated to the selected Nat Gateway.
@@ -104,14 +106,23 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetNatGatewayResult(
             string allocationId,
-            ImmutableArray<Outputs.GetNatGatewayFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetNatGatewayFilterResult> filters,
+
             string id,
+
             string networkInterfaceId,
+
             string privateIp,
+
             string publicIp,
+
             string state,
+
             string subnetId,
+
             ImmutableDictionary<string, object> tags,
+
             string vpcId)
         {
             AllocationId = allocationId;
@@ -125,64 +136,5 @@ namespace Pulumi.Aws.Ec2
             Tags = tags;
             VpcId = vpcId;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetNatGatewayFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// An Nat Gateway will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetNatGatewayFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetNatGatewayFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// An Nat Gateway will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetNatGatewayFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

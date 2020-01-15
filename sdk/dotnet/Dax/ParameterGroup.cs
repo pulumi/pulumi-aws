@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Dax
         /// The parameters of the parameter group.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.ParameterGroupParameters>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,14 +99,14 @@ namespace Pulumi.Aws.Dax
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ParameterGroupParametersArgs>? _parameters;
+        private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
-        public InputList<Inputs.ParameterGroupParametersArgs> Parameters
+        public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParametersArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterArgs>());
             set => _parameters = value;
         }
 
@@ -130,78 +130,19 @@ namespace Pulumi.Aws.Dax
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputList<Inputs.ParameterGroupParametersGetArgs>? _parameters;
+        private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
-        public InputList<Inputs.ParameterGroupParametersGetArgs> Parameters
+        public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParametersGetArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.ParameterGroupParameterGetArgs>());
             set => _parameters = value;
         }
 
         public ParameterGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ParameterGroupParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the parameter group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ParameterGroupParametersArgs()
-        {
-        }
-    }
-
-    public sealed class ParameterGroupParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the parameter group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ParameterGroupParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ParameterGroupParameters
-    {
-        /// <summary>
-        /// The name of the parameter group.
-        /// </summary>
-        public readonly string Name;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ParameterGroupParameters(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

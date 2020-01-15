@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ses
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:ses/confgurationSet:ConfgurationSet" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "aws:ses/confgurationSet:ConfgurationSet"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

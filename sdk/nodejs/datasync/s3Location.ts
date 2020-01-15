@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Manages an S3 Location within AWS DataSync.
@@ -25,7 +25,7 @@ import {ARN} from "../index";
  *     subdirectory: "/example/prefix",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
  */
 export class S3Location extends pulumi.CustomResource {

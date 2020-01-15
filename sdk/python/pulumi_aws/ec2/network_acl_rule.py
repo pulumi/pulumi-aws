@@ -57,13 +57,15 @@ class NetworkAclRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cidr_block=None, egress=None, from_port=None, icmp_code=None, icmp_type=None, ipv6_cidr_block=None, network_acl_id=None, protocol=None, rule_action=None, rule_number=None, to_port=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an entry (a rule) in a network ACL with the specified rule number.
-        
+
         > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
         provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
         defined in-line. At this time you cannot use a Network ACL with in-line rules
         in conjunction with any Network ACL Rule resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -77,8 +79,6 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         :param pulumi.Input[float] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[float] to_port: The to port to match.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +127,7 @@ class NetworkAclRule(pulumi.CustomResource):
         """
         Get an existing NetworkAclRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,12 +142,11 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         :param pulumi.Input[float] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[float] to_port: The to port to match.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cidr_block"] = cidr_block
         __props__["egress"] = egress
         __props__["from_port"] = from_port

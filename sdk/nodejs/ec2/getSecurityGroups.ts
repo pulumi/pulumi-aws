@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_groups.html.markdown.
  */
 export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> & GetSecurityGroupsResult {
@@ -84,6 +84,10 @@ export interface GetSecurityGroupsArgs {
 export interface GetSecurityGroupsResult {
     readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * IDs of the matches security groups.
      */
     readonly ids: string[];
@@ -93,8 +97,4 @@ export interface GetSecurityGroupsResult {
      * unless the `vpc-id` filter is also used.
      */
     readonly vpcIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

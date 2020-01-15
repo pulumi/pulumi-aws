@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     dbInstanceIdentifier: "my-test-database",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_instance.html.markdown.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> & GetInstanceResult {
@@ -131,6 +131,10 @@ export interface GetInstanceResult {
      */
     readonly hostedZoneId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the Provisioned IOPS (I/O operations per second) value.
      */
     readonly iops: number;
@@ -203,8 +207,4 @@ export interface GetInstanceResult {
      * Provides a list of VPC security group elements that the DB instance belongs to.
      */
     readonly vpcSecurityGroups: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

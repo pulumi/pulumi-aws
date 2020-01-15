@@ -81,7 +81,9 @@ class ReplicationInstance(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allocated_storage=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, kms_key_arn=None, multi_az=None, preferred_maintenance_window=None, publicly_accessible=None, replication_instance_class=None, replication_instance_id=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -98,8 +100,6 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -150,7 +150,7 @@ class ReplicationInstance(pulumi.CustomResource):
         """
         Get an existing ReplicationInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,12 +171,11 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_replication_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocated_storage"] = allocated_storage
         __props__["apply_immediately"] = apply_immediately
         __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade

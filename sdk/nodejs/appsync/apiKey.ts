@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     expires: "2018-05-03T04:00:00Z",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_api_key.html.markdown.
  */
 export class ApiKey extends pulumi.CustomResource {

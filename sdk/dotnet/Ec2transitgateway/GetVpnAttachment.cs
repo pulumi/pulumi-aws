@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetVpnAttachmentArgs : Pulumi.InvokeArgs
     {
         [Input("tags")]
@@ -46,31 +47,35 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetVpnAttachmentResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPN Attachment
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string TransitGatewayId;
         public readonly string VpnConnectionId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVpnAttachmentResult(
+            string id,
+
             ImmutableDictionary<string, object> tags,
+
             string transitGatewayId,
-            string vpnConnectionId,
-            string id)
+
+            string vpnConnectionId)
         {
+            Id = id;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
             VpnConnectionId = vpnConnectionId;
-            Id = id;
         }
     }
 }

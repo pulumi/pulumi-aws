@@ -43,7 +43,9 @@ class MountTarget(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, file_system_id=None, ip_address=None, security_groups=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic File System (EFS) mount target.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.
@@ -52,8 +54,6 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class MountTarget(pulumi.CustomResource):
         """
         Get an existing MountTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,12 +107,11 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[list] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["dns_name"] = dns_name
         __props__["file_system_arn"] = file_system_arn
         __props__["file_system_id"] = file_system_id

@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     autoscalingGroupName: aws_autoscaling_group_asg.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_attachment.html.markdown.
  */
 export class Attachment extends pulumi.CustomResource {

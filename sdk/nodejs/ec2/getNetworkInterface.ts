@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     id: "eni-01234567",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interface.html.markdown.
  */
 export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> & GetNetworkInterfaceResult {

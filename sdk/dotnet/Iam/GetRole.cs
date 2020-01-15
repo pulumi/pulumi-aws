@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Iam
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRoleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Iam
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetRoleResult
@@ -54,6 +56,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Maximum session duration.
         /// </summary>
         public readonly int MaxSessionDuration;
@@ -70,34 +76,39 @@ namespace Pulumi.Aws.Iam
         /// The stable and unique string identifying the role.
         /// </summary>
         public readonly string UniqueId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRoleResult(
             string arn,
+
             string assumeRolePolicy,
+
             string createDate,
+
             string description,
+
+            string id,
+
             int maxSessionDuration,
+
             string name,
+
             string path,
+
             string permissionsBoundary,
-            string uniqueId,
-            string id)
+
+            string uniqueId)
         {
             Arn = arn;
             AssumeRolePolicy = assumeRolePolicy;
             CreateDate = createDate;
             Description = description;
+            Id = id;
             MaxSessionDuration = maxSessionDuration;
             Name = name;
             Path = path;
             PermissionsBoundary = permissionsBoundary;
             UniqueId = uniqueId;
-            Id = id;
         }
     }
 }

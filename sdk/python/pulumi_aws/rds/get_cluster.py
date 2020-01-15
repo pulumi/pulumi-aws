@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -65,6 +65,12 @@ class GetClusterResult:
         if iam_roles and not isinstance(iam_roles, list):
             raise TypeError("Expected argument 'iam_roles' to be a list")
         __self__.iam_roles = iam_roles
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         __self__.kms_key_id = kms_key_id
@@ -95,12 +101,6 @@ class GetClusterResult:
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
         __self__.vpc_security_group_ids = vpc_security_group_ids
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -124,6 +124,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             hosted_zone_id=self.hosted_zone_id,
             iam_database_authentication_enabled=self.iam_database_authentication_enabled,
             iam_roles=self.iam_roles,
+            id=self.id,
             kms_key_id=self.kms_key_id,
             master_username=self.master_username,
             port=self.port,
@@ -133,18 +134,19 @@ class AwaitableGetClusterResult(GetClusterResult):
             replication_source_identifier=self.replication_source_identifier,
             storage_encrypted=self.storage_encrypted,
             tags=self.tags,
-            vpc_security_group_ids=self.vpc_security_group_ids,
-            id=self.id)
+            vpc_security_group_ids=self.vpc_security_group_ids)
 
 def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
     Provides information about a RDS cluster.
-    
-    :param str cluster_identifier: The cluster identifier of the RDS cluster.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/rds_cluster.html.markdown.
+
+
+    :param str cluster_identifier: The cluster identifier of the RDS cluster.
     """
     __args__ = dict()
+
 
     __args__['clusterIdentifier'] = cluster_identifier
     __args__['tags'] = tags
@@ -172,6 +174,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         hosted_zone_id=__ret__.get('hostedZoneId'),
         iam_database_authentication_enabled=__ret__.get('iamDatabaseAuthenticationEnabled'),
         iam_roles=__ret__.get('iamRoles'),
+        id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
         master_username=__ret__.get('masterUsername'),
         port=__ret__.get('port'),
@@ -181,5 +184,4 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         replication_source_identifier=__ret__.get('replicationSourceIdentifier'),
         storage_encrypted=__ret__.get('storageEncrypted'),
         tags=__ret__.get('tags'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
-        id=__ret__.get('id'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))

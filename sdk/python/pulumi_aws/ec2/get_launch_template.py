@@ -13,7 +13,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profiles=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, monitorings=None, name=None, network_interfaces=None, placements=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -71,6 +71,12 @@ class GetLaunchTemplateResult:
         """
         The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")
@@ -175,12 +181,6 @@ class GetLaunchTemplateResult:
         """
         A list of security group IDs to associate with.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -196,6 +196,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             ebs_optimized=self.ebs_optimized,
             elastic_gpu_specifications=self.elastic_gpu_specifications,
             iam_instance_profiles=self.iam_instance_profiles,
+            id=self.id,
             image_id=self.image_id,
             instance_initiated_shutdown_behavior=self.instance_initiated_shutdown_behavior,
             instance_market_options=self.instance_market_options,
@@ -212,18 +213,19 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             tag_specifications=self.tag_specifications,
             tags=self.tags,
             user_data=self.user_data,
-            vpc_security_group_ids=self.vpc_security_group_ids,
-            id=self.id)
+            vpc_security_group_ids=self.vpc_security_group_ids)
 
 def get_launch_template(name=None,tags=None,opts=None):
     """
     Provides information about a Launch Template.
-    
-    :param str name: The name of the launch template.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_template.html.markdown.
+
+
+    :param str name: The name of the launch template.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -243,6 +245,7 @@ def get_launch_template(name=None,tags=None,opts=None):
         ebs_optimized=__ret__.get('ebsOptimized'),
         elastic_gpu_specifications=__ret__.get('elasticGpuSpecifications'),
         iam_instance_profiles=__ret__.get('iamInstanceProfiles'),
+        id=__ret__.get('id'),
         image_id=__ret__.get('imageId'),
         instance_initiated_shutdown_behavior=__ret__.get('instanceInitiatedShutdownBehavior'),
         instance_market_options=__ret__.get('instanceMarketOptions'),
@@ -259,5 +262,4 @@ def get_launch_template(name=None,tags=None,opts=None):
         tag_specifications=__ret__.get('tagSpecifications'),
         tags=__ret__.get('tags'),
         user_data=__ret__.get('userData'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
-        id=__ret__.get('id'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))

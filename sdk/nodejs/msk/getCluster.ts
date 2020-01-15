@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     clusterName: "example",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -67,6 +67,10 @@ export interface GetClusterResult {
     readonly bootstrapBrokersTls: string;
     readonly clusterName: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Apache Kafka version.
      */
     readonly kafkaVersion: string;
@@ -82,8 +86,4 @@ export interface GetClusterResult {
      * A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     readonly zookeeperConnectString: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

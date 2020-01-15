@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     projectName: aws_codebuild_project_example.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_webhook.html.markdown.
  */
 export class Webhook extends pulumi.CustomResource {

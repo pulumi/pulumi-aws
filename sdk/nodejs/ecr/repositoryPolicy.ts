@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Provides an Elastic Container Registry Repository Policy.
@@ -51,7 +49,7 @@ import {PolicyDocument} from "../iam/documents";
  *     repository: foo.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
  */
 export class RepositoryPolicy extends pulumi.CustomResource {
@@ -133,7 +131,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPolicy resources.
  */
 export interface RepositoryPolicyState {
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The registry ID where the repository was created.
      */
@@ -148,7 +146,7 @@ export interface RepositoryPolicyState {
  * The set of arguments for constructing a RepositoryPolicy resource.
  */
 export interface RepositoryPolicyArgs {
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * Name of the repository to apply the policy.
      */

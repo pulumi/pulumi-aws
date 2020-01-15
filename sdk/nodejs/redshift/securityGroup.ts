@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
  */
 export class SecurityGroup extends pulumi.CustomResource {

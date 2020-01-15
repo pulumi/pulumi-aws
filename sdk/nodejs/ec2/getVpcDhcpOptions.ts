@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
  */
 export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> & GetVpcDhcpOptionsResult {
@@ -95,6 +95,10 @@ export interface GetVpcDhcpOptionsResult {
     readonly domainNameServers: string[];
     readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of NETBIOS name servers.
      */
     readonly netbiosNameServers: string[];
@@ -114,8 +118,4 @@ export interface GetVpcDhcpOptionsResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

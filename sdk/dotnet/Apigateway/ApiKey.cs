@@ -211,7 +211,6 @@ namespace Pulumi.Aws.ApiGateway
 
         public ApiKeyState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

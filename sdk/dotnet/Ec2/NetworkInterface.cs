@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
         [Output("attachments")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceAttachments>> Attachments { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceAttachment>> Attachments { get; private set; } = null!;
 
         /// <summary>
         /// A description for the network interface.
@@ -116,14 +116,14 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         [Input("attachments")]
-        private InputList<Inputs.NetworkInterfaceAttachmentsArgs>? _attachments;
+        private InputList<Inputs.NetworkInterfaceAttachmentArgs>? _attachments;
 
         /// <summary>
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
-        public InputList<Inputs.NetworkInterfaceAttachmentsArgs> Attachments
+        public InputList<Inputs.NetworkInterfaceAttachmentArgs> Attachments
         {
-            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentsArgs>());
+            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentArgs>());
             set => _attachments = value;
         }
 
@@ -198,14 +198,14 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInterfaceState : Pulumi.ResourceArgs
     {
         [Input("attachments")]
-        private InputList<Inputs.NetworkInterfaceAttachmentsGetArgs>? _attachments;
+        private InputList<Inputs.NetworkInterfaceAttachmentGetArgs>? _attachments;
 
         /// <summary>
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
-        public InputList<Inputs.NetworkInterfaceAttachmentsGetArgs> Attachments
+        public InputList<Inputs.NetworkInterfaceAttachmentGetArgs> Attachments
         {
-            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentsGetArgs>());
+            get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentGetArgs>());
             set => _attachments = value;
         }
 
@@ -278,64 +278,5 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkInterfaceAttachmentsArgs : Pulumi.ResourceArgs
-    {
-        [Input("attachmentId")]
-        public Input<string>? AttachmentId { get; set; }
-
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        [Input("instance", required: true)]
-        public Input<string> Instance { get; set; } = null!;
-
-        public NetworkInterfaceAttachmentsArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkInterfaceAttachmentsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("attachmentId")]
-        public Input<string>? AttachmentId { get; set; }
-
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        [Input("instance", required: true)]
-        public Input<string> Instance { get; set; } = null!;
-
-        public NetworkInterfaceAttachmentsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkInterfaceAttachments
-    {
-        public readonly string AttachmentId;
-        public readonly int DeviceIndex;
-        public readonly string Instance;
-
-        [OutputConstructor]
-        private NetworkInterfaceAttachments(
-            string attachmentId,
-            int deviceIndex,
-            string instance)
-        {
-            AttachmentId = attachmentId;
-            DeviceIndex = deviceIndex;
-            Instance = instance;
-        }
-    }
     }
 }

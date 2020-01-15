@@ -13,10 +13,10 @@ class Application(pulumi.CustomResource):
     app_sources: pulumi.Output[list]
     """
     SCM configuration of the app as described below.
-    
-      * `password` (`str`) - <elided>
+
+      * `password` (`str`)
       * `revision` (`str`) - For sources that are version-aware, the revision to use.
-      * `sshKey` (`str`) - <elided>
+      * `sshKey` (`str`)
       * `type` (`str`) - The type of source to use. For example, "archive".
       * `url` (`str`) - The URL where the app resource can be found.
       * `username` (`str`) - Username to use when authenticating to the source.
@@ -60,7 +60,7 @@ class Application(pulumi.CustomResource):
     environments: pulumi.Output[list]
     """
     Object to define environment variables.  Object is described below.
-    
+
       * `key` (`str`)
       * `secure` (`bool`)
       * `value` (`str`)
@@ -80,7 +80,7 @@ class Application(pulumi.CustomResource):
     ssl_configurations: pulumi.Output[list]
     """
     The SSL configuration of the app. Object is described below.
-    
+
       * `certificate` (`str`)
       * `chain` (`str`)
       * `private_key` (`str`)
@@ -96,7 +96,9 @@ class Application(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_sources=None, auto_bundle_on_deploy=None, aws_flow_ruby_settings=None, data_source_arn=None, data_source_database_name=None, data_source_type=None, description=None, document_root=None, domains=None, enable_ssl=None, environments=None, name=None, rails_env=None, short_name=None, ssl_configurations=None, stack_id=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks application resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_application.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] app_sources: SCM configuration of the app as described below.
@@ -116,29 +118,27 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[list] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
         :param pulumi.Input[str] type: The type of source to use. For example, "archive".
-        
+
         The **app_sources** object supports the following:
-        
-          * `password` (`pulumi.Input[str]`) - <elided>
+
+          * `password` (`pulumi.Input[str]`)
           * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`) - <elided>
+          * `sshKey` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
           * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
           * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
-        
+
         The **environments** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`)
           * `secure` (`pulumi.Input[bool]`)
           * `value` (`pulumi.Input[str]`)
-        
+
         The **ssl_configurations** object supports the following:
-        
+
           * `certificate` (`pulumi.Input[str]`)
           * `chain` (`pulumi.Input[str]`)
           * `private_key` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_application.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -189,7 +189,7 @@ class Application(pulumi.CustomResource):
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,33 +210,32 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[list] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
         :param pulumi.Input[str] type: The type of source to use. For example, "archive".
-        
+
         The **app_sources** object supports the following:
-        
-          * `password` (`pulumi.Input[str]`) - <elided>
+
+          * `password` (`pulumi.Input[str]`)
           * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`) - <elided>
+          * `sshKey` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
           * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
           * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
-        
+
         The **environments** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`)
           * `secure` (`pulumi.Input[bool]`)
           * `value` (`pulumi.Input[str]`)
-        
+
         The **ssl_configurations** object supports the following:
-        
+
           * `certificate` (`pulumi.Input[str]`)
           * `chain` (`pulumi.Input[str]`)
           * `private_key` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_application.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_sources"] = app_sources
         __props__["auto_bundle_on_deploy"] = auto_bundle_on_deploy
         __props__["aws_flow_ruby_settings"] = aws_flow_ruby_settings

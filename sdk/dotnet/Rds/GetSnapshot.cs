@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Rds
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -71,6 +72,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotResult
     {
@@ -100,6 +102,10 @@ namespace Pulumi.Aws.Rds
         /// Specifies the version of the database engine.
         /// </summary>
         public readonly string EngineVersion;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
@@ -145,37 +151,56 @@ namespace Pulumi.Aws.Rds
         /// Specifies the ID of the VPC associated with the DB snapshot.
         /// </summary>
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotResult(
             int allocatedStorage,
+
             string availabilityZone,
+
             string? dbInstanceIdentifier,
+
             string dbSnapshotArn,
+
             string? dbSnapshotIdentifier,
+
             bool encrypted,
+
             string engine,
+
             string engineVersion,
+
+            string id,
+
             bool? includePublic,
+
             bool? includeShared,
+
             int iops,
+
             string kmsKeyId,
+
             string licenseModel,
+
             bool? mostRecent,
+
             string optionGroupName,
+
             int port,
+
             string snapshotCreateTime,
+
             string? snapshotType,
+
             string sourceDbSnapshotIdentifier,
+
             string sourceRegion,
+
             string status,
+
             string storageType,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             AllocatedStorage = allocatedStorage;
             AvailabilityZone = availabilityZone;
@@ -185,6 +210,7 @@ namespace Pulumi.Aws.Rds
             Encrypted = encrypted;
             Engine = engine;
             EngineVersion = engineVersion;
+            Id = id;
             IncludePublic = includePublic;
             IncludeShared = includeShared;
             Iops = iops;
@@ -200,7 +226,6 @@ namespace Pulumi.Aws.Rds
             Status = status;
             StorageType = storageType;
             VpcId = vpcId;
-            Id = id;
         }
     }
 }

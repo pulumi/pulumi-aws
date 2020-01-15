@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
  */
 export class ServerCertificate extends pulumi.CustomResource {

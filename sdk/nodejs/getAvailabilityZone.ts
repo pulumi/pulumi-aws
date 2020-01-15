@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * 
  * This is different from the `aws..getAvailabilityZones` (plural) data source,
  * which provides a list of the available zones.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
  */
 export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> & GetAvailabilityZoneResult {
@@ -63,6 +63,10 @@ export interface GetAvailabilityZoneArgs {
  */
 export interface GetAvailabilityZoneResult {
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the selected availability zone.
      */
     readonly name: string;
@@ -85,8 +89,4 @@ export interface GetAvailabilityZoneResult {
      * (Optional) The zone ID of the selected availability zone.
      */
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

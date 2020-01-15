@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     description: "Contractors IP access control group",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
  */
 export class IpGroup extends pulumi.CustomResource {

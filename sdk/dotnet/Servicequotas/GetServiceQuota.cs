@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ServiceQuotas
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetServiceQuotaArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.ServiceQuotas
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceQuotaResult
     {
@@ -63,6 +65,10 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Whether the service quota is global for the AWS account.
         /// </summary>
         public readonly bool GlobalQuota;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string QuotaCode;
         public readonly string QuotaName;
         public readonly string ServiceCode;
@@ -74,34 +80,39 @@ namespace Pulumi.Aws.ServiceQuotas
         /// Current value of the service quota.
         /// </summary>
         public readonly double Value;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceQuotaResult(
             bool adjustable,
+
             string arn,
+
             double defaultValue,
+
             bool globalQuota,
+
+            string id,
+
             string quotaCode,
+
             string quotaName,
+
             string serviceCode,
+
             string serviceName,
-            double value,
-            string id)
+
+            double value)
         {
             Adjustable = adjustable;
             Arn = arn;
             DefaultValue = defaultValue;
             GlobalQuota = globalQuota;
+            Id = id;
             QuotaCode = quotaCode;
             QuotaName = quotaName;
             ServiceCode = serviceCode;
             ServiceName = serviceName;
             Value = value;
-            Id = id;
         }
     }
 }

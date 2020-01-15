@@ -50,18 +50,20 @@ class ServerCertificate(pulumi.CustomResource):
         """
         Provides an IAM Server Certificate resource to upload Server Certificates.
         Certs uploaded to IAM can easily work with other AWS services such as:
-        
+
         - AWS Elastic Beanstalk
         - Elastic Load Balancing
         - CloudFront
         - AWS OpsWorks
-        
+
         For information about server certificates in IAM, see [Managing Server
         Certificates][2] in AWS Documentation.
-        
+
         > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the server certificate.
@@ -79,8 +81,6 @@ class ServerCertificate(pulumi.CustomResource):
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers][1] for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,7 +121,7 @@ class ServerCertificate(pulumi.CustomResource):
         """
         Get an existing ServerCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,12 +140,11 @@ class ServerCertificate(pulumi.CustomResource):
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers][1] for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["certificate_body"] = certificate_body
         __props__["certificate_chain"] = certificate_chain

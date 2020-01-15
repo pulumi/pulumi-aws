@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     clusterId: "my-cluster-id",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> & GetClusterResult {
@@ -81,6 +81,10 @@ export interface GetClusterResult {
      */
     readonly engineVersion: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      */
@@ -137,8 +141,4 @@ export interface GetClusterResult {
      * The tags assigned to the resource
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

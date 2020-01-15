@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
         [Output("ebsBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceEbsBlockDevices>> EbsBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ec2
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Output("ephemeralBlockDevices")]
-        public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevices>> EphemeralBlockDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Ec2
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.InstanceNetworkInterfaces>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance.
@@ -363,15 +363,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DisableApiTermination { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.InstanceEbsBlockDevicesArgs>? _ebsBlockDevices;
+        private InputList<Inputs.InstanceEbsBlockDeviceArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
-        public InputList<Inputs.InstanceEbsBlockDevicesArgs> EbsBlockDevices
+        public InputList<Inputs.InstanceEbsBlockDeviceArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDevicesArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -386,15 +386,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.InstanceEphemeralBlockDevicesArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.InstanceEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEphemeralBlockDevicesArgs> EphemeralBlockDevices
+        public InputList<Inputs.InstanceEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDevicesArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -461,14 +461,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Monitoring { get; set; }
 
         [Input("networkInterfaces")]
-        private InputList<Inputs.InstanceNetworkInterfacesArgs>? _networkInterfaces;
+        private InputList<Inputs.InstanceNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
-        public InputList<Inputs.InstanceNetworkInterfacesArgs> NetworkInterfaces
+        public InputList<Inputs.InstanceNetworkInterfaceArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfacesArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceArgs>());
             set => _networkInterfaces = value;
         }
 
@@ -630,15 +630,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DisableApiTermination { get; set; }
 
         [Input("ebsBlockDevices")]
-        private InputList<Inputs.InstanceEbsBlockDevicesGetArgs>? _ebsBlockDevices;
+        private InputList<Inputs.InstanceEbsBlockDeviceGetArgs>? _ebsBlockDevices;
 
         /// <summary>
         /// Additional EBS block devices to attach to the
         /// instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
         /// </summary>
-        public InputList<Inputs.InstanceEbsBlockDevicesGetArgs> EbsBlockDevices
+        public InputList<Inputs.InstanceEbsBlockDeviceGetArgs> EbsBlockDevices
         {
-            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDevicesGetArgs>());
+            get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.InstanceEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
@@ -653,15 +653,15 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         [Input("ephemeralBlockDevices")]
-        private InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs>? _ephemeralBlockDevices;
+        private InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
 
         /// <summary>
         /// Customize Ephemeral (also known as
         /// "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
-        public InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs> EphemeralBlockDevices
+        public InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
-            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDevicesGetArgs>());
+            get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.InstanceEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
@@ -734,14 +734,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Monitoring { get; set; }
 
         [Input("networkInterfaces")]
-        private InputList<Inputs.InstanceNetworkInterfacesGetArgs>? _networkInterfaces;
+        private InputList<Inputs.InstanceNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
-        public InputList<Inputs.InstanceNetworkInterfacesGetArgs> NetworkInterfaces
+        public InputList<Inputs.InstanceNetworkInterfaceGetArgs> NetworkInterfaces
         {
-            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfacesGetArgs>());
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.InstanceNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
 
@@ -884,546 +884,5 @@ namespace Pulumi.Aws.Ec2
         public InstanceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class InstanceCreditSpecificationArgs : Pulumi.ResourceArgs
-    {
-        [Input("cpuCredits")]
-        public Input<string>? CpuCredits { get; set; }
-
-        public InstanceCreditSpecificationArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceCreditSpecificationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cpuCredits")]
-        public Input<string>? CpuCredits { get; set; }
-
-        public InstanceCreditSpecificationGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEbsBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceEbsBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEbsBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        [Input("snapshotId")]
-        public Input<string>? SnapshotId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceEbsBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEphemeralBlockDevicesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        [Input("noDevice")]
-        public Input<bool>? NoDevice { get; set; }
-
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public InstanceEphemeralBlockDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceEphemeralBlockDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        [Input("deviceName", required: true)]
-        public Input<string> DeviceName { get; set; } = null!;
-
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        [Input("noDevice")]
-        public Input<bool>? NoDevice { get; set; }
-
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        [Input("virtualName")]
-        public Input<string>? VirtualName { get; set; }
-
-        public InstanceEphemeralBlockDevicesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceNetworkInterfacesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        [Input("networkInterfaceId", required: true)]
-        public Input<string> NetworkInterfaceId { get; set; } = null!;
-
-        public InstanceNetworkInterfacesArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceNetworkInterfacesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        [Input("deviceIndex", required: true)]
-        public Input<int> DeviceIndex { get; set; } = null!;
-
-        [Input("networkInterfaceId", required: true)]
-        public Input<string> NetworkInterfaceId { get; set; } = null!;
-
-        public InstanceNetworkInterfacesGetArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceRootBlockDeviceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceRootBlockDeviceArgs()
-        {
-        }
-    }
-
-    public sealed class InstanceRootBlockDeviceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
-
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        [Input("iops")]
-        public Input<int>? Iops { get; set; }
-
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        [Input("kmsKeyId")]
-        public Input<string>? KmsKeyId { get; set; }
-
-        [Input("volumeId")]
-        public Input<string>? VolumeId { get; set; }
-
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        [Input("volumeSize")]
-        public Input<int>? VolumeSize { get; set; }
-
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
-
-        public InstanceRootBlockDeviceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class InstanceCreditSpecification
-    {
-        public readonly string? CpuCredits;
-
-        [OutputConstructor]
-        private InstanceCreditSpecification(string? cpuCredits)
-        {
-            CpuCredits = cpuCredits;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceEbsBlockDevices
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        public readonly string DeviceName;
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly bool Encrypted;
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        public readonly int Iops;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly string KmsKeyId;
-        /// <summary>
-        /// The Snapshot ID to mount.
-        /// </summary>
-        public readonly string SnapshotId;
-        public readonly string VolumeId;
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private InstanceEbsBlockDevices(
-            bool? deleteOnTermination,
-            string deviceName,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string snapshotId,
-            string volumeId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceName = deviceName;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            SnapshotId = snapshotId;
-            VolumeId = volumeId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceEphemeralBlockDevices
-    {
-        /// <summary>
-        /// The name of the block device to mount on the instance.
-        /// </summary>
-        public readonly string DeviceName;
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
-        public readonly bool? NoDevice;
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
-        /// </summary>
-        public readonly string? VirtualName;
-
-        [OutputConstructor]
-        private InstanceEphemeralBlockDevices(
-            string deviceName,
-            bool? noDevice,
-            string? virtualName)
-        {
-            DeviceName = deviceName;
-            NoDevice = noDevice;
-            VirtualName = virtualName;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceNetworkInterfaces
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        public readonly int DeviceIndex;
-        public readonly string NetworkInterfaceId;
-
-        [OutputConstructor]
-        private InstanceNetworkInterfaces(
-            bool? deleteOnTermination,
-            int deviceIndex,
-            string networkInterfaceId)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            DeviceIndex = deviceIndex;
-            NetworkInterfaceId = networkInterfaceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class InstanceRootBlockDevice
-    {
-        /// <summary>
-        /// Whether the volume should be destroyed
-        /// on instance termination (Default: `true`).
-        /// </summary>
-        public readonly bool? DeleteOnTermination;
-        /// <summary>
-        /// Enables [EBS
-        /// encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
-        /// on the volume (Default: `false`). Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly bool Encrypted;
-        /// <summary>
-        /// The amount of provisioned
-        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1"`.
-        /// </summary>
-        public readonly int Iops;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        /// </summary>
-        public readonly string KmsKeyId;
-        public readonly string VolumeId;
-        /// <summary>
-        /// The size of the volume in gibibytes (GiB).
-        /// </summary>
-        public readonly int VolumeSize;
-        /// <summary>
-        /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
-        /// </summary>
-        public readonly string VolumeType;
-
-        [OutputConstructor]
-        private InstanceRootBlockDevice(
-            bool? deleteOnTermination,
-            bool encrypted,
-            int iops,
-            string kmsKeyId,
-            string volumeId,
-            int volumeSize,
-            string volumeType)
-        {
-            DeleteOnTermination = deleteOnTermination;
-            Encrypted = encrypted;
-            Iops = iops;
-            KmsKeyId = kmsKeyId;
-            VolumeId = volumeId;
-            VolumeSize = volumeSize;
-            VolumeType = volumeType;
-        }
-    }
     }
 }

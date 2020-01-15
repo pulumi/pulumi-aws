@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
  * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
  * server configured.
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
  */
 export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> & GetClusterAuthResult {
@@ -45,13 +45,13 @@ export interface GetClusterAuthArgs {
  * A collection of values returned by getClusterAuth.
  */
 export interface GetClusterAuthResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The token to use to authenticate with the cluster.
      */
     readonly token: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

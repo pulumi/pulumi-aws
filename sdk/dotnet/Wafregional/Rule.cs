@@ -49,7 +49,7 @@ namespace Pulumi.Aws.WafRegional
         /// The objects to include in a rule (documented below).
         /// </summary>
         [Output("predicates")]
-        public Output<ImmutableArray<Outputs.RulePredicates>> Predicates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RulePredicate>> Predicates { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags
@@ -116,14 +116,14 @@ namespace Pulumi.Aws.WafRegional
         public Input<string>? Name { get; set; }
 
         [Input("predicates")]
-        private InputList<Inputs.RulePredicatesArgs>? _predicates;
+        private InputList<Inputs.RulePredicateArgs>? _predicates;
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
-        public InputList<Inputs.RulePredicatesArgs> Predicates
+        public InputList<Inputs.RulePredicateArgs> Predicates
         {
-            get => _predicates ?? (_predicates = new InputList<Inputs.RulePredicatesArgs>());
+            get => _predicates ?? (_predicates = new InputList<Inputs.RulePredicateArgs>());
             set => _predicates = value;
         }
 
@@ -165,14 +165,14 @@ namespace Pulumi.Aws.WafRegional
         public Input<string>? Name { get; set; }
 
         [Input("predicates")]
-        private InputList<Inputs.RulePredicatesGetArgs>? _predicates;
+        private InputList<Inputs.RulePredicateGetArgs>? _predicates;
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
-        public InputList<Inputs.RulePredicatesGetArgs> Predicates
+        public InputList<Inputs.RulePredicateGetArgs> Predicates
         {
-            get => _predicates ?? (_predicates = new InputList<Inputs.RulePredicatesGetArgs>());
+            get => _predicates ?? (_predicates = new InputList<Inputs.RulePredicateGetArgs>());
             set => _predicates = value;
         }
 
@@ -191,64 +191,5 @@ namespace Pulumi.Aws.WafRegional
         public RuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RulePredicatesArgs : Pulumi.ResourceArgs
-    {
-        [Input("dataId", required: true)]
-        public Input<string> DataId { get; set; } = null!;
-
-        [Input("negated", required: true)]
-        public Input<bool> Negated { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RulePredicatesArgs()
-        {
-        }
-    }
-
-    public sealed class RulePredicatesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dataId", required: true)]
-        public Input<string> DataId { get; set; } = null!;
-
-        [Input("negated", required: true)]
-        public Input<bool> Negated { get; set; } = null!;
-
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RulePredicatesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RulePredicates
-    {
-        public readonly string DataId;
-        public readonly bool Negated;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private RulePredicates(
-            string dataId,
-            bool negated,
-            string type)
-        {
-            DataId = dataId;
-            Negated = negated;
-            Type = type;
-        }
-    }
     }
 }

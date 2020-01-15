@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     repositoryName: "MyTestRepository",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> & GetRepositoryResult {
@@ -64,12 +64,12 @@ export interface GetRepositoryResult {
      */
     readonly cloneUrlSsh: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the repository
      */
     readonly repositoryId: string;
     readonly repositoryName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

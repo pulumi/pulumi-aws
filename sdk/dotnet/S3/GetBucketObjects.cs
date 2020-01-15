@@ -17,6 +17,7 @@ namespace Pulumi.Aws.S3
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetBucketObjectsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -66,6 +67,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
+
     [OutputType]
     public sealed class GetBucketObjectsResult
     {
@@ -78,6 +80,10 @@ namespace Pulumi.Aws.S3
         public readonly string? EncodingType;
         public readonly bool? FetchOwner;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of strings representing object keys
         /// </summary>
         public readonly ImmutableArray<string> Keys;
@@ -88,36 +94,42 @@ namespace Pulumi.Aws.S3
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;
         public readonly string? StartAfter;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetBucketObjectsResult(
             string bucket,
+
             ImmutableArray<string> commonPrefixes,
+
             string? delimiter,
+
             string? encodingType,
+
             bool? fetchOwner,
+
+            string id,
+
             ImmutableArray<string> keys,
+
             int? maxKeys,
+
             ImmutableArray<string> owners,
+
             string? prefix,
-            string? startAfter,
-            string id)
+
+            string? startAfter)
         {
             Bucket = bucket;
             CommonPrefixes = commonPrefixes;
             Delimiter = delimiter;
             EncodingType = encodingType;
             FetchOwner = fetchOwner;
+            Id = id;
             Keys = keys;
             MaxKeys = maxKeys;
             Owners = owners;
             Prefix = prefix;
             StartAfter = startAfter;
-            Id = id;
         }
     }
 }

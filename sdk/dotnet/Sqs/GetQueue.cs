@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Sqs
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetQueueArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Sqs
         }
     }
 
+
     [OutputType]
     public sealed class GetQueueResult
     {
@@ -41,27 +43,30 @@ namespace Pulumi.Aws.Sqs
         /// The Amazon Resource Name (ARN) of the queue.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The URL of the queue.
         /// </summary>
         public readonly string Url;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetQueueResult(
             string arn,
+
+            string id,
+
             string name,
-            string url,
-            string id)
+
+            string url)
         {
             Arn = arn;
+            Id = id;
             Name = name;
             Url = url;
-            Id = id;
         }
     }
 }

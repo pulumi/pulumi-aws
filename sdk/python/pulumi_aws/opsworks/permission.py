@@ -33,7 +33,9 @@ class Permission(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_ssh=None, allow_sudo=None, level=None, stack_id=None, user_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks permission resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_ssh: Whether the user is allowed to use SSH to communicate with the instance
@@ -41,8 +43,6 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] level: The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         :param pulumi.Input[str] stack_id: The stack to set the permissions for
         :param pulumi.Input[str] user_arn: The user's IAM ARN to set permissions for
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class Permission(pulumi.CustomResource):
         """
         Get an existing Permission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,12 +88,11 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] level: The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         :param pulumi.Input[str] stack_id: The stack to set the permissions for
         :param pulumi.Input[str] user_arn: The user's IAM ARN to set permissions for
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_permission.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_ssh"] = allow_ssh
         __props__["allow_sudo"] = allow_sudo
         __props__["level"] = level

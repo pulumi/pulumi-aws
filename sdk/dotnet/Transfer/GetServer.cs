@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Transfer
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("aws:transfer/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Transfer
         }
     }
 
+
     [OutputType]
     public sealed class GetServerResult
     {
@@ -44,6 +46,10 @@ namespace Pulumi.Aws.Transfer
         /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
         /// </summary>
@@ -61,30 +67,33 @@ namespace Pulumi.Aws.Transfer
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
         public readonly string Url;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServerResult(
             string arn,
+
             string endpoint,
+
+            string id,
+
             string identityProviderType,
+
             string invocationRole,
+
             string loggingRole,
+
             string serverId,
-            string url,
-            string id)
+
+            string url)
         {
             Arn = arn;
             Endpoint = endpoint;
+            Id = id;
             IdentityProviderType = identityProviderType;
             InvocationRole = invocationRole;
             LoggingRole = loggingRole;
             ServerId = serverId;
             Url = url;
-            Id = id;
         }
     }
 }

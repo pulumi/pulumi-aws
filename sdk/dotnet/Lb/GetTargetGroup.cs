@@ -25,6 +25,7 @@ namespace Pulumi.Aws.LB
             => Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetTargetGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.LB
         }
     }
 
+
     [OutputType]
     public sealed class GetTargetGroupResult
     {
@@ -59,6 +61,10 @@ namespace Pulumi.Aws.LB
         public readonly string ArnSuffix;
         public readonly int DeregistrationDelay;
         public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
         public readonly string Name;
         public readonly int Port;
@@ -69,33 +75,44 @@ namespace Pulumi.Aws.LB
         public readonly ImmutableDictionary<string, object> Tags;
         public readonly string TargetType;
         public readonly string VpcId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetTargetGroupResult(
             string arn,
+
             string arnSuffix,
+
             int deregistrationDelay,
+
             Outputs.GetTargetGroupHealthCheckResult healthCheck,
+
+            string id,
+
             bool lambdaMultiValueHeadersEnabled,
+
             string name,
+
             int port,
+
             string protocol,
+
             bool proxyProtocolV2,
+
             int slowStart,
+
             Outputs.GetTargetGroupStickinessResult stickiness,
+
             ImmutableDictionary<string, object> tags,
+
             string targetType,
-            string vpcId,
-            string id)
+
+            string vpcId)
         {
             Arn = arn;
             ArnSuffix = arnSuffix;
             DeregistrationDelay = deregistrationDelay;
             HealthCheck = healthCheck;
+            Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             Name = name;
             Port = port;
@@ -106,67 +123,6 @@ namespace Pulumi.Aws.LB
             Tags = tags;
             TargetType = targetType;
             VpcId = vpcId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetTargetGroupHealthCheckResult
-    {
-        public readonly bool Enabled;
-        public readonly int HealthyThreshold;
-        public readonly int Interval;
-        public readonly string Matcher;
-        public readonly string Path;
-        public readonly string Port;
-        public readonly string Protocol;
-        public readonly int Timeout;
-        public readonly int UnhealthyThreshold;
-
-        [OutputConstructor]
-        private GetTargetGroupHealthCheckResult(
-            bool enabled,
-            int healthyThreshold,
-            int interval,
-            string matcher,
-            string path,
-            string port,
-            string protocol,
-            int timeout,
-            int unhealthyThreshold)
-        {
-            Enabled = enabled;
-            HealthyThreshold = healthyThreshold;
-            Interval = interval;
-            Matcher = matcher;
-            Path = path;
-            Port = port;
-            Protocol = protocol;
-            Timeout = timeout;
-            UnhealthyThreshold = unhealthyThreshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetTargetGroupStickinessResult
-    {
-        public readonly int CookieDuration;
-        public readonly bool Enabled;
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetTargetGroupStickinessResult(
-            int cookieDuration,
-            bool enabled,
-            string type)
-        {
-            CookieDuration = cookieDuration;
-            Enabled = enabled;
-            Type = type;
-        }
-    }
     }
 }

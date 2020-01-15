@@ -545,7 +545,7 @@ import * as utilities from "../utilities";
  *     role: iamEmrProfileRole.id,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
@@ -675,13 +675,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-     */
-    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
-    /**
      * The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
      */
     public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
+    /**
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     */
+    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -733,8 +733,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
             inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["steps"] = state ? state.steps : undefined;
             inputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
+            inputs["steps"] = state ? state.steps : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["terminationProtection"] = state ? state.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
@@ -769,8 +769,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
             inputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
+            inputs["steps"] = args ? args.steps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
@@ -893,13 +893,13 @@ export interface ClusterState {
      */
     readonly serviceRole?: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-     */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
-    /**
      * The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
      */
     readonly stepConcurrencyLevel?: pulumi.Input<number>;
+    /**
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     */
+    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -1011,13 +1011,13 @@ export interface ClusterArgs {
      */
     readonly serviceRole: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-     */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
-    /**
      * The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
      */
     readonly stepConcurrencyLevel?: pulumi.Input<number>;
+    /**
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     */
+    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */

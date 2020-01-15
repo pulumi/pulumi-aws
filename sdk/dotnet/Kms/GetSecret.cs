@@ -19,13 +19,14 @@ namespace Pulumi.Aws.Kms
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:kms/getSecret:getSecret", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         [Input("secrets", required: true)]
-        private List<Inputs.GetSecretSecretsArgs>? _secrets;
-        public List<Inputs.GetSecretSecretsArgs> Secrets
+        private List<Inputs.GetSecretSecretArgs>? _secrets;
+        public List<Inputs.GetSecretSecretArgs> Secrets
         {
-            get => _secrets ?? (_secrets = new List<Inputs.GetSecretSecretsArgs>());
+            get => _secrets ?? (_secrets = new List<Inputs.GetSecretSecretArgs>());
             set => _secrets = value;
         }
 
@@ -34,81 +35,24 @@ namespace Pulumi.Aws.Kms
         }
     }
 
+
     [OutputType]
     public sealed class GetSecretResult
     {
-        public readonly ImmutableArray<Outputs.GetSecretSecretsResult> Secrets;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetSecretSecretResult> Secrets;
 
         [OutputConstructor]
         private GetSecretResult(
-            ImmutableArray<Outputs.GetSecretSecretsResult> secrets,
-            string id)
+            string id,
+
+            ImmutableArray<Outputs.GetSecretSecretResult> secrets)
         {
-            Secrets = secrets;
             Id = id;
+            Secrets = secrets;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetSecretSecretsArgs : Pulumi.InvokeArgs
-    {
-        [Input("context")]
-        private Dictionary<string, string>? _context;
-        public Dictionary<string, string> Context
-        {
-            get => _context ?? (_context = new Dictionary<string, string>());
-            set => _context = value;
-        }
-
-        [Input("grantTokens")]
-        private List<string>? _grantTokens;
-        public List<string> GrantTokens
-        {
-            get => _grantTokens ?? (_grantTokens = new List<string>());
-            set => _grantTokens = value;
-        }
-
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("payload", required: true)]
-        public string Payload { get; set; } = null!;
-
-        public GetSecretSecretsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSecretSecretsResult
-    {
-        public readonly ImmutableDictionary<string, string>? Context;
-        public readonly ImmutableArray<string> GrantTokens;
-        public readonly string Name;
-        public readonly string Payload;
-
-        [OutputConstructor]
-        private GetSecretSecretsResult(
-            ImmutableDictionary<string, string>? context,
-            ImmutableArray<string> grantTokens,
-            string name,
-            string payload)
-        {
-            Context = context;
-            GrantTokens = grantTokens;
-            Name = name;
-            Payload = payload;
-        }
-    }
     }
 }

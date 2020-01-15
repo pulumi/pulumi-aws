@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Ec2
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetVpcArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -45,14 +46,14 @@ namespace Pulumi.Aws.Ec2
         public string? DhcpOptionsId { get; set; }
 
         [Input("filters")]
-        private List<Inputs.GetVpcFiltersArgs>? _filters;
+        private List<Inputs.GetVpcFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetVpcFiltersArgs> Filters
+        public List<Inputs.GetVpcFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcFiltersArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcFilterArgs>());
             set => _filters = value;
         }
 
@@ -87,6 +88,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcResult
     {
@@ -98,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         /// The CIDR block for the association.
         /// </summary>
         public readonly string CidrBlock;
-        public readonly ImmutableArray<Outputs.GetVpcCidrBlockAssociationsResult> CidrBlockAssociations;
+        public readonly ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> CidrBlockAssociations;
         public readonly bool Default;
         public readonly string DhcpOptionsId;
         /// <summary>
@@ -109,7 +111,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the VPC has DNS support
         /// </summary>
         public readonly bool EnableDnsSupport;
-        public readonly ImmutableArray<Outputs.GetVpcFiltersResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcFilterResult> Filters;
         public readonly string Id;
         /// <summary>
         /// The allowed tenancy of instances launched into the
@@ -141,20 +143,35 @@ namespace Pulumi.Aws.Ec2
         [OutputConstructor]
         private GetVpcResult(
             string arn,
+
             string cidrBlock,
-            ImmutableArray<Outputs.GetVpcCidrBlockAssociationsResult> cidrBlockAssociations,
+
+            ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> cidrBlockAssociations,
+
             bool @default,
+
             string dhcpOptionsId,
+
             bool enableDnsHostnames,
+
             bool enableDnsSupport,
-            ImmutableArray<Outputs.GetVpcFiltersResult> filters,
+
+            ImmutableArray<Outputs.GetVpcFilterResult> filters,
+
             string id,
+
             string instanceTenancy,
+
             string ipv6AssociationId,
+
             string ipv6CidrBlock,
+
             string mainRouteTableId,
+
             string ownerId,
+
             string state,
+
             ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
@@ -174,93 +191,5 @@ namespace Pulumi.Aws.Ec2
             State = state;
             Tags = tags;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetVpcFiltersArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC will be selected if any one of the given values matches.
-        /// </summary>
-        public List<string> Values
-        {
-            get => _values ?? (_values = new List<string>());
-            set => _values = value;
-        }
-
-        public GetVpcFiltersArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVpcCidrBlockAssociationsResult
-    {
-        /// <summary>
-        /// The association ID for the the IPv4 CIDR block.
-        /// </summary>
-        public readonly string AssociationId;
-        /// <summary>
-        /// The cidr block of the desired VPC.
-        /// </summary>
-        public readonly string CidrBlock;
-        /// <summary>
-        /// The current state of the desired VPC.
-        /// Can be either `"pending"` or `"available"`.
-        /// </summary>
-        public readonly string State;
-
-        [OutputConstructor]
-        private GetVpcCidrBlockAssociationsResult(
-            string associationId,
-            string cidrBlock,
-            string state)
-        {
-            AssociationId = associationId;
-            CidrBlock = cidrBlock;
-            State = state;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetVpcFiltersResult
-    {
-        /// <summary>
-        /// The name of the field to filter by, as defined by
-        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// A VPC will be selected if any one of the given values matches.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetVpcFiltersResult(
-            string name,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Values = values;
-        }
-    }
     }
 }

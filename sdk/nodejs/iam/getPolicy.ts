@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
@@ -19,7 +20,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> & GetPolicyResult {
@@ -60,6 +61,10 @@ export interface GetPolicyResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the IAM policy.
      */
     readonly name: string;
@@ -71,8 +76,4 @@ export interface GetPolicyResult {
      * The policy document of the policy.
      */
     readonly policy: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

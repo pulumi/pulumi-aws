@@ -141,7 +141,7 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
  */
 export class Listener extends pulumi.CustomResource {
@@ -245,7 +245,7 @@ export class Listener extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/listener:Listener" }] };
+        const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/listener:Listener"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Listener.__pulumiType, name, inputs, opts);
     }

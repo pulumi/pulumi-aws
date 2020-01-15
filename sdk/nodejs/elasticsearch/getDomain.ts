@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     domainName: "my-domain-name",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> & GetDomainResult {
@@ -103,6 +103,10 @@ export interface GetDomainResult {
      */
     readonly endpoint: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Domain-specific endpoint used to access the Kibana application.
      */
     readonly kibanaEndpoint: string;
@@ -128,8 +132,4 @@ export interface GetDomainResult {
      * VPC Options for private Elasticsearch domains.
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

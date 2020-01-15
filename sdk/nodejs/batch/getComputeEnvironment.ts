@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> & GetComputeEnvironmentResult {
@@ -62,6 +62,10 @@ export interface GetComputeEnvironmentResult {
      */
     readonly ecsClusterArn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     readonly serviceRole: string;
@@ -81,8 +85,4 @@ export interface GetComputeEnvironmentResult {
      * The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

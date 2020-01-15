@@ -58,8 +58,8 @@ class Document(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     The parameters that are available to this document.
-    
-      * `default_value` (`str`)
+
+      * `defaultValue` (`str`)
       * `description` (`str`) - The description of the document.
       * `name` (`str`) - The name of the document.
       * `type` (`str`)
@@ -67,7 +67,7 @@ class Document(pulumi.CustomResource):
     permissions: pulumi.Output[dict]
     """
     Additional Permissions to attach to the document. See Permissions below for details.
-    
+
       * `account_ids` (`str`)
       * `type` (`str`)
     """
@@ -90,22 +90,24 @@ class Document(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, content=None, document_format=None, document_type=None, name=None, permissions=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Document resource
-        
+
         > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
         or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
         schema version you must recreate the resource.
-        
+
         ## Permissions
-        
+
         The permissions attribute specifies how you want to share the document. If you share a document privately,
         you must specify the AWS user account IDs for those people who can use the document. If you share a document
         publicly, you must specify All as the account ID.
-        
+
         The permissions mapping supports the following:
-        
+
         * `type` - The permission type for the document. The permission type can be `Share`.
         * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: The JSON or YAML content of the document.
@@ -114,13 +116,11 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the document.
         :param pulumi.Input[dict] permissions: Additional Permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-        
+
         The **permissions** object supports the following:
-        
+
           * `account_ids` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -172,7 +172,7 @@ class Document(pulumi.CustomResource):
         """
         Get an existing Document resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,24 +193,23 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] schema_version: The schema version of the document.
         :param pulumi.Input[str] status: "Creating", "Active" or "Deleting". The current status of the document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-        
+
         The **parameters** object supports the following:
-        
-          * `default_value` (`pulumi.Input[str]`)
+
+          * `defaultValue` (`pulumi.Input[str]`)
           * `description` (`pulumi.Input[str]`) - The description of the document.
           * `name` (`pulumi.Input[str]`) - The name of the document.
           * `type` (`pulumi.Input[str]`)
-        
+
         The **permissions** object supports the following:
-        
+
           * `account_ids` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["content"] = content
         __props__["created_date"] = created_date

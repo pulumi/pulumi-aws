@@ -24,6 +24,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetRegionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -43,6 +44,7 @@ namespace Pulumi.Aws
         }
     }
 
+
     [OutputType]
     public sealed class GetRegionResult
     {
@@ -55,25 +57,28 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// The name of the selected region.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the selected region.
+        /// </summary>
+        public readonly string Name;
 
         [OutputConstructor]
         private GetRegionResult(
             string description,
+
             string endpoint,
-            string name,
-            string id)
+
+            string id,
+
+            string name)
         {
             Description = description;
             Endpoint = endpoint;
-            Name = name;
             Id = id;
+            Name = name;
         }
     }
 }

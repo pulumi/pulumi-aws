@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ServiceQuotas
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:servicequotas/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -32,28 +33,31 @@ namespace Pulumi.Aws.ServiceQuotas
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Code of the service.
         /// </summary>
         public readonly string ServiceCode;
         public readonly string ServiceName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
+            string id,
+
             string serviceCode,
-            string serviceName,
-            string id)
+
+            string serviceName)
         {
+            Id = id;
             ServiceCode = serviceCode;
             ServiceName = serviceName;
-            Id = id;
         }
     }
 }

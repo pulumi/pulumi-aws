@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: pc.id!,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_peering_connection.html.markdown.
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> & GetVpcPeeringConnectionResult {

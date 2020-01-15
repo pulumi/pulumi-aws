@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// the configuration.
         /// </summary>
         [Output("allSettings")]
-        public Output<ImmutableArray<Outputs.EnvironmentAllSettings>> AllSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EnvironmentAllSetting>> AllSettings { get; private set; } = null!;
 
         /// <summary>
         /// Name of the application that contains the version
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// below in Option Settings
         /// </summary>
         [Output("settings")]
-        public Output<ImmutableArray<Outputs.EnvironmentSettings>> Settings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EnvironmentSetting>> Settings { get; private set; } = null!;
 
         /// <summary>
         /// A solution stack to base your environment
@@ -275,16 +275,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<string>? PollInterval { get; set; }
 
         [Input("settings")]
-        private InputList<Inputs.EnvironmentSettingsArgs>? _settings;
+        private InputList<Inputs.EnvironmentSettingArgs>? _settings;
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        public InputList<Inputs.EnvironmentSettingsArgs> Settings
+        public InputList<Inputs.EnvironmentSettingArgs> Settings
         {
-            get => _settings ?? (_settings = new InputList<Inputs.EnvironmentSettingsArgs>());
+            get => _settings ?? (_settings = new InputList<Inputs.EnvironmentSettingArgs>());
             set => _settings = value;
         }
 
@@ -345,16 +345,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
     public sealed class EnvironmentState : Pulumi.ResourceArgs
     {
         [Input("allSettings")]
-        private InputList<Inputs.EnvironmentAllSettingsGetArgs>? _allSettings;
+        private InputList<Inputs.EnvironmentAllSettingGetArgs>? _allSettings;
 
         /// <summary>
         /// List of all option settings configured in this Environment. These
         /// are a combination of default settings and their overrides from `setting` in
         /// the configuration.
         /// </summary>
-        public InputList<Inputs.EnvironmentAllSettingsGetArgs> AllSettings
+        public InputList<Inputs.EnvironmentAllSettingGetArgs> AllSettings
         {
-            get => _allSettings ?? (_allSettings = new InputList<Inputs.EnvironmentAllSettingsGetArgs>());
+            get => _allSettings ?? (_allSettings = new InputList<Inputs.EnvironmentAllSettingGetArgs>());
             set => _allSettings = value;
         }
 
@@ -477,16 +477,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
 
         [Input("settings")]
-        private InputList<Inputs.EnvironmentSettingsGetArgs>? _settings;
+        private InputList<Inputs.EnvironmentSettingGetArgs>? _settings;
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        public InputList<Inputs.EnvironmentSettingsGetArgs> Settings
+        public InputList<Inputs.EnvironmentSettingGetArgs> Settings
         {
-            get => _settings ?? (_settings = new InputList<Inputs.EnvironmentSettingsGetArgs>());
+            get => _settings ?? (_settings = new InputList<Inputs.EnvironmentSettingGetArgs>());
             set => _settings = value;
         }
 
@@ -554,134 +554,5 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public EnvironmentState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EnvironmentAllSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EnvironmentAllSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class EnvironmentSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EnvironmentSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class EnvironmentSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
-
-        [Input("resource")]
-        public Input<string>? Resource { get; set; }
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EnvironmentSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EnvironmentAllSettings
-    {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
-        public readonly string Name;
-        public readonly string Namespace;
-        public readonly string? Resource;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private EnvironmentAllSettings(
-            string name,
-            string @namespace,
-            string? resource,
-            string value)
-        {
-            Name = name;
-            Namespace = @namespace;
-            Resource = resource;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class EnvironmentSettings
-    {
-        /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
-        /// </summary>
-        public readonly string Name;
-        public readonly string Namespace;
-        public readonly string? Resource;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private EnvironmentSettings(
-            string name,
-            string @namespace,
-            string? resource,
-            string value)
-        {
-            Name = name;
-            Namespace = @namespace;
-            Resource = resource;
-            Value = value;
-        }
-    }
     }
 }

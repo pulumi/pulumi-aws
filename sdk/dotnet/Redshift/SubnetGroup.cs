@@ -179,7 +179,6 @@ namespace Pulumi.Aws.RedShift
 
         public SubnetGroupState()
         {
-            Description = "Managed by Pulumi";
         }
     }
 }

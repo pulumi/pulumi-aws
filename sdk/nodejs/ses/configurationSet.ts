@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const test = new aws.ses.ConfigurationSet("test", {});
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.html.markdown.
  */
 export class ConfigurationSet extends pulumi.CustomResource {
@@ -74,7 +74,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "aws:ses/confgurationSet:ConfgurationSet" }] };
+        const aliasOpts = { aliases: [{ type: "aws:ses/confgurationSet:ConfgurationSet"}] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationSet.__pulumiType, name, inputs, opts);
     }

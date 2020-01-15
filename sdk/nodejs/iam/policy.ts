@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM policy.
@@ -33,7 +33,7 @@ import {PolicyDocument} from "./documents";
  * `,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_policy.html.markdown.
  */
 export class Policy extends pulumi.CustomResource {
@@ -152,7 +152,7 @@ export interface PolicyState {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }
 
 /**
@@ -176,5 +176,5 @@ export interface PolicyArgs {
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     readonly path?: pulumi.Input<string>;
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }

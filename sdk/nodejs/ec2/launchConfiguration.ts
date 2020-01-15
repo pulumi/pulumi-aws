@@ -173,7 +173,7 @@ import {InstanceProfile} from "../iam";
  * cannot currently be detected by this provider. After updating to block device
  * configuration, resource recreation can be manually triggered by using the
  * [`taint` command](https://www.terraform.io/docs/commands/taint.html).
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
  */
 export class LaunchConfiguration extends pulumi.CustomResource {
@@ -388,7 +388,7 @@ export interface LaunchConfigurationState {
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
+    readonly iamInstanceProfile?: pulumi.Input<string> | pulumi.Input<InstanceProfile>;
     /**
      * The EC2 image ID to launch.
      */
@@ -478,7 +478,7 @@ export interface LaunchConfigurationArgs {
      * The name attribute of the IAM instance profile to associate
      * with launched instances.
      */
-    readonly iamInstanceProfile?: pulumi.Input<string | InstanceProfile>;
+    readonly iamInstanceProfile?: pulumi.Input<string> | pulumi.Input<InstanceProfile>;
     /**
      * The EC2 image ID to launch.
      */

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Efs
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetFileSystemArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
+
     [OutputType]
     public sealed class GetFileSystemResult
     {
@@ -64,6 +66,10 @@ namespace Pulumi.Aws.Efs
         public readonly bool Encrypted;
         public readonly string FileSystemId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
@@ -75,32 +81,36 @@ namespace Pulumi.Aws.Efs
         /// The list of tags assigned to the file system.
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetFileSystemResult(
             string arn,
+
             string creationToken,
+
             string dnsName,
+
             bool encrypted,
+
             string fileSystemId,
+
+            string id,
+
             string kmsKeyId,
+
             string performanceMode,
-            ImmutableDictionary<string, object> tags,
-            string id)
+
+            ImmutableDictionary<string, object> tags)
         {
             Arn = arn;
             CreationToken = creationToken;
             DnsName = dnsName;
             Encrypted = encrypted;
             FileSystemId = fileSystemId;
+            Id = id;
             KmsKeyId = kmsKeyId;
             PerformanceMode = performanceMode;
             Tags = tags;
-            Id = id;
         }
     }
 }

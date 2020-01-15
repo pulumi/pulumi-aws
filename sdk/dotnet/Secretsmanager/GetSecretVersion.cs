@@ -19,6 +19,7 @@ namespace Pulumi.Aws.SecretsManager
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetSecretVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.SecretsManager
         }
     }
 
+
     [OutputType]
     public sealed class GetSecretVersionResult
     {
@@ -51,6 +53,10 @@ namespace Pulumi.Aws.SecretsManager
         /// The ARN of the secret.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         /// </summary>
@@ -66,30 +72,33 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string VersionId;
         public readonly string? VersionStage;
         public readonly ImmutableArray<string> VersionStages;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSecretVersionResult(
             string arn,
+
+            string id,
+
             string secretBinary,
+
             string secretId,
+
             string secretString,
+
             string versionId,
+
             string? versionStage,
-            ImmutableArray<string> versionStages,
-            string id)
+
+            ImmutableArray<string> versionStages)
         {
             Arn = arn;
+            Id = id;
             SecretBinary = secretBinary;
             SecretId = secretId;
             SecretString = secretString;
             VersionId = versionId;
             VersionStage = versionStage;
             VersionStages = versionStages;
-            Id = id;
         }
     }
 }

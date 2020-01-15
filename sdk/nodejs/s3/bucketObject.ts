@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Bucket} from "./bucket";
+import {Bucket} from "./index";
 
 /**
  * Provides a S3 bucket object resource.
@@ -93,7 +91,7 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("important.txt"),
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_object.html.markdown.
  */
 export class BucketObject extends pulumi.CustomResource {
@@ -309,7 +307,7 @@ export interface BucketObjectState {
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket?: pulumi.Input<string | Bucket>;
+    readonly bucket?: pulumi.Input<string> | pulumi.Input<Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -414,7 +412,7 @@ export interface BucketObjectArgs {
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket: pulumi.Input<string | Bucket>;
+    readonly bucket: pulumi.Input<string> | pulumi.Input<Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */

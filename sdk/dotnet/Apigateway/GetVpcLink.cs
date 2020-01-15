@@ -22,6 +22,7 @@ namespace Pulumi.Aws.ApiGateway
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
+
     public sealed class GetVpcLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
+
     [OutputType]
     public sealed class GetVpcLinkResult
     {
@@ -48,6 +50,7 @@ namespace Pulumi.Aws.ApiGateway
         [OutputConstructor]
         private GetVpcLinkResult(
             string id,
+
             string name)
         {
             Id = id;

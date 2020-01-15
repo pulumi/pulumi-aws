@@ -4,8 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {User} from "./user";
+import {ARN} from "..";
+import {User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM user
@@ -28,7 +28,7 @@ import {User} from "./user";
  *     user: user.name,
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_policy_attachment.html.markdown.
  */
 export class UserPolicyAttachment extends pulumi.CustomResource {
@@ -114,7 +114,7 @@ export interface UserPolicyAttachmentState {
     /**
      * The user the policy should be applied to
      */
-    readonly user?: pulumi.Input<string | User>;
+    readonly user?: pulumi.Input<string> | pulumi.Input<User>;
 }
 
 /**
@@ -128,5 +128,5 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The user the policy should be applied to
      */
-    readonly user: pulumi.Input<string | User>;
+    readonly user: pulumi.Input<string> | pulumi.Input<User>;
 }

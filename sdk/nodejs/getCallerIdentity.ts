@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * export const callerArn = current.arn;
  * export const callerUser = current.userId;
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/caller_identity.html.markdown.
  */
 export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> & GetCallerIdentityResult {
@@ -52,11 +52,11 @@ export interface GetCallerIdentityResult {
      */
     readonly arn: string;
     /**
-     * The unique identifier of the calling entity.
-     */
-    readonly userId: string;
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The unique identifier of the calling entity.
+     */
+    readonly userId: string;
 }

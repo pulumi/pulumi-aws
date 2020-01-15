@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     userName: "anExampleUserName",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_user.html.markdown.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> & GetUserResult {
@@ -58,6 +58,10 @@ export interface GetUserResult {
      */
     readonly arn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Path in which this user was created.
      */
     readonly path: string;
@@ -73,8 +77,4 @@ export interface GetUserResult {
      * The name associated to this User
      */
     readonly userName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

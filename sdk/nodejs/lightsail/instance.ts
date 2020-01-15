@@ -111,7 +111,7 @@ import * as utilities from "../utilities";
  * - us-east-1: `20`
  * - us-east-2: `20`
  * - us-west-2: `20`
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
  */
 export class Instance extends pulumi.CustomResource {

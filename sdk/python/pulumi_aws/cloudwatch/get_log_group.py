@@ -13,7 +13,7 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, name=None, id=None):
+    def __init__(__self__, arn=None, creation_time=None, id=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -26,15 +26,15 @@ class GetLogGroupResult:
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 class AwaitableGetLogGroupResult(GetLogGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -43,18 +43,20 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
         return GetLogGroupResult(
             arn=self.arn,
             creation_time=self.creation_time,
-            name=self.name,
-            id=self.id)
+            id=self.id,
+            name=self.name)
 
 def get_log_group(name=None,opts=None):
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
-    
-    :param str name: The name of the Cloudwatch log group
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
+
+
+    :param str name: The name of the Cloudwatch log group
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -66,5 +68,5 @@ def get_log_group(name=None,opts=None):
     return AwaitableGetLogGroupResult(
         arn=__ret__.get('arn'),
         creation_time=__ret__.get('creationTime'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

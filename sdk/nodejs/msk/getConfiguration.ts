@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- *
+ * 
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> & GetConfigurationResult {
@@ -60,6 +60,10 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of Apache Kafka versions which can use this configuration.
      */
     readonly kafkaVersions: string[];
@@ -72,8 +76,4 @@ export interface GetConfigurationResult {
      * Contents of the server.properties file.
      */
     readonly serverProperties: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
