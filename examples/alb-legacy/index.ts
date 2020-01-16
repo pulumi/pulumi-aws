@@ -38,14 +38,14 @@ const route_table = new aws.ec2.RouteTable('test', {
 
 const subnet0 =new aws.ec2.Subnet("test0", {
     vpcId: vpc.id,
-    availabilityZone: aws.getAvailabilityZones(undefined, providerOpts).names[0],
+    availabilityZone: aws.getAvailabilityZones(undefined, providerOpts).then(azs => azs.names[0]),
     cidrBlock: "10.10.0.0/24",
     mapPublicIpOnLaunch: true,
 }, providerOpts);
 
 const subnet1 = new aws.ec2.Subnet("test1", {
     vpcId: vpc.id,
-    availabilityZone: aws.getAvailabilityZones(undefined, providerOpts).names[1],
+    availabilityZone: aws.getAvailabilityZones(undefined, providerOpts).then(azs => azs.names[1]),
     cidrBlock: "10.10.1.0/24",
     mapPublicIpOnLaunch: true,
 }, providerOpts);
