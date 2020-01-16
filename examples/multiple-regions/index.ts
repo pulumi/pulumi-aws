@@ -21,7 +21,7 @@ function createServer(region: aws.Region): aws.ec2.Instance {
     return new aws.ec2.Instance(`web-server-www-${region}`, {
         instanceType: size,
         securityGroups: [ group.name ],
-        ami: amiParam.value,
+        ami: amiParam.then(p => p.value),
     }, { provider });
 }
 
