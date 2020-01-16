@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
  */
-export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> & GetQueueResult {
+export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetQueueResult> = pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
+    return pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

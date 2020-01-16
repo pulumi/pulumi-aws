@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
  */
-export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> & GetClusterAuthResult {
+export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,11 +24,9 @@ export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClusterAuthResult> = pulumi.runtime.invoke("aws:eks/getClusterAuth:getClusterAuth", {
+    return pulumi.runtime.invoke("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

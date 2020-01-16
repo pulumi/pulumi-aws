@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/mq_broker.html.markdown.
  */
-export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> & GetBrokerResult {
+export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -38,14 +38,12 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBrokerResult> = pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
+    return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
         "logs": args.logs,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_document.html.markdown.
  */
-export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> & GetDocumentResult {
+export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
     if (!opts) {
         opts = {}
     }
@@ -46,13 +46,11 @@ export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDocumentResult> = pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
+    return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

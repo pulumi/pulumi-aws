@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/region.html.markdown.
  */
-export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> & GetRegionResult {
+export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -37,12 +37,10 @@ export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Pr
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRegionResult> = pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
+    return pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

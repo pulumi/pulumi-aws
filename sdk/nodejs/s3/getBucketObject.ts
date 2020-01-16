@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
  */
-export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> & GetBucketObjectResult {
+export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> {
     if (!opts) {
         opts = {}
     }
@@ -65,15 +65,13 @@ export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBucketObjectResult> = pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {
+    return pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {
         "bucket": args.bucket,
         "key": args.key,
         "range": args.range,
         "tags": args.tags,
         "versionId": args.versionId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

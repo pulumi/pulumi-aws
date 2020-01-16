@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
  */
-export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> & GetRepositoryResult {
+export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRepositoryResult> = pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
+    return pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

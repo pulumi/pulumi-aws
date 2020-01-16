@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
  */
-export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> & GetAmiResult {
+export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     if (!opts) {
         opts = {}
     }
@@ -48,7 +48,7 @@ export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAmiResult> = pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
+    return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "mostRecent": args.mostRecent,
@@ -56,8 +56,6 @@ export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<G
         "owners": args.owners,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

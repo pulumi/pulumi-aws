@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
  */
-export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> & GetArnResult {
+export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetArnResult> = pulumi.runtime.invoke("aws:index/getArn:getArn", {
+    return pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

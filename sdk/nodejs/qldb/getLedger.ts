@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/qldb_ledger.html.markdown.
  */
-export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> & GetLedgerResult {
+export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
     if (!opts) {
         opts = {}
     }
@@ -28,11 +28,9 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLedgerResult> = pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
+    return pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

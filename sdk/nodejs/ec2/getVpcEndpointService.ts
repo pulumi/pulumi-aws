@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
  */
-export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> & GetVpcEndpointServiceResult {
+export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -55,13 +55,11 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetVpcEndpointServiceResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "service": args.service,
         "serviceName": args.serviceName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

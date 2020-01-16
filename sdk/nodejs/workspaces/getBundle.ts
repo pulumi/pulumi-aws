@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
  */
-export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> & GetBundleResult {
+export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getBundle(args: GetBundleArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBundleResult> = pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
+    return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

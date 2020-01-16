@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_interfaces.html.markdown.
  */
-export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> & GetNetworkInterfacesResult {
+export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -63,12 +63,10 @@ export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNetworkInterfacesResult> = pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
+    return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

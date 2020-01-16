@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
  */
-export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> & GetRateBasedModResult {
+export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> {
     if (!opts) {
         opts = {}
     }
@@ -30,11 +30,9 @@ export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRateBasedModResult> = pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
+    return pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot.html.markdown.
  */
-export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
+export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -42,7 +42,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
+    return pulumi.runtime.invoke("aws:ebs/getSnapshot:getSnapshot", {
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "owners": args.owners,
@@ -50,8 +50,6 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

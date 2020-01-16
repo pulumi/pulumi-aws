@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/organizations_organizational_units.html.markdown.
  */
-export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitsResult> & GetOrganizationalUnitsResult {
+export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitsResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,11 +19,9 @@ export function getOrganizationalUnits(args: GetOrganizationalUnitsArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetOrganizationalUnitsResult> = pulumi.runtime.invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", {
+    return pulumi.runtime.invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", {
         "parentId": args.parentId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

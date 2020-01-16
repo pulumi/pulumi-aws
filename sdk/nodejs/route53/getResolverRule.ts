@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rule.html.markdown.
  */
-export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> & GetResolverRuleResult {
+export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -34,7 +34,7 @@ export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.Invoke
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResolverRuleResult> = pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
+    return pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
         "domainName": args.domainName,
         "name": args.name,
         "resolverEndpointId": args.resolverEndpointId,
@@ -42,8 +42,6 @@ export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.Invoke
         "ruleType": args.ruleType,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lambda_invocation.html.markdown.
  */
-export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> & GetInvocationResult {
+export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,13 +21,11 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInvocationResult> = pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
+    return pulumi.runtime.invoke("aws:lambda/getInvocation:getInvocation", {
         "functionName": args.functionName,
         "input": args.input,
         "qualifier": args.qualifier,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

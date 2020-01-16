@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
  */
-export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> & GetCipherTextResult {
+export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
     if (!opts) {
         opts = {}
     }
@@ -45,13 +45,11 @@ export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCipherTextResult> = pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
+    return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
         "context": args.context,
         "keyId": args.keyId,
         "plaintext": args.plaintext,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

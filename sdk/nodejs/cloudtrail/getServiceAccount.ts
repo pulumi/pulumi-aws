@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudtrail_service_account.html.markdown.
  */
-export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> & GetServiceAccountResult {
+export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -57,11 +57,9 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceAccountResult> = pulumi.runtime.invoke("aws:cloudtrail/getServiceAccount:getServiceAccount", {
+    return pulumi.runtime.invoke("aws:cloudtrail/getServiceAccount:getServiceAccount", {
         "region": args.region,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
