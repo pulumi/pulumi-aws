@@ -184,7 +184,7 @@ func TestAccAlbNew(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "alb-new"),
-			RunUpdateTest: true,
+			// RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
 					Dir:             "step2",
