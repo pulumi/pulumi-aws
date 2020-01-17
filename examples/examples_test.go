@@ -174,7 +174,7 @@ func TestAccAlbLegacy(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "alb-legacy"),
-			RunUpdateTest: true,
+			// RunUpdateTest: true,
 		})
 
 	integration.ProgramTest(t, &test)
