@@ -174,7 +174,7 @@ func TestAccAlbLegacy(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "alb-legacy"),
-			RunUpdateTest: true,
+			// RunUpdateTest: true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -358,7 +358,7 @@ func TestAccMultipleRegions(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "multiple-regions"),
-			RunUpdateTest: true,
+			// RunUpdateTest: true,
 		})
 
 	integration.ProgramTest(t, &test)
