@@ -11292,6 +11292,15 @@ export namespace ssm {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface DocumentAttachmentsSource {
+        key: pulumi.Input<string>;
+        /**
+         * The name of the document.
+         */
+        name?: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DocumentParameter {
         defaultValue?: pulumi.Input<string>;
         /**

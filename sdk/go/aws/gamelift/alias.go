@@ -26,10 +26,12 @@ func NewAlias(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["routingStrategy"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
 		inputs["routingStrategy"] = args.RoutingStrategy
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:gamelift/alias:Alias", name, true, inputs, opts...)
@@ -49,6 +51,7 @@ func GetAlias(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["routingStrategy"] = state.RoutingStrategy
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:gamelift/alias:Alias", name, id, inputs, opts...)
 	if err != nil {
@@ -87,6 +90,11 @@ func (r *Alias) RoutingStrategy() pulumi.Output {
 	return r.s.State["routingStrategy"]
 }
 
+// Key-value mapping of resource tags
+func (r *Alias) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering Alias resources.
 type AliasState struct {
 	// Alias ARN.
@@ -97,6 +105,8 @@ type AliasState struct {
 	Name interface{}
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a Alias resource.
@@ -107,4 +117,6 @@ type AliasArgs struct {
 	Name interface{}
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

@@ -8006,11 +8006,11 @@ export namespace emr {
     export interface ClusterEc2Attributes {
         additionalMasterSecurityGroups?: string;
         additionalSlaveSecurityGroups?: string;
-        emrManagedMasterSecurityGroup?: string;
-        emrManagedSlaveSecurityGroup?: string;
+        emrManagedMasterSecurityGroup: string;
+        emrManagedSlaveSecurityGroup: string;
         instanceProfile: string;
         keyName?: string;
-        serviceAccessSecurityGroup?: string;
+        serviceAccessSecurityGroup: string;
         subnetId?: string;
     }
 
@@ -12349,6 +12349,15 @@ export namespace ssm {
         /**
          * A list of instance IDs or tag values. AWS currently limits this list size to one value.
          */
+        values: string[];
+    }
+
+    export interface DocumentAttachmentsSource {
+        key: string;
+        /**
+         * The name of the document.
+         */
+        name?: string;
         values: string[];
     }
 

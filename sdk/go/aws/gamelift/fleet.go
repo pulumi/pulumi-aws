@@ -30,6 +30,7 @@ func NewFleet(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["ec2InboundPermissions"] = nil
 		inputs["ec2InstanceType"] = nil
+		inputs["instanceRoleArn"] = nil
 		inputs["metricGroups"] = nil
 		inputs["name"] = nil
 		inputs["newGameSessionProtectionPolicy"] = nil
@@ -40,6 +41,7 @@ func NewFleet(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["ec2InboundPermissions"] = args.Ec2InboundPermissions
 		inputs["ec2InstanceType"] = args.Ec2InstanceType
+		inputs["instanceRoleArn"] = args.InstanceRoleArn
 		inputs["metricGroups"] = args.MetricGroups
 		inputs["name"] = args.Name
 		inputs["newGameSessionProtectionPolicy"] = args.NewGameSessionProtectionPolicy
@@ -67,6 +69,7 @@ func GetFleet(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["ec2InboundPermissions"] = state.Ec2InboundPermissions
 		inputs["ec2InstanceType"] = state.Ec2InstanceType
+		inputs["instanceRoleArn"] = state.InstanceRoleArn
 		inputs["logPaths"] = state.LogPaths
 		inputs["metricGroups"] = state.MetricGroups
 		inputs["name"] = state.Name
@@ -117,6 +120,11 @@ func (r *Fleet) Ec2InstanceType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["ec2InstanceType"])
 }
 
+// ARN of an IAM role that instances in the fleet can assume.
+func (r *Fleet) InstanceRoleArn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instanceRoleArn"])
+}
+
 func (r *Fleet) LogPaths() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["logPaths"])
 }
@@ -163,6 +171,8 @@ type FleetState struct {
 	Ec2InboundPermissions interface{}
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType interface{}
+	// ARN of an IAM role that instances in the fleet can assume.
+	InstanceRoleArn interface{}
 	LogPaths interface{}
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups interface{}
@@ -188,6 +198,8 @@ type FleetArgs struct {
 	Ec2InboundPermissions interface{}
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType interface{}
+	// ARN of an IAM role that instances in the fleet can assume.
+	InstanceRoleArn interface{}
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups interface{}
 	// The name of the fleet.

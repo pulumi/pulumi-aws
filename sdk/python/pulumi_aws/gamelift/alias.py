@@ -30,7 +30,11 @@ class Alias(pulumi.CustomResource):
       * `message` (`str`) - Message text to be used with the `TERMINAL` routing strategy.
       * `type` (`str`) - Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, routing_strategy=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, routing_strategy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Gamelift Alias resource.
         
@@ -39,6 +43,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **routing_strategy** object supports the following:
         
@@ -70,6 +75,7 @@ class Alias(pulumi.CustomResource):
             if routing_strategy is None:
                 raise TypeError("Missing required property 'routing_strategy'")
             __props__['routing_strategy'] = routing_strategy
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(Alias, __self__).__init__(
             'aws:gamelift/alias:Alias',
@@ -78,7 +84,7 @@ class Alias(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, name=None, routing_strategy=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, name=None, routing_strategy=None, tags=None):
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,6 +96,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
         :param pulumi.Input[dict] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **routing_strategy** object supports the following:
         
@@ -106,6 +113,7 @@ class Alias(pulumi.CustomResource):
         __props__["description"] = description
         __props__["name"] = name
         __props__["routing_strategy"] = routing_strategy
+        __props__["tags"] = tags
         return Alias(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

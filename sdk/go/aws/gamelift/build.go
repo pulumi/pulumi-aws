@@ -29,13 +29,16 @@ func NewBuild(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["operatingSystem"] = nil
 		inputs["storageLocation"] = nil
+		inputs["tags"] = nil
 		inputs["version"] = nil
 	} else {
 		inputs["name"] = args.Name
 		inputs["operatingSystem"] = args.OperatingSystem
 		inputs["storageLocation"] = args.StorageLocation
+		inputs["tags"] = args.Tags
 		inputs["version"] = args.Version
 	}
+	inputs["arn"] = nil
 	s, err := ctx.RegisterResource("aws:gamelift/build:Build", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -49,9 +52,11 @@ func GetBuild(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *BuildState, opts ...pulumi.ResourceOpt) (*Build, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["operatingSystem"] = state.OperatingSystem
 		inputs["storageLocation"] = state.StorageLocation
+		inputs["tags"] = state.Tags
 		inputs["version"] = state.Version
 	}
 	s, err := ctx.ReadResource("aws:gamelift/build:Build", name, id, inputs, opts...)
@@ -71,6 +76,11 @@ func (r *Build) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Gamelift Build ARN.
+func (r *Build) Arn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["arn"])
+}
+
 // Name of the build
 func (r *Build) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
@@ -86,6 +96,11 @@ func (r *Build) StorageLocation() pulumi.Output {
 	return r.s.State["storageLocation"]
 }
 
+// Key-value mapping of resource tags
+func (r *Build) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Version that is associated with this build.
 func (r *Build) Version() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["version"])
@@ -93,12 +108,16 @@ func (r *Build) Version() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Build resources.
 type BuildState struct {
+	// Gamelift Build ARN.
+	Arn interface{}
 	// Name of the build
 	Name interface{}
 	// Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
 	OperatingSystem interface{}
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Version that is associated with this build.
 	Version interface{}
 }
@@ -111,6 +130,8 @@ type BuildArgs struct {
 	OperatingSystem interface{}
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Version that is associated with this build.
 	Version interface{}
 }

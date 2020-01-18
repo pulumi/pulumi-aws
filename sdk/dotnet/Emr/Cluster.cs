@@ -1463,22 +1463,22 @@ namespace Pulumi.Aws.Emr
     {
         public readonly string? AdditionalMasterSecurityGroups;
         public readonly string? AdditionalSlaveSecurityGroups;
-        public readonly string? EmrManagedMasterSecurityGroup;
-        public readonly string? EmrManagedSlaveSecurityGroup;
+        public readonly string EmrManagedMasterSecurityGroup;
+        public readonly string EmrManagedSlaveSecurityGroup;
         public readonly string InstanceProfile;
         public readonly string? KeyName;
-        public readonly string? ServiceAccessSecurityGroup;
+        public readonly string ServiceAccessSecurityGroup;
         public readonly string? SubnetId;
 
         [OutputConstructor]
         private ClusterEc2Attributes(
             string? additionalMasterSecurityGroups,
             string? additionalSlaveSecurityGroups,
-            string? emrManagedMasterSecurityGroup,
-            string? emrManagedSlaveSecurityGroup,
+            string emrManagedMasterSecurityGroup,
+            string emrManagedSlaveSecurityGroup,
             string instanceProfile,
             string? keyName,
-            string? serviceAccessSecurityGroup,
+            string serviceAccessSecurityGroup,
             string? subnetId)
         {
             AdditionalMasterSecurityGroups = additionalMasterSecurityGroups;
