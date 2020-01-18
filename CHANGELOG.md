@@ -2,8 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
 * Support `awsfirelens` in `ecs.Container`
+* Upgrade to v2.45.0 of the AWS Terraform Provider
 
 ---
 
