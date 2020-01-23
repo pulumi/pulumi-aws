@@ -1,0 +1,4 @@
+name: webserver-comp-go
+description: Example of an AWS web server accessible over HTTP, nicely componentized.
+runtime: go
+

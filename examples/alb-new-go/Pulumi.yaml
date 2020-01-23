@@ -1,0 +1,3 @@
+name: alb-new-go
+runtime: go
+description: Test to ensure that an alb can be created through the elasticloadbalancingv2 module
