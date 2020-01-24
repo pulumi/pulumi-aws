@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 _(none)_
+* Support `awsfirelens` in `ecs.Container`
 
 ---
 
