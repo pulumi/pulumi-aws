@@ -4,7 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Support `awsfirelens` in `ecs.Container`
 * Upgrade to v2.46.0 of the AWS Terraform Provider
-* Upgrade to v1.6.3 of the pulumi-terraform-bridge
+* Upgrade to v1.6.4 of the pulumi-terraform-bridge
 
 ---
 
