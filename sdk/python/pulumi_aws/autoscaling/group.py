@@ -30,8 +30,7 @@ class Group(pulumi.CustomResource):
     """
     enabled_metrics: pulumi.Output[list]
     """
-    A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`,
-    , `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+    A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
     * `wait_for_capacity_timeout` (Default: "10m") A maximum
     [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
     wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -276,8 +275,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`,
-               , `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
                * `wait_for_capacity_timeout` (Default: "10m") A maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -454,8 +452,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`,
-               , `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
                * `wait_for_capacity_timeout` (Default: "10m") A maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for ASG instances to be healthy before timing out.  (See also Waiting

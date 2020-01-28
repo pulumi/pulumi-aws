@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * 
- * const fooVpc = new aws.ec2.Vpc("foo", {
+ * const exampleVpc = new aws.ec2.Vpc("example", {
  *     assignGeneratedIpv6CidrBlock: true,
  *     cidrBlock: "10.1.0.0/16",
  * });
- * const fooEgressOnlyInternetGateway = new aws.ec2.EgressOnlyInternetGateway("foo", {
- *     vpcId: fooVpc.id,
+ * const exampleEgressOnlyInternetGateway = new aws.ec2.EgressOnlyInternetGateway("example", {
+ *     vpcId: exampleVpc.id,
  * });
  * ```
  *

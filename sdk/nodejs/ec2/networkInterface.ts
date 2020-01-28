@@ -63,6 +63,13 @@ export class NetworkInterface extends pulumi.CustomResource {
      * A description for the network interface.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The MAC address of the network interface.
+     */
+    public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    /**
+     * The private DNS name of the network interface (IPv4).
+     */
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
     public readonly privateIp!: pulumi.Output<string>;
     /**
@@ -104,6 +111,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["attachments"] = state ? state.attachments : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["macAddress"] = state ? state.macAddress : undefined;
             inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
             inputs["privateIps"] = state ? state.privateIps : undefined;
@@ -126,6 +134,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["macAddress"] = undefined /*out*/;
             inputs["privateDnsName"] = undefined /*out*/;
         }
         if (!opts) {
@@ -151,6 +160,13 @@ export interface NetworkInterfaceState {
      * A description for the network interface.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The MAC address of the network interface.
+     */
+    readonly macAddress?: pulumi.Input<string>;
+    /**
+     * The private DNS name of the network interface (IPv4).
+     */
     readonly privateDnsName?: pulumi.Input<string>;
     readonly privateIp?: pulumi.Input<string>;
     /**

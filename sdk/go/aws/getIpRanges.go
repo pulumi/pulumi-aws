@@ -40,7 +40,10 @@ type GetIpRangesArgs struct {
 	// (e.g. `eu-central-1`)
 	Regions interface{}
 	// Filter IP ranges by services. Valid items are `amazon`
-	// (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53Healthchecks` and `S3`.
+	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
+	// [`service` attribute][2] documentation for other possible values.
 	Services interface{}
 	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
 	Url interface{}

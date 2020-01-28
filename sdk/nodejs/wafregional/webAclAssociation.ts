@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  * 
- * ## Example Usage
+ * ## Application Load Balancer Association Example
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,6 +67,85 @@ import * as utilities from "../utilities";
  * });
  * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
  *     resourceArn: fooLoadBalancer.arn,
+ *     webAclId: fooWebAcl.id,
+ * });
+ * ```
+ * 
+ * ## API Gateway Association Example
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const ipset = new aws.wafregional.IpSet("ipset", {
+ *     ipSetDescriptors: [{
+ *         type: "IPV4",
+ *         value: "192.0.7.0/24",
+ *     }],
+ * });
+ * const fooRule = new aws.wafregional.Rule("foo", {
+ *     metricName: "tfWAFRule",
+ *     predicates: [{
+ *         dataId: ipset.id,
+ *         negated: false,
+ *         type: "IPMatch",
+ *     }],
+ * });
+ * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
+ *     defaultAction: {
+ *         type: "ALLOW",
+ *     },
+ *     metricName: "foo",
+ *     rules: [{
+ *         action: {
+ *             type: "BLOCK",
+ *         },
+ *         priority: 1,
+ *         ruleId: fooRule.id,
+ *     }],
+ * });
+ * const testRestApi = new aws.apigateway.RestApi("test", {});
+ * const testResource = new aws.apigateway.Resource("test", {
+ *     parentId: testRestApi.rootResourceId,
+ *     pathPart: "test",
+ *     restApi: testRestApi.id,
+ * });
+ * const testMethod = new aws.apigateway.Method("test", {
+ *     authorization: "NONE",
+ *     httpMethod: "GET",
+ *     resourceId: testResource.id,
+ *     restApi: testRestApi.id,
+ * });
+ * const testMethodResponse = new aws.apigateway.MethodResponse("test", {
+ *     httpMethod: testMethod.httpMethod,
+ *     resourceId: testResource.id,
+ *     restApi: testRestApi.id,
+ *     statusCode: "400",
+ * });
+ * const testIntegration = new aws.apigateway.Integration("test", {
+ *     httpMethod: testMethod.httpMethod,
+ *     integrationHttpMethod: "GET",
+ *     resourceId: testResource.id,
+ *     restApi: testRestApi.id,
+ *     type: "HTTP",
+ *     uri: "http://www.example.com",
+ * });
+ * const testIntegrationResponse = new aws.apigateway.IntegrationResponse("test", {
+ *     httpMethod: testIntegration.httpMethod,
+ *     resourceId: testResource.id,
+ *     restApi: testRestApi.id,
+ *     statusCode: testMethodResponse.statusCode,
+ * });
+ * const testDeployment = new aws.apigateway.Deployment("test", {
+ *     restApi: testRestApi.id,
+ * }, {dependsOn: [testIntegrationResponse]});
+ * const testStage = new aws.apigateway.Stage("test", {
+ *     deployment: testDeployment.id,
+ *     restApi: testRestApi.id,
+ *     stageName: "test",
+ * });
+ * const association = new aws.wafregional.WebAclAssociation("association", {
+ *     resourceArn: testStage.arn,
  *     webAclId: fooWebAcl.id,
  * });
  * ```

@@ -237,8 +237,7 @@ func (r *Group) DesiredCapacity() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["desiredCapacity"])
 }
 
-// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`,
-// , `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
 // * `waitForCapacityTimeout` (Default: "10m") A maximum
 // [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 // wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -412,8 +411,7 @@ type GroupState struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity interface{}
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`,
-	// , `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
 	// * `waitForCapacityTimeout` (Default: "10m") A maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -506,8 +504,7 @@ type GroupArgs struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity interface{}
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`,
-	// , `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
 	// * `waitForCapacityTimeout` (Default: "10m") A maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for ASG instances to be healthy before timing out.  (See also Waiting

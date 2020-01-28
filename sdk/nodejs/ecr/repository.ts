@@ -73,7 +73,7 @@ export class Repository extends pulumi.CustomResource {
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
-     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
     public /*out*/ readonly repositoryUrl!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface RepositoryState {
      */
     readonly registryId?: pulumi.Input<string>;
     /**
-     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
      */
     readonly repositoryUrl?: pulumi.Input<string>;
     /**

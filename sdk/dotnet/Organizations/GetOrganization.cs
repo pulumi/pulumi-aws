@@ -117,18 +117,24 @@ namespace Pulumi.Aws.Organizations
         /// The name of the policy type
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        public readonly string Status;
 
         [OutputConstructor]
         private GetOrganizationAccountsResult(
             string arn,
             string email,
             string id,
-            string name)
+            string name,
+            string status)
         {
             Arn = arn;
             Email = email;
             Id = id;
             Name = name;
+            Status = status;
         }
     }
 
@@ -151,18 +157,24 @@ namespace Pulumi.Aws.Organizations
         /// The name of the policy type
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        public readonly string Status;
 
         [OutputConstructor]
         private GetOrganizationNonMasterAccountsResult(
             string arn,
             string email,
             string id,
-            string name)
+            string name,
+            string status)
         {
             Arn = arn;
             Email = email;
             Id = id;
             Name = name;
+            Status = status;
         }
     }
 

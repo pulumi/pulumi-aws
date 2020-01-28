@@ -27,6 +27,14 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetLogGroupArgs()
         {
         }
@@ -43,7 +51,19 @@ namespace Pulumi.Aws.CloudWatch
         /// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         /// </summary>
         public readonly int CreationTime;
+        /// <summary>
+        /// The ARN of the KMS Key to use when encrypting log data.
+        /// </summary>
+        public readonly string KmsKeyId;
         public readonly string Name;
+        /// <summary>
+        /// The number of days log events retained in the specified log group.
+        /// </summary>
+        public readonly int RetentionInDays;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -53,12 +73,18 @@ namespace Pulumi.Aws.CloudWatch
         private GetLogGroupResult(
             string arn,
             int creationTime,
+            string kmsKeyId,
             string name,
+            int retentionInDays,
+            ImmutableDictionary<string, object> tags,
             string id)
         {
             Arn = arn;
             CreationTime = creationTime;
+            KmsKeyId = kmsKeyId;
             Name = name;
+            RetentionInDays = retentionInDays;
+            Tags = tags;
             Id = id;
         }
     }

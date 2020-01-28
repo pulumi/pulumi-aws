@@ -123,7 +123,7 @@ func (r *SecurityGroupRule) Description() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
-// The start port (or ICMP type number if protocol is "icmp").
+// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 func (r *SecurityGroupRule) FromPort() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["fromPort"])
 }
@@ -134,11 +134,12 @@ func (r *SecurityGroupRule) Ipv6CidrBlocks() pulumi.ArrayOutput {
 }
 
 // List of prefix list IDs (for allowing access to VPC endpoints).
+// Only valid with `egress`.
 func (r *SecurityGroupRule) PrefixListIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["prefixListIds"])
 }
 
-// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 func (r *SecurityGroupRule) Protocol() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -177,13 +178,14 @@ type SecurityGroupRuleState struct {
 	CidrBlocks interface{}
 	// Description of the rule.
 	Description interface{}
-	// The start port (or ICMP type number if protocol is "icmp").
+	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort interface{}
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks interface{}
 	// List of prefix list IDs (for allowing access to VPC endpoints).
+	// Only valid with `egress`.
 	PrefixListIds interface{}
-	// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol interface{}
 	// The security group to apply this rule to.
 	SecurityGroupId interface{}
@@ -206,13 +208,14 @@ type SecurityGroupRuleArgs struct {
 	CidrBlocks interface{}
 	// Description of the rule.
 	Description interface{}
-	// The start port (or ICMP type number if protocol is "icmp").
+	// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
 	FromPort interface{}
 	// List of IPv6 CIDR blocks.
 	Ipv6CidrBlocks interface{}
 	// List of prefix list IDs (for allowing access to VPC endpoints).
+	// Only valid with `egress`.
 	PrefixListIds interface{}
-	// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+	// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 	Protocol interface{}
 	// The security group to apply this rule to.
 	SecurityGroupId interface{}

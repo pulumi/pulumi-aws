@@ -27,11 +27,8 @@ namespace Pulumi.Aws.Ssm
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-        /// </summary>
         [Output("expirationDate")]
-        public Output<string?> ExpirationDate { get; private set; } = null!;
+        public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
         /// If the current activation has expired.
@@ -121,9 +118,6 @@ namespace Pulumi.Aws.Ssm
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-        /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
 
@@ -176,9 +170,6 @@ namespace Pulumi.Aws.Ssm
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-        /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
 

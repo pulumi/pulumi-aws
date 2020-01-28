@@ -22,11 +22,19 @@ class KeyPair(pulumi.CustomResource):
     """
     Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
     """
+    key_pair_id: pulumi.Output[str]
+    """
+    The key pair ID.
+    """
     public_key: pulumi.Output[str]
     """
     The public key material.
     """
-    def __init__(__self__, resource_name, opts=None, key_name=None, key_name_prefix=None, public_key=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, key_name=None, key_name_prefix=None, public_key=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an [EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) resource. A key pair is used to control login access to EC2 instances.
         
@@ -43,6 +51,7 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name for the key pair.
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         :param pulumi.Input[str] public_key: The public key material.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
         """
@@ -68,7 +77,9 @@ class KeyPair(pulumi.CustomResource):
             if public_key is None:
                 raise TypeError("Missing required property 'public_key'")
             __props__['public_key'] = public_key
+            __props__['tags'] = tags
             __props__['fingerprint'] = None
+            __props__['key_pair_id'] = None
         super(KeyPair, __self__).__init__(
             'aws:ec2/keyPair:KeyPair',
             resource_name,
@@ -76,7 +87,7 @@ class KeyPair(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, fingerprint=None, key_name=None, key_name_prefix=None, public_key=None):
+    def get(resource_name, id, opts=None, fingerprint=None, key_name=None, key_name_prefix=None, key_pair_id=None, public_key=None, tags=None):
         """
         Get an existing KeyPair resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -87,7 +98,9 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         :param pulumi.Input[str] key_name: The name for the key pair.
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
+        :param pulumi.Input[str] key_pair_id: The key pair ID.
         :param pulumi.Input[str] public_key: The public key material.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
         """
@@ -97,7 +110,9 @@ class KeyPair(pulumi.CustomResource):
         __props__["fingerprint"] = fingerprint
         __props__["key_name"] = key_name
         __props__["key_name_prefix"] = key_name_prefix
+        __props__["key_pair_id"] = key_pair_id
         __props__["public_key"] = public_key
+        __props__["tags"] = tags
         return KeyPair(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

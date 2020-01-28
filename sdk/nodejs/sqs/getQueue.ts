@@ -32,6 +32,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     }
     const promise: Promise<GetQueueResult> = pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -45,6 +46,7 @@ export interface GetQueueArgs {
      * The name of the queue to match.
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -56,6 +58,10 @@ export interface GetQueueResult {
      */
     readonly arn: string;
     readonly name: string;
+    /**
+     * A mapping of tags for the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * The URL of the queue.
      */

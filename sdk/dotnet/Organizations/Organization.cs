@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableArray<string>> AwsServiceAccessPrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         [Output("enabledPolicyTypes")]
         public Output<ImmutableArray<string>> EnabledPolicyTypes { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Organizations
         private InputList<string>? _enabledPolicyTypes;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         public InputList<string> EnabledPolicyTypes
         {
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Organizations
         private InputList<string>? _enabledPolicyTypes;
 
         /// <summary>
-        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         public InputList<string> EnabledPolicyTypes
         {
@@ -282,6 +282,12 @@ namespace Pulumi.Aws.Organizations
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         public OrganizationAccountsGetArgs()
         {
         }
@@ -312,6 +318,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public OrganizationNonMasterAccountsGetArgs()
         {
@@ -394,18 +406,24 @@ namespace Pulumi.Aws.Organizations
         /// The name of the policy type
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        public readonly string Status;
 
         [OutputConstructor]
         private OrganizationAccounts(
             string arn,
             string email,
             string id,
-            string name)
+            string name,
+            string status)
         {
             Arn = arn;
             Email = email;
             Id = id;
             Name = name;
+            Status = status;
         }
     }
 
@@ -428,18 +446,24 @@ namespace Pulumi.Aws.Organizations
         /// The name of the policy type
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        public readonly string Status;
 
         [OutputConstructor]
         private OrganizationNonMasterAccounts(
             string arn,
             string email,
             string id,
-            string name)
+            string name,
+            string status)
         {
             Arn = arn;
             Email = email;
             Id = id;
             Name = name;
+            Status = status;
         }
     }
 

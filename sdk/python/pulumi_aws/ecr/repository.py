@@ -34,7 +34,7 @@ class Repository(pulumi.CustomResource):
     """
     repository_url: pulumi.Output[str]
     """
-    The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+    The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
     """
     tags: pulumi.Output[dict]
     """
@@ -101,7 +101,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+        :param pulumi.Input[str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **image_scanning_configuration** object supports the following:

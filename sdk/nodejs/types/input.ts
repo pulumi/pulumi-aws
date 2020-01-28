@@ -865,6 +865,10 @@ export namespace apigateway {
          * A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
          */
         types: pulumi.Input<string>;
+        /**
+         * A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+         */
+        vpcEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface StageAccessLogSettings {
@@ -2857,7 +2861,7 @@ export namespace cloudfront {
          */
         failoverCriteria: pulumi.Input<inputs.cloudfront.DistributionOriginGroupFailoverCriteria>;
         /**
-         * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+         * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
          */
         members: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroupMember>[]>;
         /**
@@ -2929,7 +2933,8 @@ export namespace cloudfront {
         iamCertificateId?: pulumi.Input<string>;
         /**
          * The minimum version of the SSL protocol that
-         * you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+         * you want CloudFront to use for HTTPS connections. Can only be set if
+         * `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
          * `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
          * If you are using a custom certificate (specified with `acmCertificateArn`
          * or `iamCertificateId`), and have specified `sni-only` in
@@ -5876,6 +5881,10 @@ export namespace ecs {
          */
         dockerVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionVolumeDockerVolumeConfiguration>;
         /**
+         * Used to configure a EFS volume. Can be used only with an EC2 type task.
+         */
+        efsVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionVolumeEfsVolumeConfiguration>;
+        /**
          * The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
          */
         hostPath?: pulumi.Input<string>;
@@ -5907,6 +5916,17 @@ export namespace ecs {
          * The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
          */
         scope?: pulumi.Input<string>;
+    }
+
+    export interface TaskDefinitionVolumeEfsVolumeConfiguration {
+        /**
+         * The ID of the EFS File System.
+         */
+        fileSystemId: pulumi.Input<string>;
+        /**
+         * The path to mount on the host
+         */
+        rootDirectory?: pulumi.Input<string>;
     }
 }
 
@@ -10103,6 +10123,10 @@ export namespace organizations {
          * The name of the policy type
          */
         name?: pulumi.Input<string>;
+        /**
+         * The status of the policy type as it relates to the associated root
+         */
+        status?: pulumi.Input<string>;
     }
 
     export interface OrganizationNonMasterAccount {
@@ -10122,6 +10146,10 @@ export namespace organizations {
          * The name of the policy type
          */
         name?: pulumi.Input<string>;
+        /**
+         * The status of the policy type as it relates to the associated root
+         */
+        status?: pulumi.Input<string>;
     }
 
     export interface OrganizationRoot {

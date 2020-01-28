@@ -55,7 +55,7 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly iamArn!: pulumi.Output<string | undefined>;
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
      */
     public readonly identityType!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export interface UserState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      */
     readonly awsAccountId?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface UserState {
      */
     readonly iamArn?: pulumi.Input<string>;
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
      */
     readonly identityType?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      */
     readonly awsAccountId?: pulumi.Input<string>;
     /**
@@ -199,7 +199,7 @@ export interface UserArgs {
      */
     readonly iamArn?: pulumi.Input<string>;
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
      */
     readonly identityType: pulumi.Input<string>;
     /**

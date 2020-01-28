@@ -95,7 +95,7 @@ func (r *Repository) RegistryId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["registryId"])
 }
 
-// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 func (r *Repository) RepositoryUrl() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["repositoryUrl"])
 }
@@ -117,7 +117,7 @@ type RepositoryState struct {
 	Name interface{}
 	// The registry ID where the repository was created.
 	RegistryId interface{}
-	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

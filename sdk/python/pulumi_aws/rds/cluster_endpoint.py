@@ -38,7 +38,11 @@ class ClusterEndpoint(pulumi.CustomResource):
     """
     List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_endpoint_identifier=None, cluster_identifier=None, custom_endpoint_type=None, excluded_members=None, static_members=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, cluster_endpoint_identifier=None, cluster_identifier=None, custom_endpoint_type=None, excluded_members=None, static_members=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a RDS Aurora Cluster Endpoint.
         You can refer to the [User Guide][1].
@@ -50,6 +54,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[list] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[list] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
         """
@@ -81,6 +86,7 @@ class ClusterEndpoint(pulumi.CustomResource):
             __props__['custom_endpoint_type'] = custom_endpoint_type
             __props__['excluded_members'] = excluded_members
             __props__['static_members'] = static_members
+            __props__['tags'] = tags
             __props__['arn'] = None
             __props__['endpoint'] = None
         super(ClusterEndpoint, __self__).__init__(
@@ -90,7 +96,7 @@ class ClusterEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, cluster_endpoint_identifier=None, cluster_identifier=None, custom_endpoint_type=None, endpoint=None, excluded_members=None, static_members=None):
+    def get(resource_name, id, opts=None, arn=None, cluster_endpoint_identifier=None, cluster_identifier=None, custom_endpoint_type=None, endpoint=None, excluded_members=None, static_members=None, tags=None):
         """
         Get an existing ClusterEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,6 +111,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: A custom endpoint for the Aurora cluster
         :param pulumi.Input[list] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[list] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_endpoint.html.markdown.
         """
@@ -118,6 +125,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         __props__["endpoint"] = endpoint
         __props__["excluded_members"] = excluded_members
         __props__["static_members"] = static_members
+        __props__["tags"] = tags
         return ClusterEndpoint(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

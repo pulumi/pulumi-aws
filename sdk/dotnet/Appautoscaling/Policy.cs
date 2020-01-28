@@ -39,9 +39,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {
-        [Output("alarms")]
-        public Output<ImmutableArray<string>> Alarms { get; private set; } = null!;
-
         /// <summary>
         /// The ARN assigned by AWS to the scaling policy.
         /// </summary>
@@ -136,14 +133,6 @@ namespace Pulumi.Aws.AppAutoScaling
 
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
-        [Input("alarms")]
-        private InputList<string>? _alarms;
-        public InputList<string> Alarms
-        {
-            get => _alarms ?? (_alarms = new InputList<string>());
-            set => _alarms = value;
-        }
-
         /// <summary>
         /// The name of the policy.
         /// </summary>
@@ -193,14 +182,6 @@ namespace Pulumi.Aws.AppAutoScaling
 
     public sealed class PolicyState : Pulumi.ResourceArgs
     {
-        [Input("alarms")]
-        private InputList<string>? _alarms;
-        public InputList<string> Alarms
-        {
-            get => _alarms ?? (_alarms = new InputList<string>());
-            set => _alarms = value;
-        }
-
         /// <summary>
         /// The ARN assigned by AWS to the scaling policy.
         /// </summary>

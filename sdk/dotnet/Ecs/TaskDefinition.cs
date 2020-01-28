@@ -530,6 +530,12 @@ namespace Pulumi.Aws.Ecs
         public Input<TaskDefinitionVolumesDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
 
         /// <summary>
+        /// Used to configure a EFS volume. Can be used only with an EC2 type task.
+        /// </summary>
+        [Input("efsVolumeConfiguration")]
+        public Input<TaskDefinitionVolumesEfsVolumeConfigurationArgs>? EfsVolumeConfiguration { get; set; }
+
+        /// <summary>
         /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         /// </summary>
         [Input("hostPath")]
@@ -645,6 +651,44 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
+    public sealed class TaskDefinitionVolumesEfsVolumeConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The ID of the EFS File System.
+        /// </summary>
+        [Input("fileSystemId", required: true)]
+        public Input<string> FileSystemId { get; set; } = null!;
+
+        /// <summary>
+        /// The path to mount on the host
+        /// </summary>
+        [Input("rootDirectory")]
+        public Input<string>? RootDirectory { get; set; }
+
+        public TaskDefinitionVolumesEfsVolumeConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class TaskDefinitionVolumesEfsVolumeConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The ID of the EFS File System.
+        /// </summary>
+        [Input("fileSystemId", required: true)]
+        public Input<string> FileSystemId { get; set; } = null!;
+
+        /// <summary>
+        /// The path to mount on the host
+        /// </summary>
+        [Input("rootDirectory")]
+        public Input<string>? RootDirectory { get; set; }
+
+        public TaskDefinitionVolumesEfsVolumeConfigurationGetArgs()
+        {
+        }
+    }
+
     public sealed class TaskDefinitionVolumesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -652,6 +696,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("dockerVolumeConfiguration")]
         public Input<TaskDefinitionVolumesDockerVolumeConfigurationGetArgs>? DockerVolumeConfiguration { get; set; }
+
+        /// <summary>
+        /// Used to configure a EFS volume. Can be used only with an EC2 type task.
+        /// </summary>
+        [Input("efsVolumeConfiguration")]
+        public Input<TaskDefinitionVolumesEfsVolumeConfigurationGetArgs>? EfsVolumeConfiguration { get; set; }
 
         /// <summary>
         /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
@@ -736,6 +786,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly TaskDefinitionVolumesDockerVolumeConfiguration? DockerVolumeConfiguration;
         /// <summary>
+        /// Used to configure a EFS volume. Can be used only with an EC2 type task.
+        /// </summary>
+        public readonly TaskDefinitionVolumesEfsVolumeConfiguration? EfsVolumeConfiguration;
+        /// <summary>
         /// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         /// </summary>
         public readonly string? HostPath;
@@ -748,10 +802,12 @@ namespace Pulumi.Aws.Ecs
         [OutputConstructor]
         private TaskDefinitionVolumes(
             TaskDefinitionVolumesDockerVolumeConfiguration? dockerVolumeConfiguration,
+            TaskDefinitionVolumesEfsVolumeConfiguration? efsVolumeConfiguration,
             string? hostPath,
             string name)
         {
             DockerVolumeConfiguration = dockerVolumeConfiguration;
+            EfsVolumeConfiguration = efsVolumeConfiguration;
             HostPath = hostPath;
             Name = name;
         }
@@ -794,6 +850,28 @@ namespace Pulumi.Aws.Ecs
             DriverOpts = driverOpts;
             Labels = labels;
             Scope = scope;
+        }
+    }
+
+    [OutputType]
+    public sealed class TaskDefinitionVolumesEfsVolumeConfiguration
+    {
+        /// <summary>
+        /// The ID of the EFS File System.
+        /// </summary>
+        public readonly string FileSystemId;
+        /// <summary>
+        /// The path to mount on the host
+        /// </summary>
+        public readonly string? RootDirectory;
+
+        [OutputConstructor]
+        private TaskDefinitionVolumesEfsVolumeConfiguration(
+            string fileSystemId,
+            string? rootDirectory)
+        {
+            FileSystemId = fileSystemId;
+            RootDirectory = rootDirectory;
         }
     }
     }
