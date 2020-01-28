@@ -34,12 +34,15 @@ func NewKeyPair(ctx *pulumi.Context,
 		inputs["keyName"] = nil
 		inputs["keyNamePrefix"] = nil
 		inputs["publicKey"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["keyName"] = args.KeyName
 		inputs["keyNamePrefix"] = args.KeyNamePrefix
 		inputs["publicKey"] = args.PublicKey
+		inputs["tags"] = args.Tags
 	}
 	inputs["fingerprint"] = nil
+	inputs["keyPairId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/keyPair:KeyPair", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -56,7 +59,9 @@ func GetKeyPair(ctx *pulumi.Context,
 		inputs["fingerprint"] = state.Fingerprint
 		inputs["keyName"] = state.KeyName
 		inputs["keyNamePrefix"] = state.KeyNamePrefix
+		inputs["keyPairId"] = state.KeyPairId
 		inputs["publicKey"] = state.PublicKey
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ec2/keyPair:KeyPair", name, id, inputs, opts...)
 	if err != nil {
@@ -90,9 +95,19 @@ func (r *KeyPair) KeyNamePrefix() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["keyNamePrefix"])
 }
 
+// The key pair ID.
+func (r *KeyPair) KeyPairId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyPairId"])
+}
+
 // The public key material.
 func (r *KeyPair) PublicKey() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["publicKey"])
+}
+
+// Key-value mapping of resource tags
+func (r *KeyPair) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering KeyPair resources.
@@ -103,8 +118,12 @@ type KeyPairState struct {
 	KeyName interface{}
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
 	KeyNamePrefix interface{}
+	// The key pair ID.
+	KeyPairId interface{}
 	// The public key material.
 	PublicKey interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -115,4 +134,6 @@ type KeyPairArgs struct {
 	KeyNamePrefix interface{}
 	// The public key material.
 	PublicKey interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

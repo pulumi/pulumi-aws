@@ -57,9 +57,17 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The ID of the placement group.
+     */
+    public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
+    /**
      * The placement strategy.
      */
     public readonly strategy!: pulumi.Output<PlacementStrategy>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -74,7 +82,9 @@ export class PlacementGroup extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
             inputs["strategy"] = state ? state.strategy : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
             if (!args || args.strategy === undefined) {
@@ -82,6 +92,8 @@ export class PlacementGroup extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["placementGroupId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -103,9 +115,17 @@ export interface PlacementGroupState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * The ID of the placement group.
+     */
+    readonly placementGroupId?: pulumi.Input<string>;
+    /**
      * The placement strategy.
      */
     readonly strategy?: pulumi.Input<PlacementStrategy>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -120,4 +140,8 @@ export interface PlacementGroupArgs {
      * The placement strategy.
      */
     readonly strategy: pulumi.Input<PlacementStrategy>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -22,7 +22,14 @@ class NetworkInterface(pulumi.CustomResource):
     """
     A description for the network interface.
     """
+    mac_address: pulumi.Output[str]
+    """
+    The MAC address of the network interface.
+    """
     private_dns_name: pulumi.Output[str]
+    """
+    The private DNS name of the network interface (IPv4).
+    """
     private_ip: pulumi.Output[str]
     private_ips: pulumi.Output[list]
     """
@@ -99,6 +106,7 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            __props__['mac_address'] = None
             __props__['private_dns_name'] = None
         super(NetworkInterface, __self__).__init__(
             'aws:ec2/networkInterface:NetworkInterface',
@@ -107,7 +115,7 @@ class NetworkInterface(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, attachments=None, description=None, private_dns_name=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None):
+    def get(resource_name, id, opts=None, attachments=None, description=None, mac_address=None, private_dns_name=None, private_ip=None, private_ips=None, private_ips_count=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None):
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -117,6 +125,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] attachments: Block to define the attachment of the ENI. Documented below.
         :param pulumi.Input[str] description: A description for the network interface.
+        :param pulumi.Input[str] mac_address: The MAC address of the network interface.
+        :param pulumi.Input[str] private_dns_name: The private DNS name of the network interface (IPv4).
         :param pulumi.Input[list] private_ips: List of private IPs to assign to the ENI.
         :param pulumi.Input[float] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
         :param pulumi.Input[list] security_groups: List of security group IDs to assign to the ENI.
@@ -137,6 +147,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__ = dict()
         __props__["attachments"] = attachments
         __props__["description"] = description
+        __props__["mac_address"] = mac_address
         __props__["private_dns_name"] = private_dns_name
         __props__["private_ip"] = private_ip
         __props__["private_ips"] = private_ips

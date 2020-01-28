@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a Inspector resource group
+// Provides an Amazon Inspector resource group resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
 type ResourceGroup struct {
@@ -66,7 +66,7 @@ func (r *ResourceGroup) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The tags on your EC2 Instance.
+// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
 func (r *ResourceGroup) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -75,12 +75,12 @@ func (r *ResourceGroup) Tags() pulumi.MapOutput {
 type ResourceGroupState struct {
 	// The resource group ARN.
 	Arn interface{}
-	// The tags on your EC2 Instance.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
 	Tags interface{}
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// The tags on your EC2 Instance.
+	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
 	Tags interface{}
 }

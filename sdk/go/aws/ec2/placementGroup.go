@@ -26,10 +26,13 @@ func NewPlacementGroup(ctx *pulumi.Context,
 	if args == nil {
 		inputs["name"] = nil
 		inputs["strategy"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["name"] = args.Name
 		inputs["strategy"] = args.Strategy
+		inputs["tags"] = args.Tags
 	}
+	inputs["placementGroupId"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/placementGroup:PlacementGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -44,7 +47,9 @@ func GetPlacementGroup(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["name"] = state.Name
+		inputs["placementGroupId"] = state.PlacementGroupId
 		inputs["strategy"] = state.Strategy
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:ec2/placementGroup:PlacementGroup", name, id, inputs, opts...)
 	if err != nil {
@@ -68,17 +73,31 @@ func (r *PlacementGroup) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The ID of the placement group.
+func (r *PlacementGroup) PlacementGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["placementGroupId"])
+}
+
 // The placement strategy.
 func (r *PlacementGroup) Strategy() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["strategy"])
+}
+
+// Key-value mapping of resource tags.
+func (r *PlacementGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering PlacementGroup resources.
 type PlacementGroupState struct {
 	// The name of the placement group.
 	Name interface{}
+	// The ID of the placement group.
+	PlacementGroupId interface{}
 	// The placement strategy.
 	Strategy interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
@@ -87,4 +106,6 @@ type PlacementGroupArgs struct {
 	Name interface{}
 	// The placement strategy.
 	Strategy interface{}
+	// Key-value mapping of resource tags.
+	Tags interface{}
 }

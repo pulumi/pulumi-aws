@@ -14,6 +14,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupRes
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", inputs)
 	if err != nil {
@@ -22,7 +23,10 @@ func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupRes
 	return &GetLogGroupResult{
 		Arn: outputs["arn"],
 		CreationTime: outputs["creationTime"],
+		KmsKeyId: outputs["kmsKeyId"],
 		Name: outputs["name"],
+		RetentionInDays: outputs["retentionInDays"],
+		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -31,6 +35,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *GetLogGroupArgs) (*GetLogGroupRes
 type GetLogGroupArgs struct {
 	// The name of the Cloudwatch log group
 	Name interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getLogGroup.
@@ -39,7 +44,13 @@ type GetLogGroupResult struct {
 	Arn interface{}
 	// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	CreationTime interface{}
+	// The ARN of the KMS Key to use when encrypting log data.
+	KmsKeyId interface{}
 	Name interface{}
+	// The number of days log events retained in the specified log group.
+	RetentionInDays interface{}
+	// A mapping of tags to assign to the resource.
+	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

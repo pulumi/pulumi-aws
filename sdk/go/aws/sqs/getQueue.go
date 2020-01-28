@@ -16,6 +16,7 @@ func LookupQueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, erro
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:sqs/getQueue:getQueue", inputs)
 	if err != nil {
@@ -24,6 +25,7 @@ func LookupQueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, erro
 	return &GetQueueResult{
 		Arn: outputs["arn"],
 		Name: outputs["name"],
+		Tags: outputs["tags"],
 		Url: outputs["url"],
 		Id: outputs["id"],
 	}, nil
@@ -33,6 +35,7 @@ func LookupQueue(ctx *pulumi.Context, args *GetQueueArgs) (*GetQueueResult, erro
 type GetQueueArgs struct {
 	// The name of the queue to match.
 	Name interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getQueue.
@@ -40,6 +43,8 @@ type GetQueueResult struct {
 	// The Amazon Resource Name (ARN) of the queue.
 	Arn interface{}
 	Name interface{}
+	// A mapping of tags for the resource.
+	Tags interface{}
 	// The URL of the queue.
 	Url interface{}
 	// id is the provider-assigned unique ID for this managed resource.

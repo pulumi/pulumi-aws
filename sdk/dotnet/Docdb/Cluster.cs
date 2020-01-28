@@ -91,7 +91,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`.
+        /// The following log types are supported: `audit`, `profiler`.
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`.
+        /// The following log types are supported: `audit`, `profiler`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -507,7 +507,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-        /// The following log types are supported: `audit`.
+        /// The following log types are supported: `audit`, `profiler`.
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {

@@ -76,6 +76,10 @@ export class Fleet extends pulumi.CustomResource {
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
     public readonly ec2InstanceType!: pulumi.Output<string>;
+    /**
+     * ARN of an IAM role that instances in the fleet can assume.
+     */
+    public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly logPaths!: pulumi.Output<string[]>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
@@ -119,6 +123,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
             inputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
+            inputs["instanceRoleArn"] = state ? state.instanceRoleArn : undefined;
             inputs["logPaths"] = state ? state.logPaths : undefined;
             inputs["metricGroups"] = state ? state.metricGroups : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -138,6 +143,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
             inputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
+            inputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
             inputs["metricGroups"] = args ? args.metricGroups : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
@@ -182,6 +188,10 @@ export interface FleetState {
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
     readonly ec2InstanceType?: pulumi.Input<string>;
+    /**
+     * ARN of an IAM role that instances in the fleet can assume.
+     */
+    readonly instanceRoleArn?: pulumi.Input<string>;
     readonly logPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
@@ -229,6 +239,10 @@ export interface FleetArgs {
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
     readonly ec2InstanceType: pulumi.Input<string>;
+    /**
+     * ARN of an IAM role that instances in the fleet can assume.
+     */
+    readonly instanceRoleArn?: pulumi.Input<string>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */

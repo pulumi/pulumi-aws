@@ -53,7 +53,6 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["alarms"] = nil
 		inputs["name"] = nil
 		inputs["policyType"] = nil
 		inputs["resourceId"] = nil
@@ -62,7 +61,6 @@ func NewPolicy(ctx *pulumi.Context,
 		inputs["stepScalingPolicyConfiguration"] = nil
 		inputs["targetTrackingScalingPolicyConfiguration"] = nil
 	} else {
-		inputs["alarms"] = args.Alarms
 		inputs["name"] = args.Name
 		inputs["policyType"] = args.PolicyType
 		inputs["resourceId"] = args.ResourceId
@@ -85,7 +83,6 @@ func GetPolicy(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *PolicyState, opts ...pulumi.ResourceOpt) (*Policy, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["alarms"] = state.Alarms
 		inputs["arn"] = state.Arn
 		inputs["name"] = state.Name
 		inputs["policyType"] = state.PolicyType
@@ -110,10 +107,6 @@ func (r *Policy) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
-}
-
-func (r *Policy) Alarms() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["alarms"])
 }
 
 // The ARN assigned by AWS to the scaling policy.
@@ -158,7 +151,6 @@ func (r *Policy) TargetTrackingScalingPolicyConfiguration() pulumi.Output {
 
 // Input properties used for looking up and filtering Policy resources.
 type PolicyState struct {
-	Alarms interface{}
 	// The ARN assigned by AWS to the scaling policy.
 	Arn interface{}
 	// The name of the policy.
@@ -179,7 +171,6 @@ type PolicyState struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	Alarms interface{}
 	// The name of the policy.
 	Name interface{}
 	// For DynamoDB, only `TargetTrackingScaling` is supported. For Amazon ECS, Spot Fleet, and Amazon RDS, both `StepScaling` and `TargetTrackingScaling` are supported. For any other service, only `StepScaling` is supported. Defaults to `StepScaling`.

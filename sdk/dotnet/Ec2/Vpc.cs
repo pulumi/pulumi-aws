@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the main route table associated with
         /// this VPC. Note that you can change a VPC's main route table by using an
-        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
+        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
         /// </summary>
         [Output("mainRouteTableId")]
         public Output<string> MainRouteTableId { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the main route table associated with
         /// this VPC. Note that you can change a VPC's main route table by using an
-        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
+        /// [`aws.ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
         /// </summary>
         [Input("mainRouteTableId")]
         public Input<string>? MainRouteTableId { get; set; }

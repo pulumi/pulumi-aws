@@ -42,6 +42,14 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ## attachmentsSource
+ * 
+ * The `attachmentsSource` block supports the following:
+ * 
+ * * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+ * * `values` - (Required) The value describing the location of an attachment to a document
+ * * `name` - (Optional) The name of the document attachment file
+ * 
  * ## Permissions
  * 
  * The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -84,6 +92,10 @@ export class Document extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     */
+    public readonly attachmentsSources!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
+    /**
      * The JSON or YAML content of the document.
      */
     public readonly content!: pulumi.Output<string>;
@@ -104,7 +116,7 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly documentFormat!: pulumi.Output<string | undefined>;
     /**
-     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      */
     public readonly documentType!: pulumi.Output<string>;
     /**
@@ -165,6 +177,7 @@ export class Document extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as DocumentState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["attachmentsSources"] = state ? state.attachmentsSources : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
@@ -190,6 +203,7 @@ export class Document extends pulumi.CustomResource {
             if (!args || args.documentType === undefined) {
                 throw new Error("Missing required property 'documentType'");
             }
+            inputs["attachmentsSources"] = args ? args.attachmentsSources : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["documentFormat"] = args ? args.documentFormat : undefined;
             inputs["documentType"] = args ? args.documentType : undefined;
@@ -226,6 +240,10 @@ export class Document extends pulumi.CustomResource {
 export interface DocumentState {
     readonly arn?: pulumi.Input<string>;
     /**
+     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     */
+    readonly attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
+    /**
      * The JSON or YAML content of the document.
      */
     readonly content?: pulumi.Input<string>;
@@ -246,7 +264,7 @@ export interface DocumentState {
      */
     readonly documentFormat?: pulumi.Input<string>;
     /**
-     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      */
     readonly documentType?: pulumi.Input<string>;
     /**
@@ -300,6 +318,10 @@ export interface DocumentState {
  */
 export interface DocumentArgs {
     /**
+     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     */
+    readonly attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
+    /**
      * The JSON or YAML content of the document.
      */
     readonly content: pulumi.Input<string>;
@@ -308,7 +330,7 @@ export interface DocumentArgs {
      */
     readonly documentFormat?: pulumi.Input<string>;
     /**
-     * The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      */
     readonly documentType: pulumi.Input<string>;
     /**

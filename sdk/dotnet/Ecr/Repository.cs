@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ecr
         public Output<string> RegistryId { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+        /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
         [Output("repositoryUrl")]
         public Output<string> RepositoryUrl { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ecr
         public Input<string>? RegistryId { get; set; }
 
         /// <summary>
-        /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`
+        /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         /// </summary>
         [Input("repositoryUrl")]
         public Input<string>? RepositoryUrl { get; set; }

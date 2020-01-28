@@ -130,7 +130,7 @@ func (r *UserPoolClient) DefaultRedirectUri() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["defaultRedirectUri"])
 }
 
-// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 func (r *UserPoolClient) ExplicitAuthFlows() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["explicitAuthFlows"])
 }
@@ -189,7 +189,7 @@ type UserPoolClientState struct {
 	ClientSecret interface{}
 	// The default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri interface{}
-	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows interface{}
 	// Should an application secret be generated.
 	GenerateSecret interface{}
@@ -221,7 +221,7 @@ type UserPoolClientArgs struct {
 	CallbackUrls interface{}
 	// The default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri interface{}
-	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows interface{}
 	// Should an application secret be generated.
 	GenerateSecret interface{}

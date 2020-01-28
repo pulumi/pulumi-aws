@@ -68,7 +68,10 @@ export interface GetIpRangesArgs {
     readonly regions?: string[];
     /**
      * Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53Healthchecks` and `S3`.
+     * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+     * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+     * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
+     * [`service` attribute][2] documentation for other possible values.
      */
     readonly services: string[];
     /**

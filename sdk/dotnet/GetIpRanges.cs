@@ -40,7 +40,10 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Filter IP ranges by services. Valid items are `amazon`
-        /// (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
+        /// (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
+        /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
+        /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+        /// [`service` attribute][2] documentation for other possible values.
         /// </summary>
         public List<string> Services
         {

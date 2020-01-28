@@ -29,11 +29,15 @@ class GameSessionQueue(pulumi.CustomResource):
       * `maximumIndividualPlayerLatencyMilliseconds` (`float`) - Maximum latency value that is allowed for any player.
       * `policyDurationSeconds` (`float`) - Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
     timeout_in_seconds: pulumi.Output[float]
     """
     Maximum time a game session request can remain in the queue.
     """
-    def __init__(__self__, resource_name, opts=None, destinations=None, name=None, player_latency_policies=None, timeout_in_seconds=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, destinations=None, name=None, player_latency_policies=None, tags=None, timeout_in_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Gamelift Game Session Queue resource.
         
@@ -42,6 +46,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         
         The **player_latency_policies** object supports the following:
@@ -71,6 +76,7 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__['destinations'] = destinations
             __props__['name'] = name
             __props__['player_latency_policies'] = player_latency_policies
+            __props__['tags'] = tags
             __props__['timeout_in_seconds'] = timeout_in_seconds
             __props__['arn'] = None
         super(GameSessionQueue, __self__).__init__(
@@ -80,7 +86,7 @@ class GameSessionQueue(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, destinations=None, name=None, player_latency_policies=None, timeout_in_seconds=None):
+    def get(resource_name, id, opts=None, arn=None, destinations=None, name=None, player_latency_policies=None, tags=None, timeout_in_seconds=None):
         """
         Get an existing GameSessionQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,6 +98,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[list] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[float] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         
         The **player_latency_policies** object supports the following:
@@ -108,6 +115,7 @@ class GameSessionQueue(pulumi.CustomResource):
         __props__["destinations"] = destinations
         __props__["name"] = name
         __props__["player_latency_policies"] = player_latency_policies
+        __props__["tags"] = tags
         __props__["timeout_in_seconds"] = timeout_in_seconds
         return GameSessionQueue(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

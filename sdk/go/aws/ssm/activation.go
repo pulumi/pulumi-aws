@@ -90,7 +90,6 @@ func (r *Activation) Description() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
-// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
 func (r *Activation) ExpirationDate() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["expirationDate"])
 }
@@ -131,7 +130,6 @@ type ActivationState struct {
 	ActivationCode interface{}
 	// The description of the resource that you want to register.
 	Description interface{}
-	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
 	ExpirationDate interface{}
 	// If the current activation has expired.
 	Expired interface{}
@@ -151,7 +149,6 @@ type ActivationState struct {
 type ActivationArgs struct {
 	// The description of the resource that you want to register.
 	Description interface{}
-	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
 	ExpirationDate interface{}
 	// The IAM Role to attach to the managed instance.
 	IamRole interface{}

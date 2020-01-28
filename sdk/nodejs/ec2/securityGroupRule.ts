@@ -101,7 +101,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The start port (or ICMP type number if protocol is "icmp").
+     * The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
     public readonly fromPort!: pulumi.Output<number>;
     /**
@@ -110,10 +110,11 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
+     * Only valid with `egress`.
      */
     public readonly prefixListIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -216,7 +217,7 @@ export interface SecurityGroupRuleState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The start port (or ICMP type number if protocol is "icmp").
+     * The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
     readonly fromPort?: pulumi.Input<number>;
     /**
@@ -225,10 +226,11 @@ export interface SecurityGroupRuleState {
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
+     * Only valid with `egress`.
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -269,7 +271,7 @@ export interface SecurityGroupRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The start port (or ICMP type number if protocol is "icmp").
+     * The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
     readonly fromPort: pulumi.Input<number>;
     /**
@@ -278,10 +280,11 @@ export interface SecurityGroupRuleArgs {
     readonly ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of prefix list IDs (for allowing access to VPC endpoints).
+     * Only valid with `egress`.
      */
     readonly prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+     * The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     readonly protocol: pulumi.Input<string>;
     /**

@@ -15,14 +15,20 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["id"] = args.Id
+		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("aws:apigateway/getKey:getKey", inputs)
 	if err != nil {
 		return nil, err
 	}
 	return &GetKeyResult{
+		CreatedDate: outputs["createdDate"],
+		Description: outputs["description"],
+		Enabled: outputs["enabled"],
 		Id: outputs["id"],
+		LastUpdatedDate: outputs["lastUpdatedDate"],
 		Name: outputs["name"],
+		Tags: outputs["tags"],
 		Value: outputs["value"],
 	}, nil
 }
@@ -31,14 +37,25 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 type GetKeyArgs struct {
 	// The ID of the API Key to look up.
 	Id interface{}
+	Tags interface{}
 }
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
+	// The date and time when the API Key was created.
+	CreatedDate interface{}
+	// The description of the API Key.
+	Description interface{}
+	// Specifies whether the API Key is enabled.
+	Enabled interface{}
 	// Set to the ID of the API Key.
 	Id interface{}
+	// The date and time when the API Key was last updated.
+	LastUpdatedDate interface{}
 	// Set to the name of the API Key.
 	Name interface{}
+	// A mapping of tags for the resource.
+	Tags interface{}
 	// Set to the value of the API Key.
 	Value interface{}
 }

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp").
+        /// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Output("fromPort")]
         public Output<int> FromPort { get; private set; } = null!;
@@ -53,12 +53,13 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of prefix list IDs (for allowing access to VPC endpoints).
+        /// Only valid with `egress`.
         /// </summary>
         [Output("prefixListIds")]
         public Output<ImmutableArray<string>> PrefixListIds { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -161,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp").
+        /// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -183,6 +184,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of prefix list IDs (for allowing access to VPC endpoints).
+        /// Only valid with `egress`.
         /// </summary>
         public InputList<string> PrefixListIds
         {
@@ -191,7 +193,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -255,7 +257,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The start port (or ICMP type number if protocol is "icmp").
+        /// The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
@@ -277,6 +279,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of prefix list IDs (for allowing access to VPC endpoints).
+        /// Only valid with `egress`.
         /// </summary>
         public InputList<string> PrefixListIds
         {
@@ -285,7 +288,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

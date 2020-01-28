@@ -232,7 +232,7 @@ export class TopicSubscription extends pulumi.CustomResource {
      */
     public readonly filterPolicy!: pulumi.Output<string | undefined>;
     /**
-     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -326,7 +326,7 @@ export interface TopicSubscriptionState {
      */
     readonly filterPolicy?: pulumi.Input<string>;
     /**
-     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -364,7 +364,7 @@ export interface TopicSubscriptionArgs {
      */
     readonly filterPolicy?: pulumi.Input<string>;
     /**
-     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+     * The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
      */
     readonly protocol: pulumi.Input<string>;
     /**

@@ -43,6 +43,7 @@ func NewNetworkInterface(ctx *pulumi.Context,
 		inputs["subnetId"] = args.SubnetId
 		inputs["tags"] = args.Tags
 	}
+	inputs["macAddress"] = nil
 	inputs["privateDnsName"] = nil
 	s, err := ctx.RegisterResource("aws:ec2/networkInterface:NetworkInterface", name, true, inputs, opts...)
 	if err != nil {
@@ -59,6 +60,7 @@ func GetNetworkInterface(ctx *pulumi.Context,
 	if state != nil {
 		inputs["attachments"] = state.Attachments
 		inputs["description"] = state.Description
+		inputs["macAddress"] = state.MacAddress
 		inputs["privateDnsName"] = state.PrivateDnsName
 		inputs["privateIp"] = state.PrivateIp
 		inputs["privateIps"] = state.PrivateIps
@@ -95,6 +97,12 @@ func (r *NetworkInterface) Description() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
+// The MAC address of the network interface.
+func (r *NetworkInterface) MacAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["macAddress"])
+}
+
+// The private DNS name of the network interface (IPv4).
 func (r *NetworkInterface) PrivateDnsName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["privateDnsName"])
 }
@@ -139,6 +147,9 @@ type NetworkInterfaceState struct {
 	Attachments interface{}
 	// A description for the network interface.
 	Description interface{}
+	// The MAC address of the network interface.
+	MacAddress interface{}
+	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName interface{}
 	PrivateIp interface{}
 	// List of private IPs to assign to the ENI.

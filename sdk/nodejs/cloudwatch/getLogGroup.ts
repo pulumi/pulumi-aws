@@ -32,6 +32,7 @@ export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions):
     }
     const promise: Promise<GetLogGroupResult> = pulumi.runtime.invoke("aws:cloudwatch/getLogGroup:getLogGroup", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -45,6 +46,7 @@ export interface GetLogGroupArgs {
      * The name of the Cloudwatch log group
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -59,7 +61,19 @@ export interface GetLogGroupResult {
      * The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
      */
     readonly creationTime: number;
+    /**
+     * The ARN of the KMS Key to use when encrypting log data.
+     */
+    readonly kmsKeyId: string;
     readonly name: string;
+    /**
+     * The number of days log events retained in the specified log group.
+     */
+    readonly retentionInDays: number;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

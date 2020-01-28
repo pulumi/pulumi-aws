@@ -35,12 +35,14 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 		inputs["customEndpointType"] = nil
 		inputs["excludedMembers"] = nil
 		inputs["staticMembers"] = nil
+		inputs["tags"] = nil
 	} else {
 		inputs["clusterEndpointIdentifier"] = args.ClusterEndpointIdentifier
 		inputs["clusterIdentifier"] = args.ClusterIdentifier
 		inputs["customEndpointType"] = args.CustomEndpointType
 		inputs["excludedMembers"] = args.ExcludedMembers
 		inputs["staticMembers"] = args.StaticMembers
+		inputs["tags"] = args.Tags
 	}
 	inputs["arn"] = nil
 	inputs["endpoint"] = nil
@@ -64,6 +66,7 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 		inputs["endpoint"] = state.Endpoint
 		inputs["excludedMembers"] = state.ExcludedMembers
 		inputs["staticMembers"] = state.StaticMembers
+		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, id, inputs, opts...)
 	if err != nil {
@@ -117,6 +120,11 @@ func (r *ClusterEndpoint) StaticMembers() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["staticMembers"])
 }
 
+// Key-value mapping of resource tags
+func (r *ClusterEndpoint) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type ClusterEndpointState struct {
 	// Amazon Resource Name (ARN) of cluster
@@ -133,6 +141,8 @@ type ClusterEndpointState struct {
 	ExcludedMembers interface{}
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }
 
 // The set of arguments for constructing a ClusterEndpoint resource.
@@ -147,4 +157,6 @@ type ClusterEndpointArgs struct {
 	ExcludedMembers interface{}
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 }

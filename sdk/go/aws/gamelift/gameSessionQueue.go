@@ -22,11 +22,13 @@ func NewGameSessionQueue(ctx *pulumi.Context,
 		inputs["destinations"] = nil
 		inputs["name"] = nil
 		inputs["playerLatencyPolicies"] = nil
+		inputs["tags"] = nil
 		inputs["timeoutInSeconds"] = nil
 	} else {
 		inputs["destinations"] = args.Destinations
 		inputs["name"] = args.Name
 		inputs["playerLatencyPolicies"] = args.PlayerLatencyPolicies
+		inputs["tags"] = args.Tags
 		inputs["timeoutInSeconds"] = args.TimeoutInSeconds
 	}
 	inputs["arn"] = nil
@@ -47,6 +49,7 @@ func GetGameSessionQueue(ctx *pulumi.Context,
 		inputs["destinations"] = state.Destinations
 		inputs["name"] = state.Name
 		inputs["playerLatencyPolicies"] = state.PlayerLatencyPolicies
+		inputs["tags"] = state.Tags
 		inputs["timeoutInSeconds"] = state.TimeoutInSeconds
 	}
 	s, err := ctx.ReadResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, id, inputs, opts...)
@@ -86,6 +89,11 @@ func (r *GameSessionQueue) PlayerLatencyPolicies() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["playerLatencyPolicies"])
 }
 
+// Key-value mapping of resource tags
+func (r *GameSessionQueue) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Maximum time a game session request can remain in the queue.
 func (r *GameSessionQueue) TimeoutInSeconds() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["timeoutInSeconds"])
@@ -101,6 +109,8 @@ type GameSessionQueueState struct {
 	Name interface{}
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds interface{}
 }
@@ -113,6 +123,8 @@ type GameSessionQueueArgs struct {
 	Name interface{}
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies interface{}
+	// Key-value mapping of resource tags
+	Tags interface{}
 	// Maximum time a game session request can remain in the queue.
 	TimeoutInSeconds interface{}
 }

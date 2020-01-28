@@ -16,6 +16,12 @@ namespace Pulumi.Aws.GameLift
     public partial class Build : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gamelift Build ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the build
         /// </summary>
         [Output("name")]
@@ -32,6 +38,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.BuildStorageLocation> StorageLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Version that is associated with this build.
@@ -103,6 +115,18 @@ namespace Pulumi.Aws.GameLift
         [Input("storageLocation", required: true)]
         public Input<Inputs.BuildStorageLocationArgs> StorageLocation { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Version that is associated with this build.
         /// </summary>
@@ -116,6 +140,12 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class BuildState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Gamelift Build ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Name of the build
         /// </summary>
@@ -133,6 +163,18 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.BuildStorageLocationGetArgs>? StorageLocation { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Version that is associated with this build.

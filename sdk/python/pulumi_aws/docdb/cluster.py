@@ -56,7 +56,7 @@ class Cluster(pulumi.CustomResource):
     enabled_cloudwatch_logs_exports: pulumi.Output[list]
     """
     List of log types to export to cloudwatch. If omitted, no logs will be exported.
-    The following log types are supported: `audit`.
+    The following log types are supported: `audit`, `profiler`.
     """
     endpoint: pulumi.Output[str]
     """
@@ -157,7 +157,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
-               The following log types are supported: `audit`.
+               The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -253,7 +253,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
-               The following log types are supported: `audit`.
+               The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage.

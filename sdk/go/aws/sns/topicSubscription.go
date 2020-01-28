@@ -129,7 +129,7 @@ func (r *TopicSubscription) FilterPolicy() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["filterPolicy"])
 }
 
-// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
 func (r *TopicSubscription) Protocol() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -158,7 +158,7 @@ type TopicSubscriptionState struct {
 	EndpointAutoConfirms interface{}
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy interface{}
-	// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+	// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
 	Protocol interface{}
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery interface{}
@@ -178,7 +178,7 @@ type TopicSubscriptionArgs struct {
 	EndpointAutoConfirms interface{}
 	// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
 	FilterPolicy interface{}
-	// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+	// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
 	Protocol interface{}
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery interface{}

@@ -196,7 +196,7 @@ func (r *Cluster) DbSubnetGroupName() pulumi.StringOutput {
 }
 
 // List of log types to export to cloudwatch. If omitted, no logs will be exported.
-// The following log types are supported: `audit`.
+// The following log types are supported: `audit`, `profiler`.
 func (r *Cluster) EnabledCloudwatchLogsExports() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["enabledCloudwatchLogsExports"])
 }
@@ -316,7 +316,7 @@ type ClusterState struct {
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`.
+	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports interface{}
 	// The DNS address of the DocDB instance
 	Endpoint interface{}
@@ -380,7 +380,7 @@ type ClusterArgs struct {
 	// A DB subnet group to associate with this DB instance.
 	DbSubnetGroupName interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
-	// The following log types are supported: `audit`.
+	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports interface{}
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
 	Engine interface{}

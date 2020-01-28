@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sns
         public Output<string?> FilterPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is option but unsupported, see below).
+        /// The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

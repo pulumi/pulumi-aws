@@ -165,7 +165,6 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    public readonly alarms!: pulumi.Output<string[] | undefined>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
@@ -211,7 +210,6 @@ export class Policy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            inputs["alarms"] = state ? state.alarms : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policyType"] = state ? state.policyType : undefined;
@@ -231,7 +229,6 @@ export class Policy extends pulumi.CustomResource {
             if (!args || args.serviceNamespace === undefined) {
                 throw new Error("Missing required property 'serviceNamespace'");
             }
-            inputs["alarms"] = args ? args.alarms : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
@@ -256,7 +253,6 @@ export class Policy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Policy resources.
  */
 export interface PolicyState {
-    readonly alarms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN assigned by AWS to the scaling policy.
      */
@@ -295,7 +291,6 @@ export interface PolicyState {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    readonly alarms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the policy.
      */

@@ -45,6 +45,12 @@ namespace Pulumi.Aws.GameLift
         [Output("ec2InstanceType")]
         public Output<string> Ec2InstanceType { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of an IAM role that instances in the fleet can assume.
+        /// </summary>
+        [Output("instanceRoleArn")]
+        public Output<string?> InstanceRoleArn { get; private set; } = null!;
+
         [Output("logPaths")]
         public Output<ImmutableArray<string>> LogPaths { get; private set; } = null!;
 
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.GameLift
         [Input("ec2InstanceType", required: true)]
         public Input<string> Ec2InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// ARN of an IAM role that instances in the fleet can assume.
+        /// </summary>
+        [Input("instanceRoleArn")]
+        public Input<string>? InstanceRoleArn { get; set; }
+
         [Input("metricGroups")]
         private InputList<string>? _metricGroups;
 
@@ -238,6 +250,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("ec2InstanceType")]
         public Input<string>? Ec2InstanceType { get; set; }
+
+        /// <summary>
+        /// ARN of an IAM role that instances in the fleet can assume.
+        /// </summary>
+        [Input("instanceRoleArn")]
+        public Input<string>? InstanceRoleArn { get; set; }
 
         [Input("logPaths")]
         private InputList<string>? _logPaths;

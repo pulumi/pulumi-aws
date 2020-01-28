@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> IamArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
         /// </summary>
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? IamArn { get; set; }
 
         /// <summary>
-        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
         /// </summary>
         [Input("identityType", required: true)]
         public Input<string> IdentityType { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? IamArn { get; set; }
 
         /// <summary>
-        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
         /// </summary>
         [Input("identityType")]
         public Input<string>? IdentityType { get; set; }

@@ -93,7 +93,7 @@ func (r *User) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
-// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 func (r *User) AwsAccountId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["awsAccountId"])
 }
@@ -108,7 +108,7 @@ func (r *User) IamArn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["iamArn"])
 }
 
-// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
 func (r *User) IdentityType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["identityType"])
 }
@@ -137,13 +137,13 @@ func (r *User) UserRole() pulumi.StringOutput {
 type UserState struct {
 	// Amazon Resource Name (ARN) of the user
 	Arn interface{}
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId interface{}
 	// The email address of the user that you want to register.
 	Email interface{}
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn interface{}
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
 	IdentityType interface{}
 	// The namespace. Currently, you should set this to `default`.
 	Namespace interface{}
@@ -157,13 +157,13 @@ type UserState struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+	// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId interface{}
 	// The email address of the user that you want to register.
 	Email interface{}
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn interface{}
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values: `IAM` and `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
 	IdentityType interface{}
 	// The namespace. Currently, you should set this to `default`.
 	Namespace interface{}

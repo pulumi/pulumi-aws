@@ -106,7 +106,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> DesiredCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+        /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
         /// * `wait_for_capacity_timeout` (Default: "10m") A maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.AutoScaling
         /// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
         /// to attach to the autoscaling group **before** instances are launched. The
         /// syntax is exactly the same as the separate
-        /// [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+        /// [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _enabledMetrics;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+        /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
         /// * `wait_for_capacity_timeout` (Default: "10m") A maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -411,7 +411,7 @@ namespace Pulumi.Aws.AutoScaling
         /// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
         /// to attach to the autoscaling group **before** instances are launched. The
         /// syntax is exactly the same as the separate
-        /// [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+        /// [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
@@ -648,7 +648,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _enabledMetrics;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+        /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
         /// * `wait_for_capacity_timeout` (Default: "10m") A maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -691,7 +691,7 @@ namespace Pulumi.Aws.AutoScaling
         /// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
         /// to attach to the autoscaling group **before** instances are launched. The
         /// syntax is exactly the same as the separate
-        /// [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+        /// [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>

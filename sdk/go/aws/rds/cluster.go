@@ -49,6 +49,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["dbClusterParameterGroupName"] = nil
 		inputs["dbSubnetGroupName"] = nil
 		inputs["deletionProtection"] = nil
+		inputs["enableHttpEndpoint"] = nil
 		inputs["enabledCloudwatchLogsExports"] = nil
 		inputs["engine"] = nil
 		inputs["engineMode"] = nil
@@ -85,6 +86,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["dbClusterParameterGroupName"] = args.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = args.DbSubnetGroupName
 		inputs["deletionProtection"] = args.DeletionProtection
+		inputs["enableHttpEndpoint"] = args.EnableHttpEndpoint
 		inputs["enabledCloudwatchLogsExports"] = args.EnabledCloudwatchLogsExports
 		inputs["engine"] = args.Engine
 		inputs["engineMode"] = args.EngineMode
@@ -141,6 +143,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["dbClusterParameterGroupName"] = state.DbClusterParameterGroupName
 		inputs["dbSubnetGroupName"] = state.DbSubnetGroupName
 		inputs["deletionProtection"] = state.DeletionProtection
+		inputs["enableHttpEndpoint"] = state.EnableHttpEndpoint
 		inputs["enabledCloudwatchLogsExports"] = state.EnabledCloudwatchLogsExports
 		inputs["endpoint"] = state.Endpoint
 		inputs["engine"] = state.Engine
@@ -255,6 +258,11 @@ func (r *Cluster) DbSubnetGroupName() pulumi.StringOutput {
 // If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 func (r *Cluster) DeletionProtection() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["deletionProtection"])
+}
+
+// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+func (r *Cluster) EnableHttpEndpoint() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableHttpEndpoint"])
 }
 
 // List of log types to export to cloudwatch. If omitted, no logs will be exported.
@@ -425,6 +433,8 @@ type ClusterState struct {
 	DbSubnetGroupName interface{}
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection interface{}
+	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	EnableHttpEndpoint interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports interface{}
@@ -513,6 +523,8 @@ type ClusterArgs struct {
 	DbSubnetGroupName interface{}
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection interface{}
+	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	EnableHttpEndpoint interface{}
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports interface{}

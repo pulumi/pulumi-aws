@@ -24,7 +24,7 @@ class DeploymentConfig(pulumi.CustomResource):
     """
     minimum_healthy_hosts: pulumi.Output[dict]
     """
-    A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+    A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
     
       * `type` (`str`)
       * `value` (`float`)
@@ -53,7 +53,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         
         The **minimum_healthy_hosts** object supports the following:
@@ -119,7 +119,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         
         The **minimum_healthy_hosts** object supports the following:

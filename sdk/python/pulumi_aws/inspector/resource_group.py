@@ -16,15 +16,15 @@ class ResourceGroup(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    The tags on your EC2 Instance.
+    Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
     """
     def __init__(__self__, resource_name, opts=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Inspector resource group
+        Provides an Amazon Inspector resource group resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] tags: The tags on your EC2 Instance.
+        :param pulumi.Input[dict] tags: Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
         """
@@ -65,7 +65,7 @@ class ResourceGroup(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The resource group ARN.
-        :param pulumi.Input[dict] tags: The tags on your EC2 Instance.
+        :param pulumi.Input[dict] tags: Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/inspector_resource_group.html.markdown.
         """

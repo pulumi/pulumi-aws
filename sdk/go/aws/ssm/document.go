@@ -14,6 +14,14 @@ import (
 // or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
 // schema version you must recreate the resource.
 // 
+// ## attachmentsSource
+// 
+// The `attachmentsSource` block supports the following:
+// 
+// * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+// * `values` - (Required) The value describing the location of an attachment to a document
+// * `name` - (Optional) The name of the document attachment file
+// 
 // ## Permissions
 // 
 // The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -41,6 +49,7 @@ func NewDocument(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["attachmentsSources"] = nil
 		inputs["content"] = nil
 		inputs["documentFormat"] = nil
 		inputs["documentType"] = nil
@@ -48,6 +57,7 @@ func NewDocument(ctx *pulumi.Context,
 		inputs["permissions"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["attachmentsSources"] = args.AttachmentsSources
 		inputs["content"] = args.Content
 		inputs["documentFormat"] = args.DocumentFormat
 		inputs["documentType"] = args.DocumentType
@@ -81,6 +91,7 @@ func GetDocument(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["arn"] = state.Arn
+		inputs["attachmentsSources"] = state.AttachmentsSources
 		inputs["content"] = state.Content
 		inputs["createdDate"] = state.CreatedDate
 		inputs["defaultVersion"] = state.DefaultVersion
@@ -120,6 +131,11 @@ func (r *Document) Arn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["arn"])
 }
 
+// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+func (r *Document) AttachmentsSources() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["attachmentsSources"])
+}
+
 // The JSON or YAML content of the document.
 func (r *Document) Content() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["content"])
@@ -145,7 +161,7 @@ func (r *Document) DocumentFormat() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["documentFormat"])
 }
 
-// The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 func (r *Document) DocumentType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["documentType"])
 }
@@ -208,6 +224,8 @@ func (r *Document) Tags() pulumi.MapOutput {
 // Input properties used for looking up and filtering Document resources.
 type DocumentState struct {
 	Arn interface{}
+	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	AttachmentsSources interface{}
 	// The JSON or YAML content of the document.
 	Content interface{}
 	// The date the document was created.
@@ -218,7 +236,7 @@ type DocumentState struct {
 	Description interface{}
 	// The format of the document. Valid document types include: `JSON` and `YAML`
 	DocumentFormat interface{}
-	// The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType interface{}
 	// The sha1 or sha256 of the document content
 	Hash interface{}
@@ -246,11 +264,13 @@ type DocumentState struct {
 
 // The set of arguments for constructing a Document resource.
 type DocumentArgs struct {
+	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	AttachmentsSources interface{}
 	// The JSON or YAML content of the document.
 	Content interface{}
 	// The format of the document. Valid document types include: `JSON` and `YAML`
 	DocumentFormat interface{}
-	// The type of the document. Valid document types include: `Command`, `Policy`, `Automation` and `Session`
+	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
 	DocumentType interface{}
 	// The name of the document.
 	Name interface{}

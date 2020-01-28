@@ -20,7 +20,7 @@ class SecurityGroupRule(pulumi.CustomResource):
     """
     from_port: pulumi.Output[float]
     """
-    The start port (or ICMP type number if protocol is "icmp").
+    The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
     """
     ipv6_cidr_blocks: pulumi.Output[list]
     """
@@ -29,10 +29,11 @@ class SecurityGroupRule(pulumi.CustomResource):
     prefix_list_ids: pulumi.Output[list]
     """
     List of prefix list IDs (for allowing access to VPC endpoints).
+    Only valid with `egress`.
     """
     protocol: pulumi.Output[str]
     """
-    The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+    The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
     """
     security_group_id: pulumi.Output[str]
     """
@@ -77,10 +78,11 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
         :param pulumi.Input[str] description: Description of the rule.
-        :param pulumi.Input[float] from_port: The start port (or ICMP type number if protocol is "icmp").
+        :param pulumi.Input[float] from_port: The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         :param pulumi.Input[list] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[list] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
-        :param pulumi.Input[str] protocol: The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+               Only valid with `egress`.
+        :param pulumi.Input[str] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
                a source to this ingress rule. Cannot be specified with `source_security_group_id`.
@@ -147,10 +149,11 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
         :param pulumi.Input[str] description: Description of the rule.
-        :param pulumi.Input[float] from_port: The start port (or ICMP type number if protocol is "icmp").
+        :param pulumi.Input[float] from_port: The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         :param pulumi.Input[list] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[list] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints).
-        :param pulumi.Input[str] protocol: The protocol. If not icmp, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+               Only valid with `egress`.
+        :param pulumi.Input[str] protocol: The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[str] security_group_id: The security group to apply this rule to.
         :param pulumi.Input[bool] self: If true, the security group itself will be added as
                a source to this ingress rule. Cannot be specified with `source_security_group_id`.

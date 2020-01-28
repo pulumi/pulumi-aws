@@ -9,7 +9,7 @@ import (
 
 // `ec2.getSubnetIds` provides a list of ids for a vpcId
 // 
-// This resource can be useful for getting back a list of subnet ids for a vpc.
+// This resource can be useful for getting back a set of subnet ids for a vpc.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
 func LookupSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs) (*GetSubnetIdsResult, error) {

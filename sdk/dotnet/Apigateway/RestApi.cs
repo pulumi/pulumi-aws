@@ -313,6 +313,18 @@ namespace Pulumi.Aws.ApiGateway
         [Input("types", required: true)]
         public Input<string> Types { get; set; } = null!;
 
+        [Input("vpcEndpointIds")]
+        private InputList<string>? _vpcEndpointIds;
+
+        /// <summary>
+        /// A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        /// </summary>
+        public InputList<string> VpcEndpointIds
+        {
+            get => _vpcEndpointIds ?? (_vpcEndpointIds = new InputList<string>());
+            set => _vpcEndpointIds = value;
+        }
+
         public RestApiEndpointConfigurationArgs()
         {
         }
@@ -325,6 +337,18 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("types", required: true)]
         public Input<string> Types { get; set; } = null!;
+
+        [Input("vpcEndpointIds")]
+        private InputList<string>? _vpcEndpointIds;
+
+        /// <summary>
+        /// A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        /// </summary>
+        public InputList<string> VpcEndpointIds
+        {
+            get => _vpcEndpointIds ?? (_vpcEndpointIds = new InputList<string>());
+            set => _vpcEndpointIds = value;
+        }
 
         public RestApiEndpointConfigurationGetArgs()
         {
@@ -342,11 +366,18 @@ namespace Pulumi.Aws.ApiGateway
         /// A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         /// </summary>
         public readonly string Types;
+        /// <summary>
+        /// A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
+        /// </summary>
+        public readonly ImmutableArray<string> VpcEndpointIds;
 
         [OutputConstructor]
-        private RestApiEndpointConfiguration(string types)
+        private RestApiEndpointConfiguration(
+            string types,
+            ImmutableArray<string> vpcEndpointIds)
         {
             Types = types;
+            VpcEndpointIds = vpcEndpointIds;
         }
     }
     }
