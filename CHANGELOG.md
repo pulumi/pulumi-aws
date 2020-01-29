@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.19.0 (2020-01-29)
 * Support `awsfirelens` in `ecs.Container`
 * Upgrade to v2.46.0 of the AWS Terraform Provider
 * Upgrade to v1.6.4 of the pulumi-terraform-bridge
-
----
 
 ## 1.18.0 (2020-01-13)
 * Stop auto-naming the `name` property of `aws.route53.Record` since it must be the literal domain
