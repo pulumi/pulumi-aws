@@ -3,7 +3,7 @@
 package main
 
 import (
-	awsconfig "github.com/pulumi/pulumi-aws/sdk/go/aws/config"
+	"github.com/pulumi/pulumi-aws/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/go/aws/ec2"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -15,15 +15,28 @@ func main() {
 		group, err := ec2.NewSecurityGroup(ctx, "web-secgrp-2", &ec2.SecurityGroupArgs{
 			Description: pulumi.String("Enable HTTP access"),
 			Ingress: ec2.SecurityGroupIngressArray{
-				&ec2.SecurityGroupIngressArgs{
-					Protocol: pulumi.String("tcp"),
-					FromPort: pulumi.Int(80),
-					ToPort: pulumi.Int(80),
-					CidrBlocks: pulumi.StringArray{
-						pulumi.String("0.0.0.0/0"),
-					},
+				ec2.SecurityGroupIngressArgs{
+					Protocol:   pulumi.String("tcp"),
+					FromPort:   pulumi.Int(80),
+					ToPort:     pulumi.Int(80),
+					CidrBlocks: pulumi.StringArray{pulumi.String("0.0.0.0/0")},
 				},
 			},
+		})
+		if err != nil {
+			return err
+		}
+
+		mostRecent := true
+		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+			Filters: []aws.GetAmiFilter{
+				{
+					Name:   "name",
+					Values: []string{"amzn-ami-hvm-*-x86_64-ebs"},
+				},
+			},
+			Owners:     []string{"137112412989"},
+			MostRecent: &mostRecent,
 		})
 		if err != nil {
 			return err
@@ -34,7 +47,7 @@ func main() {
 			SecurityGroups: pulumi.StringArray{
 				group.Name,
 			},
-			Ami: pulumi.String(getLinuxAMI(awsconfig.GetRegion(ctx), size)),
+			Ami: pulumi.String(ami.Id),
 		})
 		if err != nil {
 			return err
