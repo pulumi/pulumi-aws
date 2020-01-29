@@ -14,6 +14,18 @@ class Cluster(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) that identifies the cluster
     """
+    capacity_providers: pulumi.Output[list]
+    """
+    List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+    """
+    default_capacity_provider_strategies: pulumi.Output[list]
+    """
+    The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+    
+      * `base` (`float`)
+      * `capacityProvider` (`str`)
+      * `weight` (`float`)
+    """
     name: pulumi.Output[str]
     """
     The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -29,7 +41,7 @@ class Cluster(pulumi.CustomResource):
     """
     Key-value mapping of resource tags
     """
-    def __init__(__self__, resource_name, opts=None, name=None, settings=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capacity_providers=None, default_capacity_provider_strategies=None, name=None, settings=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an ECS cluster.
         
@@ -40,11 +52,27 @@ class Cluster(pulumi.CustomResource):
         * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
         * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
         
+        ## default_capacity_provider_strategy
+        
+        The `default_capacity_provider_strategy` configuration block supports the following:
+        
+        * `capacity_provider` - (Required) The short name of the capacity provider.
+        * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input[list] default_capacity_provider_strategies: The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        
+        The **default_capacity_provider_strategies** object supports the following:
+        
+          * `base` (`pulumi.Input[float]`)
+          * `capacityProvider` (`pulumi.Input[str]`)
+          * `weight` (`pulumi.Input[float]`)
         
         The **settings** object supports the following:
         
@@ -70,6 +98,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['capacity_providers'] = capacity_providers
+            __props__['default_capacity_provider_strategies'] = default_capacity_provider_strategies
             __props__['name'] = name
             __props__['settings'] = settings
             __props__['tags'] = tags
@@ -81,7 +111,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, name=None, settings=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, capacity_providers=None, default_capacity_provider_strategies=None, name=None, settings=None, tags=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,9 +120,17 @@ class Cluster(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster
+        :param pulumi.Input[list] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input[list] default_capacity_provider_strategies: The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
+        
+        The **default_capacity_provider_strategies** object supports the following:
+        
+          * `base` (`pulumi.Input[float]`)
+          * `capacityProvider` (`pulumi.Input[str]`)
+          * `weight` (`pulumi.Input[float]`)
         
         The **settings** object supports the following:
         
@@ -105,6 +143,8 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["arn"] = arn
+        __props__["capacity_providers"] = capacity_providers
+        __props__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
         __props__["name"] = name
         __props__["settings"] = settings
         __props__["tags"] = tags

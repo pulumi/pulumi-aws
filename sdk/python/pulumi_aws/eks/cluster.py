@@ -68,6 +68,7 @@ class Cluster(pulumi.CustomResource):
       * `clusterSecurityGroupId` (`str`) - The cluster security group that was created by Amazon EKS for the cluster.
       * `endpointPrivateAccess` (`bool`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
       * `endpointPublicAccess` (`bool`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+      * `publicAccessCidrs` (`list`) - <elided>
       * `security_group_ids` (`list`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
       * `subnet_ids` (`list`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
       * `vpc_id` (`str`) - The VPC associated with your cluster.
@@ -90,6 +91,7 @@ class Cluster(pulumi.CustomResource):
           * `clusterSecurityGroupId` (`pulumi.Input[str]`) - The cluster security group that was created by Amazon EKS for the cluster.
           * `endpointPrivateAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
           * `endpointPublicAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+          * `publicAccessCidrs` (`pulumi.Input[list]`) - <elided>
           * `security_group_ids` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
           * `subnet_ids` (`pulumi.Input[list]`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
           * `vpc_id` (`pulumi.Input[str]`) - The VPC associated with your cluster.
@@ -173,6 +175,7 @@ class Cluster(pulumi.CustomResource):
           * `clusterSecurityGroupId` (`pulumi.Input[str]`) - The cluster security group that was created by Amazon EKS for the cluster.
           * `endpointPrivateAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
           * `endpointPublicAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
+          * `publicAccessCidrs` (`pulumi.Input[list]`) - <elided>
           * `security_group_ids` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
           * `subnet_ids` (`pulumi.Input[list]`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
           * `vpc_id` (`pulumi.Input[str]`) - The VPC associated with your cluster.

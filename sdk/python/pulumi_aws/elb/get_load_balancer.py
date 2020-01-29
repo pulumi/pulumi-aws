@@ -13,10 +13,13 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, dns_name=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None, id=None):
+    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, dns_name=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None, id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         __self__.access_logs = access_logs
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         __self__.availability_zones = availability_zones
@@ -81,6 +84,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             yield self
         return GetLoadBalancerResult(
             access_logs=self.access_logs,
+            arn=self.arn,
             availability_zones=self.availability_zones,
             connection_draining=self.connection_draining,
             connection_draining_timeout=self.connection_draining_timeout,
@@ -126,6 +130,7 @@ def get_load_balancer(name=None,tags=None,opts=None):
 
     return AwaitableGetLoadBalancerResult(
         access_logs=__ret__.get('accessLogs'),
+        arn=__ret__.get('arn'),
         availability_zones=__ret__.get('availabilityZones'),
         connection_draining=__ret__.get('connectionDraining'),
         connection_draining_timeout=__ret__.get('connectionDrainingTimeout'),

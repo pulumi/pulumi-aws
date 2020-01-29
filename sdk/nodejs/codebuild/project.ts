@@ -175,6 +175,7 @@ import * as utilities from "../utilities";
  *         imagePullCredentialsType: "CODEBUILD",
  *         type: "LINUX_CONTAINER",
  *     },
+ *     queuedTimeout: 5,
  *     serviceRole: exampleRole.arn,
  *     source: {
  *         gitCloneDepth: 1,
@@ -261,6 +262,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     */
+    public readonly queuedTimeout!: pulumi.Output<number | undefined>;
+    /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
     public readonly secondaryArtifacts!: pulumi.Output<outputs.codebuild.ProjectSecondaryArtifact[] | undefined>;
@@ -308,6 +313,7 @@ export class Project extends pulumi.CustomResource {
             inputs["environment"] = state ? state.environment : undefined;
             inputs["logsConfig"] = state ? state.logsConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
             inputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
             inputs["secondarySources"] = state ? state.secondarySources : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
@@ -337,6 +343,7 @@ export class Project extends pulumi.CustomResource {
             inputs["environment"] = args ? args.environment : undefined;
             inputs["logsConfig"] = args ? args.logsConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
             inputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
             inputs["secondarySources"] = args ? args.secondarySources : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
@@ -406,6 +413,10 @@ export interface ProjectState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     */
+    readonly queuedTimeout?: pulumi.Input<number>;
+    /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */
     readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
@@ -471,6 +482,10 @@ export interface ProjectArgs {
      * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     */
+    readonly queuedTimeout?: pulumi.Input<number>;
     /**
      * A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
      */

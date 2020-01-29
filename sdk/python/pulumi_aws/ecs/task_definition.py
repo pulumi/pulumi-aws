@@ -97,6 +97,11 @@ class TaskDefinition(pulumi.CustomResource):
         * `labels` (`dict`) - A map of custom metadata to add to your Docker volume.
         * `scope` (`str`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
     
+      * `efsVolumeConfiguration` (`dict`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
+    
+        * `fileSystemId` (`str`) - The ID of the EFS File System.
+        * `rootDirectory` (`str`) - The path to mount on the host
+    
       * `hostPath` (`str`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
       * `name` (`str`) - The name of the volume. This name is referenced in the `sourceVolume`
         parameter of container definition in the `mountPoints` section.
@@ -150,6 +155,11 @@ class TaskDefinition(pulumi.CustomResource):
             * `driverOpts` (`pulumi.Input[dict]`) - A map of Docker driver specific options.
             * `labels` (`pulumi.Input[dict]`) - A map of custom metadata to add to your Docker volume.
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+        
+          * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
+        
+            * `fileSystemId` (`pulumi.Input[str]`) - The ID of the EFS File System.
+            * `rootDirectory` (`pulumi.Input[str]`) - The path to mount on the host
         
           * `hostPath` (`pulumi.Input[str]`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
           * `name` (`pulumi.Input[str]`) - The name of the volume. This name is referenced in the `sourceVolume`
@@ -254,6 +264,11 @@ class TaskDefinition(pulumi.CustomResource):
             * `driverOpts` (`pulumi.Input[dict]`) - A map of Docker driver specific options.
             * `labels` (`pulumi.Input[dict]`) - A map of custom metadata to add to your Docker volume.
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
+        
+          * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
+        
+            * `fileSystemId` (`pulumi.Input[str]`) - The ID of the EFS File System.
+            * `rootDirectory` (`pulumi.Input[str]`) - The path to mount on the host
         
           * `hostPath` (`pulumi.Input[str]`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
           * `name` (`pulumi.Input[str]`) - The name of the volume. This name is referenced in the `sourceVolume`

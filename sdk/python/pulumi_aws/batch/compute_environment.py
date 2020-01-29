@@ -15,13 +15,15 @@ class ComputeEnvironment(pulumi.CustomResource):
     The Amazon Resource Name (ARN) of the compute environment.
     """
     compute_environment_name: pulumi.Output[str]
+    compute_environment_name_prefix: pulumi.Output[str]
     """
-    The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+    Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
     """
     compute_resources: pulumi.Output[dict]
     """
     Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
     
+      * `allocationStrategy` (`str`) - The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
       * `bidPercentage` (`float`) - Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
       * `desiredVcpus` (`float`) - The desired number of EC2 vCPUS in the compute environment.
       * `ec2KeyPair` (`str`) - The EC2 key pair that is used for instances launched in the compute environment.
@@ -66,7 +68,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     """
     The type of compute environment. Valid items are `EC2` or `SPOT`.
     """
-    def __init__(__self__, resource_name, opts=None, compute_environment_name=None, compute_resources=None, service_role=None, state=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, compute_environment_name=None, compute_environment_name_prefix=None, compute_resources=None, service_role=None, state=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
         
@@ -74,11 +76,11 @@ class ComputeEnvironment(pulumi.CustomResource):
         For information about compute environment, see [Compute Environments][2] .
         
         > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `iam.RolePolicyAttachment`;
-           otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
+        otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+        :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input[dict] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
@@ -86,6 +88,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         
         The **compute_resources** object supports the following:
         
+          * `allocationStrategy` (`pulumi.Input[str]`) - The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
           * `bidPercentage` (`pulumi.Input[float]`) - Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
           * `desiredVcpus` (`pulumi.Input[float]`) - The desired number of EC2 vCPUS in the compute environment.
           * `ec2KeyPair` (`pulumi.Input[str]`) - The EC2 key pair that is used for instances launched in the compute environment.
@@ -125,9 +128,8 @@ class ComputeEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if compute_environment_name is None:
-                raise TypeError("Missing required property 'compute_environment_name'")
             __props__['compute_environment_name'] = compute_environment_name
+            __props__['compute_environment_name_prefix'] = compute_environment_name_prefix
             __props__['compute_resources'] = compute_resources
             if service_role is None:
                 raise TypeError("Missing required property 'service_role'")
@@ -147,7 +149,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, compute_environment_name=None, compute_resources=None, ecs_cluster_arn=None, service_role=None, state=None, status=None, status_reason=None, type=None):
+    def get(resource_name, id, opts=None, arn=None, compute_environment_name=None, compute_environment_name_prefix=None, compute_resources=None, ecs_cluster_arn=None, service_role=None, state=None, status=None, status_reason=None, type=None):
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -156,7 +158,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed.
+        :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         :param pulumi.Input[dict] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
@@ -167,6 +169,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         
         The **compute_resources** object supports the following:
         
+          * `allocationStrategy` (`pulumi.Input[str]`) - The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
           * `bidPercentage` (`pulumi.Input[float]`) - Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
           * `desiredVcpus` (`pulumi.Input[float]`) - The desired number of EC2 vCPUS in the compute environment.
           * `ec2KeyPair` (`pulumi.Input[str]`) - The EC2 key pair that is used for instances launched in the compute environment.
@@ -194,6 +197,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__ = dict()
         __props__["arn"] = arn
         __props__["compute_environment_name"] = compute_environment_name
+        __props__["compute_environment_name_prefix"] = compute_environment_name_prefix
         __props__["compute_resources"] = compute_resources
         __props__["ecs_cluster_arn"] = ecs_cluster_arn
         __props__["service_role"] = service_role

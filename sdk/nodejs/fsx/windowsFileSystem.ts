@@ -133,7 +133,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
      */
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
@@ -281,7 +281,7 @@ export interface WindowsFileSystemState {
      */
     readonly skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
      */
     readonly storageCapacity?: pulumi.Input<number>;
     /**
@@ -343,7 +343,7 @@ export interface WindowsFileSystemArgs {
      */
     readonly skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 300 and maximum of 65536.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
      */
     readonly storageCapacity: pulumi.Input<number>;
     /**

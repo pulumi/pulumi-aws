@@ -166,7 +166,7 @@ export interface LogConfiguration {
 }
 
 // See `logdriver` at http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html
-export type LogDriver = "json-file" | "syslog" | "journald" | "gelf" | "fluentd" | "awslogs" | "splunk";
+export type LogDriver = "json-file" | "syslog" | "journald" | "gelf" | "fluentd" | "awslogs" | "splunk" | "awsfirelens";
 
 // See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_MountPoint.html
 export interface MountPoint {

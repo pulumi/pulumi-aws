@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *         name: selected.websiteDomain,
  *         zoneId: selected.hostedZoneId,
  *     }],
+ *     name: "bucket",
  *     type: "A",
  *     zoneId: testZone.id,
  * });

@@ -8,6 +8,32 @@ _(none)_
 
 ---
 
+## 1.19.0 (2020-01-29)
+* Support `awsfirelens` in `ecs.Container`
+* Upgrade to v2.46.0 of the AWS Terraform Provider
+* Upgrade to v1.6.4 of the pulumi-terraform-bridge
+
+## 1.18.0 (2020-01-13)
+* Stop auto-naming the `name` property of `aws.route53.Record` since it must be the literal domain
+  name of the record.  This is a breaking change for code which relied on the auto-naming, but such
+  code was almost certainly not behaving as intended (registering incorrect domain names).
+  [#842](https://github.com/pulumi/pulumi-aws/pull/842)
+* Upgrade to v2.44.0 of the AWS Terraform Provider
+
+## 1.17.0 (2019-12-19)
+* Default Lambda NodeJS usage to Node JS 12.x  
+  **Please Note:** Existing lambdas will stay on their specified version. Users need to explicitly create a replacement to move them
+* Autoname the `nodeGroupName` property of `aws.eks.NodeGroup`
+* Upgrade to v2.43.0 of the AWS Terraform Provider
+
+## 1.16.0 (2019-12-16)
+* Upgrade to v2.42.0 of the AWS Terraform Provider
+
+## 1.15.0 (2019-12-12)
+* Upgrade to v1.5.2 of pulumi-terraform-bridge
+* Namespace names in .NET SDK are adjusted to PascalCase
+([#819](https://github.com/pulumi/pulumi-aws/pull/819)).
+
 ## 1.14.1 (2019-12-04)
 * Handle additional `InvalidParameterException: Error in role params` error during creation for IAM eventual consistency
 

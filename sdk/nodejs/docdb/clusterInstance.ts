@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     clusterInstances.push(new aws.docdb.ClusterInstance(`cluster_instances-${i}`, {
  *         clusterIdentifier: defaultCluster.id,
  *         identifier: `docdb-cluster-demo-${i}`,
- *         instanceClass: "db.r4.large",
+ *         instanceClass: "db.r5.large",
  *     }));
  * }
  * ```

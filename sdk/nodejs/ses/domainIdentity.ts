@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *     domain: "example.com",
  * });
  * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
+ *     name: "_amazonses.example.com",
  *     records: [example.verificationToken],
  *     ttl: 600,
  *     type: "TXT",

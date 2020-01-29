@@ -72,7 +72,7 @@ class Vpc(pulumi.CustomResource):
     """
     The ID of the main route table associated with
     this VPC. Note that you can change a VPC's main route table by using an
-    [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
+    [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
     """
     owner_id: pulumi.Output[str]
     """
@@ -175,7 +175,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
         :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
                this VPC. Note that you can change a VPC's main route table by using an
-               [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_assoc.html).
+               [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 

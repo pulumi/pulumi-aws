@@ -204,6 +204,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+     */
+    public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
+    /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
      */
@@ -338,6 +342,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            inputs["enableHttpEndpoint"] = state ? state.enableHttpEndpoint : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
@@ -378,6 +383,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            inputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineMode"] = args ? args.engineMode : undefined;
@@ -480,6 +486,10 @@ export interface ClusterState {
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+     */
+    readonly enableHttpEndpoint?: pulumi.Input<boolean>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -644,6 +654,10 @@ export interface ClusterArgs {
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+     */
+    readonly enableHttpEndpoint?: pulumi.Input<boolean>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).

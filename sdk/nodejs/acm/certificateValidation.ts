@@ -34,6 +34,7 @@ import * as utilities from "../utilities";
  *     privateZone: false,
  * });
  * const certValidation = new aws.route53.Record("certValidation", {
+ *     name: certCertificate.domainValidationOptions[0].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
@@ -72,18 +73,21 @@ import * as utilities from "../utilities";
  *     privateZone: false,
  * });
  * const certValidation = new aws.route53.Record("certValidation", {
+ *     name: certCertificate.domainValidationOptions[0].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
  *     zoneId: zone.id,
  * });
  * const certValidationAlt1 = new aws.route53.Record("certValidationAlt1", {
+ *     name: certCertificate.domainValidationOptions[1].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[1].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[1].resourceRecordType,
  *     zoneId: zone.id,
  * });
  * const certValidationAlt2 = new aws.route53.Record("certValidationAlt2", {
+ *     name: certCertificate.domainValidationOptions[2].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[2].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[2].resourceRecordType,

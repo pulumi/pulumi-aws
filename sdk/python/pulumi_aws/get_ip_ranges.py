@@ -77,7 +77,10 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
            omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
            (e.g. `eu-central-1`)
     :param list services: Filter IP ranges by services. Valid items are `amazon`
-           (for amazon.com), `cloudfront`, `codebuild`, `ec2`, `route53`, `route53_healthchecks` and `S3`.
+           (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
+           `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
+           `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+           [`service` attribute][2] documentation for other possible values.
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documention][1]. Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ip_ranges.html.markdown.

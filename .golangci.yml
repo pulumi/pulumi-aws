@@ -4,8 +4,8 @@ linters:
     - deadcode
     - errcheck
     - goconst
-    - gofmt
     - golint
+    - gofmt
     - gosec
     - govet
     - ineffassign

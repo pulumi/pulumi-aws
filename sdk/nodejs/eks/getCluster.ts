@@ -102,7 +102,7 @@ export interface GetClusterResult {
      */
     readonly version: string;
     /**
-     * Nested attribute containing VPC configuration for the cluster.
+     * Nested list containing VPC configuration for the cluster.
      */
     readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
     /**

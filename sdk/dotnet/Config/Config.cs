@@ -117,6 +117,7 @@ namespace Pulumi.Aws
 
     public class Endpoints
     {
+        public string? Accessanalyzer { get; set; }
         public string? Acm { get; set; }
         public string? Acmpca { get; set; }
         public string? Amplify { get; set; }
@@ -149,6 +150,7 @@ namespace Pulumi.Aws
         public string? Cognitoidp { get; set; }
         public string? Configservice { get; set; }
         public string? Cur { get; set; }
+        public string? Dataexchange { get; set; }
         public string? Datapipeline { get; set; }
         public string? Datasync { get; set; }
         public string? Dax { get; set; }
@@ -181,6 +183,7 @@ namespace Pulumi.Aws
         public string? Greengrass { get; set; }
         public string? Guardduty { get; set; }
         public string? Iam { get; set; }
+        public string? Imagebuilder { get; set; }
         public string? Inspector { get; set; }
         public string? Iot { get; set; }
         public string? Iotanalytics { get; set; }
@@ -198,6 +201,7 @@ namespace Pulumi.Aws
         public string? Lightsail { get; set; }
         public string? Macie { get; set; }
         public string? Managedblockchain { get; set; }
+        public string? Marketplacecatalog { get; set; }
         public string? Mediaconnect { get; set; }
         public string? Mediaconvert { get; set; }
         public string? Medialive { get; set; }
@@ -242,6 +246,7 @@ namespace Pulumi.Aws
         public string? Transfer { get; set; }
         public string? Waf { get; set; }
         public string? Wafregional { get; set; }
+        public string? Wafv2 { get; set; }
         public string? Worklink { get; set; }
         public string? Workspaces { get; set; }
         public string? Xray { get; set; }

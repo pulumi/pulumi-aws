@@ -51,7 +51,7 @@ def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     """
     `ec2.getSubnetIds` provides a list of ids for a vpc_id
     
-    This resource can be useful for getting back a list of subnet ids for a vpc.
+    This resource can be useful for getting back a set of subnet ids for a vpc.
     
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match

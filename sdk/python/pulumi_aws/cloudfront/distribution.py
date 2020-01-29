@@ -300,7 +300,7 @@ class Distribution(pulumi.CustomResource):
     
         * `statusCodes` (`list`) - A list of HTTP status codes for the origin group
     
-      * `members` (`list`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+      * `members` (`list`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
     
         * `originId` (`str`) - The unique identifier of the member origin
     
@@ -358,7 +358,8 @@ class Distribution(pulumi.CustomResource):
         certificate for this distribution if you are using a custom domain. Specify
         this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
       * `minimumProtocolVersion` (`str`) - The minimum version of the SSL protocol that
-        you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+        you want CloudFront to use for HTTPS connections. Can only be set if
+        `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
         `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
         If you are using a custom certificate (specified with `acm_certificate_arn`
         or `iam_certificate_id`), and have specified `sni-only` in
@@ -608,7 +609,7 @@ class Distribution(pulumi.CustomResource):
         
             * `statusCodes` (`pulumi.Input[list]`) - A list of HTTP status codes for the origin group
         
-          * `members` (`pulumi.Input[list]`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+          * `members` (`pulumi.Input[list]`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
         
             * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
         
@@ -674,7 +675,8 @@ class Distribution(pulumi.CustomResource):
             certificate for this distribution if you are using a custom domain. Specify
             this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
           * `minimumProtocolVersion` (`pulumi.Input[str]`) - The minimum version of the SSL protocol that
-            you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+            you want CloudFront to use for HTTPS connections. Can only be set if
+            `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
             `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
             If you are using a custom certificate (specified with `acm_certificate_arn`
             or `iam_certificate_id`), and have specified `sni-only` in
@@ -985,7 +987,7 @@ class Distribution(pulumi.CustomResource):
         
             * `statusCodes` (`pulumi.Input[list]`) - A list of HTTP status codes for the origin group
         
-          * `members` (`pulumi.Input[list]`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. Minimum 2.
+          * `members` (`pulumi.Input[list]`) - Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
         
             * `originId` (`pulumi.Input[str]`) - The unique identifier of the member origin
         
@@ -1051,7 +1053,8 @@ class Distribution(pulumi.CustomResource):
             certificate for this distribution if you are using a custom domain. Specify
             this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
           * `minimumProtocolVersion` (`pulumi.Input[str]`) - The minimum version of the SSL protocol that
-            you want CloudFront to use for HTTPS connections. One of `SSLv3`, `TLSv1`,
+            you want CloudFront to use for HTTPS connections. Can only be set if
+            `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
             `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
             If you are using a custom certificate (specified with `acm_certificate_arn`
             or `iam_certificate_id`), and have specified `sni-only` in

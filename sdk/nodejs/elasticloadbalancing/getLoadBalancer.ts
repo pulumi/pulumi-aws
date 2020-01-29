@@ -61,6 +61,7 @@ export interface GetLoadBalancerArgs {
  */
 export interface GetLoadBalancerResult {
     readonly accessLogs: outputs.elasticloadbalancing.GetLoadBalancerAccessLogs;
+    readonly arn: string;
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
     readonly connectionDrainingTimeout: number;

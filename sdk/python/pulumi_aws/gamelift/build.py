@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class Build(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Gamelift Build ARN.
+    """
     name: pulumi.Output[str]
     """
     Name of the build
@@ -26,11 +30,15 @@ class Build(pulumi.CustomResource):
       * `key` (`str`) - Name of the zip file containing your build files.
       * `role_arn` (`str`) - ARN of the access role that allows Amazon GameLift to access your S3 bucket.
     """
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
     version: pulumi.Output[str]
     """
     Version that is associated with this build.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, operating_system=None, storage_location=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, operating_system=None, storage_location=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Gamelift Build resource.
         
@@ -39,6 +47,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
         
         The **storage_location** object supports the following:
@@ -73,7 +82,9 @@ class Build(pulumi.CustomResource):
             if storage_location is None:
                 raise TypeError("Missing required property 'storage_location'")
             __props__['storage_location'] = storage_location
+            __props__['tags'] = tags
             __props__['version'] = version
+            __props__['arn'] = None
         super(Build, __self__).__init__(
             'aws:gamelift/build:Build',
             resource_name,
@@ -81,7 +92,7 @@ class Build(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, operating_system=None, storage_location=None, version=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, operating_system=None, storage_location=None, tags=None, version=None):
         """
         Get an existing Build resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,9 +100,11 @@ class Build(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Gamelift Build ARN.
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         :param pulumi.Input[dict] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] version: Version that is associated with this build.
         
         The **storage_location** object supports the following:
@@ -105,9 +118,11 @@ class Build(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["arn"] = arn
         __props__["name"] = name
         __props__["operating_system"] = operating_system
         __props__["storage_location"] = storage_location
+        __props__["tags"] = tags
         __props__["version"] = version
         return Build(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

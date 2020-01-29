@@ -39,6 +39,10 @@ export class Build extends pulumi.CustomResource {
     }
 
     /**
+     * Gamelift Build ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Name of the build
      */
     public readonly name!: pulumi.Output<string>;
@@ -50,6 +54,10 @@ export class Build extends pulumi.CustomResource {
      * Information indicating where your game build files are stored. See below.
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Version that is associated with this build.
      */
@@ -67,9 +75,11 @@ export class Build extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BuildState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             inputs["storageLocation"] = state ? state.storageLocation : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as BuildArgs | undefined;
@@ -82,7 +92,9 @@ export class Build extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -100,6 +112,10 @@ export class Build extends pulumi.CustomResource {
  */
 export interface BuildState {
     /**
+     * Gamelift Build ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * Name of the build
      */
     readonly name?: pulumi.Input<string>;
@@ -111,6 +127,10 @@ export interface BuildState {
      * Information indicating where your game build files are stored. See below.
      */
     readonly storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Version that is associated with this build.
      */
@@ -133,6 +153,10 @@ export interface BuildArgs {
      * Information indicating where your game build files are stored. See below.
      */
     readonly storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Version that is associated with this build.
      */

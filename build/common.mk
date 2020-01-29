@@ -103,6 +103,7 @@ endif
 
 PULUMI_BIN          := $(PULUMI_ROOT)/bin
 PULUMI_NODE_MODULES := $(PULUMI_ROOT)/node_modules
+PULUMI_NUGET        := $(PULUMI_ROOT)/nuget
 
 GO_TEST_FAST = go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
 GO_TEST = go test -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
@@ -171,6 +172,7 @@ install::
 	$(call STEP_MESSAGE)
 	@mkdir -p $(PULUMI_BIN)
 	@mkdir -p $(PULUMI_NODE_MODULES)
+	@mkdir -p $(PULUMI_NUGET)
 
 test_all::
 	$(call STEP_MESSAGE)

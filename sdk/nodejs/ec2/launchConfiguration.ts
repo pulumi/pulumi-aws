@@ -204,6 +204,10 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name of the launch configuration.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Associate a public ip address with an instance in a VPC.
      */
     public readonly associatePublicIpAddress!: pulumi.Output<boolean | undefined>;
@@ -300,6 +304,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as LaunchConfigurationState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
@@ -346,6 +351,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             inputs["vpcClassicLinkId"] = args ? args.vpcClassicLinkId : undefined;
             inputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -362,6 +368,10 @@ export class LaunchConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LaunchConfiguration resources.
  */
 export interface LaunchConfigurationState {
+    /**
+     * The Amazon Resource Name of the launch configuration.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Associate a public ip address with an instance in a VPC.
      */

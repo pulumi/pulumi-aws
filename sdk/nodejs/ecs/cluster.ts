@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  * 
  * * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
  * * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
+ * 
+ * ## defaultCapacityProviderStrategy
+ * 
+ * The `defaultCapacityProviderStrategy` configuration block supports the following:
+ * 
+ * * `capacityProvider` - (Required) The short name of the capacity provider.
+ * * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+ * * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
  */
@@ -59,6 +67,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     */
+    public readonly capacityProviders!: pulumi.Output<string[] | undefined>;
+    /**
+     * The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+     */
+    public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterDefaultCapacityProviderStrategy[] | undefined>;
+    /**
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
     public readonly name!: pulumi.Output<string>;
@@ -84,11 +100,15 @@ export class Cluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["capacityProviders"] = state ? state.capacityProviders : undefined;
+            inputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["settings"] = state ? state.settings : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
+            inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
+            inputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["settings"] = args ? args.settings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -114,6 +134,14 @@ export interface ClusterState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     */
+    readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+     */
+    readonly defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
+    /**
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
     readonly name?: pulumi.Input<string>;
@@ -131,6 +159,14 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+     */
+    readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
+     */
+    readonly defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
      * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */

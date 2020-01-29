@@ -109,7 +109,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`.
+     * The following log types are supported: `audit`, `profiler`.
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -314,7 +314,7 @@ export interface ClusterState {
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`.
+     * The following log types are supported: `audit`, `profiler`.
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -430,7 +430,7 @@ export interface ClusterArgs {
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * List of log types to export to cloudwatch. If omitted, no logs will be exported.
-     * The following log types are supported: `audit`.
+     * The following log types are supported: `audit`, `profiler`.
      */
     readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**

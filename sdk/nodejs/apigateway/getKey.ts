@@ -33,6 +33,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     }
     return pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
         "id": args.id,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -44,6 +45,7 @@ export interface GetKeyArgs {
      * The ID of the API Key to look up.
      */
     readonly id: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -51,13 +53,33 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
+     * The date and time when the API Key was created.
+     */
+    readonly createdDate: string;
+    /**
+     * The description of the API Key.
+     */
+    readonly description: string;
+    /**
+     * Specifies whether the API Key is enabled.
+     */
+    readonly enabled: boolean;
+    /**
      * Set to the ID of the API Key.
      */
     readonly id: string;
     /**
+     * The date and time when the API Key was last updated.
+     */
+    readonly lastUpdatedDate: string;
+    /**
      * Set to the name of the API Key.
      */
     readonly name: string;
+    /**
+     * A mapping of tags for the resource.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * Set to the value of the API Key.
      */

@@ -252,11 +252,11 @@ export function createFunctionFromEventHandler<E, R>(
  * A CallbackFunction is a special type of aws.lambda.Function that can be created out of an actual
  * JavaScript function instance.  The function instance will be analyzed and packaged up (including
  * dependencies) into a form that can be used by AWS Lambda.  See
- * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
+ * https://www.pulumi.com/docs/tutorials/aws/serializing-functions/ for additional
  * details on this process.
  */
 export class CallbackFunction<E, R> extends LambdaFunction {
-    public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts?: pulumi.CustomResourceOptions) {
+    public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts: pulumi.CustomResourceOptions = {}) {
         if (!name) {
             throw new Error("Missing required resource name");
         }
@@ -317,10 +317,18 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             ...args,
             code: new pulumi.asset.AssetArchive(codePaths),
             handler: serializedFileNameNoExtension + "." + handlerName,
-            runtime: args.runtime || runtime.NodeJS8d10Runtime,
+            runtime: args.runtime || runtime.NodeJS12dXRuntime,
             role: role.arn,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };
+
+        // If there is no custom Runtime argument being passed to the user
+        // then we should add "runtime" to the ignoreChanges of the CustomResourceOptions
+        // This is because as of 12/16/19, we upgraded the default NodeJS version from 8.x to 12.x as 12.x is latest LTS
+        // We don't want to force recreation of user defined Lambdas because of this change
+        if (!args.runtime) {
+            pulumi.mergeOptions(opts, { ignoreChanges: ["runtime"] })
+        }
 
         super(name, functionArgs, opts);
         this.roleInstance = role;

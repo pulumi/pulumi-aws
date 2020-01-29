@@ -50,6 +50,10 @@ export interface GetLaunchConfigurationArgs {
  */
 export interface GetLaunchConfigurationResult {
     /**
+     * The Amazon Resource Name of the launch configuration.
+     */
+    readonly arn: string;
+    /**
      * Whether a Public IP address is associated with the instance.
      */
     readonly associatePublicIpAddress: boolean;

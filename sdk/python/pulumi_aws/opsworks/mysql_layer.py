@@ -47,6 +47,7 @@ class MysqlLayer(pulumi.CustomResource):
     """
     `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
     
+      * `encrypted` (`bool`)
       * `iops` (`float`)
       * `mountPoint` (`str`)
       * `numberOfDisks` (`float`)
@@ -119,6 +120,7 @@ class MysqlLayer(pulumi.CustomResource):
         
         The **ebs_volumes** object supports the following:
         
+          * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `mountPoint` (`pulumi.Input[str]`)
           * `numberOfDisks` (`pulumi.Input[float]`)
@@ -204,6 +206,7 @@ class MysqlLayer(pulumi.CustomResource):
         
         The **ebs_volumes** object supports the following:
         
+          * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `mountPoint` (`pulumi.Input[str]`)
           * `numberOfDisks` (`pulumi.Input[float]`)

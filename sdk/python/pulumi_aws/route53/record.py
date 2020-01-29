@@ -157,6 +157,8 @@ class Record(pulumi.CustomResource):
             __props__['health_check_id'] = health_check_id
             __props__['latency_routing_policies'] = latency_routing_policies
             __props__['multivalue_answer_routing_policy'] = multivalue_answer_routing_policy
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['records'] = records
             __props__['set_identifier'] = set_identifier

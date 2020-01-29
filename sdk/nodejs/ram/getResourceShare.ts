@@ -51,6 +51,7 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
         "filters": args.filters,
         "name": args.name,
         "resourceOwner": args.resourceOwner,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -70,6 +71,7 @@ export interface GetResourceShareArgs {
      * The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
      */
     readonly resourceOwner: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

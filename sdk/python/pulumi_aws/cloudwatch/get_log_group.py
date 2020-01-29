@@ -13,7 +13,7 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, name=None, id=None):
+    def __init__(__self__, arn=None, creation_time=None, kms_key_id=None, name=None, retention_in_days=None, tags=None, id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -26,9 +26,27 @@ class GetLogGroupResult:
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        __self__.kms_key_id = kms_key_id
+        """
+        The ARN of the KMS Key to use when encrypting log data.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        if retention_in_days and not isinstance(retention_in_days, float):
+            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        __self__.retention_in_days = retention_in_days
+        """
+        The number of days log events retained in the specified log group.
+        """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        A mapping of tags to assign to the resource.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -43,10 +61,13 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
         return GetLogGroupResult(
             arn=self.arn,
             creation_time=self.creation_time,
+            kms_key_id=self.kms_key_id,
             name=self.name,
+            retention_in_days=self.retention_in_days,
+            tags=self.tags,
             id=self.id)
 
-def get_log_group(name=None,opts=None):
+def get_log_group(name=None,tags=None,opts=None):
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
     
@@ -57,6 +78,7 @@ def get_log_group(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -66,5 +88,8 @@ def get_log_group(name=None,opts=None):
     return AwaitableGetLogGroupResult(
         arn=__ret__.get('arn'),
         creation_time=__ret__.get('creationTime'),
+        kms_key_id=__ret__.get('kmsKeyId'),
         name=__ret__.get('name'),
+        retention_in_days=__ret__.get('retentionInDays'),
+        tags=__ret__.get('tags'),
         id=__ret__.get('id'))

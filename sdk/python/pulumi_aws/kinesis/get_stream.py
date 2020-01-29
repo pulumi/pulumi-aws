@@ -91,7 +91,7 @@ class AwaitableGetStreamResult(GetStreamResult):
             tags=self.tags,
             id=self.id)
 
-def get_stream(name=None,opts=None):
+def get_stream(name=None,tags=None,opts=None):
     """
     Use this data source to get information about a Kinesis Stream for use in other
     resources.
@@ -105,6 +105,7 @@ def get_stream(name=None,opts=None):
     __args__ = dict()
 
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

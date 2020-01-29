@@ -30,7 +30,7 @@ class Group(pulumi.CustomResource):
     """
     enabled_metrics: pulumi.Output[list]
     """
-    A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+    A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
     * `wait_for_capacity_timeout` (Default: "10m") A maximum
     [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
     wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -59,7 +59,7 @@ class Group(pulumi.CustomResource):
     [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
     to attach to the autoscaling group **before** instances are launched. The
     syntax is exactly the same as the separate
-    [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+    [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
     resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
     a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
     
@@ -90,7 +90,7 @@ class Group(pulumi.CustomResource):
     """
     max_instance_lifetime: pulumi.Output[float]
     """
-    The maximum amount of time, in seconds, that an instance can be in service
+    The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
     """
     max_size: pulumi.Output[float]
     """
@@ -275,7 +275,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
                * `wait_for_capacity_timeout` (Default: "10m") A maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -292,14 +292,14 @@ class Group(pulumi.CustomResource):
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the autoscaling group **before** instances are launched. The
                syntax is exactly the same as the separate
-               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service
+        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         :param pulumi.Input[float] max_size: The maximum size of the auto scale group.
         :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         :param pulumi.Input[float] min_elb_capacity: Setting this causes this provider to wait for
@@ -452,7 +452,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+        :param pulumi.Input[list] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
                * `wait_for_capacity_timeout` (Default: "10m") A maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -469,14 +469,14 @@ class Group(pulumi.CustomResource):
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the autoscaling group **before** instances are launched. The
                syntax is exactly the same as the separate
-               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         :param pulumi.Input[str] launch_configuration: The name of the launch configuration to use.
         :param pulumi.Input[dict] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
         :param pulumi.Input[list] load_balancers: A list of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service
+        :param pulumi.Input[float] max_instance_lifetime: The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
         :param pulumi.Input[float] max_size: The maximum size of the auto scale group.
         :param pulumi.Input[str] metrics_granularity: The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         :param pulumi.Input[float] min_elb_capacity: Setting this causes this provider to wait for

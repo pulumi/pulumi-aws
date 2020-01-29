@@ -279,7 +279,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly desiredCapacity!: pulumi.Output<number>;
     /**
-     * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+     * A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
      * * `waitForCapacityTimeout` (Default: "10m") A maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -308,7 +308,7 @@ export class Group extends pulumi.CustomResource {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
@@ -327,7 +327,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
     public readonly maxInstanceLifetime!: pulumi.Output<number | undefined>;
     /**
@@ -529,7 +529,7 @@ export interface GroupState {
      */
     readonly desiredCapacity?: pulumi.Input<number>;
     /**
-     * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+     * A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
      * * `waitForCapacityTimeout` (Default: "10m") A maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -558,7 +558,7 @@ export interface GroupState {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
@@ -577,7 +577,7 @@ export interface GroupState {
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
     readonly maxInstanceLifetime?: pulumi.Input<number>;
     /**
@@ -682,7 +682,7 @@ export interface GroupArgs {
      */
     readonly desiredCapacity?: pulumi.Input<number>;
     /**
-     * A list of metrics to collect. The allowed values are `GroupMinSize`, `GroupMaxSize`, `GroupDesiredCapacity`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupTerminatingInstances`, `GroupTotalInstances`.
+     * A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
      * * `waitForCapacityTimeout` (Default: "10m") A maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
      * wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -711,7 +711,7 @@ export interface GroupArgs {
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the autoscaling group **before** instances are launched. The
      * syntax is exactly the same as the separate
-     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hooks.html)
+     * [`aws.autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
      * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new autoscaling group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
@@ -730,7 +730,7 @@ export interface GroupArgs {
      */
     readonly loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
      */
     readonly maxInstanceLifetime?: pulumi.Input<number>;
     /**
