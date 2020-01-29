@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_legacy.html.markdown.
  */
-export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> & GetLoadBalancerResult {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -42,11 +42,13 @@ export function getLoadBalancer(args?: GetLoadBalancerArgs, opts?: pulumi.Invoke
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", {
+    const promise: Promise<GetLoadBalancerResult> = pulumi.runtime.invoke("aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer", {
         "arn": args.arn,
         "name": args.name,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
  */
-export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
+export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> & GetContainerDefinitionResult {
     if (!opts) {
         opts = {}
     }
@@ -32,10 +32,12 @@ export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
+    const promise: Promise<GetContainerDefinitionResult> = pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
         "taskDefinition": args.taskDefinition,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

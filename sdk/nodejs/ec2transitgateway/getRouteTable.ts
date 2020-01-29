@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_transit_gateway_route_table.html.markdown.
  */
-export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
+export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> & GetRouteTableResult {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -53,11 +53,13 @@ export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOpti
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", {
+    const promise: Promise<GetRouteTableResult> = pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", {
         "filters": args.filters,
         "id": args.id,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

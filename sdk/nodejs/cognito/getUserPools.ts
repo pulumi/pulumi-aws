@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
  */
-export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> {
+export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> & GetUserPoolsResult {
     if (!opts) {
         opts = {}
     }
@@ -38,9 +38,11 @@ export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:cognito/getUserPools:getUserPools", {
+    const promise: Promise<GetUserPoolsResult> = pulumi.runtime.invoke("aws:cognito/getUserPools:getUserPools", {
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
+export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> & GetCredentialsResult {
     if (!opts) {
         opts = {}
     }
@@ -14,9 +14,11 @@ export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
+    const promise: Promise<GetCredentialsResult> = pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
         "registryId": args.registryId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

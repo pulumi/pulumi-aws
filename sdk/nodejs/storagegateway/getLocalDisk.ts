@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/storagegateway_local_disk.html.markdown.
  */
-export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
+export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> & GetLocalDiskResult {
     if (!opts) {
         opts = {}
     }
@@ -31,11 +31,13 @@ export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
+    const promise: Promise<GetLocalDiskResult> = pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,
         "gatewayArn": args.gatewayArn,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

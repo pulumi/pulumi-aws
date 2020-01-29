@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
  */
-export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
+export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> & GetInternetGatewayResult {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -37,11 +37,13 @@ export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:ec2/getInternetGateway:getInternetGateway", {
+    const promise: Promise<GetInternetGatewayResult> = pulumi.runtime.invoke("aws:ec2/getInternetGateway:getInternetGateway", {
         "filters": args.filters,
         "internetGatewayId": args.internetGatewayId,
         "tags": args.tags,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_rate_based_rule.html.markdown.
  */
-export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> {
+export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> & GetRateBasedRuleResult {
     if (!opts) {
         opts = {}
     }
@@ -30,9 +30,11 @@ export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:waf/getRateBasedRule:getRateBasedRule", {
+    const promise: Promise<GetRateBasedRuleResult> = pulumi.runtime.invoke("aws:waf/getRateBasedRule:getRateBasedRule", {
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
  */
-export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
+export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> & GetVpcEndpointResult {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -38,7 +38,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
+    const promise: Promise<GetVpcEndpointResult> = pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,
         "serviceName": args.serviceName,
@@ -46,6 +46,8 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

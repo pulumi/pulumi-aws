@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_account_alias.html.markdown.
  */
-export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
+export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> & GetAccountAliasResult {
     if (!opts) {
         opts = {}
     }
@@ -29,8 +29,10 @@ export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccount
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
+    const promise: Promise<GetAccountAliasResult> = pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
