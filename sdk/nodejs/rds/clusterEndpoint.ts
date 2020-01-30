@@ -125,6 +125,10 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     public readonly staticMembers!: pulumi.Output<string[] | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a ClusterEndpoint resource with the given unique name, arguments, and options.
@@ -145,6 +149,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["excludedMembers"] = state ? state.excludedMembers : undefined;
             inputs["staticMembers"] = state ? state.staticMembers : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ClusterEndpointArgs | undefined;
             if (!args || args.clusterEndpointIdentifier === undefined) {
@@ -161,6 +166,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             inputs["customEndpointType"] = args ? args.customEndpointType : undefined;
             inputs["excludedMembers"] = args ? args.excludedMembers : undefined;
             inputs["staticMembers"] = args ? args.staticMembers : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
         }
@@ -207,6 +213,10 @@ export interface ClusterEndpointState {
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -233,4 +243,8 @@ export interface ClusterEndpointArgs {
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     readonly staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

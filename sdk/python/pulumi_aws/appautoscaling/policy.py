@@ -10,7 +10,6 @@ from typing import Union
 from .. import utilities, tables
 
 class Policy(pulumi.CustomResource):
-    alarms: pulumi.Output[list]
     arn: pulumi.Output[str]
     """
     The ARN assigned by AWS to the scaling policy.
@@ -75,7 +74,7 @@ class Policy(pulumi.CustomResource):
       * `scaleOutCooldown` (`float`)
       * `targetValue` (`float`)
     """
-    def __init__(__self__, resource_name, opts=None, alarms=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Application AutoScaling Policy resource.
         
@@ -168,7 +167,6 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['alarms'] = alarms
             __props__['name'] = name
             __props__['policy_type'] = policy_type
             if resource_id is None:
@@ -190,7 +188,7 @@ class Policy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, alarms=None, arn=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, policy_type=None, resource_id=None, scalable_dimension=None, service_namespace=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None):
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -248,7 +246,6 @@ class Policy(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["alarms"] = alarms
         __props__["arn"] = arn
         __props__["name"] = name
         __props__["policy_type"] = policy_type

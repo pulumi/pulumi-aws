@@ -82,7 +82,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -161,7 +161,7 @@ export interface TaskState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -191,5 +191,5 @@ export interface TaskArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

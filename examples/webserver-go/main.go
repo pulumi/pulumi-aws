@@ -3,7 +3,7 @@
 package main
 
 import (
-	awsconfig "github.com/pulumi/pulumi-aws/sdk/go/aws/config"
+	"github.com/pulumi/pulumi-aws/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/go/aws/ec2"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -13,13 +13,13 @@ const size = "t2.micro"
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		group, err := ec2.NewSecurityGroup(ctx, "web-secgrp-2", &ec2.SecurityGroupArgs{
-			Description: "Enable HTTP access",
-			Ingress: []map[string]interface{}{
-				{
-					"protocol":   "tcp",
-					"fromPort":   80,
-					"toPort":     80,
-					"cidrBlocks": []string{"0.0.0.0/0"},
+			Description: pulumi.String("Enable HTTP access"),
+			Ingress: ec2.SecurityGroupIngressArray{
+				ec2.SecurityGroupIngressArgs{
+					Protocol:   pulumi.String("tcp"),
+					FromPort:   pulumi.Int(80),
+					ToPort:     pulumi.Int(80),
+					CidrBlocks: pulumi.StringArray{pulumi.String("0.0.0.0/0")},
 				},
 			},
 		})
@@ -27,19 +27,34 @@ func main() {
 			return err
 		}
 
-		server, err := ec2.NewInstance(ctx, "web-server-www", &ec2.InstanceArgs{
-			InstanceType: size,
-			SecurityGroups: group.Name().Apply(func(name string) (interface{}, error) {
-				return []interface{}{name}, nil
-			}),
-			Ami: getLinuxAMI(awsconfig.GetRegion(ctx), size),
+		mostRecent := true
+		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+			Filters: []aws.GetAmiFilter{
+				{
+					Name:   "name",
+					Values: []string{"amzn-ami-hvm-*-x86_64-ebs"},
+				},
+			},
+			Owners:     []string{"137112412989"},
+			MostRecent: &mostRecent,
 		})
 		if err != nil {
 			return err
 		}
 
-		ctx.Export("publicIp", server.PublicIp())
-		ctx.Export("publicDns", server.PublicDns())
+		server, err := ec2.NewInstance(ctx, "web-server-www", &ec2.InstanceArgs{
+			InstanceType: pulumi.String(size),
+			SecurityGroups: pulumi.StringArray{
+				group.Name,
+			},
+			Ami: pulumi.String(ami.Id),
+		})
+		if err != nil {
+			return err
+		}
+
+		ctx.Export("publicIp", server.PublicIp)
+		ctx.Export("publicDns", server.PublicDns)
 		return nil
 	})
 }

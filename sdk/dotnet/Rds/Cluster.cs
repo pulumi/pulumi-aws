@@ -120,6 +120,12 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
+        /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        /// </summary>
+        [Output("enableHttpEndpoint")]
+        public Output<bool?> EnableHttpEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
         /// The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         /// </summary>
@@ -411,6 +417,12 @@ namespace Pulumi.Aws.Rds
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
+        /// <summary>
+        /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        /// </summary>
+        [Input("enableHttpEndpoint")]
+        public Input<bool>? EnableHttpEndpoint { get; set; }
+
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
 
@@ -680,6 +692,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
+
+        /// <summary>
+        /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        /// </summary>
+        [Input("enableHttpEndpoint")]
+        public Input<bool>? EnableHttpEndpoint { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;

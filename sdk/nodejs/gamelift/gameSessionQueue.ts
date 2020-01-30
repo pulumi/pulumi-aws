@@ -79,6 +79,10 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Maximum time a game session request can remain in the queue.
      */
     public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
@@ -99,12 +103,14 @@ export class GameSessionQueue extends pulumi.CustomResource {
             inputs["destinations"] = state ? state.destinations : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["playerLatencyPolicies"] = state ? state.playerLatencyPolicies : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
         } else {
             const args = argsOrState as GameSessionQueueArgs | undefined;
             inputs["destinations"] = args ? args.destinations : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
         }
@@ -140,6 +146,10 @@ export interface GameSessionQueueState {
      */
     readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Maximum time a game session request can remain in the queue.
      */
     readonly timeoutInSeconds?: pulumi.Input<number>;
@@ -161,6 +171,10 @@ export interface GameSessionQueueArgs {
      * One or more policies used to choose fleet based on player latency. See below.
      */
     readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */

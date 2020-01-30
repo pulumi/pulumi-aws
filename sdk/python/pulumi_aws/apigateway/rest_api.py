@@ -39,6 +39,7 @@ class RestApi(pulumi.CustomResource):
     Nested argument defining API endpoint configuration including endpoint type. Defined below.
     
       * `types` (`str`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+      * `vpcEndpointIds` (`list`) - A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
     """
     execution_arn: pulumi.Output[str]
     """
@@ -81,6 +82,7 @@ class RestApi(pulumi.CustomResource):
         The **endpoint_configuration** object supports the following:
         
           * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+          * `vpcEndpointIds` (`pulumi.Input[list]`) - A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
         """
@@ -147,6 +149,7 @@ class RestApi(pulumi.CustomResource):
         The **endpoint_configuration** object supports the following:
         
           * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+          * `vpcEndpointIds` (`pulumi.Input[list]`) - A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
         """

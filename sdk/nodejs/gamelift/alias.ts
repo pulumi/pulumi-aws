@@ -69,6 +69,10 @@ export class Alias extends pulumi.CustomResource {
      * Specifies the fleet and/or routing type to use for the alias.
      */
     public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -86,6 +90,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["routingStrategy"] = state ? state.routingStrategy : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
             if (!args || args.routingStrategy === undefined) {
@@ -94,6 +99,7 @@ export class Alias extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["routingStrategy"] = args ? args.routingStrategy : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -127,6 +133,10 @@ export interface AliasState {
      * Specifies the fleet and/or routing type to use for the alias.
      */
     readonly routingStrategy?: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -145,4 +155,8 @@ export interface AliasArgs {
      * Specifies the fleet and/or routing type to use for the alias.
      */
     readonly routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

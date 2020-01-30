@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Sqs
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetQueueArgs()
         {
         }
@@ -43,6 +51,10 @@ namespace Pulumi.Aws.Sqs
         public readonly string Arn;
         public readonly string Name;
         /// <summary>
+        /// A mapping of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
+        /// <summary>
         /// The URL of the queue.
         /// </summary>
         public readonly string Url;
@@ -55,11 +67,13 @@ namespace Pulumi.Aws.Sqs
         private GetQueueResult(
             string arn,
             string name,
+            ImmutableDictionary<string, object> tags,
             string url,
             string id)
         {
             Arn = arn;
             Name = name;
+            Tags = tags;
             Url = url;
             Id = id;
         }

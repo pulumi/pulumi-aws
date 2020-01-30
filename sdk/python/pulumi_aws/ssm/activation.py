@@ -19,9 +19,6 @@ class Activation(pulumi.CustomResource):
     The description of the resource that you want to register.
     """
     expiration_date: pulumi.Output[str]
-    """
-    A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
-    """
     expired: pulumi.Output[str]
     """
     If the current activation has expired.
@@ -53,7 +50,6 @@ class Activation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the resource that you want to register.
-        :param pulumi.Input[str] expiration_date: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -106,7 +102,6 @@ class Activation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
         :param pulumi.Input[str] description: The description of the resource that you want to register.
-        :param pulumi.Input[str] expiration_date: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time.
         :param pulumi.Input[str] expired: If the current activation has expired.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.

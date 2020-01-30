@@ -70,9 +70,17 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public readonly keyNamePrefix!: pulumi.Output<string | undefined>;
     /**
+     * The key pair ID.
+     */
+    public /*out*/ readonly keyPairId!: pulumi.Output<string>;
+    /**
      * The public key material.
      */
     public readonly publicKey!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -89,7 +97,9 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
+            inputs["keyPairId"] = state ? state.keyPairId : undefined;
             inputs["publicKey"] = state ? state.publicKey : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as KeyPairArgs | undefined;
             if (!args || args.publicKey === undefined) {
@@ -98,7 +108,9 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["fingerprint"] = undefined /*out*/;
+            inputs["keyPairId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -128,9 +140,17 @@ export interface KeyPairState {
      */
     readonly keyNamePrefix?: pulumi.Input<string>;
     /**
+     * The key pair ID.
+     */
+    readonly keyPairId?: pulumi.Input<string>;
+    /**
      * The public key material.
      */
     readonly publicKey?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -149,4 +169,8 @@ export interface KeyPairArgs {
      * The public key material.
      */
     readonly publicKey: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

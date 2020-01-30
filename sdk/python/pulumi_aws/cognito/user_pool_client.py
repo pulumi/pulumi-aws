@@ -36,7 +36,7 @@ class UserPoolClient(pulumi.CustomResource):
     """
     explicit_auth_flows: pulumi.Output[list]
     """
-    List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+    List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
     """
     generate_secret: pulumi.Output[bool]
     """
@@ -81,7 +81,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         :param pulumi.Input[list] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[list] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+        :param pulumi.Input[list] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
         :param pulumi.Input[list] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: The name of the application client.
@@ -148,7 +148,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] client_secret: The client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[list] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+        :param pulumi.Input[list] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
         :param pulumi.Input[list] logout_urls: List of allowed logout URLs for the identity providers.
         :param pulumi.Input[str] name: The name of the application client.

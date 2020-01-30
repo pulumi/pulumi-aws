@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.getSubnetIds` provides a list of ids for a vpc_id
         /// 
-        /// This resource can be useful for getting back a list of subnet ids for a vpc.
+        /// This resource can be useful for getting back a set of subnet ids for a vpc.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet_ids.html.markdown.
         /// </summary>

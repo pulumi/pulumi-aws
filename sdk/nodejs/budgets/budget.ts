@@ -62,6 +62,63 @@ import * as utilities from "../utilities";
  *     limitUnit: "GB",
  * });
  * ```
+ * 
+ * Create a Savings Plan Utilization Budget
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const savingsPlanUtilization = new aws.budgets.Budget("savingsPlanUtilization", {
+ *     // ...
+ *     budgetType: "SAVINGS_PLANS_UTILIZATION",
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
+ * });
+ * ```
+ * 
+ * Create a RI Utilization Budget
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const riUtilization = new aws.budgets.Budget("riUtilization", {
+ *     // ...
+ *     budgetType: "RI_UTILIZATION",
+ *     // RI Utilization plans require a service cost filter to be set
+ *     costFilters: {
+ *         Service: "Amazon Relational Database Service",
+ *     },
+ *     //Cost types must be defined for RI budgets because the settings conflict with the defaults
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     limitAmount: "100.0", // RI utilization must be 100
+ *     limitUnit: "PERCENTAGE",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/budgets_budget.html.markdown.
  */

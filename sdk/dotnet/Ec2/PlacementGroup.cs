@@ -23,10 +23,22 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the placement group.
+        /// </summary>
+        [Output("placementGroupId")]
+        public Output<string> PlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The placement strategy.
         /// </summary>
         [Output("strategy")]
         public Output<string> Strategy { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -86,6 +98,18 @@ namespace Pulumi.Aws.Ec2
         [Input("strategy", required: true)]
         public Input<string> Strategy { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public PlacementGroupArgs()
         {
         }
@@ -100,10 +124,28 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ID of the placement group.
+        /// </summary>
+        [Input("placementGroupId")]
+        public Input<string>? PlacementGroupId { get; set; }
+
+        /// <summary>
         /// The placement strategy.
         /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public PlacementGroupState()
         {

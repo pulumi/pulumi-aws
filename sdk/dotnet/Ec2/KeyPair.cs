@@ -42,10 +42,22 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> KeyNamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The key pair ID.
+        /// </summary>
+        [Output("keyPairId")]
+        public Output<string> KeyPairId { get; private set; } = null!;
+
+        /// <summary>
         /// The public key material.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -111,6 +123,18 @@ namespace Pulumi.Aws.Ec2
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public KeyPairArgs()
         {
         }
@@ -137,10 +161,28 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyNamePrefix { get; set; }
 
         /// <summary>
+        /// The key pair ID.
+        /// </summary>
+        [Input("keyPairId")]
+        public Input<string>? KeyPairId { get; set; }
+
+        /// <summary>
         /// The public key material.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public KeyPairState()
         {

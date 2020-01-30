@@ -40,6 +40,12 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicies>> PlayerLatencyPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Maximum time a game session request can remain in the queue.
         /// </summary>
         [Output("timeoutInSeconds")]
@@ -121,6 +127,18 @@ namespace Pulumi.Aws.GameLift
             set => _playerLatencyPolicies = value;
         }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Maximum time a game session request can remain in the queue.
         /// </summary>
@@ -168,6 +186,18 @@ namespace Pulumi.Aws.GameLift
         {
             get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPoliciesGetArgs>());
             set => _playerLatencyPolicies = value;
+        }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
         }
 
         /// <summary>

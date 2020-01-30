@@ -90,7 +90,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface UserPoolClientState {
      */
     readonly defaultRedirectUri?: pulumi.Input<string>;
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -276,7 +276,7 @@ export interface UserPoolClientArgs {
      */
     readonly defaultRedirectUri?: pulumi.Input<string>;
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH).
+     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**

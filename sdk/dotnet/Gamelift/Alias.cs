@@ -39,6 +39,12 @@ namespace Pulumi.Aws.GameLift
         [Output("routingStrategy")]
         public Output<Outputs.AliasRoutingStrategy> RoutingStrategy { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Alias resource with the given unique name, arguments, and options.
@@ -103,6 +109,18 @@ namespace Pulumi.Aws.GameLift
         [Input("routingStrategy", required: true)]
         public Input<Inputs.AliasRoutingStrategyArgs> RoutingStrategy { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public AliasArgs()
         {
         }
@@ -133,6 +151,18 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("routingStrategy")]
         public Input<Inputs.AliasRoutingStrategyGetArgs>? RoutingStrategy { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public AliasState()
         {

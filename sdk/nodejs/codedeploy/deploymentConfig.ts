@@ -125,7 +125,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
      */
     public readonly deploymentConfigName!: pulumi.Output<string>;
     /**
-     * A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
     public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface DeploymentConfigState {
      */
     readonly deploymentConfigName?: pulumi.Input<string>;
     /**
-     * A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
     readonly minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**
@@ -211,7 +211,7 @@ export interface DeploymentConfigArgs {
      */
     readonly deploymentConfigName: pulumi.Input<string>;
     /**
-     * A minimumHealthyHosts block. Minimum Healthy Hosts are documented below.
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
     readonly minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**

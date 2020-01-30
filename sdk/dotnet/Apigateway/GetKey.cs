@@ -28,6 +28,14 @@ namespace Pulumi.Aws.ApiGateway
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetKeyArgs()
         {
         }
@@ -37,13 +45,33 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetKeyResult
     {
         /// <summary>
+        /// The date and time when the API Key was created.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The description of the API Key.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
+        /// Specifies whether the API Key is enabled.
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
         /// Set to the ID of the API Key.
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The date and time when the API Key was last updated.
+        /// </summary>
+        public readonly string LastUpdatedDate;
+        /// <summary>
         /// Set to the name of the API Key.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A mapping of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
         /// Set to the value of the API Key.
         /// </summary>
@@ -51,12 +79,22 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetKeyResult(
+            string createdDate,
+            string description,
+            bool enabled,
             string id,
+            string lastUpdatedDate,
             string name,
+            ImmutableDictionary<string, object> tags,
             string value)
         {
+            CreatedDate = createdDate;
+            Description = description;
+            Enabled = enabled;
             Id = id;
+            LastUpdatedDate = lastUpdatedDate;
             Name = name;
+            Tags = tags;
             Value = value;
         }
     }
