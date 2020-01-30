@@ -19,7 +19,7 @@ let group = new aws.ec2.SecurityGroup("web-secgrp", {
 
 // start an instance in each availability zone:
 (async () => {
-    let zones: string[] = (await aws.getAvailabilityZones(undefined, providerOpts)).names.
+    let zones: string[] = (await aws.getAvailabilityZones(undefined, { ...providerOpts, async: true })).names.
         filter(x => !x.endsWith("d"));
     for (let i = 0; i < zones.length; i++) {
         let server = new aws.ec2.Instance("web-server-www-" + i, {
