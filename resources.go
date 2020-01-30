@@ -2198,6 +2198,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_directory_service_directory": {Tok: awsDataSource(directoryserviceMod, "getDirectory")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
+			AsyncDataSources: true,
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":    "feature-2.0",
 				"aws-sdk":           "^2.0.0",
