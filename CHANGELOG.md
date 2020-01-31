@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.47.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.20.0 (2020-01-31)
+* Upgrade to v2.47.0 of the AWS Terraform Provider
 
 ## 1.19.0 (2020-01-29)
 * Support `awsfirelens` in `ecs.Container`
