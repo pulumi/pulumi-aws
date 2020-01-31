@@ -30,6 +30,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        /// </summary>
+        [Output("cloudwatchLogGroupArn")]
+        public Output<string?> CloudwatchLogGroupArn { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the gateway.
         /// </summary>
         [Output("gatewayId")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? ActivationKey { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        /// </summary>
+        [Input("cloudwatchLogGroupArn")]
+        public Input<string>? CloudwatchLogGroupArn { get; set; }
+
+        /// <summary>
         /// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
         [Input("gatewayIpAddress")]
@@ -213,6 +225,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        /// </summary>
+        [Input("cloudwatchLogGroupArn")]
+        public Input<string>? CloudwatchLogGroupArn { get; set; }
 
         /// <summary>
         /// Identifier of the gateway.

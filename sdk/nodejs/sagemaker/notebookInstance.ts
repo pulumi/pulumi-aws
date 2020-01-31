@@ -60,6 +60,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+     */
+    public readonly directInternetAccess!: pulumi.Output<string | undefined>;
+    /**
      * The name of ML compute instance type.
      */
     public readonly instanceType!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class NotebookInstance extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as NotebookInstanceState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["directInternetAccess"] = state ? state.directInternetAccess : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
@@ -121,6 +126,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
@@ -150,6 +156,10 @@ export interface NotebookInstanceState {
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+     */
+    readonly directInternetAccess?: pulumi.Input<string>;
     /**
      * The name of ML compute instance type.
      */
@@ -188,6 +198,10 @@ export interface NotebookInstanceState {
  * The set of arguments for constructing a NotebookInstance resource.
  */
 export interface NotebookInstanceArgs {
+    /**
+     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+     */
+    readonly directInternetAccess?: pulumi.Input<string>;
     /**
      * The name of ML compute instance type.
      */

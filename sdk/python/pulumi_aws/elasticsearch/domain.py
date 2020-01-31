@@ -41,6 +41,13 @@ class Domain(pulumi.CustomResource):
       * `zoneAwarenessEnabled` (`bool`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
     """
     cognito_options: pulumi.Output[dict]
+    domain_endpoint_options: pulumi.Output[dict]
+    """
+    Domain endpoint HTTP(S) related options. See below.
+    
+      * `enforceHttps` (`bool`) - Whether or not to require HTTPS
+      * `tlsSecurityPolicy` (`str`) - <elided>
+    """
     domain_id: pulumi.Output[str]
     """
     Unique identifier for the domain.
@@ -115,7 +122,7 @@ class Domain(pulumi.CustomResource):
       * `subnet_ids` (`list`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
       * `vpc_id` (`str`)
     """
-    def __init__(__self__, resource_name, opts=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Elasticsearch Domain.
         
@@ -127,6 +134,7 @@ class Domain(pulumi.CustomResource):
                may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
                domain on every apply.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
+        :param pulumi.Input[dict] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[dict] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
         :param pulumi.Input[str] elasticsearch_version: The version of Elasticsearch to deploy. Defaults to `1.5`
@@ -156,6 +164,11 @@ class Domain(pulumi.CustomResource):
           * `identity_pool_id` (`pulumi.Input[str]`) - ID of the Cognito Identity Pool to use
           * `role_arn` (`pulumi.Input[str]`) - ARN of the IAM role that has the AmazonESCognitoAccess policy attached
           * `user_pool_id` (`pulumi.Input[str]`) - ID of the Cognito User Pool to use
+        
+        The **domain_endpoint_options** object supports the following:
+        
+          * `enforceHttps` (`pulumi.Input[bool]`) - Whether or not to require HTTPS
+          * `tlsSecurityPolicy` (`pulumi.Input[str]`) - <elided>
         
         The **ebs_options** object supports the following:
         
@@ -216,6 +229,7 @@ class Domain(pulumi.CustomResource):
             __props__['advanced_options'] = advanced_options
             __props__['cluster_config'] = cluster_config
             __props__['cognito_options'] = cognito_options
+            __props__['domain_endpoint_options'] = domain_endpoint_options
             __props__['domain_name'] = domain_name
             __props__['ebs_options'] = ebs_options
             __props__['elasticsearch_version'] = elasticsearch_version
@@ -236,7 +250,7 @@ class Domain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_policies=None, advanced_options=None, arn=None, cluster_config=None, cognito_options=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, endpoint=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None):
+    def get(resource_name, id, opts=None, access_policies=None, advanced_options=None, arn=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, endpoint=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None):
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -251,6 +265,7 @@ class Domain(pulumi.CustomResource):
                domain on every apply.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the domain.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
+        :param pulumi.Input[dict] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[dict] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
@@ -285,6 +300,11 @@ class Domain(pulumi.CustomResource):
           * `identity_pool_id` (`pulumi.Input[str]`) - ID of the Cognito Identity Pool to use
           * `role_arn` (`pulumi.Input[str]`) - ARN of the IAM role that has the AmazonESCognitoAccess policy attached
           * `user_pool_id` (`pulumi.Input[str]`) - ID of the Cognito User Pool to use
+        
+        The **domain_endpoint_options** object supports the following:
+        
+          * `enforceHttps` (`pulumi.Input[bool]`) - Whether or not to require HTTPS
+          * `tlsSecurityPolicy` (`pulumi.Input[str]`) - <elided>
         
         The **ebs_options** object supports the following:
         
@@ -332,6 +352,7 @@ class Domain(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["cluster_config"] = cluster_config
         __props__["cognito_options"] = cognito_options
+        __props__["domain_endpoint_options"] = domain_endpoint_options
         __props__["domain_id"] = domain_id
         __props__["domain_name"] = domain_name
         __props__["ebs_options"] = ebs_options

@@ -61,6 +61,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly associationName!: pulumi.Output<string | undefined>;
     /**
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+     */
+    public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
+    /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
     public readonly complianceSeverity!: pulumi.Output<string | undefined>;
@@ -115,6 +119,7 @@ export class Association extends pulumi.CustomResource {
             const state = argsOrState as AssociationState | undefined;
             inputs["associationId"] = state ? state.associationId : undefined;
             inputs["associationName"] = state ? state.associationName : undefined;
+            inputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
             inputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
             inputs["documentVersion"] = state ? state.documentVersion : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;
@@ -128,6 +133,7 @@ export class Association extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AssociationArgs | undefined;
             inputs["associationName"] = args ? args.associationName : undefined;
+            inputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
             inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
             inputs["documentVersion"] = args ? args.documentVersion : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
@@ -163,6 +169,10 @@ export interface AssociationState {
      * The descriptive name for the association.
      */
     readonly associationName?: pulumi.Input<string>;
+    /**
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+     */
+    readonly automationTargetParameterName?: pulumi.Input<string>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
@@ -213,6 +223,10 @@ export interface AssociationArgs {
      * The descriptive name for the association.
      */
     readonly associationName?: pulumi.Input<string>;
+    /**
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+     */
+    readonly automationTargetParameterName?: pulumi.Input<string>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */

@@ -81,13 +81,23 @@ export interface GetFileSystemResult {
      */
     readonly kmsKeyId: string;
     /**
-     * The PerformanceMode of the file system.
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
+     */
+    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
+    /**
+     * The file system performance mode.
      */
     readonly performanceMode: string;
     /**
-     * The list of tags assigned to the file system.
+     * The throughput, measured in MiB/s, that you want to provision for the file system.
+     * * `tags` -A mapping of tags to assign to the file system.
      */
+    readonly provisionedThroughputInMibps: number;
     readonly tags: {[key: string]: any};
+    /**
+     * Throughput mode for the file system.
+     */
+    readonly throughputMode: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

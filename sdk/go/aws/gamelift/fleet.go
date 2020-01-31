@@ -27,6 +27,8 @@ type Fleet struct {
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayOutput `pulumi:"ec2InboundPermissions"`
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType pulumi.StringOutput `pulumi:"ec2InstanceType"`
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
 	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
@@ -88,6 +90,8 @@ type fleetState struct {
 	Ec2InboundPermissions []FleetEc2InboundPermission `pulumi:"ec2InboundPermissions"`
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType *string `pulumi:"ec2InstanceType"`
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType *string `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	LogPaths []string `pulumi:"logPaths"`
@@ -116,6 +120,8 @@ type FleetState struct {
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayInput
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType pulumi.StringPtrInput
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType pulumi.StringPtrInput
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrInput
 	LogPaths pulumi.StringArrayInput
@@ -146,6 +152,8 @@ type fleetArgs struct {
 	Ec2InboundPermissions []FleetEc2InboundPermission `pulumi:"ec2InboundPermissions"`
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType string `pulumi:"ec2InstanceType"`
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType *string `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
@@ -170,6 +178,8 @@ type FleetArgs struct {
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayInput
 	// Name of an EC2 instance type. e.g. `t2.micro`
 	Ec2InstanceType pulumi.StringInput
+	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+	FleetType pulumi.StringPtrInput
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrInput
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.

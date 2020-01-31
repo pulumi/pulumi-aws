@@ -121,6 +121,9 @@ namespace Pulumi.Aws.DynamoDB
         [Input("enabled")]
         public bool? Enabled { get; set; }
 
+        [Input("kmsKeyArn")]
+        public string? KmsKeyArn { get; set; }
+
         public GetTableServerSideEncryptionArgs()
         {
         }
@@ -224,11 +227,15 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class GetTableServerSideEncryptionResult
     {
         public readonly bool Enabled;
+        public readonly string KmsKeyArn;
 
         [OutputConstructor]
-        private GetTableServerSideEncryptionResult(bool enabled)
+        private GetTableServerSideEncryptionResult(
+            bool enabled,
+            string kmsKeyArn)
         {
             Enabled = enabled;
+            KmsKeyArn = kmsKeyArn;
         }
     }
 

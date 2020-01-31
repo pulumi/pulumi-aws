@@ -55,6 +55,11 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+     * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     */
+    public readonly customerMasterKeySpec!: pulumi.Output<string | undefined>;
+    /**
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
@@ -77,10 +82,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
-     * Specifies the intended use of the key.
-     * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Defaults to `ENCRYPT_DECRYPT`.
      */
-    public readonly keyUsage!: pulumi.Output<string>;
+    public readonly keyUsage!: pulumi.Output<string | undefined>;
     public readonly policy!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the object.
@@ -100,6 +105,7 @@ export class Key extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as KeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
             inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enableKeyRotation"] = state ? state.enableKeyRotation : undefined;
@@ -110,6 +116,7 @@ export class Key extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
+            inputs["customerMasterKeySpec"] = args ? args.customerMasterKeySpec : undefined;
             inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
@@ -140,6 +147,11 @@ export interface KeyState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+     * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     */
+    readonly customerMasterKeySpec?: pulumi.Input<string>;
+    /**
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
@@ -162,8 +174,8 @@ export interface KeyState {
      */
     readonly keyId?: pulumi.Input<string>;
     /**
-     * Specifies the intended use of the key.
-     * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Defaults to `ENCRYPT_DECRYPT`.
      */
     readonly keyUsage?: pulumi.Input<string>;
     readonly policy?: pulumi.Input<string>;
@@ -177,6 +189,11 @@ export interface KeyState {
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
+    /**
+     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+     * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+     */
+    readonly customerMasterKeySpec?: pulumi.Input<string>;
     /**
      * Duration in days after which the key is deleted
      * after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -196,8 +213,8 @@ export interface KeyArgs {
      */
     readonly isEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the intended use of the key.
-     * Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+     * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+     * Defaults to `ENCRYPT_DECRYPT`.
      */
     readonly keyUsage?: pulumi.Input<string>;
     readonly policy?: pulumi.Input<string>;

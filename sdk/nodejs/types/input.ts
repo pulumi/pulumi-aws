@@ -3898,7 +3898,7 @@ export namespace cognito {
          */
         inviteMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate>;
         /**
-         * The user account expiration limit, in days, after which the account is no longer usable.
+         * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
          */
         unusedAccountValidityDays?: pulumi.Input<number>;
     }
@@ -4008,6 +4008,10 @@ export namespace cognito {
          * Whether you have required users to use at least one uppercase letter in their password.
          */
         requireUppercase?: pulumi.Input<boolean>;
+        /**
+         * In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+         */
+        temporaryPasswordValidityDays?: pulumi.Input<number>;
     }
 
     export interface UserPoolSchema {
@@ -4337,6 +4341,7 @@ export namespace docdb {
 export namespace dynamodb {
     export interface GetTableServerSideEncryption {
         enabled?: boolean;
+        kmsKeyArn?: string;
     }
 
     export interface GlobalTableReplica {
@@ -4432,6 +4437,11 @@ export namespace dynamodb {
          * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
          */
         enabled: pulumi.Input<boolean>;
+        /**
+         * The ARN of the CMK that should be used for the AWS KMS encryption.
+         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface TableTtl {
@@ -6746,6 +6756,17 @@ export namespace elasticsearch {
          * ID of the Cognito User Pool to use
          */
         userPoolId: pulumi.Input<string>;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        /**
+         * Whether or not to require HTTPS
+         */
+        enforceHttps: pulumi.Input<boolean>;
+        /**
+         * <elided>
+         */
+        tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
     export interface DomainEbsOptions {

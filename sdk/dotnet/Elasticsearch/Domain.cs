@@ -46,6 +46,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Domain endpoint HTTP(S) related options. See below.
+        /// </summary>
+        [Output("domainEndpointOptions")]
+        public Output<Outputs.DomainDomainEndpointOptions> DomainEndpointOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier for the domain.
         /// </summary>
         [Output("domainId")]
@@ -196,6 +202,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
 
         /// <summary>
+        /// Domain endpoint HTTP(S) related options. See below.
+        /// </summary>
+        [Input("domainEndpointOptions")]
+        public Input<Inputs.DomainDomainEndpointOptionsArgs>? DomainEndpointOptions { get; set; }
+
+        /// <summary>
         /// Name of the domain.
         /// </summary>
         [Input("domainName")]
@@ -303,6 +315,12 @@ namespace Pulumi.Aws.ElasticSearch
 
         [Input("cognitoOptions")]
         public Input<Inputs.DomainCognitoOptionsGetArgs>? CognitoOptions { get; set; }
+
+        /// <summary>
+        /// Domain endpoint HTTP(S) related options. See below.
+        /// </summary>
+        [Input("domainEndpointOptions")]
+        public Input<Inputs.DomainDomainEndpointOptionsGetArgs>? DomainEndpointOptions { get; set; }
 
         /// <summary>
         /// Unique identifier for the domain.
@@ -580,6 +598,38 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string> UserPoolId { get; set; } = null!;
 
         public DomainCognitoOptionsGetArgs()
+        {
+        }
+    }
+
+    public sealed class DomainDomainEndpointOptionsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Whether or not to require HTTPS
+        /// </summary>
+        [Input("enforceHttps", required: true)]
+        public Input<bool> EnforceHttps { get; set; } = null!;
+
+        [Input("tlsSecurityPolicy")]
+        public Input<string>? TlsSecurityPolicy { get; set; }
+
+        public DomainDomainEndpointOptionsArgs()
+        {
+        }
+    }
+
+    public sealed class DomainDomainEndpointOptionsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Whether or not to require HTTPS
+        /// </summary>
+        [Input("enforceHttps", required: true)]
+        public Input<bool> EnforceHttps { get; set; } = null!;
+
+        [Input("tlsSecurityPolicy")]
+        public Input<string>? TlsSecurityPolicy { get; set; }
+
+        public DomainDomainEndpointOptionsGetArgs()
         {
         }
     }
@@ -978,6 +1028,25 @@ namespace Pulumi.Aws.ElasticSearch
             IdentityPoolId = identityPoolId;
             RoleArn = roleArn;
             UserPoolId = userPoolId;
+        }
+    }
+
+    [OutputType]
+    public sealed class DomainDomainEndpointOptions
+    {
+        /// <summary>
+        /// Whether or not to require HTTPS
+        /// </summary>
+        public readonly bool EnforceHttps;
+        public readonly string TlsSecurityPolicy;
+
+        [OutputConstructor]
+        private DomainDomainEndpointOptions(
+            bool enforceHttps,
+            string tlsSecurityPolicy)
+        {
+            EnforceHttps = enforceHttps;
+            TlsSecurityPolicy = tlsSecurityPolicy;
         }
     }
 

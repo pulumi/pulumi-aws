@@ -149,6 +149,12 @@ namespace Pulumi.Aws.Ssm
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        /// </summary>
+        [Output("targetType")]
+        public Output<string?> TargetType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Document resource with the given unique name, arguments, and options.
@@ -248,6 +254,12 @@ namespace Pulumi.Aws.Ssm
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        /// </summary>
+        [Input("targetType")]
+        public Input<string>? TargetType { get; set; }
 
         public DocumentArgs()
         {
@@ -390,6 +402,12 @@ namespace Pulumi.Aws.Ssm
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+        /// </summary>
+        [Input("targetType")]
+        public Input<string>? TargetType { get; set; }
 
         public DocumentState()
         {

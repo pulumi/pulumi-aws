@@ -22,6 +22,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// </summary>
+        [Output("directInternetAccess")]
+        public Output<string?> DirectInternetAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The name of ML compute instance type.
         /// </summary>
         [Output("instanceType")]
@@ -116,6 +122,12 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class NotebookInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// </summary>
+        [Input("directInternetAccess")]
+        public Input<string>? DirectInternetAccess { get; set; }
+
+        /// <summary>
         /// The name of ML compute instance type.
         /// </summary>
         [Input("instanceType", required: true)]
@@ -187,6 +199,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// </summary>
+        [Input("directInternetAccess")]
+        public Input<string>? DirectInternetAccess { get; set; }
 
         /// <summary>
         /// The name of ML compute instance type.

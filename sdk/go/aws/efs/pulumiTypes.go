@@ -123,7 +123,53 @@ func (o FileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOut
 	return o.ApplyT(func (v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
 }
 
+type GetFileSystemLifecyclePolicy struct {
+	TransitionToIa string `pulumi:"transitionToIa"`
+}
+
+type GetFileSystemLifecyclePolicyInput interface {
+	pulumi.Input
+
+	ToGetFileSystemLifecyclePolicyOutput() GetFileSystemLifecyclePolicyOutput
+	ToGetFileSystemLifecyclePolicyOutputWithContext(context.Context) GetFileSystemLifecyclePolicyOutput
+}
+
+type GetFileSystemLifecyclePolicyArgs struct {
+	TransitionToIa pulumi.StringInput `pulumi:"transitionToIa"`
+}
+
+func (GetFileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileSystemLifecyclePolicy)(nil)).Elem()
+}
+
+func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutput() GetFileSystemLifecyclePolicyOutput {
+	return i.ToGetFileSystemLifecyclePolicyOutputWithContext(context.Background())
+}
+
+func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyOutput)
+}
+
+type GetFileSystemLifecyclePolicyOutput struct { *pulumi.OutputState }
+
+func (GetFileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileSystemLifecyclePolicy)(nil)).Elem()
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutput() GetFileSystemLifecyclePolicyOutput {
+	return o
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyOutput {
+	return o
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {
+	return o.ApplyT(func (v GetFileSystemLifecyclePolicy) string { return v.TransitionToIa }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyOutput{})
 }

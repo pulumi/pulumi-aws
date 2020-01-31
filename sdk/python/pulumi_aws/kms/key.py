@@ -14,6 +14,11 @@ class Key(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the key.
     """
+    customer_master_key_spec: pulumi.Output[str]
+    """
+    Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+    Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+    """
     deletion_window_in_days: pulumi.Output[float]
     """
     Duration in days after which the key is deleted
@@ -38,28 +43,30 @@ class Key(pulumi.CustomResource):
     """
     key_usage: pulumi.Output[str]
     """
-    Specifies the intended use of the key.
-    Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+    Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+    Defaults to `ENCRYPT_DECRYPT`.
     """
     policy: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the object.
     """
-    def __init__(__self__, resource_name, opts=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, customer_master_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a KMS customer master key.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+               Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         :param pulumi.Input[str] description: The description of the key as viewed in AWS console.
         :param pulumi.Input[bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
                is enabled. Defaults to false.
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
-        :param pulumi.Input[str] key_usage: Specifies the intended use of the key.
-               Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+        :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+               Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
@@ -81,6 +88,7 @@ class Key(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['customer_master_key_spec'] = customer_master_key_spec
             __props__['deletion_window_in_days'] = deletion_window_in_days
             __props__['description'] = description
             __props__['enable_key_rotation'] = enable_key_rotation
@@ -97,7 +105,7 @@ class Key(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_id=None, key_usage=None, policy=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, customer_master_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_id=None, key_usage=None, policy=None, tags=None):
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,6 +114,8 @@ class Key(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
+        :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+               Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         :param pulumi.Input[str] description: The description of the key as viewed in AWS console.
@@ -113,8 +123,8 @@ class Key(pulumi.CustomResource):
                is enabled. Defaults to false.
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
         :param pulumi.Input[str] key_id: The globally unique identifier for the key.
-        :param pulumi.Input[str] key_usage: Specifies the intended use of the key.
-               Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+        :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+               Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
@@ -123,6 +133,7 @@ class Key(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["arn"] = arn
+        __props__["customer_master_key_spec"] = customer_master_key_spec
         __props__["deletion_window_in_days"] = deletion_window_in_days
         __props__["description"] = description
         __props__["enable_key_rotation"] = enable_key_rotation

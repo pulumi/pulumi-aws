@@ -571,7 +571,7 @@ type UserPoolAdminCreateUserConfig struct {
 	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
 	// The invite message template structure.
 	InviteMessageTemplate *UserPoolAdminCreateUserConfigInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
-	// The user account expiration limit, in days, after which the account is no longer usable.
+	// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
 	UnusedAccountValidityDays *int `pulumi:"unusedAccountValidityDays"`
 }
 
@@ -587,7 +587,7 @@ type UserPoolAdminCreateUserConfigArgs struct {
 	AllowAdminCreateUserOnly pulumi.BoolPtrInput `pulumi:"allowAdminCreateUserOnly"`
 	// The invite message template structure.
 	InviteMessageTemplate UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
-	// The user account expiration limit, in days, after which the account is no longer usable.
+	// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
 	UnusedAccountValidityDays pulumi.IntPtrInput `pulumi:"unusedAccountValidityDays"`
 }
 
@@ -668,7 +668,7 @@ func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolAdm
 	return o.ApplyT(func (v UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfigInviteMessageTemplate { return v.InviteMessageTemplate }).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
 }
 
-// The user account expiration limit, in days, after which the account is no longer usable.
+// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
 func (o UserPoolAdminCreateUserConfigOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v UserPoolAdminCreateUserConfig) *int { return v.UnusedAccountValidityDays }).(pulumi.IntPtrOutput)
 }
@@ -701,7 +701,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 	return o.ApplyT(func (v UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfigInviteMessageTemplate { return v.InviteMessageTemplate }).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
 }
 
-// The user account expiration limit, in days, after which the account is no longer usable.
+// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
 func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v UserPoolAdminCreateUserConfig) *int { return v.UnusedAccountValidityDays }).(pulumi.IntPtrOutput)
 }
@@ -1361,6 +1361,8 @@ type UserPoolPasswordPolicy struct {
 	RequireSymbols *bool `pulumi:"requireSymbols"`
 	// Whether you have required users to use at least one uppercase letter in their password.
 	RequireUppercase *bool `pulumi:"requireUppercase"`
+	// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+	TemporaryPasswordValidityDays *int `pulumi:"temporaryPasswordValidityDays"`
 }
 
 type UserPoolPasswordPolicyInput interface {
@@ -1381,6 +1383,8 @@ type UserPoolPasswordPolicyArgs struct {
 	RequireSymbols pulumi.BoolPtrInput `pulumi:"requireSymbols"`
 	// Whether you have required users to use at least one uppercase letter in their password.
 	RequireUppercase pulumi.BoolPtrInput `pulumi:"requireUppercase"`
+	// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+	TemporaryPasswordValidityDays pulumi.IntPtrInput `pulumi:"temporaryPasswordValidityDays"`
 }
 
 func (UserPoolPasswordPolicyArgs) ElementType() reflect.Type {
@@ -1475,6 +1479,11 @@ func (o UserPoolPasswordPolicyOutput) RequireUppercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v UserPoolPasswordPolicy) *bool { return v.RequireUppercase }).(pulumi.BoolPtrOutput)
 }
 
+// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+func (o UserPoolPasswordPolicyOutput) TemporaryPasswordValidityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v UserPoolPasswordPolicy) *int { return v.TemporaryPasswordValidityDays }).(pulumi.IntPtrOutput)
+}
+
 type UserPoolPasswordPolicyPtrOutput struct { *pulumi.OutputState}
 
 func (UserPoolPasswordPolicyPtrOutput) ElementType() reflect.Type {
@@ -1516,6 +1525,11 @@ func (o UserPoolPasswordPolicyPtrOutput) RequireSymbols() pulumi.BoolPtrOutput {
 // Whether you have required users to use at least one uppercase letter in their password.
 func (o UserPoolPasswordPolicyPtrOutput) RequireUppercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v UserPoolPasswordPolicy) *bool { return v.RequireUppercase }).(pulumi.BoolPtrOutput)
+}
+
+// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v UserPoolPasswordPolicy) *int { return v.TemporaryPasswordValidityDays }).(pulumi.IntPtrOutput)
 }
 
 type UserPoolSchema struct {

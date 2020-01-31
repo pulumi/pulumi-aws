@@ -18,6 +18,10 @@ class Association(pulumi.CustomResource):
     """
     The descriptive name for the association.
     """
+    automation_target_parameter_name: pulumi.Output[str]
+    """
+    Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+    """
     compliance_severity: pulumi.Output[str]
     """
     The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
@@ -64,13 +68,14 @@ class Association(pulumi.CustomResource):
       * `key` (`str`) - Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
       * `values` (`list`) - A list of instance IDs or tag values. AWS currently limits this list size to one value.
     """
-    def __init__(__self__, resource_name, opts=None, association_name=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, association_name=None, automation_target_parameter_name=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None, __props__=None, __name__=None, __opts__=None):
         """
         Associates an SSM Document to an instance or EC2 tag.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -112,6 +117,7 @@ class Association(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['association_name'] = association_name
+            __props__['automation_target_parameter_name'] = automation_target_parameter_name
             __props__['compliance_severity'] = compliance_severity
             __props__['document_version'] = document_version
             __props__['instance_id'] = instance_id
@@ -130,7 +136,7 @@ class Association(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, association_id=None, association_name=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None):
+    def get(resource_name, id, opts=None, association_id=None, association_name=None, automation_target_parameter_name=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, targets=None):
         """
         Get an existing Association resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -140,6 +146,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_id: The ID of the SSM association.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -168,6 +175,7 @@ class Association(pulumi.CustomResource):
         __props__ = dict()
         __props__["association_id"] = association_id
         __props__["association_name"] = association_name
+        __props__["automation_target_parameter_name"] = automation_target_parameter_name
         __props__["compliance_severity"] = compliance_severity
         __props__["document_version"] = document_version
         __props__["instance_id"] = instance_id

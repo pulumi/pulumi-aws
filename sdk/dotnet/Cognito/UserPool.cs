@@ -541,7 +541,7 @@ namespace Pulumi.Aws.Cognito
         public Input<UserPoolAdminCreateUserConfigInviteMessageTemplateArgs>? InviteMessageTemplate { get; set; }
 
         /// <summary>
-        /// The user account expiration limit, in days, after which the account is no longer usable.
+        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
         /// </summary>
         [Input("unusedAccountValidityDays")]
         public Input<int>? UnusedAccountValidityDays { get; set; }
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Cognito
         public Input<UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs>? InviteMessageTemplate { get; set; }
 
         /// <summary>
-        /// The user account expiration limit, in days, after which the account is no longer usable.
+        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
         /// </summary>
         [Input("unusedAccountValidityDays")]
         public Input<int>? UnusedAccountValidityDays { get; set; }
@@ -880,6 +880,12 @@ namespace Pulumi.Aws.Cognito
         [Input("requireUppercase")]
         public Input<bool>? RequireUppercase { get; set; }
 
+        /// <summary>
+        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        /// </summary>
+        [Input("temporaryPasswordValidityDays")]
+        public Input<int>? TemporaryPasswordValidityDays { get; set; }
+
         public UserPoolPasswordPolicyArgs()
         {
         }
@@ -916,6 +922,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("requireUppercase")]
         public Input<bool>? RequireUppercase { get; set; }
+
+        /// <summary>
+        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        /// </summary>
+        [Input("temporaryPasswordValidityDays")]
+        public Input<int>? TemporaryPasswordValidityDays { get; set; }
 
         public UserPoolPasswordPolicyGetArgs()
         {
@@ -1262,7 +1274,7 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate;
         /// <summary>
-        /// The user account expiration limit, in days, after which the account is no longer usable.
+        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
         /// </summary>
         public readonly int? UnusedAccountValidityDays;
 
@@ -1449,6 +1461,10 @@ namespace Pulumi.Aws.Cognito
         /// Whether you have required users to use at least one uppercase letter in their password.
         /// </summary>
         public readonly bool? RequireUppercase;
+        /// <summary>
+        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        /// </summary>
+        public readonly int? TemporaryPasswordValidityDays;
 
         [OutputConstructor]
         private UserPoolPasswordPolicy(
@@ -1456,13 +1472,15 @@ namespace Pulumi.Aws.Cognito
             bool? requireLowercase,
             bool? requireNumbers,
             bool? requireSymbols,
-            bool? requireUppercase)
+            bool? requireUppercase,
+            int? temporaryPasswordValidityDays)
         {
             MinimumLength = minimumLength;
             RequireLowercase = requireLowercase;
             RequireNumbers = requireNumbers;
             RequireSymbols = requireSymbols;
             RequireUppercase = requireUppercase;
+            TemporaryPasswordValidityDays = temporaryPasswordValidityDays;
         }
     }
 

@@ -18,6 +18,10 @@ class Gateway(pulumi.CustomResource):
     """
     Amazon Resource Name (ARN) of the gateway.
     """
+    cloudwatch_log_group_arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+    """
     gateway_id: pulumi.Output[str]
     """
     Identifier of the gateway.
@@ -59,7 +63,7 @@ class Gateway(pulumi.CustomResource):
     """
     Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
     """
-    def __init__(__self__, resource_name, opts=None, activation_key=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, activation_key=None, cloudwatch_log_group_arn=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
         
@@ -68,6 +72,7 @@ class Gateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
+        :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_name: Name of the gateway.
         :param pulumi.Input[str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
@@ -103,6 +108,7 @@ class Gateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['activation_key'] = activation_key
+            __props__['cloudwatch_log_group_arn'] = cloudwatch_log_group_arn
             __props__['gateway_ip_address'] = gateway_ip_address
             if gateway_name is None:
                 raise TypeError("Missing required property 'gateway_name'")
@@ -125,7 +131,7 @@ class Gateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, activation_key=None, arn=None, gateway_id=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None):
+    def get(resource_name, id, opts=None, activation_key=None, arn=None, cloudwatch_log_group_arn=None, gateway_id=None, gateway_ip_address=None, gateway_name=None, gateway_timezone=None, gateway_type=None, medium_changer_type=None, smb_active_directory_settings=None, smb_guest_password=None, tags=None, tape_drive_type=None):
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,6 +141,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[str] cloudwatch_log_group_arn: The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         :param pulumi.Input[str] gateway_id: Identifier of the gateway.
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_name: Name of the gateway.
@@ -158,6 +165,7 @@ class Gateway(pulumi.CustomResource):
         __props__ = dict()
         __props__["activation_key"] = activation_key
         __props__["arn"] = arn
+        __props__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
         __props__["gateway_id"] = gateway_id
         __props__["gateway_ip_address"] = gateway_ip_address
         __props__["gateway_name"] = gateway_name
