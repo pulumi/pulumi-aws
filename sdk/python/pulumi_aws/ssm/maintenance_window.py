@@ -18,6 +18,10 @@ class MaintenanceWindow(pulumi.CustomResource):
     """
     The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
     """
+    description: pulumi.Output[str]
+    """
+    A description for the maintenance window.
+    """
     duration: pulumi.Output[float]
     """
     The duration of the Maintenance Window in hours.
@@ -50,7 +54,7 @@ class MaintenanceWindow(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, allow_unassociated_targets=None, cutoff=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_unassociated_targets=None, cutoff=None, description=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window resource
         
@@ -58,6 +62,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         :param pulumi.Input[float] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+        :param pulumi.Input[str] description: A description for the maintenance window.
         :param pulumi.Input[float] duration: The duration of the Maintenance Window in hours.
         :param pulumi.Input[bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
@@ -90,6 +95,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             if cutoff is None:
                 raise TypeError("Missing required property 'cutoff'")
             __props__['cutoff'] = cutoff
+            __props__['description'] = description
             if duration is None:
                 raise TypeError("Missing required property 'duration'")
             __props__['duration'] = duration
@@ -109,7 +115,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_unassociated_targets=None, cutoff=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None):
+    def get(resource_name, id, opts=None, allow_unassociated_targets=None, cutoff=None, description=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None):
         """
         Get an existing MaintenanceWindow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -119,6 +125,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         :param pulumi.Input[float] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+        :param pulumi.Input[str] description: A description for the maintenance window.
         :param pulumi.Input[float] duration: The duration of the Maintenance Window in hours.
         :param pulumi.Input[bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
@@ -135,6 +142,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__ = dict()
         __props__["allow_unassociated_targets"] = allow_unassociated_targets
         __props__["cutoff"] = cutoff
+        __props__["description"] = description
         __props__["duration"] = duration
         __props__["enabled"] = enabled
         __props__["end_date"] = end_date

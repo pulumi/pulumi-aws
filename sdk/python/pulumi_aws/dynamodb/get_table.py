@@ -109,6 +109,7 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     The **server_side_encryption** object supports the following:
     
       * `enabled` (`bool`)
+      * `kms_key_arn` (`str`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
     """

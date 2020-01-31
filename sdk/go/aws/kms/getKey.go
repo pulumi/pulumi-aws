@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to get detailed information about 
-// the specified KMS Key with flexible key id input. 
-// This can be useful to reference key alias 
+// Use this data source to get detailed information about
+// the specified KMS Key with flexible key id input.
+// This can be useful to reference key alias
 // without having to hard code the ARN as input.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
@@ -41,6 +41,7 @@ type LookupKeyResult struct {
 	Arn string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
 	CreationDate string `pulumi:"creationDate"`
+	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
 	DeletionDate string `pulumi:"deletionDate"`
 	Description string `pulumi:"description"`
 	Enabled bool `pulumi:"enabled"`

@@ -21,7 +21,7 @@ class UserPool(pulumi.CustomResource):
         * `emailSubject` (`str`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
         * `smsMessage` (`str`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
     
-      * `unusedAccountValidityDays` (`float`) - The user account expiration limit, in days, after which the account is no longer usable.
+      * `unusedAccountValidityDays` (`float`) - **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
     """
     alias_attributes: pulumi.Output[list]
     """
@@ -102,6 +102,7 @@ class UserPool(pulumi.CustomResource):
       * `requireNumbers` (`bool`) - Whether you have required users to use at least one number in their password.
       * `requireSymbols` (`bool`) - Whether you have required users to use at least one symbol in their password.
       * `requireUppercase` (`bool`) - Whether you have required users to use at least one uppercase letter in their password.
+      * `temporaryPasswordValidityDays` (`float`) - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
     """
     schemas: pulumi.Output[list]
     """
@@ -197,7 +198,7 @@ class UserPool(pulumi.CustomResource):
             * `emailSubject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
             * `smsMessage` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         
-          * `unusedAccountValidityDays` (`pulumi.Input[float]`) - The user account expiration limit, in days, after which the account is no longer usable.
+          * `unusedAccountValidityDays` (`pulumi.Input[float]`) - **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
         
         The **device_configuration** object supports the following:
         
@@ -230,6 +231,7 @@ class UserPool(pulumi.CustomResource):
           * `requireNumbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
           * `requireSymbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
           * `requireUppercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one uppercase letter in their password.
+          * `temporaryPasswordValidityDays` (`pulumi.Input[float]`) - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
         
         The **schemas** object supports the following:
         
@@ -356,7 +358,7 @@ class UserPool(pulumi.CustomResource):
             * `emailSubject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
             * `smsMessage` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         
-          * `unusedAccountValidityDays` (`pulumi.Input[float]`) - The user account expiration limit, in days, after which the account is no longer usable.
+          * `unusedAccountValidityDays` (`pulumi.Input[float]`) - **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
         
         The **device_configuration** object supports the following:
         
@@ -389,6 +391,7 @@ class UserPool(pulumi.CustomResource):
           * `requireNumbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
           * `requireSymbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
           * `requireUppercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one uppercase letter in their password.
+          * `temporaryPasswordValidityDays` (`pulumi.Input[float]`) - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
         
         The **schemas** object supports the following:
         

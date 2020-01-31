@@ -11,9 +11,9 @@ namespace Pulumi.Aws.Kms
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to get detailed information about 
-        /// the specified KMS Key with flexible key id input. 
-        /// This can be useful to reference key alias 
+        /// Use this data source to get detailed information about
+        /// the specified KMS Key with flexible key id input.
+        /// This can be useful to reference key alias
         /// without having to hard code the ARN as input.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
@@ -57,6 +57,7 @@ namespace Pulumi.Aws.Kms
         public readonly string Arn;
         public readonly string AwsAccountId;
         public readonly string CreationDate;
+        public readonly string CustomerMasterKeySpec;
         public readonly string DeletionDate;
         public readonly string Description;
         public readonly bool Enabled;
@@ -78,6 +79,7 @@ namespace Pulumi.Aws.Kms
             string arn,
             string awsAccountId,
             string creationDate,
+            string customerMasterKeySpec,
             string deletionDate,
             string description,
             bool enabled,
@@ -94,6 +96,7 @@ namespace Pulumi.Aws.Kms
             Arn = arn;
             AwsAccountId = awsAccountId;
             CreationDate = creationDate;
+            CustomerMasterKeySpec = customerMasterKeySpec;
             DeletionDate = deletionDate;
             Description = description;
             Enabled = enabled;

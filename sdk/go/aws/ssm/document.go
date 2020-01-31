@@ -77,6 +77,8 @@ type Document struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
+	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
 }
 
 // NewDocument registers a new resource with the given unique name, arguments, and options.
@@ -150,6 +152,8 @@ type documentState struct {
 	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
+	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	TargetType *string `pulumi:"targetType"`
 }
 
 type DocumentState struct {
@@ -190,6 +194,8 @@ type DocumentState struct {
 	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapInput
+	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	TargetType pulumi.StringPtrInput
 }
 
 func (DocumentState) ElementType() reflect.Type {
@@ -211,6 +217,8 @@ type documentArgs struct {
 	Permissions *DocumentPermissions `pulumi:"permissions"`
 	// A mapping of tags to assign to the object.
 	Tags map[string]interface{} `pulumi:"tags"`
+	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	TargetType *string `pulumi:"targetType"`
 }
 
 // The set of arguments for constructing a Document resource.
@@ -229,6 +237,8 @@ type DocumentArgs struct {
 	Permissions DocumentPermissionsPtrInput
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapInput
+	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	TargetType pulumi.StringPtrInput
 }
 
 func (DocumentArgs) ElementType() reflect.Type {

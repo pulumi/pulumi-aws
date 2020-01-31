@@ -35,6 +35,7 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
     }
     const promise: Promise<GetVpcLinkResult> = pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -49,6 +50,7 @@ export interface GetVpcLinkArgs {
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -56,8 +58,28 @@ export interface GetVpcLinkArgs {
  */
 export interface GetVpcLinkResult {
     /**
+     * The description of the VPC link.
+     */
+    readonly description: string;
+    /**
      * Set to the ID of the found API Gateway VPC Link.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * The status of the VPC link.
+     */
+    readonly status: string;
+    /**
+     * The status message of the VPC link.
+     */
+    readonly statusMessage: string;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags: {[key: string]: any};
+    /**
+     * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+     */
+    readonly targetArns: string[];
 }

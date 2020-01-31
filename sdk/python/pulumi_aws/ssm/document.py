@@ -95,7 +95,11 @@ class Document(pulumi.CustomResource):
     """
     A mapping of tags to assign to the object.
     """
-    def __init__(__self__, resource_name, opts=None, attachments_sources=None, content=None, document_format=None, document_type=None, name=None, permissions=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    target_type: pulumi.Output[str]
+    """
+    The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+    """
+    def __init__(__self__, resource_name, opts=None, attachments_sources=None, content=None, document_format=None, document_type=None, name=None, permissions=None, tags=None, target_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Document resource
         
@@ -131,6 +135,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the document.
         :param pulumi.Input[dict] permissions: Additional Permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
         
         The **attachments_sources** object supports the following:
         
@@ -173,6 +178,7 @@ class Document(pulumi.CustomResource):
             __props__['name'] = name
             __props__['permissions'] = permissions
             __props__['tags'] = tags
+            __props__['target_type'] = target_type
             __props__['arn'] = None
             __props__['created_date'] = None
             __props__['default_version'] = None
@@ -192,7 +198,7 @@ class Document(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, attachments_sources=None, content=None, created_date=None, default_version=None, description=None, document_format=None, document_type=None, hash=None, hash_type=None, latest_version=None, name=None, owner=None, parameters=None, permissions=None, platform_types=None, schema_version=None, status=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, attachments_sources=None, content=None, created_date=None, default_version=None, description=None, document_format=None, document_type=None, hash=None, hash_type=None, latest_version=None, name=None, owner=None, parameters=None, permissions=None, platform_types=None, schema_version=None, status=None, tags=None, target_type=None):
         """
         Get an existing Document resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -218,6 +224,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] schema_version: The schema version of the document.
         :param pulumi.Input[str] status: "Creating", "Active" or "Deleting". The current status of the document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
+        :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
         
         The **attachments_sources** object supports the following:
         
@@ -261,6 +268,7 @@ class Document(pulumi.CustomResource):
         __props__["schema_version"] = schema_version
         __props__["status"] = status
         __props__["tags"] = tags
+        __props__["target_type"] = target_type
         return Document(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

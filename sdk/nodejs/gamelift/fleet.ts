@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * const example = new aws.gamelift.Fleet("example", {
  *     buildId: aws_gamelift_build_example.id,
  *     ec2InstanceType: "t2.micro",
+ *     fleetType: "ON_DEMAND",
  *     runtimeConfiguration: {
  *         serverProcesses: [{
  *             concurrentExecutions: 1,
@@ -77,6 +78,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly ec2InstanceType!: pulumi.Output<string>;
     /**
+     * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+     */
+    public readonly fleetType!: pulumi.Output<string | undefined>;
+    /**
      * ARN of an IAM role that instances in the fleet can assume.
      */
     public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
@@ -123,6 +128,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["ec2InboundPermissions"] = state ? state.ec2InboundPermissions : undefined;
             inputs["ec2InstanceType"] = state ? state.ec2InstanceType : undefined;
+            inputs["fleetType"] = state ? state.fleetType : undefined;
             inputs["instanceRoleArn"] = state ? state.instanceRoleArn : undefined;
             inputs["logPaths"] = state ? state.logPaths : undefined;
             inputs["metricGroups"] = state ? state.metricGroups : undefined;
@@ -143,6 +149,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
             inputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
+            inputs["fleetType"] = args ? args.fleetType : undefined;
             inputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
             inputs["metricGroups"] = args ? args.metricGroups : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -188,6 +195,10 @@ export interface FleetState {
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
     readonly ec2InstanceType?: pulumi.Input<string>;
+    /**
+     * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+     */
+    readonly fleetType?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      */
@@ -239,6 +250,10 @@ export interface FleetArgs {
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
     readonly ec2InstanceType: pulumi.Input<string>;
+    /**
+     * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+     */
+    readonly fleetType?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      */

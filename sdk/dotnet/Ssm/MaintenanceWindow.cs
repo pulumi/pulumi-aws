@@ -28,6 +28,12 @@ namespace Pulumi.Aws.Ssm
         public Output<int> Cutoff { get; private set; } = null!;
 
         /// <summary>
+        /// A description for the maintenance window.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The duration of the Maintenance Window in hours.
         /// </summary>
         [Output("duration")]
@@ -134,6 +140,12 @@ namespace Pulumi.Aws.Ssm
         public Input<int> Cutoff { get; set; } = null!;
 
         /// <summary>
+        /// A description for the maintenance window.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The duration of the Maintenance Window in hours.
         /// </summary>
         [Input("duration", required: true)]
@@ -205,6 +217,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("cutoff")]
         public Input<int>? Cutoff { get; set; }
+
+        /// <summary>
+        /// A description for the maintenance window.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// The duration of the Maintenance Window in hours.

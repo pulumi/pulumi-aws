@@ -23,6 +23,8 @@ type Gateway struct {
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Identifier of the gateway.
 	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -82,6 +84,8 @@ type gatewayState struct {
 	ActivationKey *string `pulumi:"activationKey"`
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Identifier of the gateway.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -108,6 +112,8 @@ type GatewayState struct {
 	ActivationKey pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the gateway.
 	Arn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Identifier of the gateway.
 	GatewayId pulumi.StringPtrInput
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
@@ -136,6 +142,8 @@ func (GatewayState) ElementType() reflect.Type {
 type gatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey *string `pulumi:"activationKey"`
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
 	// Name of the gateway.
@@ -159,6 +167,8 @@ type gatewayArgs struct {
 type GatewayArgs struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress pulumi.StringPtrInput
 	// Name of the gateway.

@@ -31,6 +31,14 @@ namespace Pulumi.Aws.ApiGateway
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, object>? _tags;
+        public Dictionary<string, object> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, object>());
+            set => _tags = value;
+        }
+
         public GetVpcLinkArgs()
         {
         }
@@ -40,18 +48,48 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetVpcLinkResult
     {
         /// <summary>
+        /// The description of the VPC link.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// Set to the ID of the found API Gateway VPC Link.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// The status of the VPC link.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The status message of the VPC link.
+        /// </summary>
+        public readonly string StatusMessage;
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Tags;
+        /// <summary>
+        /// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
+        /// </summary>
+        public readonly ImmutableArray<string> TargetArns;
 
         [OutputConstructor]
         private GetVpcLinkResult(
+            string description,
             string id,
-            string name)
+            string name,
+            string status,
+            string statusMessage,
+            ImmutableDictionary<string, object> tags,
+            ImmutableArray<string> targetArns)
         {
+            Description = description;
             Id = id;
             Name = name;
+            Status = status;
+            StatusMessage = statusMessage;
+            Tags = tags;
+            TargetArns = targetArns;
         }
     }
 }

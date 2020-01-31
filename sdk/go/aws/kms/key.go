@@ -18,6 +18,9 @@ type Key struct {
 
 	// The Amazon Resource Name (ARN) of the key.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	CustomerMasterKeySpec pulumi.StringPtrOutput `pulumi:"customerMasterKeySpec"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays pulumi.IntPtrOutput `pulumi:"deletionWindowInDays"`
@@ -30,9 +33,9 @@ type Key struct {
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The globally unique identifier for the key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Specifies the intended use of the key.
-	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
-	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Defaults to `ENCRYPT_DECRYPT`.
+	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -68,6 +71,9 @@ func GetKey(ctx *pulumi.Context,
 type keyState struct {
 	// The Amazon Resource Name (ARN) of the key.
 	Arn *string `pulumi:"arn"`
+	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
@@ -80,8 +86,8 @@ type keyState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The globally unique identifier for the key.
 	KeyId *string `pulumi:"keyId"`
-	// Specifies the intended use of the key.
-	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	Policy *string `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
@@ -91,6 +97,9 @@ type keyState struct {
 type KeyState struct {
 	// The Amazon Resource Name (ARN) of the key.
 	Arn pulumi.StringPtrInput
+	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	CustomerMasterKeySpec pulumi.StringPtrInput
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays pulumi.IntPtrInput
@@ -103,8 +112,8 @@ type KeyState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The globally unique identifier for the key.
 	KeyId pulumi.StringPtrInput
-	// Specifies the intended use of the key.
-	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 	// A mapping of tags to assign to the object.
@@ -116,6 +125,9 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
+	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
@@ -126,8 +138,8 @@ type keyArgs struct {
 	EnableKeyRotation *bool `pulumi:"enableKeyRotation"`
 	// Specifies whether the key is enabled. Defaults to true.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// Specifies the intended use of the key.
-	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	Policy *string `pulumi:"policy"`
 	// A mapping of tags to assign to the object.
@@ -136,6 +148,9 @@ type keyArgs struct {
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
+	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	CustomerMasterKeySpec pulumi.StringPtrInput
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays pulumi.IntPtrInput
@@ -146,8 +161,8 @@ type KeyArgs struct {
 	EnableKeyRotation pulumi.BoolPtrInput
 	// Specifies whether the key is enabled. Defaults to true.
 	IsEnabled pulumi.BoolPtrInput
-	// Specifies the intended use of the key.
-	// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 	// A mapping of tags to assign to the object.

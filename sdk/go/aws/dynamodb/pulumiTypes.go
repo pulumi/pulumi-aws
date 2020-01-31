@@ -611,6 +611,9 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolOutput {
 type TableServerSideEncryption struct {
 	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
+	// The ARN of the CMK that should be used for the AWS KMS encryption.
+	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 type TableServerSideEncryptionInput interface {
@@ -623,6 +626,9 @@ type TableServerSideEncryptionInput interface {
 type TableServerSideEncryptionArgs struct {
 	// Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ARN of the CMK that should be used for the AWS KMS encryption.
+	// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (TableServerSideEncryptionArgs) ElementType() reflect.Type {
@@ -697,6 +703,12 @@ func (o TableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The ARN of the CMK that should be used for the AWS KMS encryption.
+// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+func (o TableServerSideEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v TableServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 type TableServerSideEncryptionPtrOutput struct { *pulumi.OutputState}
 
 func (TableServerSideEncryptionPtrOutput) ElementType() reflect.Type {
@@ -718,6 +730,12 @@ func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutp
 // Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
 func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ARN of the CMK that should be used for the AWS KMS encryption.
+// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+func (o TableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v TableServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 type TableTtl struct {
@@ -1220,6 +1238,7 @@ func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 
 type GetTableServerSideEncryption struct {
 	Enabled bool `pulumi:"enabled"`
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
 type GetTableServerSideEncryptionInput interface {
@@ -1231,6 +1250,7 @@ type GetTableServerSideEncryptionInput interface {
 
 type GetTableServerSideEncryptionArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
 func (GetTableServerSideEncryptionArgs) ElementType() reflect.Type {
@@ -1261,6 +1281,10 @@ func (o GetTableServerSideEncryptionOutput) ToGetTableServerSideEncryptionOutput
 
 func (o GetTableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetTableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetTableServerSideEncryptionOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func (v GetTableServerSideEncryption) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
 type GetTableTtl struct {

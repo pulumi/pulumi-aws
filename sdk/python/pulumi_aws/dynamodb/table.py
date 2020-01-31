@@ -91,6 +91,8 @@ class Table(pulumi.CustomResource):
     Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
     
       * `enabled` (`bool`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+      * `kms_key_arn` (`str`) - The ARN of the CMK that should be used for the AWS KMS encryption.
+        This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
     """
     stream_arn: pulumi.Output[str]
     """
@@ -197,6 +199,8 @@ class Table(pulumi.CustomResource):
         The **server_side_encryption** object supports the following:
         
           * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `kms_key_arn` (`pulumi.Input[str]`) - The ARN of the CMK that should be used for the AWS KMS encryption.
+            This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         
         The **ttl** object supports the following:
         
@@ -328,6 +332,8 @@ class Table(pulumi.CustomResource):
         The **server_side_encryption** object supports the following:
         
           * `enabled` (`pulumi.Input[bool]`) - Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided then this defaults to `false`.
+          * `kms_key_arn` (`pulumi.Input[str]`) - The ARN of the CMK that should be used for the AWS KMS encryption.
+            This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         
         The **ttl** object supports the following:
         

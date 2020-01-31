@@ -19,6 +19,8 @@ type NotebookInstance struct {
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+	DirectInternetAccess pulumi.StringPtrOutput `pulumi:"directInternetAccess"`
 	// The name of ML compute instance type.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -73,6 +75,8 @@ func GetNotebookInstance(ctx *pulumi.Context,
 type notebookInstanceState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
 	Arn *string `pulumi:"arn"`
+	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+	DirectInternetAccess *string `pulumi:"directInternetAccess"`
 	// The name of ML compute instance type.
 	InstanceType *string `pulumi:"instanceType"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -94,6 +98,8 @@ type notebookInstanceState struct {
 type NotebookInstanceState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
 	Arn pulumi.StringPtrInput
+	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+	DirectInternetAccess pulumi.StringPtrInput
 	// The name of ML compute instance type.
 	InstanceType pulumi.StringPtrInput
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -117,6 +123,8 @@ func (NotebookInstanceState) ElementType() reflect.Type {
 }
 
 type notebookInstanceArgs struct {
+	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+	DirectInternetAccess *string `pulumi:"directInternetAccess"`
 	// The name of ML compute instance type.
 	InstanceType string `pulumi:"instanceType"`
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -137,6 +145,8 @@ type notebookInstanceArgs struct {
 
 // The set of arguments for constructing a NotebookInstance resource.
 type NotebookInstanceArgs struct {
+	// Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+	DirectInternetAccess pulumi.StringPtrInput
 	// The name of ML compute instance type.
 	InstanceType pulumi.StringInput
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.

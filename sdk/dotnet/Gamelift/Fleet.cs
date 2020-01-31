@@ -46,6 +46,12 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Ec2InstanceType { get; private set; } = null!;
 
         /// <summary>
+        /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+        /// </summary>
+        [Output("fleetType")]
+        public Output<string?> FleetType { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an IAM role that instances in the fleet can assume.
         /// </summary>
         [Output("instanceRoleArn")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.GameLift
         public Input<string> Ec2InstanceType { get; set; } = null!;
 
         /// <summary>
+        /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+        /// </summary>
+        [Input("fleetType")]
+        public Input<string>? FleetType { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role that instances in the fleet can assume.
         /// </summary>
         [Input("instanceRoleArn")]
@@ -250,6 +262,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("ec2InstanceType")]
         public Input<string>? Ec2InstanceType { get; set; }
+
+        /// <summary>
+        /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+        /// </summary>
+        [Input("fleetType")]
+        public Input<string>? FleetType { get; set; }
 
         /// <summary>
         /// ARN of an IAM role that instances in the fleet can assume.

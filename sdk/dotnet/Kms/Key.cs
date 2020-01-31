@@ -22,6 +22,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+        /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Output("customerMasterKeySpec")]
+        public Output<string?> CustomerMasterKeySpec { get; private set; } = null!;
+
+        /// <summary>
         /// Duration in days after which the key is deleted
         /// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         /// </summary>
@@ -54,11 +61,11 @@ namespace Pulumi.Aws.Kms
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the intended use of the key.
-        /// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+        /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Output("keyUsage")]
-        public Output<string> KeyUsage { get; private set; } = null!;
+        public Output<string?> KeyUsage { get; private set; } = null!;
 
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -116,6 +123,13 @@ namespace Pulumi.Aws.Kms
     public sealed class KeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+        /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Input("customerMasterKeySpec")]
+        public Input<string>? CustomerMasterKeySpec { get; set; }
+
+        /// <summary>
         /// Duration in days after which the key is deleted
         /// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         /// </summary>
@@ -142,8 +156,8 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the intended use of the key.
-        /// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+        /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
@@ -175,6 +189,13 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+        /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Input("customerMasterKeySpec")]
+        public Input<string>? CustomerMasterKeySpec { get; set; }
 
         /// <summary>
         /// Duration in days after which the key is deleted
@@ -209,8 +230,8 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// Specifies the intended use of the key.
-        /// Defaults to ENCRYPT_DECRYPT, and only symmetric encryption and decryption are supported.
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
+        /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }

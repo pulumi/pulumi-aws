@@ -28,6 +28,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> AssociationName { get; private set; } = null!;
 
         /// <summary>
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        /// </summary>
+        [Output("automationTargetParameterName")]
+        public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
+
+        /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         /// </summary>
         [Output("complianceSeverity")]
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? AssociationName { get; set; }
 
         /// <summary>
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        /// </summary>
+        [Input("automationTargetParameterName")]
+        public Input<string>? AutomationTargetParameterName { get; set; }
+
+        /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         /// </summary>
         [Input("complianceSeverity")]
@@ -229,6 +241,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("associationName")]
         public Input<string>? AssociationName { get; set; }
+
+        /// <summary>
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        /// </summary>
+        [Input("automationTargetParameterName")]
+        public Input<string>? AutomationTargetParameterName { get; set; }
 
         /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`

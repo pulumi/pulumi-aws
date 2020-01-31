@@ -473,6 +473,128 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func (v DomainCognitoOptions) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
+type DomainDomainEndpointOptions struct {
+	// Whether or not to require HTTPS
+	EnforceHttps bool `pulumi:"enforceHttps"`
+	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
+}
+
+type DomainDomainEndpointOptionsInput interface {
+	pulumi.Input
+
+	ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput
+	ToDomainDomainEndpointOptionsOutputWithContext(context.Context) DomainDomainEndpointOptionsOutput
+}
+
+type DomainDomainEndpointOptionsArgs struct {
+	// Whether or not to require HTTPS
+	EnforceHttps pulumi.BoolInput `pulumi:"enforceHttps"`
+	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
+}
+
+func (DomainDomainEndpointOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
+	return i.ToDomainDomainEndpointOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput)
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput).ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx)
+}
+
+type DomainDomainEndpointOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput
+	ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Context) DomainDomainEndpointOptionsPtrOutput
+}
+
+type domainDomainEndpointOptionsPtrType DomainDomainEndpointOptionsArgs
+
+func DomainDomainEndpointOptionsPtr(v *DomainDomainEndpointOptionsArgs) DomainDomainEndpointOptionsPtrInput {	return (*domainDomainEndpointOptionsPtrType)(v)
+}
+
+func (*domainDomainEndpointOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsPtrOutput)
+}
+
+type DomainDomainEndpointOptionsOutput struct { *pulumi.OutputState }
+
+func (DomainDomainEndpointOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return o.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return o.ApplyT(func(v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
+		return &v
+	}).(DomainDomainEndpointOptionsPtrOutput)
+}
+// Whether or not to require HTTPS
+func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolOutput {
+	return o.ApplyT(func (v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+}
+
+func (o DomainDomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainEndpointOptionsPtrOutput struct { *pulumi.OutputState}
+
+func (DomainDomainEndpointOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptionsOutput {
+	return o.ApplyT(func (v *DomainDomainEndpointOptions) DomainDomainEndpointOptions { return *v }).(DomainDomainEndpointOptionsOutput)
+}
+
+// Whether or not to require HTTPS
+func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolOutput {
+	return o.ApplyT(func (v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
+}
+
+func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
 type DomainEbsOptions struct {
 	// Whether EBS volumes are attached to data nodes in the domain.
 	EbsEnabled bool `pulumi:"ebsEnabled"`
@@ -2218,6 +2340,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainEndpointOptionsOutput{})
+	pulumi.RegisterOutputType(DomainDomainEndpointOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEbsOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEbsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEncryptAtRestOutput{})

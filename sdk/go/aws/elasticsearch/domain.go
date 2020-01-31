@@ -28,6 +28,8 @@ type Domain struct {
 	// Cluster configuration of the domain, see below.
 	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
+	// Domain endpoint HTTP(S) related options. See below.
+	DomainEndpointOptions DomainDomainEndpointOptionsOutput `pulumi:"domainEndpointOptions"`
 	// Unique identifier for the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Name of the domain.
@@ -96,6 +98,8 @@ type domainState struct {
 	// Cluster configuration of the domain, see below.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	// Domain endpoint HTTP(S) related options. See below.
+	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Unique identifier for the domain.
 	DomainId *string `pulumi:"domainId"`
 	// Name of the domain.
@@ -137,6 +141,8 @@ type DomainState struct {
 	// Cluster configuration of the domain, see below.
 	ClusterConfig DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput
+	// Domain endpoint HTTP(S) related options. See below.
+	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Unique identifier for the domain.
 	DomainId pulumi.StringPtrInput
 	// Name of the domain.
@@ -180,6 +186,8 @@ type domainArgs struct {
 	// Cluster configuration of the domain, see below.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	// Domain endpoint HTTP(S) related options. See below.
+	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
 	DomainName *string `pulumi:"domainName"`
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
@@ -212,6 +220,8 @@ type DomainArgs struct {
 	// Cluster configuration of the domain, see below.
 	ClusterConfig DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput
+	// Domain endpoint HTTP(S) related options. See below.
+	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
 	DomainName pulumi.StringPtrInput
 	// EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
