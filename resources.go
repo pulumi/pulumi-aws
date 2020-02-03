@@ -1408,6 +1408,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": tfbridge.AutoNameWithCustomOptions("name",
+						tfbridge.AutoNameOptions{
+							Separator: "_",
+						}),
 					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: boolRef(true)},
 					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: boolRef(true)},
 					"dynamodb":          {Name: "dynamodb", MaxItemsOne: boolRef(true)},
