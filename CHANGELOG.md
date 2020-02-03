@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Changing the autonaming prefix of `aws.iot.TopicRule` name parameter
 
 ---
 
