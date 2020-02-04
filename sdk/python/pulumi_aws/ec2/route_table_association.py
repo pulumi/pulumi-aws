@@ -26,14 +26,14 @@ class RouteTableAssociation(pulumi.CustomResource):
         """
         Provides a resource to create an association between a route table and a subnet or a route table and an
         internet gateway or virtual private gateway.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
         :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,19 +68,18 @@ class RouteTableAssociation(pulumi.CustomResource):
         """
         Get an existing RouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
         :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["gateway_id"] = gateway_id
         __props__["route_table_id"] = route_table_id
         __props__["subnet_id"] = subnet_id

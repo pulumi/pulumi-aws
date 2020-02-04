@@ -21,7 +21,7 @@ class IdentityPool(pulumi.CustomResource):
     cognito_identity_providers: pulumi.Output[list]
     """
     An array of Amazon Cognito Identity user pools and their client IDs.
-    
+
       * `clientId` (`str`) - The client ID for the Amazon Cognito Identity User Pool.
       * `provider_name` (`str`) - The provider name for an Amazon Cognito Identity User Pool.
       * `serverSideTokenCheck` (`bool`) - Whether server-side token validation is enabled for the identity provider’s token or not.
@@ -54,7 +54,9 @@ class IdentityPool(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_unauthenticated_identities=None, cognito_identity_providers=None, developer_provider_name=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS Cognito Identity Pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
@@ -66,14 +68,12 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Identity Pool.
-        
+
         The **cognito_identity_providers** object supports the following:
-        
+
           * `clientId` (`pulumi.Input[str]`) - The client ID for the Amazon Cognito Identity User Pool.
           * `provider_name` (`pulumi.Input[str]`) - The provider name for an Amazon Cognito Identity User Pool.
           * `serverSideTokenCheck` (`pulumi.Input[bool]`) - Whether server-side token validation is enabled for the identity provider’s token or not.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,7 +114,7 @@ class IdentityPool(pulumi.CustomResource):
         """
         Get an existing IdentityPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,18 +128,17 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[list] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         :param pulumi.Input[dict] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Identity Pool.
-        
+
         The **cognito_identity_providers** object supports the following:
-        
+
           * `clientId` (`pulumi.Input[str]`) - The client ID for the Amazon Cognito Identity User Pool.
           * `provider_name` (`pulumi.Input[str]`) - The provider name for an Amazon Cognito Identity User Pool.
           * `serverSideTokenCheck` (`pulumi.Input[bool]`) - Whether server-side token validation is enabled for the identity provider’s token or not.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_unauthenticated_identities"] = allow_unauthenticated_identities
         __props__["arn"] = arn
         __props__["cognito_identity_providers"] = cognito_identity_providers

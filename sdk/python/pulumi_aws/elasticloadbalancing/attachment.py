@@ -21,20 +21,20 @@ class Attachment(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, elb=None, instance=None, __props__=None, __name__=None, __opts__=None):
         """
         Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the [`lb.TargetGroupAttachment` resource](https://www.terraform.io/docs/providers/aws/r/lb_target_group_attachment.html).
-        
+
         > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
         both a standalone ELB Attachment resource (describing an instance attached to
         an ELB), and an Elastic Load Balancer resource with
         `instances` defined in-line. At this time you cannot use an ELB with in-line
         instances in conjunction with an ELB Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment_legacy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,18 +70,17 @@ class Attachment(pulumi.CustomResource):
         """
         Get an existing Attachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elb_attachment_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["elb"] = elb
         __props__["instance"] = instance
         return Attachment(resource_name, opts=opts, __props__=__props__)

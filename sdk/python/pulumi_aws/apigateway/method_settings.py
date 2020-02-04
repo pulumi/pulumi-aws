@@ -21,7 +21,7 @@ class MethodSettings(pulumi.CustomResource):
     settings: pulumi.Output[dict]
     """
     The settings block, see below.
-    
+
       * `cacheDataEncrypted` (`bool`) - Specifies whether the cached responses are encrypted.
       * `cacheTtlInSeconds` (`float`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
       * `cachingEnabled` (`bool`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
@@ -40,16 +40,18 @@ class MethodSettings(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, method_path=None, rest_api=None, settings=None, stage_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway Method Settings, e.g. logging or monitoring.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[dict] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
-        
+
         The **settings** object supports the following:
-        
+
           * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
           * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
           * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
@@ -60,8 +62,6 @@ class MethodSettings(pulumi.CustomResource):
           * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit.
           * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit.
           * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,7 +103,7 @@ class MethodSettings(pulumi.CustomResource):
         """
         Get an existing MethodSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,9 +111,9 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[dict] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
-        
+
         The **settings** object supports the following:
-        
+
           * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
           * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
           * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
@@ -124,12 +124,11 @@ class MethodSettings(pulumi.CustomResource):
           * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit.
           * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit.
           * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_settings.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["method_path"] = method_path
         __props__["rest_api"] = rest_api
         __props__["settings"] = settings

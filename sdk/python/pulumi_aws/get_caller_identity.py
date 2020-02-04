@@ -13,7 +13,7 @@ class GetCallerIdentityResult:
     """
     A collection of values returned by getCallerIdentity.
     """
-    def __init__(__self__, account_id=None, arn=None, user_id=None, id=None):
+    def __init__(__self__, account_id=None, arn=None, id=None, user_id=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         __self__.account_id = account_id
@@ -26,17 +26,17 @@ class GetCallerIdentityResult:
         """
         The AWS ARN associated with the calling entity.
         """
-        if user_id and not isinstance(user_id, str):
-            raise TypeError("Expected argument 'user_id' to be a str")
-        __self__.user_id = user_id
-        """
-        The unique identifier of the calling entity.
-        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if user_id and not isinstance(user_id, str):
+            raise TypeError("Expected argument 'user_id' to be a str")
+        __self__.user_id = user_id
+        """
+        The unique identifier of the calling entity.
         """
 class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
     # pylint: disable=using-constant-test
@@ -46,8 +46,8 @@ class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
         return GetCallerIdentityResult(
             account_id=self.account_id,
             arn=self.arn,
-            user_id=self.user_id,
-            id=self.id)
+            id=self.id,
+            user_id=self.user_id)
 
 def get_caller_identity(opts=None):
     """
@@ -58,6 +58,7 @@ def get_caller_identity(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -67,5 +68,5 @@ def get_caller_identity(opts=None):
     return AwaitableGetCallerIdentityResult(
         account_id=__ret__.get('accountId'),
         arn=__ret__.get('arn'),
-        user_id=__ret__.get('userId'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        user_id=__ret__.get('userId'))

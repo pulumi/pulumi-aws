@@ -26,23 +26,23 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, route_table_id=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource for managing the main routing table of a VPC.
-        
+
         ## Notes
-        
+
         On VPC creation, the AWS API always creates an initial Main Route Table. This
         resource records the ID of that Route Table under `original_route_table_id`.
         The "Delete" action for a `main_route_table_association` consists of resetting
         this original table as the Main Route Table for the VPC. You'll see this
         additional Route Table in the AWS console; it must remain intact in order for
         the `main_route_table_association` delete to work properly.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         """
         Get an existing MainRouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,12 +87,11 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/main_route_table_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["original_route_table_id"] = original_route_table_id
         __props__["route_table_id"] = route_table_id
         __props__["vpc_id"] = vpc_id

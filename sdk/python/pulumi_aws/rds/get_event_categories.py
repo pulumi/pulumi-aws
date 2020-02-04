@@ -13,22 +13,22 @@ class GetEventCategoriesResult:
     """
     A collection of values returned by getEventCategories.
     """
-    def __init__(__self__, event_categories=None, source_type=None, id=None):
+    def __init__(__self__, event_categories=None, id=None, source_type=None):
         if event_categories and not isinstance(event_categories, list):
             raise TypeError("Expected argument 'event_categories' to be a list")
         __self__.event_categories = event_categories
         """
         A list of the event categories.
         """
-        if source_type and not isinstance(source_type, str):
-            raise TypeError("Expected argument 'source_type' to be a str")
-        __self__.source_type = source_type
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if source_type and not isinstance(source_type, str):
+            raise TypeError("Expected argument 'source_type' to be a str")
+        __self__.source_type = source_type
 class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -36,18 +36,17 @@ class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
             yield self
         return GetEventCategoriesResult(
             event_categories=self.event_categories,
-            source_type=self.source_type,
-            id=self.id)
+            id=self.id,
+            source_type=self.source_type)
 
 def get_event_categories(source_type=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
-    :param str source_type: The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/db_event_categories.html.markdown.
+    :param str source_type: The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
     __args__ = dict()
+
 
     __args__['sourceType'] = source_type
     if opts is None:
@@ -58,5 +57,5 @@ def get_event_categories(source_type=None,opts=None):
 
     return AwaitableGetEventCategoriesResult(
         event_categories=__ret__.get('eventCategories'),
-        source_type=__ret__.get('sourceType'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        source_type=__ret__.get('sourceType'))

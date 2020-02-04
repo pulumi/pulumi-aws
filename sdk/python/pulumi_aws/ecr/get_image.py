@@ -13,7 +13,13 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, registry_id=None, repository_name=None, id=None):
+    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, registry_id=None, repository_name=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if image_digest and not isinstance(image_digest, str):
             raise TypeError("Expected argument 'image_digest' to be a str")
         __self__.image_digest = image_digest
@@ -44,39 +50,35 @@ class GetImageResult:
         if repository_name and not isinstance(repository_name, str):
             raise TypeError("Expected argument 'repository_name' to be a str")
         __self__.repository_name = repository_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetImageResult(
+            id=self.id,
             image_digest=self.image_digest,
             image_pushed_at=self.image_pushed_at,
             image_size_in_bytes=self.image_size_in_bytes,
             image_tag=self.image_tag,
             image_tags=self.image_tags,
             registry_id=self.registry_id,
-            repository_name=self.repository_name,
-            id=self.id)
+            repository_name=self.repository_name)
 
 def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
+
+
     :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
     :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
     :param str registry_id: The ID of the Registry where the repository resides.
     :param str repository_name: The name of the ECR Repository.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_image.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['imageDigest'] = image_digest
     __args__['imageTag'] = image_tag
@@ -89,11 +91,11 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
     __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts).value
 
     return AwaitableGetImageResult(
+        id=__ret__.get('id'),
         image_digest=__ret__.get('imageDigest'),
         image_pushed_at=__ret__.get('imagePushedAt'),
         image_size_in_bytes=__ret__.get('imageSizeInBytes'),
         image_tag=__ret__.get('imageTag'),
         image_tags=__ret__.get('imageTags'),
         registry_id=__ret__.get('registryId'),
-        repository_name=__ret__.get('repositoryName'),
-        id=__ret__.get('id'))
+        repository_name=__ret__.get('repositoryName'))

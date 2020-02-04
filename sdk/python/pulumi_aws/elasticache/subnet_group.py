@@ -25,18 +25,18 @@ class SubnetGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name=None, subnet_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an ElastiCache Subnet Group resource.
-        
+
         > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
         ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
         ElastiCache Security Group resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
         :param pulumi.Input[list] subnet_ids: List of VPC Subnet IDs for the cache subnet group
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,19 +73,18 @@ class SubnetGroup(pulumi.CustomResource):
         """
         Get an existing SubnetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: Name for the cache subnet group. Elasticache converts this name to lowercase.
         :param pulumi.Input[list] subnet_ids: List of VPC Subnet IDs for the cache subnet group
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["name"] = name
         __props__["subnet_ids"] = subnet_ids

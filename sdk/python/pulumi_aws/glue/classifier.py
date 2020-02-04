@@ -13,7 +13,7 @@ class Classifier(pulumi.CustomResource):
     csv_classifier: pulumi.Output[dict]
     """
     A classifier for Csv content. Defined below.
-    
+
       * `allowSingleColumn` (`bool`) - Enables the processing of files that contain only one column.
       * `containsHeader` (`str`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
       * `delimiter` (`str`) - The delimiter used in the Csv to separate columns.
@@ -24,7 +24,7 @@ class Classifier(pulumi.CustomResource):
     grok_classifier: pulumi.Output[dict]
     """
     A classifier that uses grok patterns. Defined below.
-    
+
       * `classification` (`str`) - An identifier of the data format that the classifier matches.
       * `customPatterns` (`str`) - Custom grok patterns used by this classifier.
       * `grokPattern` (`str`) - The grok pattern used by this classifier.
@@ -32,7 +32,7 @@ class Classifier(pulumi.CustomResource):
     json_classifier: pulumi.Output[dict]
     """
     A classifier for JSON content. Defined below.
-    
+
       * `jsonPath` (`str`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
     """
     name: pulumi.Output[str]
@@ -42,16 +42,18 @@ class Classifier(pulumi.CustomResource):
     xml_classifier: pulumi.Output[dict]
     """
     A classifier for XML content. Defined below.
-    
+
       * `classification` (`str`) - An identifier of the data format that the classifier matches.
       * `rowTag` (`str`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
     """
     def __init__(__self__, resource_name, opts=None, csv_classifier=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Classifier resource.
-        
+
         > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] csv_classifier: A classifier for Csv content. Defined below.
@@ -59,32 +61,30 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
-        
+
         The **csv_classifier** object supports the following:
-        
+
           * `allowSingleColumn` (`pulumi.Input[bool]`) - Enables the processing of files that contain only one column.
           * `containsHeader` (`pulumi.Input[str]`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
           * `delimiter` (`pulumi.Input[str]`) - The delimiter used in the Csv to separate columns.
           * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values. 
           * `headers` (`pulumi.Input[list]`) - A list of strings representing column names.
           * `quoteSymbol` (`pulumi.Input[str]`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
-        
+
         The **grok_classifier** object supports the following:
-        
+
           * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
           * `customPatterns` (`pulumi.Input[str]`) - Custom grok patterns used by this classifier.
           * `grokPattern` (`pulumi.Input[str]`) - The grok pattern used by this classifier.
-        
+
         The **json_classifier** object supports the following:
-        
+
           * `jsonPath` (`pulumi.Input[str]`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
-        
+
         The **xml_classifier** object supports the following:
-        
+
           * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
           * `rowTag` (`pulumi.Input[str]`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class Classifier(pulumi.CustomResource):
         """
         Get an existing Classifier resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,36 +128,35 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
-        
+
         The **csv_classifier** object supports the following:
-        
+
           * `allowSingleColumn` (`pulumi.Input[bool]`) - Enables the processing of files that contain only one column.
           * `containsHeader` (`pulumi.Input[str]`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
           * `delimiter` (`pulumi.Input[str]`) - The delimiter used in the Csv to separate columns.
           * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values. 
           * `headers` (`pulumi.Input[list]`) - A list of strings representing column names.
           * `quoteSymbol` (`pulumi.Input[str]`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
-        
+
         The **grok_classifier** object supports the following:
-        
+
           * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
           * `customPatterns` (`pulumi.Input[str]`) - Custom grok patterns used by this classifier.
           * `grokPattern` (`pulumi.Input[str]`) - The grok pattern used by this classifier.
-        
+
         The **json_classifier** object supports the following:
-        
+
           * `jsonPath` (`pulumi.Input[str]`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
-        
+
         The **xml_classifier** object supports the following:
-        
+
           * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
           * `rowTag` (`pulumi.Input[str]`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_classifier.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["csv_classifier"] = csv_classifier
         __props__["grok_classifier"] = grok_classifier
         __props__["json_classifier"] = json_classifier

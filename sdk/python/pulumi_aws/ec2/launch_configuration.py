@@ -22,14 +22,14 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     Additional EBS block devices to attach to the
     instance.  See Block Devices below for details.
-    
+
       * `deleteOnTermination` (`bool`)
       * `device_name` (`str`)
       * `encrypted` (`bool`)
       * `iops` (`float`)
       * `noDevice` (`bool`)
       * `snapshot_id` (`str`)
-      * `volume_size` (`float`)
+      * `volumeSize` (`float`)
       * `volumeType` (`str`)
     """
     ebs_optimized: pulumi.Output[bool]
@@ -44,7 +44,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     Customize Ephemeral (also known as
     "Instance Store") volumes on the instance. See Block Devices below for details.
-    
+
       * `device_name` (`str`)
       * `virtualName` (`str`)
     """
@@ -85,11 +85,11 @@ class LaunchConfiguration(pulumi.CustomResource):
     """
     Customize details about the root block
     device of the instance. See Block Devices below for details.
-    
+
       * `deleteOnTermination` (`bool`)
       * `encrypted` (`bool`)
       * `iops` (`float`)
-      * `volume_size` (`float`)
+      * `volumeSize` (`float`)
       * `volumeType` (`str`)
     """
     security_groups: pulumi.Output[list]
@@ -119,16 +119,16 @@ class LaunchConfiguration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
-        
+
         ## Block devices
-        
+
         Each of the `*_block_device` attributes controls a portion of the AWS
         Launch Configuration's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
         Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
         to understand the implications of using these attributes.
-        
+
         The `root_block_device` mapping supports the following:
-        
+
         * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
           or `"io1"`. (Default: `"standard"`).
         * `volume_size` - (Optional) The size of the volume in gigabytes.
@@ -138,12 +138,12 @@ class LaunchConfiguration(pulumi.CustomResource):
         * `delete_on_termination` - (Optional) Whether the volume should be destroyed
           on instance termination (Default: `true`).
         * `encrypted` - (Optional) Whether the volume should be encrypted or not. (Default: `false`).
-        
+
         Modifying any of the `root_block_device` settings requires resource
         replacement.
-        
+
         Each `ebs_block_device` supports the following:
-        
+
         * `device_name` - (Required) The name of the device to mount.
         * `snapshot_id` - (Optional) The Snapshot ID to mount.
         * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
@@ -155,27 +155,29 @@ class LaunchConfiguration(pulumi.CustomResource):
         * `delete_on_termination` - (Optional) Whether the volume should be destroyed
           on instance termination (Default: `true`).
         * `encrypted` - (Optional) Whether the volume should be encrypted or not. Do not use this option if you are using `snapshot_id` as the encrypted flag will be determined by the snapshot. (Default: `false`).
-        
+
         Modifying any `ebs_block_device` currently requires resource replacement.
-        
+
         Each `ephemeral_block_device` supports the following:
-        
+
         * `device_name` - The name of the block device to mount on the instance.
         * `virtual_name` - The [Instance Store Device
           Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
           (e.g. `"ephemeral0"`)
-        
+
         Each AWS Instance type has a different set of Instance Store block devices
         available for attachment. AWS [publishes a
         list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
         of which ephemeral devices are available on each type. The devices are always
         identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
-        
+
         > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
         cannot currently be detected by this provider. After updating to block device
         configuration, resource recreation can be manually triggered by using the
         [`taint` command](https://www.terraform.io/docs/commands/taint.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
@@ -185,7 +187,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
         :param pulumi.Input[list] ephemeral_block_devices: Customize Ephemeral (also known as
                "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
+        :param pulumi.Input[dict] iam_instance_profile: The name attribute of the IAM instance profile to associate
                with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
@@ -205,32 +207,30 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `device_name` (`pulumi.Input[str]`)
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `noDevice` (`pulumi.Input[bool]`)
           * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`)
           * `virtualName` (`pulumi.Input[str]`)
-        
+
         The **root_block_device** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -284,7 +284,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         Get an existing LaunchConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -296,7 +296,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
         :param pulumi.Input[list] ephemeral_block_devices: Customize Ephemeral (also known as
                "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
+        :param pulumi.Input[dict] iam_instance_profile: The name attribute of the IAM instance profile to associate
                with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
@@ -316,36 +316,35 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `device_name` (`pulumi.Input[str]`)
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `noDevice` (`pulumi.Input[bool]`)
           * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`)
           * `virtualName` (`pulumi.Input[str]`)
-        
+
         The **root_block_device** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["associate_public_ip_address"] = associate_public_ip_address
         __props__["ebs_block_devices"] = ebs_block_devices

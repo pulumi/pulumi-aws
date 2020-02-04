@@ -25,7 +25,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     production_variants: pulumi.Output[list]
     """
     Fields are documented below.
-    
+
       * `acceleratorType` (`str`)
       * `initialInstanceCount` (`float`)
       * `initialVariantWeight` (`float`)
@@ -40,24 +40,24 @@ class EndpointConfiguration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, kms_key_arn=None, name=None, production_variants=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a SageMaker endpoint configuration resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[list] production_variants: Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **production_variants** object supports the following:
-        
+
           * `acceleratorType` (`pulumi.Input[str]`)
           * `initialInstanceCount` (`pulumi.Input[float]`)
           * `initialVariantWeight` (`pulumi.Input[float]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `modelName` (`pulumi.Input[str]`)
           * `variantName` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         """
         Get an existing EndpointConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,21 +103,20 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[list] production_variants: Fields are documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **production_variants** object supports the following:
-        
+
           * `acceleratorType` (`pulumi.Input[str]`)
           * `initialInstanceCount` (`pulumi.Input[float]`)
           * `initialVariantWeight` (`pulumi.Input[float]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `modelName` (`pulumi.Input[str]`)
           * `variantName` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sagemaker_endpoint_configuration.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["kms_key_arn"] = kms_key_arn
         __props__["name"] = name

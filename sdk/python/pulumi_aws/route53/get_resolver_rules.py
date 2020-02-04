@@ -13,7 +13,13 @@ class GetResolverRulesResult:
     """
     A collection of values returned by getResolverRules.
     """
-    def __init__(__self__, owner_id=None, resolver_endpoint_id=None, resolver_rule_ids=None, rule_type=None, share_status=None, id=None):
+    def __init__(__self__, id=None, owner_id=None, resolver_endpoint_id=None, resolver_rule_ids=None, rule_type=None, share_status=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         __self__.owner_id = owner_id
@@ -32,38 +38,34 @@ class GetResolverRulesResult:
         if share_status and not isinstance(share_status, str):
             raise TypeError("Expected argument 'share_status' to be a str")
         __self__.share_status = share_status
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetResolverRulesResult(GetResolverRulesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetResolverRulesResult(
+            id=self.id,
             owner_id=self.owner_id,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_rule_ids=self.resolver_rule_ids,
             rule_type=self.rule_type,
-            share_status=self.share_status,
-            id=self.id)
+            share_status=self.share_status)
 
 def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,share_status=None,opts=None):
     """
     `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
+
+
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
     :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
            Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route53_resolver_rules.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['ownerId'] = owner_id
     __args__['resolverEndpointId'] = resolver_endpoint_id
@@ -76,9 +78,9 @@ def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,sh
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverRules:getResolverRules', __args__, opts=opts).value
 
     return AwaitableGetResolverRulesResult(
+        id=__ret__.get('id'),
         owner_id=__ret__.get('ownerId'),
         resolver_endpoint_id=__ret__.get('resolverEndpointId'),
         resolver_rule_ids=__ret__.get('resolverRuleIds'),
         rule_type=__ret__.get('ruleType'),
-        share_status=__ret__.get('shareStatus'),
-        id=__ret__.get('id'))
+        share_status=__ret__.get('shareStatus'))

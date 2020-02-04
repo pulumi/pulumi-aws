@@ -13,7 +13,7 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None, id=None):
+    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         __self__.acceptance_required = acceptance_required
@@ -31,6 +31,12 @@ class GetVpcEndpointServiceResult:
         __self__.base_endpoint_dns_names = base_endpoint_dns_names
         """
         The DNS names for the service.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if manages_vpc_endpoints and not isinstance(manages_vpc_endpoints, bool):
             raise TypeError("Expected argument 'manages_vpc_endpoints' to be a bool")
@@ -80,12 +86,6 @@ class GetVpcEndpointServiceResult:
         """
         Whether or not the service supports endpoint policies - `true` or `false`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -95,6 +95,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             acceptance_required=self.acceptance_required,
             availability_zones=self.availability_zones,
             base_endpoint_dns_names=self.base_endpoint_dns_names,
+            id=self.id,
             manages_vpc_endpoints=self.manages_vpc_endpoints,
             owner=self.owner,
             private_dns_name=self.private_dns_name,
@@ -103,20 +104,21 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             service_name=self.service_name,
             service_type=self.service_type,
             tags=self.tags,
-            vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported,
-            id=self.id)
+            vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported)
 
 def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None):
     """
     The VPC Endpoint Service data source details about a specific service that
     can be specified when creating a VPC endpoint within the region configured in the provider.
-    
-    :param str service: The common name of an AWS service (e.g. `s3`).
-    :param str service_name: The service name that can be specified when creating a VPC endpoint.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint_service.html.markdown.
+
+
+    :param str service: The common name of an AWS service (e.g. `s3`).
+    :param str service_name: The service name that can be specified when creating a VPC endpoint.
     """
     __args__ = dict()
+
 
     __args__['service'] = service
     __args__['serviceName'] = service_name
@@ -131,6 +133,7 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
         acceptance_required=__ret__.get('acceptanceRequired'),
         availability_zones=__ret__.get('availabilityZones'),
         base_endpoint_dns_names=__ret__.get('baseEndpointDnsNames'),
+        id=__ret__.get('id'),
         manages_vpc_endpoints=__ret__.get('managesVpcEndpoints'),
         owner=__ret__.get('owner'),
         private_dns_name=__ret__.get('privateDnsName'),
@@ -139,5 +142,4 @@ def get_vpc_endpoint_service(service=None,service_name=None,tags=None,opts=None)
         service_name=__ret__.get('serviceName'),
         service_type=__ret__.get('serviceType'),
         tags=__ret__.get('tags'),
-        vpc_endpoint_policy_supported=__ret__.get('vpcEndpointPolicySupported'),
-        id=__ret__.get('id'))
+        vpc_endpoint_policy_supported=__ret__.get('vpcEndpointPolicySupported'))

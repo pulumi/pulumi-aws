@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_certificates=None, cluster_id=None, cluster_state=None, security_group_id=None, subnet_ids=None, vpc_id=None, id=None):
+    def __init__(__self__, cluster_certificates=None, cluster_id=None, cluster_state=None, id=None, security_group_id=None, subnet_ids=None, vpc_id=None):
         if cluster_certificates and not isinstance(cluster_certificates, dict):
             raise TypeError("Expected argument 'cluster_certificates' to be a dict")
         __self__.cluster_certificates = cluster_certificates
@@ -32,6 +32,12 @@ class GetClusterResult:
         if cluster_state and not isinstance(cluster_state, str):
             raise TypeError("Expected argument 'cluster_state' to be a str")
         __self__.cluster_state = cluster_state
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if security_group_id and not isinstance(security_group_id, str):
             raise TypeError("Expected argument 'security_group_id' to be a str")
         __self__.security_group_id = security_group_id
@@ -50,12 +56,6 @@ class GetClusterResult:
         """
         The id of the VPC that the CloudHSM cluster resides in.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -65,21 +65,23 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_certificates=self.cluster_certificates,
             cluster_id=self.cluster_id,
             cluster_state=self.cluster_state,
+            id=self.id,
             security_group_id=self.security_group_id,
             subnet_ids=self.subnet_ids,
-            vpc_id=self.vpc_id,
-            id=self.id)
+            vpc_id=self.vpc_id)
 
 def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     """
     Use this data source to get information about a CloudHSM v2 cluster
-    
-    :param str cluster_id: The id of Cloud HSM v2 cluster.
-    :param str cluster_state: The state of the cluster to be found.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudhsm_v2_cluster.html.markdown.
+
+
+    :param str cluster_id: The id of Cloud HSM v2 cluster.
+    :param str cluster_state: The state of the cluster to be found.
     """
     __args__ = dict()
+
 
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
@@ -93,7 +95,7 @@ def get_cluster(cluster_id=None,cluster_state=None,opts=None):
         cluster_certificates=__ret__.get('clusterCertificates'),
         cluster_id=__ret__.get('clusterId'),
         cluster_state=__ret__.get('clusterState'),
+        id=__ret__.get('id'),
         security_group_id=__ret__.get('securityGroupId'),
         subnet_ids=__ret__.get('subnetIds'),
-        vpc_id=__ret__.get('vpcId'),
-        id=__ret__.get('id'))
+        vpc_id=__ret__.get('vpcId'))

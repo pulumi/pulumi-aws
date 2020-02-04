@@ -23,15 +23,15 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, instance_ports=None, load_balancer=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,7 +67,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         """
         Get an existing ProxyProtocolPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,12 +75,11 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/proxy_protocol_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["instance_ports"] = instance_ports
         __props__["load_balancer"] = load_balancer
         return ProxyProtocolPolicy(resource_name, opts=opts, __props__=__props__)

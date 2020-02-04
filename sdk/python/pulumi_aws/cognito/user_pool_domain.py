@@ -41,14 +41,14 @@ class UserPoolDomain(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, certificate_arn=None, domain=None, user_pool_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool Domain resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[str] domain: The domain string.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,7 +89,7 @@ class UserPoolDomain(pulumi.CustomResource):
         """
         Get an existing UserPoolDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,12 +100,11 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         :param pulumi.Input[str] version: The app version.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_domain.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["aws_account_id"] = aws_account_id
         __props__["certificate_arn"] = certificate_arn
         __props__["cloudfront_distribution_arn"] = cloudfront_distribution_arn

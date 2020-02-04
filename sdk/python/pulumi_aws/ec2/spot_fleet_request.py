@@ -43,7 +43,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     instance_pools_to_use_count: pulumi.Output[float]
     """
-    
+
     The number of Spot pools across which to allocate your target Spot capacity.
     Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
     the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -54,27 +54,25 @@ class SpotFleetRequest(pulumi.CustomResource):
     Used to define the launch configuration of the
     spot-fleet request. Can be specified multiple times to define different bids
     across different markets and instance types.
-    
+
       * `ami` (`str`)
       * `associate_public_ip_address` (`bool`)
       * `availability_zone` (`str`)
       * `ebs_block_devices` (`list`)
-    
         * `deleteOnTermination` (`bool`)
         * `device_name` (`str`)
         * `encrypted` (`bool`)
         * `iops` (`float`)
         * `kms_key_id` (`str`)
         * `snapshot_id` (`str`)
-        * `volume_size` (`float`)
+        * `volumeSize` (`float`)
         * `volumeType` (`str`)
-    
+
       * `ebs_optimized` (`bool`)
       * `ephemeral_block_devices` (`list`)
-    
         * `device_name` (`str`)
         * `virtualName` (`str`)
-    
+
       * `iam_instance_profile` (`str`)
       * `iamInstanceProfileArn` (`str`)
       * `instance_type` (`str`)
@@ -83,14 +81,13 @@ class SpotFleetRequest(pulumi.CustomResource):
       * `placement_group` (`str`)
       * `placement_tenancy` (`str`)
       * `rootBlockDevices` (`list`)
-    
         * `deleteOnTermination` (`bool`)
         * `encrypted` (`bool`)
         * `iops` (`float`)
         * `kms_key_id` (`str`)
-        * `volume_size` (`float`)
+        * `volumeSize` (`float`)
         * `volumeType` (`str`)
-    
+
       * `spot_price` (`str`) - The maximum bid price per unit hour.
       * `subnet_id` (`str`)
       * `tags` (`dict`) - A mapping of tags to assign to the resource.
@@ -147,7 +144,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         """
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
@@ -187,29 +186,27 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
-        
+
         The **launch_specifications** object supports the following:
-        
+
           * `ami` (`pulumi.Input[str]`)
           * `associate_public_ip_address` (`pulumi.Input[bool]`)
           * `availability_zone` (`pulumi.Input[str]`)
           * `ebs_block_devices` (`pulumi.Input[list]`)
-        
             * `deleteOnTermination` (`pulumi.Input[bool]`)
             * `device_name` (`pulumi.Input[str]`)
             * `encrypted` (`pulumi.Input[bool]`)
             * `iops` (`pulumi.Input[float]`)
             * `kms_key_id` (`pulumi.Input[str]`)
             * `snapshot_id` (`pulumi.Input[str]`)
-            * `volume_size` (`pulumi.Input[float]`)
+            * `volumeSize` (`pulumi.Input[float]`)
             * `volumeType` (`pulumi.Input[str]`)
-        
+
           * `ebs_optimized` (`pulumi.Input[bool]`)
           * `ephemeral_block_devices` (`pulumi.Input[list]`)
-        
             * `device_name` (`pulumi.Input[str]`)
             * `virtualName` (`pulumi.Input[str]`)
-        
+
           * `iam_instance_profile` (`pulumi.Input[str]`)
           * `iamInstanceProfileArn` (`pulumi.Input[str]`)
           * `instance_type` (`pulumi.Input[str]`)
@@ -218,22 +215,19 @@ class SpotFleetRequest(pulumi.CustomResource):
           * `placement_group` (`pulumi.Input[str]`)
           * `placement_tenancy` (`pulumi.Input[str]`)
           * `rootBlockDevices` (`pulumi.Input[list]`)
-        
             * `deleteOnTermination` (`pulumi.Input[bool]`)
             * `encrypted` (`pulumi.Input[bool]`)
             * `iops` (`pulumi.Input[float]`)
             * `kms_key_id` (`pulumi.Input[str]`)
-            * `volume_size` (`pulumi.Input[float]`)
+            * `volumeSize` (`pulumi.Input[float]`)
             * `volumeType` (`pulumi.Input[str]`)
-        
+
           * `spot_price` (`pulumi.Input[str]`) - The maximum bid price per unit hour.
           * `subnet_id` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
           * `user_data` (`pulumi.Input[str]`)
           * `vpc_security_group_ids` (`pulumi.Input[list]`)
           * `weightedCapacity` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -287,7 +281,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         """
         Get an existing SpotFleetRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -329,29 +323,27 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
-        
+
         The **launch_specifications** object supports the following:
-        
+
           * `ami` (`pulumi.Input[str]`)
           * `associate_public_ip_address` (`pulumi.Input[bool]`)
           * `availability_zone` (`pulumi.Input[str]`)
           * `ebs_block_devices` (`pulumi.Input[list]`)
-        
             * `deleteOnTermination` (`pulumi.Input[bool]`)
             * `device_name` (`pulumi.Input[str]`)
             * `encrypted` (`pulumi.Input[bool]`)
             * `iops` (`pulumi.Input[float]`)
             * `kms_key_id` (`pulumi.Input[str]`)
             * `snapshot_id` (`pulumi.Input[str]`)
-            * `volume_size` (`pulumi.Input[float]`)
+            * `volumeSize` (`pulumi.Input[float]`)
             * `volumeType` (`pulumi.Input[str]`)
-        
+
           * `ebs_optimized` (`pulumi.Input[bool]`)
           * `ephemeral_block_devices` (`pulumi.Input[list]`)
-        
             * `device_name` (`pulumi.Input[str]`)
             * `virtualName` (`pulumi.Input[str]`)
-        
+
           * `iam_instance_profile` (`pulumi.Input[str]`)
           * `iamInstanceProfileArn` (`pulumi.Input[str]`)
           * `instance_type` (`pulumi.Input[str]`)
@@ -360,26 +352,24 @@ class SpotFleetRequest(pulumi.CustomResource):
           * `placement_group` (`pulumi.Input[str]`)
           * `placement_tenancy` (`pulumi.Input[str]`)
           * `rootBlockDevices` (`pulumi.Input[list]`)
-        
             * `deleteOnTermination` (`pulumi.Input[bool]`)
             * `encrypted` (`pulumi.Input[bool]`)
             * `iops` (`pulumi.Input[float]`)
             * `kms_key_id` (`pulumi.Input[str]`)
-            * `volume_size` (`pulumi.Input[float]`)
+            * `volumeSize` (`pulumi.Input[float]`)
             * `volumeType` (`pulumi.Input[str]`)
-        
+
           * `spot_price` (`pulumi.Input[str]`) - The maximum bid price per unit hour.
           * `subnet_id` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
           * `user_data` (`pulumi.Input[str]`)
           * `vpc_security_group_ids` (`pulumi.Input[list]`)
           * `weightedCapacity` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_fleet_request.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocation_strategy"] = allocation_strategy
         __props__["client_token"] = client_token
         __props__["excess_capacity_termination_policy"] = excess_capacity_termination_policy

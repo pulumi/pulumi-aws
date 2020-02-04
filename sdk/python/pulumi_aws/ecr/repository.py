@@ -17,7 +17,7 @@ class Repository(pulumi.CustomResource):
     image_scanning_configuration: pulumi.Output[dict]
     """
     Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-    
+
       * `scanOnPush` (`bool`) - Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
     """
     image_tag_mutability: pulumi.Output[str]
@@ -43,19 +43,19 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, image_scanning_configuration=None, image_tag_mutability=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Container Registry Repository.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **image_scanning_configuration** object supports the following:
-        
-          * `scanOnPush` (`pulumi.Input[bool]`) - Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
+        The **image_scanning_configuration** object supports the following:
+
+          * `scanOnPush` (`pulumi.Input[bool]`) - Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,7 +92,7 @@ class Repository(pulumi.CustomResource):
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,16 +103,15 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **image_scanning_configuration** object supports the following:
-        
-          * `scanOnPush` (`pulumi.Input[bool]`) - Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository.html.markdown.
+        The **image_scanning_configuration** object supports the following:
+
+          * `scanOnPush` (`pulumi.Input[bool]`) - Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["image_scanning_configuration"] = image_scanning_configuration
         __props__["image_tag_mutability"] = image_tag_mutability

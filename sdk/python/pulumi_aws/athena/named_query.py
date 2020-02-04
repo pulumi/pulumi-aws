@@ -33,7 +33,9 @@ class NamedQuery(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, database=None, description=None, name=None, query=None, workgroup=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Athena Named Query resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database: The database to which the query belongs.
@@ -41,8 +43,6 @@ class NamedQuery(pulumi.CustomResource):
         :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
         :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
         :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,7 +81,7 @@ class NamedQuery(pulumi.CustomResource):
         """
         Get an existing NamedQuery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,12 +90,11 @@ class NamedQuery(pulumi.CustomResource):
         :param pulumi.Input[str] name: The plain language name for the query. Maximum length of 128.
         :param pulumi.Input[str] query: The text of the query itself. In other words, all query statements. Maximum length of 262144.
         :param pulumi.Input[str] workgroup: The workgroup to which the query belongs. Defaults to `primary`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/athena_named_query.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["database"] = database
         __props__["description"] = description
         __props__["name"] = name

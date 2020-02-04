@@ -21,7 +21,7 @@ class VpcEndpoint(pulumi.CustomResource):
     dns_entries: pulumi.Output[list]
     """
     The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-    
+
       * `dns_name` (`str`) - The DNS name.
       * `hosted_zone_id` (`str`) - The ID of the private hosted zone.
     """
@@ -82,14 +82,16 @@ class VpcEndpoint(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auto_accept=None, policy=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, service_name=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a VPC Endpoint resource.
-        
+
         > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
         Route Tables - (an association between a VPC endpoint and a single `route_table_id`) and
         Subnets - (an association between a VPC endpoint and a single `subnet_id`) and
         a VPC Endpoint resource with `route_table_ids` and `subnet_ids` attributes.
         Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
         Doing so will cause a conflict of associations and will overwrite the association.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -102,8 +104,6 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -154,7 +154,7 @@ class VpcEndpoint(pulumi.CustomResource):
         """
         Get an existing VpcEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,17 +175,16 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway` or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
-        
+
         The **dns_entries** object supports the following:
-        
+
           * `dns_name` (`pulumi.Input[str]`) - The DNS name.
           * `hosted_zone_id` (`pulumi.Input[str]`) - The ID of the private hosted zone.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auto_accept"] = auto_accept
         __props__["cidr_blocks"] = cidr_blocks
         __props__["dns_entries"] = dns_entries

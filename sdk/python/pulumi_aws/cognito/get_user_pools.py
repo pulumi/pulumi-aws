@@ -13,10 +13,16 @@ class GetUserPoolsResult:
     """
     A collection of values returned by getUserPools.
     """
-    def __init__(__self__, arns=None, ids=None, name=None, id=None):
+    def __init__(__self__, arns=None, id=None, ids=None, name=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         __self__.arns = arns
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         __self__.ids = ids
@@ -26,12 +32,6 @@ class GetUserPoolsResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetUserPoolsResult(GetUserPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,19 +39,21 @@ class AwaitableGetUserPoolsResult(GetUserPoolsResult):
             yield self
         return GetUserPoolsResult(
             arns=self.arns,
+            id=self.id,
             ids=self.ids,
-            name=self.name,
-            id=self.id)
+            name=self.name)
 
 def get_user_pools(name=None,opts=None):
     """
     Use this data source to get a list of cognito user pools.
-    
-    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
+
+
+    :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -62,6 +64,6 @@ def get_user_pools(name=None,opts=None):
 
     return AwaitableGetUserPoolsResult(
         arns=__ret__.get('arns'),
+        id=__ret__.get('id'),
         ids=__ret__.get('ids'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        name=__ret__.get('name'))

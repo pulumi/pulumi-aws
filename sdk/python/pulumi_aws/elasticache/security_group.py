@@ -27,19 +27,19 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Provides an ElastiCache Security Group to control access to one or more cache
         clusters.
-        
+
         > **NOTE:** ElastiCache Security Groups are for use only when working with an
         ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
         ElastiCache Subnet Group resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: description for the cache security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: Name for the cache security group. This value is stored as a lowercase string.
         :param pulumi.Input[list] security_group_names: List of EC2 security group names to be
                authorized for ingress to the cache security group
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,7 +76,7 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Get an existing SecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,12 +84,11 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the cache security group. This value is stored as a lowercase string.
         :param pulumi.Input[list] security_group_names: List of EC2 security group names to be
                authorized for ingress to the cache security group
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_security_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["name"] = name
         __props__["security_group_names"] = security_group_names

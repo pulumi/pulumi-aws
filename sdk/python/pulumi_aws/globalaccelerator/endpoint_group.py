@@ -13,8 +13,8 @@ class EndpointGroup(pulumi.CustomResource):
     endpoint_configurations: pulumi.Output[list]
     """
     The list of endpoint objects. Fields documented below.
-    
-      * `endpoint_id` (`str`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+
+      * `endpointId` (`str`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
       * `weight` (`float`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
     """
     endpoint_group_region: pulumi.Output[str]
@@ -49,7 +49,9 @@ class EndpointGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, endpoint_configurations=None, endpoint_group_region=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, listener_arn=None, threshold_count=None, traffic_dial_percentage=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Global Accelerator endpoint group.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_endpoint_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] endpoint_configurations: The list of endpoint objects. Fields documented below.
@@ -60,13 +62,11 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[float] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-        
-        The **endpoint_configurations** object supports the following:
-        
-          * `endpoint_id` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_endpoint_group.html.markdown.
+        The **endpoint_configurations** object supports the following:
+
+          * `endpointId` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +107,7 @@ class EndpointGroup(pulumi.CustomResource):
         """
         Get an existing EndpointGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,17 +119,16 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[float] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-        
-        The **endpoint_configurations** object supports the following:
-        
-          * `endpoint_id` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_endpoint_group.html.markdown.
+        The **endpoint_configurations** object supports the following:
+
+          * `endpointId` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["endpoint_configurations"] = endpoint_configurations
         __props__["endpoint_group_region"] = endpoint_group_region
         __props__["health_check_interval_seconds"] = health_check_interval_seconds

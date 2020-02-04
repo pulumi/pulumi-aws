@@ -25,7 +25,7 @@ class DataSource(pulumi.CustomResource):
     dynamodb_config: pulumi.Output[dict]
     """
     DynamoDB settings. See below
-    
+
       * `region` (`str`) - AWS region of Elasticsearch domain. Defaults to current region.
       * `tableName` (`str`) - Name of the DynamoDB table.
       * `useCallerCredentials` (`bool`) - Set to `true` to use Amazon Cognito credentials with this data source.
@@ -33,20 +33,20 @@ class DataSource(pulumi.CustomResource):
     elasticsearch_config: pulumi.Output[dict]
     """
     Amazon Elasticsearch settings. See below
-    
+
       * `endpoint` (`str`) - HTTP URL.
       * `region` (`str`) - AWS region of Elasticsearch domain. Defaults to current region.
     """
     http_config: pulumi.Output[dict]
     """
     HTTP settings. See below
-    
+
       * `endpoint` (`str`) - HTTP URL.
     """
     lambda_config: pulumi.Output[dict]
     """
     AWS Lambda settings. See below
-    
+
       * `functionArn` (`str`) - The ARN for the Lambda function.
     """
     name: pulumi.Output[str]
@@ -64,7 +64,9 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_id=None, description=None, dynamodb_config=None, elasticsearch_config=None, http_config=None, lambda_config=None, name=None, service_role_arn=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AppSync DataSource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API for the DataSource.
@@ -76,27 +78,25 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
-        
+
         The **dynamodb_config** object supports the following:
-        
+
           * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
           * `tableName` (`pulumi.Input[str]`) - Name of the DynamoDB table.
           * `useCallerCredentials` (`pulumi.Input[bool]`) - Set to `true` to use Amazon Cognito credentials with this data source.
-        
+
         The **elasticsearch_config** object supports the following:
-        
+
           * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
           * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
-        
-        The **http_config** object supports the following:
-        
-          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
-        
-        The **lambda_config** object supports the following:
-        
-          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
+        The **http_config** object supports the following:
+
+          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
+
+        The **lambda_config** object supports the following:
+
+          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -140,7 +140,7 @@ class DataSource(pulumi.CustomResource):
         """
         Get an existing DataSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,31 +154,30 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: A user-supplied name for the DataSource.
         :param pulumi.Input[str] service_role_arn: The IAM service role ARN for the data source.
         :param pulumi.Input[str] type: The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
-        
+
         The **dynamodb_config** object supports the following:
-        
+
           * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
           * `tableName` (`pulumi.Input[str]`) - Name of the DynamoDB table.
           * `useCallerCredentials` (`pulumi.Input[bool]`) - Set to `true` to use Amazon Cognito credentials with this data source.
-        
+
         The **elasticsearch_config** object supports the following:
-        
+
           * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
           * `region` (`pulumi.Input[str]`) - AWS region of Elasticsearch domain. Defaults to current region.
-        
-        The **http_config** object supports the following:
-        
-          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
-        
-        The **lambda_config** object supports the following:
-        
-          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_datasource.html.markdown.
+        The **http_config** object supports the following:
+
+          * `endpoint` (`pulumi.Input[str]`) - HTTP URL.
+
+        The **lambda_config** object supports the following:
+
+          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_id"] = api_id
         __props__["arn"] = arn
         __props__["description"] = description

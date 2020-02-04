@@ -29,15 +29,15 @@ class UserProfile(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_self_management=None, ssh_public_key=None, ssh_username=None, user_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks User Profile resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_user_profile.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_self_management: Whether users can specify their own SSH public key through the My Settings page
         :param pulumi.Input[str] ssh_public_key: The users public key
         :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
         :param pulumi.Input[str] user_arn: The user's IAM ARN
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_user_profile.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +75,7 @@ class UserProfile(pulumi.CustomResource):
         """
         Get an existing UserProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,12 +83,11 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_public_key: The users public key
         :param pulumi.Input[str] ssh_username: The ssh username, with witch this user wants to log in
         :param pulumi.Input[str] user_arn: The user's IAM ARN
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_user_profile.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_self_management"] = allow_self_management
         __props__["ssh_public_key"] = ssh_public_key
         __props__["ssh_username"] = ssh_username

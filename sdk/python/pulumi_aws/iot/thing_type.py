@@ -25,26 +25,26 @@ class ThingType(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     , Configuration block that can contain the following properties of the thing type:
-    
+
       * `description` (`str`) - The description of the thing type.
       * `searchableAttributes` (`list`) - A list of searchable thing attribute names.
     """
     def __init__(__self__, resource_name, opts=None, deprecated=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates and manages an AWS IoT Thing Type.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[str] name: The name of the thing type.
         :param pulumi.Input[dict] properties: , Configuration block that can contain the following properties of the thing type:
-        
+
         The **properties** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`) - The description of the thing type.
           * `searchableAttributes` (`pulumi.Input[list]`) - A list of searchable thing attribute names.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +78,7 @@ class ThingType(pulumi.CustomResource):
         """
         Get an existing ThingType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,17 +86,16 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[str] name: The name of the thing type.
         :param pulumi.Input[dict] properties: , Configuration block that can contain the following properties of the thing type:
-        
+
         The **properties** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`) - The description of the thing type.
           * `searchableAttributes` (`pulumi.Input[list]`) - A list of searchable thing attribute names.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_thing_type.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["deprecated"] = deprecated
         __props__["name"] = name

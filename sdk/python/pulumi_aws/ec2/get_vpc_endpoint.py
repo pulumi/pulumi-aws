@@ -133,7 +133,10 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
+
+
     :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.
     :param str service_name: The AWS service name of the specific VPC Endpoint to retrieve.
@@ -141,17 +144,16 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
       * `values` (`list`) - Set of values that are accepted for the given field.
         A VPC Endpoint will be selected if any one of the given values matches.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_endpoint.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['id'] = id

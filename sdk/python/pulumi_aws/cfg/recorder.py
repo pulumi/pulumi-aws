@@ -17,7 +17,7 @@ class Recorder(pulumi.CustomResource):
     recording_group: pulumi.Output[dict]
     """
     Recording group - see below.
-    
+
       * `allSupported` (`bool`) - Specifies whether AWS Config records configuration changes
         for every supported type of regional resource (which includes any new type that will become supported in the future).
         Conflicts with `resource_types`. Defaults to `true`.
@@ -36,9 +36,11 @@ class Recorder(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, recording_group=None, role_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
-        
+
         > **Note:** _Starting_ the Configuration Recorder requires a [delivery channel](https://www.terraform.io/docs/providers/aws/r/config_delivery_channel.html) (while delivery channel creation requires Configuration Recorder). This is why [`cfg.RecorderStatus`](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder_status.html) is a separate resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
@@ -46,9 +48,9 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
                used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
                See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        
+
         The **recording_group** object supports the following:
-        
+
           * `allSupported` (`pulumi.Input[bool]`) - Specifies whether AWS Config records configuration changes
             for every supported type of regional resource (which includes any new type that will become supported in the future).
             Conflicts with `resource_types`. Defaults to `true`.
@@ -57,8 +59,6 @@ class Recorder(pulumi.CustomResource):
           * `resourceTypes` (`pulumi.Input[list]`) - A list that specifies the types of AWS resources for which
             AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
             See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,7 +93,7 @@ class Recorder(pulumi.CustomResource):
         """
         Get an existing Recorder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,9 +102,9 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role.
                used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account.
                See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        
+
         The **recording_group** object supports the following:
-        
+
           * `allSupported` (`pulumi.Input[bool]`) - Specifies whether AWS Config records configuration changes
             for every supported type of regional resource (which includes any new type that will become supported in the future).
             Conflicts with `resource_types`. Defaults to `true`.
@@ -113,12 +113,11 @@ class Recorder(pulumi.CustomResource):
           * `resourceTypes` (`pulumi.Input[list]`) - A list that specifies the types of AWS resources for which
             AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
             See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_recorder.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["recording_group"] = recording_group
         __props__["role_arn"] = role_arn

@@ -39,7 +39,9 @@ class MethodResponse(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, http_method=None, resource_id=None, response_models=None, response_parameters=None, rest_api=None, status_code=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Response for an API Gateway Resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_response.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
@@ -50,8 +52,6 @@ class MethodResponse(pulumi.CustomResource):
                would define that the header `X-Some-Header` can be provided on the response.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] status_code: The HTTP status code
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_response.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,7 +95,7 @@ class MethodResponse(pulumi.CustomResource):
         """
         Get an existing MethodResponse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,12 +107,11 @@ class MethodResponse(pulumi.CustomResource):
                would define that the header `X-Some-Header` can be provided on the response.
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] status_code: The HTTP status code
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_method_response.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["http_method"] = http_method
         __props__["resource_id"] = resource_id
         __props__["response_models"] = response_models

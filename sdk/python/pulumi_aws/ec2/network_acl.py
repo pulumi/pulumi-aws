@@ -14,7 +14,7 @@ class NetworkAcl(pulumi.CustomResource):
     """
     Specifies an egress rule. Parameters defined below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-    
+
       * `action` (`str`) - The action to take.
       * `cidr_block` (`str`) - The CIDR block to match. This must be a
         valid network mask.
@@ -31,7 +31,7 @@ class NetworkAcl(pulumi.CustomResource):
     """
     Specifies an ingress rule. Parameters defined below.
     This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-    
+
       * `action` (`str`) - The action to take.
       * `cidr_block` (`str`) - The CIDR block to match. This must be a
         valid network mask.
@@ -64,13 +64,15 @@ class NetworkAcl(pulumi.CustomResource):
         """
         Provides an network ACL resource. You might set up network ACLs with rules similar
         to your security groups in order to add an additional layer of security to your VPC.
-        
+
         > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
         provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
         defined in-line. At this time you cannot use a Network ACL with in-line rules
         in conjunction with any Network ACL Rule resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
@@ -80,23 +82,9 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
-        
+
         The **egress** object supports the following:
-        
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
-        
-        The **ingress** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`) - The action to take.
           * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
             valid network mask.
@@ -109,7 +97,19 @@ class NetworkAcl(pulumi.CustomResource):
           * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
           * `to_port` (`pulumi.Input[float]`) - The to port to match.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
+        The **ingress** object supports the following:
+
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +147,7 @@ class NetworkAcl(pulumi.CustomResource):
         """
         Get an existing NetworkAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,23 +159,9 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
-        
+
         The **egress** object supports the following:
-        
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
-        
-        The **ingress** object supports the following:
-        
+
           * `action` (`pulumi.Input[str]`) - The action to take.
           * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
             valid network mask.
@@ -188,11 +174,24 @@ class NetworkAcl(pulumi.CustomResource):
           * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
           * `to_port` (`pulumi.Input[float]`) - The to port to match.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_acl.html.markdown.
+        The **ingress** object supports the following:
+
+          * `action` (`pulumi.Input[str]`) - The action to take.
+          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
+            valid network mask.
+          * `from_port` (`pulumi.Input[float]`) - The from port to match.
+          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
+          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
+          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
+          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
+            protocol, you must specify a from and to port of 0.
+          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
+          * `to_port` (`pulumi.Input[float]`) - The to port to match.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["egress"] = egress
         __props__["ingress"] = ingress
         __props__["owner_id"] = owner_id

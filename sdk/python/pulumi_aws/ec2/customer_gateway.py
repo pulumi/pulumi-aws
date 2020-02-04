@@ -30,7 +30,9 @@ class CustomerGateway(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bgp_asn=None, ip_address=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
@@ -38,8 +40,6 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Tags to apply to the gateway.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class CustomerGateway(pulumi.CustomResource):
         """
         Get an existing CustomerGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,12 +88,11 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Tags to apply to the gateway.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/customer_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bgp_asn"] = bgp_asn
         __props__["ip_address"] = ip_address
         __props__["tags"] = tags

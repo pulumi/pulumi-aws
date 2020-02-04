@@ -13,12 +13,18 @@ class GetExportResult:
     """
     A collection of values returned by getExport.
     """
-    def __init__(__self__, exporting_stack_id=None, name=None, value=None, id=None):
+    def __init__(__self__, exporting_stack_id=None, id=None, name=None, value=None):
         if exporting_stack_id and not isinstance(exporting_stack_id, str):
             raise TypeError("Expected argument 'exporting_stack_id' to be a str")
         __self__.exporting_stack_id = exporting_stack_id
         """
         The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html) 
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -29,12 +35,6 @@ class GetExportResult:
         """
         The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetExportResult(GetExportResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,22 +42,24 @@ class AwaitableGetExportResult(GetExportResult):
             yield self
         return GetExportResult(
             exporting_stack_id=self.exporting_stack_id,
+            id=self.id,
             name=self.name,
-            value=self.value,
-            id=self.id)
+            value=self.value)
 
 def get_export(name=None,opts=None):
     """
     The CloudFormation Export data source allows access to stack
     exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
-    
+
      > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs. 
-    
-    :param str name: The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudformation_export.html.markdown.
+
+
+    :param str name: The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -68,6 +70,6 @@ def get_export(name=None,opts=None):
 
     return AwaitableGetExportResult(
         exporting_stack_id=__ret__.get('exportingStackId'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
-        value=__ret__.get('value'),
-        id=__ret__.get('id'))
+        value=__ret__.get('value'))

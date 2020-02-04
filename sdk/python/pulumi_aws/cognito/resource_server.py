@@ -18,34 +18,34 @@ class ResourceServer(pulumi.CustomResource):
     """
     A name for the resource server.
     """
-    scopes: pulumi.Output[list]
-    """
-    A list of Authorization Scope.
-    
-      * `scopeDescription` (`str`) - The scope description.
-      * `scopeName` (`str`) - The scope name.
-    """
     scope_identifiers: pulumi.Output[list]
     """
     A list of all scopes configured for this resource server in the format identifier/scope_name.
+    """
+    scopes: pulumi.Output[list]
+    """
+    A list of Authorization Scope.
+
+      * `scopeDescription` (`str`) - The scope description.
+      * `scopeName` (`str`) - The scope name.
     """
     user_pool_id: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, identifier=None, name=None, scopes=None, user_pool_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Cognito Resource Server.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
         :param pulumi.Input[list] scopes: A list of Authorization Scope.
-        
+
         The **scopes** object supports the following:
-        
+
           * `scopeDescription` (`pulumi.Input[str]`) - The scope description.
           * `scopeName` (`pulumi.Input[str]`) - The scope name.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,33 +80,32 @@ class ResourceServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identifier=None, name=None, scopes=None, scope_identifiers=None, user_pool_id=None):
+    def get(resource_name, id, opts=None, identifier=None, name=None, scope_identifiers=None, scopes=None, user_pool_id=None):
         """
         Get an existing ResourceServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
-        :param pulumi.Input[list] scopes: A list of Authorization Scope.
         :param pulumi.Input[list] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
-        
+        :param pulumi.Input[list] scopes: A list of Authorization Scope.
+
         The **scopes** object supports the following:
-        
+
           * `scopeDescription` (`pulumi.Input[str]`) - The scope description.
           * `scopeName` (`pulumi.Input[str]`) - The scope name.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_resource_server.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["identifier"] = identifier
         __props__["name"] = name
-        __props__["scopes"] = scopes
         __props__["scope_identifiers"] = scope_identifiers
+        __props__["scopes"] = scopes
         __props__["user_pool_id"] = user_pool_id
         return ResourceServer(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

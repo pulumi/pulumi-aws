@@ -17,7 +17,7 @@ class Directory(pulumi.CustomResource):
     self_service_permissions: pulumi.Output[dict]
     """
     The permissions to enable or disable self-service capabilities.
-    
+
       * `changeComputeType` (`bool`) - Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
       * `increaseVolumeSize` (`bool`) - Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
       * `rebuildWorkspace` (`bool`) - Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
@@ -35,23 +35,23 @@ class Directory(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, directory_id=None, self_service_permissions=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a directory registration in AWS WorkSpaces Service
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_directory.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[dict] self_service_permissions: The permissions to enable or disable self-service capabilities.
         :param pulumi.Input[list] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the WorkSpaces directory.
-        
+
         The **self_service_permissions** object supports the following:
-        
+
           * `changeComputeType` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
           * `increaseVolumeSize` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
           * `rebuildWorkspace` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
           * `restartWorkspace` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can restart their workspace. Default `true`.
           * `switchRunningMode` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_directory.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class Directory(pulumi.CustomResource):
         """
         Get an existing Directory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -95,20 +95,19 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[dict] self_service_permissions: The permissions to enable or disable self-service capabilities.
         :param pulumi.Input[list] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the WorkSpaces directory.
-        
+
         The **self_service_permissions** object supports the following:
-        
+
           * `changeComputeType` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
           * `increaseVolumeSize` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
           * `rebuildWorkspace` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
           * `restartWorkspace` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can restart their workspace. Default `true`.
           * `switchRunningMode` (`pulumi.Input[bool]`) - Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_directory.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["directory_id"] = directory_id
         __props__["self_service_permissions"] = self_service_permissions
         __props__["subnet_ids"] = subnet_ids

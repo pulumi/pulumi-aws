@@ -13,12 +13,18 @@ class GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, name=None, owner_account_id=None, id=None):
+    def __init__(__self__, amazon_side_asn=None, id=None, name=None, owner_account_id=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, str):
             raise TypeError("Expected argument 'amazon_side_asn' to be a str")
         __self__.amazon_side_asn = amazon_side_asn
         """
         The ASN on the Amazon side of the connection.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -29,12 +35,6 @@ class GetGatewayResult:
         """
         AWS Account ID of the gateway.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetGatewayResult(GetGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,19 +42,21 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             yield self
         return GetGatewayResult(
             amazon_side_asn=self.amazon_side_asn,
+            id=self.id,
             name=self.name,
-            owner_account_id=self.owner_account_id,
-            id=self.id)
+            owner_account_id=self.owner_account_id)
 
 def get_gateway(name=None,opts=None):
     """
     Retrieve information about a Direct Connect Gateway.
-    
-    :param str name: The name of the gateway to retrieve.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dx_gateway.html.markdown.
+
+
+    :param str name: The name of the gateway to retrieve.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -65,6 +67,6 @@ def get_gateway(name=None,opts=None):
 
     return AwaitableGetGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
-        owner_account_id=__ret__.get('ownerAccountId'),
-        id=__ret__.get('id'))
+        owner_account_id=__ret__.get('ownerAccountId'))

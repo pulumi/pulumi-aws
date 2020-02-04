@@ -13,7 +13,13 @@ class GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, name=None, root_resource_id=None, id=None):
+    def __init__(__self__, id=None, name=None, root_resource_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -23,21 +29,15 @@ class GetRestApiResult:
         """
         Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetRestApiResult(
+            id=self.id,
             name=self.name,
-            root_resource_id=self.root_resource_id,
-            id=self.id)
+            root_resource_id=self.root_resource_id)
 
 def get_rest_api(name=None,opts=None):
     """
@@ -45,13 +45,15 @@ def get_rest_api(name=None,opts=None):
     API Gateway. To fetch the REST API you must provide a name to match against. 
     As there is no unique name constraint on REST APIs this data source will 
     error if there is more than one match.
-    
-    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
-           If multiple REST APIs are found with this name, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
+
+
+    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
+           If multiple REST APIs are found with this name, an error will be returned.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -61,6 +63,6 @@ def get_rest_api(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts).value
 
     return AwaitableGetRestApiResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
-        root_resource_id=__ret__.get('rootResourceId'),
-        id=__ret__.get('id'))
+        root_resource_id=__ret__.get('rootResourceId'))

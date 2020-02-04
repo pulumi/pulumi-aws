@@ -22,13 +22,13 @@ class AmiFromInstance(pulumi.CustomResource):
     """
     Nested block describing an EBS block device that should be
     attached to created instances. The structure of this block is described below.
-    
+
       * `deleteOnTermination` (`bool`)
       * `device_name` (`str`)
       * `encrypted` (`bool`)
       * `iops` (`float`)
       * `snapshot_id` (`str`)
-      * `volume_size` (`float`)
+      * `volumeSize` (`float`)
       * `volumeType` (`str`)
     """
     ena_support: pulumi.Output[bool]
@@ -39,7 +39,7 @@ class AmiFromInstance(pulumi.CustomResource):
     """
     Nested block describing an ephemeral block device that
     should be attached to created instances. The structure of this block is described below.
-    
+
       * `device_name` (`str`)
       * `virtualName` (`str`)
     """
@@ -98,22 +98,24 @@ class AmiFromInstance(pulumi.CustomResource):
         """
         The "AMI from instance" resource allows the creation of an Amazon Machine
         Image (AMI) modelled after an existing EBS-backed EC2 instance.
-        
+
         The created AMI will refer to implicitly-created snapshots of the instance's
         EBS volumes and mimick its assigned block device configuration at the time
         the resource is created.
-        
+
         This resource is best applied to an instance that is stopped when this instance
         is created, so that the contents of the created image are predictable. When
         applied to an instance that is running, *the instance will be stopped before taking
         the snapshots and then started back up again*, resulting in a period of
         downtime.
-        
+
         Note that the source instance is inspected only at the initial creation of this
         resource. Ongoing updates to the referenced instance will not be propagated into
         the generated AMI. Users may taint or otherwise recreate the resource in order
         to produce a fresh snapshot.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
@@ -128,23 +130,21 @@ class AmiFromInstance(pulumi.CustomResource):
                guarantees that no filesystem writes will be underway at the time of snapshot.
         :param pulumi.Input[str] source_instance_id: The id of the instance to use as the basis of the AMI.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `device_name` (`pulumi.Input[str]`)
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`)
           * `virtualName` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -193,7 +193,7 @@ class AmiFromInstance(pulumi.CustomResource):
         """
         Get an existing AmiFromInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,27 +223,26 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `device_name` (`pulumi.Input[str]`)
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`)
           * `virtualName` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_from_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["architecture"] = architecture
         __props__["description"] = description
         __props__["ebs_block_devices"] = ebs_block_devices

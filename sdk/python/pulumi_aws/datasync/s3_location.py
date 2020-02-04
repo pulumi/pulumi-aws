@@ -21,7 +21,7 @@ class S3Location(pulumi.CustomResource):
     s3_config: pulumi.Output[dict]
     """
     Configuration block containing information for connecting to S3.
-    
+
       * `bucketAccessRoleArn` (`str`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
     """
     subdirectory: pulumi.Output[str]
@@ -36,19 +36,19 @@ class S3Location(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, s3_bucket_arn=None, s3_config=None, subdirectory=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an S3 Location within AWS DataSync.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
         :param pulumi.Input[dict] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
-        
-        The **s3_config** object supports the following:
-        
-          * `bucketAccessRoleArn` (`pulumi.Input[str]`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
+        The **s3_config** object supports the following:
+
+          * `bucketAccessRoleArn` (`pulumi.Input[str]`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,7 +90,7 @@ class S3Location(pulumi.CustomResource):
         """
         Get an existing S3Location resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,16 +99,15 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[dict] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
-        
-        The **s3_config** object supports the following:
-        
-          * `bucketAccessRoleArn` (`pulumi.Input[str]`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_s3.html.markdown.
+        The **s3_config** object supports the following:
+
+          * `bucketAccessRoleArn` (`pulumi.Input[str]`) - Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["s3_bucket_arn"] = s3_bucket_arn
         __props__["s3_config"] = s3_config

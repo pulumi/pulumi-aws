@@ -26,14 +26,14 @@ class DomainDkim(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, domain=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SES domain DKIM generation resource.
-        
+
         Domain ownership needs to be confirmed first using [ses_domain_identity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_dkim.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_dkim.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,7 +67,7 @@ class DomainDkim(pulumi.CustomResource):
         """
         Get an existing DomainDkim resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,12 +78,11 @@ class DomainDkim(pulumi.CustomResource):
                Find out more about verifying domains in Amazon SES
                in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_dkim.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["dkim_tokens"] = dkim_tokens
         __props__["domain"] = domain
         return DomainDkim(resource_name, opts=opts, __props__=__props__)

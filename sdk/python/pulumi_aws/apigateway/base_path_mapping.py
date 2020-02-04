@@ -10,10 +10,6 @@ from typing import Union
 from .. import utilities, tables
 
 class BasePathMapping(pulumi.CustomResource):
-    rest_api: pulumi.Output[str]
-    """
-    The id of the API to connect.
-    """
     base_path: pulumi.Output[str]
     """
     Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -22,24 +18,28 @@ class BasePathMapping(pulumi.CustomResource):
     """
     The already-registered domain name to connect the API to.
     """
+    rest_api: pulumi.Output[str]
+    """
+    The id of the API to connect.
+    """
     stage_name: pulumi.Output[str]
     """
     The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
     """
-    def __init__(__self__, resource_name, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, base_path=None, domain_name=None, rest_api=None, stage_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Connects a custom domain name registered via `apigateway.DomainName`
         with a deployed API so that its methods can be called via the
         custom domain name.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] rest_api: The id of the API to connect.
-        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
-        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_base_path_mapping.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+        :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: The id of the API to connect.
+        :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -58,13 +58,13 @@ class BasePathMapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if rest_api is None:
-                raise TypeError("Missing required property 'rest_api'")
-            __props__['rest_api'] = rest_api
             __props__['base_path'] = base_path
             if domain_name is None:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
+            if rest_api is None:
+                raise TypeError("Missing required property 'rest_api'")
+            __props__['rest_api'] = rest_api
             __props__['stage_name'] = stage_name
         super(BasePathMapping, __self__).__init__(
             'aws:apigateway/basePathMapping:BasePathMapping',
@@ -73,27 +73,26 @@ class BasePathMapping(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, rest_api=None, base_path=None, domain_name=None, stage_name=None):
+    def get(resource_name, id, opts=None, base_path=None, domain_name=None, rest_api=None, stage_name=None):
         """
         Get an existing BasePathMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] rest_api: The id of the API to connect.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[str] domain_name: The already-registered domain name to connect the API to.
+        :param pulumi.Input[str] rest_api: The id of the API to connect.
         :param pulumi.Input[str] stage_name: The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_base_path_mapping.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["rest_api"] = rest_api
+
         __props__["base_path"] = base_path
         __props__["domain_name"] = domain_name
+        __props__["rest_api"] = rest_api
         __props__["stage_name"] = stage_name
         return BasePathMapping(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -48,10 +48,10 @@ class ApplicationVersion(pulumi.CustomResource):
         Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
         the infrastructure that runs those applications.
-        
+
         This resource creates a Beanstalk Application Version that can be deployed to a Beanstalk
         Environment.
-        
+
         > **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
         Elastic Beanstalk Environments it is possible that an error may be returned
         when attempting to delete an Application Version while it is still in use by a different environment.
@@ -61,19 +61,19 @@ class ApplicationVersion(pulumi.CustomResource):
         <li>Create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your 
         Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.</li>
         </ol>
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the Beanstalk Application the version is associated with.
-        :param pulumi.Input[str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[dict] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[str] description: Short description of the Application Version.
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use
                by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,25 +117,24 @@ class ApplicationVersion(pulumi.CustomResource):
         """
         Get an existing ApplicationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the Beanstalk Application the version is associated with.
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
-        :param pulumi.Input[str] bucket: S3 bucket that contains the Application Version source bundle.
+        :param pulumi.Input[dict] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[str] description: Short description of the Application Version.
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use
                by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: A unique name for the this Application Version.
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application Version.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application"] = application
         __props__["arn"] = arn
         __props__["bucket"] = bucket

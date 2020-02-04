@@ -13,12 +13,18 @@ class GetTaskDefinitionResult:
     """
     A collection of values returned by getTaskDefinition.
     """
-    def __init__(__self__, family=None, network_mode=None, revision=None, status=None, task_definition=None, task_role_arn=None, id=None):
+    def __init__(__self__, family=None, id=None, network_mode=None, revision=None, status=None, task_definition=None, task_role_arn=None):
         if family and not isinstance(family, str):
             raise TypeError("Expected argument 'family' to be a str")
         __self__.family = family
         """
         The family of this task definition
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if network_mode and not isinstance(network_mode, str):
             raise TypeError("Expected argument 'network_mode' to be a str")
@@ -47,12 +53,6 @@ class GetTaskDefinitionResult:
         """
         The ARN of the IAM role that containers in this task can assume
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -60,23 +60,25 @@ class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
             yield self
         return GetTaskDefinitionResult(
             family=self.family,
+            id=self.id,
             network_mode=self.network_mode,
             revision=self.revision,
             status=self.status,
             task_definition=self.task_definition,
-            task_role_arn=self.task_role_arn,
-            id=self.id)
+            task_role_arn=self.task_role_arn)
 
 def get_task_definition(task_definition=None,opts=None):
     """
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
-    
-    :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_task_definition.html.markdown.
+
+
+    :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()
+
 
     __args__['taskDefinition'] = task_definition
     if opts is None:
@@ -87,9 +89,9 @@ def get_task_definition(task_definition=None,opts=None):
 
     return AwaitableGetTaskDefinitionResult(
         family=__ret__.get('family'),
+        id=__ret__.get('id'),
         network_mode=__ret__.get('networkMode'),
         revision=__ret__.get('revision'),
         status=__ret__.get('status'),
         task_definition=__ret__.get('taskDefinition'),
-        task_role_arn=__ret__.get('taskRoleArn'),
-        id=__ret__.get('id'))
+        task_role_arn=__ret__.get('taskRoleArn'))

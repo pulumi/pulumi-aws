@@ -21,15 +21,15 @@ class Association(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, license_configuration_arn=None, resource_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a License Manager association.
-        
+
         > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
         :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,18 +65,17 @@ class Association(pulumi.CustomResource):
         """
         Get an existing Association resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
         :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["license_configuration_arn"] = license_configuration_arn
         __props__["resource_arn"] = resource_arn
         return Association(resource_name, opts=opts, __props__=__props__)

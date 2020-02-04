@@ -13,7 +13,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     account_aggregation_source: pulumi.Output[dict]
     """
     The account(s) to aggregate config data from as documented below.
-    
+
       * `accountIds` (`list`) - List of 12-digit account IDs of the account(s) being aggregated.
       * `allRegions` (`bool`) - If true, aggregate existing AWS Config regions and future regions.
       * `regions` (`list`) - List of source regions being aggregated.
@@ -29,7 +29,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     organization_aggregation_source: pulumi.Output[dict]
     """
     The organization to aggregate config data from as documented below.
-    
+
       * `allRegions` (`bool`) - If true, aggregate existing AWS Config regions and future regions.
       * `regions` (`list`) - List of source regions being aggregated.
       * `role_arn` (`str`) - ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
@@ -41,27 +41,27 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_aggregation_source=None, name=None, organization_aggregation_source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Config Configuration Aggregator
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[str] name: The name of the configuration aggregator.
         :param pulumi.Input[dict] organization_aggregation_source: The organization to aggregate config data from as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **account_aggregation_source** object supports the following:
-        
+
           * `accountIds` (`pulumi.Input[list]`) - List of 12-digit account IDs of the account(s) being aggregated.
           * `allRegions` (`pulumi.Input[bool]`) - If true, aggregate existing AWS Config regions and future regions.
           * `regions` (`pulumi.Input[list]`) - List of source regions being aggregated.
-        
+
         The **organization_aggregation_source** object supports the following:
-        
+
           * `allRegions` (`pulumi.Input[bool]`) - If true, aggregate existing AWS Config regions and future regions.
           * `regions` (`pulumi.Input[list]`) - List of source regions being aggregated.
           * `role_arn` (`pulumi.Input[str]`) - ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,7 +96,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         """
         Get an existing ConfigurationAggregator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,24 +105,23 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the configuration aggregator.
         :param pulumi.Input[dict] organization_aggregation_source: The organization to aggregate config data from as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **account_aggregation_source** object supports the following:
-        
+
           * `accountIds` (`pulumi.Input[list]`) - List of 12-digit account IDs of the account(s) being aggregated.
           * `allRegions` (`pulumi.Input[bool]`) - If true, aggregate existing AWS Config regions and future regions.
           * `regions` (`pulumi.Input[list]`) - List of source regions being aggregated.
-        
+
         The **organization_aggregation_source** object supports the following:
-        
+
           * `allRegions` (`pulumi.Input[bool]`) - If true, aggregate existing AWS Config regions and future regions.
           * `regions` (`pulumi.Input[list]`) - List of source regions being aggregated.
           * `role_arn` (`pulumi.Input[str]`) - ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_configuration_aggregator.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_aggregation_source"] = account_aggregation_source
         __props__["arn"] = arn
         __props__["name"] = name

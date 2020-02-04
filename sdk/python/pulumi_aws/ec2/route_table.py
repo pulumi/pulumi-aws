@@ -21,7 +21,7 @@ class RouteTable(pulumi.CustomResource):
     routes: pulumi.Output[list]
     """
     A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-    
+
       * `cidr_block` (`str`) - The CIDR block of the route.
       * `egress_only_gateway_id` (`str`) - Identifier of a VPC Egress Only Internet Gateway.
       * `gateway_id` (`str`) - Identifier of a VPC internet gateway or a virtual private gateway.
@@ -43,35 +43,37 @@ class RouteTable(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, propagating_vgws=None, routes=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a VPC routing table.
-        
+
         > **NOTE on Route Tables and Routes:** This provider currently
         provides both a standalone Route resource and a Route Table resource with routes
         defined in-line. At this time you cannot use a Route Table with in-line routes
         in conjunction with any Route resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
-        
+
         > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
         attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
         This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
         parameters in the returned route table. If you're experiencing constant diffs in your `ec2.RouteTable` resources,
         the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
-        
+
         > **NOTE on `propagating_vgws` and the `ec2.VpnGatewayRoutePropagation` resource:**
         If the `propagating_vgws` argument is present, it's not supported to _also_
         define route propagations using `ec2.VpnGatewayRoutePropagation`, since
         this resource will delete any propagating gateways not explicitly listed in
         `propagating_vgws`. Omit this argument when defining route propagation using
         the separate resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
-        
+
         The **routes** object supports the following:
-        
+
           * `cidr_block` (`pulumi.Input[str]`) - The CIDR block of the route.
           * `egress_only_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC Egress Only Internet Gateway.
           * `gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC internet gateway or a virtual private gateway.
@@ -81,8 +83,6 @@ class RouteTable(pulumi.CustomResource):
           * `network_interface_id` (`pulumi.Input[str]`) - Identifier of an EC2 network interface.
           * `transit_gateway_id` (`pulumi.Input[str]`) - Identifier of an EC2 Transit Gateway.
           * `vpc_peering_connection_id` (`pulumi.Input[str]`) - Identifier of a VPC peering connection.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class RouteTable(pulumi.CustomResource):
         """
         Get an existing RouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,9 +128,9 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[list] routes: A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
-        
+
         The **routes** object supports the following:
-        
+
           * `cidr_block` (`pulumi.Input[str]`) - The CIDR block of the route.
           * `egress_only_gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC Egress Only Internet Gateway.
           * `gateway_id` (`pulumi.Input[str]`) - Identifier of a VPC internet gateway or a virtual private gateway.
@@ -140,12 +140,11 @@ class RouteTable(pulumi.CustomResource):
           * `network_interface_id` (`pulumi.Input[str]`) - Identifier of an EC2 network interface.
           * `transit_gateway_id` (`pulumi.Input[str]`) - Identifier of an EC2 Transit Gateway.
           * `vpc_peering_connection_id` (`pulumi.Input[str]`) - Identifier of a VPC peering connection.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route_table.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["owner_id"] = owner_id
         __props__["propagating_vgws"] = propagating_vgws
         __props__["routes"] = routes

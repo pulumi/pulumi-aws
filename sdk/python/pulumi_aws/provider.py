@@ -16,19 +16,40 @@ class Provider(pulumi.ProviderResource):
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/index.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[list] ignore_tag_prefixes: Resource tag key prefixes to ignore across all resources.
+        :param pulumi.Input[list] ignore_tags: Resource tag keys to ignore across all resources.
+        :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        :param pulumi.Input[float] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        :param pulumi.Input[bool] s3_force_path_style: Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
+               default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
+               Specific to the Amazon S3 service.
+        :param pulumi.Input[str] secret_key: The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        :param pulumi.Input[str] shared_credentials_file: The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
+               available/implemented.
+        :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
+        :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
+               not public (yet).
+        :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
+        :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
+
         The **assume_role** object supports the following:
-        
+
           * `externalId` (`pulumi.Input[str]`)
           * `policy` (`pulumi.Input[str]`)
           * `role_arn` (`pulumi.Input[str]`)
           * `session_name` (`pulumi.Input[str]`)
-        
+
         The **endpoints** object supports the following:
-        
+
           * `accessanalyzer` (`pulumi.Input[str]`)
           * `acm` (`pulumi.Input[str]`)
           * `acmpca` (`pulumi.Input[str]`)
@@ -162,8 +183,6 @@ class Provider(pulumi.ProviderResource):
           * `worklink` (`pulumi.Input[str]`)
           * `workspaces` (`pulumi.Input[str]`)
           * `xray` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/index.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -196,7 +215,7 @@ class Provider(pulumi.ProviderResource):
             __props__['profile'] = profile
             if region is None:
                 region = utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
-            __props__['region'] = region
+            __props__['region'] = pulumi.Output.from_input(region).apply(json.dumps) if region is not None else None
             __props__['s3_force_path_style'] = pulumi.Output.from_input(s3_force_path_style).apply(json.dumps) if s3_force_path_style is not None else None
             __props__['secret_key'] = secret_key
             __props__['shared_credentials_file'] = shared_credentials_file
@@ -212,22 +231,6 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
-    @staticmethod
-    def get(resource_name, id, opts=None):
-        """
-        Get an existing Provider resource's state with the given name, id, and optional extra
-        properties used to qualify the lookup.
-        
-        :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/index.html.markdown.
-        """
-        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
-
-        __props__ = dict()
-        return Provider(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -21,33 +21,33 @@ class ParameterGroup(pulumi.CustomResource):
     parameters: pulumi.Output[list]
     """
     The parameters of the parameter group.
-    
+
       * `name` (`str`) - The name of the parameter group.
       * `value` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, parameters=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DAX Parameter Group resource.
-        
+
         ## parameters
-        
+
         `parameters` supports the following:
-        
+
         * `name` - (Required) The name of the parameter.
         * `value` - (Required) The value for the parameter.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
         :param pulumi.Input[list] parameters: The parameters of the parameter group.
-        
+
         The **parameters** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the parameter group.
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,24 +80,23 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
         :param pulumi.Input[list] parameters: The parameters of the parameter group.
-        
+
         The **parameters** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the parameter group.
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dax_parameter_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["name"] = name
         __props__["parameters"] = parameters
