@@ -9,12 +9,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi/config"
 )
 
-const size = "t2.micro"
+var region string
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		cfg := config.New(ctx, "aws")
-		region := cfg.Require("envRegion")
+		region = cfg.Require("envRegion")
 		provider, err := aws.NewProvider(ctx, "prov", &aws.ProviderArgs{
 			Region: pulumi.String(region),
 		})
@@ -23,7 +23,7 @@ func main() {
 		}
 		providerOpts := []pulumi.ResourceOption{pulumi.Provider(provider)}
 
-		group, err := ec2.NewSecurityGroup(ctx, "web-secgrp-2", &ec2.SecurityGroupArgs{
+		group, err := ec2.NewSecurityGroup(ctx, "web-secgrp", &ec2.SecurityGroupArgs{
 			Description: pulumi.String("Enable HTTP access"),
 			Ingress: ec2.SecurityGroupIngressArray{
 				ec2.SecurityGroupIngressArgs{
@@ -38,17 +38,20 @@ func main() {
 			return err
 		}
 
-		server, err := ec2.NewInstance(ctx, "web-server-www", &ec2.InstanceArgs{
-			InstanceType:   pulumi.String(size),
-			SecurityGroups: pulumi.StringArray{group.Name},
-			Ami:            pulumi.String(getLinuxAMI(region, size)),
-		}, providerOpts...)
+		securityGroups := pulumi.StringArray{group.Name}
+
+		webServer, err := NewMicroServer(ctx, "www", securityGroups, providerOpts...)
 		if err != nil {
 			return err
 		}
 
-		ctx.Export("publicIp", server.PublicIp)
-		ctx.Export("publicDns", server.PublicDns)
+		appServer, err := NewNanoServer(ctx, "app", securityGroups, providerOpts...)
+		if err != nil {
+			return err
+		}
+
+		ctx.Export("webPublicIp", webServer.Instance.PublicIp)
+		ctx.Export("appPublicIp", appServer.Instance.PublicIp)
 		return nil
 	})
 }
