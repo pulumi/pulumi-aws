@@ -374,7 +374,7 @@ func TestAccWebserverGo(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccWebserverComp(t *testing.T) {
+func TestAccWebserverCompGo(t *testing.T) {
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "webserver-comp-go"),
@@ -414,7 +414,7 @@ func TestAccRoute53Go(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
-func TestAccServerlessRaw(t *testing.T) {
+func TestAccServerlessRawGo(t *testing.T) {
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "serverless-raw-go"),
