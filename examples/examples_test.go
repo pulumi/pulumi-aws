@@ -368,7 +368,7 @@ func TestAccWebserverGo(t *testing.T) {
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "webserver-go"),
-		Config: map[string]string{"aws:region": getEnvRegion(t)},
+		Config: map[string]string{"aws:envRegion": getEnvRegion(t)},
 	}
 
 	integration.ProgramTest(t, &test)
@@ -378,7 +378,7 @@ func TestAccWebserverCompGo(t *testing.T) {
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "webserver-comp-go"),
-		Config: map[string]string{"aws:region": getEnvRegion(t)},
+		Config: map[string]string{"aws:envRegion": getEnvRegion(t)},
 		Secrets: map[string]string{
 			"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
 			"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
@@ -391,7 +391,7 @@ func TestAccWebserverCompGo(t *testing.T) {
 func TestAccAlbLegacyGo(t *testing.T) {
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "alb-legacy-go"),
-		Config: map[string]string{"aws:region": getEnvRegion(t)},
+		Config: map[string]string{"aws:envRegion": getEnvRegion(t)},
 	}
 
 	integration.ProgramTest(t, &test)
@@ -400,7 +400,7 @@ func TestAccAlbLegacyGo(t *testing.T) {
 func TestAccAlbNewGo(t *testing.T) {
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "alb-new-go"),
-		Config: map[string]string{"aws:region": getEnvRegion(t)},
+		Config: map[string]string{"aws:envRegion": getEnvRegion(t)},
 	}
 
 	integration.ProgramTest(t, &test)
@@ -409,7 +409,7 @@ func TestAccAlbNewGo(t *testing.T) {
 func TestAccRoute53Go(t *testing.T) {
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "route53-go"),
-		Config: map[string]string{"aws:region": getEnvRegion(t)},
+		Config: map[string]string{"aws:envRegion": getEnvRegion(t)},
 	}
 
 	integration.ProgramTest(t, &test)
@@ -418,7 +418,7 @@ func TestAccServerlessRawGo(t *testing.T) {
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
 		Dir:    path.Join(getCwd(t), "serverless-raw-go"),
-		Config: map[string]string{"aws:region": getEnvRegion(t)},
+		Config: map[string]string{"aws:envRegion": getEnvRegion(t)},
 		// Two changes are known to occur during refresh of the resources in this example:
 		// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
 		// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
