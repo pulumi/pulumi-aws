@@ -484,15 +484,6 @@ func TestAccWebserverCs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccWebserverCs(t *testing.T) {
-	test := getCSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "webserver-go"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func createEditDir(dir string) integration.EditDir {
 	return integration.EditDir{Dir: dir, ExtraRuntimeValidation: nil}
 }
