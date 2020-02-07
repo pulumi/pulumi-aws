@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ### Amazon Cognito domain
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +23,9 @@ import * as utilities from "../utilities";
  *     userPoolId: example.id,
  * });
  * ```
+ * 
  * ### Custom Cognito domain
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

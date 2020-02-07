@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `3600`. Storage capacity is provisioned in increments of 3,600 GiB.
+        /// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int> StorageCapacity { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `3600`. Storage capacity is provisioned in increments of 3,600 GiB.
+        /// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
         /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `3600`. Storage capacity is provisioned in increments of 3,600 GiB.
+        /// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }

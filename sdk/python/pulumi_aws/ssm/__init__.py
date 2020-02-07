@@ -15,3 +15,4 @@ from .patch_group import *
 from .resource_data_sync import *
 from .get_document import *
 from .get_parameter import *
+from .get_patch_baseline import *

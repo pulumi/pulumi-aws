@@ -715,7 +715,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<ListenerRuleConditionsHttpHeaderArgs>? HttpHeader { get; set; }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+        /// Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         /// </summary>
         [Input("httpRequestMethod")]
         public Input<ListenerRuleConditionsHttpRequestMethodArgs>? HttpRequestMethod { get; set; }
@@ -776,7 +776,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<ListenerRuleConditionsHttpHeaderGetArgs>? HttpHeader { get; set; }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+        /// Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         /// </summary>
         [Input("httpRequestMethod")]
         public Input<ListenerRuleConditionsHttpRequestMethodGetArgs>? HttpRequestMethod { get; set; }
@@ -1333,7 +1333,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// </summary>
         public readonly ListenerRuleConditionsHttpHeader? HttpHeader;
         /// <summary>
-        /// Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+        /// Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         /// </summary>
         public readonly ListenerRuleConditionsHttpRequestMethod? HttpRequestMethod;
         /// <summary>

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * 
  * ### With CSR
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +21,9 @@ import * as utilities from "../utilities";
  *     csr: fs.readFileSync("/my/csr.pem", "utf-8"),
  * });
  * ```
+ * 
  * ### Without CSR
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

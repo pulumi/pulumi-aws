@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v2.48.0 of the AWS Terraform Provider
 * Changing the autonaming prefix of `aws.iot.TopicRule` name parameter
 
 ---

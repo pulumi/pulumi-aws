@@ -92,6 +92,7 @@ import * as utilities from "../utilities";
  * ```
  * 
  * Advanced usage, specifying Microsoft application and Windows patch rules
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

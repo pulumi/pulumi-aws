@@ -100,6 +100,7 @@ import {PolicyDocument} from "../iam/documents";
  *     }],
  * });
  * ```
+ * 
  * ### VPC based ES
  * 
  * ```typescript

@@ -137,6 +137,118 @@ func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringOutput {
 	return o.ApplyT(func (v EfsLocationEc2Config) string { return v.SubnetArn }).(pulumi.StringOutput)
 }
 
+type LocationSmbMountOptions struct {
+	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+	Version *string `pulumi:"version"`
+}
+
+type LocationSmbMountOptionsInput interface {
+	pulumi.Input
+
+	ToLocationSmbMountOptionsOutput() LocationSmbMountOptionsOutput
+	ToLocationSmbMountOptionsOutputWithContext(context.Context) LocationSmbMountOptionsOutput
+}
+
+type LocationSmbMountOptionsArgs struct {
+	// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (LocationSmbMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbMountOptions)(nil)).Elem()
+}
+
+func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsOutput() LocationSmbMountOptionsOutput {
+	return i.ToLocationSmbMountOptionsOutputWithContext(context.Background())
+}
+
+func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsOutputWithContext(ctx context.Context) LocationSmbMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsOutput)
+}
+
+func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput {
+	return i.ToLocationSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsOutput).ToLocationSmbMountOptionsPtrOutputWithContext(ctx)
+}
+
+type LocationSmbMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput
+	ToLocationSmbMountOptionsPtrOutputWithContext(context.Context) LocationSmbMountOptionsPtrOutput
+}
+
+type locationSmbMountOptionsPtrType LocationSmbMountOptionsArgs
+
+func LocationSmbMountOptionsPtr(v *LocationSmbMountOptionsArgs) LocationSmbMountOptionsPtrInput {	return (*locationSmbMountOptionsPtrType)(v)
+}
+
+func (*locationSmbMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbMountOptions)(nil)).Elem()
+}
+
+func (i *locationSmbMountOptionsPtrType) ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput {
+	return i.ToLocationSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationSmbMountOptionsPtrType) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsPtrOutput)
+}
+
+type LocationSmbMountOptionsOutput struct { *pulumi.OutputState }
+
+func (LocationSmbMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSmbMountOptions)(nil)).Elem()
+}
+
+func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsOutput() LocationSmbMountOptionsOutput {
+	return o
+}
+
+func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsOutputWithContext(ctx context.Context) LocationSmbMountOptionsOutput {
+	return o
+}
+
+func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput {
+	return o.ToLocationSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
+	return o.ApplyT(func(v LocationSmbMountOptions) *LocationSmbMountOptions {
+		return &v
+	}).(LocationSmbMountOptionsPtrOutput)
+}
+// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+func (o LocationSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LocationSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type LocationSmbMountOptionsPtrOutput struct { *pulumi.OutputState}
+
+func (LocationSmbMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationSmbMountOptions)(nil)).Elem()
+}
+
+func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
+	return o.ApplyT(func (v *LocationSmbMountOptions) LocationSmbMountOptions { return *v }).(LocationSmbMountOptionsOutput)
+}
+
+// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v LocationSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 type NfsLocationOnPremConfig struct {
 	// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 	AgentArns []string `pulumi:"agentArns"`
@@ -588,6 +700,8 @@ func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})
+	pulumi.RegisterOutputType(LocationSmbMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(NfsLocationOnPremConfigOutput{})
 	pulumi.RegisterOutputType(NfsLocationOnPremConfigPtrOutput{})
 	pulumi.RegisterOutputType(S3LocationS3ConfigOutput{})

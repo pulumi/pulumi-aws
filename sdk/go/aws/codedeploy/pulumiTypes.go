@@ -1296,9 +1296,9 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 }
 
 type DeploymentGroupDeploymentStyle struct {
-	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 	DeploymentOption *string `pulumi:"deploymentOption"`
-	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 	DeploymentType *string `pulumi:"deploymentType"`
 }
 
@@ -1310,9 +1310,9 @@ type DeploymentGroupDeploymentStyleInput interface {
 }
 
 type DeploymentGroupDeploymentStyleArgs struct {
-	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 	DeploymentOption pulumi.StringPtrInput `pulumi:"deploymentOption"`
-	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 	DeploymentType pulumi.StringPtrInput `pulumi:"deploymentType"`
 }
 
@@ -1383,12 +1383,12 @@ func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePt
 		return &v
 	}).(DeploymentGroupDeploymentStylePtrOutput)
 }
-// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 func (o DeploymentGroupDeploymentStyleOutput) DeploymentOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 func (o DeploymentGroupDeploymentStyleOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }
@@ -1411,12 +1411,12 @@ func (o DeploymentGroupDeploymentStylePtrOutput) Elem() DeploymentGroupDeploymen
 	return o.ApplyT(func (v *DeploymentGroupDeploymentStyle) DeploymentGroupDeploymentStyle { return *v }).(DeploymentGroupDeploymentStyleOutput)
 }
 
-// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentOption }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }

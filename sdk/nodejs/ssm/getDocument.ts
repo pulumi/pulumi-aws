@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * 
  * export const content = foo.content;
  * ```
+ * 
  * To get the contents of the custom document.
  * 
  * ```typescript

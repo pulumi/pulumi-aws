@@ -1392,6 +1392,8 @@ type ProjectSecondarySource struct {
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	GitSubmodulesConfig *ProjectSecondarySourceGitSubmodulesConfig `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl *bool `pulumi:"insecureSsl"`
 	// The location of the source code from git or s3.
@@ -1418,6 +1420,8 @@ type ProjectSecondarySourceArgs struct {
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	GitSubmodulesConfig ProjectSecondarySourceGitSubmodulesConfigPtrInput `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
 	// The location of the source code from git or s3.
@@ -1490,6 +1494,11 @@ func (o ProjectSecondarySourceOutput) Buildspec() pulumi.StringPtrOutput {
 // Truncate git history to this many commits.
 func (o ProjectSecondarySourceOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ProjectSecondarySource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
+}
+
+// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+func (o ProjectSecondarySourceOutput) GitSubmodulesConfig() ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func (v ProjectSecondarySource) *ProjectSecondarySourceGitSubmodulesConfig { return v.GitSubmodulesConfig }).(ProjectSecondarySourceGitSubmodulesConfigPtrOutput)
 }
 
 // Ignore SSL warnings when connecting to source control.
@@ -1635,6 +1644,118 @@ func (o ProjectSecondarySourceAuthArrayOutput) Index(i pulumi.IntInput) ProjectS
 	}).(ProjectSecondarySourceAuthOutput)
 }
 
+type ProjectSecondarySourceGitSubmodulesConfig struct {
+	// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+	FetchSubmodules bool `pulumi:"fetchSubmodules"`
+}
+
+type ProjectSecondarySourceGitSubmodulesConfigInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourceGitSubmodulesConfigOutput() ProjectSecondarySourceGitSubmodulesConfigOutput
+	ToProjectSecondarySourceGitSubmodulesConfigOutputWithContext(context.Context) ProjectSecondarySourceGitSubmodulesConfigOutput
+}
+
+type ProjectSecondarySourceGitSubmodulesConfigArgs struct {
+	// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+	FetchSubmodules pulumi.BoolInput `pulumi:"fetchSubmodules"`
+}
+
+func (ProjectSecondarySourceGitSubmodulesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSecondarySourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (i ProjectSecondarySourceGitSubmodulesConfigArgs) ToProjectSecondarySourceGitSubmodulesConfigOutput() ProjectSecondarySourceGitSubmodulesConfigOutput {
+	return i.ToProjectSecondarySourceGitSubmodulesConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectSecondarySourceGitSubmodulesConfigArgs) ToProjectSecondarySourceGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceGitSubmodulesConfigOutput)
+}
+
+func (i ProjectSecondarySourceGitSubmodulesConfigArgs) ToProjectSecondarySourceGitSubmodulesConfigPtrOutput() ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return i.ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSecondarySourceGitSubmodulesConfigArgs) ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceGitSubmodulesConfigOutput).ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(ctx)
+}
+
+type ProjectSecondarySourceGitSubmodulesConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectSecondarySourceGitSubmodulesConfigPtrOutput() ProjectSecondarySourceGitSubmodulesConfigPtrOutput
+	ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(context.Context) ProjectSecondarySourceGitSubmodulesConfigPtrOutput
+}
+
+type projectSecondarySourceGitSubmodulesConfigPtrType ProjectSecondarySourceGitSubmodulesConfigArgs
+
+func ProjectSecondarySourceGitSubmodulesConfigPtr(v *ProjectSecondarySourceGitSubmodulesConfigArgs) ProjectSecondarySourceGitSubmodulesConfigPtrInput {	return (*projectSecondarySourceGitSubmodulesConfigPtrType)(v)
+}
+
+func (*projectSecondarySourceGitSubmodulesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSecondarySourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (i *projectSecondarySourceGitSubmodulesConfigPtrType) ToProjectSecondarySourceGitSubmodulesConfigPtrOutput() ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return i.ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectSecondarySourceGitSubmodulesConfigPtrType) ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceGitSubmodulesConfigPtrOutput)
+}
+
+type ProjectSecondarySourceGitSubmodulesConfigOutput struct { *pulumi.OutputState }
+
+func (ProjectSecondarySourceGitSubmodulesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSecondarySourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigOutput) ToProjectSecondarySourceGitSubmodulesConfigOutput() ProjectSecondarySourceGitSubmodulesConfigOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigOutput) ToProjectSecondarySourceGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigOutput) ToProjectSecondarySourceGitSubmodulesConfigPtrOutput() ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return o.ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigOutput) ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSecondarySourceGitSubmodulesConfig) *ProjectSecondarySourceGitSubmodulesConfig {
+		return &v
+	}).(ProjectSecondarySourceGitSubmodulesConfigPtrOutput)
+}
+// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+func (o ProjectSecondarySourceGitSubmodulesConfigOutput) FetchSubmodules() pulumi.BoolOutput {
+	return o.ApplyT(func (v ProjectSecondarySourceGitSubmodulesConfig) bool { return v.FetchSubmodules }).(pulumi.BoolOutput)
+}
+
+type ProjectSecondarySourceGitSubmodulesConfigPtrOutput struct { *pulumi.OutputState}
+
+func (ProjectSecondarySourceGitSubmodulesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSecondarySourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) ToProjectSecondarySourceGitSubmodulesConfigPtrOutput() ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) Elem() ProjectSecondarySourceGitSubmodulesConfigOutput {
+	return o.ApplyT(func (v *ProjectSecondarySourceGitSubmodulesConfig) ProjectSecondarySourceGitSubmodulesConfig { return *v }).(ProjectSecondarySourceGitSubmodulesConfigOutput)
+}
+
+// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) FetchSubmodules() pulumi.BoolOutput {
+	return o.ApplyT(func (v ProjectSecondarySourceGitSubmodulesConfig) bool { return v.FetchSubmodules }).(pulumi.BoolOutput)
+}
+
 type ProjectSource struct {
 	// Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
 	Auths []ProjectSourceAuth `pulumi:"auths"`
@@ -1642,6 +1763,8 @@ type ProjectSource struct {
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	GitSubmodulesConfig *ProjectSourceGitSubmodulesConfig `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl *bool `pulumi:"insecureSsl"`
 	// The location of the source code from git or s3.
@@ -1666,6 +1789,8 @@ type ProjectSourceArgs struct {
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
+	// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+	GitSubmodulesConfig ProjectSourceGitSubmodulesConfigPtrInput `pulumi:"gitSubmodulesConfig"`
 	// Ignore SSL warnings when connecting to source control.
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
 	// The location of the source code from git or s3.
@@ -1758,6 +1883,11 @@ func (o ProjectSourceOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ProjectSource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
 }
 
+// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+func (o ProjectSourceOutput) GitSubmodulesConfig() ProjectSourceGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func (v ProjectSource) *ProjectSourceGitSubmodulesConfig { return v.GitSubmodulesConfig }).(ProjectSourceGitSubmodulesConfigPtrOutput)
+}
+
 // Ignore SSL warnings when connecting to source control.
 func (o ProjectSourceOutput) InsecureSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v ProjectSource) *bool { return v.InsecureSsl }).(pulumi.BoolPtrOutput)
@@ -1809,6 +1939,11 @@ func (o ProjectSourcePtrOutput) Buildspec() pulumi.StringPtrOutput {
 // Truncate git history to this many commits.
 func (o ProjectSourcePtrOutput) GitCloneDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ProjectSource) *int { return v.GitCloneDepth }).(pulumi.IntPtrOutput)
+}
+
+// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+func (o ProjectSourcePtrOutput) GitSubmodulesConfig() ProjectSourceGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func (v ProjectSource) *ProjectSourceGitSubmodulesConfig { return v.GitSubmodulesConfig }).(ProjectSourceGitSubmodulesConfigPtrOutput)
 }
 
 // Ignore SSL warnings when connecting to source control.
@@ -1927,6 +2062,118 @@ func (o ProjectSourceAuthArrayOutput) Index(i pulumi.IntInput) ProjectSourceAuth
 	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ProjectSourceAuth {
 		return vs[0].([]ProjectSourceAuth)[vs[1].(int)]
 	}).(ProjectSourceAuthOutput)
+}
+
+type ProjectSourceGitSubmodulesConfig struct {
+	// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+	FetchSubmodules bool `pulumi:"fetchSubmodules"`
+}
+
+type ProjectSourceGitSubmodulesConfigInput interface {
+	pulumi.Input
+
+	ToProjectSourceGitSubmodulesConfigOutput() ProjectSourceGitSubmodulesConfigOutput
+	ToProjectSourceGitSubmodulesConfigOutputWithContext(context.Context) ProjectSourceGitSubmodulesConfigOutput
+}
+
+type ProjectSourceGitSubmodulesConfigArgs struct {
+	// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+	FetchSubmodules pulumi.BoolInput `pulumi:"fetchSubmodules"`
+}
+
+func (ProjectSourceGitSubmodulesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (i ProjectSourceGitSubmodulesConfigArgs) ToProjectSourceGitSubmodulesConfigOutput() ProjectSourceGitSubmodulesConfigOutput {
+	return i.ToProjectSourceGitSubmodulesConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceGitSubmodulesConfigArgs) ToProjectSourceGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceGitSubmodulesConfigOutput)
+}
+
+func (i ProjectSourceGitSubmodulesConfigArgs) ToProjectSourceGitSubmodulesConfigPtrOutput() ProjectSourceGitSubmodulesConfigPtrOutput {
+	return i.ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceGitSubmodulesConfigArgs) ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceGitSubmodulesConfigOutput).ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(ctx)
+}
+
+type ProjectSourceGitSubmodulesConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectSourceGitSubmodulesConfigPtrOutput() ProjectSourceGitSubmodulesConfigPtrOutput
+	ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(context.Context) ProjectSourceGitSubmodulesConfigPtrOutput
+}
+
+type projectSourceGitSubmodulesConfigPtrType ProjectSourceGitSubmodulesConfigArgs
+
+func ProjectSourceGitSubmodulesConfigPtr(v *ProjectSourceGitSubmodulesConfigArgs) ProjectSourceGitSubmodulesConfigPtrInput {	return (*projectSourceGitSubmodulesConfigPtrType)(v)
+}
+
+func (*projectSourceGitSubmodulesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (i *projectSourceGitSubmodulesConfigPtrType) ToProjectSourceGitSubmodulesConfigPtrOutput() ProjectSourceGitSubmodulesConfigPtrOutput {
+	return i.ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectSourceGitSubmodulesConfigPtrType) ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceGitSubmodulesConfigPtrOutput)
+}
+
+type ProjectSourceGitSubmodulesConfigOutput struct { *pulumi.OutputState }
+
+func (ProjectSourceGitSubmodulesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (o ProjectSourceGitSubmodulesConfigOutput) ToProjectSourceGitSubmodulesConfigOutput() ProjectSourceGitSubmodulesConfigOutput {
+	return o
+}
+
+func (o ProjectSourceGitSubmodulesConfigOutput) ToProjectSourceGitSubmodulesConfigOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigOutput {
+	return o
+}
+
+func (o ProjectSourceGitSubmodulesConfigOutput) ToProjectSourceGitSubmodulesConfigPtrOutput() ProjectSourceGitSubmodulesConfigPtrOutput {
+	return o.ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectSourceGitSubmodulesConfigOutput) ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigPtrOutput {
+	return o.ApplyT(func(v ProjectSourceGitSubmodulesConfig) *ProjectSourceGitSubmodulesConfig {
+		return &v
+	}).(ProjectSourceGitSubmodulesConfigPtrOutput)
+}
+// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+func (o ProjectSourceGitSubmodulesConfigOutput) FetchSubmodules() pulumi.BoolOutput {
+	return o.ApplyT(func (v ProjectSourceGitSubmodulesConfig) bool { return v.FetchSubmodules }).(pulumi.BoolOutput)
+}
+
+type ProjectSourceGitSubmodulesConfigPtrOutput struct { *pulumi.OutputState}
+
+func (ProjectSourceGitSubmodulesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectSourceGitSubmodulesConfig)(nil)).Elem()
+}
+
+func (o ProjectSourceGitSubmodulesConfigPtrOutput) ToProjectSourceGitSubmodulesConfigPtrOutput() ProjectSourceGitSubmodulesConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSourceGitSubmodulesConfigPtrOutput) ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigPtrOutput {
+	return o
+}
+
+func (o ProjectSourceGitSubmodulesConfigPtrOutput) Elem() ProjectSourceGitSubmodulesConfigOutput {
+	return o.ApplyT(func (v *ProjectSourceGitSubmodulesConfig) ProjectSourceGitSubmodulesConfig { return *v }).(ProjectSourceGitSubmodulesConfigOutput)
+}
+
+// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+func (o ProjectSourceGitSubmodulesConfigPtrOutput) FetchSubmodules() pulumi.BoolOutput {
+	return o.ApplyT(func (v ProjectSourceGitSubmodulesConfig) bool { return v.FetchSubmodules }).(pulumi.BoolOutput)
 }
 
 type ProjectVpcConfig struct {
@@ -2288,10 +2535,14 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSecondarySourceArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceAuthArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigOutput{})
+	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceOutput{})
 	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthArrayOutput{})
+	pulumi.RegisterOutputType(ProjectSourceGitSubmodulesConfigOutput{})
+	pulumi.RegisterOutputType(ProjectSourceGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupOutput{})

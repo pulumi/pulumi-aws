@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * ```
  * 
  * ### Create a user pool client with no SRP authentication
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
