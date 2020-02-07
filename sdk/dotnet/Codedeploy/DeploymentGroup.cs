@@ -63,7 +63,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
         /// </summary>
         [Output("deploymentStyle")]
-        public Output<Outputs.DeploymentGroupDeploymentStyle> DeploymentStyle { get; private set; } = null!;
+        public Output<Outputs.DeploymentGroupDeploymentStyle?> DeploymentStyle { get; private set; } = null!;
 
         /// <summary>
         /// Tag filters associated with the deployment group. See the AWS docs for details.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.CodeDeploy
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         /// </summary>
         [Output("loadBalancerInfo")]
-        public Output<Outputs.DeploymentGroupLoadBalancerInfo> LoadBalancerInfo { get; private set; } = null!;
+        public Output<Outputs.DeploymentGroupLoadBalancerInfo?> LoadBalancerInfo { get; private set; } = null!;
 
         /// <summary>
         /// On premise tag filters associated with the group. See the AWS docs for details.
@@ -691,13 +691,13 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupDeploymentStyleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
         /// </summary>
         [Input("deploymentOption")]
         public Input<string>? DeploymentOption { get; set; }
 
         /// <summary>
-        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -710,13 +710,13 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupDeploymentStyleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
         /// </summary>
         [Input("deploymentOption")]
         public Input<string>? DeploymentOption { get; set; }
 
         /// <summary>
-        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -1457,11 +1457,11 @@ namespace Pulumi.Aws.CodeDeploy
     public sealed class DeploymentGroupDeploymentStyle
     {
         /// <summary>
-        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
         /// </summary>
         public readonly string? DeploymentOption;
         /// <summary>
-        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         /// </summary>
         public readonly string? DeploymentType;
 

@@ -56,6 +56,8 @@ type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the security group
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
 	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
@@ -104,6 +106,8 @@ func GetDefaultSecurityGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DefaultSecurityGroup resources.
 type defaultSecurityGroupState struct {
 	Arn *string `pulumi:"arn"`
+	// The description of the security group
+	Description *string `pulumi:"description"`
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
@@ -125,6 +129,8 @@ type defaultSecurityGroupState struct {
 
 type DefaultSecurityGroupState struct {
 	Arn pulumi.StringPtrInput
+	// The description of the security group
+	Description pulumi.StringPtrInput
 	// Can be specified multiple times for each
 	// egress rule. Each egress block supports fields documented below.
 	Egress DefaultSecurityGroupEgressArrayInput

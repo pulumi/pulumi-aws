@@ -34,7 +34,7 @@ type DeploymentGroup struct {
 	// The name of the deployment group.
 	DeploymentGroupName pulumi.StringOutput `pulumi:"deploymentGroupName"`
 	// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-	DeploymentStyle DeploymentGroupDeploymentStyleOutput `pulumi:"deploymentStyle"`
+	DeploymentStyle DeploymentGroupDeploymentStylePtrOutput `pulumi:"deploymentStyle"`
 	// Tag filters associated with the deployment group. See the AWS docs for details.
 	Ec2TagFilters DeploymentGroupEc2TagFilterArrayOutput `pulumi:"ec2TagFilters"`
 	// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
@@ -42,7 +42,7 @@ type DeploymentGroup struct {
 	// Configuration block(s) of the ECS services for a deployment group (documented below).
 	EcsService DeploymentGroupEcsServicePtrOutput `pulumi:"ecsService"`
 	// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-	LoadBalancerInfo DeploymentGroupLoadBalancerInfoOutput `pulumi:"loadBalancerInfo"`
+	LoadBalancerInfo DeploymentGroupLoadBalancerInfoPtrOutput `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayOutput `pulumi:"onPremisesInstanceTagFilters"`
 	// The service role ARN that allows deployments.

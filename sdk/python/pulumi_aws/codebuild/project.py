@@ -127,6 +127,10 @@ class Project(pulumi.CustomResource):
     
       * `buildspec` (`str`) - The build spec declaration to use for this build project's related builds.
       * `gitCloneDepth` (`float`) - Truncate git history to this many commits.
+      * `gitSubmodulesConfig` (`dict`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+    
+        * `fetchSubmodules` (`bool`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
+    
       * `insecureSsl` (`bool`) - Ignore SSL warnings when connecting to source control.
       * `location` (`str`) - The location of the source code from git or s3.
       * `reportBuildStatus` (`bool`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -148,10 +152,18 @@ class Project(pulumi.CustomResource):
     
       * `buildspec` (`str`) - The build spec declaration to use for this build project's related builds.
       * `gitCloneDepth` (`float`) - Truncate git history to this many commits.
+      * `gitSubmodulesConfig` (`dict`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+    
+        * `fetchSubmodules` (`bool`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
+    
       * `insecureSsl` (`bool`) - Ignore SSL warnings when connecting to source control.
       * `location` (`str`) - The location of the source code from git or s3.
       * `reportBuildStatus` (`bool`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
       * `type` (`str`) - The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+    """
+    source_version: pulumi.Output[str]
+    """
+    A version of the build input to be built for this project. If not specified, the latest version is used.
     """
     tags: pulumi.Output[dict]
     """
@@ -165,7 +177,7 @@ class Project(pulumi.CustomResource):
       * `subnets` (`list`) - The subnet IDs within which to run builds.
       * `vpc_id` (`str`) - The ID of the VPC within which to run builds.
     """
-    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, source_version=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CodeBuild Project resource. See also the [`codebuild.Webhook` resource](https://www.terraform.io/docs/providers/aws/r/codebuild_webhook.html), which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
         
@@ -185,6 +197,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[list] secondary_sources: A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
         :param pulumi.Input[str] service_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
+        :param pulumi.Input[str] source_version: A version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
         
@@ -261,6 +274,10 @@ class Project(pulumi.CustomResource):
         
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        
+            * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
           * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
           * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -276,6 +293,10 @@ class Project(pulumi.CustomResource):
         
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        
+            * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
           * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
           * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -328,6 +349,7 @@ class Project(pulumi.CustomResource):
             if source is None:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
+            __props__['source_version'] = source_version
             __props__['tags'] = tags
             __props__['vpc_config'] = vpc_config
             __props__['arn'] = None
@@ -339,7 +361,7 @@ class Project(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, artifacts=None, badge_enabled=None, badge_url=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None):
+    def get(resource_name, id, opts=None, arn=None, artifacts=None, badge_enabled=None, badge_url=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, source_version=None, tags=None, vpc_config=None):
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -363,6 +385,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[list] secondary_sources: A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
         :param pulumi.Input[str] service_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[dict] source: Information about the project's input source code. Source blocks are documented below.
+        :param pulumi.Input[str] source_version: A version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] vpc_config: Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
         
@@ -439,6 +462,10 @@ class Project(pulumi.CustomResource):
         
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        
+            * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
           * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
           * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -454,6 +481,10 @@ class Project(pulumi.CustomResource):
         
           * `buildspec` (`pulumi.Input[str]`) - The build spec declaration to use for this build project's related builds.
           * `gitCloneDepth` (`pulumi.Input[float]`) - Truncate git history to this many commits.
+          * `gitSubmodulesConfig` (`pulumi.Input[dict]`) - Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        
+            * `fetchSubmodules` (`pulumi.Input[bool]`) - If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        
           * `insecureSsl` (`pulumi.Input[bool]`) - Ignore SSL warnings when connecting to source control.
           * `location` (`pulumi.Input[str]`) - The location of the source code from git or s3.
           * `reportBuildStatus` (`pulumi.Input[bool]`) - Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -486,6 +517,7 @@ class Project(pulumi.CustomResource):
         __props__["secondary_sources"] = secondary_sources
         __props__["service_role"] = service_role
         __props__["source"] = source
+        __props__["source_version"] = source_version
         __props__["tags"] = tags
         __props__["vpc_config"] = vpc_config
         return Project(resource_name, opts=opts, __props__=__props__)

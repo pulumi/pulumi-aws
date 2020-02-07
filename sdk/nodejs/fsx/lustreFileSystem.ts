@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const example = new aws.fsx.LustreFileSystem("example", {
  *     importPath: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
- *     storageCapacity: 3600,
+ *     storageCapacity: 1200,
  *     subnetIds: aws_subnet_example.id,
  * });
  * ```
@@ -82,7 +82,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `3600`. Storage capacity is provisioned in increments of 3,600 GiB.
+     * The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
      */
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
@@ -197,7 +197,7 @@ export interface LustreFileSystemState {
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `3600`. Storage capacity is provisioned in increments of 3,600 GiB.
+     * The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
      */
     readonly storageCapacity?: pulumi.Input<number>;
     /**
@@ -239,7 +239,7 @@ export interface LustreFileSystemArgs {
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `3600`. Storage capacity is provisioned in increments of 3,600 GiB.
+     * The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
      */
     readonly storageCapacity: pulumi.Input<number>;
     /**

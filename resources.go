@@ -690,6 +690,7 @@ func Provider() tfbridge.ProviderInfo {
 					"cloudwatch_log_group_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
 				},
 			},
+			"aws_datasync_location_smb": {Tok: awsResource(datasyncMod, "LocationSmb")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 			// Data Migration Service
@@ -2164,8 +2165,9 @@ func Provider() tfbridge.ProviderInfo {
 			// SQS
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
-			"aws_ssm_document":  {Tok: awsDataSource(ssmMod, "getDocument")},
-			"aws_ssm_parameter": {Tok: awsDataSource(ssmMod, "getParameter")},
+			"aws_ssm_document":       {Tok: awsDataSource(ssmMod, "getDocument")},
+			"aws_ssm_parameter":      {Tok: awsDataSource(ssmMod, "getParameter")},
+			"aws_ssm_patch_baseline": {Tok: awsDataSource(ssmMod, "getPatchBaseline")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer

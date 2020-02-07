@@ -71,8 +71,8 @@ class DeploymentGroup(pulumi.CustomResource):
     """
     Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
     
-      * `deploymentOption` (`str`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
-      * `deploymentType` (`str`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+      * `deploymentOption` (`str`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
+      * `deploymentType` (`str`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
     """
     ec2_tag_filters: pulumi.Output[list]
     """
@@ -206,8 +206,8 @@ class DeploymentGroup(pulumi.CustomResource):
         
         The **deployment_style** object supports the following:
         
-          * `deploymentOption` (`pulumi.Input[str]`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
-          * `deploymentType` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+          * `deploymentOption` (`pulumi.Input[str]`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
+          * `deploymentType` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         
         The **ec2_tag_filters** object supports the following:
         
@@ -372,8 +372,8 @@ class DeploymentGroup(pulumi.CustomResource):
         
         The **deployment_style** object supports the following:
         
-          * `deploymentOption` (`pulumi.Input[str]`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
-          * `deploymentType` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+          * `deploymentOption` (`pulumi.Input[str]`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
+          * `deploymentType` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         
         The **ec2_tag_filters** object supports the following:
         

@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 class DefaultSecurityGroup(pulumi.CustomResource):
     arn: pulumi.Output[str]
+    description: pulumi.Output[str]
+    """
+    The description of the security group
+    """
     egress: pulumi.Output[list]
     """
     Can be specified multiple times for each
@@ -163,6 +167,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['vpc_id'] = vpc_id
             __props__['arn'] = None
+            __props__['description'] = None
             __props__['name'] = None
             __props__['owner_id'] = None
         super(DefaultSecurityGroup, __self__).__init__(
@@ -172,7 +177,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, egress=None, ingress=None, name=None, owner_id=None, revoke_rules_on_delete=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, egress=None, ingress=None, name=None, owner_id=None, revoke_rules_on_delete=None, tags=None, vpc_id=None):
         """
         Get an existing DefaultSecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -180,6 +185,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the security group
         :param pulumi.Input[list] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
         :param pulumi.Input[list] ingress: Can be specified multiple times for each
@@ -221,6 +227,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["arn"] = arn
+        __props__["description"] = description
         __props__["egress"] = egress
         __props__["ingress"] = ingress
         __props__["name"] = name

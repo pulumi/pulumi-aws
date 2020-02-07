@@ -112,6 +112,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
 
         /// <summary>
+        /// A version of the build input to be built for this project. If not specified, the latest version is used.
+        /// </summary>
+        [Output("sourceVersion")]
+        public Output<string?> SourceVersion { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -265,6 +271,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("source", required: true)]
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
 
+        /// <summary>
+        /// A version of the build input to be built for this project. If not specified, the latest version is used.
+        /// </summary>
+        [Input("sourceVersion")]
+        public Input<string>? SourceVersion { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -397,6 +409,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("source")]
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }
+
+        /// <summary>
+        /// A version of the build input to be built for this project. If not specified, the latest version is used.
+        /// </summary>
+        [Input("sourceVersion")]
+        public Input<string>? SourceVersion { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -1105,6 +1123,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? GitCloneDepth { get; set; }
 
         /// <summary>
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// </summary>
+        [Input("gitSubmodulesConfig")]
+        public Input<ProjectSecondarySourcesGitSubmodulesConfigArgs>? GitSubmodulesConfig { get; set; }
+
+        /// <summary>
         /// Ignore SSL warnings when connecting to source control.
         /// </summary>
         [Input("insecureSsl")]
@@ -1204,6 +1228,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? GitCloneDepth { get; set; }
 
         /// <summary>
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// </summary>
+        [Input("gitSubmodulesConfig")]
+        public Input<ProjectSecondarySourcesGitSubmodulesConfigGetArgs>? GitSubmodulesConfig { get; set; }
+
+        /// <summary>
         /// Ignore SSL warnings when connecting to source control.
         /// </summary>
         [Input("insecureSsl")]
@@ -1238,6 +1268,32 @@ namespace Pulumi.Aws.CodeBuild
         }
     }
 
+    public sealed class ProjectSecondarySourcesGitSubmodulesConfigArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// </summary>
+        [Input("fetchSubmodules", required: true)]
+        public Input<bool> FetchSubmodules { get; set; } = null!;
+
+        public ProjectSecondarySourcesGitSubmodulesConfigArgs()
+        {
+        }
+    }
+
+    public sealed class ProjectSecondarySourcesGitSubmodulesConfigGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// </summary>
+        [Input("fetchSubmodules", required: true)]
+        public Input<bool> FetchSubmodules { get; set; } = null!;
+
+        public ProjectSecondarySourcesGitSubmodulesConfigGetArgs()
+        {
+        }
+    }
+
     public sealed class ProjectSourceArgs : Pulumi.ResourceArgs
     {
         [Input("auths")]
@@ -1263,6 +1319,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("gitCloneDepth")]
         public Input<int>? GitCloneDepth { get; set; }
+
+        /// <summary>
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// </summary>
+        [Input("gitSubmodulesConfig")]
+        public Input<ProjectSourceGitSubmodulesConfigArgs>? GitSubmodulesConfig { get; set; }
 
         /// <summary>
         /// Ignore SSL warnings when connecting to source control.
@@ -1358,6 +1420,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? GitCloneDepth { get; set; }
 
         /// <summary>
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// </summary>
+        [Input("gitSubmodulesConfig")]
+        public Input<ProjectSourceGitSubmodulesConfigGetArgs>? GitSubmodulesConfig { get; set; }
+
+        /// <summary>
         /// Ignore SSL warnings when connecting to source control.
         /// </summary>
         [Input("insecureSsl")]
@@ -1382,6 +1450,32 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string> Type { get; set; } = null!;
 
         public ProjectSourceGetArgs()
+        {
+        }
+    }
+
+    public sealed class ProjectSourceGitSubmodulesConfigArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// </summary>
+        [Input("fetchSubmodules", required: true)]
+        public Input<bool> FetchSubmodules { get; set; } = null!;
+
+        public ProjectSourceGitSubmodulesConfigArgs()
+        {
+        }
+    }
+
+    public sealed class ProjectSourceGitSubmodulesConfigGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// </summary>
+        [Input("fetchSubmodules", required: true)]
+        public Input<bool> FetchSubmodules { get; set; } = null!;
+
+        public ProjectSourceGitSubmodulesConfigGetArgs()
         {
         }
     }
@@ -1822,6 +1916,10 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly int? GitCloneDepth;
         /// <summary>
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// </summary>
+        public readonly ProjectSecondarySourcesGitSubmodulesConfig? GitSubmodulesConfig;
+        /// <summary>
         /// Ignore SSL warnings when connecting to source control.
         /// </summary>
         public readonly bool? InsecureSsl;
@@ -1847,6 +1945,7 @@ namespace Pulumi.Aws.CodeBuild
             ImmutableArray<ProjectSecondarySourcesAuths> auths,
             string? buildspec,
             int? gitCloneDepth,
+            ProjectSecondarySourcesGitSubmodulesConfig? gitSubmodulesConfig,
             bool? insecureSsl,
             string? location,
             bool? reportBuildStatus,
@@ -1856,6 +1955,7 @@ namespace Pulumi.Aws.CodeBuild
             Auths = auths;
             Buildspec = buildspec;
             GitCloneDepth = gitCloneDepth;
+            GitSubmodulesConfig = gitSubmodulesConfig;
             InsecureSsl = insecureSsl;
             Location = location;
             ReportBuildStatus = reportBuildStatus;
@@ -1887,6 +1987,21 @@ namespace Pulumi.Aws.CodeBuild
     }
 
     [OutputType]
+    public sealed class ProjectSecondarySourcesGitSubmodulesConfig
+    {
+        /// <summary>
+        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// </summary>
+        public readonly bool FetchSubmodules;
+
+        [OutputConstructor]
+        private ProjectSecondarySourcesGitSubmodulesConfig(bool fetchSubmodules)
+        {
+            FetchSubmodules = fetchSubmodules;
+        }
+    }
+
+    [OutputType]
     public sealed class ProjectSource
     {
         /// <summary>
@@ -1901,6 +2016,10 @@ namespace Pulumi.Aws.CodeBuild
         /// Truncate git history to this many commits.
         /// </summary>
         public readonly int? GitCloneDepth;
+        /// <summary>
+        /// Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+        /// </summary>
+        public readonly ProjectSourceGitSubmodulesConfig? GitSubmodulesConfig;
         /// <summary>
         /// Ignore SSL warnings when connecting to source control.
         /// </summary>
@@ -1923,6 +2042,7 @@ namespace Pulumi.Aws.CodeBuild
             ImmutableArray<ProjectSourceAuths> auths,
             string? buildspec,
             int? gitCloneDepth,
+            ProjectSourceGitSubmodulesConfig? gitSubmodulesConfig,
             bool? insecureSsl,
             string? location,
             bool? reportBuildStatus,
@@ -1931,6 +2051,7 @@ namespace Pulumi.Aws.CodeBuild
             Auths = auths;
             Buildspec = buildspec;
             GitCloneDepth = gitCloneDepth;
+            GitSubmodulesConfig = gitSubmodulesConfig;
             InsecureSsl = insecureSsl;
             Location = location;
             ReportBuildStatus = reportBuildStatus;
@@ -1957,6 +2078,21 @@ namespace Pulumi.Aws.CodeBuild
         {
             Resource = resource;
             Type = type;
+        }
+    }
+
+    [OutputType]
+    public sealed class ProjectSourceGitSubmodulesConfig
+    {
+        /// <summary>
+        /// If set to true, fetches Git submodules for the AWS CodeBuild build project.
+        /// </summary>
+        public readonly bool FetchSubmodules;
+
+        [OutputConstructor]
+        private ProjectSourceGitSubmodulesConfig(bool fetchSubmodules)
+        {
+            FetchSubmodules = fetchSubmodules;
         }
     }
 

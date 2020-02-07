@@ -574,7 +574,7 @@ export namespace alb {
          */
         httpHeader?: outputs.alb.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.alb.ListenerRuleConditionHttpRequestMethod;
         /**
@@ -1322,7 +1322,7 @@ export namespace applicationloadbalancing {
          */
         httpHeader?: outputs.applicationloadbalancing.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod;
         /**
@@ -3417,6 +3417,10 @@ export namespace codebuild {
          */
         gitCloneDepth?: number;
         /**
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         */
+        gitSubmodulesConfig?: outputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig;
+        /**
          * Ignore SSL warnings when connecting to source control.
          */
         insecureSsl?: boolean;
@@ -3449,6 +3453,13 @@ export namespace codebuild {
         type: string;
     }
 
+    export interface ProjectSecondarySourceGitSubmodulesConfig {
+        /**
+         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         */
+        fetchSubmodules: boolean;
+    }
+
     export interface ProjectSource {
         /**
          * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
@@ -3462,6 +3473,10 @@ export namespace codebuild {
          * Truncate git history to this many commits.
          */
         gitCloneDepth?: number;
+        /**
+         * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
+         */
+        gitSubmodulesConfig?: outputs.codebuild.ProjectSourceGitSubmodulesConfig;
         /**
          * Ignore SSL warnings when connecting to source control.
          */
@@ -3489,6 +3504,13 @@ export namespace codebuild {
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
         type: string;
+    }
+
+    export interface ProjectSourceGitSubmodulesConfig {
+        /**
+         * If set to true, fetches Git submodules for the AWS CodeBuild build project.
+         */
+        fetchSubmodules: boolean;
     }
 
     export interface ProjectVpcConfig {
@@ -3656,11 +3678,11 @@ export namespace codedeploy {
 
     export interface DeploymentGroupDeploymentStyle {
         /**
-         * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`.
+         * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
          */
         deploymentOption?: string;
         /**
-         * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`.
+         * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
          */
         deploymentType?: string;
     }
@@ -4167,6 +4189,13 @@ export namespace datasync {
          * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
          */
         subnetArn: string;
+    }
+
+    export interface LocationSmbMountOptions {
+        /**
+         * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+         */
+        version?: string;
     }
 
     export interface NfsLocationOnPremConfig {
@@ -7223,7 +7252,7 @@ export namespace elasticloadbalancingv2 {
          */
         httpHeader?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod;
         /**
@@ -10517,7 +10546,7 @@ export namespace lb {
          */
         httpHeader?: outputs.lb.ListenerRuleConditionHttpHeader;
         /**
-         * Contains a single `value` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+         * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
         httpRequestMethod?: outputs.lb.ListenerRuleConditionHttpRequestMethod;
         /**

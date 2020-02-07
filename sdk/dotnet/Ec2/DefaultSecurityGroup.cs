@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the security group
+        /// </summary>
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Can be specified multiple times for each
         /// egress rule. Each egress block supports fields documented below.
         /// </summary>
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The description of the security group
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         [Input("egress")]
         private InputList<Inputs.DefaultSecurityGroupEgressGetArgs>? _egress;

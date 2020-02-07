@@ -18,7 +18,7 @@ class NfsLocation(pulumi.CustomResource):
     """
     Configuration block containing information for connecting to the NFS File System.
     
-      * `agentArns` (`list`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+      * `agent_arns` (`list`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
     """
     server_hostname: pulumi.Output[str]
     """
@@ -48,7 +48,7 @@ class NfsLocation(pulumi.CustomResource):
         
         The **on_prem_config** object supports the following:
         
-          * `agentArns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
         """
@@ -104,7 +104,7 @@ class NfsLocation(pulumi.CustomResource):
         
         The **on_prem_config** object supports the following:
         
-          * `agentArns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
         """

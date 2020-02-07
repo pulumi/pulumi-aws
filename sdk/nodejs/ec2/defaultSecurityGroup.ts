@@ -132,6 +132,10 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The description of the security group
+     */
+    public /*out*/ readonly description!: pulumi.Output<string>;
+    /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
      */
@@ -174,6 +178,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as DefaultSecurityGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -189,6 +194,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
@@ -208,6 +214,10 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
  */
 export interface DefaultSecurityGroupState {
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The description of the security group
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
      * egress rule. Each egress block supports fields documented below.
