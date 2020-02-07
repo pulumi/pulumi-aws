@@ -38,7 +38,7 @@ class ListenerRule(pulumi.CustomResource):
         * `userInfoEndpoint` (`str`) - The user info endpoint of the IdP.
 
       * `fixedResponse` (`dict`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        * `content_type` (`str`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        * `contentType` (`str`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
         * `messageBody` (`str`) - The message body.
         * `statusCode` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
@@ -134,7 +134,7 @@ class ListenerRule(pulumi.CustomResource):
             * `userInfoEndpoint` (`pulumi.Input[str]`) - The user info endpoint of the IdP.
 
           * `fixedResponse` (`pulumi.Input[dict]`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-            * `content_type` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+            * `contentType` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `statusCode` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
@@ -250,7 +250,7 @@ class ListenerRule(pulumi.CustomResource):
             * `userInfoEndpoint` (`pulumi.Input[str]`) - The user info endpoint of the IdP.
 
           * `fixedResponse` (`pulumi.Input[dict]`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-            * `content_type` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+            * `contentType` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `statusCode` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 

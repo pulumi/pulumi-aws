@@ -22,7 +22,7 @@ class BucketNotification(pulumi.CustomResource):
       * `filterPrefix` (`str`) - Specifies object key name prefix.
       * `filterSuffix` (`str`) - Specifies object key name suffix.
       * `id` (`str`) - Specifies unique identifier for each of the notification configurations.
-      * `lambdaFunctionArn` (`str`) - Specifies Amazon Lambda function ARN.
+      * `lambda_function_arn` (`str`) - Specifies Amazon Lambda function ARN.
     """
     queues: pulumi.Output[list]
     """
@@ -42,7 +42,7 @@ class BucketNotification(pulumi.CustomResource):
       * `filterPrefix` (`str`) - Specifies object key name prefix.
       * `filterSuffix` (`str`) - Specifies object key name suffix.
       * `id` (`str`) - Specifies unique identifier for each of the notification configurations.
-      * `topicArn` (`str`) - Specifies Amazon SNS topic ARN.
+      * `topic_arn` (`str`) - Specifies Amazon SNS topic ARN.
     """
     def __init__(__self__, resource_name, opts=None, bucket=None, lambda_functions=None, queues=None, topics=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -65,7 +65,7 @@ class BucketNotification(pulumi.CustomResource):
           * `filterPrefix` (`pulumi.Input[str]`) - Specifies object key name prefix.
           * `filterSuffix` (`pulumi.Input[str]`) - Specifies object key name suffix.
           * `id` (`pulumi.Input[str]`) - Specifies unique identifier for each of the notification configurations.
-          * `lambdaFunctionArn` (`pulumi.Input[str]`) - Specifies Amazon Lambda function ARN.
+          * `lambda_function_arn` (`pulumi.Input[str]`) - Specifies Amazon Lambda function ARN.
 
         The **queues** object supports the following:
 
@@ -81,7 +81,7 @@ class BucketNotification(pulumi.CustomResource):
           * `filterPrefix` (`pulumi.Input[str]`) - Specifies object key name prefix.
           * `filterSuffix` (`pulumi.Input[str]`) - Specifies object key name suffix.
           * `id` (`pulumi.Input[str]`) - Specifies unique identifier for each of the notification configurations.
-          * `topicArn` (`pulumi.Input[str]`) - Specifies Amazon SNS topic ARN.
+          * `topic_arn` (`pulumi.Input[str]`) - Specifies Amazon SNS topic ARN.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,7 +132,7 @@ class BucketNotification(pulumi.CustomResource):
           * `filterPrefix` (`pulumi.Input[str]`) - Specifies object key name prefix.
           * `filterSuffix` (`pulumi.Input[str]`) - Specifies object key name suffix.
           * `id` (`pulumi.Input[str]`) - Specifies unique identifier for each of the notification configurations.
-          * `lambdaFunctionArn` (`pulumi.Input[str]`) - Specifies Amazon Lambda function ARN.
+          * `lambda_function_arn` (`pulumi.Input[str]`) - Specifies Amazon Lambda function ARN.
 
         The **queues** object supports the following:
 
@@ -148,7 +148,7 @@ class BucketNotification(pulumi.CustomResource):
           * `filterPrefix` (`pulumi.Input[str]`) - Specifies object key name prefix.
           * `filterSuffix` (`pulumi.Input[str]`) - Specifies object key name suffix.
           * `id` (`pulumi.Input[str]`) - Specifies unique identifier for each of the notification configurations.
-          * `topicArn` (`pulumi.Input[str]`) - Specifies Amazon SNS topic ARN.
+          * `topic_arn` (`pulumi.Input[str]`) - Specifies Amazon SNS topic ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

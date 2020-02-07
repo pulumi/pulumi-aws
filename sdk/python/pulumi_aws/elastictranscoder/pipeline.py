@@ -20,7 +20,7 @@ class Pipeline(pulumi.CustomResource):
     The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 
       * `bucket` (`str`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-      * `storage_class` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+      * `storageClass` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
     """
     content_config_permissions: pulumi.Output[list]
     """
@@ -60,7 +60,7 @@ class Pipeline(pulumi.CustomResource):
     The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 
       * `bucket` (`str`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-      * `storage_class` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+      * `storageClass` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
     """
     thumbnail_config_permissions: pulumi.Output[list]
     """
@@ -92,7 +92,7 @@ class Pipeline(pulumi.CustomResource):
         The **content_config** object supports the following:
 
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
 
         The **content_config_permissions** object supports the following:
 
@@ -110,7 +110,7 @@ class Pipeline(pulumi.CustomResource):
         The **thumbnail_config** object supports the following:
 
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
 
         The **thumbnail_config_permissions** object supports the following:
 
@@ -179,7 +179,7 @@ class Pipeline(pulumi.CustomResource):
         The **content_config** object supports the following:
 
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
 
         The **content_config_permissions** object supports the following:
 
@@ -197,7 +197,7 @@ class Pipeline(pulumi.CustomResource):
         The **thumbnail_config** object supports the following:
 
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
 
         The **thumbnail_config_permissions** object supports the following:
 

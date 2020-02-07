@@ -23,7 +23,7 @@ class SecurityGroup(pulumi.CustomResource):
     A list of ingress rules.
 
       * `cidr` (`str`) - The CIDR block to accept
-      * `security_group_id` (`str`) - The ID of the security group to authorize
+      * `securityGroupId` (`str`) - The ID of the security group to authorize
       * `securityGroupName` (`str`) - The name of the security group to authorize
       * `securityGroupOwnerId` (`str`) - The owner Id of the security group provided
         by `security_group_name`.
@@ -55,7 +55,7 @@ class SecurityGroup(pulumi.CustomResource):
         The **ingress** object supports the following:
 
           * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
-          * `security_group_id` (`pulumi.Input[str]`) - The ID of the security group to authorize
+          * `securityGroupId` (`pulumi.Input[str]`) - The ID of the security group to authorize
           * `securityGroupName` (`pulumi.Input[str]`) - The name of the security group to authorize
           * `securityGroupOwnerId` (`pulumi.Input[str]`) - The owner Id of the security group provided
             by `security_group_name`.
@@ -110,7 +110,7 @@ class SecurityGroup(pulumi.CustomResource):
         The **ingress** object supports the following:
 
           * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
-          * `security_group_id` (`pulumi.Input[str]`) - The ID of the security group to authorize
+          * `securityGroupId` (`pulumi.Input[str]`) - The ID of the security group to authorize
           * `securityGroupName` (`pulumi.Input[str]`) - The name of the security group to authorize
           * `securityGroupOwnerId` (`pulumi.Input[str]`) - The owner Id of the security group provided
             by `security_group_name`.

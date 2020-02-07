@@ -82,9 +82,9 @@ class Cluster(pulumi.CustomResource):
       * `emrManagedMasterSecurityGroup` (`str`)
       * `emrManagedSlaveSecurityGroup` (`str`)
       * `instanceProfile` (`str`)
-      * `key_name` (`str`)
+      * `keyName` (`str`)
       * `serviceAccessSecurityGroup` (`str`)
-      * `subnet_id` (`str`)
+      * `subnetId` (`str`)
     """
     instance_groups: pulumi.Output[list]
     """
@@ -370,9 +370,9 @@ class Cluster(pulumi.CustomResource):
           * `emrManagedMasterSecurityGroup` (`pulumi.Input[str]`)
           * `emrManagedSlaveSecurityGroup` (`pulumi.Input[str]`)
           * `instanceProfile` (`pulumi.Input[str]`)
-          * `key_name` (`pulumi.Input[str]`)
+          * `keyName` (`pulumi.Input[str]`)
           * `serviceAccessSecurityGroup` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `subnetId` (`pulumi.Input[str]`)
 
         The **instance_groups** object supports the following:
 
@@ -549,9 +549,9 @@ class Cluster(pulumi.CustomResource):
           * `emrManagedMasterSecurityGroup` (`pulumi.Input[str]`)
           * `emrManagedSlaveSecurityGroup` (`pulumi.Input[str]`)
           * `instanceProfile` (`pulumi.Input[str]`)
-          * `key_name` (`pulumi.Input[str]`)
+          * `keyName` (`pulumi.Input[str]`)
           * `serviceAccessSecurityGroup` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `subnetId` (`pulumi.Input[str]`)
 
         The **instance_groups** object supports the following:
 

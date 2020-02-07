@@ -18,8 +18,8 @@ class ResourceDataSync(pulumi.CustomResource):
     """
     Amazon S3 configuration details for the sync.
 
-      * `bucket_name` (`str`)
-      * `kms_key_arn` (`str`)
+      * `bucketName` (`str`)
+      * `kmsKeyArn` (`str`)
       * `prefix` (`str`)
       * `region` (`str`)
       * `syncFormat` (`str`)
@@ -47,8 +47,8 @@ class ResourceDataSync(pulumi.CustomResource):
 
         The **s3_destination** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`)
-          * `kms_key_arn` (`pulumi.Input[str]`)
+          * `bucketName` (`pulumi.Input[str]`)
+          * `kmsKeyArn` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
           * `region` (`pulumi.Input[str]`)
           * `syncFormat` (`pulumi.Input[str]`)
@@ -94,8 +94,8 @@ class ResourceDataSync(pulumi.CustomResource):
 
         The **s3_destination** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`)
-          * `kms_key_arn` (`pulumi.Input[str]`)
+          * `bucketName` (`pulumi.Input[str]`)
+          * `kmsKeyArn` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
           * `region` (`pulumi.Input[str]`)
           * `syncFormat` (`pulumi.Input[str]`)

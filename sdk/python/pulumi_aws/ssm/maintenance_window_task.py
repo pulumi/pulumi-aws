@@ -20,7 +20,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
       * `s3_bucket_name` (`str`)
       * `s3BucketPrefix` (`str`)
-      * `s3_region` (`str`)
+      * `s3Region` (`str`)
     """
     max_concurrency: pulumi.Output[str]
     """
@@ -75,7 +75,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         * `notificationConfig` (`dict`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
           * `notificationArn` (`str`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
           * `notificationEvents` (`list`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-          * `notification_type` (`str`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
+          * `notificationType` (`str`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
 
         * `outputS3Bucket` (`str`) - The name of the Amazon S3 bucket.
         * `outputS3KeyPrefix` (`str`) - The Amazon S3 bucket subfolder.
@@ -131,7 +131,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
           * `s3_bucket_name` (`pulumi.Input[str]`)
           * `s3BucketPrefix` (`pulumi.Input[str]`)
-          * `s3_region` (`pulumi.Input[str]`)
+          * `s3Region` (`pulumi.Input[str]`)
 
         The **targets** object supports the following:
 
@@ -158,7 +158,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             * `notificationConfig` (`pulumi.Input[dict]`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
               * `notificationArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
               * `notificationEvents` (`pulumi.Input[list]`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-              * `notification_type` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
+              * `notificationType` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
 
             * `outputS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket.
             * `outputS3KeyPrefix` (`pulumi.Input[str]`) - The Amazon S3 bucket subfolder.
@@ -255,7 +255,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
           * `s3_bucket_name` (`pulumi.Input[str]`)
           * `s3BucketPrefix` (`pulumi.Input[str]`)
-          * `s3_region` (`pulumi.Input[str]`)
+          * `s3Region` (`pulumi.Input[str]`)
 
         The **targets** object supports the following:
 
@@ -282,7 +282,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             * `notificationConfig` (`pulumi.Input[dict]`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
               * `notificationArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
               * `notificationEvents` (`pulumi.Input[list]`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-              * `notification_type` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
+              * `notificationType` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
 
             * `outputS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket.
             * `outputS3KeyPrefix` (`pulumi.Input[str]`) - The Amazon S3 bucket subfolder.

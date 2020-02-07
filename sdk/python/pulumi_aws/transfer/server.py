@@ -22,7 +22,7 @@ class Server(pulumi.CustomResource):
     """
     The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
 
-      * `vpcEndpointId` (`str`) - The ID of the VPC endpoint.
+      * `vpc_endpoint_id` (`str`) - The ID of the VPC endpoint.
     """
     endpoint_type: pulumi.Output[str]
     """
@@ -71,7 +71,7 @@ class Server(pulumi.CustomResource):
 
         The **endpoint_details** object supports the following:
 
-          * `vpcEndpointId` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
+          * `vpc_endpoint_id` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,7 +128,7 @@ class Server(pulumi.CustomResource):
 
         The **endpoint_details** object supports the following:
 
-          * `vpcEndpointId` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
+          * `vpc_endpoint_id` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

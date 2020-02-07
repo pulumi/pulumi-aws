@@ -155,9 +155,9 @@ class Project(pulumi.CustomResource):
     """
     Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 
-      * `securityGroupIds` (`list`) - The security group IDs to assign to running builds.
+      * `security_group_ids` (`list`) - The security group IDs to assign to running builds.
       * `subnets` (`list`) - The subnet IDs within which to run builds.
-      * `vpcId` (`str`) - The ID of the VPC within which to run builds.
+      * `vpc_id` (`str`) - The ID of the VPC within which to run builds.
     """
     def __init__(__self__, resource_name, opts=None, artifacts=None, badge_enabled=None, build_timeout=None, cache=None, description=None, encryption_key=None, environment=None, logs_config=None, name=None, queued_timeout=None, secondary_artifacts=None, secondary_sources=None, service_role=None, source=None, tags=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -273,9 +273,9 @@ class Project(pulumi.CustomResource):
 
         The **vpc_config** object supports the following:
 
-          * `securityGroupIds` (`pulumi.Input[list]`) - The security group IDs to assign to running builds.
+          * `security_group_ids` (`pulumi.Input[list]`) - The security group IDs to assign to running builds.
           * `subnets` (`pulumi.Input[list]`) - The subnet IDs within which to run builds.
-          * `vpcId` (`pulumi.Input[str]`) - The ID of the VPC within which to run builds.
+          * `vpc_id` (`pulumi.Input[str]`) - The ID of the VPC within which to run builds.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -443,9 +443,9 @@ class Project(pulumi.CustomResource):
 
         The **vpc_config** object supports the following:
 
-          * `securityGroupIds` (`pulumi.Input[list]`) - The security group IDs to assign to running builds.
+          * `security_group_ids` (`pulumi.Input[list]`) - The security group IDs to assign to running builds.
           * `subnets` (`pulumi.Input[list]`) - The subnet IDs within which to run builds.
-          * `vpcId` (`pulumi.Input[str]`) - The ID of the VPC within which to run builds.
+          * `vpc_id` (`pulumi.Input[str]`) - The ID of the VPC within which to run builds.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

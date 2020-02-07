@@ -47,7 +47,7 @@ class DataSource(pulumi.CustomResource):
     """
     AWS Lambda settings. See below
 
-      * `functionArn` (`str`) - The ARN for the Lambda function.
+      * `function_arn` (`str`) - The ARN for the Lambda function.
     """
     name: pulumi.Output[str]
     """
@@ -96,7 +96,7 @@ class DataSource(pulumi.CustomResource):
 
         The **lambda_config** object supports the following:
 
-          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
+          * `function_arn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -172,7 +172,7 @@ class DataSource(pulumi.CustomResource):
 
         The **lambda_config** object supports the following:
 
-          * `functionArn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
+          * `function_arn` (`pulumi.Input[str]`) - The ARN for the Lambda function.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

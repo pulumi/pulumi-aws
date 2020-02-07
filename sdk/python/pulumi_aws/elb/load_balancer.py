@@ -15,7 +15,7 @@ class LoadBalancer(pulumi.CustomResource):
     An Access Logs block. Access Logs documented below.
 
       * `bucket` (`str`) - The S3 bucket name to store the logs in.
-      * `bucket_prefix` (`str`) - The S3 bucket prefix. Logs are stored in the root if not configured.
+      * `bucketPrefix` (`str`) - The S3 bucket prefix. Logs are stored in the root if not configured.
       * `enabled` (`bool`) - Boolean to enable / disable `access_logs`. Default is `true`
       * `interval` (`float`) - The interval between checks.
     """
@@ -168,7 +168,7 @@ class LoadBalancer(pulumi.CustomResource):
         The **access_logs** object supports the following:
 
           * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
-          * `bucket_prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
+          * `bucketPrefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Default is `true`
           * `interval` (`pulumi.Input[float]`) - The interval between checks.
 
@@ -280,7 +280,7 @@ class LoadBalancer(pulumi.CustomResource):
         The **access_logs** object supports the following:
 
           * `bucket` (`pulumi.Input[str]`) - The S3 bucket name to store the logs in.
-          * `bucket_prefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
+          * `bucketPrefix` (`pulumi.Input[str]`) - The S3 bucket prefix. Logs are stored in the root if not configured.
           * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `access_logs`. Default is `true`
           * `interval` (`pulumi.Input[float]`) - The interval between checks.
 

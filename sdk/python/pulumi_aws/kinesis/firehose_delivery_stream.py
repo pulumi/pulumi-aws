@@ -96,7 +96,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
               * `writerVersion` (`str`) - Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 
         * `schemaConfiguration` (`dict`) - Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-          * `catalogId` (`str`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+          * `catalog_id` (`str`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
           * `database_name` (`str`) - Specifies the name of the AWS Glue database that contains the schema for the output data.
           * `region` (`str`) - If you don't specify an AWS Region, the default is the current region.
           * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
@@ -329,7 +329,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                   * `writerVersion` (`pulumi.Input[str]`) - Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 
             * `schemaConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-              * `catalogId` (`pulumi.Input[str]`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+              * `catalog_id` (`pulumi.Input[str]`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
               * `database_name` (`pulumi.Input[str]`) - Specifies the name of the AWS Glue database that contains the schema for the output data.
               * `region` (`pulumi.Input[str]`) - If you don't specify an AWS Region, the default is the current region.
               * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
@@ -596,7 +596,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                   * `writerVersion` (`pulumi.Input[str]`) - Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
 
             * `schemaConfiguration` (`pulumi.Input[dict]`) - Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-              * `catalogId` (`pulumi.Input[str]`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+              * `catalog_id` (`pulumi.Input[str]`) - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
               * `database_name` (`pulumi.Input[str]`) - Specifies the name of the AWS Glue database that contains the schema for the output data.
               * `region` (`pulumi.Input[str]`) - If you don't specify an AWS Region, the default is the current region.
               * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.

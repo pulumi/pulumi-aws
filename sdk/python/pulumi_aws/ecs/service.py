@@ -60,10 +60,10 @@ class Service(pulumi.CustomResource):
     """
     A load balancer block. Load balancers documented below.
 
-      * `container_name` (`str`)
+      * `containerName` (`str`)
       * `containerPort` (`float`)
       * `elbName` (`str`)
-      * `targetGroupArn` (`str`)
+      * `target_group_arn` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -108,7 +108,7 @@ class Service(pulumi.CustomResource):
     """
     The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
 
-      * `container_name` (`str`)
+      * `containerName` (`str`)
       * `containerPort` (`float`)
       * `port` (`float`)
       * `registryArn` (`str`)
@@ -240,10 +240,10 @@ class Service(pulumi.CustomResource):
 
         The **load_balancers** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
           * `containerPort` (`pulumi.Input[float]`)
           * `elbName` (`pulumi.Input[str]`)
-          * `targetGroupArn` (`pulumi.Input[str]`)
+          * `target_group_arn` (`pulumi.Input[str]`)
 
         The **network_configuration** object supports the following:
 
@@ -263,7 +263,7 @@ class Service(pulumi.CustomResource):
 
         The **service_registries** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
           * `containerPort` (`pulumi.Input[float]`)
           * `port` (`pulumi.Input[float]`)
           * `registryArn` (`pulumi.Input[str]`)
@@ -360,10 +360,10 @@ class Service(pulumi.CustomResource):
 
         The **load_balancers** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
           * `containerPort` (`pulumi.Input[float]`)
           * `elbName` (`pulumi.Input[str]`)
-          * `targetGroupArn` (`pulumi.Input[str]`)
+          * `target_group_arn` (`pulumi.Input[str]`)
 
         The **network_configuration** object supports the following:
 
@@ -383,7 +383,7 @@ class Service(pulumi.CustomResource):
 
         The **service_registries** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
           * `containerPort` (`pulumi.Input[float]`)
           * `port` (`pulumi.Input[float]`)
           * `registryArn` (`pulumi.Input[str]`)

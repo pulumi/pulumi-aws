@@ -215,7 +215,7 @@ class Provider(pulumi.ProviderResource):
             __props__['profile'] = profile
             if region is None:
                 region = utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
-            __props__['region'] = pulumi.Output.from_input(region).apply(json.dumps) if region is not None else None
+            __props__['region'] = region
             __props__['s3_force_path_style'] = pulumi.Output.from_input(s3_force_path_style).apply(json.dumps) if s3_force_path_style is not None else None
             __props__['secret_key'] = secret_key
             __props__['shared_credentials_file'] = shared_credentials_file

@@ -58,8 +58,8 @@ class NodeGroup(pulumi.CustomResource):
     Configuration block with scaling settings. Detailed below.
 
       * `desiredSize` (`float`) - Desired number of worker nodes.
-      * `max_size` (`float`) - Maximum number of worker nodes.
-      * `min_size` (`float`) - Minimum number of worker nodes.
+      * `maxSize` (`float`) - Maximum number of worker nodes.
+      * `minSize` (`float`) - Minimum number of worker nodes.
     """
     status: pulumi.Output[str]
     """
@@ -100,8 +100,8 @@ class NodeGroup(pulumi.CustomResource):
         The **scaling_config** object supports the following:
 
           * `desiredSize` (`pulumi.Input[float]`) - Desired number of worker nodes.
-          * `max_size` (`pulumi.Input[float]`) - Maximum number of worker nodes.
-          * `min_size` (`pulumi.Input[float]`) - Minimum number of worker nodes.
+          * `maxSize` (`pulumi.Input[float]`) - Maximum number of worker nodes.
+          * `minSize` (`pulumi.Input[float]`) - Minimum number of worker nodes.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -187,8 +187,8 @@ class NodeGroup(pulumi.CustomResource):
         The **scaling_config** object supports the following:
 
           * `desiredSize` (`pulumi.Input[float]`) - Desired number of worker nodes.
-          * `max_size` (`pulumi.Input[float]`) - Maximum number of worker nodes.
-          * `min_size` (`pulumi.Input[float]`) - Minimum number of worker nodes.
+          * `maxSize` (`pulumi.Input[float]`) - Maximum number of worker nodes.
+          * `minSize` (`pulumi.Input[float]`) - Minimum number of worker nodes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

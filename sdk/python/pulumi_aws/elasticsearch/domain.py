@@ -32,8 +32,8 @@ class Domain(pulumi.CustomResource):
       * `dedicatedMasterCount` (`float`) - Number of dedicated master nodes in the cluster
       * `dedicatedMasterEnabled` (`bool`) - Indicates whether dedicated master nodes are enabled for the cluster.
       * `dedicatedMasterType` (`str`) - Instance type of the dedicated master nodes in the cluster.
-      * `instanceCount` (`float`) - Number of instances in the cluster.
-      * `instanceType` (`str`) - Instance type of data nodes in the cluster.
+      * `instance_count` (`float`) - Number of instances in the cluster.
+      * `instance_type` (`str`) - Instance type of data nodes in the cluster.
       * `zoneAwarenessConfig` (`dict`) - Configuration block containing zone awareness settings. Documented below.
         * `availabilityZoneCount` (`float`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
@@ -62,7 +62,7 @@ class Domain(pulumi.CustomResource):
       * `ebsEnabled` (`bool`) - Whether EBS volumes are attached to data nodes in the domain.
       * `iops` (`float`) - The baseline input/output (I/O) performance of EBS volumes
         attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
-      * `volumeSize` (`float`) - The size of EBS volumes attached to data nodes (in GB).
+      * `volume_size` (`float`) - The size of EBS volumes attached to data nodes (in GB).
         **Required** if `ebs_enabled` is set to `true`.
       * `volumeType` (`str`) - The type of EBS volumes attached to data nodes.
     """
@@ -91,7 +91,7 @@ class Domain(pulumi.CustomResource):
     """
     Options for publishing slow logs to CloudWatch Logs.
 
-      * `cloudwatchLogGroupArn` (`str`) - ARN of the Cloudwatch log group to which log needs to be published.
+      * `cloudwatch_log_group_arn` (`str`) - ARN of the Cloudwatch log group to which log needs to be published.
       * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
       * `logType` (`str`) - A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
     """
@@ -116,10 +116,10 @@ class Domain(pulumi.CustomResource):
     """
     VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 
-      * `availabilityZones` (`list`)
-      * `securityGroupIds` (`list`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+      * `availability_zones` (`list`)
+      * `security_group_ids` (`list`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
       * `subnet_ids` (`list`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-      * `vpcId` (`str`)
+      * `vpc_id` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -151,8 +151,8 @@ class Domain(pulumi.CustomResource):
           * `dedicatedMasterCount` (`pulumi.Input[float]`) - Number of dedicated master nodes in the cluster
           * `dedicatedMasterEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated master nodes are enabled for the cluster.
           * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
-          * `instanceCount` (`pulumi.Input[float]`) - Number of instances in the cluster.
-          * `instanceType` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
+          * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
+          * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
           * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
             * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
@@ -175,7 +175,7 @@ class Domain(pulumi.CustomResource):
           * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain.
           * `iops` (`pulumi.Input[float]`) - The baseline input/output (I/O) performance of EBS volumes
             attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
-          * `volumeSize` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
+          * `volume_size` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
             **Required** if `ebs_enabled` is set to `true`.
           * `volumeType` (`pulumi.Input[str]`) - The type of EBS volumes attached to data nodes.
 
@@ -186,7 +186,7 @@ class Domain(pulumi.CustomResource):
 
         The **log_publishing_options** object supports the following:
 
-          * `cloudwatchLogGroupArn` (`pulumi.Input[str]`) - ARN of the Cloudwatch log group to which log needs to be published.
+          * `cloudwatch_log_group_arn` (`pulumi.Input[str]`) - ARN of the Cloudwatch log group to which log needs to be published.
           * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
           * `logType` (`pulumi.Input[str]`) - A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
 
@@ -201,10 +201,10 @@ class Domain(pulumi.CustomResource):
 
         The **vpc_options** object supports the following:
 
-          * `availabilityZones` (`pulumi.Input[list]`)
-          * `securityGroupIds` (`pulumi.Input[list]`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+          * `availability_zones` (`pulumi.Input[list]`)
+          * `security_group_ids` (`pulumi.Input[list]`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
           * `subnet_ids` (`pulumi.Input[list]`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-          * `vpcId` (`pulumi.Input[str]`)
+          * `vpc_id` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -284,8 +284,8 @@ class Domain(pulumi.CustomResource):
           * `dedicatedMasterCount` (`pulumi.Input[float]`) - Number of dedicated master nodes in the cluster
           * `dedicatedMasterEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated master nodes are enabled for the cluster.
           * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
-          * `instanceCount` (`pulumi.Input[float]`) - Number of instances in the cluster.
-          * `instanceType` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
+          * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
+          * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
           * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
             * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
@@ -308,7 +308,7 @@ class Domain(pulumi.CustomResource):
           * `ebsEnabled` (`pulumi.Input[bool]`) - Whether EBS volumes are attached to data nodes in the domain.
           * `iops` (`pulumi.Input[float]`) - The baseline input/output (I/O) performance of EBS volumes
             attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
-          * `volumeSize` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
+          * `volume_size` (`pulumi.Input[float]`) - The size of EBS volumes attached to data nodes (in GB).
             **Required** if `ebs_enabled` is set to `true`.
           * `volumeType` (`pulumi.Input[str]`) - The type of EBS volumes attached to data nodes.
 
@@ -319,7 +319,7 @@ class Domain(pulumi.CustomResource):
 
         The **log_publishing_options** object supports the following:
 
-          * `cloudwatchLogGroupArn` (`pulumi.Input[str]`) - ARN of the Cloudwatch log group to which log needs to be published.
+          * `cloudwatch_log_group_arn` (`pulumi.Input[str]`) - ARN of the Cloudwatch log group to which log needs to be published.
           * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
           * `logType` (`pulumi.Input[str]`) - A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
 
@@ -334,10 +334,10 @@ class Domain(pulumi.CustomResource):
 
         The **vpc_options** object supports the following:
 
-          * `availabilityZones` (`pulumi.Input[list]`)
-          * `securityGroupIds` (`pulumi.Input[list]`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+          * `availability_zones` (`pulumi.Input[list]`)
+          * `security_group_ids` (`pulumi.Input[list]`) - List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
           * `subnet_ids` (`pulumi.Input[list]`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
-          * `vpcId` (`pulumi.Input[str]`)
+          * `vpc_id` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

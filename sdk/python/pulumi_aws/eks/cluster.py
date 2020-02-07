@@ -68,9 +68,9 @@ class Cluster(pulumi.CustomResource):
       * `endpointPrivateAccess` (`bool`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
       * `endpointPublicAccess` (`bool`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
       * `publicAccessCidrs` (`list`)
-      * `security_group_ids` (`list`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+      * `securityGroupIds` (`list`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
       * `subnet_ids` (`list`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-      * `vpc_id` (`str`) - The VPC associated with your cluster.
+      * `vpcId` (`str`) - The VPC associated with your cluster.
     """
     def __init__(__self__, resource_name, opts=None, enabled_cluster_log_types=None, name=None, role_arn=None, tags=None, version=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -93,9 +93,9 @@ class Cluster(pulumi.CustomResource):
           * `endpointPrivateAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
           * `endpointPublicAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
           * `publicAccessCidrs` (`pulumi.Input[list]`)
-          * `security_group_ids` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+          * `securityGroupIds` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
           * `subnet_ids` (`pulumi.Input[list]`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-          * `vpc_id` (`pulumi.Input[str]`) - The VPC associated with your cluster.
+          * `vpcId` (`pulumi.Input[str]`) - The VPC associated with your cluster.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -174,9 +174,9 @@ class Cluster(pulumi.CustomResource):
           * `endpointPrivateAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
           * `endpointPublicAccess` (`pulumi.Input[bool]`) - Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
           * `publicAccessCidrs` (`pulumi.Input[list]`)
-          * `security_group_ids` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+          * `securityGroupIds` (`pulumi.Input[list]`) - List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
           * `subnet_ids` (`pulumi.Input[list]`) - List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-          * `vpc_id` (`pulumi.Input[str]`) - The VPC associated with your cluster.
+          * `vpcId` (`pulumi.Input[str]`) - The VPC associated with your cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

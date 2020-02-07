@@ -67,7 +67,7 @@ class Document(pulumi.CustomResource):
     """
     The parameters that are available to this document.
 
-      * `default_value` (`str`)
+      * `defaultValue` (`str`)
       * `description` (`str`) - The description of the document.
       * `name` (`str`) - The name of the document.
       * `type` (`str`)
@@ -76,7 +76,7 @@ class Document(pulumi.CustomResource):
     """
     Additional Permissions to attach to the document. See Permissions below for details.
 
-      * `accountIds` (`str`)
+      * `account_ids` (`str`)
       * `type` (`str`)
     """
     platform_types: pulumi.Output[list]
@@ -147,7 +147,7 @@ class Document(pulumi.CustomResource):
 
         The **permissions** object supports the following:
 
-          * `accountIds` (`pulumi.Input[str]`)
+          * `account_ids` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
@@ -234,14 +234,14 @@ class Document(pulumi.CustomResource):
 
         The **parameters** object supports the following:
 
-          * `default_value` (`pulumi.Input[str]`)
+          * `defaultValue` (`pulumi.Input[str]`)
           * `description` (`pulumi.Input[str]`) - The description of the document.
           * `name` (`pulumi.Input[str]`) - The name of the document.
           * `type` (`pulumi.Input[str]`)
 
         The **permissions** object supports the following:
 
-          * `accountIds` (`pulumi.Input[str]`)
+          * `account_ids` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

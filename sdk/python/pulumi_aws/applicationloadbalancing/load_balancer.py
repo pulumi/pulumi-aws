@@ -78,8 +78,8 @@ class LoadBalancer(pulumi.CustomResource):
     """
     A subnet mapping block as documented below.
 
-      * `allocation_id` (`str`) - The allocation ID of the Elastic IP address.
-      * `subnet_id` (`str`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+      * `allocationId` (`str`) - The allocation ID of the Elastic IP address.
+      * `subnetId` (`str`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
     """
     subnets: pulumi.Output[list]
     """
@@ -135,8 +135,8 @@ class LoadBalancer(pulumi.CustomResource):
 
         The **subnet_mappings** object supports the following:
 
-          * `allocation_id` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
-          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+          * `allocationId` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `subnetId` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -222,8 +222,8 @@ class LoadBalancer(pulumi.CustomResource):
 
         The **subnet_mappings** object supports the following:
 
-          * `allocation_id` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
-          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
+          * `allocationId` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `subnetId` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

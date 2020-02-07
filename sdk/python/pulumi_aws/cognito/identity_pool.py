@@ -22,7 +22,7 @@ class IdentityPool(pulumi.CustomResource):
     """
     An array of Amazon Cognito Identity user pools and their client IDs.
 
-      * `clientId` (`str`) - The client ID for the Amazon Cognito Identity User Pool.
+      * `client_id` (`str`) - The client ID for the Amazon Cognito Identity User Pool.
       * `provider_name` (`str`) - The provider name for an Amazon Cognito Identity User Pool.
       * `serverSideTokenCheck` (`bool`) - Whether server-side token validation is enabled for the identity provider’s token or not.
     """
@@ -71,7 +71,7 @@ class IdentityPool(pulumi.CustomResource):
 
         The **cognito_identity_providers** object supports the following:
 
-          * `clientId` (`pulumi.Input[str]`) - The client ID for the Amazon Cognito Identity User Pool.
+          * `client_id` (`pulumi.Input[str]`) - The client ID for the Amazon Cognito Identity User Pool.
           * `provider_name` (`pulumi.Input[str]`) - The provider name for an Amazon Cognito Identity User Pool.
           * `serverSideTokenCheck` (`pulumi.Input[bool]`) - Whether server-side token validation is enabled for the identity provider’s token or not.
         """
@@ -131,7 +131,7 @@ class IdentityPool(pulumi.CustomResource):
 
         The **cognito_identity_providers** object supports the following:
 
-          * `clientId` (`pulumi.Input[str]`) - The client ID for the Amazon Cognito Identity User Pool.
+          * `client_id` (`pulumi.Input[str]`) - The client ID for the Amazon Cognito Identity User Pool.
           * `provider_name` (`pulumi.Input[str]`) - The provider name for an Amazon Cognito Identity User Pool.
           * `serverSideTokenCheck` (`pulumi.Input[bool]`) - Whether server-side token validation is enabled for the identity provider’s token or not.
         """

@@ -18,7 +18,7 @@ class RuleGroup(pulumi.CustomResource):
         * `type` (`str`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
 
       * `priority` (`float`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-      * `ruleId` (`str`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+      * `rule_id` (`str`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
       * `type` (`str`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
     """
     arn: pulumi.Output[str]
@@ -56,7 +56,7 @@ class RuleGroup(pulumi.CustomResource):
             * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-          * `ruleId` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+          * `rule_id` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
           * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
         """
         if __name__ is not None:
@@ -110,7 +110,7 @@ class RuleGroup(pulumi.CustomResource):
             * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-          * `ruleId` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+          * `rule_id` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
           * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

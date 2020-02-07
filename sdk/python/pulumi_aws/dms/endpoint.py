@@ -66,7 +66,7 @@ class Endpoint(pulumi.CustomResource):
     Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
 
       * `bucketFolder` (`str`)
-      * `bucket_name` (`str`)
+      * `bucketName` (`str`)
       * `compressionType` (`str`)
       * `csvDelimiter` (`str`)
       * `csvRowDelimiter` (`str`)
@@ -133,7 +133,7 @@ class Endpoint(pulumi.CustomResource):
         The **s3_settings** object supports the following:
 
           * `bucketFolder` (`pulumi.Input[str]`)
-          * `bucket_name` (`pulumi.Input[str]`)
+          * `bucketName` (`pulumi.Input[str]`)
           * `compressionType` (`pulumi.Input[str]`)
           * `csvDelimiter` (`pulumi.Input[str]`)
           * `csvRowDelimiter` (`pulumi.Input[str]`)
@@ -225,7 +225,7 @@ class Endpoint(pulumi.CustomResource):
         The **s3_settings** object supports the following:
 
           * `bucketFolder` (`pulumi.Input[str]`)
-          * `bucket_name` (`pulumi.Input[str]`)
+          * `bucketName` (`pulumi.Input[str]`)
           * `compressionType` (`pulumi.Input[str]`)
           * `csvDelimiter` (`pulumi.Input[str]`)
           * `csvRowDelimiter` (`pulumi.Input[str]`)

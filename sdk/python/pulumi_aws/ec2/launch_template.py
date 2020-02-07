@@ -129,7 +129,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of license specifications to associate with. See License Specification below for more details.
 
-      * `license_configuration_arn` (`str`)
+      * `licenseConfigurationArn` (`str`)
     """
     monitoring: pulumi.Output[dict]
     """
@@ -169,7 +169,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
       * `affinity` (`str`)
       * `availability_zone` (`str`)
-      * `group_name` (`str`)
+      * `groupName` (`str`)
       * `host_id` (`str`)
       * `spreadDomain` (`str`)
       * `tenancy` (`str`)
@@ -187,7 +187,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     The tags to apply to the resources during launch. See Tag Specifications below for more details.
 
-      * `resourceType` (`str`)
+      * `resource_type` (`str`)
       * `tags` (`dict`) - A mapping of tags to assign to the launch template.
     """
     tags: pulumi.Output[dict]
@@ -299,7 +299,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
         The **license_specifications** object supports the following:
 
-          * `license_configuration_arn` (`pulumi.Input[str]`)
+          * `licenseConfigurationArn` (`pulumi.Input[str]`)
 
         The **monitoring** object supports the following:
 
@@ -324,14 +324,14 @@ class LaunchTemplate(pulumi.CustomResource):
 
           * `affinity` (`pulumi.Input[str]`)
           * `availability_zone` (`pulumi.Input[str]`)
-          * `group_name` (`pulumi.Input[str]`)
+          * `groupName` (`pulumi.Input[str]`)
           * `host_id` (`pulumi.Input[str]`)
           * `spreadDomain` (`pulumi.Input[str]`)
           * `tenancy` (`pulumi.Input[str]`)
 
         The **tag_specifications** object supports the following:
 
-          * `resourceType` (`pulumi.Input[str]`)
+          * `resource_type` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the launch template.
         """
         if __name__ is not None:
@@ -488,7 +488,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
         The **license_specifications** object supports the following:
 
-          * `license_configuration_arn` (`pulumi.Input[str]`)
+          * `licenseConfigurationArn` (`pulumi.Input[str]`)
 
         The **monitoring** object supports the following:
 
@@ -513,14 +513,14 @@ class LaunchTemplate(pulumi.CustomResource):
 
           * `affinity` (`pulumi.Input[str]`)
           * `availability_zone` (`pulumi.Input[str]`)
-          * `group_name` (`pulumi.Input[str]`)
+          * `groupName` (`pulumi.Input[str]`)
           * `host_id` (`pulumi.Input[str]`)
           * `spreadDomain` (`pulumi.Input[str]`)
           * `tenancy` (`pulumi.Input[str]`)
 
         The **tag_specifications** object supports the following:
 
-          * `resourceType` (`pulumi.Input[str]`)
+          * `resource_type` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the launch template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

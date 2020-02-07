@@ -24,7 +24,7 @@ class WebAcl(pulumi.CustomResource):
     """
     Configuration block to enable WAF logging. Detailed below.
 
-      * `logDestination` (`str`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+      * `log_destination` (`str`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
       * `redactedFields` (`dict`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         * `fieldToMatches` (`list`) - Set of configuration blocks for fields to redact. Detailed below.
           * `data` (`str`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
@@ -50,7 +50,7 @@ class WebAcl(pulumi.CustomResource):
 
       * `priority` (`float`) - Specifies the order in which the rules in a WebACL are evaluated.
         Rules with a lower value are evaluated before rules with a higher value.
-      * `ruleId` (`str`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+      * `rule_id` (`str`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
       * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
     """
     tags: pulumi.Output[dict]
@@ -78,7 +78,7 @@ class WebAcl(pulumi.CustomResource):
 
         The **logging_configuration** object supports the following:
 
-          * `logDestination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+          * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
           * `redactedFields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
             * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
               * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
@@ -94,7 +94,7 @@ class WebAcl(pulumi.CustomResource):
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
             Rules with a lower value are evaluated before rules with a higher value.
-          * `ruleId` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
           * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         if __name__ is not None:
@@ -154,7 +154,7 @@ class WebAcl(pulumi.CustomResource):
 
         The **logging_configuration** object supports the following:
 
-          * `logDestination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+          * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
           * `redactedFields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
             * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
               * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
@@ -170,7 +170,7 @@ class WebAcl(pulumi.CustomResource):
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
             Rules with a lower value are evaluated before rules with a higher value.
-          * `ruleId` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
           * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

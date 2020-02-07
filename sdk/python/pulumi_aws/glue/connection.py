@@ -40,7 +40,7 @@ class Connection(pulumi.CustomResource):
 
       * `availability_zone` (`str`) - The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
       * `securityGroupIdLists` (`list`) - The security group ID list used by the connection.
-      * `subnet_id` (`str`) - The subnet ID used by the connection.
+      * `subnetId` (`str`) - The subnet ID used by the connection.
     """
     def __init__(__self__, resource_name, opts=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, match_criterias=None, name=None, physical_connection_requirements=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -62,7 +62,7 @@ class Connection(pulumi.CustomResource):
 
           * `availability_zone` (`pulumi.Input[str]`) - The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
           * `securityGroupIdLists` (`pulumi.Input[list]`) - The security group ID list used by the connection.
-          * `subnet_id` (`pulumi.Input[str]`) - The subnet ID used by the connection.
+          * `subnetId` (`pulumi.Input[str]`) - The subnet ID used by the connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +117,7 @@ class Connection(pulumi.CustomResource):
 
           * `availability_zone` (`pulumi.Input[str]`) - The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
           * `securityGroupIdLists` (`pulumi.Input[list]`) - The security group ID list used by the connection.
-          * `subnet_id` (`pulumi.Input[str]`) - The subnet ID used by the connection.
+          * `subnetId` (`pulumi.Input[str]`) - The subnet ID used by the connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

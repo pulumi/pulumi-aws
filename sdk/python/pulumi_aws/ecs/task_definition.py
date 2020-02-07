@@ -65,7 +65,7 @@ class TaskDefinition(pulumi.CustomResource):
     """
     The proxy configuration details for the App Mesh proxy.
 
-      * `container_name` (`str`) - The name of the container that will serve as the App Mesh proxy.
+      * `containerName` (`str`) - The name of the container that will serve as the App Mesh proxy.
       * `properties` (`dict`) - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
       * `type` (`str`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
     """
@@ -142,7 +142,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         The **proxy_configuration** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
+          * `containerName` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
           * `properties` (`pulumi.Input[dict]`) - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
           * `type` (`pulumi.Input[str]`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 
@@ -247,7 +247,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         The **proxy_configuration** object supports the following:
 
-          * `container_name` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
+          * `containerName` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
           * `properties` (`pulumi.Input[dict]`) - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
           * `type` (`pulumi.Input[str]`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
 

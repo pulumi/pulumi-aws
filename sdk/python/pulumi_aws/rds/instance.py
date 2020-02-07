@@ -255,8 +255,8 @@ class Instance(pulumi.CustomResource):
     """
     Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 
-      * `bucket_name` (`str`) - The bucket name where your backup is stored
-      * `bucket_prefix` (`str`) - Can be blank, but is the path to your backup
+      * `bucketName` (`str`) - The bucket name where your backup is stored
+      * `bucketPrefix` (`str`) - Can be blank, but is the path to your backup
       * `ingestionRole` (`str`) - Role applied to load the data.
       * `sourceEngine` (`str`) - Source engine for the backup
       * `sourceEngineVersion` (`str`) - Version of the source engine used to make the backup
@@ -484,8 +484,8 @@ class Instance(pulumi.CustomResource):
 
         The **s3_import** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
-          * `bucket_prefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+          * `bucketName` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
           * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
           * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
           * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
@@ -719,8 +719,8 @@ class Instance(pulumi.CustomResource):
 
         The **s3_import** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
-          * `bucket_prefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+          * `bucketName` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
           * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
           * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
           * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup

@@ -31,7 +31,7 @@ class EventDestination(pulumi.CustomResource):
     Send the events to a kinesis firehose destination
 
       * `role_arn` (`str`) - The ARN of the role that has permissions to access the Kinesis Stream
-      * `streamArn` (`str`) - The ARN of the Kinesis Stream
+      * `stream_arn` (`str`) - The ARN of the Kinesis Stream
     """
     matching_types: pulumi.Output[list]
     """
@@ -72,7 +72,7 @@ class EventDestination(pulumi.CustomResource):
         The **kinesis_destination** object supports the following:
 
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the role that has permissions to access the Kinesis Stream
-          * `streamArn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream
+          * `stream_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream
 
         The **sns_destination** object supports the following:
 
@@ -138,7 +138,7 @@ class EventDestination(pulumi.CustomResource):
         The **kinesis_destination** object supports the following:
 
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the role that has permissions to access the Kinesis Stream
-          * `streamArn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream
+          * `stream_arn` (`pulumi.Input[str]`) - The ARN of the Kinesis Stream
 
         The **sns_destination** object supports the following:
 

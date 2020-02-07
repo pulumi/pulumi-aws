@@ -156,8 +156,8 @@ class Cluster(pulumi.CustomResource):
     Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
 
       * `autoPause` (`bool`) - Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
-      * `max_capacity` (`float`) - The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
-      * `min_capacity` (`float`) - The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+      * `maxCapacity` (`float`) - The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+      * `minCapacity` (`float`) - The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
       * `secondsUntilAutoPause` (`float`) - The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
       * `timeoutAction` (`str`) - The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
     """
@@ -258,8 +258,8 @@ class Cluster(pulumi.CustomResource):
 
         The **s3_import** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
-          * `bucket_prefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+          * `bucketName` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
           * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
           * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
           * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
@@ -267,8 +267,8 @@ class Cluster(pulumi.CustomResource):
         The **scaling_configuration** object supports the following:
 
           * `autoPause` (`pulumi.Input[bool]`) - Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
-          * `max_capacity` (`pulumi.Input[float]`) - The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
-          * `min_capacity` (`pulumi.Input[float]`) - The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+          * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+          * `minCapacity` (`pulumi.Input[float]`) - The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
           * `secondsUntilAutoPause` (`pulumi.Input[float]`) - The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
           * `timeoutAction` (`pulumi.Input[str]`) - The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
@@ -397,8 +397,8 @@ class Cluster(pulumi.CustomResource):
 
         The **s3_import** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
-          * `bucket_prefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+          * `bucketName` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
           * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
           * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
           * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
@@ -406,8 +406,8 @@ class Cluster(pulumi.CustomResource):
         The **scaling_configuration** object supports the following:
 
           * `autoPause` (`pulumi.Input[bool]`) - Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
-          * `max_capacity` (`pulumi.Input[float]`) - The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
-          * `min_capacity` (`pulumi.Input[float]`) - The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+          * `maxCapacity` (`pulumi.Input[float]`) - The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+          * `minCapacity` (`pulumi.Input[float]`) - The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
           * `secondsUntilAutoPause` (`pulumi.Input[float]`) - The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
           * `timeoutAction` (`pulumi.Input[str]`) - The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """

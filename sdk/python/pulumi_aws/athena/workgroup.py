@@ -26,7 +26,7 @@ class Workgroup(pulumi.CustomResource):
           * `encryptionOption` (`str`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
           * `kms_key_arn` (`str`) - For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
 
-        * `outputLocation` (`str`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+        * `output_location` (`str`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
     """
     description: pulumi.Output[str]
     """
@@ -68,7 +68,7 @@ class Workgroup(pulumi.CustomResource):
               * `encryptionOption` (`pulumi.Input[str]`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
               * `kms_key_arn` (`pulumi.Input[str]`) - For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
 
-            * `outputLocation` (`pulumi.Input[str]`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+            * `output_location` (`pulumi.Input[str]`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class Workgroup(pulumi.CustomResource):
               * `encryptionOption` (`pulumi.Input[str]`) - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
               * `kms_key_arn` (`pulumi.Input[str]`) - For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
 
-            * `outputLocation` (`pulumi.Input[str]`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+            * `output_location` (`pulumi.Input[str]`) - The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

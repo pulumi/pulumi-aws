@@ -82,7 +82,7 @@ class TopicRule(pulumi.CustomResource):
           * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
           * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `tableName` (`pulumi.Input[str]`) - The name of the DynamoDB table.
+          * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
 
         The **elasticsearch** object supports the following:
 
@@ -106,7 +106,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **lambda_** object supports the following:
 
-          * `functionArn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
+          * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
 
         The **republish** object supports the following:
 
@@ -127,7 +127,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **sqs** object supports the following:
 
-          * `queueUrl` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
+          * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
         """
@@ -219,7 +219,7 @@ class TopicRule(pulumi.CustomResource):
           * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
           * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `tableName` (`pulumi.Input[str]`) - The name of the DynamoDB table.
+          * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
 
         The **elasticsearch** object supports the following:
 
@@ -243,7 +243,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **lambda_** object supports the following:
 
-          * `functionArn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
+          * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
 
         The **republish** object supports the following:
 
@@ -264,7 +264,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **sqs** object supports the following:
 
-          * `queueUrl` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
+          * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
         """

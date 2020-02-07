@@ -101,10 +101,10 @@ class Cluster(pulumi.CustomResource):
     """
     Logging, documented below.
 
-      * `bucketName` (`str`) - The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+      * `bucket_name` (`str`) - The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
         For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
       * `enable` (`bool`) - Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
-      * `s3KeyPrefix` (`str`) - The prefix applied to the log file names.
+      * `s3_key_prefix` (`str`) - The prefix applied to the log file names.
     """
     master_password: pulumi.Output[str]
     """
@@ -156,7 +156,7 @@ class Cluster(pulumi.CustomResource):
 
       * `destinationRegion` (`str`) - The destination region that you want to copy snapshots to.
       * `grantName` (`str`) - The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-      * `retentionPeriod` (`float`) - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+      * `retention_period` (`float`) - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
     """
     snapshot_identifier: pulumi.Output[str]
     """
@@ -225,16 +225,16 @@ class Cluster(pulumi.CustomResource):
 
         The **logging** object supports the following:
 
-          * `bucketName` (`pulumi.Input[str]`) - The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+          * `bucket_name` (`pulumi.Input[str]`) - The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
             For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
           * `enable` (`pulumi.Input[bool]`) - Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
-          * `s3KeyPrefix` (`pulumi.Input[str]`) - The prefix applied to the log file names.
+          * `s3_key_prefix` (`pulumi.Input[str]`) - The prefix applied to the log file names.
 
         The **snapshot_copy** object supports the following:
 
           * `destinationRegion` (`pulumi.Input[str]`) - The destination region that you want to copy snapshots to.
           * `grantName` (`pulumi.Input[str]`) - The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-          * `retentionPeriod` (`pulumi.Input[float]`) - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+          * `retention_period` (`pulumi.Input[float]`) - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -354,16 +354,16 @@ class Cluster(pulumi.CustomResource):
 
         The **logging** object supports the following:
 
-          * `bucketName` (`pulumi.Input[str]`) - The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+          * `bucket_name` (`pulumi.Input[str]`) - The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
             For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
           * `enable` (`pulumi.Input[bool]`) - Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
-          * `s3KeyPrefix` (`pulumi.Input[str]`) - The prefix applied to the log file names.
+          * `s3_key_prefix` (`pulumi.Input[str]`) - The prefix applied to the log file names.
 
         The **snapshot_copy** object supports the following:
 
           * `destinationRegion` (`pulumi.Input[str]`) - The destination region that you want to copy snapshots to.
           * `grantName` (`pulumi.Input[str]`) - The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-          * `retentionPeriod` (`pulumi.Input[float]`) - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+          * `retention_period` (`pulumi.Input[float]`) - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

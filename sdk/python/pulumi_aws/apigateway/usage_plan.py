@@ -14,7 +14,7 @@ class UsagePlan(pulumi.CustomResource):
     """
     The associated API stages of the usage plan.
 
-      * `api_id` (`str`) - API Id of the associated API stage in a usage plan.
+      * `apiId` (`str`) - API Id of the associated API stage in a usage plan.
       * `stage` (`str`) - API stage name of the associated API stage in a usage plan.
     """
     arn: pulumi.Output[str]
@@ -70,7 +70,7 @@ class UsagePlan(pulumi.CustomResource):
 
         The **api_stages** object supports the following:
 
-          * `api_id` (`pulumi.Input[str]`) - API Id of the associated API stage in a usage plan.
+          * `apiId` (`pulumi.Input[str]`) - API Id of the associated API stage in a usage plan.
           * `stage` (`pulumi.Input[str]`) - API stage name of the associated API stage in a usage plan.
 
         The **quota_settings** object supports the following:
@@ -135,7 +135,7 @@ class UsagePlan(pulumi.CustomResource):
 
         The **api_stages** object supports the following:
 
-          * `api_id` (`pulumi.Input[str]`) - API Id of the associated API stage in a usage plan.
+          * `apiId` (`pulumi.Input[str]`) - API Id of the associated API stage in a usage plan.
           * `stage` (`pulumi.Input[str]`) - API stage name of the associated API stage in a usage plan.
 
         The **quota_settings** object supports the following:

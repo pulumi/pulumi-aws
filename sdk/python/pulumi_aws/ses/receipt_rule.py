@@ -30,7 +30,7 @@ class ReceiptRule(pulumi.CustomResource):
       * `position` (`float`) - The position of the action in the receipt rule
       * `sender` (`str`) - The email address of the sender
       * `smtpReplyCode` (`str`) - The RFC 5321 SMTP reply code
-      * `statusCode` (`str`) - The RFC 3463 SMTP enhanced status code
+      * `status_code` (`str`) - The RFC 3463 SMTP enhanced status code
       * `topic_arn` (`str`) - The ARN of an SNS topic to notify
     """
     enabled: pulumi.Output[bool]
@@ -41,7 +41,7 @@ class ReceiptRule(pulumi.CustomResource):
     """
     A list of Lambda Action blocks. Documented below.
 
-      * `functionArn` (`str`) - The ARN of the Lambda function to invoke
+      * `function_arn` (`str`) - The ARN of the Lambda function to invoke
       * `invocationType` (`str`) - Event or RequestResponse
       * `position` (`float`) - The position of the action in the receipt rule
       * `topic_arn` (`str`) - The ARN of an SNS topic to notify
@@ -62,7 +62,7 @@ class ReceiptRule(pulumi.CustomResource):
     """
     A list of S3 Action blocks. Documented below.
 
-      * `bucket_name` (`str`) - The name of the S3 bucket
+      * `bucketName` (`str`) - The name of the S3 bucket
       * `kms_key_arn` (`str`) - The ARN of the KMS key
       * `objectKeyPrefix` (`str`) - The key prefix of the S3 bucket
       * `position` (`float`) - The position of the action in the receipt rule
@@ -134,19 +134,19 @@ class ReceiptRule(pulumi.CustomResource):
           * `position` (`pulumi.Input[float]`) - The position of the action in the receipt rule
           * `sender` (`pulumi.Input[str]`) - The email address of the sender
           * `smtpReplyCode` (`pulumi.Input[str]`) - The RFC 5321 SMTP reply code
-          * `statusCode` (`pulumi.Input[str]`) - The RFC 3463 SMTP enhanced status code
+          * `status_code` (`pulumi.Input[str]`) - The RFC 3463 SMTP enhanced status code
           * `topic_arn` (`pulumi.Input[str]`) - The ARN of an SNS topic to notify
 
         The **lambda_actions** object supports the following:
 
-          * `functionArn` (`pulumi.Input[str]`) - The ARN of the Lambda function to invoke
+          * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function to invoke
           * `invocationType` (`pulumi.Input[str]`) - Event or RequestResponse
           * `position` (`pulumi.Input[float]`) - The position of the action in the receipt rule
           * `topic_arn` (`pulumi.Input[str]`) - The ARN of an SNS topic to notify
 
         The **s3_actions** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`) - The name of the S3 bucket
+          * `bucketName` (`pulumi.Input[str]`) - The name of the S3 bucket
           * `kms_key_arn` (`pulumi.Input[str]`) - The ARN of the KMS key
           * `objectKeyPrefix` (`pulumi.Input[str]`) - The key prefix of the S3 bucket
           * `position` (`pulumi.Input[float]`) - The position of the action in the receipt rule
@@ -244,19 +244,19 @@ class ReceiptRule(pulumi.CustomResource):
           * `position` (`pulumi.Input[float]`) - The position of the action in the receipt rule
           * `sender` (`pulumi.Input[str]`) - The email address of the sender
           * `smtpReplyCode` (`pulumi.Input[str]`) - The RFC 5321 SMTP reply code
-          * `statusCode` (`pulumi.Input[str]`) - The RFC 3463 SMTP enhanced status code
+          * `status_code` (`pulumi.Input[str]`) - The RFC 3463 SMTP enhanced status code
           * `topic_arn` (`pulumi.Input[str]`) - The ARN of an SNS topic to notify
 
         The **lambda_actions** object supports the following:
 
-          * `functionArn` (`pulumi.Input[str]`) - The ARN of the Lambda function to invoke
+          * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function to invoke
           * `invocationType` (`pulumi.Input[str]`) - Event or RequestResponse
           * `position` (`pulumi.Input[float]`) - The position of the action in the receipt rule
           * `topic_arn` (`pulumi.Input[str]`) - The ARN of an SNS topic to notify
 
         The **s3_actions** object supports the following:
 
-          * `bucket_name` (`pulumi.Input[str]`) - The name of the S3 bucket
+          * `bucketName` (`pulumi.Input[str]`) - The name of the S3 bucket
           * `kms_key_arn` (`pulumi.Input[str]`) - The ARN of the KMS key
           * `objectKeyPrefix` (`pulumi.Input[str]`) - The key prefix of the S3 bucket
           * `position` (`pulumi.Input[float]`) - The position of the action in the receipt rule

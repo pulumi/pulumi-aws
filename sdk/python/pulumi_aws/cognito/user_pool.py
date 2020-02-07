@@ -51,7 +51,7 @@ class UserPool(pulumi.CustomResource):
 
       * `emailSendingAccount` (`str`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
       * `replyToEmailAddress` (`str`) - The REPLY-TO email address.
-      * `sourceArn` (`str`) - The ARN of the email source.
+      * `source_arn` (`str`) - The ARN of the email source.
     """
     email_verification_message: pulumi.Output[str]
     """
@@ -98,8 +98,8 @@ class UserPool(pulumi.CustomResource):
 
       * `minimumLength` (`float`) - The minimum length of the password policy that you have set.
       * `requireLowercase` (`bool`) - Whether you have required users to use at least one lowercase letter in their password.
-      * `requireNumbers` (`bool`) - Whether you have required users to use at least one number in their password.
-      * `requireSymbols` (`bool`) - Whether you have required users to use at least one symbol in their password.
+      * `require_numbers` (`bool`) - Whether you have required users to use at least one number in their password.
+      * `require_symbols` (`bool`) - Whether you have required users to use at least one symbol in their password.
       * `requireUppercase` (`bool`) - Whether you have required users to use at least one uppercase letter in their password.
       * `temporaryPasswordValidityDays` (`float`) - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
     """
@@ -207,7 +207,7 @@ class UserPool(pulumi.CustomResource):
 
           * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
-          * `sourceArn` (`pulumi.Input[str]`) - The ARN of the email source.
+          * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 
         The **lambda_config** object supports the following:
 
@@ -226,8 +226,8 @@ class UserPool(pulumi.CustomResource):
 
           * `minimumLength` (`pulumi.Input[float]`) - The minimum length of the password policy that you have set.
           * `requireLowercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one lowercase letter in their password.
-          * `requireNumbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
-          * `requireSymbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
+          * `require_numbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
+          * `require_symbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
           * `requireUppercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one uppercase letter in their password.
           * `temporaryPasswordValidityDays` (`pulumi.Input[float]`) - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
 
@@ -362,7 +362,7 @@ class UserPool(pulumi.CustomResource):
 
           * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
-          * `sourceArn` (`pulumi.Input[str]`) - The ARN of the email source.
+          * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
 
         The **lambda_config** object supports the following:
 
@@ -381,8 +381,8 @@ class UserPool(pulumi.CustomResource):
 
           * `minimumLength` (`pulumi.Input[float]`) - The minimum length of the password policy that you have set.
           * `requireLowercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one lowercase letter in their password.
-          * `requireNumbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
-          * `requireSymbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
+          * `require_numbers` (`pulumi.Input[bool]`) - Whether you have required users to use at least one number in their password.
+          * `require_symbols` (`pulumi.Input[bool]`) - Whether you have required users to use at least one symbol in their password.
           * `requireUppercase` (`pulumi.Input[bool]`) - Whether you have required users to use at least one uppercase letter in their password.
           * `temporaryPasswordValidityDays` (`pulumi.Input[float]`) - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
 

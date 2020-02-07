@@ -43,7 +43,7 @@ class Instance(pulumi.CustomResource):
       * `device_name` (`str`)
       * `iops` (`float`)
       * `snapshot_id` (`str`)
-      * `volumeSize` (`float`)
+      * `volume_size` (`float`)
       * `volumeType` (`str`)
     """
     ebs_optimized: pulumi.Output[bool]
@@ -119,7 +119,7 @@ class Instance(pulumi.CustomResource):
 
       * `deleteOnTermination` (`bool`)
       * `iops` (`float`)
-      * `volumeSize` (`float`)
+      * `volume_size` (`float`)
       * `volumeType` (`str`)
     """
     root_device_type: pulumi.Output[str]
@@ -262,7 +262,7 @@ class Instance(pulumi.CustomResource):
           * `device_name` (`pulumi.Input[str]`)
           * `iops` (`pulumi.Input[float]`)
           * `snapshot_id` (`pulumi.Input[str]`)
-          * `volumeSize` (`pulumi.Input[float]`)
+          * `volume_size` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
 
         The **ephemeral_block_devices** object supports the following:
@@ -274,7 +274,7 @@ class Instance(pulumi.CustomResource):
 
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
-          * `volumeSize` (`pulumi.Input[float]`)
+          * `volume_size` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
@@ -400,7 +400,7 @@ class Instance(pulumi.CustomResource):
           * `device_name` (`pulumi.Input[str]`)
           * `iops` (`pulumi.Input[float]`)
           * `snapshot_id` (`pulumi.Input[str]`)
-          * `volumeSize` (`pulumi.Input[float]`)
+          * `volume_size` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
 
         The **ephemeral_block_devices** object supports the following:
@@ -412,7 +412,7 @@ class Instance(pulumi.CustomResource):
 
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
-          * `volumeSize` (`pulumi.Input[float]`)
+          * `volume_size` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

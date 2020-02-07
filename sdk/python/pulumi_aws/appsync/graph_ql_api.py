@@ -24,7 +24,7 @@ class GraphQLApi(pulumi.CustomResource):
       * `user_pool_config` (`dict`) - The Amazon Cognito User Pool configuration. Defined below.
         * `appIdClientRegex` (`str`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
         * `awsRegion` (`str`) - The AWS region in which the user pool was created.
-        * `user_pool_id` (`str`) - The user pool ID.
+        * `userPoolId` (`str`) - The user pool ID.
     """
     arn: pulumi.Output[str]
     """
@@ -73,7 +73,7 @@ class GraphQLApi(pulumi.CustomResource):
       * `appIdClientRegex` (`str`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
       * `awsRegion` (`str`) - The AWS region in which the user pool was created.
       * `default_action` (`str`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-      * `user_pool_id` (`str`) - The user pool ID.
+      * `userPoolId` (`str`) - The user pool ID.
     """
     def __init__(__self__, resource_name, opts=None, additional_authentication_providers=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -104,7 +104,7 @@ class GraphQLApi(pulumi.CustomResource):
           * `user_pool_config` (`pulumi.Input[dict]`) - The Amazon Cognito User Pool configuration. Defined below.
             * `appIdClientRegex` (`pulumi.Input[str]`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
             * `awsRegion` (`pulumi.Input[str]`) - The AWS region in which the user pool was created.
-            * `user_pool_id` (`pulumi.Input[str]`) - The user pool ID.
+            * `userPoolId` (`pulumi.Input[str]`) - The user pool ID.
 
         The **log_config** object supports the following:
 
@@ -123,7 +123,7 @@ class GraphQLApi(pulumi.CustomResource):
           * `appIdClientRegex` (`pulumi.Input[str]`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
           * `awsRegion` (`pulumi.Input[str]`) - The AWS region in which the user pool was created.
           * `default_action` (`pulumi.Input[str]`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-          * `user_pool_id` (`pulumi.Input[str]`) - The user pool ID.
+          * `userPoolId` (`pulumi.Input[str]`) - The user pool ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -192,7 +192,7 @@ class GraphQLApi(pulumi.CustomResource):
           * `user_pool_config` (`pulumi.Input[dict]`) - The Amazon Cognito User Pool configuration. Defined below.
             * `appIdClientRegex` (`pulumi.Input[str]`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
             * `awsRegion` (`pulumi.Input[str]`) - The AWS region in which the user pool was created.
-            * `user_pool_id` (`pulumi.Input[str]`) - The user pool ID.
+            * `userPoolId` (`pulumi.Input[str]`) - The user pool ID.
 
         The **log_config** object supports the following:
 
@@ -211,7 +211,7 @@ class GraphQLApi(pulumi.CustomResource):
           * `appIdClientRegex` (`pulumi.Input[str]`) - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
           * `awsRegion` (`pulumi.Input[str]`) - The AWS region in which the user pool was created.
           * `default_action` (`pulumi.Input[str]`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-          * `user_pool_id` (`pulumi.Input[str]`) - The user pool ID.
+          * `userPoolId` (`pulumi.Input[str]`) - The user pool ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

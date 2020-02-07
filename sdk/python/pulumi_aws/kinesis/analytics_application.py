@@ -53,7 +53,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         * `count` (`float`)
 
       * `processingConfiguration` (`dict`)
-        * `lambda_` (`dict`)
+        * `lambda` (`dict`)
           * `resource_arn` (`str`)
           * `role_arn` (`str`)
 
@@ -76,7 +76,7 @@ class AnalyticsApplication(pulumi.CustomResource):
           * `recordFormatType` (`str`)
 
       * `startingPositionConfigurations` (`list`)
-        * `startingPosition` (`str`)
+        * `starting_position` (`str`)
 
       * `streamNames` (`list`)
     """
@@ -101,7 +101,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         * `resource_arn` (`str`)
         * `role_arn` (`str`)
 
-      * `lambda_` (`dict`)
+      * `lambda` (`dict`)
         * `resource_arn` (`str`)
         * `role_arn` (`str`)
 
@@ -196,7 +196,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             * `count` (`pulumi.Input[float]`)
 
           * `processingConfiguration` (`pulumi.Input[dict]`)
-            * `lambda_` (`pulumi.Input[dict]`)
+            * `lambda` (`pulumi.Input[dict]`)
               * `resource_arn` (`pulumi.Input[str]`)
               * `role_arn` (`pulumi.Input[str]`)
 
@@ -219,7 +219,7 @@ class AnalyticsApplication(pulumi.CustomResource):
               * `recordFormatType` (`pulumi.Input[str]`)
 
           * `startingPositionConfigurations` (`pulumi.Input[list]`)
-            * `startingPosition` (`pulumi.Input[str]`)
+            * `starting_position` (`pulumi.Input[str]`)
 
           * `streamNames` (`pulumi.Input[list]`)
 
@@ -234,7 +234,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             * `resource_arn` (`pulumi.Input[str]`)
             * `role_arn` (`pulumi.Input[str]`)
 
-          * `lambda_` (`pulumi.Input[dict]`)
+          * `lambda` (`pulumi.Input[dict]`)
             * `resource_arn` (`pulumi.Input[str]`)
             * `role_arn` (`pulumi.Input[str]`)
 
@@ -353,7 +353,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             * `count` (`pulumi.Input[float]`)
 
           * `processingConfiguration` (`pulumi.Input[dict]`)
-            * `lambda_` (`pulumi.Input[dict]`)
+            * `lambda` (`pulumi.Input[dict]`)
               * `resource_arn` (`pulumi.Input[str]`)
               * `role_arn` (`pulumi.Input[str]`)
 
@@ -376,7 +376,7 @@ class AnalyticsApplication(pulumi.CustomResource):
               * `recordFormatType` (`pulumi.Input[str]`)
 
           * `startingPositionConfigurations` (`pulumi.Input[list]`)
-            * `startingPosition` (`pulumi.Input[str]`)
+            * `starting_position` (`pulumi.Input[str]`)
 
           * `streamNames` (`pulumi.Input[list]`)
 
@@ -391,7 +391,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             * `resource_arn` (`pulumi.Input[str]`)
             * `role_arn` (`pulumi.Input[str]`)
 
-          * `lambda_` (`pulumi.Input[dict]`)
+          * `lambda` (`pulumi.Input[dict]`)
             * `resource_arn` (`pulumi.Input[str]`)
             * `role_arn` (`pulumi.Input[str]`)
 

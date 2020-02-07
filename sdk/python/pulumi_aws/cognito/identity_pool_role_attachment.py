@@ -19,7 +19,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
     A List of Role Mapping.
 
       * `ambiguousRoleResolution` (`str`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-      * `identityProvider` (`str`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+      * `identity_provider` (`str`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
       * `mappingRules` (`list`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
         * `claim` (`str`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
         * `matchType` (`str`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
@@ -50,7 +50,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         The **role_mappings** object supports the following:
 
           * `ambiguousRoleResolution` (`pulumi.Input[str]`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-          * `identityProvider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+          * `identity_provider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
           * `mappingRules` (`pulumi.Input[list]`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
             * `claim` (`pulumi.Input[str]`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
             * `matchType` (`pulumi.Input[str]`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
@@ -110,7 +110,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         The **role_mappings** object supports the following:
 
           * `ambiguousRoleResolution` (`pulumi.Input[str]`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-          * `identityProvider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+          * `identity_provider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
           * `mappingRules` (`pulumi.Input[list]`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
             * `claim` (`pulumi.Input[str]`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
             * `matchType` (`pulumi.Input[str]`) - The match condition that specifies how closely the claim value in the IdP token must match Value.

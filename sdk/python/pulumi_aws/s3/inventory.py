@@ -23,7 +23,7 @@ class Inventory(pulumi.CustomResource):
         * `bucketArn` (`str`) - The Amazon S3 bucket ARN of the destination.
         * `encryption` (`dict`) - Contains the type of server-side encryption to use to encrypt the inventory (documented below).
           * `sseKms` (`dict`) - Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
-            * `keyId` (`str`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+            * `key_id` (`str`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
 
           * `sseS3` (`dict`) - Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 
@@ -84,7 +84,7 @@ class Inventory(pulumi.CustomResource):
             * `bucketArn` (`pulumi.Input[str]`) - The Amazon S3 bucket ARN of the destination.
             * `encryption` (`pulumi.Input[dict]`) - Contains the type of server-side encryption to use to encrypt the inventory (documented below).
               * `sseKms` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
-                * `keyId` (`pulumi.Input[str]`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+                * `key_id` (`pulumi.Input[str]`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
 
               * `sseS3` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 
@@ -164,7 +164,7 @@ class Inventory(pulumi.CustomResource):
             * `bucketArn` (`pulumi.Input[str]`) - The Amazon S3 bucket ARN of the destination.
             * `encryption` (`pulumi.Input[dict]`) - Contains the type of server-side encryption to use to encrypt the inventory (documented below).
               * `sseKms` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
-                * `keyId` (`pulumi.Input[str]`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+                * `key_id` (`pulumi.Input[str]`) - The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
 
               * `sseS3` (`pulumi.Input[dict]`) - Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 

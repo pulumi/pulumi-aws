@@ -32,7 +32,7 @@ class Vault(pulumi.CustomResource):
     The notifications for the Vault. Fields documented below.
 
       * `events` (`list`) - You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-      * `snsTopic` (`str`) - The SNS Topic ARN.
+      * `sns_topic` (`str`) - The SNS Topic ARN.
     """
     tags: pulumi.Output[dict]
     """
@@ -57,7 +57,7 @@ class Vault(pulumi.CustomResource):
         The **notifications** object supports the following:
 
           * `events` (`pulumi.Input[list]`) - You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-          * `snsTopic` (`pulumi.Input[str]`) - The SNS Topic ARN.
+          * `sns_topic` (`pulumi.Input[str]`) - The SNS Topic ARN.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,7 +108,7 @@ class Vault(pulumi.CustomResource):
         The **notifications** object supports the following:
 
           * `events` (`pulumi.Input[list]`) - You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-          * `snsTopic` (`pulumi.Input[str]`) - The SNS Topic ARN.
+          * `sns_topic` (`pulumi.Input[str]`) - The SNS Topic ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
