@@ -18,6 +18,7 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
+	"os"
 	"strings"
 	"unicode"
 
@@ -201,10 +202,16 @@ func boolRef(b bool) *bool {
 }
 
 // stringValue gets a string value from a property map if present, else ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
+func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
 	val, ok := vars[prop]
 	if ok && val.IsString() {
 		return val.StringValue()
+	}
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			return val
+		}
 	}
 	return ""
 }
@@ -214,14 +221,15 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
 	config := &awsbase.Config{
-		AccessKey: stringValue(vars, "accessKey"),
-		SecretKey: stringValue(vars, "secretKey"),
-		Profile:   stringValue(vars, "profile"),
-		Token:     stringValue(vars, "token"),
-		Region:    stringValue(vars, "region"),
+		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
+		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
+		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
+		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
+		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
 	}
 
-	credsPath, err := homedir.Expand(stringValue(vars, "sharedCredentialsFile"))
+	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
+	credsPath, err := homedir.Expand(sharedCredentialsFile)
 	if err != nil {
 		return err
 	}
@@ -251,6 +259,16 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
+			"access_key": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_ACCESS_KEY_ID"},
+				},
+			},
+			"secret_key": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_SECRET_ACCESS_KEY"},
+				},
+			},
 			"region": {
 				Type: awsTypeNoFile("region", "Region"),
 				Default: &tfbridge.DefaultInfo{
@@ -260,6 +278,16 @@ func Provider() tfbridge.ProviderInfo {
 			"profile": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_PROFILE"},
+				},
+			},
+			"token": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_SESSION_TOKEN"},
+				},
+			},
+			"shared_credentials_file": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"AWS_SHARED_CREDENTIALS_FILE"},
 				},
 			},
 		},
