@@ -27,11 +27,23 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+	if args.AccessKey == nil {
+		args.AccessKey = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_ACCESS_KEY_ID").(string))
+	}
 	if args.Profile == nil {
 		args.Profile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_PROFILE").(string))
 	}
 	if args.Region == nil {
 		args.Region = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
+	}
+	if args.SecretKey == nil {
+		args.SecretKey = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_SECRET_ACCESS_KEY").(string))
+	}
+	if args.SharedCredentialsFile == nil {
+		args.SharedCredentialsFile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_SHARED_CREDENTIALS_FILE").(string))
+	}
+	if args.Token == nil {
+		args.Token = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_SESSION_TOKEN").(string))
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:aws", name, args, &resource, opts...)

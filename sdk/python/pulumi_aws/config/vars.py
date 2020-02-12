@@ -11,7 +11,7 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('aws')
 
-access_key = __config__.get('accessKey')
+access_key = __config__.get('accessKey') or utilities.get_env('AWS_ACCESS_KEY_ID')
 """
 The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 """
@@ -61,12 +61,12 @@ default, the S3 client will use virtual hosted bucket addressing when possible (
 Specific to the Amazon S3 service.
 """
 
-secret_key = __config__.get('secretKey')
+secret_key = __config__.get('secretKey') or utilities.get_env('AWS_SECRET_ACCESS_KEY')
 """
 The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 """
 
-shared_credentials_file = __config__.get('sharedCredentialsFile')
+shared_credentials_file = __config__.get('sharedCredentialsFile') or utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
 """
 The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
 """
@@ -95,7 +95,7 @@ skip_requesting_account_id = __config__.get('skipRequestingAccountId')
 Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
 """
 
-token = __config__.get('token')
+token = __config__.get('token') or utilities.get_env('AWS_SESSION_TOKEN')
 """
 session token. A session token is only required if you are using temporary security credentials.
 """
