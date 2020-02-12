@@ -8,102 +8,102 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
- * 
+ *
  * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
- * 
+ *
  * See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Ignoring Changes to Desired Count
- * 
+ *
  * You can utilize the generic this provider resource [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle) with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ecs.Service("example", {
  *     // Example: Create service with 2 instances to start
  *     desiredCount: 2,
  * }, {ignoreChanges: ["desiredCount"]});
  * ```
- * 
+ *
  * ### Daemon Scheduling Strategy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = new aws.ecs.Service("bar", {
  *     cluster: aws_ecs_cluster_foo.id,
  *     schedulingStrategy: "DAEMON",
  *     taskDefinition: aws_ecs_task_definition_bar.arn,
  * });
  * ```
- * 
+ *
  * ## capacityProviderStrategy
- * 
+ *
  * The `capacityProviderStrategy` configuration block supports the following:
- * 
+ *
  * * `capacityProvider` - (Required) The short name or full Amazon Resource Name (ARN) of the capacity provider.
  * * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
  * * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
- * 
+ *
  * ## deploymentController
- * 
+ *
  * The `deploymentController` configuration block supports the following:
- * 
+ *
  * * `type` - (Optional) Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
- * 
+ *
  * ## loadBalancer
- * 
+ *
  * `loadBalancer` supports the following:
- * 
+ *
  * * `elbName` - (Required for ELB Classic) The name of the ELB (Classic) to associate with the service.
  * * `targetGroupArn` - (Required for ALB/NLB) The ARN of the Load Balancer target group to associate with the service.
  * * `containerName` - (Required) The name of the container to associate with the load balancer (as it appears in a container definition).
  * * `containerPort` - (Required) The port on the container to associate with the load balancer.
- * 
+ *
  * > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
- * 
+ *
  * ## orderedPlacementStrategy
- * 
+ *
  * `orderedPlacementStrategy` supports the following:
- * 
+ *
  * * `type` - (Required) The type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
  * * `field` - (Optional) For the `spread` placement strategy, valid values are `instanceId` (or `host`,
  *  which has the same effect), or any platform or custom attribute that is applied to a container instance.
  *  For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
  *  needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
- * 
+ *
  * > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
- * 
+ *
  * ## placementConstraints
- * 
+ *
  * `placementConstraints` support the following:
- * 
+ *
  * * `type` - (Required) The type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
  * * `expression` -  (Optional) Cluster Query Language expression to apply to the constraint. Does not need to be specified
  * for the `distinctInstance` type.
  * For more information, see [Cluster Query Language in the Amazon EC2 Container
  * Service Developer
  * Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
- * 
+ *
  * ## networkConfiguration
- * 
+ *
  * `networkConfiguration` support the following:
- * 
+ *
  * * `subnets` - (Required) The subnets associated with the task or service.
  * * `securityGroups` - (Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
  * * `assignPublicIp` - (Optional) Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
- * 
+ *
  * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
- * 
+ *
  * ## serviceRegistries
- * 
+ *
  * `serviceRegistries` support the following:
- * 
+ *
  * * `registryArn` - (Required) The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
  * * `port` - (Optional) The port value used if your Service Discovery service specified an SRV record.
  * * `containerPort` - (Optional) The port value, already specified in the task definition, to be used for your service discovery service.

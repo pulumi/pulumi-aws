@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sqlInjectionMatchSet = new aws.wafregional.SqlInjectionMatchSet("sqlInjectionMatchSet", {
  *     sqlInjectionMatchTuples: [{
  *         fieldToMatch: {

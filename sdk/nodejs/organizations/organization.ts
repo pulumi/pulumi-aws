@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to create an organization.
- * 
+ *
  * ## Example Usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const org = new aws.organizations.Organization("org", {
  *     awsServiceAccessPrincipals: [
  *         "cloudtrail.amazonaws.com",

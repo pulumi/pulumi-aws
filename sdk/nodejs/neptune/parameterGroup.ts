@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Neptune Parameter Group
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.neptune.ParameterGroup("example", {
  *     family: "neptune1",
  *     parameters: [{

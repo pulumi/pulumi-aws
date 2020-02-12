@@ -6,45 +6,44 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {InstanceType} from "./instanceType";
-import {StorageType} from "./storageType";
+import {InstanceType, StorageType} from "./index";
 
 /**
  * Provides an RDS instance resource.  A DB instance is an isolated database
  * environment in the cloud.  A DB instance can contain multiple user-created
  * databases.
- * 
+ *
  * Changes to a DB instance can occur when you manually change a parameter, such as
  * `allocatedStorage`, and are reflected in the next maintenance window. Because
  * of this, this provider may report a difference in its planning phase because a
  * modification has not yet taken place. You can use the `applyImmediately` flag
  * to instruct the service to apply the change immediately (see documentation
  * below).
- * 
+ *
  * When upgrading the major version of an engine, `allowMajorVersionUpgrade`
  * must be set to `true`.
- * 
+ *
  * > **Note:** using `applyImmediately` can result in a brief downtime as the
  * server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
- * 
+ *
  * > **Note:** All arguments including the username and password will be stored in
  * the raw state as plain-text. [Read more about sensitive data in
  * state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## RDS Instance Class Types
- * 
+ *
  * Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
  * and Burstable Performance. For more information please read the AWS RDS documentation
  * about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 20,
  *     engine: "mysql",
@@ -57,15 +56,15 @@ import {StorageType} from "./storageType";
  *     username: "foo",
  * });
  * ```
- * 
+ *
  * ### Storage Autoscaling
- * 
+ *
  * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.rds.Instance("example", {
  *     allocatedStorage: 50,
  *     maxAllocatedStorage: 100,
@@ -692,7 +691,7 @@ export interface InstanceState {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass?: pulumi.Input<string | InstanceType>;
+    readonly instanceClass?: pulumi.Input<string> | pulumi.Input<InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
@@ -834,7 +833,7 @@ export interface InstanceState {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | StorageType>;
+    readonly storageType?: pulumi.Input<string> | pulumi.Input<StorageType>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -985,7 +984,7 @@ export interface InstanceArgs {
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass: pulumi.Input<string | InstanceType>;
+    readonly instanceClass: pulumi.Input<string> | pulumi.Input<InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
@@ -1118,7 +1117,7 @@ export interface InstanceArgs {
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | StorageType>;
+    readonly storageType?: pulumi.Input<string> | pulumi.Input<StorageType>;
     /**
      * A mapping of tags to assign to the resource.
      */

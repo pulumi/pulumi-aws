@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS Cognito Identity Pool Roles Attachment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainIdentityPool = new aws.cognito.IdentityPool("main", {
  *     allowUnauthenticatedIdentities: false,
  *     identityPoolName: "identity pool",

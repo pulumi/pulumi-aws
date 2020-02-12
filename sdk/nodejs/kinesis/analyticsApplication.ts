@@ -6,20 +6,20 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
  * allows processing and analyzing streaming data using standard SQL.
- * 
+ *
  * For more details, see the [Amazon Kinesis Analytics Documentation][1].
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testStream = new aws.kinesis.Stream("testStream", {
  *     shardCount: 1,
  * });

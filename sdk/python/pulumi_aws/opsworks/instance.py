@@ -38,12 +38,12 @@ class Instance(pulumi.CustomResource):
     """
     Additional EBS block devices to attach to the
     instance.  See Block Devices below for details.
-    
+
       * `deleteOnTermination` (`bool`)
-      * `device_name` (`str`)
+      * `deviceName` (`str`)
       * `iops` (`float`)
-      * `snapshot_id` (`str`)
-      * `volume_size` (`float`)
+      * `snapshotId` (`str`)
+      * `volumeSize` (`float`)
       * `volumeType` (`str`)
     """
     ebs_optimized: pulumi.Output[bool]
@@ -60,8 +60,8 @@ class Instance(pulumi.CustomResource):
     """
     Customize Ephemeral (also known as
     "Instance Store") volumes on the instance. See Block Devices below for details.
-    
-      * `device_name` (`str`)
+
+      * `deviceName` (`str`)
       * `virtualName` (`str`)
     """
     hostname: pulumi.Output[str]
@@ -116,10 +116,10 @@ class Instance(pulumi.CustomResource):
     """
     Customize details about the root block
     device of the instance. See Block Devices below for details.
-    
+
       * `deleteOnTermination` (`bool`)
       * `iops` (`float`)
-      * `volume_size` (`float`)
+      * `volumeSize` (`float`)
       * `volumeType` (`str`)
     """
     root_device_type: pulumi.Output[str]
@@ -162,16 +162,16 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, agent_version=None, ami_id=None, architecture=None, auto_scaling_type=None, availability_zone=None, created_at=None, delete_ebs=None, delete_eip=None, ebs_block_devices=None, ebs_optimized=None, ecs_cluster_arn=None, elastic_ip=None, ephemeral_block_devices=None, hostname=None, infrastructure_class=None, install_updates_on_boot=None, instance_profile_arn=None, instance_type=None, last_service_error_id=None, layer_ids=None, os=None, platform=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, registered_by=None, reported_agent_version=None, reported_os_family=None, reported_os_name=None, reported_os_version=None, root_block_devices=None, root_device_type=None, root_device_volume_id=None, security_group_ids=None, ssh_host_dsa_key_fingerprint=None, ssh_host_rsa_key_fingerprint=None, ssh_key_name=None, stack_id=None, state=None, status=None, subnet_id=None, tenancy=None, virtualization_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks instance resource.
-        
+
         ## Block devices
-        
+
         Each of the `*_block_device` attributes controls a portion of the AWS
         Instance's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
         Mapping docs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
         to understand the implications of using these attributes.
-        
+
         The `root_block_device` mapping supports the following:
-        
+
         * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
           or `"io1"`. (Default: `"standard"`).
         * `volume_size` - (Optional) The size of the volume in gigabytes.
@@ -180,12 +180,12 @@ class Instance(pulumi.CustomResource):
           This must be set with a `volume_type` of `"io1"`.
         * `delete_on_termination` - (Optional) Whether the volume should be destroyed
           on instance termination (Default: `true`).
-        
+
         Modifying any of the `root_block_device` settings requires resource
         replacement.
-        
+
         Each `ebs_block_device` supports the following:
-        
+
         * `device_name` - The name of the device to mount.
         * `snapshot_id` - (Optional) The Snapshot ID to mount.
         * `volume_type` - (Optional) The type of volume. Can be `"standard"`, `"gp2"`,
@@ -196,27 +196,29 @@ class Instance(pulumi.CustomResource):
           This must be set with a `volume_type` of `"io1"`.
         * `delete_on_termination` - (Optional) Whether the volume should be destroyed
           on instance termination (Default: `true`).
-        
+
         Modifying any `ebs_block_device` currently requires resource replacement.
-        
+
         Each `ephemeral_block_device` supports the following:
-        
+
         * `device_name` - The name of the block device to mount on the instance.
         * `virtual_name` - The [Instance Store Device
           Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
           (e.g. `"ephemeral0"`)
-        
+
         Each AWS Instance type has a different set of Instance Store block devices
         available for attachment. AWS [publishes a
         list](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
         of which ephemeral devices are available on each type. The devices are always
         identified by the `virtual_name` in the format `"ephemeral{0..N}"`.
-        
+
         > **NOTE:** Currently, changes to `*_block_device` configuration of _existing_
         resources cannot be automatically detected by this provider. After making updates
         to block device configuration, resource recreation can be manually triggered by
         using the [`taint` command](https://www.terraform.io/docs/commands/taint.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_version: The AWS OpsWorks agent to install.  Defaults to `"INHERIT"`.
@@ -253,29 +255,27 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] tenancy: Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either `"paravirtual"` or `"hvm"`.
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
+          * `deviceName` (`pulumi.Input[str]`)
           * `iops` (`pulumi.Input[float]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
-        
-        The **ephemeral_block_devices** object supports the following:
-        
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
-        
-        The **root_block_devices** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `snapshotId` (`pulumi.Input[str]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
+        The **ephemeral_block_devices** object supports the following:
+
+          * `deviceName` (`pulumi.Input[str]`)
+          * `virtualName` (`pulumi.Input[str]`)
+
+        The **root_block_devices** object supports the following:
+
+          * `deleteOnTermination` (`pulumi.Input[bool]`)
+          * `iops` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
+          * `volumeType` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -354,7 +354,7 @@ class Instance(pulumi.CustomResource):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -393,33 +393,32 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] tenancy: Instance tenancy to use. Can be one of `"default"`, `"dedicated"` or `"host"`
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either `"paravirtual"` or `"hvm"`.
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
+          * `deviceName` (`pulumi.Input[str]`)
           * `iops` (`pulumi.Input[float]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
-        
-        The **ephemeral_block_devices** object supports the following:
-        
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
-        
-        The **root_block_devices** object supports the following:
-        
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `volume_size` (`pulumi.Input[float]`)
+          * `snapshotId` (`pulumi.Input[str]`)
+          * `volumeSize` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
+        The **ephemeral_block_devices** object supports the following:
+
+          * `deviceName` (`pulumi.Input[str]`)
+          * `virtualName` (`pulumi.Input[str]`)
+
+        The **root_block_devices** object supports the following:
+
+          * `deleteOnTermination` (`pulumi.Input[bool]`)
+          * `iops` (`pulumi.Input[float]`)
+          * `volumeSize` (`pulumi.Input[float]`)
+          * `volumeType` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["agent_version"] = agent_version
         __props__["ami_id"] = ami_id
         __props__["architecture"] = architecture

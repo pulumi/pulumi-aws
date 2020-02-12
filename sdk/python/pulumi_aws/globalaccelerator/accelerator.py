@@ -13,7 +13,7 @@ class Accelerator(pulumi.CustomResource):
     attributes: pulumi.Output[dict]
     """
     The attributes of the accelerator. Fields documented below.
-    
+
       * `flowLogsEnabled` (`bool`) - Indicates whether flow logs are enabled.
       * `flowLogsS3Bucket` (`str`) - The name of the Amazon S3 bucket for the flow logs.
       * `flowLogsS3Prefix` (`str`) - The prefix for the location in the Amazon S3 bucket for the flow logs.
@@ -29,8 +29,8 @@ class Accelerator(pulumi.CustomResource):
     ip_sets: pulumi.Output[list]
     """
     IP address set associated with the accelerator.
-    
-      * `ipAddresses` (`list`) - The array of IP addresses in the IP address set.
+
+      * `ip_addresses` (`list`) - The array of IP addresses in the IP address set.
       * `ipFamily` (`str`) - The types of IP addresses included in this IP set.
     """
     name: pulumi.Output[str]
@@ -40,21 +40,21 @@ class Accelerator(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, attributes=None, enabled=None, ip_address_type=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Global Accelerator accelerator.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
         :param pulumi.Input[str] ip_address_type: The value for the address type must be `IPV4`.
         :param pulumi.Input[str] name: The name of the accelerator.
-        
+
         The **attributes** object supports the following:
-        
+
           * `flowLogsEnabled` (`pulumi.Input[bool]`) - Indicates whether flow logs are enabled.
           * `flowLogsS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket for the flow logs.
           * `flowLogsS3Prefix` (`pulumi.Input[str]`) - The prefix for the location in the Amazon S3 bucket for the flow logs.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,7 +89,7 @@ class Accelerator(pulumi.CustomResource):
         """
         Get an existing Accelerator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,23 +98,22 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address_type: The value for the address type must be `IPV4`.
         :param pulumi.Input[list] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of the accelerator.
-        
+
         The **attributes** object supports the following:
-        
+
           * `flowLogsEnabled` (`pulumi.Input[bool]`) - Indicates whether flow logs are enabled.
           * `flowLogsS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket for the flow logs.
           * `flowLogsS3Prefix` (`pulumi.Input[str]`) - The prefix for the location in the Amazon S3 bucket for the flow logs.
-        
-        The **ip_sets** object supports the following:
-        
-          * `ipAddresses` (`pulumi.Input[list]`) - The array of IP addresses in the IP address set.
-          * `ipFamily` (`pulumi.Input[str]`) - The types of IP addresses included in this IP set.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
+        The **ip_sets** object supports the following:
+
+          * `ip_addresses` (`pulumi.Input[list]`) - The array of IP addresses in the IP address set.
+          * `ipFamily` (`pulumi.Input[str]`) - The types of IP addresses included in this IP set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["attributes"] = attributes
         __props__["enabled"] = enabled
         __props__["ip_address_type"] = ip_address_type

@@ -12,9 +12,9 @@ import (
 )
 
 // Provides an Elastic Container Registry Repository Policy.
-// 
+//
 // Note that currently only one policy may be applied to a repository.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecr_repository_policy.html.markdown.
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState

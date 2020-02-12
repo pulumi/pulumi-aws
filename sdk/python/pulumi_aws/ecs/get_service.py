@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, cluster_arn=None, desired_count=None, launch_type=None, scheduling_strategy=None, service_name=None, task_definition=None, id=None):
+    def __init__(__self__, arn=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, scheduling_strategy=None, service_name=None, task_definition=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetServiceResult:
         __self__.desired_count = desired_count
         """
         The number of tasks for the ECS Service
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if launch_type and not isinstance(launch_type, str):
             raise TypeError("Expected argument 'launch_type' to be a str")
@@ -50,12 +56,6 @@ class GetServiceResult:
         """
         The family for the latest ACTIVE revision
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -65,23 +65,25 @@ class AwaitableGetServiceResult(GetServiceResult):
             arn=self.arn,
             cluster_arn=self.cluster_arn,
             desired_count=self.desired_count,
+            id=self.id,
             launch_type=self.launch_type,
             scheduling_strategy=self.scheduling_strategy,
             service_name=self.service_name,
-            task_definition=self.task_definition,
-            id=self.id)
+            task_definition=self.task_definition)
 
 def get_service(cluster_arn=None,service_name=None,opts=None):
     """
     The ECS Service data source allows access to details of a specific
     Service within a AWS ECS Cluster.
-    
-    :param str cluster_arn: The arn of the ECS Cluster
-    :param str service_name: The name of the ECS Service
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_service.html.markdown.
+
+
+    :param str cluster_arn: The arn of the ECS Cluster
+    :param str service_name: The name of the ECS Service
     """
     __args__ = dict()
+
 
     __args__['clusterArn'] = cluster_arn
     __args__['serviceName'] = service_name
@@ -95,8 +97,8 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
         arn=__ret__.get('arn'),
         cluster_arn=__ret__.get('clusterArn'),
         desired_count=__ret__.get('desiredCount'),
+        id=__ret__.get('id'),
         launch_type=__ret__.get('launchType'),
         scheduling_strategy=__ret__.get('schedulingStrategy'),
         service_name=__ret__.get('serviceName'),
-        task_definition=__ret__.get('taskDefinition'),
-        id=__ret__.get('id'))
+        task_definition=__ret__.get('taskDefinition'))

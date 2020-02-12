@@ -112,13 +112,15 @@ class ClusterInstance(pulumi.CustomResource):
         """
         Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
         attributes that are specific to a single instance in a [DocDB Cluster][1].
-        
+
         You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
         Instances and DocDB manages the replication. You can use the [count][3]
         meta-parameter to make multiple instances and join them all to the same DocDB
         Cluster, or you may specify different Cluster Instance resources with various
         `instance_class` sizes.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
@@ -142,8 +144,6 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[float] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -200,7 +200,7 @@ class ClusterInstance(pulumi.CustomResource):
         """
         Get an existing ClusterInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,12 +235,11 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the instance.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/docdb_cluster_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["apply_immediately"] = apply_immediately
         __props__["arn"] = arn
         __props__["auto_minor_version_upgrade"] = auto_minor_version_upgrade

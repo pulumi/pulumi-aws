@@ -8,29 +8,29 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the contents of the specified Systems Manager document.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * To get the contents of the document owned by AWS.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = aws.ssm.getDocument({
  *     documentFormat: "YAML",
  *     name: "AWS-GatherSoftwareInventory",
  * });
- * 
+ *
  * export const content = foo.content;
  * ```
- * 
+ *
  * To get the contents of the custom document.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = aws_ssm_document_test.name.apply(name => aws.ssm.getDocument({
  *     documentFormat: "JSON",
  *     name: name,
@@ -92,9 +92,9 @@ export interface GetDocumentResult {
      */
     readonly documentType: string;
     readonly documentVersion?: string;
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

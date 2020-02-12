@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ebsVolume = aws.ebs.getSnapshot({
  *     filters: [
  *         {
@@ -101,6 +101,10 @@ export interface GetSnapshotResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetSnapshotFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -136,8 +140,4 @@ export interface GetSnapshotResult {
      * The size of the drive in GiBs.
      */
     readonly volumeSize: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

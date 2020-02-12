@@ -17,7 +17,7 @@ class S3BucketAssociation(pulumi.CustomResource):
     classification_type: pulumi.Output[dict]
     """
     The configuration of how Amazon Macie classifies the S3 objects.
-    
+
       * `continuous` (`str`) - A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
         The only valid value is the default value, `FULL`.
       * `oneTime` (`str`) - A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
@@ -34,24 +34,24 @@ class S3BucketAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bucket_name=None, classification_type=None, member_account_id=None, prefix=None, __props__=None, __name__=None, __opts__=None):
         """
         Associates an S3 resource with Amazon Macie for monitoring and data classification.
-        
+
         > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket that you want to associate with Amazon Macie.
         :param pulumi.Input[dict] classification_type: The configuration of how Amazon Macie classifies the S3 objects.
         :param pulumi.Input[str] member_account_id: The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
         :param pulumi.Input[str] prefix: Object key prefix identifying one or more S3 objects to which the association applies.
-        
+
         The **classification_type** object supports the following:
-        
+
           * `continuous` (`pulumi.Input[str]`) - A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
             The only valid value is the default value, `FULL`.
           * `oneTime` (`pulumi.Input[str]`) - A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
             Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +87,7 @@ class S3BucketAssociation(pulumi.CustomResource):
         """
         Get an existing S3BucketAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -95,19 +95,18 @@ class S3BucketAssociation(pulumi.CustomResource):
         :param pulumi.Input[dict] classification_type: The configuration of how Amazon Macie classifies the S3 objects.
         :param pulumi.Input[str] member_account_id: The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
         :param pulumi.Input[str] prefix: Object key prefix identifying one or more S3 objects to which the association applies.
-        
+
         The **classification_type** object supports the following:
-        
+
           * `continuous` (`pulumi.Input[str]`) - A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
             The only valid value is the default value, `FULL`.
           * `oneTime` (`pulumi.Input[str]`) - A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
             Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/macie_s3_bucket_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bucket_name"] = bucket_name
         __props__["classification_type"] = classification_type
         __props__["member_account_id"] = member_account_id

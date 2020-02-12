@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an individual Service Quota.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.servicequotas.ServiceQuota("example", {
  *     quotaCode: "L-F678F1CE",
  *     serviceCode: "vpc",

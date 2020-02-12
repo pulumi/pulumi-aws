@@ -4,19 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM role.
- * 
+ *
  * > *NOTE:* If policies are attached to the role via the [`aws.iam.PolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy_attachment.html) and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The [`aws.iam.RolePolicyAttachment` resource (recommended)](https://www.terraform.io/docs/providers/aws/r/iam_role_policy_attachment.html) does not have this requirement.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testRole = new aws.iam.Role("testRole", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -37,13 +37,13 @@ import {PolicyDocument} from "./documents";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example of Using Data Source for Assume Role Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const instanceAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -202,7 +202,7 @@ export interface RoleState {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
+    readonly assumeRolePolicy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The creation date of the IAM role.
      */
@@ -253,7 +253,7 @@ export interface RoleArgs {
     /**
      * The policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
+    readonly assumeRolePolicy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The description of the role.
      */

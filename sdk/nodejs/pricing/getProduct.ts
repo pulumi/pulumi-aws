@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the pricing information of all products in AWS.
  * This data source is only available in a us-east-1 or ap-south-1 provider.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.pricing.getProduct({
  *     filters: [
  *         {
@@ -46,11 +46,11 @@ import * as utilities from "../utilities";
  *     serviceCode: "AmazonEC2",
  * });
  * ```
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.pricing.getProduct({
  *     filters: [
  *         {
@@ -104,12 +104,12 @@ export interface GetProductArgs {
 export interface GetProductResult {
     readonly filters: outputs.pricing.GetProductFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the product returned from the API.
      */
     readonly result: string;
     readonly serviceCode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

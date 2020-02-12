@@ -90,11 +90,14 @@ class AwaitableGetSubnetResult(GetSubnetResult):
 def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,default_for_az=None,filters=None,id=None,ipv6_cidr_block=None,state=None,tags=None,vpc_id=None,opts=None):
     """
     `ec2.Subnet` provides details about a specific VPC subnet.
-    
+
     This resource can prove useful when a module accepts a subnet id as
     an input variable and needs to, for example, determine the id of the
     VPC that the subnet belongs to.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
+
+
     :param str availability_zone: The availability zone where the
            subnet must reside.
     :param str availability_zone_id: The ID of the Availability Zone for the subnet.
@@ -108,18 +111,17 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired subnet.
     :param str vpc_id: The id of the VPC that the desired subnet belongs to.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
       * `values` (`list`) - Set of values that are accepted for the given field.
         A subnet will be selected if any one of the given values matches.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/subnet.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['availabilityZone'] = availability_zone
     __args__['availabilityZoneId'] = availability_zone_id

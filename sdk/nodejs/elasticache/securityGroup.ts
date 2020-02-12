@@ -2,24 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an ElastiCache Security Group to control access to one or more cache
  * clusters.
- * 
+ *
  * > **NOTE:** ElastiCache Security Groups are for use only when working with an
  * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
  * ElastiCache Subnet Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const barEc2SecurityGroup = new aws.ec2.SecurityGroup("bar", {});
  * const barSecurityGroup = new aws.elasticache.SecurityGroup("bar", {
  *     securityGroupNames: [barEc2SecurityGroup.name],

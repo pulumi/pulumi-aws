@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IoT policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy.html.markdown.
 type Policy struct {
 	pulumi.CustomResourceState

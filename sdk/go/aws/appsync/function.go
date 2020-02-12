@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AppSync Function.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appsync_function.html.markdown.
 type Function struct {
 	pulumi.CustomResourceState

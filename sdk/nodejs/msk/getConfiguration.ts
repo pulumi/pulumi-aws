@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Configuration.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.msk.getConfiguration({
  *     name: "example",
  * });
@@ -60,6 +60,10 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of Apache Kafka versions which can use this configuration.
      */
     readonly kafkaVersions: string[];
@@ -72,8 +76,4 @@ export interface GetConfigurationResult {
      * Contents of the server.properties file.
      */
     readonly serverProperties: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

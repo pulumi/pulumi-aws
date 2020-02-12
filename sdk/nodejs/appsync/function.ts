@@ -2,34 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an AppSync Function.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testGraphQLApi = new aws.appsync.GraphQLApi("test", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  *     putPost(id: ID!, title: String!): Post
  * }
- * 
+ *
  * type Post {
  *     id: ID!
  *     title: String!
  * }
- * 
+ *
  * type Query {
  *     singlePost(id: ID!): Post
  * }
- * 
+ *
  * schema {
  *     query: Query
  *     mutation: Mutation

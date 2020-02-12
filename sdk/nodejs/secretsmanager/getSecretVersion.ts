@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws.secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Retrieve Current Secret Version
- * 
+ *
  * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
  *     secretId: id,
  * }));
  * ```
- * 
+ *
  * ### Retrieve Specific Secret Version
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byVersionStage = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
  *     secretId: id,
  *     versionStage: "example",
@@ -82,6 +82,10 @@ export interface GetSecretVersionResult {
      */
     readonly arn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
      */
     readonly secretBinary: string;
@@ -96,8 +100,4 @@ export interface GetSecretVersionResult {
     readonly versionId: string;
     readonly versionStage?: string;
     readonly versionStages: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

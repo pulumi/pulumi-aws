@@ -9,13 +9,13 @@ import * as utilities from "./utilities";
 /**
  * The Autoscaling Groups data source allows access to the list of AWS
  * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const groups = aws.getAutoscalingGroups({
  *     filters: [
  *         {
@@ -78,11 +78,11 @@ export interface GetAutoscalingGroupsResult {
     readonly arns: string[];
     readonly filters?: outputs.GetAutoscalingGroupsFilter[];
     /**
-     * A list of the Autoscaling Groups in the current region.
-     */
-    readonly names: string[];
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A list of the Autoscaling Groups in the current region.
+     */
+    readonly names: string[];
 }

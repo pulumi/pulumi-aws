@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific redshift cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testCluster = aws.redshift.getCluster({
  *     clusterIdentifier: "test-cluster",
  * });
@@ -146,6 +146,10 @@ export interface GetClusterResult {
      */
     readonly iamRoles: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The KMS encryption key associated to the cluster
      */
     readonly kmsKeyId: string;
@@ -189,8 +193,4 @@ export interface GetClusterResult {
      * The VPC security group Ids associated with the cluster
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

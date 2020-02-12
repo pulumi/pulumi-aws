@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ec2 = new aws.budgets.Budget("ec2", {
  *     budgetType: "COST",
  *     costFilters: {
@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     timeUnit: "MONTHLY",
  * });
  * ```
- * 
+ *
  * Create a budget for *$100*.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cost = new aws.budgets.Budget("cost", {
  *     // ...
  *     budgetType: "COST",
@@ -48,13 +48,13 @@ import * as utilities from "../utilities";
  *     limitUnit: "USD",
  * });
  * ```
- * 
+ *
  * Create a budget for s3 with a limit of *3 GB* of storage.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const s3 = new aws.budgets.Budget("s3", {
  *     // ...
  *     budgetType: "USAGE",
@@ -62,13 +62,13 @@ import * as utilities from "../utilities";
  *     limitUnit: "GB",
  * });
  * ```
- * 
+ *
  * Create a Savings Plan Utilization Budget
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const savingsPlanUtilization = new aws.budgets.Budget("savingsPlanUtilization", {
  *     // ...
  *     budgetType: "SAVINGS_PLANS_UTILIZATION",
@@ -88,13 +88,13 @@ import * as utilities from "../utilities";
  *     limitUnit: "PERCENTAGE",
  * });
  * ```
- * 
+ *
  * Create a RI Utilization Budget
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const riUtilization = new aws.budgets.Budget("riUtilization", {
  *     // ...
  *     budgetType: "RI_UTILIZATION",

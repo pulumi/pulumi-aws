@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
@@ -9,13 +10,13 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * IAM group. By using this data source, you can reference IAM group
  * properties without having to hard code ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.iam.getGroup({
  *     groupName: "anExampleGroupName",
  * });
@@ -62,6 +63,10 @@ export interface GetGroupResult {
     readonly groupId: string;
     readonly groupName: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The path to the iam user.
      */
     readonly path: string;
@@ -69,8 +74,4 @@ export interface GetGroupResult {
      * List of objects containing group member information. See supported fields below.
      */
     readonly users: outputs.iam.GetGroupUser[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

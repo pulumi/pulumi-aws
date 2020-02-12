@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AWS Storage Gateway NFS File Share.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.storagegateway.NfsFileShare("example", {
  *     clientLists: ["0.0.0.0/0"],
  *     gatewayArn: aws_storagegateway_gateway_example.arn,

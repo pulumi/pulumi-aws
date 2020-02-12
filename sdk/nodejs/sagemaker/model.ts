@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker model resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const model = new aws.sagemaker.Model("m", {
  *     executionRoleArn: aws_iam_role_foo.arn,
  *     primaryContainer: {

@@ -4,17 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM policy attached to a group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDevelopers = new aws.iam.Group("myDevelopers", {
  *     path: "/users/",
  * });
@@ -139,7 +139,7 @@ export interface GroupPolicyState {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }
 
 /**
@@ -160,5 +160,5 @@ export interface GroupPolicyArgs {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }

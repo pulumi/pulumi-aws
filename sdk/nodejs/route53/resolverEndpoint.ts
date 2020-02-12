@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route 53 Resolver endpoint resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
  *     direction: "INBOUND",
  *     ipAddresses: [

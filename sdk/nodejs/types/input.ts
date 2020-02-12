@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 import {RoutingRule} from "../s3";
 
@@ -116,6 +117,9 @@ export interface ProviderEndpoint {
     iotevents?: pulumi.Input<string>;
     kafka?: pulumi.Input<string>;
     kinesis?: pulumi.Input<string>;
+    /**
+     * @deprecated use `endpoints` configuration block `kinesisanalytics` argument instead
+     */
     kinesisAnalytics?: pulumi.Input<string>;
     kinesisanalytics?: pulumi.Input<string>;
     kinesisvideo?: pulumi.Input<string>;
@@ -143,6 +147,9 @@ export interface ProviderEndpoint {
     pricing?: pulumi.Input<string>;
     qldb?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
+    /**
+     * @deprecated use `endpoints` configuration block `route53` argument instead
+     */
     r53?: pulumi.Input<string>;
     ram?: pulumi.Input<string>;
     rds?: pulumi.Input<string>;
@@ -177,7 +184,6 @@ export interface ProviderEndpoint {
     workspaces?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
 }
-
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
@@ -301,14 +307,14 @@ export namespace acmpca {
     }
 
     export interface GetCertificateAuthorityRevocationConfiguration {
-        crlConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
+        crlConfigurations: inputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
     }
 
     export interface GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
-        customCname?: string;
-        enabled?: boolean;
-        expirationInDays?: number;
-        s3BucketName?: string;
+        customCname: string;
+        enabled: boolean;
+        expirationInDays: number;
+        s3BucketName: string;
     }
 }
 
@@ -614,6 +620,8 @@ export namespace alb {
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         field?: pulumi.Input<string>;
         /**
@@ -642,6 +650,8 @@ export namespace alb {
         sourceIp?: pulumi.Input<inputs.alb.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         values?: pulumi.Input<string>;
     }
@@ -1280,6 +1290,8 @@ export namespace applicationloadbalancing {
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         field?: pulumi.Input<string>;
         /**
@@ -1308,6 +1320,8 @@ export namespace applicationloadbalancing {
         sourceIp?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         values?: pulumi.Input<string>;
     }
@@ -2956,6 +2970,7 @@ export namespace cloudhsmv2 {
         hsmCertificate?: pulumi.Input<string>;
         manufacturerHardwareCertificate?: pulumi.Input<string>;
     }
+
 }
 
 export namespace cloudtrail {
@@ -3921,6 +3936,8 @@ export namespace cognito {
         inviteMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate>;
         /**
          * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
+         *
+         * @deprecated Use password_policy.temporary_password_validity_days instead
          */
         unusedAccountValidityDays?: pulumi.Input<number>;
     }
@@ -4135,6 +4152,9 @@ export namespace cognito {
     }
 }
 
+export namespace config {
+}
+
 export namespace datasync {
     export interface EfsLocationEc2Config {
         /**
@@ -4265,6 +4285,7 @@ export namespace directoryservice {
          */
         vpcId: pulumi.Input<string>;
     }
+
 }
 
 export namespace dlm {
@@ -4369,8 +4390,8 @@ export namespace docdb {
 
 export namespace dynamodb {
     export interface GetTableServerSideEncryption {
-        enabled?: boolean;
-        kmsKeyArn?: string;
+        enabled: boolean;
+        kmsKeyArn: string;
     }
 
     export interface GlobalTableReplica {
@@ -5976,6 +5997,7 @@ export namespace efs {
          */
         transitionToIa?: pulumi.Input<string>;
     }
+
 }
 
 export namespace eks {
@@ -6013,9 +6035,6 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: pulumi.Input<boolean>;
-        /**
-         * <elided>
-         */
         publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
@@ -6175,6 +6194,7 @@ export namespace elasticbeanstalk {
         resource?: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace elasticloadbalancing {
@@ -6568,6 +6588,8 @@ export namespace elasticloadbalancingv2 {
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         field?: pulumi.Input<string>;
         /**
@@ -6596,6 +6618,8 @@ export namespace elasticloadbalancingv2 {
         sourceIp?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         values?: pulumi.Input<string>;
     }
@@ -6792,9 +6816,6 @@ export namespace elasticsearch {
          * Whether or not to require HTTPS
          */
         enforceHttps: pulumi.Input<boolean>;
-        /**
-         * <elided>
-         */
         tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
@@ -6872,6 +6893,7 @@ export namespace elasticsearch {
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
         vpcId?: pulumi.Input<string>;
     }
+
 }
 
 export namespace elastictranscoder {
@@ -9279,6 +9301,7 @@ export namespace lambda {
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         vpcId?: pulumi.Input<string>;
     }
+
 }
 
 export namespace lb {
@@ -9583,6 +9606,8 @@ export namespace lb {
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         field?: pulumi.Input<string>;
         /**
@@ -9611,6 +9636,8 @@ export namespace lb {
         sourceIp?: pulumi.Input<inputs.lb.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
         values?: pulumi.Input<string>;
     }
@@ -9875,9 +9902,10 @@ export namespace mq {
     }
 
     export interface GetBrokerLogs {
-        audit?: boolean;
-        general?: boolean;
+        audit: boolean;
+        general: boolean;
     }
+
 }
 
 export namespace msk {
@@ -9986,17 +10014,11 @@ export namespace neptune {
 
 export namespace opsworks {
     export interface ApplicationAppSource {
-        /**
-         * <elided>
-         */
         password?: pulumi.Input<string>;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: pulumi.Input<string>;
-        /**
-         * <elided>
-         */
         sshKey?: pulumi.Input<string>;
         /**
          * The type of source to use. For example, "archive".
@@ -11028,7 +11050,7 @@ export namespace s3 {
          * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
          */
-        routingRules?: pulumi.Input<string | RoutingRule[]>;
+        routingRules?: pulumi.Input<string> | pulumi.Input<pulumi.Input<RoutingRule>[]>;
     }
 
     export interface InventoryDestination {
@@ -11080,7 +11102,6 @@ export namespace s3 {
     }
 
     export interface InventoryDestinationBucketEncryptionSseS3 {
-    
     }
 
     export interface InventoryFilter {
@@ -12342,3 +12363,4 @@ export namespace workspaces {
         source: pulumi.Input<string>;
     }
 }
+

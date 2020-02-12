@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * The Batch Compute Environment data source allows access to details of a specific
  * compute environment within AWS Batch.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const batchMongo = aws.batch.getComputeEnvironment({
  *     computeEnvironmentName: "batch-mongo-production",
  * });
@@ -62,6 +62,10 @@ export interface GetComputeEnvironmentResult {
      */
     readonly ecsClusterArn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     readonly serviceRole: string;
@@ -81,8 +85,4 @@ export interface GetComputeEnvironmentResult {
      * The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

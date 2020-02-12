@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an AWS Cloudwatch Log Group
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.cloudwatch.getLogGroup({
  *     name: "MyImportantLogs",
  * });
@@ -62,6 +62,10 @@ export interface GetLogGroupResult {
      */
     readonly creationTime: number;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN of the KMS Key to use when encrypting log data.
      */
     readonly kmsKeyId: string;
@@ -74,8 +78,4 @@ export interface GetLogGroupResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

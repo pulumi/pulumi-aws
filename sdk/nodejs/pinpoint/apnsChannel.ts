@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint APNs Channel resource.
- * 
+ *
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const apns = new aws.pinpoint.ApnsChannel("apns", {
  *     applicationId: app.applicationId,

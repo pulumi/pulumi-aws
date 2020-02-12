@@ -40,24 +40,23 @@ class NodeGroup(pulumi.CustomResource):
     remote_access: pulumi.Output[dict]
     """
     Configuration block with remote access settings. Detailed below.
-    
+
       * `ec2SshKey` (`str`) - EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
       * `sourceSecurityGroupIds` (`list`) - Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
     """
     resources: pulumi.Output[list]
     """
     List of objects containing information about underlying resources.
-    
+
       * `autoscaling_groups` (`list`) - List of objects containing information about AutoScaling Groups.
-    
         * `name` (`str`) - Name of the AutoScaling Group.
-    
+
       * `remoteAccessSecurityGroupId` (`str`) - Identifier of the remote access EC2 Security Group.
     """
     scaling_config: pulumi.Output[dict]
     """
     Configuration block with scaling settings. Detailed below.
-    
+
       * `desiredSize` (`float`) - Desired number of worker nodes.
       * `max_size` (`float`) - Maximum number of worker nodes.
       * `min_size` (`float`) - Minimum number of worker nodes.
@@ -78,7 +77,9 @@ class NodeGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, ami_type=None, cluster_name=None, disk_size=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_access=None, scaling_config=None, subnet_ids=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_node_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
@@ -90,19 +91,17 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[list] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
-        
+
         The **remote_access** object supports the following:
-        
+
           * `ec2SshKey` (`pulumi.Input[str]`) - EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
           * `sourceSecurityGroupIds` (`pulumi.Input[list]`) - Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        
+
         The **scaling_config** object supports the following:
-        
+
           * `desiredSize` (`pulumi.Input[float]`) - Desired number of worker nodes.
           * `max_size` (`pulumi.Input[float]`) - Maximum number of worker nodes.
           * `min_size` (`pulumi.Input[float]`) - Minimum number of worker nodes.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_node_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -156,7 +155,7 @@ class NodeGroup(pulumi.CustomResource):
         """
         Get an existing NodeGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,31 +171,29 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[list] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
-        
+
         The **remote_access** object supports the following:
-        
+
           * `ec2SshKey` (`pulumi.Input[str]`) - EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
           * `sourceSecurityGroupIds` (`pulumi.Input[list]`) - Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
-        
+
         The **resources** object supports the following:
-        
+
           * `autoscaling_groups` (`pulumi.Input[list]`) - List of objects containing information about AutoScaling Groups.
-        
             * `name` (`pulumi.Input[str]`) - Name of the AutoScaling Group.
-        
+
           * `remoteAccessSecurityGroupId` (`pulumi.Input[str]`) - Identifier of the remote access EC2 Security Group.
-        
+
         The **scaling_config** object supports the following:
-        
+
           * `desiredSize` (`pulumi.Input[float]`) - Desired number of worker nodes.
           * `max_size` (`pulumi.Input[float]`) - Maximum number of worker nodes.
           * `min_size` (`pulumi.Input[float]`) - Minimum number of worker nodes.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_node_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["ami_type"] = ami_type
         __props__["arn"] = arn
         __props__["cluster_name"] = cluster_name

@@ -8,22 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.worklink.Fleet("example", {});
  * ```
- * 
+ *
  * Network Configuration Usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.worklink.Fleet("example", {
  *     network: {
  *         securityGroupIds: [aws_security_group_test.id],
@@ -32,14 +32,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * Identity Provider Configuration Usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const test = new aws.worklink.Fleet("test", {
  *     identityProvider: {
  *         samlMetadata: fs.readFileSync("saml-metadata.xml", "utf-8"),

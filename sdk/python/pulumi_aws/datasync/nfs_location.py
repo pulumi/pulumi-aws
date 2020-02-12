@@ -17,7 +17,7 @@ class NfsLocation(pulumi.CustomResource):
     on_prem_config: pulumi.Output[dict]
     """
     Configuration block containing information for connecting to the NFS File System.
-    
+
       * `agent_arns` (`list`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
     """
     server_hostname: pulumi.Output[str]
@@ -36,21 +36,21 @@ class NfsLocation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, on_prem_config=None, server_hostname=None, subdirectory=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an NFS Location within AWS DataSync.
-        
+
         > **NOTE:** The DataSync Agents must be available before creating this resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] on_prem_config: Configuration block containing information for connecting to the NFS File System.
         :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
-        
-        The **on_prem_config** object supports the following:
-        
-          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
+        The **on_prem_config** object supports the following:
+
+          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,7 +92,7 @@ class NfsLocation(pulumi.CustomResource):
         """
         Get an existing NfsLocation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,16 +101,15 @@ class NfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
-        
-        The **on_prem_config** object supports the following:
-        
-          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_nfs.html.markdown.
+        The **on_prem_config** object supports the following:
+
+          * `agent_arns` (`pulumi.Input[list]`) - List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["on_prem_config"] = on_prem_config
         __props__["server_hostname"] = server_hostname

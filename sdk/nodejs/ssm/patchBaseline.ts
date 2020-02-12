@@ -8,30 +8,30 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline resource
- * 
+ *
  * > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage using `approvedPatches` only
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
  * });
  * ```
- * 
+ *
  * Advanced usage, specifying patch filters
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvalRules: [
  *         {
@@ -90,13 +90,13 @@ import * as utilities from "../utilities";
  *     rejectedPatches: ["KB987654"],
  * });
  * ```
- * 
+ *
  * Advanced usage, specifying Microsoft application and Windows patch rules
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const windowsOsApps = new aws.ssm.PatchBaseline("windowsOsApps", {
  *     approvalRules: [
  *         {

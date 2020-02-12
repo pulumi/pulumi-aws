@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
  * instances to be requested on the Spot market.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Request a Spot fleet
  * const cheapCompute = new aws.ec2.SpotFleetRequest("cheapCompute", {
  *     allocationStrategy: "diversified",
@@ -51,14 +51,14 @@ import * as utilities from "../utilities";
  *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
- * 
+ *
  * > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
  * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ec2.SpotFleetRequest("foo", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
  *     launchSpecifications: [
@@ -142,7 +142,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly instanceInterruptionBehaviour!: pulumi.Output<string | undefined>;
     /**
-     * 
+     *
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -308,7 +308,7 @@ export interface SpotFleetRequestState {
      */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
-     * 
+     *
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -403,7 +403,7 @@ export interface SpotFleetRequestArgs {
      */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
-     * 
+     *
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across

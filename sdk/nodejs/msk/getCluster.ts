@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.msk.getCluster({
  *     clusterName: "example",
  * });
@@ -67,6 +67,10 @@ export interface GetClusterResult {
     readonly bootstrapBrokersTls: string;
     readonly clusterName: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Apache Kafka version.
      */
     readonly kafkaVersion: string;
@@ -82,8 +86,4 @@ export interface GetClusterResult {
      * A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     readonly zookeeperConnectString: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -4,26 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * Provides an SNS topic resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const userUpdates = new aws.sns.Topic("userUpdates", {});
  * ```
- * 
+ *
  * ## Example with Delivery Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const userUpdates = new aws.sns.Topic("userUpdates", {
  *     deliveryPolicy: `{
  *   "http": {
@@ -45,20 +45,20 @@ import {ARN} from "../index";
  * `,
  * });
  * ```
- * 
+ *
  * ##  Example with Server-side encryption (SSE)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const userUpdates = new aws.sns.Topic("userUpdates", {
  *     kmsMasterKeyId: "alias/aws/sns",
  * });
  * ```
- * 
+ *
  * ## Message Delivery Status Arguments
- * 
+ *
  * The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_topic.html.markdown.

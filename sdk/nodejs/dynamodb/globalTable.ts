@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
- * 
+ *
  * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const usEast1 = new aws.Provider("us-east-1", {
  *     region: "us-east-1",
  * });

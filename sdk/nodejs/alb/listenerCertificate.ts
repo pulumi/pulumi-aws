@@ -2,23 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener Certificate resource.
- * 
+ *
  * This resource is for additional certificates and does not replace the default certificate on the listener.
- * 
+ *
  * > **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleCertificate = new aws.acm.Certificate("example", {});
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {});

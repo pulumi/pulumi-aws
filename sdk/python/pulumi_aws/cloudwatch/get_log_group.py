@@ -13,7 +13,7 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, kms_key_id=None, name=None, retention_in_days=None, tags=None, id=None):
+    def __init__(__self__, arn=None, creation_time=None, id=None, kms_key_id=None, name=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -25,6 +25,12 @@ class GetLogGroupResult:
         __self__.creation_time = creation_time
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
@@ -47,12 +53,6 @@ class GetLogGroupResult:
         """
         A mapping of tags to assign to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLogGroupResult(GetLogGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -61,21 +61,23 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
         return GetLogGroupResult(
             arn=self.arn,
             creation_time=self.creation_time,
+            id=self.id,
             kms_key_id=self.kms_key_id,
             name=self.name,
             retention_in_days=self.retention_in_days,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_log_group(name=None,tags=None,opts=None):
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
-    
-    :param str name: The name of the Cloudwatch log group
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cloudwatch_log_group.html.markdown.
+
+
+    :param str name: The name of the Cloudwatch log group
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -88,8 +90,8 @@ def get_log_group(name=None,tags=None,opts=None):
     return AwaitableGetLogGroupResult(
         arn=__ret__.get('arn'),
         creation_time=__ret__.get('creationTime'),
+        id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
         name=__ret__.get('name'),
         retention_in_days=__ret__.get('retentionInDays'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

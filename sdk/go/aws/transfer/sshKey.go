@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a AWS Transfer User SSH Key resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_ssh_key.html.markdown.
 type SshKey struct {
 	pulumi.CustomResourceState

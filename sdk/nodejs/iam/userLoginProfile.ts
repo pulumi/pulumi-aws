@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
- * 
+ *
  * > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleUser = new aws.iam.User("example", {
  *     forceDestroy: true,
  *     path: "/",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:some_person_that_exists",
  *     user: exampleUser.name,
  * });
- * 
+ *
  * export const password = exampleUserLoginProfile.encryptedPassword;
  * ```
  *

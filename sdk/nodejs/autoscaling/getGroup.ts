@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing autoscaling group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = aws.autoscaling.getGroup({
  *     name: "foo",
  * });
@@ -73,6 +73,10 @@ export interface GetGroupResult {
      */
     readonly healthCheckType: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the associated launch configuration.
      */
     readonly launchConfiguration: string;
@@ -117,8 +121,4 @@ export interface GetGroupResult {
      * VPC ID for the group.
      */
     readonly vpcZoneIdentifier: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

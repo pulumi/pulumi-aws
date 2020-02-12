@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MQ Broker.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const brokerId = config.get("brokerId") || "";
  * const brokerName = config.get("brokerName") || "";
- * 
+ *
  * const byId = aws.mq.getBroker({
  *     brokerId: brokerId,
  * });
@@ -78,6 +78,10 @@ export interface GetBrokerResult {
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
     readonly logs?: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
@@ -86,8 +90,4 @@ export interface GetBrokerResult {
     readonly subnetIds: string[];
     readonly tags: {[key: string]: any};
     readonly users: outputs.mq.GetBrokerUser[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

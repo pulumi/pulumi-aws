@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- * 
+ *
  * Provides information about a Load Balancer.
- * 
+ *
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const lbArn = config.get("lbArn") || "";
  * const lbName = config.get("lbName") || "";
- * 
+ *
  * const test = aws.lb.getLoadBalancer({
  *     arn: lbArn,
  *     name: lbName,
@@ -75,6 +75,10 @@ export interface GetLoadBalancerResult {
     readonly arnSuffix: string;
     readonly dnsName: string;
     readonly enableDeletionProtection: boolean;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly internal: boolean;
     readonly loadBalancerType: string;
@@ -85,8 +89,4 @@ export interface GetLoadBalancerResult {
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
     readonly zoneId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

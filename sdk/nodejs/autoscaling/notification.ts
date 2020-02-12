@@ -2,25 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {NotificationType} from "./notificationType";
+import {NotificationType} from "./index";
 
 /**
  * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
  * the `notifications` map to a [Notification Configuration][2] inside Amazon Web
  * Services, and are applied to each AutoScaling Group you supply.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.sns.Topic("example", {});
  * const bar = new aws.autoscaling.Group("bar", {});
  * const foo = new aws.autoscaling.Group("foo", {});

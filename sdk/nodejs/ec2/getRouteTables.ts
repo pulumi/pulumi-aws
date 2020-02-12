@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * The following adds a route for a particular cidr block to every (private
  * kops) route table in a specified vpc to use a particular vpc peering
  * connection.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const rts = aws.ec2.getRouteTables({
  *     filters: [{
  *         name: "tag:kubernetes.io/kops/role",
@@ -81,13 +81,13 @@ export interface GetRouteTablesArgs {
 export interface GetRouteTablesResult {
     readonly filters?: outputs.ec2.GetRouteTablesFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the route table ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

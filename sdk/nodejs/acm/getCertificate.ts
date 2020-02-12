@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN of a certificate in AWS Certificate
  * Manager (ACM), you can reference
  * it by domain without having to hard code the ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Find a RSA 4096 bit certificate
  * const example = aws.acm.getCertificate({
  *     domain: "tf.example.com",
@@ -82,12 +82,12 @@ export interface GetCertificateResult {
      */
     readonly arn: string;
     readonly domain: string;
-    readonly keyTypes?: string[];
-    readonly mostRecent?: boolean;
-    readonly statuses?: string[];
-    readonly types?: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyTypes?: string[];
+    readonly mostRecent?: boolean;
+    readonly statuses?: string[];
+    readonly types?: string[];
 }

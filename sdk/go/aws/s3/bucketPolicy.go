@@ -12,7 +12,7 @@ import (
 )
 
 // Attaches a policy to an S3 bucket resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket_policy.html.markdown.
 type BucketPolicy struct {
 	pulumi.CustomResourceState

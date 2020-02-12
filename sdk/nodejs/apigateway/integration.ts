@@ -2,21 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an HTTP Method Integration for an API Gateway Integration.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
@@ -51,18 +49,18 @@ import {RestApi} from "./restApi";
  *     type: "MOCK",
  * });
  * ```
- * 
+ *
  * ## Lambda integration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * // Variables
  * const myregion = config.require("myregion");
  * const accountId = config.require("accountId");
- * 
+ *
  * // API Gateway
  * const api = new aws.apigateway.RestApi("api", {});
  * const resource = new aws.apigateway.Resource("resource", {
@@ -115,17 +113,17 @@ import {RestApi} from "./restApi";
  *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
  * });
  * ```
- * 
+ *
  * ## VPC Link
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const name = config.require("name");
  * const subnetId = config.require("subnetId");
- * 
+ *
  * const testLoadBalancer = new aws.lb.LoadBalancer("test", {
  *     internal: true,
  *     loadBalancerType: "network",

@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, cluster_name=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, settings=None, status=None, id=None):
+    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, settings=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -23,6 +23,12 @@ class GetClusterResult:
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         __self__.cluster_name = cluster_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if pending_tasks_count and not isinstance(pending_tasks_count, float):
             raise TypeError("Expected argument 'pending_tasks_count' to be a float")
         __self__.pending_tasks_count = pending_tasks_count
@@ -53,12 +59,6 @@ class GetClusterResult:
         """
         The status of the ECS Cluster
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -67,23 +67,25 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             arn=self.arn,
             cluster_name=self.cluster_name,
+            id=self.id,
             pending_tasks_count=self.pending_tasks_count,
             registered_container_instances_count=self.registered_container_instances_count,
             running_tasks_count=self.running_tasks_count,
             settings=self.settings,
-            status=self.status,
-            id=self.id)
+            status=self.status)
 
 def get_cluster(cluster_name=None,opts=None):
     """
     The ECS Cluster data source allows access to details of a specific
     cluster within an AWS ECS service.
-    
-    :param str cluster_name: The name of the ECS Cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_cluster.html.markdown.
+
+
+    :param str cluster_name: The name of the ECS Cluster
     """
     __args__ = dict()
+
 
     __args__['clusterName'] = cluster_name
     if opts is None:
@@ -95,9 +97,9 @@ def get_cluster(cluster_name=None,opts=None):
     return AwaitableGetClusterResult(
         arn=__ret__.get('arn'),
         cluster_name=__ret__.get('clusterName'),
+        id=__ret__.get('id'),
         pending_tasks_count=__ret__.get('pendingTasksCount'),
         registered_container_instances_count=__ret__.get('registeredContainerInstancesCount'),
         running_tasks_count=__ret__.get('runningTasksCount'),
         settings=__ret__.get('settings'),
-        status=__ret__.get('status'),
-        id=__ret__.get('id'))
+        status=__ret__.get('status'))

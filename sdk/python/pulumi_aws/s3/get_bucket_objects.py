@@ -13,7 +13,7 @@ class GetBucketObjectsResult:
     """
     A collection of values returned by getBucketObjects.
     """
-    def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, keys=None, max_keys=None, owners=None, prefix=None, start_after=None, id=None):
+    def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, start_after=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         __self__.bucket = bucket
@@ -32,6 +32,12 @@ class GetBucketObjectsResult:
         if fetch_owner and not isinstance(fetch_owner, bool):
             raise TypeError("Expected argument 'fetch_owner' to be a bool")
         __self__.fetch_owner = fetch_owner
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if keys and not isinstance(keys, list):
             raise TypeError("Expected argument 'keys' to be a list")
         __self__.keys = keys
@@ -53,12 +59,6 @@ class GetBucketObjectsResult:
         if start_after and not isinstance(start_after, str):
             raise TypeError("Expected argument 'start_after' to be a str")
         __self__.start_after = start_after
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetBucketObjectsResult(GetBucketObjectsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -70,17 +70,18 @@ class AwaitableGetBucketObjectsResult(GetBucketObjectsResult):
             delimiter=self.delimiter,
             encoding_type=self.encoding_type,
             fetch_owner=self.fetch_owner,
+            id=self.id,
             keys=self.keys,
             max_keys=self.max_keys,
             owners=self.owners,
             prefix=self.prefix,
-            start_after=self.start_after,
-            id=self.id)
+            start_after=self.start_after)
 
 def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner=None,max_keys=None,prefix=None,start_after=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
-    
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
+
+
     :param str bucket: Lists object keys in this S3 bucket
     :param str delimiter: A character used to group keys (Default: none)
     :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
@@ -88,10 +89,9 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
     :param float max_keys: Maximum object keys to return (Default: 1000)
     :param str prefix: Limits results to object keys with this prefix (Default: none)
     :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_objects.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['bucket'] = bucket
     __args__['delimiter'] = delimiter
@@ -112,9 +112,9 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
         delimiter=__ret__.get('delimiter'),
         encoding_type=__ret__.get('encodingType'),
         fetch_owner=__ret__.get('fetchOwner'),
+        id=__ret__.get('id'),
         keys=__ret__.get('keys'),
         max_keys=__ret__.get('maxKeys'),
         owners=__ret__.get('owners'),
         prefix=__ret__.get('prefix'),
-        start_after=__ret__.get('startAfter'),
-        id=__ret__.get('id'))
+        start_after=__ret__.get('startAfter'))

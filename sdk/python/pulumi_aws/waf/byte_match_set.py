@@ -15,16 +15,15 @@ class ByteMatchSet(pulumi.CustomResource):
     Specifies the bytes (typically a string that corresponds
     with ASCII characters) that you want to search for in web requests,
     the location in requests that you want to search, and other settings.
-    
+
       * `fieldToMatch` (`dict`) - The part of a web request that you want to search, such as a specified header or a query string.
-    
         * `data` (`str`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
           If `type` is any other value, omit this field.
         * `type` (`str`) - The part of the web request that you want AWS WAF to search for a specified string.
           e.g. `HEADER`, `METHOD` or `BODY`.
           See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
           for all supported values.
-    
+
       * `positionalConstraint` (`str`) - Within the portion of a web request that you want to search
         (for example, in the query string, if any), specify where you want to search.
         e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
@@ -46,25 +45,26 @@ class ByteMatchSet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, byte_match_tuples=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF Byte Match Set Resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] byte_match_tuples: Specifies the bytes (typically a string that corresponds
                with ASCII characters) that you want to search for in web requests,
                the location in requests that you want to search, and other settings.
         :param pulumi.Input[str] name: The name or description of the Byte Match Set.
-        
+
         The **byte_match_tuples** object supports the following:
-        
+
           * `fieldToMatch` (`pulumi.Input[dict]`) - The part of a web request that you want to search, such as a specified header or a query string.
-        
             * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
               If `type` is any other value, omit this field.
             * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string.
               e.g. `HEADER`, `METHOD` or `BODY`.
               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
               for all supported values.
-        
+
           * `positionalConstraint` (`pulumi.Input[str]`) - Within the portion of a web request that you want to search
             (for example, in the query string, if any), specify where you want to search.
             e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
@@ -78,8 +78,6 @@ class ByteMatchSet(pulumi.CustomResource):
             e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
             See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
             for all supported values.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +109,7 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         Get an existing ByteMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,18 +117,17 @@ class ByteMatchSet(pulumi.CustomResource):
                with ASCII characters) that you want to search for in web requests,
                the location in requests that you want to search, and other settings.
         :param pulumi.Input[str] name: The name or description of the Byte Match Set.
-        
+
         The **byte_match_tuples** object supports the following:
-        
+
           * `fieldToMatch` (`pulumi.Input[dict]`) - The part of a web request that you want to search, such as a specified header or a query string.
-        
             * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
               If `type` is any other value, omit this field.
             * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string.
               e.g. `HEADER`, `METHOD` or `BODY`.
               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
               for all supported values.
-        
+
           * `positionalConstraint` (`pulumi.Input[str]`) - Within the portion of a web request that you want to search
             (for example, in the query string, if any), specify where you want to search.
             e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
@@ -144,12 +141,11 @@ class ByteMatchSet(pulumi.CustomResource):
             e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
             See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
             for all supported values.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_byte_match_set.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["byte_match_tuples"] = byte_match_tuples
         __props__["name"] = name
         return ByteMatchSet(resource_name, opts=opts, __props__=__props__)

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an OpsWorks Ganglia layer resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_ganglia_layer.html.markdown.
 type GangliaLayer struct {
 	pulumi.CustomResourceState

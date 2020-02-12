@@ -9,15 +9,15 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get the access to the effective Account ID, User ID, and ARN in
  * which this provider is authorized.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = aws.getCallerIdentity();
- * 
+ *
  * export const accountId = current.accountId;
  * export const callerArn = current.arn;
  * export const callerUser = current.userId;
@@ -52,11 +52,11 @@ export interface GetCallerIdentityResult {
      */
     readonly arn: string;
     /**
-     * The unique identifier of the calling entity.
-     */
-    readonly userId: string;
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The unique identifier of the calling entity.
+     */
+    readonly userId: string;
 }

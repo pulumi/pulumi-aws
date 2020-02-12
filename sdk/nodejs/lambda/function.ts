@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
+import {ARN} from "..";
 
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
@@ -43,6 +43,10 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     */
+    public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
+    /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
     public readonly deadLetterConfig!: pulumi.Output<outputs.lambda.FunctionDeadLetterConfig | undefined>;
@@ -54,14 +58,6 @@ export class Function extends pulumi.CustomResource {
      * The Lambda environment's configuration settings. Fields documented below.
      */
     public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
-    /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-     */
-    public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
-    /**
-     * A unique name for your Lambda Function.
-     */
-    public readonly name!: pulumi.Output<string>;
     /**
      * The function [entrypoint][3] in your code.
      */
@@ -86,6 +82,10 @@ export class Function extends pulumi.CustomResource {
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
     public readonly memorySize!: pulumi.Output<number | undefined>;
+    /**
+     * A unique name for your Lambda Function.
+     */
+    public readonly name!: pulumi.Output<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
@@ -158,17 +158,17 @@ export class Function extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as FunctionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["code"] = state ? state.code : undefined;
             inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["environment"] = state ? state.environment : undefined;
-            inputs["code"] = state ? state.code : undefined;
-            inputs["name"] = state ? state.name : undefined;
             inputs["handler"] = state ? state.handler : undefined;
             inputs["invokeArn"] = state ? state.invokeArn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["lastModified"] = state ? state.lastModified : undefined;
             inputs["layers"] = state ? state.layers : undefined;
             inputs["memorySize"] = state ? state.memorySize : undefined;
+            inputs["name"] = state ? state.name : undefined;
             inputs["publish"] = state ? state.publish : undefined;
             inputs["qualifiedArn"] = state ? state.qualifiedArn : undefined;
             inputs["reservedConcurrentExecutions"] = state ? state.reservedConcurrentExecutions : undefined;
@@ -195,15 +195,15 @@ export class Function extends pulumi.CustomResource {
             if (!args || args.runtime === undefined) {
                 throw new Error("Missing required property 'runtime'");
             }
+            inputs["code"] = args ? args.code : undefined;
             inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["environment"] = args ? args.environment : undefined;
-            inputs["code"] = args ? args.code : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["handler"] = args ? args.handler : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["layers"] = args ? args.layers : undefined;
             inputs["memorySize"] = args ? args.memorySize : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["publish"] = args ? args.publish : undefined;
             inputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             inputs["role"] = args ? args.role : undefined;
@@ -243,6 +243,10 @@ export interface FunctionState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     */
+    readonly code?: pulumi.Input<pulumi.asset.Archive>;
+    /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
     readonly deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig>;
@@ -254,14 +258,6 @@ export interface FunctionState {
      * The Lambda environment's configuration settings. Fields documented below.
      */
     readonly environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
-    /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-     */
-    readonly code?: pulumi.Input<pulumi.asset.Archive>;
-    /**
-     * A unique name for your Lambda Function.
-     */
-    readonly name?: pulumi.Input<string>;
     /**
      * The function [entrypoint][3] in your code.
      */
@@ -286,6 +282,10 @@ export interface FunctionState {
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
     readonly memorySize?: pulumi.Input<number>;
+    /**
+     * A unique name for your Lambda Function.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
@@ -351,6 +351,10 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
+     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+     */
+    readonly code?: pulumi.Input<pulumi.asset.Archive>;
+    /**
      * Nested block to configure the function's *dead letter queue*. See details below.
      */
     readonly deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig>;
@@ -362,14 +366,6 @@ export interface FunctionArgs {
      * The Lambda environment's configuration settings. Fields documented below.
      */
     readonly environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
-    /**
-     * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-     */
-    readonly code?: pulumi.Input<pulumi.asset.Archive>;
-    /**
-     * A unique name for your Lambda Function.
-     */
-    readonly name?: pulumi.Input<string>;
     /**
      * The function [entrypoint][3] in your code.
      */
@@ -386,6 +382,10 @@ export interface FunctionArgs {
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits][5]
      */
     readonly memorySize?: pulumi.Input<number>;
+    /**
+     * A unique name for your Lambda Function.
+     */
+    readonly name?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */

@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Load Balancer Listener resource.
- * 
+ *
  * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Forward Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  * });
  * ```
- * 
+ *
  * ### Redirect Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [{
@@ -55,13 +55,13 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Fixed-response Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {
  *     defaultActions: [{
@@ -77,13 +77,13 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Authenticate-cognito Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
  * const pool = new aws.cognito.UserPool("pool", {});
@@ -109,13 +109,13 @@ import * as utilities from "../utilities";
  *     protocol: "HTTP",
  * });
  * ```
- * 
+ *
  * ### Authenticate-oidc Action
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEnd", {});
  * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEnd", {});
  * const frontEndListener = new aws.lb.Listener("frontEnd", {

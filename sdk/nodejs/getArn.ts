@@ -8,13 +8,13 @@ import * as utilities from "./utilities";
 
 /**
  * Parses an Amazon Resource Name (ARN) into its constituent parts.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dbInstance = aws.getArn({
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
  * });
@@ -57,6 +57,10 @@ export interface GetArnResult {
     readonly account: string;
     readonly arn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The partition that the resource is in.
      */
     readonly partition: string;
@@ -74,8 +78,4 @@ export interface GetArnResult {
      * The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      */
     readonly service: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

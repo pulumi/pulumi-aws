@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const accepter = new aws.Provider("accepter", {});
  * const accepterCallerIdentity = aws.getCallerIdentity({provider: accepter});
  * // Creator's side of the VIF

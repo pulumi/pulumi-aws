@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to lookup information about IAM Server Certificates.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDomain = aws.iam.getServerCertificate({
  *     latest: true,
  *     namePrefix: "my-domain.org",
@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Import 
- * 
+ *
  * The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
  * It will not retrieve the private key which is not available through the AWS API.   
  *
@@ -86,14 +86,14 @@ export interface GetServerCertificateResult {
     readonly certificateBody: string;
     readonly certificateChain: string;
     readonly expirationDate: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly latest?: boolean;
     readonly name: string;
     readonly namePrefix?: string;
     readonly path: string;
     readonly pathPrefix?: string;
     readonly uploadDate: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

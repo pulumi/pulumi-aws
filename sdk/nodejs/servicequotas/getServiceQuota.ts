@@ -2,17 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Service Quota.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byQuotaCode = aws.servicequotas.getServiceQuota({
  *     quotaCode: "L-F678F1CE",
  *     serviceCode: "vpc",
@@ -80,6 +82,10 @@ export interface GetServiceQuotaResult {
      * Whether the service quota is global for the AWS account.
      */
     readonly globalQuota: boolean;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly quotaCode: string;
     readonly quotaName: string;
     readonly serviceCode: string;
@@ -91,8 +97,4 @@ export interface GetServiceQuotaResult {
      * Current value of the service quota.
      */
     readonly value: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -18,7 +18,7 @@ class Cluster(pulumi.CustomResource):
     * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
     * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
     * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-    
+
       * `awsHardwareCertificate` (`str`)
       * `clusterCertificate` (`str`)
       * `clusterCsr` (`str`)
@@ -60,24 +60,24 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, hsm_type=None, source_backup_identifier=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Amazon CloudHSM v2 cluster.
-        
+
         For information about CloudHSM v2, see the
         [AWS CloudHSM User Guide][1] and the [Amazon
         CloudHSM API Reference][2].
-        
+
         > **NOTE:** CloudHSM can take up to several minutes to be set up.
         Practically no single attribute can be updated except TAGS.
         If you need to delete a cluster, you have to remove its HSM modules first.
         To initialize cluster, you have to add an hsm instance to the cluster then sign CSR and upload it.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
         :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,7 +120,7 @@ class Cluster(pulumi.CustomResource):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,20 +138,19 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
-        
+
         The **cluster_certificates** object supports the following:
-        
+
           * `awsHardwareCertificate` (`pulumi.Input[str]`)
           * `clusterCertificate` (`pulumi.Input[str]`)
           * `clusterCsr` (`pulumi.Input[str]`)
           * `hsmCertificate` (`pulumi.Input[str]`)
           * `manufacturerHardwareCertificate` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudhsm_v2_cluster.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cluster_certificates"] = cluster_certificates
         __props__["cluster_id"] = cluster_id
         __props__["cluster_state"] = cluster_state

@@ -7,20 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
  * applied to the entire cluster of Neptune Cluster Instances.
- * 
+ *
  * Changes to a Neptune Cluster can occur when you manually change a
  * parameter, such as `backupRetentionPeriod`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
  * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.neptune.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
- * 
+ *
  * > **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
  *

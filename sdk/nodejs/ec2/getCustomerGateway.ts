@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get an existing AWS Customer Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = aws.ec2.getCustomerGateway({
  *     filters: [{
  *         name: "tag:Name",

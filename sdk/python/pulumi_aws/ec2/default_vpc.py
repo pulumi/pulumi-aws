@@ -81,15 +81,17 @@ class DefaultVpc(pulumi.CustomResource):
         """
         Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
         in the current region.
-        
+
         For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
         **This is an advanced resource**, and has special caveats to be aware of when
         using it. Please read this document in its entirety before using this resource.
-        
+
         The `ec2.DefaultVpc` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead "adopts" it
         into management.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
@@ -98,8 +100,6 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -146,7 +146,7 @@ class DefaultVpc(pulumi.CustomResource):
         """
         Get an existing DefaultVpc resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,12 +170,11 @@ class DefaultVpc(pulumi.CustomResource):
                [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["assign_generated_ipv6_cidr_block"] = assign_generated_ipv6_cidr_block
         __props__["cidr_block"] = cidr_block

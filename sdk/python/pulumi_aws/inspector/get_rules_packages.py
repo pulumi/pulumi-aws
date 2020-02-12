@@ -45,6 +45,7 @@ def get_rules_packages(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

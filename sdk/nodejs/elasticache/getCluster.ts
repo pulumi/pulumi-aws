@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticache Cluster
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myCluster = aws.elasticache.getCluster({
  *     clusterId: "my-cluster-id",
  * });
@@ -81,6 +81,10 @@ export interface GetClusterResult {
      */
     readonly engineVersion: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      */
@@ -137,8 +141,4 @@ export interface GetClusterResult {
      * The tags assigned to the resource
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

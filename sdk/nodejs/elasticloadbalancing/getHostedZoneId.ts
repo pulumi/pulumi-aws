@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
  * in a given region for the purpose of using in an AWS Route53 Alias.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = aws.elb.getHostedZoneId();
  * const www = new aws.route53.Record("www", {
  *     aliases: [{
@@ -62,9 +62,9 @@ export interface GetHostedZoneIdArgs {
  * A collection of values returned by getHostedZoneId.
  */
 export interface GetHostedZoneIdResult {
-    readonly region?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

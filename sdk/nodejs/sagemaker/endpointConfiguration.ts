@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SageMaker endpoint configuration resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
+ *
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
  *     productionVariants: [{
  *         initialInstanceCount: 1,

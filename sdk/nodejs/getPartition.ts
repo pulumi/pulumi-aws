@@ -8,13 +8,13 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to lookup current AWS partition in which this provider is working
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = aws.getPartition();
  * const s3Policy = aws.iam.getPolicyDocument({
  *     statements: [{
@@ -46,9 +46,9 @@ export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionR
  */
 export interface GetPartitionResult {
     readonly dnsSuffix: string;
-    readonly partition: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly partition: string;
 }

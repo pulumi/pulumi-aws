@@ -21,9 +21,8 @@ class Listener(pulumi.CustomResource):
     default_actions: pulumi.Output[list]
     """
     An Action block. Action blocks are documented below.
-    
+
       * `authenticateCognito` (`dict`)
-    
         * `authenticationRequestExtraParams` (`dict`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         * `onUnauthenticatedRequest` (`str`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         * `scope` (`str`) - The set of user claims to be requested from the IdP.
@@ -32,9 +31,8 @@ class Listener(pulumi.CustomResource):
         * `userPoolArn` (`str`) - The ARN of the Cognito user pool.
         * `userPoolClientId` (`str`) - The ID of the Cognito user pool client.
         * `userPoolDomain` (`str`) - The domain prefix or fully-qualified domain name of the Cognito user pool.
-    
+
       * `authenticateOidc` (`dict`)
-    
         * `authenticationRequestExtraParams` (`dict`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         * `authorizationEndpoint` (`str`) - The authorization endpoint of the IdP.
         * `clientId` (`str`) - The OAuth 2.0 client identifier.
@@ -46,23 +44,21 @@ class Listener(pulumi.CustomResource):
         * `sessionTimeout` (`float`) - The maximum duration of the authentication session, in seconds.
         * `tokenEndpoint` (`str`) - The token endpoint of the IdP.
         * `userInfoEndpoint` (`str`) - The user info endpoint of the IdP.
-    
+
       * `fixedResponse` (`dict`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-    
         * `content_type` (`str`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
         * `messageBody` (`str`) - The message body.
         * `status_code` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-    
+
       * `order` (`float`)
       * `redirect` (`dict`) - Information for creating a redirect action. Required if `type` is `redirect`.
-    
         * `host` (`str`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
         * `path` (`str`) - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
         * `port` (`str`) - The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         * `protocol` (`str`) - The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         * `query` (`str`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         * `status_code` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-    
+
       * `target_group_arn` (`str`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
       * `type` (`str`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
     """
@@ -85,9 +81,11 @@ class Listener(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, certificate_arn=None, default_actions=None, load_balancer_arn=None, port=None, protocol=None, ssl_policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener resource.
-        
+
         > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
@@ -96,11 +94,10 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[float] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-        
+
         The **default_actions** object supports the following:
-        
+
           * `authenticateCognito` (`pulumi.Input[dict]`)
-        
             * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
             * `onUnauthenticatedRequest` (`pulumi.Input[str]`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
             * `scope` (`pulumi.Input[str]`) - The set of user claims to be requested from the IdP.
@@ -109,9 +106,8 @@ class Listener(pulumi.CustomResource):
             * `userPoolArn` (`pulumi.Input[str]`) - The ARN of the Cognito user pool.
             * `userPoolClientId` (`pulumi.Input[str]`) - The ID of the Cognito user pool client.
             * `userPoolDomain` (`pulumi.Input[str]`) - The domain prefix or fully-qualified domain name of the Cognito user pool.
-        
+
           * `authenticateOidc` (`pulumi.Input[dict]`)
-        
             * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
             * `authorizationEndpoint` (`pulumi.Input[str]`) - The authorization endpoint of the IdP.
             * `clientId` (`pulumi.Input[str]`) - The OAuth 2.0 client identifier.
@@ -123,27 +119,23 @@ class Listener(pulumi.CustomResource):
             * `sessionTimeout` (`pulumi.Input[float]`) - The maximum duration of the authentication session, in seconds.
             * `tokenEndpoint` (`pulumi.Input[str]`) - The token endpoint of the IdP.
             * `userInfoEndpoint` (`pulumi.Input[str]`) - The user info endpoint of the IdP.
-        
+
           * `fixedResponse` (`pulumi.Input[dict]`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        
             * `content_type` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        
+
           * `order` (`pulumi.Input[float]`)
           * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
-        
             * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
             * `path` (`pulumi.Input[str]`) - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
             * `port` (`pulumi.Input[str]`) - The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
             * `protocol` (`pulumi.Input[str]`) - The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
             * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        
+
           * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -188,7 +180,7 @@ class Listener(pulumi.CustomResource):
         """
         Get an existing Listener resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,11 +191,10 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[float] port: The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
         :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] ssl_policy: The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-        
+
         The **default_actions** object supports the following:
-        
+
           * `authenticateCognito` (`pulumi.Input[dict]`)
-        
             * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
             * `onUnauthenticatedRequest` (`pulumi.Input[str]`) - The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
             * `scope` (`pulumi.Input[str]`) - The set of user claims to be requested from the IdP.
@@ -212,9 +203,8 @@ class Listener(pulumi.CustomResource):
             * `userPoolArn` (`pulumi.Input[str]`) - The ARN of the Cognito user pool.
             * `userPoolClientId` (`pulumi.Input[str]`) - The ID of the Cognito user pool client.
             * `userPoolDomain` (`pulumi.Input[str]`) - The domain prefix or fully-qualified domain name of the Cognito user pool.
-        
+
           * `authenticateOidc` (`pulumi.Input[dict]`)
-        
             * `authenticationRequestExtraParams` (`pulumi.Input[dict]`) - The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
             * `authorizationEndpoint` (`pulumi.Input[str]`) - The authorization endpoint of the IdP.
             * `clientId` (`pulumi.Input[str]`) - The OAuth 2.0 client identifier.
@@ -226,31 +216,28 @@ class Listener(pulumi.CustomResource):
             * `sessionTimeout` (`pulumi.Input[float]`) - The maximum duration of the authentication session, in seconds.
             * `tokenEndpoint` (`pulumi.Input[str]`) - The token endpoint of the IdP.
             * `userInfoEndpoint` (`pulumi.Input[str]`) - The user info endpoint of the IdP.
-        
+
           * `fixedResponse` (`pulumi.Input[dict]`) - Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        
             * `content_type` (`pulumi.Input[str]`) - The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        
+
           * `order` (`pulumi.Input[float]`)
           * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
-        
             * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
             * `path` (`pulumi.Input[str]`) - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
             * `port` (`pulumi.Input[str]`) - The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
             * `protocol` (`pulumi.Input[str]`) - The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
             * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
-        
+
           * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["certificate_arn"] = certificate_arn
         __props__["default_actions"] = default_actions

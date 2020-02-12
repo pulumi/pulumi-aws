@@ -13,7 +13,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None, id=None):
+    def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if auth_token_enabled and not isinstance(auth_token_enabled, bool):
             raise TypeError("Expected argument 'auth_token_enabled' to be a bool")
         __self__.auth_token_enabled = auth_token_enabled
@@ -31,6 +31,12 @@ class GetReplicationGroupResult:
         __self__.configuration_endpoint_address = configuration_endpoint_address
         """
         The configuration endpoint address to allow host discovery.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if member_clusters and not isinstance(member_clusters, list):
             raise TypeError("Expected argument 'member_clusters' to be a list")
@@ -86,12 +92,6 @@ class GetReplicationGroupResult:
         """
         The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -101,6 +101,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             auth_token_enabled=self.auth_token_enabled,
             automatic_failover_enabled=self.automatic_failover_enabled,
             configuration_endpoint_address=self.configuration_endpoint_address,
+            id=self.id,
             member_clusters=self.member_clusters,
             node_type=self.node_type,
             number_cache_clusters=self.number_cache_clusters,
@@ -109,18 +110,19 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             replication_group_description=self.replication_group_description,
             replication_group_id=self.replication_group_id,
             snapshot_retention_limit=self.snapshot_retention_limit,
-            snapshot_window=self.snapshot_window,
-            id=self.id)
+            snapshot_window=self.snapshot_window)
 
 def get_replication_group(replication_group_id=None,opts=None):
     """
     Use this data source to get information about an Elasticache Replication Group.
-    
-    :param str replication_group_id: The identifier for the replication group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_replication_group.html.markdown.
+
+
+    :param str replication_group_id: The identifier for the replication group.
     """
     __args__ = dict()
+
 
     __args__['replicationGroupId'] = replication_group_id
     if opts is None:
@@ -133,6 +135,7 @@ def get_replication_group(replication_group_id=None,opts=None):
         auth_token_enabled=__ret__.get('authTokenEnabled'),
         automatic_failover_enabled=__ret__.get('automaticFailoverEnabled'),
         configuration_endpoint_address=__ret__.get('configurationEndpointAddress'),
+        id=__ret__.get('id'),
         member_clusters=__ret__.get('memberClusters'),
         node_type=__ret__.get('nodeType'),
         number_cache_clusters=__ret__.get('numberCacheClusters'),
@@ -141,5 +144,4 @@ def get_replication_group(replication_group_id=None,opts=None):
         replication_group_description=__ret__.get('replicationGroupDescription'),
         replication_group_id=__ret__.get('replicationGroupId'),
         snapshot_retention_limit=__ret__.get('snapshotRetentionLimit'),
-        snapshot_window=__ret__.get('snapshotWindow'),
-        id=__ret__.get('id'))
+        snapshot_window=__ret__.get('snapshotWindow'))

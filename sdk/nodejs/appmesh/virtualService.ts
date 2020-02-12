@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual service resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Virtual Node Provider
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const servicea = new aws.appmesh.VirtualService("servicea", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Virtual Router Provider
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const servicea = new aws.appmesh.VirtualService("servicea", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {

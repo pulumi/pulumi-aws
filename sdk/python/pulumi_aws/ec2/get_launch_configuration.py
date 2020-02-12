@@ -13,7 +13,7 @@ class GetLaunchConfigurationResult:
     """
     A collection of values returned by getLaunchConfiguration.
     """
-    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, id=None):
+    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -55,6 +55,12 @@ class GetLaunchConfigurationResult:
         __self__.iam_instance_profile = iam_instance_profile
         """
         The IAM Instance Profile to associate with launched instances.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")
@@ -122,12 +128,6 @@ class GetLaunchConfigurationResult:
         """
         The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -141,6 +141,7 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
             enable_monitoring=self.enable_monitoring,
             ephemeral_block_devices=self.ephemeral_block_devices,
             iam_instance_profile=self.iam_instance_profile,
+            id=self.id,
             image_id=self.image_id,
             instance_type=self.instance_type,
             key_name=self.key_name,
@@ -151,18 +152,19 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
             spot_price=self.spot_price,
             user_data=self.user_data,
             vpc_classic_link_id=self.vpc_classic_link_id,
-            vpc_classic_link_security_groups=self.vpc_classic_link_security_groups,
-            id=self.id)
+            vpc_classic_link_security_groups=self.vpc_classic_link_security_groups)
 
 def get_launch_configuration(name=None,opts=None):
     """
     Provides information about a Launch Configuration.
-    
-    :param str name: The name of the launch configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/launch_configuration.html.markdown.
+
+
+    :param str name: The name of the launch configuration.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -179,6 +181,7 @@ def get_launch_configuration(name=None,opts=None):
         enable_monitoring=__ret__.get('enableMonitoring'),
         ephemeral_block_devices=__ret__.get('ephemeralBlockDevices'),
         iam_instance_profile=__ret__.get('iamInstanceProfile'),
+        id=__ret__.get('id'),
         image_id=__ret__.get('imageId'),
         instance_type=__ret__.get('instanceType'),
         key_name=__ret__.get('keyName'),
@@ -189,5 +192,4 @@ def get_launch_configuration(name=None,opts=None):
         spot_price=__ret__.get('spotPrice'),
         user_data=__ret__.get('userData'),
         vpc_classic_link_id=__ret__.get('vpcClassicLinkId'),
-        vpc_classic_link_security_groups=__ret__.get('vpcClassicLinkSecurityGroups'),
-        id=__ret__.get('id'))
+        vpc_classic_link_security_groups=__ret__.get('vpcClassicLinkSecurityGroups'))

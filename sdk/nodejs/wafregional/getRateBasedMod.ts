@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.wafregional.getRateBasedMod({
  *     name: "tfWAFRegionalRateBasedRule",
  * });
@@ -51,9 +51,9 @@ export interface GetRateBasedModArgs {
  * A collection of values returned by getRateBasedMod.
  */
 export interface GetRateBasedModResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

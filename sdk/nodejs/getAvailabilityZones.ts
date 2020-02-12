@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * The Availability Zones data source allows access to the list of AWS
  * Availability Zones which can be accessed by an AWS account within the region
  * configured in the provider.
- * 
+ *
  * This is different from the `aws..getAvailabilityZone` (singular) data source,
  * which provides some details about a specific availability zone.
  *
@@ -62,6 +62,10 @@ export interface GetAvailabilityZonesResult {
     readonly blacklistedNames?: string[];
     readonly blacklistedZoneIds?: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of the Availability Zone names available to the account.
      */
     readonly names: string[];
@@ -70,8 +74,4 @@ export interface GetAvailabilityZonesResult {
      * A list of the Availability Zone IDs available to the account.
      */
     readonly zoneIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

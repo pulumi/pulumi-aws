@@ -13,19 +13,19 @@ class GetPartitionResult:
     """
     A collection of values returned by getPartition.
     """
-    def __init__(__self__, dns_suffix=None, partition=None, id=None):
+    def __init__(__self__, dns_suffix=None, id=None, partition=None):
         if dns_suffix and not isinstance(dns_suffix, str):
             raise TypeError("Expected argument 'dns_suffix' to be a str")
         __self__.dns_suffix = dns_suffix
-        if partition and not isinstance(partition, str):
-            raise TypeError("Expected argument 'partition' to be a str")
-        __self__.partition = partition
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if partition and not isinstance(partition, str):
+            raise TypeError("Expected argument 'partition' to be a str")
+        __self__.partition = partition
 class AwaitableGetPartitionResult(GetPartitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -33,8 +33,8 @@ class AwaitableGetPartitionResult(GetPartitionResult):
             yield self
         return GetPartitionResult(
             dns_suffix=self.dns_suffix,
-            partition=self.partition,
-            id=self.id)
+            id=self.id,
+            partition=self.partition)
 
 def get_partition(opts=None):
     """
@@ -44,6 +44,7 @@ def get_partition(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -52,5 +53,5 @@ def get_partition(opts=None):
 
     return AwaitableGetPartitionResult(
         dns_suffix=__ret__.get('dnsSuffix'),
-        partition=__ret__.get('partition'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        partition=__ret__.get('partition'))

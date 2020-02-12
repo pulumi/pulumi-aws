@@ -2,21 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a VPC DHCP Options resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dnsResolver = new aws.ec2.VpcDhcpOptions("dnsResolver", {
  *     domainNameServers: [
  *         "8.8.8.8",
@@ -24,13 +22,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * 
+ *
  * Full usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ec2.VpcDhcpOptions("foo", {
  *     domainName: "service.consul",
  *     domainNameServers: [
@@ -45,9 +43,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Remarks
- * 
+ *
  * * Notice that all arguments are optional but you have to specify at least one argument.
  * * `domainNameServers`, `netbiosNameServers`, `ntpServers` are limited by AWS to maximum four servers only.
  * * To actually use the DHCP Options Set you need to associate it to a VPC using [`aws.ec2.VpcDhcpOptionsAssociation`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).

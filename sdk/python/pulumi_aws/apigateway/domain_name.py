@@ -63,7 +63,7 @@ class DomainName(pulumi.CustomResource):
     endpoint_configuration: pulumi.Output[dict]
     """
     Configuration block defining API endpoint information including type. Defined below.
-    
+
       * `types` (`str`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
     """
     regional_certificate_arn: pulumi.Output[str]
@@ -95,34 +95,36 @@ class DomainName(pulumi.CustomResource):
         """
         Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
         can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-        
+
         This resource just establishes ownership of and the TLS settings for
         a particular domain name. An API can be attached to a particular path
         under the registered domain name using
         the `apigateway.BasePathMapping` resource.
-        
+
         API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
         API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
         addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
         (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfront_domain_name`
         attribute.
-        
+
         In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
         a distribution can be created if needed. In either case, it is necessary to create a DNS record corresponding to the
         given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
         the `regional_domain_name` attribute.
-        
+
         > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the [`acm.Certificate` resource](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html).
-        
+
         > **Note:** The `apigateway.DomainName` resource expects dependency on the `acm.CertificateValidation` as 
         only verified certificates can be used. This can be made either explicitly by adding the 
         `depends_on = [aws_acm_certificate_validation.cert]` attribute. Or implicitly by referring certificate ARN 
         from the validation resource where it will be available after the resource creation: 
         `regional_certificate_arn = aws_acm_certificate_validation.cert.certificate_arn`.
-        
+
         > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
@@ -145,12 +147,10 @@ class DomainName(pulumi.CustomResource):
                `certificate_private_key`.
         :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
-        The **endpoint_configuration** object supports the following:
-        
-          * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
+        The **endpoint_configuration** object supports the following:
+
+          * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -199,7 +199,7 @@ class DomainName(pulumi.CustomResource):
         """
         Get an existing DomainName resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,16 +231,15 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] regional_zone_id: The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         :param pulumi.Input[str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
-        The **endpoint_configuration** object supports the following:
-        
-          * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_domain_name.html.markdown.
+        The **endpoint_configuration** object supports the following:
+
+          * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["certificate_arn"] = certificate_arn
         __props__["certificate_body"] = certificate_body

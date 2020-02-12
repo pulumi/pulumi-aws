@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy Deployment Group for a CodeDeploy Application
- * 
+ *
  * > **NOTE on blue/green deployments:** When using `greenFleetProvisioningOption` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -72,13 +72,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Blue Green Deployments with ECS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {
  *     computePlatform: "ECS",
  * });
@@ -125,13 +125,13 @@ import * as utilities from "../utilities";
  *     serviceRoleArn: aws_iam_role_example.arn,
  * });
  * ```
- * 
+ *
  * ### Blue Green Deployments with Servers and Classic ELB
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleApplication = new aws.codedeploy.Application("example", {});
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
  *     appName: exampleApplication.name,

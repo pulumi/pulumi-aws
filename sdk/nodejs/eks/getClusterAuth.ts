@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an authentication token to communicate with an EKS cluster.
- * 
+ *
  * Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
  * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
  * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
@@ -45,13 +45,13 @@ export interface GetClusterAuthArgs {
  * A collection of values returned by getClusterAuth.
  */
 export interface GetClusterAuthResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The token to use to authenticate with the cluster.
      */
     readonly token: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -9,13 +9,13 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get the ID of a registered AMI for use in other
  * resources.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.getAmi({
  *     executableUsers: ["self"],
  *     filters: [
@@ -137,6 +137,10 @@ export interface GetAmiResult {
      */
     readonly hypervisor: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the AMI. Should be the same as the resource `id`.
      */
     readonly imageId: string;
@@ -227,8 +231,4 @@ export interface GetAmiResult {
      * `paravirtual`).
      */
     readonly virtualizationType: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

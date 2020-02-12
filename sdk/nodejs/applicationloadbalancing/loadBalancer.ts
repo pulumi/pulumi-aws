@@ -6,22 +6,21 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {IpAddressType} from "../alb/ipAddressType";
-import {LoadBalancerType} from "../alb/loadBalancerType";
+import {IpAddressType, LoadBalancerType} from "../alb";
 
 /**
  * Provides a Load Balancer resource.
- * 
+ *
  * > **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Application Load Balancer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.lb.LoadBalancer("test", {
  *     accessLogs: {
  *         bucket: aws_s3_bucket_lb_logs.bucket,
@@ -38,13 +37,13 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  *     },
  * });
  * ```
- * 
+ *
  * ### Network Load Balancer
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.lb.LoadBalancer("test", {
  *     enableDeletionProtection: true,
  *     internal: false,
@@ -55,13 +54,13 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  *     },
  * });
  * ```
- * 
+ *
  * ### Specifying Elastic IPs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.lb.LoadBalancer("example", {
  *     loadBalancerType: "network",
  *     subnetMappings: [

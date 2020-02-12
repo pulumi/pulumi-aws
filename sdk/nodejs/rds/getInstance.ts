@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an RDS instance
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const database = aws.rds.getInstance({
  *     dbInstanceIdentifier: "my-test-database",
  * });
@@ -131,6 +131,10 @@ export interface GetInstanceResult {
      */
     readonly hostedZoneId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the Provisioned IOPS (I/O operations per second) value.
      */
     readonly iops: number;
@@ -203,8 +207,4 @@ export interface GetInstanceResult {
      * Provides a list of VPC security group elements that the DB instance belongs to.
      */
     readonly vpcSecurityGroups: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

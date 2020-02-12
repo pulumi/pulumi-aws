@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Generate Python Script
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.all([aws_glue_catalog_database_source.name, aws_glue_catalog_table_source.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name]).apply(([aws_glue_catalog_database_sourceName, aws_glue_catalog_table_sourceName, aws_glue_catalog_database_destinationName, aws_glue_catalog_table_destinationName, aws_glue_catalog_database_destinationName1, aws_glue_catalog_table_destinationName1]) => aws.glue.getScript({
  *     dagEdges: [
  *         {
@@ -102,16 +102,16 @@ import * as utilities from "../utilities";
  *     ],
  *     language: "PYTHON",
  * }));
- * 
+ *
  * export const pythonScript = example.pythonScript;
  * ```
- * 
+ *
  * ### Generate Scala Code
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.all([aws_glue_catalog_database_source.name, aws_glue_catalog_table_source.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name]).apply(([aws_glue_catalog_database_sourceName, aws_glue_catalog_table_sourceName, aws_glue_catalog_database_destinationName, aws_glue_catalog_table_destinationName, aws_glue_catalog_database_destinationName1, aws_glue_catalog_table_destinationName1]) => aws.glue.getScript({
  *     dagEdges: [
  *         {
@@ -197,7 +197,7 @@ import * as utilities from "../utilities";
  *     ],
  *     language: "SCALA",
  * }));
- * 
+ *
  * export const scalaCode = example.scalaCode;
  * ```
  *
@@ -244,6 +244,10 @@ export interface GetScriptArgs {
 export interface GetScriptResult {
     readonly dagEdges: outputs.glue.GetScriptDagEdge[];
     readonly dagNodes: outputs.glue.GetScriptDagNode[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly language?: string;
     /**
      * The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
@@ -253,8 +257,4 @@ export interface GetScriptResult {
      * The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
     readonly scalaCode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

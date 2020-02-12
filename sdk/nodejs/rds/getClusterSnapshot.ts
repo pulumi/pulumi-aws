@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
- * 
+ *
  * > **NOTE:** This data source does not apply to snapshots created on DB Instances. 
  * See the [`aws.rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const developmentFinalSnapshot = aws.rds.getClusterSnapshot({
  *     dbClusterIdentifier: "developmentCluster",
  *     mostRecent: true,
@@ -125,6 +125,10 @@ export interface GetClusterSnapshotResult {
      * Version of the database engine for this DB cluster snapshot.
      */
     readonly engineVersion: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -162,8 +166,4 @@ export interface GetClusterSnapshotResult {
      * The VPC ID associated with the DB cluster snapshot.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

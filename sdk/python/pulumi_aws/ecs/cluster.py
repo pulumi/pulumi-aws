@@ -21,7 +21,7 @@ class Cluster(pulumi.CustomResource):
     default_capacity_provider_strategies: pulumi.Output[list]
     """
     The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
-    
+
       * `base` (`float`)
       * `capacityProvider` (`str`)
       * `weight` (`float`)
@@ -33,7 +33,7 @@ class Cluster(pulumi.CustomResource):
     settings: pulumi.Output[list]
     """
     Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
-    
+
       * `name` (`str`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
       * `value` (`str`)
     """
@@ -44,22 +44,24 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, capacity_providers=None, default_capacity_provider_strategies=None, name=None, settings=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an ECS cluster.
-        
+
         ## setting
-        
+
         The `setting` configuration block supports the following:
-        
+
         * `name` - (Required) Name of the setting to manage. Valid values: `containerInsights`.
         * `value` -  (Required) The value to assign to the setting. Value values are `enabled` and `disabled`.
-        
+
         ## default_capacity_provider_strategy
-        
+
         The `default_capacity_provider_strategy` configuration block supports the following:
-        
+
         * `capacity_provider` - (Required) The short name of the capacity provider.
         * `weight` - (Required) The relative percentage of the total number of launched tasks that should use the specified capacity provider.
         * `base` - (Optional) The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
@@ -67,19 +69,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **default_capacity_provider_strategies** object supports the following:
-        
+
           * `base` (`pulumi.Input[float]`)
           * `capacityProvider` (`pulumi.Input[str]`)
           * `weight` (`pulumi.Input[float]`)
-        
+
         The **settings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,7 +115,7 @@ class Cluster(pulumi.CustomResource):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,23 +125,22 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         :param pulumi.Input[list] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **default_capacity_provider_strategies** object supports the following:
-        
+
           * `base` (`pulumi.Input[float]`)
           * `capacityProvider` (`pulumi.Input[str]`)
           * `weight` (`pulumi.Input[float]`)
-        
+
         The **settings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_cluster.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["capacity_providers"] = capacity_providers
         __props__["default_capacity_provider_strategies"] = default_capacity_provider_strategies

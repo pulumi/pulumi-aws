@@ -2,19 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Redshift event subscription resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCluster = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "default",
  *     databaseName: "default",
@@ -36,11 +34,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Attributes
- * 
+ *
  * The following additional atttributes are provided:
- * 
+ *
  * * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
  * * `id` - The name of the Redshift event notification subscription
  * * `customerAwsId` - The AWS customer account associated with the Redshift event notification subscription

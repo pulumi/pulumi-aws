@@ -21,7 +21,7 @@ class App(pulumi.CustomResource):
     campaign_hook: pulumi.Output[dict]
     """
     The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
-    
+
       * `lambdaFunctionName` (`str`) - Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
       * `mode` (`str`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
       * `webUrl` (`str`) - Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
@@ -29,7 +29,7 @@ class App(pulumi.CustomResource):
     limits: pulumi.Output[dict]
     """
     The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
-    
+
       * `daily` (`float`) - The maximum number of messages that the campaign can send daily. 
       * `maximumDuration` (`float`) - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
       * `messages_per_second` (`float`) - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
@@ -46,7 +46,7 @@ class App(pulumi.CustomResource):
     quiet_time: pulumi.Output[dict]
     """
     The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
-    
+
       * `end` (`str`) - The default end time for quiet time in ISO 8601 format. Required if `start` is set
       * `start` (`str`) - The default start time for quiet time in ISO 8601 format. Required if `end` is set
     """
@@ -57,7 +57,9 @@ class App(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, campaign_hook=None, limits=None, name=None, name_prefix=None, quiet_time=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Pinpoint App resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] campaign_hook: The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -66,26 +68,24 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: The name of the Pinpoint application. Conflicts with `name`
         :param pulumi.Input[dict] quiet_time: The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **campaign_hook** object supports the following:
-        
+
           * `lambdaFunctionName` (`pulumi.Input[str]`) - Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
           * `mode` (`pulumi.Input[str]`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
           * `webUrl` (`pulumi.Input[str]`) - Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        
+
         The **limits** object supports the following:
-        
+
           * `daily` (`pulumi.Input[float]`) - The maximum number of messages that the campaign can send daily. 
           * `maximumDuration` (`pulumi.Input[float]`) - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
           * `messages_per_second` (`pulumi.Input[float]`) - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
           * `total` (`pulumi.Input[float]`) - The maximum total number of messages that the campaign can send.
-        
+
         The **quiet_time** object supports the following:
-        
+
           * `end` (`pulumi.Input[str]`) - The default end time for quiet time in ISO 8601 format. Required if `start` is set
           * `start` (`pulumi.Input[str]`) - The default start time for quiet time in ISO 8601 format. Required if `end` is set
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,7 +123,7 @@ class App(pulumi.CustomResource):
         """
         Get an existing App resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,30 +135,29 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: The name of the Pinpoint application. Conflicts with `name`
         :param pulumi.Input[dict] quiet_time: The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **campaign_hook** object supports the following:
-        
+
           * `lambdaFunctionName` (`pulumi.Input[str]`) - Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
           * `mode` (`pulumi.Input[str]`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
           * `webUrl` (`pulumi.Input[str]`) - Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        
+
         The **limits** object supports the following:
-        
+
           * `daily` (`pulumi.Input[float]`) - The maximum number of messages that the campaign can send daily. 
           * `maximumDuration` (`pulumi.Input[float]`) - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
           * `messages_per_second` (`pulumi.Input[float]`) - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
           * `total` (`pulumi.Input[float]`) - The maximum total number of messages that the campaign can send.
-        
+
         The **quiet_time** object supports the following:
-        
+
           * `end` (`pulumi.Input[str]`) - The default end time for quiet time in ISO 8601 format. Required if `start` is set
           * `start` (`pulumi.Input[str]`) - The default start time for quiet time in ISO 8601 format. Required if `end` is set
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_app.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_id"] = application_id
         __props__["arn"] = arn
         __props__["campaign_hook"] = campaign_hook

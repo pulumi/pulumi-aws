@@ -2,7 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
+
+import {RoutingRule} from "../s3";
 
 export interface GetAmiBlockDeviceMapping {
     deviceName: string;
@@ -45,28 +48,176 @@ export interface GetElasticIpFilter {
     values: string[];
 }
 
+export interface ProviderAssumeRole {
+    externalId?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
+    sessionName?: pulumi.Input<string>;
+}
+
+export interface ProviderEndpoint {
+    accessanalyzer?: pulumi.Input<string>;
+    acm?: pulumi.Input<string>;
+    acmpca?: pulumi.Input<string>;
+    amplify?: pulumi.Input<string>;
+    apigateway?: pulumi.Input<string>;
+    applicationautoscaling?: pulumi.Input<string>;
+    applicationinsights?: pulumi.Input<string>;
+    appmesh?: pulumi.Input<string>;
+    appstream?: pulumi.Input<string>;
+    appsync?: pulumi.Input<string>;
+    athena?: pulumi.Input<string>;
+    autoscaling?: pulumi.Input<string>;
+    autoscalingplans?: pulumi.Input<string>;
+    backup?: pulumi.Input<string>;
+    batch?: pulumi.Input<string>;
+    budgets?: pulumi.Input<string>;
+    cloud9?: pulumi.Input<string>;
+    cloudformation?: pulumi.Input<string>;
+    cloudfront?: pulumi.Input<string>;
+    cloudhsm?: pulumi.Input<string>;
+    cloudsearch?: pulumi.Input<string>;
+    cloudtrail?: pulumi.Input<string>;
+    cloudwatch?: pulumi.Input<string>;
+    cloudwatchevents?: pulumi.Input<string>;
+    cloudwatchlogs?: pulumi.Input<string>;
+    codebuild?: pulumi.Input<string>;
+    codecommit?: pulumi.Input<string>;
+    codedeploy?: pulumi.Input<string>;
+    codepipeline?: pulumi.Input<string>;
+    cognitoidentity?: pulumi.Input<string>;
+    cognitoidp?: pulumi.Input<string>;
+    configservice?: pulumi.Input<string>;
+    cur?: pulumi.Input<string>;
+    dataexchange?: pulumi.Input<string>;
+    datapipeline?: pulumi.Input<string>;
+    datasync?: pulumi.Input<string>;
+    dax?: pulumi.Input<string>;
+    devicefarm?: pulumi.Input<string>;
+    directconnect?: pulumi.Input<string>;
+    dlm?: pulumi.Input<string>;
+    dms?: pulumi.Input<string>;
+    docdb?: pulumi.Input<string>;
+    ds?: pulumi.Input<string>;
+    dynamodb?: pulumi.Input<string>;
+    ec2?: pulumi.Input<string>;
+    ecr?: pulumi.Input<string>;
+    ecs?: pulumi.Input<string>;
+    efs?: pulumi.Input<string>;
+    eks?: pulumi.Input<string>;
+    elasticache?: pulumi.Input<string>;
+    elasticbeanstalk?: pulumi.Input<string>;
+    elastictranscoder?: pulumi.Input<string>;
+    elb?: pulumi.Input<string>;
+    emr?: pulumi.Input<string>;
+    es?: pulumi.Input<string>;
+    firehose?: pulumi.Input<string>;
+    fms?: pulumi.Input<string>;
+    forecast?: pulumi.Input<string>;
+    fsx?: pulumi.Input<string>;
+    gamelift?: pulumi.Input<string>;
+    glacier?: pulumi.Input<string>;
+    globalaccelerator?: pulumi.Input<string>;
+    glue?: pulumi.Input<string>;
+    greengrass?: pulumi.Input<string>;
+    guardduty?: pulumi.Input<string>;
+    iam?: pulumi.Input<string>;
+    imagebuilder?: pulumi.Input<string>;
+    inspector?: pulumi.Input<string>;
+    iot?: pulumi.Input<string>;
+    iotanalytics?: pulumi.Input<string>;
+    iotevents?: pulumi.Input<string>;
+    kafka?: pulumi.Input<string>;
+    kinesis?: pulumi.Input<string>;
+    /**
+     * @deprecated use `endpoints` configuration block `kinesisanalytics` argument instead
+     */
+    kinesisAnalytics?: pulumi.Input<string>;
+    kinesisanalytics?: pulumi.Input<string>;
+    kinesisvideo?: pulumi.Input<string>;
+    kms?: pulumi.Input<string>;
+    lakeformation?: pulumi.Input<string>;
+    lambda?: pulumi.Input<string>;
+    lexmodels?: pulumi.Input<string>;
+    licensemanager?: pulumi.Input<string>;
+    lightsail?: pulumi.Input<string>;
+    macie?: pulumi.Input<string>;
+    managedblockchain?: pulumi.Input<string>;
+    marketplacecatalog?: pulumi.Input<string>;
+    mediaconnect?: pulumi.Input<string>;
+    mediaconvert?: pulumi.Input<string>;
+    medialive?: pulumi.Input<string>;
+    mediapackage?: pulumi.Input<string>;
+    mediastore?: pulumi.Input<string>;
+    mediastoredata?: pulumi.Input<string>;
+    mq?: pulumi.Input<string>;
+    neptune?: pulumi.Input<string>;
+    opsworks?: pulumi.Input<string>;
+    organizations?: pulumi.Input<string>;
+    personalize?: pulumi.Input<string>;
+    pinpoint?: pulumi.Input<string>;
+    pricing?: pulumi.Input<string>;
+    qldb?: pulumi.Input<string>;
+    quicksight?: pulumi.Input<string>;
+    /**
+     * @deprecated use `endpoints` configuration block `route53` argument instead
+     */
+    r53?: pulumi.Input<string>;
+    ram?: pulumi.Input<string>;
+    rds?: pulumi.Input<string>;
+    redshift?: pulumi.Input<string>;
+    resourcegroups?: pulumi.Input<string>;
+    route53?: pulumi.Input<string>;
+    route53resolver?: pulumi.Input<string>;
+    s3?: pulumi.Input<string>;
+    s3control?: pulumi.Input<string>;
+    sagemaker?: pulumi.Input<string>;
+    sdb?: pulumi.Input<string>;
+    secretsmanager?: pulumi.Input<string>;
+    securityhub?: pulumi.Input<string>;
+    serverlessrepo?: pulumi.Input<string>;
+    servicecatalog?: pulumi.Input<string>;
+    servicediscovery?: pulumi.Input<string>;
+    servicequotas?: pulumi.Input<string>;
+    ses?: pulumi.Input<string>;
+    shield?: pulumi.Input<string>;
+    sns?: pulumi.Input<string>;
+    sqs?: pulumi.Input<string>;
+    ssm?: pulumi.Input<string>;
+    stepfunctions?: pulumi.Input<string>;
+    storagegateway?: pulumi.Input<string>;
+    sts?: pulumi.Input<string>;
+    swf?: pulumi.Input<string>;
+    transfer?: pulumi.Input<string>;
+    waf?: pulumi.Input<string>;
+    wafregional?: pulumi.Input<string>;
+    wafv2?: pulumi.Input<string>;
+    worklink?: pulumi.Input<string>;
+    workspaces?: pulumi.Input<string>;
+    xray?: pulumi.Input<string>;
+}
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
          * A domain name for which the certificate should be issued
          */
-        domainName: string;
+        domainName?: pulumi.Input<string>;
         /**
          * The name of the DNS record to create to validate the certificate
          */
-        resourceRecordName: string;
+        resourceRecordName?: pulumi.Input<string>;
         /**
          * The type of DNS record to create
          */
-        resourceRecordType: string;
+        resourceRecordType?: pulumi.Input<string>;
         /**
          * The value the DNS record needs to have
          */
-        resourceRecordValue: string;
+        resourceRecordValue?: pulumi.Input<string>;
     }
 
     export interface CertificateOptions {
-        certificateTransparencyLoggingPreference?: string;
+        certificateTransparencyLoggingPreference?: pulumi.Input<string>;
     }
 }
 
@@ -75,96 +226,96 @@ export namespace acmpca {
         /**
          * Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
          */
-        keyAlgorithm: string;
+        keyAlgorithm: pulumi.Input<string>;
         /**
          * Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
          */
-        signingAlgorithm: string;
+        signingAlgorithm: pulumi.Input<string>;
         /**
          * Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
          */
-        subject: outputs.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubject;
+        subject: pulumi.Input<outputs.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubject>;
     }
 
     export interface CertificateAuthorityCertificateAuthorityConfigurationSubject {
         /**
          * Fully qualified domain name (FQDN) associated with the certificate subject.
          */
-        commonName?: string;
+        commonName?: pulumi.Input<string>;
         /**
          * Two digit code that specifies the country in which the certificate subject located.
          */
-        country?: string;
+        country?: pulumi.Input<string>;
         /**
          * Disambiguating information for the certificate subject.
          */
-        distinguishedNameQualifier?: string;
+        distinguishedNameQualifier?: pulumi.Input<string>;
         /**
          * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
          */
-        generationQualifier?: string;
+        generationQualifier?: pulumi.Input<string>;
         /**
          * First name.
          */
-        givenName?: string;
+        givenName?: pulumi.Input<string>;
         /**
          * Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`.
          */
-        initials?: string;
+        initials?: pulumi.Input<string>;
         /**
          * The locality (such as a city or town) in which the certificate subject is located.
          */
-        locality?: string;
+        locality?: pulumi.Input<string>;
         /**
          * Legal name of the organization with which the certificate subject is affiliated.
          */
-        organization?: string;
+        organization?: pulumi.Input<string>;
         /**
          * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
          */
-        organizationalUnit?: string;
+        organizationalUnit?: pulumi.Input<string>;
         /**
          * Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
          */
-        pseudonym?: string;
+        pseudonym?: pulumi.Input<string>;
         /**
          * State in which the subject of the certificate is located.
          */
-        state?: string;
+        state?: pulumi.Input<string>;
         /**
          * Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
          */
-        surname?: string;
+        surname?: pulumi.Input<string>;
         /**
          * A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
          */
-        title?: string;
+        title?: pulumi.Input<string>;
     }
 
     export interface CertificateAuthorityRevocationConfiguration {
         /**
          * Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
          */
-        crlConfiguration?: outputs.acmpca.CertificateAuthorityRevocationConfigurationCrlConfiguration;
+        crlConfiguration?: pulumi.Input<outputs.acmpca.CertificateAuthorityRevocationConfigurationCrlConfiguration>;
     }
 
     export interface CertificateAuthorityRevocationConfigurationCrlConfiguration {
         /**
          * Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
          */
-        customCname?: string;
+        customCname?: pulumi.Input<string>;
         /**
          * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Number of days until a certificate expires. Must be between 1 and 5000.
          */
-        expirationInDays: number;
+        expirationInDays: pulumi.Input<number>;
         /**
          * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
          */
-        s3BucketName?: string;
+        s3BucketName?: pulumi.Input<string>;
     }
 
     export interface GetCertificateAuthorityRevocationConfiguration {
@@ -263,464 +414,468 @@ export namespace alb {
     }
 
     export interface ListenerDefaultAction {
-        authenticateCognito?: outputs.alb.ListenerDefaultActionAuthenticateCognito;
-        authenticateOidc?: outputs.alb.ListenerDefaultActionAuthenticateOidc;
+        authenticateCognito?: pulumi.Input<outputs.alb.ListenerDefaultActionAuthenticateCognito>;
+        authenticateOidc?: pulumi.Input<outputs.alb.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.alb.ListenerDefaultActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.alb.ListenerDefaultActionRedirect;
+        redirect?: pulumi.Input<outputs.alb.ListenerDefaultActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleAction {
         /**
          * Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
          */
-        authenticateCognito?: outputs.alb.ListenerRuleActionAuthenticateCognito;
+        authenticateCognito?: pulumi.Input<outputs.alb.ListenerRuleActionAuthenticateCognito>;
         /**
          * Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
          */
-        authenticateOidc?: outputs.alb.ListenerRuleActionAuthenticateOidc;
+        authenticateOidc?: pulumi.Input<outputs.alb.ListenerRuleActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.alb.ListenerRuleActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.alb.ListenerRuleActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.alb.ListenerRuleActionRedirect;
+        redirect?: pulumi.Input<outputs.alb.ListenerRuleActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        field: string;
+        field?: pulumi.Input<string>;
         /**
          * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.alb.ListenerRuleConditionHostHeader;
+        hostHeader?: pulumi.Input<outputs.alb.ListenerRuleConditionHostHeader>;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
-        httpHeader?: outputs.alb.ListenerRuleConditionHttpHeader;
+        httpHeader?: pulumi.Input<outputs.alb.ListenerRuleConditionHttpHeader>;
         /**
          * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
-        httpRequestMethod?: outputs.alb.ListenerRuleConditionHttpRequestMethod;
+        httpRequestMethod?: pulumi.Input<outputs.alb.ListenerRuleConditionHttpRequestMethod>;
         /**
          * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
-        pathPattern: outputs.alb.ListenerRuleConditionPathPattern;
+        pathPattern?: pulumi.Input<outputs.alb.ListenerRuleConditionPathPattern>;
         /**
          * Query strings to match. Query String block fields documented below.
          */
-        queryStrings?: outputs.alb.ListenerRuleConditionQueryString[];
+        queryStrings?: pulumi.Input<pulumi.Input<outputs.alb.ListenerRuleConditionQueryString>[]>;
         /**
          * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
-        sourceIp?: outputs.alb.ListenerRuleConditionSourceIp;
+        sourceIp?: pulumi.Input<outputs.alb.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        values: string;
+        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
         /**
          * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
          */
-        httpHeaderName: string;
+        httpHeaderName: pulumi.Input<string>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
         /**
          * Query string key pattern to match.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * Query string value pattern to match.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionSourceIp {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LoadBalancerAccessLogs {
         /**
          * The S3 bucket name to store the logs in.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The S3 bucket prefix. Logs are stored in the root if not configured.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerSubnetMapping {
         /**
          * The allocation ID of the Elastic IP address.
          */
-        allocationId?: string;
+        allocationId?: pulumi.Input<string>;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
-        subnetId: string;
+        subnetId: pulumi.Input<string>;
     }
 
     export interface TargetGroupHealthCheck {
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
-        healthyThreshold?: number;
+        healthyThreshold?: pulumi.Input<number>;
         /**
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
-        interval?: number;
-        matcher: string;
+        interval?: pulumi.Input<number>;
+        matcher?: pulumi.Input<string>;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        path: string;
+        path?: pulumi.Input<string>;
         /**
          * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
-        timeout: number;
+        timeout?: pulumi.Input<number>;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        unhealthyThreshold?: number;
+        unhealthyThreshold?: pulumi.Input<number>;
     }
 
     export interface TargetGroupStickiness {
         /**
          * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
-        cookieDuration?: number;
+        cookieDuration?: pulumi.Input<number>;
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The type of sticky sessions. The only current possible value is `lbCookie`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -729,201 +884,201 @@ export namespace apigateway {
         /**
          * The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
          */
-        burstLimit: number;
+        burstLimit?: pulumi.Input<number>;
         /**
          * The number of times API Gateway allows the API to be called per second on average (RPS).
          */
-        rateLimit: number;
+        rateLimit?: pulumi.Input<number>;
     }
 
     export interface DocumentationPartLocation {
         /**
          * The HTTP verb of a method. The default value is `*` for any method.
          */
-        method?: string;
+        method?: pulumi.Input<string>;
         /**
          * The name of the targeted API entity.
          */
-        name?: string;
+        name?: pulumi.Input<string>;
         /**
          * The URL path of the target. The default value is `/` for the root resource.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The HTTP status code of a response. The default value is `*` for any status code.
          */
-        statusCode?: string;
+        statusCode?: pulumi.Input<string>;
         /**
          * The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface DomainNameEndpointConfiguration {
         /**
          * A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
          */
-        types: string;
+        types: pulumi.Input<string>;
     }
 
     export interface MethodSettingsSettings {
         /**
          * Specifies whether the cached responses are encrypted.
          */
-        cacheDataEncrypted?: boolean;
+        cacheDataEncrypted?: pulumi.Input<boolean>;
         /**
          * Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
          */
-        cacheTtlInSeconds?: number;
+        cacheTtlInSeconds?: pulumi.Input<number>;
         /**
          * Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
          */
-        cachingEnabled?: boolean;
+        cachingEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
          */
-        dataTraceEnabled?: boolean;
+        dataTraceEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
          */
-        loggingLevel?: string;
+        loggingLevel?: pulumi.Input<string>;
         /**
          * Specifies whether Amazon CloudWatch metrics are enabled for this method.
          */
-        metricsEnabled?: boolean;
+        metricsEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies whether authorization is required for a cache invalidation request.
          */
-        requireAuthorizationForCacheControl?: boolean;
+        requireAuthorizationForCacheControl?: pulumi.Input<boolean>;
         /**
          * Specifies the throttling burst limit.
          */
-        throttlingBurstLimit?: number;
+        throttlingBurstLimit?: pulumi.Input<number>;
         /**
          * Specifies the throttling rate limit.
          */
-        throttlingRateLimit?: number;
+        throttlingRateLimit?: pulumi.Input<number>;
         /**
          * Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
          */
-        unauthorizedCacheControlHeaderStrategy?: string;
+        unauthorizedCacheControlHeaderStrategy?: pulumi.Input<string>;
     }
 
     export interface RestApiEndpointConfiguration {
         /**
          * A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
          */
-        types: string;
+        types: pulumi.Input<string>;
         /**
          * A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
          */
-        vpcEndpointIds?: string[];
+        vpcEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface StageAccessLogSettings {
         /**
          * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
          */
-        destinationArn: string;
+        destinationArn: pulumi.Input<string>;
         /**
          * The formatting and values recorded in the logs. 
          * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          */
-        format: string;
+        format: pulumi.Input<string>;
     }
 
     export interface UsagePlanApiStage {
         /**
          * API Id of the associated API stage in a usage plan.
          */
-        apiId: string;
+        apiId: pulumi.Input<string>;
         /**
          * API stage name of the associated API stage in a usage plan.
          */
-        stage: string;
+        stage: pulumi.Input<string>;
     }
 
     export interface UsagePlanQuotaSettings {
         /**
          * The maximum number of requests that can be made in a given time period.
          */
-        limit: number;
+        limit: pulumi.Input<number>;
         /**
          * The number of requests subtracted from the given limit in the initial time period.
          */
-        offset?: number;
+        offset?: pulumi.Input<number>;
         /**
          * The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
          */
-        period: string;
+        period: pulumi.Input<string>;
     }
 
     export interface UsagePlanThrottleSettings {
         /**
          * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
          */
-        burstLimit?: number;
+        burstLimit?: pulumi.Input<number>;
         /**
          * The API request steady-state rate limit.
          */
-        rateLimit?: number;
+        rateLimit?: pulumi.Input<number>;
     }
 }
 
 export namespace appautoscaling {
     export interface PolicyStepScalingPolicyConfiguration {
-        adjustmentType?: string;
-        cooldown?: number;
-        metricAggregationType?: string;
-        minAdjustmentMagnitude?: number;
-        stepAdjustments?: outputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment[];
+        adjustmentType?: pulumi.Input<string>;
+        cooldown?: pulumi.Input<number>;
+        metricAggregationType?: pulumi.Input<string>;
+        minAdjustmentMagnitude?: pulumi.Input<number>;
+        stepAdjustments?: pulumi.Input<pulumi.Input<outputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment>[]>;
     }
 
     export interface PolicyStepScalingPolicyConfigurationStepAdjustment {
-        metricIntervalLowerBound?: string;
-        metricIntervalUpperBound?: string;
-        scalingAdjustment: number;
+        metricIntervalLowerBound?: pulumi.Input<string>;
+        metricIntervalUpperBound?: pulumi.Input<string>;
+        scalingAdjustment: pulumi.Input<number>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfiguration {
-        customizedMetricSpecification?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification;
-        disableScaleIn?: boolean;
-        predefinedMetricSpecification?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification;
-        scaleInCooldown?: number;
-        scaleOutCooldown?: number;
-        targetValue: number;
+        customizedMetricSpecification?: pulumi.Input<outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification>;
+        disableScaleIn?: pulumi.Input<boolean>;
+        predefinedMetricSpecification?: pulumi.Input<outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification>;
+        scaleInCooldown?: pulumi.Input<number>;
+        scaleOutCooldown?: pulumi.Input<number>;
+        targetValue: pulumi.Input<number>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
-        dimensions?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension[];
-        metricName: string;
-        namespace: string;
-        statistic: string;
-        unit?: string;
+        dimensions?: pulumi.Input<pulumi.Input<outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension>[]>;
+        metricName: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+        statistic: pulumi.Input<string>;
+        unit?: pulumi.Input<string>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
         /**
          * The name of the policy.
          */
-        name: string;
-        value: string;
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
-        predefinedMetricType: string;
-        resourceLabel?: string;
+        predefinedMetricType: pulumi.Input<string>;
+        resourceLabel?: pulumi.Input<string>;
     }
 
     export interface ScheduledActionScalableTargetAction {
         /**
          * The maximum capacity.
          */
-        maxCapacity?: number;
+        maxCapacity?: pulumi.Input<number>;
         /**
          * The minimum capacity.
          */
-        minCapacity?: number;
+        minCapacity?: pulumi.Input<number>;
     }
 }
 
@@ -1011,470 +1166,474 @@ export namespace applicationloadbalancing {
     }
 
     export interface ListenerDefaultAction {
-        authenticateCognito?: outputs.applicationloadbalancing.ListenerDefaultActionAuthenticateCognito;
-        authenticateOidc?: outputs.applicationloadbalancing.ListenerDefaultActionAuthenticateOidc;
+        authenticateCognito?: pulumi.Input<outputs.applicationloadbalancing.ListenerDefaultActionAuthenticateCognito>;
+        authenticateOidc?: pulumi.Input<outputs.applicationloadbalancing.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.applicationloadbalancing.ListenerDefaultActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.applicationloadbalancing.ListenerDefaultActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.applicationloadbalancing.ListenerDefaultActionRedirect;
+        redirect?: pulumi.Input<outputs.applicationloadbalancing.ListenerDefaultActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleAction {
         /**
          * Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
          */
-        authenticateCognito?: outputs.applicationloadbalancing.ListenerRuleActionAuthenticateCognito;
+        authenticateCognito?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleActionAuthenticateCognito>;
         /**
          * Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
          */
-        authenticateOidc?: outputs.applicationloadbalancing.ListenerRuleActionAuthenticateOidc;
+        authenticateOidc?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.applicationloadbalancing.ListenerRuleActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.applicationloadbalancing.ListenerRuleActionRedirect;
+        redirect?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        field: string;
+        field?: pulumi.Input<string>;
         /**
          * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.applicationloadbalancing.ListenerRuleConditionHostHeader;
+        hostHeader?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleConditionHostHeader>;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
-        httpHeader?: outputs.applicationloadbalancing.ListenerRuleConditionHttpHeader;
+        httpHeader?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleConditionHttpHeader>;
         /**
          * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
-        httpRequestMethod?: outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod;
+        httpRequestMethod?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod>;
         /**
          * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
-        pathPattern: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
+        pathPattern?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleConditionPathPattern>;
         /**
          * Query strings to match. Query String block fields documented below.
          */
-        queryStrings?: outputs.applicationloadbalancing.ListenerRuleConditionQueryString[];
+        queryStrings?: pulumi.Input<pulumi.Input<outputs.applicationloadbalancing.ListenerRuleConditionQueryString>[]>;
         /**
          * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
-        sourceIp?: outputs.applicationloadbalancing.ListenerRuleConditionSourceIp;
+        sourceIp?: pulumi.Input<outputs.applicationloadbalancing.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        values: string;
+        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
         /**
          * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
          */
-        httpHeaderName: string;
+        httpHeaderName: pulumi.Input<string>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
         /**
          * Query string key pattern to match.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * Query string value pattern to match.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionSourceIp {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LoadBalancerAccessLogs {
         /**
          * The S3 bucket name to store the logs in.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The S3 bucket prefix. Logs are stored in the root if not configured.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerSubnetMapping {
         /**
          * The allocation ID of the Elastic IP address.
          */
-        allocationId?: string;
+        allocationId?: pulumi.Input<string>;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
-        subnetId: string;
+        subnetId: pulumi.Input<string>;
     }
 
     export interface TargetGroupHealthCheck {
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
-        healthyThreshold?: number;
+        healthyThreshold?: pulumi.Input<number>;
         /**
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
-        interval?: number;
-        matcher: string;
+        interval?: pulumi.Input<number>;
+        matcher?: pulumi.Input<string>;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        path: string;
+        path?: pulumi.Input<string>;
         /**
          * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
-        timeout: number;
+        timeout?: pulumi.Input<number>;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        unhealthyThreshold?: number;
+        unhealthyThreshold?: pulumi.Input<number>;
     }
 
     export interface TargetGroupStickiness {
         /**
          * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
-        cookieDuration?: number;
+        cookieDuration?: pulumi.Input<number>;
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The type of sticky sessions. The only current possible value is `lbCookie`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
 export namespace appmesh {
     export interface MeshSpec {
-        egressFilter?: outputs.appmesh.MeshSpecEgressFilter;
+        egressFilter?: pulumi.Input<outputs.appmesh.MeshSpecEgressFilter>;
     }
 
     export interface MeshSpecEgressFilter {
@@ -1482,29 +1641,29 @@ export namespace appmesh {
          * The egress filter type. By default, the type is `DROP_ALL`.
          * Valid values are `ALLOW_ALL` and `DROP_ALL`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface RouteSpec {
         /**
          * The HTTP routing information for the route.
          */
-        httpRoute?: outputs.appmesh.RouteSpecHttpRoute;
+        httpRoute?: pulumi.Input<outputs.appmesh.RouteSpecHttpRoute>;
         /**
          * The TCP routing information for the route.
          */
-        tcpRoute?: outputs.appmesh.RouteSpecTcpRoute;
+        tcpRoute?: pulumi.Input<outputs.appmesh.RouteSpecTcpRoute>;
     }
 
     export interface RouteSpecHttpRoute {
         /**
          * The action to take if a match is determined.
          */
-        action: outputs.appmesh.RouteSpecHttpRouteAction;
+        action: pulumi.Input<outputs.appmesh.RouteSpecHttpRouteAction>;
         /**
          * The criteria for determining an HTTP request match.
          */
-        match: outputs.appmesh.RouteSpecHttpRouteMatch;
+        match: pulumi.Input<outputs.appmesh.RouteSpecHttpRouteMatch>;
     }
 
     export interface RouteSpecHttpRouteAction {
@@ -1512,18 +1671,18 @@ export namespace appmesh {
          * The targets that traffic is routed to when a request matches the route.
          * You can specify one or more targets and their relative weights with which to distribute traffic.
          */
-        weightedTargets: outputs.appmesh.RouteSpecHttpRouteActionWeightedTarget[];
+        weightedTargets: pulumi.Input<pulumi.Input<outputs.appmesh.RouteSpecHttpRouteActionWeightedTarget>[]>;
     }
 
     export interface RouteSpecHttpRouteActionWeightedTarget {
         /**
          * The virtual node to associate with the weighted target.
          */
-        virtualNode: string;
+        virtualNode: pulumi.Input<string>;
         /**
          * The relative weight of the weighted target. An integer between 0 and 100.
          */
-        weight: number;
+        weight: pulumi.Input<number>;
     }
 
     export interface RouteSpecHttpRouteMatch {
@@ -1531,14 +1690,14 @@ export namespace appmesh {
          * Specifies the path with which to match requests.
          * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
          */
-        prefix: string;
+        prefix: pulumi.Input<string>;
     }
 
     export interface RouteSpecTcpRoute {
         /**
          * The action to take if a match is determined.
          */
-        action: outputs.appmesh.RouteSpecTcpRouteAction;
+        action: pulumi.Input<outputs.appmesh.RouteSpecTcpRouteAction>;
     }
 
     export interface RouteSpecTcpRouteAction {
@@ -1546,62 +1705,62 @@ export namespace appmesh {
          * The targets that traffic is routed to when a request matches the route.
          * You can specify one or more targets and their relative weights with which to distribute traffic.
          */
-        weightedTargets: outputs.appmesh.RouteSpecTcpRouteActionWeightedTarget[];
+        weightedTargets: pulumi.Input<pulumi.Input<outputs.appmesh.RouteSpecTcpRouteActionWeightedTarget>[]>;
     }
 
     export interface RouteSpecTcpRouteActionWeightedTarget {
         /**
          * The virtual node to associate with the weighted target.
          */
-        virtualNode: string;
+        virtualNode: pulumi.Input<string>;
         /**
          * The relative weight of the weighted target. An integer between 0 and 100.
          */
-        weight: number;
+        weight: pulumi.Input<number>;
     }
 
     export interface VirtualNodeSpec {
         /**
          * The backends to which the virtual node is expected to send outbound traffic.
          */
-        backends?: outputs.appmesh.VirtualNodeSpecBackend[];
+        backends?: pulumi.Input<pulumi.Input<outputs.appmesh.VirtualNodeSpecBackend>[]>;
         /**
          * The listeners from which the virtual node is expected to receive inbound traffic.
          */
-        listener?: outputs.appmesh.VirtualNodeSpecListener;
+        listener?: pulumi.Input<outputs.appmesh.VirtualNodeSpecListener>;
         /**
          * The inbound and outbound access logging information for the virtual node.
          */
-        logging?: outputs.appmesh.VirtualNodeSpecLogging;
+        logging?: pulumi.Input<outputs.appmesh.VirtualNodeSpecLogging>;
         /**
          * The service discovery information for the virtual node.
          */
-        serviceDiscovery?: outputs.appmesh.VirtualNodeSpecServiceDiscovery;
+        serviceDiscovery?: pulumi.Input<outputs.appmesh.VirtualNodeSpecServiceDiscovery>;
     }
 
     export interface VirtualNodeSpecBackend {
         /**
          * Specifies a virtual service to use as a backend for a virtual node.
          */
-        virtualService?: outputs.appmesh.VirtualNodeSpecBackendVirtualService;
+        virtualService?: pulumi.Input<outputs.appmesh.VirtualNodeSpecBackendVirtualService>;
     }
 
     export interface VirtualNodeSpecBackendVirtualService {
         /**
          * The name of the virtual service that is acting as a virtual node backend.
          */
-        virtualServiceName: string;
+        virtualServiceName: pulumi.Input<string>;
     }
 
     export interface VirtualNodeSpecListener {
         /**
          * The health check information for the listener.
          */
-        healthCheck?: outputs.appmesh.VirtualNodeSpecListenerHealthCheck;
+        healthCheck?: pulumi.Input<outputs.appmesh.VirtualNodeSpecListenerHealthCheck>;
         /**
          * The port mapping information for the listener.
          */
-        portMapping: outputs.appmesh.VirtualNodeSpecListenerPortMapping;
+        portMapping: pulumi.Input<outputs.appmesh.VirtualNodeSpecListenerPortMapping>;
     }
 
     export interface VirtualNodeSpecListenerHealthCheck {
@@ -1609,94 +1768,94 @@ export namespace appmesh {
          * The number of consecutive successful health checks that must occur before declaring listener healthy.
          * * `intervalMillis`- (Required) The time period in milliseconds between each health check execution.
          */
-        healthyThreshold: number;
-        intervalMillis: number;
+        healthyThreshold: pulumi.Input<number>;
+        intervalMillis: pulumi.Input<number>;
         /**
          * The destination path for the health check request. This is only required if the specified protocol is `http`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
          */
-        port: number;
+        port?: pulumi.Input<number>;
         /**
          * The protocol for the health check request. Valid values are `http` and `tcp`.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
         /**
          * The amount of time to wait when receiving a response from the health check, in milliseconds.
          */
-        timeoutMillis: number;
+        timeoutMillis: pulumi.Input<number>;
         /**
          * The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
          */
-        unhealthyThreshold: number;
+        unhealthyThreshold: pulumi.Input<number>;
     }
 
     export interface VirtualNodeSpecListenerPortMapping {
         /**
          * The destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
          */
-        port: number;
+        port: pulumi.Input<number>;
         /**
          * The protocol for the health check request. Valid values are `http` and `tcp`.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
     }
 
     export interface VirtualNodeSpecLogging {
         /**
          * The access log configuration for a virtual node.
          */
-        accessLog?: outputs.appmesh.VirtualNodeSpecLoggingAccessLog;
+        accessLog?: pulumi.Input<outputs.appmesh.VirtualNodeSpecLoggingAccessLog>;
     }
 
     export interface VirtualNodeSpecLoggingAccessLog {
         /**
          * The file object to send virtual node access logs to.
          */
-        file?: outputs.appmesh.VirtualNodeSpecLoggingAccessLogFile;
+        file?: pulumi.Input<outputs.appmesh.VirtualNodeSpecLoggingAccessLogFile>;
     }
 
     export interface VirtualNodeSpecLoggingAccessLogFile {
         /**
          * The destination path for the health check request. This is only required if the specified protocol is `http`.
          */
-        path: string;
+        path: pulumi.Input<string>;
     }
 
     export interface VirtualNodeSpecServiceDiscovery {
         /**
          * Specifies any AWS Cloud Map information for the virtual node.
          */
-        awsCloudMap?: outputs.appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMap;
+        awsCloudMap?: pulumi.Input<outputs.appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMap>;
         /**
          * Specifies the DNS service name for the virtual node.
          */
-        dns?: outputs.appmesh.VirtualNodeSpecServiceDiscoveryDns;
+        dns?: pulumi.Input<outputs.appmesh.VirtualNodeSpecServiceDiscoveryDns>;
     }
 
     export interface VirtualNodeSpecServiceDiscoveryAwsCloudMap {
         /**
          * A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
          */
-        attributes?: {[key: string]: string};
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The name of the AWS Cloud Map namespace to use.
          * Use the [`aws.servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
          */
-        namespaceName: string;
+        namespaceName: pulumi.Input<string>;
         /**
          * The name of the AWS Cloud Map service to use. Use the [`aws.servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
          */
-        serviceName: string;
+        serviceName: pulumi.Input<string>;
     }
 
     export interface VirtualNodeSpecServiceDiscoveryDns {
         /**
          * The DNS host name for your virtual node.
          */
-        hostname: string;
+        hostname: pulumi.Input<string>;
     }
 
     export interface VirtualRouterSpec {
@@ -1704,54 +1863,54 @@ export namespace appmesh {
          * The listeners that the virtual router is expected to receive inbound traffic from.
          * Currently only one listener is supported per virtual router.
          */
-        listener: outputs.appmesh.VirtualRouterSpecListener;
+        listener: pulumi.Input<outputs.appmesh.VirtualRouterSpecListener>;
     }
 
     export interface VirtualRouterSpecListener {
         /**
          * The port mapping information for the listener.
          */
-        portMapping: outputs.appmesh.VirtualRouterSpecListenerPortMapping;
+        portMapping: pulumi.Input<outputs.appmesh.VirtualRouterSpecListenerPortMapping>;
     }
 
     export interface VirtualRouterSpecListenerPortMapping {
         /**
          * The port used for the port mapping.
          */
-        port: number;
+        port: pulumi.Input<number>;
         /**
          * The protocol used for the port mapping. Valid values are `http` and `tcp`.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
     }
 
     export interface VirtualServiceSpec {
-        provider?: outputs.appmesh.VirtualServiceSpecProvider;
+        provider?: pulumi.Input<outputs.appmesh.VirtualServiceSpecProvider>;
     }
 
     export interface VirtualServiceSpecProvider {
         /**
          * The virtual node associated with a virtual service.
          */
-        virtualNode?: outputs.appmesh.VirtualServiceSpecProviderVirtualNode;
+        virtualNode?: pulumi.Input<outputs.appmesh.VirtualServiceSpecProviderVirtualNode>;
         /**
          * The virtual router associated with a virtual service.
          */
-        virtualRouter?: outputs.appmesh.VirtualServiceSpecProviderVirtualRouter;
+        virtualRouter?: pulumi.Input<outputs.appmesh.VirtualServiceSpecProviderVirtualRouter>;
     }
 
     export interface VirtualServiceSpecProviderVirtualNode {
         /**
          * The name of the virtual node that is acting as a service provider.
          */
-        virtualNodeName: string;
+        virtualNodeName: pulumi.Input<string>;
     }
 
     export interface VirtualServiceSpecProviderVirtualRouter {
         /**
          * The name of the virtual router that is acting as a service provider.
          */
-        virtualRouterName: string;
+        virtualRouterName: pulumi.Input<string>;
     }
 }
 
@@ -1760,311 +1919,311 @@ export namespace appsync {
         /**
          * AWS region of Elasticsearch domain. Defaults to current region.
          */
-        region: string;
+        region?: pulumi.Input<string>;
         /**
          * Name of the DynamoDB table.
          */
-        tableName: string;
+        tableName: pulumi.Input<string>;
         /**
          * Set to `true` to use Amazon Cognito credentials with this data source.
          */
-        useCallerCredentials?: boolean;
+        useCallerCredentials?: pulumi.Input<boolean>;
     }
 
     export interface DataSourceElasticsearchConfig {
         /**
          * HTTP URL.
          */
-        endpoint: string;
+        endpoint: pulumi.Input<string>;
         /**
          * AWS region of Elasticsearch domain. Defaults to current region.
          */
-        region: string;
+        region?: pulumi.Input<string>;
     }
 
     export interface DataSourceHttpConfig {
         /**
          * HTTP URL.
          */
-        endpoint: string;
+        endpoint: pulumi.Input<string>;
     }
 
     export interface DataSourceLambdaConfig {
         /**
          * The ARN for the Lambda function.
          */
-        functionArn: string;
+        functionArn: pulumi.Input<string>;
     }
 
     export interface GraphQLApiAdditionalAuthenticationProvider {
         /**
          * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
          */
-        authenticationType: string;
+        authenticationType: pulumi.Input<string>;
         /**
          * Nested argument containing OpenID Connect configuration. Defined below.
          */
-        openidConnectConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig;
+        openidConnectConfig?: pulumi.Input<outputs.appsync.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig>;
         /**
          * The Amazon Cognito User Pool configuration. Defined below.
          */
-        userPoolConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig;
+        userPoolConfig?: pulumi.Input<outputs.appsync.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig>;
     }
 
     export interface GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
         /**
          * Number of milliseconds a token is valid after being authenticated.
          */
-        authTtl?: number;
+        authTtl?: pulumi.Input<number>;
         /**
          * Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
          */
-        clientId?: string;
+        clientId?: pulumi.Input<string>;
         /**
          * Number of milliseconds a token is valid after being issued to a user.
          */
-        iatTtl?: number;
+        iatTtl?: pulumi.Input<number>;
         /**
          * Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
     }
 
     export interface GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
         /**
          * A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
          */
-        appIdClientRegex?: string;
+        appIdClientRegex?: pulumi.Input<string>;
         /**
          * The AWS region in which the user pool was created.
          */
-        awsRegion: string;
+        awsRegion?: pulumi.Input<string>;
         /**
          * The user pool ID.
          */
-        userPoolId: string;
+        userPoolId: pulumi.Input<string>;
     }
 
     export interface GraphQLApiLogConfig {
         /**
          * Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
          */
-        cloudwatchLogsRoleArn: string;
+        cloudwatchLogsRoleArn: pulumi.Input<string>;
         /**
          * Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
          */
-        fieldLogLevel: string;
+        fieldLogLevel: pulumi.Input<string>;
     }
 
     export interface GraphQLApiOpenidConnectConfig {
         /**
          * Number of milliseconds a token is valid after being authenticated.
          */
-        authTtl?: number;
+        authTtl?: pulumi.Input<number>;
         /**
          * Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
          */
-        clientId?: string;
+        clientId?: pulumi.Input<string>;
         /**
          * Number of milliseconds a token is valid after being issued to a user.
          */
-        iatTtl?: number;
+        iatTtl?: pulumi.Input<number>;
         /**
          * Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
     }
 
     export interface GraphQLApiUserPoolConfig {
         /**
          * A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
          */
-        appIdClientRegex?: string;
+        appIdClientRegex?: pulumi.Input<string>;
         /**
          * The AWS region in which the user pool was created.
          */
-        awsRegion: string;
+        awsRegion?: pulumi.Input<string>;
         /**
          * The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
          */
-        defaultAction: string;
+        defaultAction: pulumi.Input<string>;
         /**
          * The user pool ID.
          */
-        userPoolId: string;
+        userPoolId: pulumi.Input<string>;
     }
 
     export interface ResolverPipelineConfig {
-        functions?: string[];
+        functions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
 export namespace athena {
     export interface DatabaseEncryptionConfiguration {
-        encryptionOption: string;
-        kmsKey?: string;
+        encryptionOption: pulumi.Input<string>;
+        kmsKey?: pulumi.Input<string>;
     }
 
     export interface WorkgroupConfiguration {
         /**
          * Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
          */
-        bytesScannedCutoffPerQuery?: number;
+        bytesScannedCutoffPerQuery?: pulumi.Input<number>;
         /**
          * Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
          */
-        enforceWorkgroupConfiguration?: boolean;
+        enforceWorkgroupConfiguration?: pulumi.Input<boolean>;
         /**
          * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
          */
-        publishCloudwatchMetricsEnabled?: boolean;
+        publishCloudwatchMetricsEnabled?: pulumi.Input<boolean>;
         /**
          * Configuration block with result settings. Documented below.
          */
-        resultConfiguration?: outputs.athena.WorkgroupConfigurationResultConfiguration;
+        resultConfiguration?: pulumi.Input<outputs.athena.WorkgroupConfigurationResultConfiguration>;
     }
 
     export interface WorkgroupConfigurationResultConfiguration {
         /**
          * Configuration block with encryption settings. Documented below.
          */
-        encryptionConfiguration?: outputs.athena.WorkgroupConfigurationResultConfigurationEncryptionConfiguration;
+        encryptionConfiguration?: pulumi.Input<outputs.athena.WorkgroupConfigurationResultConfigurationEncryptionConfiguration>;
         /**
          * The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
          */
-        outputLocation?: string;
+        outputLocation?: pulumi.Input<string>;
     }
 
     export interface WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
         /**
          * Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE-S3), server-side encryption with KMS-managed keys (SSE-KMS), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
          */
-        encryptionOption?: string;
+        encryptionOption?: pulumi.Input<string>;
         /**
          * For SSE-KMS and CSE-KMS, this is the KMS key Amazon Resource Name (ARN).
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
     }
 }
 
 export namespace autoscaling {
     export interface GroupInitialLifecycleHook {
-        defaultResult: string;
-        heartbeatTimeout?: number;
-        lifecycleTransition: string;
+        defaultResult?: pulumi.Input<string>;
+        heartbeatTimeout?: pulumi.Input<number>;
+        lifecycleTransition: pulumi.Input<string>;
         /**
          * The name of the auto scaling group. By default generated by this provider.
          */
-        name: string;
-        notificationMetadata?: string;
-        notificationTargetArn?: string;
-        roleArn?: string;
+        name: pulumi.Input<string>;
+        notificationMetadata?: pulumi.Input<string>;
+        notificationTargetArn?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
     }
 
     export interface GroupLaunchTemplate {
         /**
          * The autoscaling group id.
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * The name of the auto scaling group. By default generated by this provider.
          */
-        name: string;
+        name?: pulumi.Input<string>;
         /**
          * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
          */
-        version?: string;
+        version?: pulumi.Input<string>;
     }
 
     export interface GroupMixedInstancesPolicy {
         /**
          * Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
          */
-        instancesDistribution?: outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution;
+        instancesDistribution?: pulumi.Input<outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution>;
         /**
          * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
          */
-        launchTemplate: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplate;
+        launchTemplate: pulumi.Input<outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplate>;
     }
 
     export interface GroupMixedInstancesPolicyInstancesDistribution {
         /**
          * Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
          */
-        onDemandAllocationStrategy?: string;
+        onDemandAllocationStrategy?: pulumi.Input<string>;
         /**
          * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
          */
-        onDemandBaseCapacity?: number;
+        onDemandBaseCapacity?: pulumi.Input<number>;
         /**
          * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
          */
-        onDemandPercentageAboveBaseCapacity?: number;
+        onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
         /**
          * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
          */
-        spotAllocationStrategy?: string;
+        spotAllocationStrategy?: pulumi.Input<string>;
         /**
          * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
          */
-        spotInstancePools: number;
+        spotInstancePools?: pulumi.Input<number>;
         /**
          * Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
          */
-        spotMaxPrice?: string;
+        spotMaxPrice?: pulumi.Input<string>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplate {
         /**
          * Nested argument defines the Launch Template. Defined below.
          */
-        launchTemplateSpecification: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
+        launchTemplateSpecification: pulumi.Input<outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification>;
         /**
          * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
          */
-        overrides?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride[];
+        overrides?: pulumi.Input<pulumi.Input<outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride>[]>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
         /**
          * The ID of the launch template. Conflicts with `launchTemplateName`.
          */
-        launchTemplateId: string;
+        launchTemplateId?: pulumi.Input<string>;
         /**
          * The name of the launch template. Conflicts with `launchTemplateId`.
          */
-        launchTemplateName: string;
+        launchTemplateName?: pulumi.Input<string>;
         /**
          * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
          */
-        version?: string;
+        version?: pulumi.Input<string>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverride {
         /**
          * Override the instance type in the Launch Template.
          */
-        instanceType?: string;
+        instanceType?: pulumi.Input<string>;
         /**
          * The number of capacity units, which gives the instance type a proportional weight to other instance types.
          */
-        weightedCapacity?: string;
+        weightedCapacity?: pulumi.Input<string>;
     }
 
     export interface GroupTag {
         /**
          * Key
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * Enables propagation of the tag to
          * Amazon EC2 instances launched via this ASG
          */
-        propagateAtLaunch: boolean;
+        propagateAtLaunch: pulumi.Input<boolean>;
         /**
          * Value
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface PolicyStepAdjustment {
@@ -2073,84 +2232,84 @@ export namespace autoscaling {
          * difference between the alarm threshold and the CloudWatch metric.
          * Without a value, AWS will treat this bound as infinity.
          */
-        metricIntervalLowerBound?: string;
+        metricIntervalLowerBound?: pulumi.Input<string>;
         /**
          * The upper bound for the
          * difference between the alarm threshold and the CloudWatch metric.
          * Without a value, AWS will treat this bound as infinity. The upper bound
          * must be greater than the lower bound.
          */
-        metricIntervalUpperBound?: string;
+        metricIntervalUpperBound?: pulumi.Input<string>;
         /**
          * The number of members by which to
          * scale, when the adjustment bounds are breached. A positive value scales
          * up. A negative value scales down.
          */
-        scalingAdjustment: number;
+        scalingAdjustment: pulumi.Input<number>;
     }
 
     export interface PolicyTargetTrackingConfiguration {
         /**
          * A customized metric. Conflicts with `predefinedMetricSpecification`.
          */
-        customizedMetricSpecification?: outputs.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecification;
+        customizedMetricSpecification?: pulumi.Input<outputs.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecification>;
         /**
          * Indicates whether scale in by the target tracking policy is disabled.
          */
-        disableScaleIn?: boolean;
+        disableScaleIn?: pulumi.Input<boolean>;
         /**
          * A predefined metric. Conflicts with `customizedMetricSpecification`.
          */
-        predefinedMetricSpecification?: outputs.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecification;
+        predefinedMetricSpecification?: pulumi.Input<outputs.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecification>;
         /**
          * The target value for the metric.
          */
-        targetValue: number;
+        targetValue: pulumi.Input<number>;
     }
 
     export interface PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
         /**
          * The dimensions of the metric.
          */
-        metricDimensions?: outputs.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension[];
+        metricDimensions?: pulumi.Input<pulumi.Input<outputs.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension>[]>;
         /**
          * The name of the metric.
          */
-        metricName: string;
+        metricName: pulumi.Input<string>;
         /**
          * The namespace of the metric.
          */
-        namespace: string;
+        namespace: pulumi.Input<string>;
         /**
          * The statistic of the metric.
          */
-        statistic: string;
+        statistic: pulumi.Input<string>;
         /**
          * The unit of the metric.
          */
-        unit?: string;
+        unit?: pulumi.Input<string>;
     }
 
     export interface PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension {
         /**
          * The name of the dimension.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the dimension.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
         /**
          * The metric type.
          */
-        predefinedMetricType: string;
+        predefinedMetricType: pulumi.Input<string>;
         /**
          * Identifies the resource associated with the metric type.
          */
-        resourceLabel?: string;
+        resourceLabel?: pulumi.Input<string>;
     }
 }
 
@@ -2159,57 +2318,57 @@ export namespace backup {
         /**
          * The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
          */
-        completionWindow?: number;
+        completionWindow?: pulumi.Input<number>;
         /**
          * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
          */
-        lifecycle?: outputs.backup.PlanRuleLifecycle;
+        lifecycle?: pulumi.Input<outputs.backup.PlanRuleLifecycle>;
         /**
          * Metadata that you can assign to help organize the resources that you create.
          */
-        recoveryPointTags?: {[key: string]: any};
+        recoveryPointTags?: pulumi.Input<{[key: string]: any}>;
         /**
          * An display name for a backup rule.
          */
-        ruleName: string;
+        ruleName: pulumi.Input<string>;
         /**
          * A CRON expression specifying when AWS Backup initiates a backup job.
          */
-        schedule?: string;
+        schedule?: pulumi.Input<string>;
         /**
          * The amount of time in minutes before beginning a backup.
          */
-        startWindow?: number;
+        startWindow?: pulumi.Input<number>;
         /**
          * The name of a logical container where backups are stored.
          */
-        targetVaultName: string;
+        targetVaultName: pulumi.Input<string>;
     }
 
     export interface PlanRuleLifecycle {
         /**
          * Specifies the number of days after creation that a recovery point is moved to cold storage.
          */
-        coldStorageAfter?: number;
+        coldStorageAfter?: pulumi.Input<number>;
         /**
          * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
-        deleteAfter?: number;
+        deleteAfter?: pulumi.Input<number>;
     }
 
     export interface SelectionSelectionTag {
         /**
          * The key in a key-value pair.
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * The value in a key-value pair.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -2218,78 +2377,78 @@ export namespace batch {
         /**
          * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
          */
-        allocationStrategy?: string;
+        allocationStrategy?: pulumi.Input<string>;
         /**
          * Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
          */
-        bidPercentage?: number;
+        bidPercentage?: pulumi.Input<number>;
         /**
          * The desired number of EC2 vCPUS in the compute environment.
          */
-        desiredVcpus?: number;
+        desiredVcpus?: pulumi.Input<number>;
         /**
          * The EC2 key pair that is used for instances launched in the compute environment.
          */
-        ec2KeyPair?: string;
+        ec2KeyPair?: pulumi.Input<string>;
         /**
          * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
          */
-        imageId?: string;
+        imageId?: pulumi.Input<string>;
         /**
          * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
          */
-        instanceRole: string;
+        instanceRole: pulumi.Input<string>;
         /**
          * A list of instance types that may be launched.
          */
-        instanceTypes: string[];
+        instanceTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The launch template to use for your compute resources. See details below.
          */
-        launchTemplate?: outputs.batch.ComputeEnvironmentComputeResourcesLaunchTemplate;
+        launchTemplate?: pulumi.Input<outputs.batch.ComputeEnvironmentComputeResourcesLaunchTemplate>;
         /**
          * The maximum number of EC2 vCPUs that an environment can reach.
          */
-        maxVcpus: number;
+        maxVcpus: pulumi.Input<number>;
         /**
          * The minimum number of EC2 vCPUs that an environment should maintain.
          */
-        minVcpus: number;
+        minVcpus: pulumi.Input<number>;
         /**
          * A list of EC2 security group that are associated with instances launched in the compute environment.
          */
-        securityGroupIds: string[];
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments.
          */
-        spotIamFleetRole?: string;
+        spotIamFleetRole?: pulumi.Input<string>;
         /**
          * A list of VPC subnets into which the compute resources are launched.
          */
-        subnets: string[];
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Key-value pair tags to be applied to resources that are launched in the compute environment.
          */
-        tags?: {[key: string]: any};
+        tags?: pulumi.Input<{[key: string]: any}>;
         /**
          * The type of compute environment. Valid items are `EC2` or `SPOT`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ComputeEnvironmentComputeResourcesLaunchTemplate {
         /**
          * ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
          */
-        launchTemplateId?: string;
+        launchTemplateId?: pulumi.Input<string>;
         /**
          * Name of the launch template.
          */
-        launchTemplateName?: string;
+        launchTemplateName?: pulumi.Input<string>;
         /**
          * The version number of the launch template. Default: The default version of the launch template.
          */
-        version?: string;
+        version?: pulumi.Input<string>;
     }
 
     export interface GetJobQueueComputeEnvironmentOrder {
@@ -2298,11 +2457,11 @@ export namespace batch {
     }
 
     export interface JobDefinitionRetryStrategy {
-        attempts?: number;
+        attempts?: pulumi.Input<number>;
     }
 
     export interface JobDefinitionTimeout {
-        attemptDurationSeconds?: number;
+        attemptDurationSeconds?: pulumi.Input<number>;
     }
 }
 
@@ -2311,74 +2470,74 @@ export namespace budgets {
         /**
          * A boolean value whether to include credits in the cost budget. Defaults to `true`
          */
-        includeCredit?: boolean;
+        includeCredit?: pulumi.Input<boolean>;
         /**
          * Specifies whether a budget includes discounts. Defaults to `true`
          */
-        includeDiscount?: boolean;
+        includeDiscount?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
          */
-        includeOtherSubscription?: boolean;
+        includeOtherSubscription?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
          */
-        includeRecurring?: boolean;
+        includeRecurring?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include refunds in the cost budget. Defaults to `true`
          */
-        includeRefund?: boolean;
+        includeRefund?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
          */
-        includeSubscription?: boolean;
+        includeSubscription?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include support costs in the cost budget. Defaults to `true`
          */
-        includeSupport?: boolean;
+        includeSupport?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include tax in the cost budget. Defaults to `true`
          */
-        includeTax?: boolean;
+        includeTax?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
          */
-        includeUpfront?: boolean;
+        includeUpfront?: pulumi.Input<boolean>;
         /**
          * Specifies whether a budget uses the amortized rate. Defaults to `false`
          */
-        useAmortized?: boolean;
+        useAmortized?: pulumi.Input<boolean>;
         /**
          * A boolean value whether to use blended costs in the cost budget. Defaults to `false`
          */
-        useBlended?: boolean;
+        useBlended?: pulumi.Input<boolean>;
     }
 
     export interface BudgetNotification {
         /**
          * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
          */
-        comparisonOperator: string;
+        comparisonOperator: pulumi.Input<string>;
         /**
          * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
          */
-        notificationType: string;
+        notificationType: pulumi.Input<string>;
         /**
          * (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
          */
-        subscriberEmailAddresses?: string[];
+        subscriberEmailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
          */
-        subscriberSnsTopicArns?: string[];
+        subscriberSnsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * (Required) Threshold when the notification should be sent.
          */
-        threshold: number;
+        threshold: pulumi.Input<number>;
         /**
          * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
          */
-        thresholdType: string;
+        thresholdType: pulumi.Input<string>;
     }
 }
 
@@ -2387,30 +2546,30 @@ export namespace cfg {
         /**
          * List of 12-digit account IDs of the account(s) being aggregated.
          */
-        accountIds: string[];
+        accountIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * If true, aggregate existing AWS Config regions and future regions.
          */
-        allRegions?: boolean;
+        allRegions?: pulumi.Input<boolean>;
         /**
          * List of source regions being aggregated.
          */
-        regions?: string[];
+        regions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ConfigurationAggregatorOrganizationAggregationSource {
         /**
          * If true, aggregate existing AWS Config regions and future regions.
          */
-        allRegions?: boolean;
+        allRegions?: pulumi.Input<boolean>;
         /**
          * List of source regions being aggregated.
          */
-        regions?: string[];
+        regions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface DeliveryChannelSnapshotDeliveryProperties {
@@ -2419,7 +2578,7 @@ export namespace cfg {
          * e.g. `One_Hour` or `Three_Hours`.
          * Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
          */
-        deliveryFrequency?: string;
+        deliveryFrequency?: pulumi.Input<string>;
     }
 
     export interface RecorderRecordingGroup {
@@ -2428,18 +2587,18 @@ export namespace cfg {
          * for every supported type of regional resource (which includes any new type that will become supported in the future).
          * Conflicts with `resourceTypes`. Defaults to `true`.
          */
-        allSupported?: boolean;
+        allSupported?: pulumi.Input<boolean>;
         /**
          * Specifies whether AWS Config includes all supported types of *global resources*
          * with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
          */
-        includeGlobalResourceTypes?: boolean;
+        includeGlobalResourceTypes?: pulumi.Input<boolean>;
         /**
          * A list that specifies the types of AWS resources for which
          * AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
          * See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
-        resourceTypes?: string[];
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface RuleScope {
@@ -2447,37 +2606,37 @@ export namespace cfg {
          * The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
          * If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
          */
-        complianceResourceId?: string;
+        complianceResourceId?: pulumi.Input<string>;
         /**
          * A list of resource types of only those AWS resources that you want to trigger an
          * evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
          * a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
-        complianceResourceTypes?: string[];
+        complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The tag key that is applied to only those AWS resources that you want you
          * want to trigger an evaluation for the rule.
          */
-        tagKey?: string;
+        tagKey?: pulumi.Input<string>;
         /**
          * The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
          */
-        tagValue?: string;
+        tagValue?: pulumi.Input<string>;
     }
 
     export interface RuleSource {
         /**
          * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
          */
-        owner: string;
+        owner: pulumi.Input<string>;
         /**
          * Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
          */
-        sourceDetails?: outputs.cfg.RuleSourceSourceDetail[];
+        sourceDetails?: pulumi.Input<pulumi.Input<outputs.cfg.RuleSourceSourceDetail>[]>;
         /**
          * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `aws.lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
          */
-        sourceIdentifier: string;
+        sourceIdentifier: pulumi.Input<string>;
     }
 
     export interface RuleSourceSourceDetail {
@@ -2485,16 +2644,16 @@ export namespace cfg {
          * The source of the event, such as an AWS service, that triggers AWS Config
          * to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
          */
-        eventSource?: string;
+        eventSource?: pulumi.Input<string>;
         /**
          * The frequency that you want AWS Config to run evaluations for a rule that
          * is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
          */
-        maximumExecutionFrequency?: string;
+        maximumExecutionFrequency?: pulumi.Input<string>;
         /**
          * The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
          */
-        messageType?: string;
+        messageType?: pulumi.Input<string>;
     }
 }
 
@@ -2505,22 +2664,22 @@ export namespace cloudfront {
          * HTTP error codes to stay in CloudFront caches before CloudFront queries your
          * origin to see whether the object has been updated.
          */
-        errorCachingMinTtl?: number;
+        errorCachingMinTtl?: pulumi.Input<number>;
         /**
          * The 4xx or 5xx HTTP status code that you want to
          * customize.
          */
-        errorCode: number;
+        errorCode: pulumi.Input<number>;
         /**
          * The HTTP status code that you want CloudFront
          * to return with the custom error page to the viewer.
          */
-        responseCode?: number;
+        responseCode?: pulumi.Input<number>;
         /**
          * The path of the custom error page (for
          * example, `/custom_404.html`).
          */
-        responsePagePath?: string;
+        responsePagePath?: pulumi.Input<string>;
     }
 
     export interface DistributionDefaultCacheBehavior {
@@ -2528,39 +2687,39 @@ export namespace cloudfront {
          * Controls which HTTP methods CloudFront
          * processes and forwards to your Amazon S3 bucket or your custom origin.
          */
-        allowedMethods: string[];
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Controls whether CloudFront caches the
          * response to requests using the specified HTTP methods.
          */
-        cachedMethods: string[];
+        cachedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether you want CloudFront to automatically
          * compress content for web requests that include `Accept-Encoding: gzip` in
          * the request header (default: `false`).
          */
-        compress?: boolean;
+        compress?: pulumi.Input<boolean>;
         /**
          * The default amount of time (in seconds) that an
          * object is in a CloudFront cache before CloudFront forwards another request
          * in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
          * 1 day.
          */
-        defaultTtl?: number;
+        defaultTtl?: pulumi.Input<number>;
         /**
          * Field level encryption configuration ID
          */
-        fieldLevelEncryptionId?: string;
+        fieldLevelEncryptionId?: pulumi.Input<string>;
         /**
          * The forwarded values configuration that specifies how CloudFront
          * handles query strings, cookies and headers (maximum one).
          */
-        forwardedValues: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues;
+        forwardedValues: pulumi.Input<outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues>;
         /**
          * A config block that triggers a lambda function with
          * specific actions. Defined below, maximum 4.
          */
-        lambdaFunctionAssociations?: outputs.cloudfront.DistributionDefaultCacheBehaviorLambdaFunctionAssociation[];
+        lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<outputs.cloudfront.DistributionDefaultCacheBehaviorLambdaFunctionAssociation>[]>;
         /**
          * The maximum amount of time (in seconds) that an
          * object is in a CloudFront cache before CloudFront forwards another request
@@ -2568,37 +2727,37 @@ export namespace cloudfront {
          * effective in the presence of `Cache-Control max-age`, `Cache-Control
          * s-maxage`, and `Expires` headers. Defaults to 365 days.
          */
-        maxTtl?: number;
+        maxTtl?: pulumi.Input<number>;
         /**
          * The minimum amount of time that you want objects to
          * stay in CloudFront caches before CloudFront queries your origin to see
          * whether the object has been updated. Defaults to 0 seconds.
          */
-        minTtl?: number;
+        minTtl?: pulumi.Input<number>;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
          * associated with this cache behavior.
          */
-        smoothStreaming?: boolean;
+        smoothStreaming?: pulumi.Input<boolean>;
         /**
          * The value of ID for the origin that you want
          * CloudFront to route requests to when a request matches the path pattern
          * either for a cache behavior or for the default cache behavior.
          */
-        targetOriginId: string;
+        targetOriginId: pulumi.Input<string>;
         /**
          * The AWS accounts, if any, that you want to
          * allow to create signed URLs for private content.
          */
-        trustedSigners?: string[];
+        trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Use this element to specify the
          * protocol that users can use to access the files in the origin specified by
          * TargetOriginId when a request matches the path pattern in PathPattern. One
          * of `allow-all`, `https-only`, or `redirect-to-https`.
          */
-        viewerProtocolPolicy: string;
+        viewerProtocolPolicy: pulumi.Input<string>;
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValues {
@@ -2606,25 +2765,25 @@ export namespace cloudfront {
          * The forwarded values cookies
          * that specifies how CloudFront handles cookies (maximum one).
          */
-        cookies: outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookies;
+        cookies: pulumi.Input<outputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookies>;
         /**
          * Specifies the Headers, if any, that you want
          * CloudFront to vary upon for this cache behavior. Specify `*` to include all
          * headers.
          */
-        headers?: string[];
+        headers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Indicates whether you want CloudFront to forward
          * query strings to the origin that is associated with this cache behavior.
          */
-        queryString: boolean;
+        queryString: pulumi.Input<boolean>;
         /**
          * When specified, along with a value of
          * `true` for `queryString`, all query strings are forwarded, however only the
          * query string keys listed in this argument are cached. When omitted with a
          * value of `true` for `queryString`, all query string keys are cached.
          */
-        queryStringCacheKeys?: string[];
+        queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValuesCookies {
@@ -2634,13 +2793,13 @@ export namespace cloudfront {
          * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
          * subsequent `whitelistedNames`
          */
-        forward: string;
+        forward: pulumi.Input<string>;
         /**
          * If you have specified `whitelist` to
          * `forward`, the whitelisted cookies that you want CloudFront to forward to
          * your origin.
          */
-        whitelistedNames?: string[];
+        whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
@@ -2649,15 +2808,15 @@ export namespace cloudfront {
          * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
          * `origin-response`
          */
-        eventType: string;
+        eventType: pulumi.Input<string>;
         /**
          * When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
          */
-        includeBody?: boolean;
+        includeBody?: pulumi.Input<boolean>;
         /**
          * ARN of the Lambda function.
          */
-        lambdaArn: string;
+        lambdaArn: pulumi.Input<string>;
     }
 
     export interface DistributionLoggingConfig {
@@ -2665,17 +2824,17 @@ export namespace cloudfront {
          * The Amazon S3 bucket to store the access logs in, for
          * example, `myawslogbucket.s3.amazonaws.com`.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Specifies whether you want CloudFront to
          * include cookies in access logs (default: `false`).
          */
-        includeCookies?: boolean;
+        includeCookies?: pulumi.Input<boolean>;
         /**
          * An optional string that you want CloudFront to prefix
          * to the access log filenames for this distribution, for example, `myprefix/`.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface DistributionOrderedCacheBehavior {
@@ -2683,39 +2842,39 @@ export namespace cloudfront {
          * Controls which HTTP methods CloudFront
          * processes and forwards to your Amazon S3 bucket or your custom origin.
          */
-        allowedMethods: string[];
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Controls whether CloudFront caches the
          * response to requests using the specified HTTP methods.
          */
-        cachedMethods: string[];
+        cachedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether you want CloudFront to automatically
          * compress content for web requests that include `Accept-Encoding: gzip` in
          * the request header (default: `false`).
          */
-        compress?: boolean;
+        compress?: pulumi.Input<boolean>;
         /**
          * The default amount of time (in seconds) that an
          * object is in a CloudFront cache before CloudFront forwards another request
          * in the absence of an `Cache-Control max-age` or `Expires` header. Defaults to
          * 1 day.
          */
-        defaultTtl?: number;
+        defaultTtl?: pulumi.Input<number>;
         /**
          * Field level encryption configuration ID
          */
-        fieldLevelEncryptionId?: string;
+        fieldLevelEncryptionId?: pulumi.Input<string>;
         /**
          * The forwarded values configuration that specifies how CloudFront
          * handles query strings, cookies and headers (maximum one).
          */
-        forwardedValues: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues;
+        forwardedValues: pulumi.Input<outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues>;
         /**
          * A config block that triggers a lambda function with
          * specific actions. Defined below, maximum 4.
          */
-        lambdaFunctionAssociations?: outputs.cloudfront.DistributionOrderedCacheBehaviorLambdaFunctionAssociation[];
+        lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<outputs.cloudfront.DistributionOrderedCacheBehaviorLambdaFunctionAssociation>[]>;
         /**
          * The maximum amount of time (in seconds) that an
          * object is in a CloudFront cache before CloudFront forwards another request
@@ -2723,42 +2882,42 @@ export namespace cloudfront {
          * effective in the presence of `Cache-Control max-age`, `Cache-Control
          * s-maxage`, and `Expires` headers. Defaults to 365 days.
          */
-        maxTtl?: number;
+        maxTtl?: pulumi.Input<number>;
         /**
          * The minimum amount of time that you want objects to
          * stay in CloudFront caches before CloudFront queries your origin to see
          * whether the object has been updated. Defaults to 0 seconds.
          */
-        minTtl?: number;
+        minTtl?: pulumi.Input<number>;
         /**
          * The pattern (for example, `images/*.jpg)` that
          * specifies which requests you want this cache behavior to apply to.
          */
-        pathPattern: string;
+        pathPattern: pulumi.Input<string>;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
          * associated with this cache behavior.
          */
-        smoothStreaming?: boolean;
+        smoothStreaming?: pulumi.Input<boolean>;
         /**
          * The value of ID for the origin that you want
          * CloudFront to route requests to when a request matches the path pattern
          * either for a cache behavior or for the default cache behavior.
          */
-        targetOriginId: string;
+        targetOriginId: pulumi.Input<string>;
         /**
          * The AWS accounts, if any, that you want to
          * allow to create signed URLs for private content.
          */
-        trustedSigners?: string[];
+        trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Use this element to specify the
          * protocol that users can use to access the files in the origin specified by
          * TargetOriginId when a request matches the path pattern in PathPattern. One
          * of `allow-all`, `https-only`, or `redirect-to-https`.
          */
-        viewerProtocolPolicy: string;
+        viewerProtocolPolicy: pulumi.Input<string>;
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValues {
@@ -2766,25 +2925,25 @@ export namespace cloudfront {
          * The forwarded values cookies
          * that specifies how CloudFront handles cookies (maximum one).
          */
-        cookies: outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookies;
+        cookies: pulumi.Input<outputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookies>;
         /**
          * Specifies the Headers, if any, that you want
          * CloudFront to vary upon for this cache behavior. Specify `*` to include all
          * headers.
          */
-        headers?: string[];
+        headers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Indicates whether you want CloudFront to forward
          * query strings to the origin that is associated with this cache behavior.
          */
-        queryString: boolean;
+        queryString: pulumi.Input<boolean>;
         /**
          * When specified, along with a value of
          * `true` for `queryString`, all query strings are forwarded, however only the
          * query string keys listed in this argument are cached. When omitted with a
          * value of `true` for `queryString`, all query string keys are cached.
          */
-        queryStringCacheKeys?: string[];
+        queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValuesCookies {
@@ -2794,13 +2953,13 @@ export namespace cloudfront {
          * specify `all`, `none` or `whitelist`. If `whitelist`, you must include the
          * subsequent `whitelistedNames`
          */
-        forward: string;
+        forward: pulumi.Input<string>;
         /**
          * If you have specified `whitelist` to
          * `forward`, the whitelisted cookies that you want CloudFront to forward to
          * your origin.
          */
-        whitelistedNames?: string[];
+        whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
@@ -2809,15 +2968,15 @@ export namespace cloudfront {
          * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
          * `origin-response`
          */
-        eventType: string;
+        eventType: pulumi.Input<string>;
         /**
          * When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
          */
-        includeBody?: boolean;
+        includeBody?: pulumi.Input<boolean>;
         /**
          * ARN of the Lambda function.
          */
-        lambdaArn: string;
+        lambdaArn: pulumi.Input<string>;
     }
 
     export interface DistributionOrigin {
@@ -2826,98 +2985,98 @@ export namespace cloudfront {
          * `value` parameters that specify header data that will be sent to the origin
          * (multiples allowed).
          */
-        customHeaders?: outputs.cloudfront.DistributionOriginCustomHeader[];
+        customHeaders?: pulumi.Input<pulumi.Input<outputs.cloudfront.DistributionOriginCustomHeader>[]>;
         /**
          * The CloudFront custom
          * origin configuration information. If an S3
          * origin is required, use `s3OriginConfig` instead.
          */
-        customOriginConfig?: outputs.cloudfront.DistributionOriginCustomOriginConfig;
+        customOriginConfig?: pulumi.Input<outputs.cloudfront.DistributionOriginCustomOriginConfig>;
         /**
          * The DNS domain name of either the S3 bucket, or
          * web site of your custom origin.
          */
-        domainName: string;
+        domainName: pulumi.Input<string>;
         /**
          * The unique identifier of the member origin
          */
-        originId: string;
+        originId: pulumi.Input<string>;
         /**
          * An optional element that causes CloudFront to
          * request your content from a directory in your Amazon S3 bucket or your
          * custom origin.
          */
-        originPath?: string;
+        originPath?: pulumi.Input<string>;
         /**
          * The CloudFront S3 origin
          * configuration information. If a custom origin is required, use
          * `customOriginConfig` instead.
          */
-        s3OriginConfig?: outputs.cloudfront.DistributionOriginS3OriginConfig;
+        s3OriginConfig?: pulumi.Input<outputs.cloudfront.DistributionOriginS3OriginConfig>;
     }
 
     export interface DistributionOriginCustomHeader {
-        name: string;
-        value: string;
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface DistributionOriginCustomOriginConfig {
         /**
          * The HTTP port the custom origin listens on.
          */
-        httpPort: number;
+        httpPort: pulumi.Input<number>;
         /**
          * The HTTPS port the custom origin listens on.
          */
-        httpsPort: number;
+        httpsPort: pulumi.Input<number>;
         /**
          * The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
          */
-        originKeepaliveTimeout?: number;
+        originKeepaliveTimeout?: pulumi.Input<number>;
         /**
          * The origin protocol policy to apply to
          * your origin. One of `http-only`, `https-only`, or `match-viewer`.
          */
-        originProtocolPolicy: string;
+        originProtocolPolicy: pulumi.Input<string>;
         /**
          * The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
          */
-        originReadTimeout?: number;
+        originReadTimeout?: pulumi.Input<number>;
         /**
          * The SSL/TLS protocols that you want
          * CloudFront to use when communicating with your origin over HTTPS. A list of
          * one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
          */
-        originSslProtocols: string[];
+        originSslProtocols: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionOriginGroup {
         /**
          * The failover criteria for when to failover to the secondary origin
          */
-        failoverCriteria: outputs.cloudfront.DistributionOriginGroupFailoverCriteria;
+        failoverCriteria: pulumi.Input<outputs.cloudfront.DistributionOriginGroupFailoverCriteria>;
         /**
          * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
          */
-        members: outputs.cloudfront.DistributionOriginGroupMember[];
+        members: pulumi.Input<pulumi.Input<outputs.cloudfront.DistributionOriginGroupMember>[]>;
         /**
          * The unique identifier of the member origin
          */
-        originId: string;
+        originId: pulumi.Input<string>;
     }
 
     export interface DistributionOriginGroupFailoverCriteria {
         /**
          * A list of HTTP status codes for the origin group
          */
-        statusCodes: number[];
+        statusCodes: pulumi.Input<pulumi.Input<number>[]>;
     }
 
     export interface DistributionOriginGroupMember {
         /**
          * The unique identifier of the member origin
          */
-        originId: string;
+        originId: pulumi.Input<string>;
     }
 
     export interface DistributionOriginS3OriginConfig {
@@ -2925,11 +3084,11 @@ export namespace cloudfront {
          * The [CloudFront origin access
          * identity][5] to associate with the origin.
          */
-        originAccessIdentity: string;
+        originAccessIdentity: pulumi.Input<string>;
     }
 
     export interface DistributionRestrictions {
-        geoRestriction: outputs.cloudfront.DistributionRestrictionsGeoRestriction;
+        geoRestriction: pulumi.Input<outputs.cloudfront.DistributionRestrictionsGeoRestriction>;
     }
 
     export interface DistributionRestrictionsGeoRestriction {
@@ -2938,13 +3097,13 @@ export namespace cloudfront {
          * want CloudFront either to distribute your content (`whitelist`) or not
          * distribute your content (`blacklist`).
          */
-        locations?: string[];
+        locations?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The method that you want to use to restrict
          * distribution of your content by country: `none`, `whitelist`, or
          * `blacklist`.
          */
-        restrictionType: string;
+        restrictionType: pulumi.Input<string>;
     }
 
     export interface DistributionViewerCertificate {
@@ -2954,19 +3113,19 @@ export namespace cloudfront {
          * `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM
          * certificate must be in  US-EAST-1.
          */
-        acmCertificateArn?: string;
+        acmCertificateArn?: pulumi.Input<string>;
         /**
          * `true` if you want viewers to use HTTPS
          * to request your objects and you're using the CloudFront domain name for your
          * distribution. Specify this, `acmCertificateArn`, or `iamCertificateId`.
          */
-        cloudfrontDefaultCertificate?: boolean;
+        cloudfrontDefaultCertificate?: pulumi.Input<boolean>;
         /**
          * The IAM certificate identifier of the custom viewer
          * certificate for this distribution if you are using a custom domain. Specify
          * this, `acmCertificateArn`, or `cloudfrontDefaultCertificate`.
          */
-        iamCertificateId?: string;
+        iamCertificateId?: pulumi.Input<string>;
         /**
          * The minimum version of the SSL protocol that
          * you want CloudFront to use for HTTPS connections. Can only be set if
@@ -2979,18 +3138,18 @@ export namespace cloudfront {
          * specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
          * must be specified.
          */
-        minimumProtocolVersion?: string;
-        sslSupportMethod?: string;
+        minimumProtocolVersion?: pulumi.Input<string>;
+        sslSupportMethod?: pulumi.Input<string>;
     }
 }
 
 export namespace cloudhsmv2 {
     export interface ClusterClusterCertificates {
-        awsHardwareCertificate: string;
-        clusterCertificate: string;
-        clusterCsr: string;
-        hsmCertificate: string;
-        manufacturerHardwareCertificate: string;
+        awsHardwareCertificate?: pulumi.Input<string>;
+        clusterCertificate?: pulumi.Input<string>;
+        clusterCsr?: pulumi.Input<string>;
+        hsmCertificate?: pulumi.Input<string>;
+        manufacturerHardwareCertificate?: pulumi.Input<string>;
     }
 
     export interface GetClusterClusterCertificates {
@@ -3007,26 +3166,26 @@ export namespace cloudtrail {
         /**
          * Specifies logging data events. Fields documented below.
          */
-        dataResources?: outputs.cloudtrail.TrailEventSelectorDataResource[];
+        dataResources?: pulumi.Input<pulumi.Input<outputs.cloudtrail.TrailEventSelectorDataResource>[]>;
         /**
          * Specify if you want your event selector to include management events for your trail.
          */
-        includeManagementEvents?: boolean;
+        includeManagementEvents?: pulumi.Input<boolean>;
         /**
          * Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
          */
-        readWriteType?: string;
+        readWriteType?: pulumi.Input<string>;
     }
 
     export interface TrailEventSelectorDataResource {
         /**
          * The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * A list of ARN for the specified S3 buckets and object prefixes..
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -3035,175 +3194,175 @@ export namespace cloudwatch {
         /**
          * Key for the condition. Valid values: `aws:PrincipalOrgID`.
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * Type of condition. Value values: `StringEquals`.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * Value for the key.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface EventTargetBatchTarget {
         /**
          * The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
          */
-        arraySize?: number;
+        arraySize?: pulumi.Input<number>;
         /**
          * The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
          */
-        jobAttempts?: number;
+        jobAttempts?: pulumi.Input<number>;
         /**
          * The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
          */
-        jobDefinition: string;
+        jobDefinition: pulumi.Input<string>;
         /**
          * The name to use for this execution of the job, if the target is an AWS Batch job.
          */
-        jobName: string;
+        jobName: pulumi.Input<string>;
     }
 
     export interface EventTargetEcsTarget {
         /**
          * Specifies an ECS task group for the task. The maximum length is 255 characters.
          */
-        group?: string;
+        group?: pulumi.Input<string>;
         /**
          * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
          */
-        launchType?: string;
+        launchType?: pulumi.Input<string>;
         /**
          * Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
          */
-        networkConfiguration?: outputs.cloudwatch.EventTargetEcsTargetNetworkConfiguration;
+        networkConfiguration?: pulumi.Input<outputs.cloudwatch.EventTargetEcsTargetNetworkConfiguration>;
         /**
          * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          */
-        platformVersion?: string;
+        platformVersion?: pulumi.Input<string>;
         /**
          * The number of tasks to create based on the TaskDefinition. The default is 1.
          */
-        taskCount?: number;
+        taskCount?: pulumi.Input<number>;
         /**
          * The ARN of the task definition to use if the event target is an Amazon ECS cluster.
          */
-        taskDefinitionArn: string;
+        taskDefinitionArn: pulumi.Input<string>;
     }
 
     export interface EventTargetEcsTargetNetworkConfiguration {
         /**
          * Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
          */
-        assignPublicIp?: boolean;
+        assignPublicIp?: pulumi.Input<boolean>;
         /**
          * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
          */
-        securityGroups?: string[];
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The subnets associated with the task or service.
          */
-        subnets: string[];
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface EventTargetInputTransformer {
         /**
          * Key value pairs specified in the form of JSONPath (for example, time = $.time)
          */
-        inputPaths?: {[key: string]: any};
+        inputPaths?: pulumi.Input<{[key: string]: any}>;
         /**
          * Structure containing the template body.
          */
-        inputTemplate: string;
+        inputTemplate: pulumi.Input<string>;
     }
 
     export interface EventTargetKinesisTarget {
         /**
          * The JSON path to be extracted from the event and used as the partition key.
          */
-        partitionKeyPath?: string;
+        partitionKeyPath?: pulumi.Input<string>;
     }
 
     export interface EventTargetRunCommandTarget {
         /**
          * Can be either `tag:tag-key` or `InstanceIds`.
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface EventTargetSqsTarget {
         /**
          * The FIFO message group ID to use as the target.
          */
-        messageGroupId?: string;
+        messageGroupId?: pulumi.Input<string>;
     }
 
     export interface LogMetricFilterMetricTransformation {
-        defaultValue?: string;
+        defaultValue?: pulumi.Input<string>;
         /**
          * A name for the metric filter.
          */
-        name: string;
-        namespace: string;
-        value: string;
+        name: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface MetricAlarmMetricQuery {
         /**
          * The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
          */
-        expression?: string;
+        expression?: pulumi.Input<string>;
         /**
          * A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
          */
-        id: string;
+        id: pulumi.Input<string>;
         /**
          * A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
          */
-        label?: string;
+        label?: pulumi.Input<string>;
         /**
          * The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
          */
-        metric?: outputs.cloudwatch.MetricAlarmMetricQueryMetric;
+        metric?: pulumi.Input<outputs.cloudwatch.MetricAlarmMetricQueryMetric>;
         /**
          * Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
          */
-        returnData?: boolean;
+        returnData?: pulumi.Input<boolean>;
     }
 
     export interface MetricAlarmMetricQueryMetric {
         /**
          * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          */
-        dimensions?: {[key: string]: any};
+        dimensions?: pulumi.Input<{[key: string]: any}>;
         /**
          * The name for this metric.
          * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          */
-        metricName: string;
+        metricName: pulumi.Input<string>;
         /**
          * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
          * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          */
-        namespace?: string;
+        namespace?: pulumi.Input<string>;
         /**
          * The period in seconds over which the specified `stat` is applied.
          */
-        period: number;
+        period: pulumi.Input<number>;
         /**
          * The statistic to apply to this metric.
          * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
          */
-        stat: string;
+        stat: pulumi.Input<string>;
         /**
          * The unit for this metric.
          */
-        unit?: string;
+        unit?: pulumi.Input<string>;
     }
 }
 
@@ -3212,342 +3371,342 @@ export namespace codebuild {
         /**
          * The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
          */
-        artifactIdentifier?: string;
+        artifactIdentifier?: pulumi.Input<string>;
         /**
          * If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
          */
-        encryptionDisabled?: boolean;
+        encryptionDisabled?: pulumi.Input<boolean>;
         /**
          * The location of the source code from git or s3.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
          */
-        name?: string;
+        name?: pulumi.Input<string>;
         /**
          * The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
          */
-        namespaceType?: string;
+        namespaceType?: pulumi.Input<string>;
         /**
          * If set to true, a name specified in the build spec file overrides the artifact name.
          */
-        overrideArtifactName?: boolean;
+        overrideArtifactName?: pulumi.Input<boolean>;
         /**
          * The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
          */
-        packaging?: string;
+        packaging?: pulumi.Input<string>;
         /**
          * If `type` is set to `S3`, this is the path to the output artifact
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectCache {
         /**
          * The location of the source code from git or s3.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
          */
-        modes?: string[];
+        modes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironment {
         /**
          * The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
          */
-        certificate?: string;
+        certificate?: pulumi.Input<string>;
         /**
          * Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` need to be `BUILD_GENERAL1_LARGE`.
          */
-        computeType: string;
+        computeType: pulumi.Input<string>;
         /**
          * A set of environment variables to make available to builds for this build project.
          */
-        environmentVariables: outputs.codebuild.ProjectEnvironmentEnvironmentVariable[];
+        environmentVariables?: pulumi.Input<pulumi.Input<outputs.codebuild.ProjectEnvironmentEnvironmentVariable>[]>;
         /**
          * The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
-        image: string;
+        image: pulumi.Input<string>;
         /**
          * The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
          */
-        imagePullCredentialsType?: string;
+        imagePullCredentialsType?: pulumi.Input<string>;
         /**
          * If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
          */
-        privilegedMode?: boolean;
+        privilegedMode?: pulumi.Input<boolean>;
         /**
          * Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
          */
-        registryCredential?: outputs.codebuild.ProjectEnvironmentRegistryCredential;
+        registryCredential?: pulumi.Input<outputs.codebuild.ProjectEnvironmentRegistryCredential>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironmentEnvironmentVariable {
         /**
          * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
         /**
          * The environment variable's value.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironmentRegistryCredential {
         /**
          * The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
          */
-        credential: string;
+        credential: pulumi.Input<string>;
         /**
          * The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
          */
-        credentialProvider: string;
+        credentialProvider: pulumi.Input<string>;
     }
 
     export interface ProjectLogsConfig {
         /**
          * Configuration for the builds to store logs to CloudWatch
          */
-        cloudwatchLogs?: outputs.codebuild.ProjectLogsConfigCloudwatchLogs;
+        cloudwatchLogs?: pulumi.Input<outputs.codebuild.ProjectLogsConfigCloudwatchLogs>;
         /**
          * Configuration for the builds to store logs to S3.
          */
-        s3Logs?: outputs.codebuild.ProjectLogsConfigS3Logs;
+        s3Logs?: pulumi.Input<outputs.codebuild.ProjectLogsConfigS3Logs>;
     }
 
     export interface ProjectLogsConfigCloudwatchLogs {
         /**
          * The group name of the logs in CloudWatch Logs.
          */
-        groupName?: string;
+        groupName?: pulumi.Input<string>;
         /**
          * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          */
-        status?: string;
+        status?: pulumi.Input<string>;
         /**
          * The stream name of the logs in CloudWatch Logs.
          */
-        streamName?: string;
+        streamName?: pulumi.Input<string>;
     }
 
     export interface ProjectLogsConfigS3Logs {
         /**
          * If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
          */
-        encryptionDisabled?: boolean;
+        encryptionDisabled?: pulumi.Input<boolean>;
         /**
          * The location of the source code from git or s3.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          */
-        status?: string;
+        status?: pulumi.Input<string>;
     }
 
     export interface ProjectSecondaryArtifact {
         /**
          * The artifact identifier. Must be the same specified inside AWS CodeBuild buildspec.
          */
-        artifactIdentifier: string;
+        artifactIdentifier: pulumi.Input<string>;
         /**
          * If set to true, output artifacts will not be encrypted. If `type` is set to `NO_ARTIFACTS` then this value will be ignored. Defaults to `false`.
          */
-        encryptionDisabled?: boolean;
+        encryptionDisabled?: pulumi.Input<boolean>;
         /**
          * The location of the source code from git or s3.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * The name of the project. If `type` is set to `S3`, this is the name of the output artifact object
          */
-        name?: string;
+        name?: pulumi.Input<string>;
         /**
          * The namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values for this parameter are: `BUILD_ID` or `NONE`.
          */
-        namespaceType?: string;
+        namespaceType?: pulumi.Input<string>;
         /**
          * If set to true, a name specified in the build spec file overrides the artifact name.
          */
-        overrideArtifactName?: boolean;
+        overrideArtifactName?: pulumi.Input<boolean>;
         /**
          * The type of build output artifact to create. If `type` is set to `S3`, valid values for this parameter are: `NONE` or `ZIP`
          */
-        packaging?: string;
+        packaging?: pulumi.Input<string>;
         /**
          * If `type` is set to `S3`, this is the path to the output artifact
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySource {
         /**
          * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
          */
-        auths?: outputs.codebuild.ProjectSecondarySourceAuth[];
+        auths?: pulumi.Input<pulumi.Input<outputs.codebuild.ProjectSecondarySourceAuth>[]>;
         /**
          * The build spec declaration to use for this build project's related builds.
          */
-        buildspec?: string;
+        buildspec?: pulumi.Input<string>;
         /**
          * Truncate git history to this many commits.
          */
-        gitCloneDepth?: number;
+        gitCloneDepth?: pulumi.Input<number>;
         /**
          * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
          */
-        gitSubmodulesConfig?: outputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig;
+        gitSubmodulesConfig?: pulumi.Input<outputs.codebuild.ProjectSecondarySourceGitSubmodulesConfig>;
         /**
          * Ignore SSL warnings when connecting to source control.
          */
-        insecureSsl?: boolean;
+        insecureSsl?: pulumi.Input<boolean>;
         /**
          * The location of the source code from git or s3.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
          */
-        reportBuildStatus?: boolean;
+        reportBuildStatus?: pulumi.Input<boolean>;
         /**
          * The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
          */
-        sourceIdentifier: string;
+        sourceIdentifier: pulumi.Input<string>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySourceAuth {
         /**
          * The resource value that applies to the specified authorization type.
          */
-        resource?: string;
+        resource?: pulumi.Input<string>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectSecondarySourceGitSubmodulesConfig {
         /**
          * If set to true, fetches Git submodules for the AWS CodeBuild build project.
          */
-        fetchSubmodules: boolean;
+        fetchSubmodules: pulumi.Input<boolean>;
     }
 
     export interface ProjectSource {
         /**
          * Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
          */
-        auths?: outputs.codebuild.ProjectSourceAuth[];
+        auths?: pulumi.Input<pulumi.Input<outputs.codebuild.ProjectSourceAuth>[]>;
         /**
          * The build spec declaration to use for this build project's related builds.
          */
-        buildspec?: string;
+        buildspec?: pulumi.Input<string>;
         /**
          * Truncate git history to this many commits.
          */
-        gitCloneDepth?: number;
+        gitCloneDepth?: pulumi.Input<number>;
         /**
          * Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`.
          */
-        gitSubmodulesConfig?: outputs.codebuild.ProjectSourceGitSubmodulesConfig;
+        gitSubmodulesConfig?: pulumi.Input<outputs.codebuild.ProjectSourceGitSubmodulesConfig>;
         /**
          * Ignore SSL warnings when connecting to source control.
          */
-        insecureSsl?: boolean;
+        insecureSsl?: pulumi.Input<boolean>;
         /**
          * The location of the source code from git or s3.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * Set to `true` to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
          */
-        reportBuildStatus?: boolean;
+        reportBuildStatus?: pulumi.Input<boolean>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectSourceAuth {
         /**
          * The resource value that applies to the specified authorization type.
          */
-        resource?: string;
+        resource?: pulumi.Input<string>;
         /**
          * The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ProjectSourceGitSubmodulesConfig {
         /**
          * If set to true, fetches Git submodules for the AWS CodeBuild build project.
          */
-        fetchSubmodules: boolean;
+        fetchSubmodules: pulumi.Input<boolean>;
     }
 
     export interface ProjectVpcConfig {
         /**
          * The security group IDs to assign to running builds.
          */
-        securityGroupIds: string[];
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The subnet IDs within which to run builds.
          */
-        subnets: string[];
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The ID of the VPC within which to run builds.
          */
-        vpcId: string;
+        vpcId: pulumi.Input<string>;
     }
 
     export interface WebhookFilterGroup {
         /**
          * A webhook filter for the group. Filter blocks are documented below.
          */
-        filters?: outputs.codebuild.WebhookFilterGroupFilter[];
+        filters?: pulumi.Input<pulumi.Input<outputs.codebuild.WebhookFilterGroupFilter>[]>;
     }
 
     export interface WebhookFilterGroupFilter {
         /**
          * If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
          */
-        excludeMatchedPattern?: boolean;
+        excludeMatchedPattern?: pulumi.Input<boolean>;
         /**
          * For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
          */
-        pattern: string;
+        pattern: pulumi.Input<string>;
         /**
          * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -3556,89 +3715,89 @@ export namespace codecommit {
         /**
          * The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
          */
-        branches?: string[];
+        branches?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
          */
-        customData?: string;
+        customData?: pulumi.Input<string>;
         /**
          * The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
          */
-        destinationArn: string;
+        destinationArn: pulumi.Input<string>;
         /**
          * The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
          */
-        events: string[];
+        events: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the trigger.
          */
-        name: string;
+        name: pulumi.Input<string>;
     }
 }
 
 export namespace codedeploy {
     export interface DeploymentConfigMinimumHealthyHosts {
-        type?: string;
-        value?: number;
+        type?: pulumi.Input<string>;
+        value?: pulumi.Input<number>;
     }
 
     export interface DeploymentConfigTrafficRoutingConfig {
-        timeBasedCanary?: outputs.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedCanary;
-        timeBasedLinear?: outputs.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinear;
-        type?: string;
+        timeBasedCanary?: pulumi.Input<outputs.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedCanary>;
+        timeBasedLinear?: pulumi.Input<outputs.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinear>;
+        type?: pulumi.Input<string>;
     }
 
     export interface DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
-        interval?: number;
-        percentage?: number;
+        interval?: pulumi.Input<number>;
+        percentage?: pulumi.Input<number>;
     }
 
     export interface DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
-        interval?: number;
-        percentage?: number;
+        interval?: pulumi.Input<number>;
+        percentage?: pulumi.Input<number>;
     }
 
     export interface DeploymentGroupAlarmConfiguration {
         /**
          * A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
          */
-        alarms?: string[];
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
          * * `true`: The deployment will proceed even if alarm status information can't be retrieved.
          * * `false`: The deployment will stop if alarm status information can't be retrieved.
          */
-        ignorePollAlarmFailure?: boolean;
+        ignorePollAlarmFailure?: pulumi.Input<boolean>;
     }
 
     export interface DeploymentGroupAutoRollbackConfiguration {
         /**
          * Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
          */
-        events?: string[];
+        events?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DeploymentGroupBlueGreenDeploymentConfig {
         /**
          * Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
          */
-        deploymentReadyOption?: outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption;
+        deploymentReadyOption?: pulumi.Input<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption>;
         /**
          * Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
          */
-        greenFleetProvisioningOption: outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption;
+        greenFleetProvisioningOption?: pulumi.Input<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption>;
         /**
          * Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
          */
-        terminateBlueInstancesOnDeploymentSuccess?: outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess;
+        terminateBlueInstancesOnDeploymentSuccess?: pulumi.Input<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess>;
     }
 
     export interface DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
@@ -3647,11 +3806,11 @@ export namespace codedeploy {
          * * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
          * * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
          */
-        actionOnTimeout?: string;
+        actionOnTimeout?: pulumi.Input<string>;
         /**
          * The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
          */
-        waitTimeInMinutes?: number;
+        waitTimeInMinutes?: pulumi.Input<number>;
     }
 
     export interface DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
@@ -3660,7 +3819,7 @@ export namespace codedeploy {
          * * `TERMINATE`: Instances are terminated after a specified wait time.
          * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          */
-        action?: string;
+        action?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
@@ -3669,218 +3828,218 @@ export namespace codedeploy {
          * * `TERMINATE`: Instances are terminated after a specified wait time.
          * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          */
-        action?: string;
+        action?: pulumi.Input<string>;
         /**
          * The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
          */
-        terminationWaitTimeInMinutes?: number;
+        terminationWaitTimeInMinutes?: pulumi.Input<number>;
     }
 
     export interface DeploymentGroupDeploymentStyle {
         /**
          * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
          */
-        deploymentOption?: string;
+        deploymentOption?: pulumi.Input<string>;
         /**
          * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
          */
-        deploymentType?: string;
+        deploymentType?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupEc2TagFilter {
         /**
          * The key of the tag filter.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
         /**
          * The value of the tag filter.
          */
-        value?: string;
+        value?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupEc2TagSet {
         /**
          * Tag filters associated with the deployment group. See the AWS docs for details.
          */
-        ec2TagFilters?: outputs.codedeploy.DeploymentGroupEc2TagSetEc2TagFilter[];
+        ec2TagFilters?: pulumi.Input<pulumi.Input<outputs.codedeploy.DeploymentGroupEc2TagSetEc2TagFilter>[]>;
     }
 
     export interface DeploymentGroupEc2TagSetEc2TagFilter {
         /**
          * The key of the tag filter.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
         /**
          * The value of the tag filter.
          */
-        value?: string;
+        value?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupEcsService {
         /**
          * The name of the ECS cluster.
          */
-        clusterName: string;
+        clusterName: pulumi.Input<string>;
         /**
          * The name of the ECS service.
          */
-        serviceName: string;
+        serviceName: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupLoadBalancerInfo {
         /**
          * The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
          */
-        elbInfos?: outputs.codedeploy.DeploymentGroupLoadBalancerInfoElbInfo[];
+        elbInfos?: pulumi.Input<pulumi.Input<outputs.codedeploy.DeploymentGroupLoadBalancerInfoElbInfo>[]>;
         /**
          * The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elbInfo` and `targetGroupPairInfo`.
          */
-        targetGroupInfos?: outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupInfo[];
+        targetGroupInfos?: pulumi.Input<pulumi.Input<outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupInfo>[]>;
         /**
          * The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elbInfo` and `targetGroupInfo`.
          */
-        targetGroupPairInfo?: outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfo;
+        targetGroupPairInfo?: pulumi.Input<outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfo>;
     }
 
     export interface DeploymentGroupLoadBalancerInfoElbInfo {
         /**
          * Name of the target group.
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupInfo {
         /**
          * Name of the target group.
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
         /**
          * Configuration block for the production traffic route (documented below).
          */
-        prodTrafficRoute: outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute;
+        prodTrafficRoute: pulumi.Input<outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute>;
         /**
          * Configuration blocks for a target group within a target group pair (documented below).
          */
-        targetGroups: outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup[];
+        targetGroups: pulumi.Input<pulumi.Input<outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup>[]>;
         /**
          * Configuration block for the test traffic route (documented below).
          */
-        testTrafficRoute?: outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute;
+        testTrafficRoute?: pulumi.Input<outputs.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute>;
     }
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
         /**
          * List of Amazon Resource Names (ARNs) of the load balancer listeners.
          */
-        listenerArns: string[];
+        listenerArns: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup {
         /**
          * Name of the target group.
          */
-        name: string;
+        name: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
         /**
          * List of Amazon Resource Names (ARNs) of the load balancer listeners.
          */
-        listenerArns: string[];
+        listenerArns: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DeploymentGroupOnPremisesInstanceTagFilter {
         /**
          * The key of the tag filter.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
         /**
          * The value of the tag filter.
          */
-        value?: string;
+        value?: pulumi.Input<string>;
     }
 
     export interface DeploymentGroupTriggerConfiguration {
         /**
          * The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation][1] for all possible values.
          */
-        triggerEvents: string[];
+        triggerEvents: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the notification trigger.
          */
-        triggerName: string;
+        triggerName: pulumi.Input<string>;
         /**
          * The ARN of the SNS topic through which notifications are sent.
          */
-        triggerTargetArn: string;
+        triggerTargetArn: pulumi.Input<string>;
     }
 }
 
 export namespace codepipeline {
     export interface PipelineArtifactStore {
-        encryptionKey?: outputs.codepipeline.PipelineArtifactStoreEncryptionKey;
-        location: string;
-        type: string;
+        encryptionKey?: pulumi.Input<outputs.codepipeline.PipelineArtifactStoreEncryptionKey>;
+        location: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface PipelineArtifactStoreEncryptionKey {
         /**
          * The codepipeline ID.
          */
-        id: string;
-        type: string;
+        id: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface PipelineStage {
-        actions: outputs.codepipeline.PipelineStageAction[];
+        actions: pulumi.Input<pulumi.Input<outputs.codepipeline.PipelineStageAction>[]>;
         /**
          * The name of the pipeline.
          */
-        name: string;
+        name: pulumi.Input<string>;
     }
 
     export interface PipelineStageAction {
-        category: string;
-        configuration?: {[key: string]: any};
-        inputArtifacts?: string[];
+        category: pulumi.Input<string>;
+        configuration?: pulumi.Input<{[key: string]: any}>;
+        inputArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the pipeline.
          */
-        name: string;
-        outputArtifacts?: string[];
-        owner: string;
-        provider: string;
+        name: pulumi.Input<string>;
+        outputArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
+        owner: pulumi.Input<string>;
+        provider: pulumi.Input<string>;
         /**
          * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
          */
-        roleArn?: string;
-        runOrder: number;
-        version: string;
+        roleArn?: pulumi.Input<string>;
+        runOrder?: pulumi.Input<number>;
+        version: pulumi.Input<string>;
     }
 
     export interface WebhookAuthenticationConfiguration {
-        allowedIpRange?: string;
-        secretToken?: string;
+        allowedIpRange?: pulumi.Input<string>;
+        secretToken?: pulumi.Input<string>;
     }
 
     export interface WebhookFilter {
-        jsonPath: string;
-        matchEquals: string;
+        jsonPath: pulumi.Input<string>;
+        matchEquals: pulumi.Input<string>;
     }
 }
 
@@ -3889,293 +4048,446 @@ export namespace cognito {
         /**
          * The client ID for the Amazon Cognito Identity User Pool.
          */
-        clientId?: string;
+        clientId?: pulumi.Input<string>;
         /**
          * The provider name for an Amazon Cognito Identity User Pool.
          */
-        providerName?: string;
+        providerName?: pulumi.Input<string>;
         /**
          * Whether server-side token validation is enabled for the identity provider’s token or not.
          */
-        serverSideTokenCheck?: boolean;
+        serverSideTokenCheck?: pulumi.Input<boolean>;
     }
 
     export interface IdentityPoolRoleAttachmentRoleMapping {
         /**
          * Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
          */
-        ambiguousRoleResolution?: string;
+        ambiguousRoleResolution?: pulumi.Input<string>;
         /**
          * A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
          */
-        identityProvider: string;
+        identityProvider: pulumi.Input<string>;
         /**
          * The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
          */
-        mappingRules?: outputs.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRule[];
+        mappingRules?: pulumi.Input<pulumi.Input<outputs.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRule>[]>;
         /**
          * The role mapping type.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface IdentityPoolRoleAttachmentRoleMappingMappingRule {
         /**
          * The claim name that must be present in the token, for example, "isAdmin" or "paid".
          */
-        claim: string;
+        claim: pulumi.Input<string>;
         /**
          * The match condition that specifies how closely the claim value in the IdP token must match Value.
          */
-        matchType: string;
+        matchType: pulumi.Input<string>;
         /**
          * The role ARN.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * A brief string that the claim must match, for example, "paid" or "yes".
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface IdentityPoolRoleAttachmentRoles {
-        authenticated?: string;
-        unauthenticated?: string;
+        authenticated?: pulumi.Input<string>;
+        unauthenticated?: pulumi.Input<string>;
     }
 
     export interface ResourceServerScope {
         /**
          * The scope description.
          */
-        scopeDescription: string;
+        scopeDescription: pulumi.Input<string>;
         /**
          * The scope name.
          */
-        scopeName: string;
+        scopeName: pulumi.Input<string>;
     }
 
     export interface UserPoolAdminCreateUserConfig {
         /**
          * Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
          */
-        allowAdminCreateUserOnly?: boolean;
+        allowAdminCreateUserOnly?: pulumi.Input<boolean>;
         /**
          * The invite message template structure.
          */
-        inviteMessageTemplate?: outputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate;
+        inviteMessageTemplate?: pulumi.Input<outputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate>;
         /**
          * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
+         *
+         * @deprecated Use password_policy.temporary_password_validity_days instead
          */
-        unusedAccountValidityDays?: number;
+        unusedAccountValidityDays?: pulumi.Input<number>;
     }
 
     export interface UserPoolAdminCreateUserConfigInviteMessageTemplate {
         /**
          * The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
          */
-        emailMessage?: string;
+        emailMessage?: pulumi.Input<string>;
         /**
          * The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
          */
-        emailSubject?: string;
+        emailSubject?: pulumi.Input<string>;
         /**
          * The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
          */
-        smsMessage?: string;
+        smsMessage?: pulumi.Input<string>;
     }
 
     export interface UserPoolDeviceConfiguration {
         /**
          * Indicates whether a challenge is required on a new device. Only applicable to a new device.
          */
-        challengeRequiredOnNewDevice?: boolean;
+        challengeRequiredOnNewDevice?: pulumi.Input<boolean>;
         /**
          * If true, a device is only remembered on user prompt.
          */
-        deviceOnlyRememberedOnUserPrompt?: boolean;
+        deviceOnlyRememberedOnUserPrompt?: pulumi.Input<boolean>;
     }
 
     export interface UserPoolEmailConfiguration {
         /**
          * Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
          */
-        emailSendingAccount?: string;
+        emailSendingAccount?: pulumi.Input<string>;
         /**
          * The REPLY-TO email address.
          */
-        replyToEmailAddress?: string;
+        replyToEmailAddress?: pulumi.Input<string>;
         /**
          * The ARN of the email source.
          */
-        sourceArn?: string;
+        sourceArn?: pulumi.Input<string>;
     }
 
     export interface UserPoolLambdaConfig {
         /**
          * The ARN of the lambda creating an authentication challenge.
          */
-        createAuthChallenge?: string;
+        createAuthChallenge?: pulumi.Input<string>;
         /**
          * A custom Message AWS Lambda trigger.
          */
-        customMessage?: string;
+        customMessage?: pulumi.Input<string>;
         /**
          * Defines the authentication challenge.
          */
-        defineAuthChallenge?: string;
+        defineAuthChallenge?: pulumi.Input<string>;
         /**
          * A post-authentication AWS Lambda trigger.
          */
-        postAuthentication?: string;
+        postAuthentication?: pulumi.Input<string>;
         /**
          * A post-confirmation AWS Lambda trigger.
          */
-        postConfirmation?: string;
+        postConfirmation?: pulumi.Input<string>;
         /**
          * A pre-authentication AWS Lambda trigger.
          */
-        preAuthentication?: string;
+        preAuthentication?: pulumi.Input<string>;
         /**
          * A pre-registration AWS Lambda trigger.
          */
-        preSignUp?: string;
+        preSignUp?: pulumi.Input<string>;
         /**
          * Allow to customize identity token claims before token generation.
          */
-        preTokenGeneration?: string;
+        preTokenGeneration?: pulumi.Input<string>;
         /**
          * The user migration Lambda config type.
          */
-        userMigration?: string;
+        userMigration?: pulumi.Input<string>;
         /**
          * Verifies the authentication challenge response.
          */
-        verifyAuthChallengeResponse?: string;
+        verifyAuthChallengeResponse?: pulumi.Input<string>;
     }
 
     export interface UserPoolPasswordPolicy {
         /**
          * The minimum length of the password policy that you have set.
          */
-        minimumLength?: number;
+        minimumLength?: pulumi.Input<number>;
         /**
          * Whether you have required users to use at least one lowercase letter in their password.
          */
-        requireLowercase?: boolean;
+        requireLowercase?: pulumi.Input<boolean>;
         /**
          * Whether you have required users to use at least one number in their password.
          */
-        requireNumbers?: boolean;
+        requireNumbers?: pulumi.Input<boolean>;
         /**
          * Whether you have required users to use at least one symbol in their password.
          */
-        requireSymbols?: boolean;
+        requireSymbols?: pulumi.Input<boolean>;
         /**
          * Whether you have required users to use at least one uppercase letter in their password.
          */
-        requireUppercase?: boolean;
+        requireUppercase?: pulumi.Input<boolean>;
         /**
          * In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
          */
-        temporaryPasswordValidityDays?: number;
+        temporaryPasswordValidityDays?: pulumi.Input<number>;
     }
 
     export interface UserPoolSchema {
         /**
          * The attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
          */
-        attributeDataType: string;
+        attributeDataType: pulumi.Input<string>;
         /**
          * Specifies whether the attribute type is developer only.
          */
-        developerOnlyAttribute?: boolean;
+        developerOnlyAttribute?: pulumi.Input<boolean>;
         /**
          * Specifies whether the attribute can be changed once it has been created.
          */
-        mutable?: boolean;
+        mutable?: pulumi.Input<boolean>;
         /**
          * The name of the attribute.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Specifies the constraints for an attribute of the number type.
          */
-        numberAttributeConstraints?: outputs.cognito.UserPoolSchemaNumberAttributeConstraints;
+        numberAttributeConstraints?: pulumi.Input<outputs.cognito.UserPoolSchemaNumberAttributeConstraints>;
         /**
          * Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
          */
-        required?: boolean;
+        required?: pulumi.Input<boolean>;
         /**
          * -Specifies the constraints for an attribute of the string type.
          */
-        stringAttributeConstraints?: outputs.cognito.UserPoolSchemaStringAttributeConstraints;
+        stringAttributeConstraints?: pulumi.Input<outputs.cognito.UserPoolSchemaStringAttributeConstraints>;
     }
 
     export interface UserPoolSchemaNumberAttributeConstraints {
         /**
          * The maximum value of an attribute that is of the number data type.
          */
-        maxValue?: string;
+        maxValue?: pulumi.Input<string>;
         /**
          * The minimum value of an attribute that is of the number data type.
          */
-        minValue?: string;
+        minValue?: pulumi.Input<string>;
     }
 
     export interface UserPoolSchemaStringAttributeConstraints {
         /**
          * The maximum length of an attribute value of the string type.
          */
-        maxLength?: string;
+        maxLength?: pulumi.Input<string>;
         /**
          * The minimum length of an attribute value of the string type.
          */
-        minLength?: string;
+        minLength?: pulumi.Input<string>;
     }
 
     export interface UserPoolSmsConfiguration {
         /**
          * The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
          */
-        externalId: string;
+        externalId: pulumi.Input<string>;
         /**
          * The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
          */
-        snsCallerArn: string;
+        snsCallerArn: pulumi.Input<string>;
     }
 
     export interface UserPoolUserPoolAddOns {
         /**
          * The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
          */
-        advancedSecurityMode: string;
+        advancedSecurityMode: pulumi.Input<string>;
     }
 
     export interface UserPoolVerificationMessageTemplate {
         /**
          * The default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
          */
-        defaultEmailOption?: string;
+        defaultEmailOption?: pulumi.Input<string>;
         /**
          * The email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
          */
-        emailMessage: string;
+        emailMessage?: pulumi.Input<string>;
         /**
          * The email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
          */
-        emailMessageByLink: string;
+        emailMessageByLink?: pulumi.Input<string>;
         /**
          * The subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
          */
-        emailSubject: string;
+        emailSubject?: pulumi.Input<string>;
         /**
          * The subject line for the email message template for sending a confirmation link to the user.
          */
-        emailSubjectByLink: string;
+        emailSubjectByLink?: pulumi.Input<string>;
         /**
          * The SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
          */
-        smsMessage: string;
+        smsMessage?: pulumi.Input<string>;
+    }
+}
+
+export namespace config {
+    export interface AssumeRole {
+        externalId?: pulumi.Input<string>;
+        policy?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        sessionName?: pulumi.Input<string>;
+    }
+
+    export interface Endpoints {
+        accessanalyzer?: pulumi.Input<string>;
+        acm?: pulumi.Input<string>;
+        acmpca?: pulumi.Input<string>;
+        amplify?: pulumi.Input<string>;
+        apigateway?: pulumi.Input<string>;
+        applicationautoscaling?: pulumi.Input<string>;
+        applicationinsights?: pulumi.Input<string>;
+        appmesh?: pulumi.Input<string>;
+        appstream?: pulumi.Input<string>;
+        appsync?: pulumi.Input<string>;
+        athena?: pulumi.Input<string>;
+        autoscaling?: pulumi.Input<string>;
+        autoscalingplans?: pulumi.Input<string>;
+        backup?: pulumi.Input<string>;
+        batch?: pulumi.Input<string>;
+        budgets?: pulumi.Input<string>;
+        cloud9?: pulumi.Input<string>;
+        cloudformation?: pulumi.Input<string>;
+        cloudfront?: pulumi.Input<string>;
+        cloudhsm?: pulumi.Input<string>;
+        cloudsearch?: pulumi.Input<string>;
+        cloudtrail?: pulumi.Input<string>;
+        cloudwatch?: pulumi.Input<string>;
+        cloudwatchevents?: pulumi.Input<string>;
+        cloudwatchlogs?: pulumi.Input<string>;
+        codebuild?: pulumi.Input<string>;
+        codecommit?: pulumi.Input<string>;
+        codedeploy?: pulumi.Input<string>;
+        codepipeline?: pulumi.Input<string>;
+        cognitoidentity?: pulumi.Input<string>;
+        cognitoidp?: pulumi.Input<string>;
+        configservice?: pulumi.Input<string>;
+        cur?: pulumi.Input<string>;
+        dataexchange?: pulumi.Input<string>;
+        datapipeline?: pulumi.Input<string>;
+        datasync?: pulumi.Input<string>;
+        dax?: pulumi.Input<string>;
+        devicefarm?: pulumi.Input<string>;
+        directconnect?: pulumi.Input<string>;
+        dlm?: pulumi.Input<string>;
+        dms?: pulumi.Input<string>;
+        docdb?: pulumi.Input<string>;
+        ds?: pulumi.Input<string>;
+        dynamodb?: pulumi.Input<string>;
+        ec2?: pulumi.Input<string>;
+        ecr?: pulumi.Input<string>;
+        ecs?: pulumi.Input<string>;
+        efs?: pulumi.Input<string>;
+        eks?: pulumi.Input<string>;
+        elasticache?: pulumi.Input<string>;
+        elasticbeanstalk?: pulumi.Input<string>;
+        elastictranscoder?: pulumi.Input<string>;
+        elb?: pulumi.Input<string>;
+        emr?: pulumi.Input<string>;
+        es?: pulumi.Input<string>;
+        firehose?: pulumi.Input<string>;
+        fms?: pulumi.Input<string>;
+        forecast?: pulumi.Input<string>;
+        fsx?: pulumi.Input<string>;
+        gamelift?: pulumi.Input<string>;
+        glacier?: pulumi.Input<string>;
+        globalaccelerator?: pulumi.Input<string>;
+        glue?: pulumi.Input<string>;
+        greengrass?: pulumi.Input<string>;
+        guardduty?: pulumi.Input<string>;
+        iam?: pulumi.Input<string>;
+        imagebuilder?: pulumi.Input<string>;
+        inspector?: pulumi.Input<string>;
+        iot?: pulumi.Input<string>;
+        iotanalytics?: pulumi.Input<string>;
+        iotevents?: pulumi.Input<string>;
+        kafka?: pulumi.Input<string>;
+        kinesis?: pulumi.Input<string>;
+        /**
+         * @deprecated use `endpoints` configuration block `kinesisanalytics` argument instead
+         */
+        kinesisAnalytics?: pulumi.Input<string>;
+        kinesisanalytics?: pulumi.Input<string>;
+        kinesisvideo?: pulumi.Input<string>;
+        kms?: pulumi.Input<string>;
+        lakeformation?: pulumi.Input<string>;
+        lambda?: pulumi.Input<string>;
+        lexmodels?: pulumi.Input<string>;
+        licensemanager?: pulumi.Input<string>;
+        lightsail?: pulumi.Input<string>;
+        macie?: pulumi.Input<string>;
+        managedblockchain?: pulumi.Input<string>;
+        marketplacecatalog?: pulumi.Input<string>;
+        mediaconnect?: pulumi.Input<string>;
+        mediaconvert?: pulumi.Input<string>;
+        medialive?: pulumi.Input<string>;
+        mediapackage?: pulumi.Input<string>;
+        mediastore?: pulumi.Input<string>;
+        mediastoredata?: pulumi.Input<string>;
+        mq?: pulumi.Input<string>;
+        neptune?: pulumi.Input<string>;
+        opsworks?: pulumi.Input<string>;
+        organizations?: pulumi.Input<string>;
+        personalize?: pulumi.Input<string>;
+        pinpoint?: pulumi.Input<string>;
+        pricing?: pulumi.Input<string>;
+        qldb?: pulumi.Input<string>;
+        quicksight?: pulumi.Input<string>;
+        /**
+         * @deprecated use `endpoints` configuration block `route53` argument instead
+         */
+        r53?: pulumi.Input<string>;
+        ram?: pulumi.Input<string>;
+        rds?: pulumi.Input<string>;
+        redshift?: pulumi.Input<string>;
+        resourcegroups?: pulumi.Input<string>;
+        route53?: pulumi.Input<string>;
+        route53resolver?: pulumi.Input<string>;
+        s3?: pulumi.Input<string>;
+        s3control?: pulumi.Input<string>;
+        sagemaker?: pulumi.Input<string>;
+        sdb?: pulumi.Input<string>;
+        secretsmanager?: pulumi.Input<string>;
+        securityhub?: pulumi.Input<string>;
+        serverlessrepo?: pulumi.Input<string>;
+        servicecatalog?: pulumi.Input<string>;
+        servicediscovery?: pulumi.Input<string>;
+        servicequotas?: pulumi.Input<string>;
+        ses?: pulumi.Input<string>;
+        shield?: pulumi.Input<string>;
+        sns?: pulumi.Input<string>;
+        sqs?: pulumi.Input<string>;
+        ssm?: pulumi.Input<string>;
+        stepfunctions?: pulumi.Input<string>;
+        storagegateway?: pulumi.Input<string>;
+        sts?: pulumi.Input<string>;
+        swf?: pulumi.Input<string>;
+        transfer?: pulumi.Input<string>;
+        waf?: pulumi.Input<string>;
+        wafregional?: pulumi.Input<string>;
+        wafv2?: pulumi.Input<string>;
+        worklink?: pulumi.Input<string>;
+        workspaces?: pulumi.Input<string>;
+        xray?: pulumi.Input<string>;
     }
 }
 
@@ -4184,98 +4496,98 @@ export namespace datasync {
         /**
          * List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
          */
-        securityGroupArns: string[];
+        securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
          */
-        subnetArn: string;
+        subnetArn: pulumi.Input<string>;
     }
 
     export interface LocationSmbMountOptions {
         /**
          * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
          */
-        version?: string;
+        version?: pulumi.Input<string>;
     }
 
     export interface NfsLocationOnPremConfig {
         /**
          * List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
          */
-        agentArns: string[];
+        agentArns: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface S3LocationS3Config {
         /**
          * Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
          */
-        bucketAccessRoleArn: string;
+        bucketAccessRoleArn: pulumi.Input<string>;
     }
 
     export interface TaskOptions {
         /**
          * A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
          */
-        atime?: string;
+        atime?: pulumi.Input<string>;
         /**
          * Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
          */
-        bytesPerSecond?: number;
+        bytesPerSecond?: pulumi.Input<number>;
         /**
          * Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
          */
-        gid?: string;
+        gid?: pulumi.Input<string>;
         /**
          * A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
-        mtime?: string;
+        mtime?: pulumi.Input<string>;
         /**
          * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
          */
-        posixPermissions?: string;
+        posixPermissions?: pulumi.Input<string>;
         /**
          * Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
          */
-        preserveDeletedFiles?: string;
+        preserveDeletedFiles?: pulumi.Input<string>;
         /**
          * Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
          */
-        preserveDevices?: string;
+        preserveDevices?: pulumi.Input<string>;
         /**
          * User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
          */
-        uid?: string;
+        uid?: pulumi.Input<string>;
         /**
          * Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`. Default: `POINT_IN_TIME_CONSISTENT`.
          */
-        verifyMode?: string;
+        verifyMode?: pulumi.Input<string>;
     }
 }
 
 export namespace dax {
     export interface ClusterNode {
-        address: string;
-        availabilityZone: string;
-        id: string;
+        address?: pulumi.Input<string>;
+        availabilityZone?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
          * The port used by the configuration endpoint
          */
-        port: number;
+        port?: pulumi.Input<number>;
     }
 
     export interface ClusterServerSideEncryption {
         /**
          * Whether to enable encryption at rest. Defaults to `false`.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface ParameterGroupParameter {
         /**
          * The name of the parameter group.
          */
-        name: string;
-        value: string;
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -4284,30 +4596,30 @@ export namespace directoryservice {
         /**
          * The DNS IP addresses of the domain to connect to.
          */
-        customerDnsIps: string[];
+        customerDnsIps: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The username corresponding to the password provided.
          */
-        customerUsername: string;
+        customerUsername: pulumi.Input<string>;
         /**
          * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
          */
-        subnetIds: string[];
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The identifier of the VPC that the directory is in.
          */
-        vpcId: string;
+        vpcId: pulumi.Input<string>;
     }
 
     export interface DirectoryVpcSettings {
         /**
          * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
          */
-        subnetIds: string[];
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The identifier of the VPC that the directory is in.
          */
-        vpcId: string;
+        vpcId: pulumi.Input<string>;
     }
 
     export interface GetDirectoryConnectSetting {
@@ -4346,81 +4658,81 @@ export namespace dlm {
         /**
          * A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
          */
-        resourceTypes: string[];
+        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * See the `schedule` configuration block.
          */
-        schedules: outputs.dlm.LifecyclePolicyPolicyDetailsSchedule[];
+        schedules: pulumi.Input<pulumi.Input<outputs.dlm.LifecyclePolicyPolicyDetailsSchedule>[]>;
         /**
          * A mapping of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          */
-        targetTags: {[key: string]: any};
+        targetTags: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
         /**
          * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
          */
-        copyTags: boolean;
+        copyTags?: pulumi.Input<boolean>;
         /**
          * See the `createRule` block. Max of 1 per schedule.
          */
-        createRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRule;
+        createRule: pulumi.Input<outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRule>;
         /**
          * A name for the schedule.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * See the `retainRule` block. Max of 1 per schedule.
          */
-        retainRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule;
+        retainRule: pulumi.Input<outputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule>;
         /**
          * A mapping of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
          */
-        tagsToAdd?: {[key: string]: any};
+        tagsToAdd?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
          * How often this lifecycle policy should be evaluated. `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
          */
-        interval: number;
+        interval: pulumi.Input<number>;
         /**
          * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
          */
-        intervalUnit?: string;
+        intervalUnit?: pulumi.Input<string>;
         /**
          * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
          */
-        times: string;
+        times?: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
         /**
          * How many snapshots to keep. Must be an integer between 1 and 1000.
          */
-        count: number;
+        count: pulumi.Input<number>;
     }
 }
 
 export namespace dms {
     export interface EndpointMongodbSettings {
-        authMechanism?: string;
-        authSource?: string;
-        authType?: string;
-        docsToInvestigate?: string;
-        extractDocId?: string;
-        nestingLevel?: string;
+        authMechanism?: pulumi.Input<string>;
+        authSource?: pulumi.Input<string>;
+        authType?: pulumi.Input<string>;
+        docsToInvestigate?: pulumi.Input<string>;
+        extractDocId?: pulumi.Input<string>;
+        nestingLevel?: pulumi.Input<string>;
     }
 
     export interface EndpointS3Settings {
-        bucketFolder?: string;
-        bucketName?: string;
-        compressionType?: string;
-        csvDelimiter?: string;
-        csvRowDelimiter?: string;
-        externalTableDefinition?: string;
-        serviceAccessRoleArn?: string;
+        bucketFolder?: pulumi.Input<string>;
+        bucketName?: pulumi.Input<string>;
+        compressionType?: pulumi.Input<string>;
+        csvDelimiter?: pulumi.Input<string>;
+        csvRowDelimiter?: pulumi.Input<string>;
+        externalTableDefinition?: pulumi.Input<string>;
+        serviceAccessRoleArn?: pulumi.Input<string>;
     }
 }
 
@@ -4429,15 +4741,15 @@ export namespace docdb {
         /**
          * Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
          */
-        applyMethod?: string;
+        applyMethod?: pulumi.Input<string>;
         /**
          * The name of the documentDB parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the documentDB parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -4491,18 +4803,18 @@ export namespace dynamodb {
         /**
          * AWS region name of replica DynamoDB Table. e.g. `us-east-1`
          */
-        regionName: string;
+        regionName: pulumi.Input<string>;
     }
 
     export interface TableAttribute {
         /**
          * The name of the index
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface TableGlobalSecondaryIndex {
@@ -4510,17 +4822,17 @@ export namespace dynamodb {
          * The name of the hash key in the index; must be
          * defined as an attribute in the resource.
          */
-        hashKey: string;
+        hashKey: pulumi.Input<string>;
         /**
          * The name of the index
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Only required with `INCLUDE` as a
          * projection type; a list of attributes to project into the index. These
          * do not need to be defined as attributes on the table.
          */
-        nonKeyAttributes?: string[];
+        nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * One of `ALL`, `INCLUDE` or `KEYS_ONLY`
          * where `ALL` projects every attribute into the index, `KEYS_ONLY`
@@ -4528,32 +4840,32 @@ export namespace dynamodb {
          * projects only the keys specified in the _non_key_attributes_
          * parameter.
          */
-        projectionType: string;
+        projectionType: pulumi.Input<string>;
         /**
          * The name of the range key; must be defined
          */
-        rangeKey?: string;
+        rangeKey?: pulumi.Input<string>;
         /**
          * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
          */
-        readCapacity?: number;
+        readCapacity?: pulumi.Input<number>;
         /**
          * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          */
-        writeCapacity?: number;
+        writeCapacity?: pulumi.Input<number>;
     }
 
     export interface TableLocalSecondaryIndex {
         /**
          * The name of the index
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Only required with `INCLUDE` as a
          * projection type; a list of attributes to project into the index. These
          * do not need to be defined as attributes on the table.
          */
-        nonKeyAttributes?: string[];
+        nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * One of `ALL`, `INCLUDE` or `KEYS_ONLY`
          * where `ALL` projects every attribute into the index, `KEYS_ONLY`
@@ -4561,41 +4873,41 @@ export namespace dynamodb {
          * projects only the keys specified in the _non_key_attributes_
          * parameter.
          */
-        projectionType: string;
+        projectionType: pulumi.Input<string>;
         /**
          * The name of the range key; must be defined
          */
-        rangeKey: string;
+        rangeKey: pulumi.Input<string>;
     }
 
     export interface TablePointInTimeRecovery {
         /**
          * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface TableServerSideEncryption {
         /**
          * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
         /**
          * The ARN of the CMK that should be used for the AWS KMS encryption.
          * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
          */
-        kmsKeyArn: string;
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface TableTtl {
         /**
          * The name of the table attribute to store the TTL timestamp in.
          */
-        attributeName: string;
+        attributeName: pulumi.Input<string>;
         /**
          * Whether to enable point-in-time recovery - note that it can take up to 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided then this defaults to `false`.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
     }
 }
 
@@ -4618,296 +4930,296 @@ export namespace ebs {
 
 export namespace ec2 {
     export interface AmiCopyEbsBlockDevice {
-        deleteOnTermination: boolean;
-        deviceName: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceName?: pulumi.Input<string>;
         /**
          * Specifies whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
          */
-        encrypted: boolean;
-        iops: number;
-        snapshotId: string;
-        volumeSize: number;
-        volumeType: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface AmiCopyEphemeralBlockDevice {
-        deviceName: string;
-        virtualName: string;
+        deviceName?: pulumi.Input<string>;
+        virtualName?: pulumi.Input<string>;
     }
 
     export interface AmiEbsBlockDevice {
-        deleteOnTermination?: boolean;
-        deviceName: string;
-        encrypted?: boolean;
-        iops?: number;
-        snapshotId?: string;
-        volumeSize: number;
-        volumeType?: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceName: pulumi.Input<string>;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface AmiEphemeralBlockDevice {
-        deviceName: string;
-        virtualName: string;
+        deviceName: pulumi.Input<string>;
+        virtualName: pulumi.Input<string>;
     }
 
     export interface AmiFromInstanceEbsBlockDevice {
-        deleteOnTermination: boolean;
-        deviceName: string;
-        encrypted: boolean;
-        iops: number;
-        snapshotId: string;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceName?: pulumi.Input<string>;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface AmiFromInstanceEphemeralBlockDevice {
-        deviceName: string;
-        virtualName: string;
+        deviceName?: pulumi.Input<string>;
+        virtualName?: pulumi.Input<string>;
     }
 
     export interface DefaultNetworkAclEgress {
         /**
          * The action to take.
          */
-        action: string;
+        action: pulumi.Input<string>;
         /**
          * The CIDR block to match. This must be a
          * valid network mask.
          */
-        cidrBlock?: string;
+        cidrBlock?: pulumi.Input<string>;
         /**
          * The from port to match.
          */
-        fromPort: number;
+        fromPort: pulumi.Input<number>;
         /**
          * The ICMP type code to be used. Default 0.
          */
-        icmpCode?: number;
+        icmpCode?: pulumi.Input<number>;
         /**
          * The ICMP type to be used. Default 0.
          */
-        icmpType?: number;
+        icmpType?: pulumi.Input<number>;
         /**
          * The IPv6 CIDR block.
          */
-        ipv6CidrBlock?: string;
+        ipv6CidrBlock?: pulumi.Input<string>;
         /**
          * The protocol to match. If using the -1 'all'
          * protocol, you must specify a from and to port of 0.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
         /**
          * The rule number. Used for ordering.
          */
-        ruleNo: number;
+        ruleNo: pulumi.Input<number>;
         /**
          * The to port to match.
          */
-        toPort: number;
+        toPort: pulumi.Input<number>;
     }
 
     export interface DefaultNetworkAclIngress {
         /**
          * The action to take.
          */
-        action: string;
+        action: pulumi.Input<string>;
         /**
          * The CIDR block to match. This must be a
          * valid network mask.
          */
-        cidrBlock?: string;
+        cidrBlock?: pulumi.Input<string>;
         /**
          * The from port to match.
          */
-        fromPort: number;
+        fromPort: pulumi.Input<number>;
         /**
          * The ICMP type code to be used. Default 0.
          */
-        icmpCode?: number;
+        icmpCode?: pulumi.Input<number>;
         /**
          * The ICMP type to be used. Default 0.
          */
-        icmpType?: number;
+        icmpType?: pulumi.Input<number>;
         /**
          * The IPv6 CIDR block.
          */
-        ipv6CidrBlock?: string;
+        ipv6CidrBlock?: pulumi.Input<string>;
         /**
          * The protocol to match. If using the -1 'all'
          * protocol, you must specify a from and to port of 0.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
         /**
          * The rule number. Used for ordering.
          */
-        ruleNo: number;
+        ruleNo: pulumi.Input<number>;
         /**
          * The to port to match.
          */
-        toPort: number;
+        toPort: pulumi.Input<number>;
     }
 
     export interface DefaultRouteTableRoute {
         /**
          * The CIDR block of the route.
          */
-        cidrBlock?: string;
+        cidrBlock?: pulumi.Input<string>;
         /**
          * Identifier of a VPC Egress Only Internet Gateway.
          */
-        egressOnlyGatewayId?: string;
+        egressOnlyGatewayId?: pulumi.Input<string>;
         /**
          * Identifier of a VPC internet gateway or a virtual private gateway.
          */
-        gatewayId?: string;
+        gatewayId?: pulumi.Input<string>;
         /**
          * Identifier of an EC2 instance.
          */
-        instanceId?: string;
+        instanceId?: pulumi.Input<string>;
         /**
          * The Ipv6 CIDR block of the route
          */
-        ipv6CidrBlock?: string;
+        ipv6CidrBlock?: pulumi.Input<string>;
         /**
          * Identifier of a VPC NAT gateway.
          */
-        natGatewayId?: string;
+        natGatewayId?: pulumi.Input<string>;
         /**
          * Identifier of an EC2 network interface.
          */
-        networkInterfaceId?: string;
+        networkInterfaceId?: pulumi.Input<string>;
         /**
          * Identifier of an EC2 Transit Gateway.
          */
-        transitGatewayId?: string;
+        transitGatewayId?: pulumi.Input<string>;
         /**
          * Identifier of a VPC peering connection.
          */
-        vpcPeeringConnectionId?: string;
+        vpcPeeringConnectionId?: pulumi.Input<string>;
     }
 
     export interface DefaultSecurityGroupEgress {
-        cidrBlocks?: string[];
+        cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The description of the security group
          */
-        description?: string;
-        fromPort: number;
-        ipv6CidrBlocks?: string[];
-        prefixListIds?: string[];
-        protocol: string;
-        securityGroups?: string[];
-        self?: boolean;
-        toPort: number;
+        description?: pulumi.Input<string>;
+        fromPort: pulumi.Input<number>;
+        ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        protocol: pulumi.Input<string>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        self?: pulumi.Input<boolean>;
+        toPort: pulumi.Input<number>;
     }
 
     export interface DefaultSecurityGroupIngress {
-        cidrBlocks?: string[];
+        cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The description of the security group
          */
-        description?: string;
-        fromPort: number;
-        ipv6CidrBlocks?: string[];
-        prefixListIds?: string[];
-        protocol: string;
-        securityGroups?: string[];
-        self?: boolean;
-        toPort: number;
+        description?: pulumi.Input<string>;
+        fromPort: pulumi.Input<number>;
+        ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        protocol: pulumi.Input<string>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        self?: pulumi.Input<boolean>;
+        toPort: pulumi.Input<number>;
     }
 
     export interface FleetLaunchTemplateConfig {
         /**
          * Nested argument containing EC2 Launch Template to use. Defined below.
          */
-        launchTemplateSpecification: outputs.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecification;
+        launchTemplateSpecification: pulumi.Input<outputs.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecification>;
         /**
          * Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
          */
-        overrides?: outputs.ec2.FleetLaunchTemplateConfigOverride[];
+        overrides?: pulumi.Input<pulumi.Input<outputs.ec2.FleetLaunchTemplateConfigOverride>[]>;
     }
 
     export interface FleetLaunchTemplateConfigLaunchTemplateSpecification {
         /**
          * ID of the launch template.
          */
-        launchTemplateId?: string;
+        launchTemplateId?: pulumi.Input<string>;
         /**
          * Name of the launch template.
          */
-        launchTemplateName?: string;
+        launchTemplateName?: pulumi.Input<string>;
         /**
          * Version number of the launch template.
          */
-        version: string;
+        version: pulumi.Input<string>;
     }
 
     export interface FleetLaunchTemplateConfigOverride {
         /**
          * Availability Zone in which to launch the instances.
          */
-        availabilityZone?: string;
+        availabilityZone?: pulumi.Input<string>;
         /**
          * Instance type.
          */
-        instanceType?: string;
+        instanceType?: pulumi.Input<string>;
         /**
          * Maximum price per unit hour that you are willing to pay for a Spot Instance.
          */
-        maxPrice?: string;
+        maxPrice?: pulumi.Input<string>;
         /**
          * Priority for the launch template override. If `onDemandOptions` `allocationStrategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
          */
-        priority?: number;
+        priority?: pulumi.Input<number>;
         /**
          * ID of the subnet in which to launch the instances.
          */
-        subnetId?: string;
+        subnetId?: pulumi.Input<string>;
         /**
          * Number of units provided by the specified instance type.
          */
-        weightedCapacity?: number;
+        weightedCapacity?: pulumi.Input<number>;
     }
 
     export interface FleetOnDemandOptions {
         /**
          * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
          */
-        allocationStrategy?: string;
+        allocationStrategy?: pulumi.Input<string>;
     }
 
     export interface FleetSpotOptions {
         /**
          * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
          */
-        allocationStrategy?: string;
+        allocationStrategy?: pulumi.Input<string>;
         /**
          * Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
          */
-        instanceInterruptionBehavior?: string;
+        instanceInterruptionBehavior?: pulumi.Input<string>;
         /**
          * Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
          */
-        instancePoolsToUseCount?: number;
+        instancePoolsToUseCount?: pulumi.Input<number>;
     }
 
     export interface FleetTargetCapacitySpecification {
         /**
          * Default target capacity type. Valid values: `on-demand`, `spot`.
          */
-        defaultTargetCapacityType: string;
+        defaultTargetCapacityType: pulumi.Input<string>;
         /**
          * The number of On-Demand units to request.
          */
-        onDemandTargetCapacity?: number;
+        onDemandTargetCapacity?: pulumi.Input<number>;
         /**
          * The number of Spot units to request.
          */
-        spotTargetCapacity?: number;
+        spotTargetCapacity?: pulumi.Input<number>;
         /**
          * The number of units to request, filled using `defaultTargetCapacityType`.
          */
-        totalTargetCapacity: number;
+        totalTargetCapacity: pulumi.Input<number>;
     }
 
     export interface GetCustomerGatewayFilter {
@@ -5490,7 +5802,7 @@ export namespace ec2 {
     }
 
     export interface InstanceCreditSpecification {
-        cpuCredits?: string;
+        cpuCredits?: pulumi.Input<string>;
     }
 
     export interface InstanceEbsBlockDevice {
@@ -5498,58 +5810,58 @@ export namespace ec2 {
          * Whether the volume should be destroyed
          * on instance termination (Default: `true`).
          */
-        deleteOnTermination?: boolean;
+        deleteOnTermination?: pulumi.Input<boolean>;
         /**
          * The name of the block device to mount on the instance.
          */
-        deviceName: string;
+        deviceName: pulumi.Input<string>;
         /**
          * Enables [EBS
          * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
          * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: pulumi.Input<boolean>;
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volumeType` of `"io1"`.
          */
-        iops: number;
+        iops?: pulumi.Input<number>;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
+        kmsKeyId?: pulumi.Input<string>;
         /**
          * The Snapshot ID to mount.
          */
-        snapshotId: string;
-        volumeId: string;
+        snapshotId?: pulumi.Input<string>;
+        volumeId?: pulumi.Input<string>;
         /**
          * The size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
          * or `"io1"`. (Default: `"standard"`).
          */
-        volumeType: string;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface InstanceEphemeralBlockDevice {
         /**
          * The name of the block device to mount on the instance.
          */
-        deviceName: string;
+        deviceName: pulumi.Input<string>;
         /**
          * Suppresses the specified device included in the AMI's block device mapping.
          */
-        noDevice?: boolean;
+        noDevice?: pulumi.Input<boolean>;
         /**
          * The [Instance Store Device
          * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
          * (e.g. `"ephemeral0"`).
          */
-        virtualName?: string;
+        virtualName?: pulumi.Input<string>;
     }
 
     export interface InstanceNetworkInterface {
@@ -5557,9 +5869,9 @@ export namespace ec2 {
          * Whether the volume should be destroyed
          * on instance termination (Default: `true`).
          */
-        deleteOnTermination?: boolean;
-        deviceIndex: number;
-        networkInterfaceId: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceIndex: pulumi.Input<number>;
+        networkInterfaceId: pulumi.Input<string>;
     }
 
     export interface InstanceRootBlockDevice {
@@ -5567,270 +5879,270 @@ export namespace ec2 {
          * Whether the volume should be destroyed
          * on instance termination (Default: `true`).
          */
-        deleteOnTermination?: boolean;
+        deleteOnTermination?: pulumi.Input<boolean>;
         /**
          * Enables [EBS
          * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
          * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: pulumi.Input<boolean>;
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volumeType` of `"io1"`.
          */
-        iops: number;
+        iops?: pulumi.Input<number>;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
-        volumeId: string;
+        kmsKeyId?: pulumi.Input<string>;
+        volumeId?: pulumi.Input<string>;
         /**
          * The size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
          * or `"io1"`. (Default: `"standard"`).
          */
-        volumeType: string;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface LaunchConfigurationEbsBlockDevice {
-        deleteOnTermination?: boolean;
-        deviceName: string;
-        encrypted: boolean;
-        iops: number;
-        noDevice?: boolean;
-        snapshotId: string;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceName: pulumi.Input<string>;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        noDevice?: pulumi.Input<boolean>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface LaunchConfigurationEphemeralBlockDevice {
-        deviceName: string;
-        virtualName: string;
+        deviceName: pulumi.Input<string>;
+        virtualName: pulumi.Input<string>;
     }
 
     export interface LaunchConfigurationRootBlockDevice {
-        deleteOnTermination?: boolean;
-        encrypted: boolean;
-        iops: number;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateBlockDeviceMapping {
         /**
          * The name of the device to mount.
          */
-        deviceName?: string;
+        deviceName?: pulumi.Input<string>;
         /**
          * Configure EBS volume properties.
          */
-        ebs?: outputs.ec2.LaunchTemplateBlockDeviceMappingEbs;
+        ebs?: pulumi.Input<outputs.ec2.LaunchTemplateBlockDeviceMappingEbs>;
         /**
          * Suppresses the specified device included in the AMI's block device mapping.
          */
-        noDevice?: string;
+        noDevice?: pulumi.Input<string>;
         /**
          * The [Instance Store Device
          * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
          * (e.g. `"ephemeral0"`).
          */
-        virtualName?: string;
+        virtualName?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateBlockDeviceMappingEbs {
-        deleteOnTermination?: string;
-        encrypted?: string;
-        iops: number;
-        kmsKeyId?: string;
-        snapshotId?: string;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<string>;
+        encrypted?: pulumi.Input<string>;
+        iops?: pulumi.Input<number>;
+        kmsKeyId?: pulumi.Input<string>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateCapacityReservationSpecification {
-        capacityReservationPreference?: string;
-        capacityReservationTarget?: outputs.ec2.LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget;
+        capacityReservationPreference?: pulumi.Input<string>;
+        capacityReservationTarget?: pulumi.Input<outputs.ec2.LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget>;
     }
 
     export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
-        capacityReservationId?: string;
+        capacityReservationId?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateCreditSpecification {
-        cpuCredits?: string;
+        cpuCredits?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateElasticGpuSpecification {
         /**
          * Accelerator type.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateElasticInferenceAccelerator {
         /**
          * Accelerator type.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateIamInstanceProfile {
         /**
          * Amazon Resource Name (ARN) of the launch template.
          */
-        arn?: string;
+        arn?: pulumi.Input<string>;
         /**
          * The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateInstanceMarketOptions {
-        marketType?: string;
-        spotOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptionsSpotOptions;
+        marketType?: pulumi.Input<string>;
+        spotOptions?: pulumi.Input<outputs.ec2.LaunchTemplateInstanceMarketOptionsSpotOptions>;
     }
 
     export interface LaunchTemplateInstanceMarketOptionsSpotOptions {
-        blockDurationMinutes?: number;
-        instanceInterruptionBehavior?: string;
-        maxPrice?: string;
-        spotInstanceType?: string;
-        validUntil: string;
+        blockDurationMinutes?: pulumi.Input<number>;
+        instanceInterruptionBehavior?: pulumi.Input<string>;
+        maxPrice?: pulumi.Input<string>;
+        spotInstanceType?: pulumi.Input<string>;
+        validUntil?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateLicenseSpecification {
-        licenseConfigurationArn: string;
+        licenseConfigurationArn: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateMonitoring {
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface LaunchTemplateNetworkInterface {
-        associatePublicIpAddress?: string;
-        deleteOnTermination?: boolean;
+        associatePublicIpAddress?: pulumi.Input<string>;
+        deleteOnTermination?: pulumi.Input<boolean>;
         /**
          * Description of the launch template.
          */
-        description?: string;
-        deviceIndex?: number;
-        ipv4AddressCount?: number;
-        ipv4Addresses?: string[];
-        ipv6AddressCount?: number;
-        ipv6Addresses?: string[];
-        networkInterfaceId?: string;
-        privateIpAddress?: string;
-        securityGroups?: string[];
-        subnetId?: string;
+        description?: pulumi.Input<string>;
+        deviceIndex?: pulumi.Input<number>;
+        ipv4AddressCount?: pulumi.Input<number>;
+        ipv4Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+        ipv6AddressCount?: pulumi.Input<number>;
+        ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+        networkInterfaceId?: pulumi.Input<string>;
+        privateIpAddress?: pulumi.Input<string>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplatePlacement {
-        affinity?: string;
-        availabilityZone?: string;
-        groupName?: string;
-        hostId?: string;
-        spreadDomain?: string;
-        tenancy?: string;
+        affinity?: pulumi.Input<string>;
+        availabilityZone?: pulumi.Input<string>;
+        groupName?: pulumi.Input<string>;
+        hostId?: pulumi.Input<string>;
+        spreadDomain?: pulumi.Input<string>;
+        tenancy?: pulumi.Input<string>;
     }
 
     export interface LaunchTemplateTagSpecification {
-        resourceType?: string;
+        resourceType?: pulumi.Input<string>;
         /**
          * A mapping of tags to assign to the launch template.
          */
-        tags?: {[key: string]: any};
+        tags?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface NetworkAclEgress {
         /**
          * The action to take.
          */
-        action: string;
+        action: pulumi.Input<string>;
         /**
          * The CIDR block to match. This must be a
          * valid network mask.
          */
-        cidrBlock?: string;
+        cidrBlock?: pulumi.Input<string>;
         /**
          * The from port to match.
          */
-        fromPort: number;
+        fromPort: pulumi.Input<number>;
         /**
          * The ICMP type code to be used. Default 0.
          */
-        icmpCode?: number;
+        icmpCode?: pulumi.Input<number>;
         /**
          * The ICMP type to be used. Default 0.
          */
-        icmpType?: number;
+        icmpType?: pulumi.Input<number>;
         /**
          * The IPv6 CIDR block.
          */
-        ipv6CidrBlock?: string;
+        ipv6CidrBlock?: pulumi.Input<string>;
         /**
          * The protocol to match. If using the -1 'all'
          * protocol, you must specify a from and to port of 0.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
         /**
          * The rule number. Used for ordering.
          */
-        ruleNo: number;
+        ruleNo: pulumi.Input<number>;
         /**
          * The to port to match.
          */
-        toPort: number;
+        toPort: pulumi.Input<number>;
     }
 
     export interface NetworkAclIngress {
         /**
          * The action to take.
          */
-        action: string;
+        action: pulumi.Input<string>;
         /**
          * The CIDR block to match. This must be a
          * valid network mask.
          */
-        cidrBlock?: string;
+        cidrBlock?: pulumi.Input<string>;
         /**
          * The from port to match.
          */
-        fromPort: number;
+        fromPort: pulumi.Input<number>;
         /**
          * The ICMP type code to be used. Default 0.
          */
-        icmpCode?: number;
+        icmpCode?: pulumi.Input<number>;
         /**
          * The ICMP type to be used. Default 0.
          */
-        icmpType?: number;
+        icmpType?: pulumi.Input<number>;
         /**
          * The IPv6 CIDR block.
          */
-        ipv6CidrBlock?: string;
+        ipv6CidrBlock?: pulumi.Input<string>;
         /**
          * The protocol to match. If using the -1 'all'
          * protocol, you must specify a from and to port of 0.
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
         /**
          * The rule number. Used for ordering.
          */
-        ruleNo: number;
+        ruleNo: pulumi.Input<number>;
         /**
          * The to port to match.
          */
-        toPort: number;
+        toPort: pulumi.Input<number>;
     }
 
     export interface NetworkInterfaceAttachment {
-        attachmentId: string;
-        deviceIndex: number;
-        instance: string;
+        attachmentId?: pulumi.Input<string>;
+        deviceIndex: pulumi.Input<number>;
+        instance: pulumi.Input<string>;
     }
 
     export interface PeeringConnectionOptionsAccepter {
@@ -5839,18 +6151,18 @@ export namespace ec2 {
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
          * to the remote VPC. This option is not supported for inter-region VPC peering.
          */
-        allowClassicLinkToRemoteVpc?: boolean;
+        allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
          * private IP addresses when queried from instances in the peer VPC.
          */
-        allowRemoteVpcDnsResolution?: boolean;
+        allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
          * connection. This option is not supported for inter-region VPC peering.
          */
-        allowVpcToRemoteClassicLink?: boolean;
+        allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
 
     export interface PeeringConnectionOptionsRequester {
@@ -5859,151 +6171,151 @@ export namespace ec2 {
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
          * to the remote VPC. This option is not supported for inter-region VPC peering.
          */
-        allowClassicLinkToRemoteVpc?: boolean;
+        allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
          * private IP addresses when queried from instances in the peer VPC.
          */
-        allowRemoteVpcDnsResolution?: boolean;
+        allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
          * connection. This option is not supported for inter-region VPC peering.
          */
-        allowVpcToRemoteClassicLink?: boolean;
+        allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
 
     export interface RouteTableRoute {
         /**
          * The CIDR block of the route.
          */
-        cidrBlock?: string;
+        cidrBlock?: pulumi.Input<string>;
         /**
          * Identifier of a VPC Egress Only Internet Gateway.
          */
-        egressOnlyGatewayId?: string;
+        egressOnlyGatewayId?: pulumi.Input<string>;
         /**
          * Identifier of a VPC internet gateway or a virtual private gateway.
          */
-        gatewayId?: string;
+        gatewayId?: pulumi.Input<string>;
         /**
          * Identifier of an EC2 instance.
          */
-        instanceId?: string;
+        instanceId?: pulumi.Input<string>;
         /**
          * The Ipv6 CIDR block of the route.
          */
-        ipv6CidrBlock?: string;
+        ipv6CidrBlock?: pulumi.Input<string>;
         /**
          * Identifier of a VPC NAT gateway.
          */
-        natGatewayId?: string;
+        natGatewayId?: pulumi.Input<string>;
         /**
          * Identifier of an EC2 network interface.
          */
-        networkInterfaceId?: string;
+        networkInterfaceId?: pulumi.Input<string>;
         /**
          * Identifier of an EC2 Transit Gateway.
          */
-        transitGatewayId?: string;
+        transitGatewayId?: pulumi.Input<string>;
         /**
          * Identifier of a VPC peering connection.
          */
-        vpcPeeringConnectionId?: string;
+        vpcPeeringConnectionId?: pulumi.Input<string>;
     }
 
     export interface SecurityGroupEgress {
-        cidrBlocks?: string[];
+        cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The security group description. Defaults to
          * "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
          * `GroupDescription` attribute, for which there is no Update API. If you'd like
          * to classify your security groups in a way that can be updated, use `tags`.
          */
-        description?: string;
-        fromPort: number;
-        ipv6CidrBlocks?: string[];
-        prefixListIds?: string[];
-        protocol: string;
-        securityGroups?: string[];
-        self?: boolean;
-        toPort: number;
+        description?: pulumi.Input<string>;
+        fromPort: pulumi.Input<number>;
+        ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        protocol: pulumi.Input<string>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        self?: pulumi.Input<boolean>;
+        toPort: pulumi.Input<number>;
     }
 
     export interface SecurityGroupIngress {
-        cidrBlocks?: string[];
+        cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The security group description. Defaults to
          * "Managed by Pulumi". Cannot be "". __NOTE__: This field maps to the AWS
          * `GroupDescription` attribute, for which there is no Update API. If you'd like
          * to classify your security groups in a way that can be updated, use `tags`.
          */
-        description?: string;
-        fromPort: number;
-        ipv6CidrBlocks?: string[];
-        prefixListIds?: string[];
-        protocol: string;
-        securityGroups?: string[];
-        self?: boolean;
-        toPort: number;
+        description?: pulumi.Input<string>;
+        fromPort: pulumi.Input<number>;
+        ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        protocol: pulumi.Input<string>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        self?: pulumi.Input<boolean>;
+        toPort: pulumi.Input<number>;
     }
 
     export interface SpotFleetRequestLaunchSpecification {
-        ami: string;
-        associatePublicIpAddress?: boolean;
-        availabilityZone: string;
-        ebsBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice[];
-        ebsOptimized?: boolean;
-        ephemeralBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice[];
-        iamInstanceProfile?: string;
-        iamInstanceProfileArn?: string;
-        instanceType: string;
-        keyName: string;
-        monitoring?: boolean;
-        placementGroup: string;
-        placementTenancy?: string;
-        rootBlockDevices: outputs.ec2.SpotFleetRequestLaunchSpecificationRootBlockDevice[];
+        ami: pulumi.Input<string>;
+        associatePublicIpAddress?: pulumi.Input<boolean>;
+        availabilityZone?: pulumi.Input<string>;
+        ebsBlockDevices?: pulumi.Input<pulumi.Input<outputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice>[]>;
+        ebsOptimized?: pulumi.Input<boolean>;
+        ephemeralBlockDevices?: pulumi.Input<pulumi.Input<outputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>[]>;
+        iamInstanceProfile?: pulumi.Input<string>;
+        iamInstanceProfileArn?: pulumi.Input<string>;
+        instanceType: pulumi.Input<string>;
+        keyName?: pulumi.Input<string>;
+        monitoring?: pulumi.Input<boolean>;
+        placementGroup?: pulumi.Input<string>;
+        placementTenancy?: pulumi.Input<string>;
+        rootBlockDevices?: pulumi.Input<pulumi.Input<outputs.ec2.SpotFleetRequestLaunchSpecificationRootBlockDevice>[]>;
         /**
          * The maximum bid price per unit hour.
          */
-        spotPrice?: string;
-        subnetId: string;
+        spotPrice?: pulumi.Input<string>;
+        subnetId?: pulumi.Input<string>;
         /**
          * A mapping of tags to assign to the resource.
          */
-        tags?: {[key: string]: any};
-        userData?: string;
-        vpcSecurityGroupIds: string[];
-        weightedCapacity?: string;
+        tags?: pulumi.Input<{[key: string]: any}>;
+        userData?: pulumi.Input<string>;
+        vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        weightedCapacity?: pulumi.Input<string>;
     }
 
     export interface SpotFleetRequestLaunchSpecificationEbsBlockDevice {
-        deleteOnTermination?: boolean;
-        deviceName: string;
-        encrypted: boolean;
-        iops: number;
-        kmsKeyId: string;
-        snapshotId: string;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceName: pulumi.Input<string>;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        kmsKeyId?: pulumi.Input<string>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface SpotFleetRequestLaunchSpecificationEphemeralBlockDevice {
-        deviceName: string;
-        virtualName: string;
+        deviceName: pulumi.Input<string>;
+        virtualName: pulumi.Input<string>;
     }
 
     export interface SpotFleetRequestLaunchSpecificationRootBlockDevice {
-        deleteOnTermination?: boolean;
-        encrypted: boolean;
-        iops: number;
-        kmsKeyId: string;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        kmsKeyId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
-        cpuCredits?: string;
+        cpuCredits?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestEbsBlockDevice {
@@ -6011,58 +6323,58 @@ export namespace ec2 {
          * Whether the volume should be destroyed
          * on instance termination (Default: `true`).
          */
-        deleteOnTermination?: boolean;
+        deleteOnTermination?: pulumi.Input<boolean>;
         /**
          * The name of the block device to mount on the instance.
          */
-        deviceName: string;
+        deviceName: pulumi.Input<string>;
         /**
          * Enables [EBS
          * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
          * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: pulumi.Input<boolean>;
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volumeType` of `"io1"`.
          */
-        iops: number;
+        iops?: pulumi.Input<number>;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
+        kmsKeyId?: pulumi.Input<string>;
         /**
          * The Snapshot ID to mount.
          */
-        snapshotId: string;
-        volumeId: string;
+        snapshotId?: pulumi.Input<string>;
+        volumeId?: pulumi.Input<string>;
         /**
          * The size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
          * or `"io1"`. (Default: `"standard"`).
          */
-        volumeType: string;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestEphemeralBlockDevice {
         /**
          * The name of the block device to mount on the instance.
          */
-        deviceName: string;
+        deviceName: pulumi.Input<string>;
         /**
          * Suppresses the specified device included in the AMI's block device mapping.
          */
-        noDevice?: boolean;
+        noDevice?: pulumi.Input<boolean>;
         /**
          * The [Instance Store Device
          * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
          * (e.g. `"ephemeral0"`).
          */
-        virtualName?: string;
+        virtualName?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestNetworkInterface {
@@ -6070,9 +6382,9 @@ export namespace ec2 {
          * Whether the volume should be destroyed
          * on instance termination (Default: `true`).
          */
-        deleteOnTermination?: boolean;
-        deviceIndex: number;
-        networkInterfaceId: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceIndex: pulumi.Input<number>;
+        networkInterfaceId: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestRootBlockDevice {
@@ -6080,44 +6392,44 @@ export namespace ec2 {
          * Whether the volume should be destroyed
          * on instance termination (Default: `true`).
          */
-        deleteOnTermination?: boolean;
+        deleteOnTermination?: pulumi.Input<boolean>;
         /**
          * Enables [EBS
          * encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
          * on the volume (Default: `false`). Cannot be used with `snapshotId`. Must be configured to perform drift detection.
          */
-        encrypted: boolean;
+        encrypted?: pulumi.Input<boolean>;
         /**
          * The amount of provisioned
          * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
          * This must be set with a `volumeType` of `"io1"`.
          */
-        iops: number;
+        iops?: pulumi.Input<number>;
         /**
          * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
-        kmsKeyId: string;
-        volumeId: string;
+        kmsKeyId?: pulumi.Input<string>;
+        volumeId?: pulumi.Input<string>;
         /**
          * The size of the volume in gibibytes (GiB).
          */
-        volumeSize: number;
+        volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
          * or `"io1"`. (Default: `"standard"`).
          */
-        volumeType: string;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface VpcEndpointDnsEntry {
         /**
          * The DNS name.
          */
-        dnsName: string;
+        dnsName?: pulumi.Input<string>;
         /**
          * The ID of the private hosted zone.
          */
-        hostedZoneId: string;
+        hostedZoneId?: pulumi.Input<string>;
     }
 
     export interface VpcPeeringConnectionAccepter {
@@ -6126,20 +6438,20 @@ export namespace ec2 {
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
          * to the remote VPC.
          */
-        allowClassicLinkToRemoteVpc?: boolean;
+        allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
          * private IP addresses when queried from instances in the peer VPC. This is
          * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
          * inter-region VPC peering.
          */
-        allowRemoteVpcDnsResolution?: boolean;
+        allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
          * connection.
          */
-        allowVpcToRemoteClassicLink?: boolean;
+        allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
 
     export interface VpcPeeringConnectionAccepterAccepter {
@@ -6147,17 +6459,17 @@ export namespace ec2 {
          * Indicates whether a local ClassicLink connection can communicate
          * with the peer VPC over the VPC Peering Connection.
          */
-        allowClassicLinkToRemoteVpc?: boolean;
+        allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Indicates whether a local VPC can resolve public DNS hostnames to
          * private IP addresses when queried from instances in a peer VPC.
          */
-        allowRemoteVpcDnsResolution?: boolean;
+        allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Indicates whether a local VPC can communicate with a ClassicLink
          * connection in the peer VPC over the VPC Peering Connection.
          */
-        allowVpcToRemoteClassicLink?: boolean;
+        allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
 
     export interface VpcPeeringConnectionAccepterRequester {
@@ -6165,17 +6477,17 @@ export namespace ec2 {
          * Indicates whether a local ClassicLink connection can communicate
          * with the peer VPC over the VPC Peering Connection.
          */
-        allowClassicLinkToRemoteVpc?: boolean;
+        allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Indicates whether a local VPC can resolve public DNS hostnames to
          * private IP addresses when queried from instances in a peer VPC.
          */
-        allowRemoteVpcDnsResolution?: boolean;
+        allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Indicates whether a local VPC can communicate with a ClassicLink
          * connection in the peer VPC over the VPC Peering Connection.
          */
-        allowVpcToRemoteClassicLink?: boolean;
+        allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
 
     export interface VpcPeeringConnectionRequester {
@@ -6184,34 +6496,34 @@ export namespace ec2 {
          * with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
          * to the remote VPC.
          */
-        allowClassicLinkToRemoteVpc?: boolean;
+        allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
          * private IP addresses when queried from instances in the peer VPC. This is
          * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
          * inter-region VPC peering.
          */
-        allowRemoteVpcDnsResolution?: boolean;
+        allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to communicate with a linked EC2-Classic
          * instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
          * connection.
          */
-        allowVpcToRemoteClassicLink?: boolean;
+        allowVpcToRemoteClassicLink?: pulumi.Input<boolean>;
     }
 
     export interface VpnConnectionRoute {
-        destinationCidrBlock: string;
-        source: string;
-        state: string;
+        destinationCidrBlock?: pulumi.Input<string>;
+        source?: pulumi.Input<string>;
+        state?: pulumi.Input<string>;
     }
 
     export interface VpnConnectionVgwTelemetry {
-        acceptedRouteCount: number;
-        lastStatusChange: string;
-        outsideIpAddress: string;
-        status: string;
-        statusMessage: string;
+        acceptedRouteCount?: pulumi.Input<number>;
+        lastStatusChange?: pulumi.Input<string>;
+        outsideIpAddress?: pulumi.Input<string>;
+        status?: pulumi.Input<string>;
+        statusMessage?: pulumi.Input<string>;
     }
 }
 
@@ -6220,30 +6532,30 @@ export namespace ec2clientvpn {
         /**
          * The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
          */
-        activeDirectoryId?: string;
+        activeDirectoryId?: pulumi.Input<string>;
         /**
          * The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
          */
-        rootCertificateChainArn?: string;
+        rootCertificateChainArn?: pulumi.Input<string>;
         /**
          * The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, or `directory-service-authentication` to use Active Directory authentication.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface EndpointConnectionLogOptions {
         /**
          * The name of the CloudWatch Logs log group.
          */
-        cloudwatchLogGroup?: string;
+        cloudwatchLogGroup?: pulumi.Input<string>;
         /**
          * The name of the CloudWatch Logs log stream to which the connection data is published.
          */
-        cloudwatchLogStream?: string;
+        cloudwatchLogStream?: pulumi.Input<string>;
         /**
          * Indicates whether connection logging is enabled.
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
     }
 }
 
@@ -6287,36 +6599,36 @@ export namespace ecr {
         /**
          * Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
          */
-        scanOnPush: boolean;
+        scanOnPush: pulumi.Input<boolean>;
     }
 }
 
 export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProvider {
-        autoScalingGroupArn: string;
-        managedScaling: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
-        managedTerminationProtection: string;
+        autoScalingGroupArn: pulumi.Input<string>;
+        managedScaling?: pulumi.Input<outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling>;
+        managedTerminationProtection?: pulumi.Input<string>;
     }
 
     export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
-        maximumScalingStepSize: number;
-        minimumScalingStepSize: number;
-        status: string;
-        targetCapacity: number;
+        maximumScalingStepSize?: pulumi.Input<number>;
+        minimumScalingStepSize?: pulumi.Input<number>;
+        status?: pulumi.Input<string>;
+        targetCapacity?: pulumi.Input<number>;
     }
 
     export interface ClusterDefaultCapacityProviderStrategy {
-        base?: number;
-        capacityProvider: string;
-        weight?: number;
+        base?: pulumi.Input<number>;
+        capacityProvider: pulumi.Input<string>;
+        weight?: pulumi.Input<number>;
     }
 
     export interface ClusterSetting {
         /**
          * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
          */
-        name: string;
-        value: string;
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface GetClusterSetting {
@@ -6325,43 +6637,43 @@ export namespace ecs {
     }
 
     export interface ServiceCapacityProviderStrategy {
-        base?: number;
-        capacityProvider: string;
-        weight?: number;
+        base?: pulumi.Input<number>;
+        capacityProvider: pulumi.Input<string>;
+        weight?: pulumi.Input<number>;
     }
 
     export interface ServiceDeploymentController {
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface ServiceLoadBalancer {
-        containerName: string;
-        containerPort: number;
-        elbName?: string;
-        targetGroupArn?: string;
+        containerName: pulumi.Input<string>;
+        containerPort: pulumi.Input<number>;
+        elbName?: pulumi.Input<string>;
+        targetGroupArn?: pulumi.Input<string>;
     }
 
     export interface ServiceNetworkConfiguration {
-        assignPublicIp?: boolean;
-        securityGroups?: string[];
-        subnets: string[];
+        assignPublicIp?: pulumi.Input<boolean>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServiceOrderedPlacementStrategy {
-        field?: string;
-        type: string;
+        field?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ServicePlacementConstraint {
-        expression?: string;
-        type: string;
+        expression?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface ServiceServiceRegistries {
-        containerName?: string;
-        containerPort?: number;
-        port?: number;
-        registryArn: string;
+        containerName?: pulumi.Input<string>;
+        containerPort?: pulumi.Input<number>;
+        port?: pulumi.Input<number>;
+        registryArn: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionPlacementConstraint {
@@ -6371,80 +6683,80 @@ export namespace ecs {
          * Service Developer
          * Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
          */
-        expression?: string;
+        expression?: pulumi.Input<string>;
         /**
          * The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionProxyConfiguration {
         /**
          * The name of the container that will serve as the App Mesh proxy.
          */
-        containerName: string;
+        containerName: pulumi.Input<string>;
         /**
          * The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
          */
-        properties?: {[key: string]: string};
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionVolume {
         /**
          * Used to configure a docker volume
          */
-        dockerVolumeConfiguration?: outputs.ecs.TaskDefinitionVolumeDockerVolumeConfiguration;
+        dockerVolumeConfiguration?: pulumi.Input<outputs.ecs.TaskDefinitionVolumeDockerVolumeConfiguration>;
         /**
          * Used to configure a EFS volume. Can be used only with an EC2 type task.
          */
-        efsVolumeConfiguration?: outputs.ecs.TaskDefinitionVolumeEfsVolumeConfiguration;
+        efsVolumeConfiguration?: pulumi.Input<outputs.ecs.TaskDefinitionVolumeEfsVolumeConfiguration>;
         /**
          * The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
          */
-        hostPath?: string;
+        hostPath?: pulumi.Input<string>;
         /**
          * The name of the volume. This name is referenced in the `sourceVolume`
          * parameter of container definition in the `mountPoints` section.
          */
-        name: string;
+        name: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionVolumeDockerVolumeConfiguration {
         /**
          * If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
          */
-        autoprovision?: boolean;
+        autoprovision?: pulumi.Input<boolean>;
         /**
          * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
          */
-        driver?: string;
+        driver?: pulumi.Input<string>;
         /**
          * A map of Docker driver specific options.
          */
-        driverOpts?: {[key: string]: string};
+        driverOpts?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A map of custom metadata to add to your Docker volume.
          */
-        labels?: {[key: string]: string};
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionVolumeEfsVolumeConfiguration {
         /**
          * The ID of the EFS File System.
          */
-        fileSystemId: string;
+        fileSystemId: pulumi.Input<string>;
         /**
          * The path to mount on the host
          */
-        rootDirectory?: string;
+        rootDirectory?: pulumi.Input<string>;
     }
 }
 
@@ -6453,7 +6765,7 @@ export namespace efs {
         /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
-        transitionToIa?: string;
+        transitionToIa?: pulumi.Input<string>;
     }
 
     export interface GetFileSystemLifecyclePolicy {
@@ -6466,63 +6778,60 @@ export namespace eks {
         /**
          * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
-        data: string;
+        data?: pulumi.Input<string>;
     }
 
     export interface ClusterIdentity {
         /**
          * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
          */
-        oidcs: outputs.eks.ClusterIdentityOidc[];
+        oidcs?: pulumi.Input<pulumi.Input<outputs.eks.ClusterIdentityOidc>[]>;
     }
 
     export interface ClusterIdentityOidc {
         /**
          * Issuer URL for the OpenID Connect identity provider.
          */
-        issuer: string;
+        issuer?: pulumi.Input<string>;
     }
 
     export interface ClusterVpcConfig {
         /**
          * The cluster security group that was created by Amazon EKS for the cluster.
          */
-        clusterSecurityGroupId: string;
+        clusterSecurityGroupId?: pulumi.Input<string>;
         /**
          * Indicates whether or not the Amazon EKS private API server endpoint is enabled. Default is `false`.
          */
-        endpointPrivateAccess?: boolean;
+        endpointPrivateAccess?: pulumi.Input<boolean>;
         /**
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
-        endpointPublicAccess?: boolean;
-        /**
-         * <elided>
-         */
-        publicAccessCidrs: string[];
+        endpointPublicAccess?: pulumi.Input<boolean>;
+        publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
          */
-        securityGroupIds?: string[];
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
          */
-        subnetIds: string[];
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The VPC associated with your cluster.
          */
-        vpcId: string;
+        vpcId?: pulumi.Input<string>;
     }
 
     export interface FargateProfileSelector {
         /**
          * Key-value mapping of Kubernetes labels for selection.
          */
-        labels?: {[key: string]: string};
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Kubernetes namespace for selection.
          */
-        namespace: string;
+        namespace: pulumi.Input<string>;
     }
 
     export interface GetClusterCertificateAuthority {
@@ -6581,59 +6890,59 @@ export namespace eks {
         /**
          * EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
          */
-        ec2SshKey?: string;
+        ec2SshKey?: pulumi.Input<string>;
         /**
          * Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
          */
-        sourceSecurityGroupIds?: string[];
+        sourceSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface NodeGroupResource {
         /**
          * List of objects containing information about AutoScaling Groups.
          */
-        autoscalingGroups: outputs.eks.NodeGroupResourceAutoscalingGroup[];
+        autoscalingGroups?: pulumi.Input<pulumi.Input<outputs.eks.NodeGroupResourceAutoscalingGroup>[]>;
         /**
          * Identifier of the remote access EC2 Security Group.
          */
-        remoteAccessSecurityGroupId: string;
+        remoteAccessSecurityGroupId?: pulumi.Input<string>;
     }
 
     export interface NodeGroupResourceAutoscalingGroup {
         /**
          * Name of the AutoScaling Group.
          */
-        name: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface NodeGroupScalingConfig {
         /**
          * Desired number of worker nodes.
          */
-        desiredSize: number;
+        desiredSize: pulumi.Input<number>;
         /**
          * Maximum number of worker nodes.
          */
-        maxSize: number;
+        maxSize: pulumi.Input<number>;
         /**
          * Minimum number of worker nodes.
          */
-        minSize: number;
+        minSize: pulumi.Input<number>;
     }
 }
 
 export namespace elasticache {
     export interface ClusterCacheNode {
-        address: string;
+        address?: pulumi.Input<string>;
         /**
          * The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone.
          */
-        availabilityZone: string;
-        id: string;
+        availabilityZone?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
          * The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`.
          */
-        port: number;
+        port?: pulumi.Input<number>;
     }
 
     export interface GetClusterCacheNode {
@@ -6654,22 +6963,22 @@ export namespace elasticache {
         /**
          * The name of the ElastiCache parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the ElastiCache parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ReplicationGroupClusterMode {
         /**
          * Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
          */
-        numNodeGroups: number;
+        numNodeGroups: pulumi.Input<number>;
         /**
          * Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
          */
-        replicasPerNodeGroup: number;
+        replicasPerNodeGroup: pulumi.Input<number>;
     }
 }
 
@@ -6678,29 +6987,29 @@ export namespace elasticbeanstalk {
         /**
          * Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
          */
-        deleteSourceFromS3?: boolean;
+        deleteSourceFromS3?: pulumi.Input<boolean>;
         /**
          * The number of days to retain an application version.
          */
-        maxAgeInDays?: number;
+        maxAgeInDays?: pulumi.Input<number>;
         /**
          * The maximum number of application versions to retain.
          */
-        maxCount?: number;
+        maxCount?: pulumi.Input<number>;
         /**
          * The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
          */
-        serviceRole: string;
+        serviceRole: pulumi.Input<string>;
     }
 
     export interface ConfigurationTemplateSetting {
         /**
          * A unique name for this Template.
          */
-        name: string;
-        namespace: string;
-        resource?: string;
-        value: string;
+        name: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface EnvironmentAllSetting {
@@ -6708,10 +7017,10 @@ export namespace elasticbeanstalk {
          * A unique name for this Environment. This name is used
          * in the application URL
          */
-        name: string;
-        namespace: string;
-        resource?: string;
-        value: string;
+        name: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface EnvironmentSetting {
@@ -6719,10 +7028,10 @@ export namespace elasticbeanstalk {
          * A unique name for this Environment. This name is used
          * in the application URL
          */
-        name: string;
-        namespace: string;
-        resource?: string;
-        value: string;
+        name: pulumi.Input<string>;
+        namespace: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface GetApplicationAppversionLifecycle {
@@ -6773,87 +7082,87 @@ export namespace elasticloadbalancing {
         /**
          * The S3 bucket name to store the logs in.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * The S3 bucket prefix. Logs are stored in the root if not configured.
          */
-        bucketPrefix?: string;
+        bucketPrefix?: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Default is `true`
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The interval between checks.
          */
-        interval?: number;
+        interval?: pulumi.Input<number>;
     }
 
     export interface LoadBalancerHealthCheck {
         /**
          * The number of checks before the instance is declared healthy.
          */
-        healthyThreshold: number;
+        healthyThreshold: pulumi.Input<number>;
         /**
          * The interval between checks.
          */
-        interval: number;
+        interval: pulumi.Input<number>;
         /**
          * The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
          * values are:
          * * `HTTP`, `HTTPS` - PORT and PATH are required
          * * `TCP`, `SSL` - PORT is required, PATH is not supported
          */
-        target: string;
+        target: pulumi.Input<string>;
         /**
          * The length of time before the check times out.
          */
-        timeout: number;
+        timeout: pulumi.Input<number>;
         /**
          * The number of checks before the instance is declared unhealthy.
          */
-        unhealthyThreshold: number;
+        unhealthyThreshold: pulumi.Input<number>;
     }
 
     export interface LoadBalancerListener {
         /**
          * The port on the instance to route to
          */
-        instancePort: number;
+        instancePort: pulumi.Input<number>;
         /**
          * The protocol to use to the instance. Valid
          * values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
          */
-        instanceProtocol: string;
+        instanceProtocol: pulumi.Input<string>;
         /**
          * The port to listen on for the load balancer
          */
-        lbPort: number;
+        lbPort: pulumi.Input<number>;
         /**
          * The protocol to listen on. Valid values are `HTTP`,
          * `HTTPS`, `TCP`, or `SSL`
          */
-        lbProtocol: string;
+        lbProtocol: pulumi.Input<string>;
         /**
          * The ARN of an SSL certificate you have
          * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
          */
-        sslCertificateId?: string;
+        sslCertificateId?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerPolicyPolicyAttribute {
-        name?: string;
-        value?: string;
+        name?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface SslNegotiationPolicyAttribute {
         /**
          * The name of the attribute
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the attribute
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -6941,464 +7250,468 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerDefaultAction {
-        authenticateCognito?: outputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateCognito;
-        authenticateOidc?: outputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateOidc;
+        authenticateCognito?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateCognito>;
+        authenticateOidc?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.elasticloadbalancingv2.ListenerDefaultActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerDefaultActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.elasticloadbalancingv2.ListenerDefaultActionRedirect;
+        redirect?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerDefaultActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleAction {
         /**
          * Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
          */
-        authenticateCognito?: outputs.elasticloadbalancingv2.ListenerRuleActionAuthenticateCognito;
+        authenticateCognito?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleActionAuthenticateCognito>;
         /**
          * Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
          */
-        authenticateOidc?: outputs.elasticloadbalancingv2.ListenerRuleActionAuthenticateOidc;
+        authenticateOidc?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.elasticloadbalancingv2.ListenerRuleActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.elasticloadbalancingv2.ListenerRuleActionRedirect;
+        redirect?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        field: string;
+        field?: pulumi.Input<string>;
         /**
          * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader;
+        hostHeader?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader>;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
-        httpHeader?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpHeader;
+        httpHeader?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleConditionHttpHeader>;
         /**
          * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
-        httpRequestMethod?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod;
+        httpRequestMethod?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod>;
         /**
          * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
-        pathPattern: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
+        pathPattern?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern>;
         /**
          * Query strings to match. Query String block fields documented below.
          */
-        queryStrings?: outputs.elasticloadbalancingv2.ListenerRuleConditionQueryString[];
+        queryStrings?: pulumi.Input<pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleConditionQueryString>[]>;
         /**
          * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
-        sourceIp?: outputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp;
+        sourceIp?: pulumi.Input<outputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        values: string;
+        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
         /**
          * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
          */
-        httpHeaderName: string;
+        httpHeaderName: pulumi.Input<string>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
         /**
          * Query string key pattern to match.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * Query string value pattern to match.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionSourceIp {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LoadBalancerAccessLogs {
         /**
          * The S3 bucket name to store the logs in.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The S3 bucket prefix. Logs are stored in the root if not configured.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerSubnetMapping {
         /**
          * The allocation ID of the Elastic IP address.
          */
-        allocationId?: string;
+        allocationId?: pulumi.Input<string>;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
-        subnetId: string;
+        subnetId: pulumi.Input<string>;
     }
 
     export interface TargetGroupHealthCheck {
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
-        healthyThreshold?: number;
+        healthyThreshold?: pulumi.Input<number>;
         /**
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
-        interval?: number;
-        matcher: string;
+        interval?: pulumi.Input<number>;
+        matcher?: pulumi.Input<string>;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        path: string;
+        path?: pulumi.Input<string>;
         /**
          * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
-        timeout: number;
+        timeout?: pulumi.Input<number>;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        unhealthyThreshold?: number;
+        unhealthyThreshold?: pulumi.Input<number>;
     }
 
     export interface TargetGroupStickiness {
         /**
          * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
-        cookieDuration?: number;
+        cookieDuration?: pulumi.Input<number>;
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The type of sticky sessions. The only current possible value is `lbCookie`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -7407,122 +7720,119 @@ export namespace elasticsearch {
         /**
          * Number of dedicated master nodes in the cluster
          */
-        dedicatedMasterCount?: number;
+        dedicatedMasterCount?: pulumi.Input<number>;
         /**
          * Indicates whether dedicated master nodes are enabled for the cluster.
          */
-        dedicatedMasterEnabled?: boolean;
+        dedicatedMasterEnabled?: pulumi.Input<boolean>;
         /**
          * Instance type of the dedicated master nodes in the cluster.
          */
-        dedicatedMasterType?: string;
+        dedicatedMasterType?: pulumi.Input<string>;
         /**
          * Number of instances in the cluster.
          */
-        instanceCount?: number;
+        instanceCount?: pulumi.Input<number>;
         /**
          * Instance type of data nodes in the cluster.
          */
-        instanceType?: string;
+        instanceType?: pulumi.Input<string>;
         /**
          * Configuration block containing zone awareness settings. Documented below.
          */
-        zoneAwarenessConfig?: outputs.elasticsearch.DomainClusterConfigZoneAwarenessConfig;
+        zoneAwarenessConfig?: pulumi.Input<outputs.elasticsearch.DomainClusterConfigZoneAwarenessConfig>;
         /**
          * Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
          */
-        zoneAwarenessEnabled?: boolean;
+        zoneAwarenessEnabled?: pulumi.Input<boolean>;
     }
 
     export interface DomainClusterConfigZoneAwarenessConfig {
         /**
          * Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
          */
-        availabilityZoneCount?: number;
+        availabilityZoneCount?: pulumi.Input<number>;
     }
 
     export interface DomainCognitoOptions {
         /**
          * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * ID of the Cognito Identity Pool to use
          */
-        identityPoolId: string;
+        identityPoolId: pulumi.Input<string>;
         /**
          * ARN of the IAM role that has the AmazonESCognitoAccess policy attached
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * ID of the Cognito User Pool to use
          */
-        userPoolId: string;
+        userPoolId: pulumi.Input<string>;
     }
 
     export interface DomainDomainEndpointOptions {
         /**
          * Whether or not to require HTTPS
          */
-        enforceHttps: boolean;
-        /**
-         * <elided>
-         */
-        tlsSecurityPolicy: string;
+        enforceHttps: pulumi.Input<boolean>;
+        tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
     export interface DomainEbsOptions {
         /**
          * Whether EBS volumes are attached to data nodes in the domain.
          */
-        ebsEnabled: boolean;
+        ebsEnabled: pulumi.Input<boolean>;
         /**
          * The baseline input/output (I/O) performance of EBS volumes
          * attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
          */
-        iops?: number;
+        iops?: pulumi.Input<number>;
         /**
          * The size of EBS volumes attached to data nodes (in GB).
          * **Required** if `ebsEnabled` is set to `true`.
          */
-        volumeSize?: number;
+        volumeSize?: pulumi.Input<number>;
         /**
          * The type of EBS volumes attached to data nodes.
          */
-        volumeType: string;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface DomainEncryptAtRest {
         /**
          * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
         /**
          * The KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
          */
-        kmsKeyId: string;
+        kmsKeyId?: pulumi.Input<string>;
     }
 
     export interface DomainLogPublishingOption {
         /**
          * ARN of the Cloudwatch log group to which log needs to be published.
          */
-        cloudwatchLogGroupArn: string;
+        cloudwatchLogGroupArn: pulumi.Input<string>;
         /**
          * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * A type of Elasticsearch log. Valid values: INDEX_SLOW_LOGS, SEARCH_SLOW_LOGS, ES_APPLICATION_LOGS
          */
-        logType: string;
+        logType: pulumi.Input<string>;
     }
 
     export interface DomainNodeToNodeEncryption {
         /**
          * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface DomainSnapshotOptions {
@@ -7530,20 +7840,20 @@ export namespace elasticsearch {
          * Hour during which the service takes an automated daily
          * snapshot of the indices in the domain.
          */
-        automatedSnapshotStartHour: number;
+        automatedSnapshotStartHour: pulumi.Input<number>;
     }
 
     export interface DomainVpcOptions {
-        availabilityZones: string[];
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
          */
-        securityGroupIds?: string[];
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
          */
-        subnetIds?: string[];
-        vpcId: string;
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId?: pulumi.Input<string>;
     }
 
     export interface GetDomainClusterConfig {
@@ -7689,246 +7999,246 @@ export namespace elastictranscoder {
         /**
          * The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
          */
-        bucket: string;
+        bucket?: pulumi.Input<string>;
         /**
          * The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
          */
-        storageClass?: string;
+        storageClass?: pulumi.Input<string>;
     }
 
     export interface PipelineContentConfigPermission {
         /**
          * The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
          */
-        accesses?: string[];
+        accesses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The AWS user or group that you want to have access to thumbnail files.
          */
-        grantee?: string;
+        grantee?: pulumi.Input<string>;
         /**
          * Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
          */
-        granteeType?: string;
+        granteeType?: pulumi.Input<string>;
     }
 
     export interface PipelineNotifications {
         /**
          * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
          */
-        completed?: string;
+        completed?: pulumi.Input<string>;
         /**
          * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
          */
-        error?: string;
+        error?: pulumi.Input<string>;
         /**
          * The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
          */
-        progressing?: string;
+        progressing?: pulumi.Input<string>;
         /**
          * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
          */
-        warning?: string;
+        warning?: pulumi.Input<string>;
     }
 
     export interface PipelineThumbnailConfig {
         /**
          * The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
          */
-        bucket: string;
+        bucket?: pulumi.Input<string>;
         /**
          * The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
          */
-        storageClass?: string;
+        storageClass?: pulumi.Input<string>;
     }
 
     export interface PipelineThumbnailConfigPermission {
         /**
          * The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
          */
-        accesses?: string[];
+        accesses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The AWS user or group that you want to have access to thumbnail files.
          */
-        grantee?: string;
+        grantee?: pulumi.Input<string>;
         /**
          * Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
          */
-        granteeType?: string;
+        granteeType?: pulumi.Input<string>;
     }
 
     export interface PresetAudio {
         /**
          * The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
          */
-        audioPackingMode?: string;
+        audioPackingMode?: pulumi.Input<string>;
         /**
          * The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
          */
-        bitRate?: string;
+        bitRate?: pulumi.Input<string>;
         /**
          * The number of audio channels in the output file
          */
-        channels?: string;
+        channels?: pulumi.Input<string>;
         /**
          * The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
          */
-        codec?: string;
+        codec?: pulumi.Input<string>;
         /**
          * The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
          */
-        sampleRate?: string;
+        sampleRate?: pulumi.Input<string>;
     }
 
     export interface PresetAudioCodecOptions {
         /**
          * The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
          */
-        bitDepth?: string;
+        bitDepth?: pulumi.Input<string>;
         /**
          * The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
          */
-        bitOrder?: string;
+        bitOrder?: pulumi.Input<string>;
         /**
          * If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
          */
-        profile?: string;
+        profile?: pulumi.Input<string>;
         /**
          * Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
          */
-        signed?: string;
+        signed?: pulumi.Input<string>;
     }
 
     export interface PresetThumbnails {
         /**
          * The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
          */
-        aspectRatio?: string;
+        aspectRatio?: pulumi.Input<string>;
         /**
          * The format of thumbnails, if any. Valid formats are jpg and png.
          */
-        format?: string;
+        format?: pulumi.Input<string>;
         /**
          * The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
          */
-        interval?: string;
+        interval?: pulumi.Input<string>;
         /**
          * The maximum height of the watermark.
          */
-        maxHeight?: string;
+        maxHeight?: pulumi.Input<string>;
         /**
          * The maximum width of the watermark.
          */
-        maxWidth?: string;
+        maxWidth?: pulumi.Input<string>;
         /**
          * When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
          */
-        paddingPolicy?: string;
+        paddingPolicy?: pulumi.Input<string>;
         /**
          * The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
          */
-        resolution?: string;
+        resolution?: pulumi.Input<string>;
         /**
          * A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
          */
-        sizingPolicy?: string;
+        sizingPolicy?: pulumi.Input<string>;
     }
 
     export interface PresetVideo {
         /**
          * The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
          */
-        aspectRatio?: string;
+        aspectRatio?: pulumi.Input<string>;
         /**
          * The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
          */
-        bitRate?: string;
+        bitRate?: pulumi.Input<string>;
         /**
          * The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
          */
-        codec?: string;
+        codec?: pulumi.Input<string>;
         /**
          * The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
          */
-        displayAspectRatio?: string;
+        displayAspectRatio?: pulumi.Input<string>;
         /**
          * Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
          */
-        fixedGop?: string;
+        fixedGop?: pulumi.Input<string>;
         /**
          * The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
          */
-        frameRate?: string;
+        frameRate?: pulumi.Input<string>;
         /**
          * The maximum number of frames between key frames. Not applicable for containers of type gif.
          */
-        keyframesMaxDist?: string;
+        keyframesMaxDist?: pulumi.Input<string>;
         /**
          * If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
          */
-        maxFrameRate?: string;
+        maxFrameRate?: pulumi.Input<string>;
         /**
          * The maximum height of the watermark.
          */
-        maxHeight?: string;
+        maxHeight?: pulumi.Input<string>;
         /**
          * The maximum width of the watermark.
          */
-        maxWidth?: string;
+        maxWidth?: pulumi.Input<string>;
         /**
          * When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
          */
-        paddingPolicy?: string;
+        paddingPolicy?: pulumi.Input<string>;
         /**
          * The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
          */
-        resolution?: string;
+        resolution?: pulumi.Input<string>;
         /**
          * A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
          */
-        sizingPolicy?: string;
+        sizingPolicy?: pulumi.Input<string>;
     }
 
     export interface PresetVideoWatermark {
         /**
          * The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
          */
-        horizontalAlign?: string;
+        horizontalAlign?: pulumi.Input<string>;
         /**
          * The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
          */
-        horizontalOffset?: string;
+        horizontalOffset?: pulumi.Input<string>;
         /**
          * A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
          */
-        id?: string;
+        id?: pulumi.Input<string>;
         /**
          * The maximum height of the watermark.
          */
-        maxHeight?: string;
+        maxHeight?: pulumi.Input<string>;
         /**
          * The maximum width of the watermark.
          */
-        maxWidth?: string;
+        maxWidth?: pulumi.Input<string>;
         /**
          * A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
          */
-        opacity?: string;
+        opacity?: pulumi.Input<string>;
         /**
          * A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
          */
-        sizingPolicy?: string;
+        sizingPolicy?: pulumi.Input<string>;
         /**
          * A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
          */
-        target?: string;
+        target?: pulumi.Input<string>;
         /**
          * The vertical position of the watermark unless you specify a nonzero value for `verticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
          */
-        verticalAlign?: string;
+        verticalAlign?: pulumi.Input<string>;
         /**
          * The amount by which you want the vertical position of the watermark to be offset from the position specified by `verticalAlign`
          */
-        verticalOffset?: string;
+        verticalOffset?: pulumi.Input<string>;
     }
 }
 
@@ -7960,221 +8270,221 @@ export namespace elb {
         /**
          * The S3 bucket name to store the logs in.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * The S3 bucket prefix. Logs are stored in the root if not configured.
          */
-        bucketPrefix?: string;
+        bucketPrefix?: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Default is `true`
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The interval between checks.
          */
-        interval?: number;
+        interval?: pulumi.Input<number>;
     }
 
     export interface LoadBalancerHealthCheck {
         /**
          * The number of checks before the instance is declared healthy.
          */
-        healthyThreshold: number;
+        healthyThreshold: pulumi.Input<number>;
         /**
          * The interval between checks.
          */
-        interval: number;
+        interval: pulumi.Input<number>;
         /**
          * The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
          * values are:
          * * `HTTP`, `HTTPS` - PORT and PATH are required
          * * `TCP`, `SSL` - PORT is required, PATH is not supported
          */
-        target: string;
+        target: pulumi.Input<string>;
         /**
          * The length of time before the check times out.
          */
-        timeout: number;
+        timeout: pulumi.Input<number>;
         /**
          * The number of checks before the instance is declared unhealthy.
          */
-        unhealthyThreshold: number;
+        unhealthyThreshold: pulumi.Input<number>;
     }
 
     export interface LoadBalancerListener {
         /**
          * The port on the instance to route to
          */
-        instancePort: number;
+        instancePort: pulumi.Input<number>;
         /**
          * The protocol to use to the instance. Valid
          * values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
          */
-        instanceProtocol: string;
+        instanceProtocol: pulumi.Input<string>;
         /**
          * The port to listen on for the load balancer
          */
-        lbPort: number;
+        lbPort: pulumi.Input<number>;
         /**
          * The protocol to listen on. Valid values are `HTTP`,
          * `HTTPS`, `TCP`, or `SSL`
          */
-        lbProtocol: string;
+        lbProtocol: pulumi.Input<string>;
         /**
          * The ARN of an SSL certificate you have
          * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lbProtocol` is either HTTPS or SSL**
          */
-        sslCertificateId?: string;
+        sslCertificateId?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerPolicyPolicyAttribute {
-        name?: string;
-        value?: string;
+        name?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 
     export interface SslNegotiationPolicyAttribute {
         /**
          * The name of the attribute
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the attribute
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 }
 
 export namespace emr {
     export interface ClusterBootstrapAction {
-        args?: string[];
+        args?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the job flow
          */
-        name: string;
-        path: string;
+        name: pulumi.Input<string>;
+        path: pulumi.Input<string>;
     }
 
     export interface ClusterCoreInstanceGroup {
-        autoscalingPolicy?: string;
-        bidPrice?: string;
-        ebsConfigs: outputs.emr.ClusterCoreInstanceGroupEbsConfig[];
+        autoscalingPolicy?: pulumi.Input<string>;
+        bidPrice?: pulumi.Input<string>;
+        ebsConfigs?: pulumi.Input<pulumi.Input<outputs.emr.ClusterCoreInstanceGroupEbsConfig>[]>;
         /**
          * The ID of the EMR Cluster
          */
-        id: string;
-        instanceCount?: number;
-        instanceType: string;
+        id?: pulumi.Input<string>;
+        instanceCount?: pulumi.Input<number>;
+        instanceType: pulumi.Input<string>;
         /**
          * The name of the job flow
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface ClusterCoreInstanceGroupEbsConfig {
-        iops?: number;
-        size: number;
-        type: string;
-        volumesPerInstance?: number;
+        iops?: pulumi.Input<number>;
+        size: pulumi.Input<number>;
+        type: pulumi.Input<string>;
+        volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterEc2Attributes {
-        additionalMasterSecurityGroups?: string;
-        additionalSlaveSecurityGroups?: string;
-        emrManagedMasterSecurityGroup: string;
-        emrManagedSlaveSecurityGroup: string;
-        instanceProfile: string;
-        keyName?: string;
-        serviceAccessSecurityGroup: string;
-        subnetId?: string;
+        additionalMasterSecurityGroups?: pulumi.Input<string>;
+        additionalSlaveSecurityGroups?: pulumi.Input<string>;
+        emrManagedMasterSecurityGroup?: pulumi.Input<string>;
+        emrManagedSlaveSecurityGroup?: pulumi.Input<string>;
+        instanceProfile: pulumi.Input<string>;
+        keyName?: pulumi.Input<string>;
+        serviceAccessSecurityGroup?: pulumi.Input<string>;
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface ClusterInstanceGroup {
-        autoscalingPolicy?: string;
-        bidPrice?: string;
-        ebsConfigs: outputs.emr.ClusterInstanceGroupEbsConfig[];
+        autoscalingPolicy?: pulumi.Input<string>;
+        bidPrice?: pulumi.Input<string>;
+        ebsConfigs?: pulumi.Input<pulumi.Input<outputs.emr.ClusterInstanceGroupEbsConfig>[]>;
         /**
          * The ID of the EMR Cluster
          */
-        id: string;
-        instanceCount?: number;
-        instanceRole: string;
-        instanceType: string;
+        id?: pulumi.Input<string>;
+        instanceCount?: pulumi.Input<number>;
+        instanceRole: pulumi.Input<string>;
+        instanceType: pulumi.Input<string>;
         /**
          * The name of the job flow
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface ClusterInstanceGroupEbsConfig {
-        iops?: number;
-        size: number;
-        type: string;
-        volumesPerInstance?: number;
+        iops?: pulumi.Input<number>;
+        size: pulumi.Input<number>;
+        type: pulumi.Input<string>;
+        volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterKerberosAttributes {
-        adDomainJoinPassword?: string;
-        adDomainJoinUser?: string;
-        crossRealmTrustPrincipalPassword?: string;
-        kdcAdminPassword: string;
-        realm: string;
+        adDomainJoinPassword?: pulumi.Input<string>;
+        adDomainJoinUser?: pulumi.Input<string>;
+        crossRealmTrustPrincipalPassword?: pulumi.Input<string>;
+        kdcAdminPassword: pulumi.Input<string>;
+        realm: pulumi.Input<string>;
     }
 
     export interface ClusterMasterInstanceGroup {
-        bidPrice?: string;
-        ebsConfigs: outputs.emr.ClusterMasterInstanceGroupEbsConfig[];
+        bidPrice?: pulumi.Input<string>;
+        ebsConfigs?: pulumi.Input<pulumi.Input<outputs.emr.ClusterMasterInstanceGroupEbsConfig>[]>;
         /**
          * The ID of the EMR Cluster
          */
-        id: string;
-        instanceCount?: number;
-        instanceType: string;
+        id?: pulumi.Input<string>;
+        instanceCount?: pulumi.Input<number>;
+        instanceType: pulumi.Input<string>;
         /**
          * The name of the job flow
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface ClusterMasterInstanceGroupEbsConfig {
-        iops?: number;
-        size: number;
-        type: string;
-        volumesPerInstance?: number;
+        iops?: pulumi.Input<number>;
+        size: pulumi.Input<number>;
+        type: pulumi.Input<string>;
+        volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterStep {
-        actionOnFailure: string;
-        hadoopJarStep: outputs.emr.ClusterStepHadoopJarStep;
+        actionOnFailure: pulumi.Input<string>;
+        hadoopJarStep: pulumi.Input<outputs.emr.ClusterStepHadoopJarStep>;
         /**
          * The name of the job flow
          */
-        name: string;
+        name: pulumi.Input<string>;
     }
 
     export interface ClusterStepHadoopJarStep {
-        args?: string[];
-        jar: string;
-        mainClass?: string;
-        properties?: {[key: string]: any};
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        jar: pulumi.Input<string>;
+        mainClass?: pulumi.Input<string>;
+        properties?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface InstanceGroupEbsConfig {
         /**
          * The number of I/O operations per second (IOPS) that the volume supports.
          */
-        iops?: number;
+        iops?: pulumi.Input<number>;
         /**
          * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
          */
-        size: number;
+        size: pulumi.Input<number>;
         /**
          * The volume type. Valid options are 'gp2', 'io1' and 'standard'.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * The number of EBS Volumes to attach per instance.
          */
-        volumesPerInstance?: number;
+        volumesPerInstance?: pulumi.Input<number>;
     }
 }
 
@@ -8183,27 +8493,27 @@ export namespace fsx {
         /**
          * A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
          */
-        dnsIps: string[];
+        dnsIps: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
          */
-        domainName: string;
+        domainName: pulumi.Input<string>;
         /**
          * The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
          */
-        fileSystemAdministratorsGroup?: string;
+        fileSystemAdministratorsGroup?: pulumi.Input<string>;
         /**
          * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
          */
-        organizationalUnitDistinguishedName?: string;
+        organizationalUnitDistinguishedName?: pulumi.Input<string>;
         /**
          * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
          */
-        password: string;
+        password: pulumi.Input<string>;
         /**
          * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
          */
-        username: string;
+        username: pulumi.Input<string>;
     }
 }
 
@@ -8212,101 +8522,101 @@ export namespace gamelift {
         /**
          * ID of the Gamelift Fleet to point the alias to.
          */
-        fleetId?: string;
+        fleetId?: pulumi.Input<string>;
         /**
          * Message text to be used with the `TERMINAL` routing strategy.
          */
-        message?: string;
+        message?: pulumi.Input<string>;
         /**
          * Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface BuildStorageLocation {
         /**
          * Name of your S3 bucket.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Name of the zip file containing your build files.
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * ARN of the access role that allows Amazon GameLift to access your S3 bucket.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface FleetEc2InboundPermission {
         /**
          * Starting value for a range of allowed port numbers.
          */
-        fromPort: number;
+        fromPort: pulumi.Input<number>;
         /**
          * Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
          */
-        ipRange: string;
+        ipRange: pulumi.Input<string>;
         /**
          * Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
          */
-        protocol: string;
+        protocol: pulumi.Input<string>;
         /**
          * Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
          */
-        toPort: number;
+        toPort: pulumi.Input<number>;
     }
 
     export interface FleetResourceCreationLimitPolicy {
         /**
          * Maximum number of game sessions that an individual can create during the policy period.
          */
-        newGameSessionsPerCreator?: number;
+        newGameSessionsPerCreator?: pulumi.Input<number>;
         /**
          * Time span used in evaluating the resource creation limit policy.
          */
-        policyPeriodInMinutes?: number;
+        policyPeriodInMinutes?: pulumi.Input<number>;
     }
 
     export interface FleetRuntimeConfiguration {
         /**
          * Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
          */
-        gameSessionActivationTimeoutSeconds?: number;
+        gameSessionActivationTimeoutSeconds?: pulumi.Input<number>;
         /**
          * Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
          */
-        maxConcurrentGameSessionActivations?: number;
+        maxConcurrentGameSessionActivations?: pulumi.Input<number>;
         /**
          * Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
          */
-        serverProcesses?: outputs.gamelift.FleetRuntimeConfigurationServerProcess[];
+        serverProcesses?: pulumi.Input<pulumi.Input<outputs.gamelift.FleetRuntimeConfigurationServerProcess>[]>;
     }
 
     export interface FleetRuntimeConfigurationServerProcess {
         /**
          * Number of server processes using this configuration to run concurrently on an instance.
          */
-        concurrentExecutions: number;
+        concurrentExecutions: pulumi.Input<number>;
         /**
          * Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
          */
-        launchPath: string;
+        launchPath: pulumi.Input<string>;
         /**
          * Optional list of parameters to pass to the server executable on launch.
          */
-        parameters?: string;
+        parameters?: pulumi.Input<string>;
     }
 
     export interface GameSessionQueuePlayerLatencyPolicy {
         /**
          * Maximum latency value that is allowed for any player.
          */
-        maximumIndividualPlayerLatencyMilliseconds: number;
+        maximumIndividualPlayerLatencyMilliseconds: pulumi.Input<number>;
         /**
          * Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
          */
-        policyDurationSeconds?: number;
+        policyDurationSeconds?: pulumi.Input<number>;
     }
 }
 
@@ -8315,11 +8625,11 @@ export namespace glacier {
         /**
          * You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
          */
-        events: string[];
+        events: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The SNS Topic ARN.
          */
-        snsTopic: string;
+        snsTopic: pulumi.Input<string>;
     }
 }
 
@@ -8328,48 +8638,48 @@ export namespace globalaccelerator {
         /**
          * Indicates whether flow logs are enabled.
          */
-        flowLogsEnabled?: boolean;
+        flowLogsEnabled?: pulumi.Input<boolean>;
         /**
          * The name of the Amazon S3 bucket for the flow logs.
          */
-        flowLogsS3Bucket?: string;
+        flowLogsS3Bucket?: pulumi.Input<string>;
         /**
          * The prefix for the location in the Amazon S3 bucket for the flow logs.
          */
-        flowLogsS3Prefix?: string;
+        flowLogsS3Prefix?: pulumi.Input<string>;
     }
 
     export interface AcceleratorIpSet {
         /**
          * The array of IP addresses in the IP address set.
          */
-        ipAddresses: string[];
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The types of IP addresses included in this IP set.
          */
-        ipFamily: string;
+        ipFamily?: pulumi.Input<string>;
     }
 
     export interface EndpointGroupEndpointConfiguration {
         /**
          * An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
          */
-        endpointId?: string;
+        endpointId?: pulumi.Input<string>;
         /**
          * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
          */
-        weight?: number;
+        weight?: pulumi.Input<number>;
     }
 
     export interface ListenerPortRange {
         /**
          * The first port in the range of ports, inclusive.
          */
-        fromPort?: number;
+        fromPort?: pulumi.Input<number>;
         /**
          * The last port in the range of ports, inclusive.
          */
-        toPort?: number;
+        toPort?: pulumi.Input<number>;
     }
 }
 
@@ -8378,252 +8688,252 @@ export namespace glue {
         /**
          * Free-form text comment.
          */
-        comment?: string;
+        comment?: pulumi.Input<string>;
         /**
          * Name of the SerDe.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The datatype of data in the Column.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptor {
         /**
          * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
-        bucketColumns?: string[];
+        bucketColumns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of the Columns in the table.
          */
-        columns?: outputs.glue.CatalogTableStorageDescriptorColumn[];
+        columns?: pulumi.Input<pulumi.Input<outputs.glue.CatalogTableStorageDescriptorColumn>[]>;
         /**
          * True if the data in the table is compressed, or False if not.
          */
-        compressed?: boolean;
+        compressed?: pulumi.Input<boolean>;
         /**
          * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
          */
-        inputFormat?: string;
+        inputFormat?: pulumi.Input<string>;
         /**
          * The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
          */
-        location?: string;
+        location?: pulumi.Input<string>;
         /**
          * Must be specified if the table contains any dimension columns.
          */
-        numberOfBuckets?: number;
+        numberOfBuckets?: pulumi.Input<number>;
         /**
          * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
          */
-        outputFormat?: string;
+        outputFormat?: pulumi.Input<string>;
         /**
          * A map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters?: {[key: string]: string};
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Serialization/deserialization (SerDe) information.
          */
-        serDeInfo?: outputs.glue.CatalogTableStorageDescriptorSerDeInfo;
+        serDeInfo?: pulumi.Input<outputs.glue.CatalogTableStorageDescriptorSerDeInfo>;
         /**
          * Information about values that appear very frequently in a column (skewed values).
          */
-        skewedInfo?: outputs.glue.CatalogTableStorageDescriptorSkewedInfo;
+        skewedInfo?: pulumi.Input<outputs.glue.CatalogTableStorageDescriptorSkewedInfo>;
         /**
          * A list of Order objects specifying the sort order of each bucket in the table.
          */
-        sortColumns?: outputs.glue.CatalogTableStorageDescriptorSortColumn[];
+        sortColumns?: pulumi.Input<pulumi.Input<outputs.glue.CatalogTableStorageDescriptorSortColumn>[]>;
         /**
          * True if the table data is stored in subdirectories, or False if not.
          */
-        storedAsSubDirectories?: boolean;
+        storedAsSubDirectories?: pulumi.Input<boolean>;
     }
 
     export interface CatalogTableStorageDescriptorColumn {
         /**
          * Free-form text comment.
          */
-        comment?: string;
+        comment?: pulumi.Input<string>;
         /**
          * Name of the SerDe.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The datatype of data in the Column.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptorSerDeInfo {
         /**
          * Name of the SerDe.
          */
-        name?: string;
+        name?: pulumi.Input<string>;
         /**
          * A map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters?: {[key: string]: string};
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
          */
-        serializationLibrary?: string;
+        serializationLibrary?: pulumi.Input<string>;
     }
 
     export interface CatalogTableStorageDescriptorSkewedInfo {
         /**
          * A list of names of columns that contain skewed values.
          */
-        skewedColumnNames?: string[];
+        skewedColumnNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of values that appear so frequently as to be considered skewed.
          */
-        skewedColumnValueLocationMaps?: {[key: string]: string};
+        skewedColumnValueLocationMaps?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * A mapping of skewed values to the columns that contain them.
          */
-        skewedColumnValues?: string[];
+        skewedColumnValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CatalogTableStorageDescriptorSortColumn {
         /**
          * The name of the column.
          */
-        column: string;
+        column: pulumi.Input<string>;
         /**
          * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
          */
-        sortOrder: number;
+        sortOrder: pulumi.Input<number>;
     }
 
     export interface ClassifierCsvClassifier {
         /**
          * Enables the processing of files that contain only one column.
          */
-        allowSingleColumn?: boolean;
+        allowSingleColumn?: pulumi.Input<boolean>;
         /**
          * Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
          */
-        containsHeader?: string;
+        containsHeader?: pulumi.Input<string>;
         /**
          * The delimiter used in the Csv to separate columns.
          */
-        delimiter?: string;
+        delimiter?: pulumi.Input<string>;
         /**
          * Specifies whether to trim column values. 
          */
-        disableValueTrimming?: boolean;
+        disableValueTrimming?: pulumi.Input<boolean>;
         /**
          * A list of strings representing column names.
          */
-        headers?: string[];
+        headers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          */
-        quoteSymbol?: string;
+        quoteSymbol?: pulumi.Input<string>;
     }
 
     export interface ClassifierGrokClassifier {
         /**
          * An identifier of the data format that the classifier matches.
          */
-        classification: string;
+        classification: pulumi.Input<string>;
         /**
          * Custom grok patterns used by this classifier.
          */
-        customPatterns?: string;
+        customPatterns?: pulumi.Input<string>;
         /**
          * The grok pattern used by this classifier.
          */
-        grokPattern: string;
+        grokPattern: pulumi.Input<string>;
     }
 
     export interface ClassifierJsonClassifier {
         /**
          * A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
          */
-        jsonPath: string;
+        jsonPath: pulumi.Input<string>;
     }
 
     export interface ClassifierXmlClassifier {
         /**
          * An identifier of the data format that the classifier matches.
          */
-        classification: string;
+        classification: pulumi.Input<string>;
         /**
          * The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
          */
-        rowTag: string;
+        rowTag: pulumi.Input<string>;
     }
 
     export interface ConnectionPhysicalConnectionRequirements {
         /**
          * The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
          */
-        availabilityZone?: string;
+        availabilityZone?: pulumi.Input<string>;
         /**
          * The security group ID list used by the connection.
          */
-        securityGroupIdLists?: string[];
+        securityGroupIdLists?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The subnet ID used by the connection.
          */
-        subnetId?: string;
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface CrawlerCatalogTarget {
         /**
          * The name of the Glue database to be synchronized.
          */
-        databaseName: string;
+        databaseName: pulumi.Input<string>;
         /**
          * A list of catalog tables to be synchronized.
          */
-        tables: string[];
+        tables: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CrawlerDynamodbTarget {
         /**
          * The path to the Amazon S3 target.
          */
-        path: string;
+        path: pulumi.Input<string>;
     }
 
     export interface CrawlerJdbcTarget {
         /**
          * The name of the connection to use to connect to the JDBC target.
          */
-        connectionName: string;
+        connectionName: pulumi.Input<string>;
         /**
          * A list of glob patterns used to exclude from the crawl.
          */
-        exclusions?: string[];
+        exclusions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The path to the Amazon S3 target.
          */
-        path: string;
+        path: pulumi.Input<string>;
     }
 
     export interface CrawlerS3Target {
         /**
          * A list of glob patterns used to exclude from the crawl.
          */
-        exclusions?: string[];
+        exclusions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The path to the Amazon S3 target.
          */
-        path: string;
+        path: pulumi.Input<string>;
     }
 
     export interface CrawlerSchemaChangePolicy {
         /**
          * The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
          */
-        deleteBehavior?: string;
+        deleteBehavior?: pulumi.Input<string>;
         /**
          * The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
          */
-        updateBehavior?: string;
+        updateBehavior?: pulumi.Input<string>;
     }
 
     export interface GetScriptDagEdge {
@@ -8679,117 +8989,117 @@ export namespace glue {
         /**
          * The name of the job command. Defaults to `glueetl`
          */
-        name?: string;
+        name?: pulumi.Input<string>;
         /**
          * The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
          */
-        pythonVersion: string;
+        pythonVersion?: pulumi.Input<string>;
         /**
          * Specifies the S3 path to a script that executes a job.
          */
-        scriptLocation: string;
+        scriptLocation: pulumi.Input<string>;
     }
 
     export interface JobExecutionProperty {
         /**
          * The maximum number of concurrent runs allowed for a job. The default is 1.
          */
-        maxConcurrentRuns?: number;
+        maxConcurrentRuns?: pulumi.Input<number>;
     }
 
     export interface SecurityConfigurationEncryptionConfiguration {
-        cloudwatchEncryption: outputs.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption;
-        jobBookmarksEncryption: outputs.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption;
+        cloudwatchEncryption: pulumi.Input<outputs.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption>;
+        jobBookmarksEncryption: pulumi.Input<outputs.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption>;
         /**
          * A `s3Encryption ` block as described below, which contains encryption configuration for S3 data.
          */
-        s3Encryption: outputs.glue.SecurityConfigurationEncryptionConfigurationS3Encryption;
+        s3Encryption: pulumi.Input<outputs.glue.SecurityConfigurationEncryptionConfigurationS3Encryption>;
     }
 
     export interface SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
         /**
          * Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
          */
-        cloudwatchEncryptionMode?: string;
+        cloudwatchEncryptionMode?: pulumi.Input<string>;
         /**
          * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
         /**
          * Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
          */
-        jobBookmarksEncryptionMode?: string;
+        jobBookmarksEncryptionMode?: pulumi.Input<string>;
         /**
          * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface SecurityConfigurationEncryptionConfigurationS3Encryption {
         /**
          * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
         /**
          * Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
          */
-        s3EncryptionMode?: string;
+        s3EncryptionMode?: pulumi.Input<string>;
     }
 
     export interface TriggerAction {
         /**
          * Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
          */
-        arguments?: {[key: string]: any};
+        arguments?: pulumi.Input<{[key: string]: any}>;
         /**
          * The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
          */
-        crawlerName?: string;
+        crawlerName?: pulumi.Input<string>;
         /**
          * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
          */
-        jobName?: string;
+        jobName?: pulumi.Input<string>;
         /**
          * The job run timeout in minutes. It overrides the timeout value of the job.
          */
-        timeout?: number;
+        timeout?: pulumi.Input<number>;
     }
 
     export interface TriggerPredicate {
         /**
          * A list of the conditions that determine when the trigger will fire. Defined below.
          */
-        conditions: outputs.glue.TriggerPredicateCondition[];
+        conditions: pulumi.Input<pulumi.Input<outputs.glue.TriggerPredicateCondition>[]>;
         /**
          * How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
          */
-        logical?: string;
+        logical?: pulumi.Input<string>;
     }
 
     export interface TriggerPredicateCondition {
         /**
          * The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
          */
-        crawlState?: string;
+        crawlState?: pulumi.Input<string>;
         /**
          * The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
          */
-        crawlerName?: string;
+        crawlerName?: pulumi.Input<string>;
         /**
          * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
          */
-        jobName?: string;
+        jobName?: pulumi.Input<string>;
         /**
          * A logical operator. Defaults to `EQUALS`.
          */
-        logicalOperator?: string;
+        logicalOperator?: pulumi.Input<string>;
         /**
          * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
          */
-        state?: string;
+        state?: pulumi.Input<string>;
     }
 }
 
@@ -8916,212 +9226,212 @@ export namespace iot {
         /**
          * The description of the thing type.
          */
-        description?: string;
+        description?: pulumi.Input<string>;
         /**
          * A list of searchable thing attribute names.
          */
-        searchableAttributes: string[];
+        searchableAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface TopicRuleCloudwatchAlarm {
         /**
          * The CloudWatch alarm name.
          */
-        alarmName: string;
+        alarmName: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The reason for the alarm change.
          */
-        stateReason: string;
+        stateReason: pulumi.Input<string>;
         /**
          * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
          */
-        stateValue: string;
+        stateValue: pulumi.Input<string>;
     }
 
     export interface TopicRuleCloudwatchMetric {
         /**
          * The CloudWatch metric name.
          */
-        metricName: string;
+        metricName: pulumi.Input<string>;
         /**
          * The CloudWatch metric namespace name.
          */
-        metricNamespace: string;
+        metricNamespace: pulumi.Input<string>;
         /**
          * An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
          */
-        metricTimestamp?: string;
+        metricTimestamp?: pulumi.Input<string>;
         /**
          * The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
          */
-        metricUnit: string;
+        metricUnit: pulumi.Input<string>;
         /**
          * The CloudWatch metric value.
          */
-        metricValue: string;
+        metricValue: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface TopicRuleDynamodb {
         /**
          * The hash key name.
          */
-        hashKeyField: string;
+        hashKeyField: pulumi.Input<string>;
         /**
          * The hash key type. Valid values are "STRING" or "NUMBER".
          */
-        hashKeyType?: string;
+        hashKeyType?: pulumi.Input<string>;
         /**
          * The hash key value.
          */
-        hashKeyValue: string;
+        hashKeyValue: pulumi.Input<string>;
         /**
          * The action payload.
          */
-        payloadField?: string;
+        payloadField?: pulumi.Input<string>;
         /**
          * The range key name.
          */
-        rangeKeyField?: string;
+        rangeKeyField?: pulumi.Input<string>;
         /**
          * The range key type. Valid values are "STRING" or "NUMBER".
          */
-        rangeKeyType?: string;
+        rangeKeyType?: pulumi.Input<string>;
         /**
          * The range key value.
          */
-        rangeKeyValue?: string;
+        rangeKeyValue?: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The name of the DynamoDB table.
          */
-        tableName: string;
+        tableName: pulumi.Input<string>;
     }
 
     export interface TopicRuleElasticsearch {
         /**
          * The endpoint of your Elasticsearch domain.
          */
-        endpoint: string;
+        endpoint: pulumi.Input<string>;
         /**
          * The unique identifier for the document you are storing.
          */
-        id: string;
+        id: pulumi.Input<string>;
         /**
          * The Elasticsearch index where you want to store your data.
          */
-        index: string;
+        index: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The type of document you are storing.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface TopicRuleFirehose {
         /**
          * The delivery stream name.
          */
-        deliveryStreamName: string;
+        deliveryStreamName: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
          */
-        separator?: string;
+        separator?: pulumi.Input<string>;
     }
 
     export interface TopicRuleKinesis {
         /**
          * The partition key.
          */
-        partitionKey?: string;
+        partitionKey?: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The name of the Amazon Kinesis stream.
          */
-        streamName: string;
+        streamName: pulumi.Input<string>;
     }
 
     export interface TopicRuleLambda {
         /**
          * The ARN of the Lambda function.
          */
-        functionArn: string;
+        functionArn: pulumi.Input<string>;
     }
 
     export interface TopicRuleRepublish {
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The name of the MQTT topic the message should be republished to.
          */
-        topic: string;
+        topic: pulumi.Input<string>;
     }
 
     export interface TopicRuleS3 {
         /**
          * The Amazon S3 bucket name.
          */
-        bucketName: string;
+        bucketName: pulumi.Input<string>;
         /**
          * The object key.
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface TopicRuleSns {
         /**
          * The message format of the message to publish. Accepted values are "JSON" and "RAW".
          */
-        messageFormat?: string;
+        messageFormat?: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The ARN of the SNS topic.
          */
-        targetArn: string;
+        targetArn: pulumi.Input<string>;
     }
 
     export interface TopicRuleSqs {
         /**
          * The URL of the Amazon SQS queue.
          */
-        queueUrl: string;
+        queueUrl: pulumi.Input<string>;
         /**
          * The ARN of the IAM role that grants access.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * Specifies whether to use Base64 encoding.
          */
-        useBase64: boolean;
+        useBase64: pulumi.Input<boolean>;
     }
 }
 
@@ -9130,899 +9440,899 @@ export namespace kinesis {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
-        logStreamArn: string;
-        roleArn: string;
+        id?: pulumi.Input<string>;
+        logStreamArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputs {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
-        kinesisFirehose?: outputs.kinesis.AnalyticsApplicationInputsKinesisFirehose;
-        kinesisStream?: outputs.kinesis.AnalyticsApplicationInputsKinesisStream;
-        namePrefix: string;
-        parallelism?: outputs.kinesis.AnalyticsApplicationInputsParallelism;
-        processingConfiguration?: outputs.kinesis.AnalyticsApplicationInputsProcessingConfiguration;
-        schema: outputs.kinesis.AnalyticsApplicationInputsSchema;
-        startingPositionConfigurations: outputs.kinesis.AnalyticsApplicationInputsStartingPositionConfiguration[];
-        streamNames: string[];
+        id?: pulumi.Input<string>;
+        kinesisFirehose?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsKinesisFirehose>;
+        kinesisStream?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsKinesisStream>;
+        namePrefix: pulumi.Input<string>;
+        parallelism?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsParallelism>;
+        processingConfiguration?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsProcessingConfiguration>;
+        schema: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsSchema>;
+        startingPositionConfigurations?: pulumi.Input<pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsStartingPositionConfiguration>[]>;
+        streamNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AnalyticsApplicationInputsKinesisFirehose {
-        resourceArn: string;
-        roleArn: string;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsKinesisStream {
-        resourceArn: string;
-        roleArn: string;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsParallelism {
-        count: number;
+        count: pulumi.Input<number>;
     }
 
     export interface AnalyticsApplicationInputsProcessingConfiguration {
-        lambda: outputs.kinesis.AnalyticsApplicationInputsProcessingConfigurationLambda;
+        lambda: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsProcessingConfigurationLambda>;
     }
 
     export interface AnalyticsApplicationInputsProcessingConfigurationLambda {
-        resourceArn: string;
-        roleArn: string;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsSchema {
-        recordColumns: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordColumn[];
-        recordEncoding?: string;
-        recordFormat: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormat;
+        recordColumns: pulumi.Input<pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsSchemaRecordColumn>[]>;
+        recordEncoding?: pulumi.Input<string>;
+        recordFormat: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormat>;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordColumn {
-        mapping?: string;
+        mapping?: pulumi.Input<string>;
         /**
          * Name of the Kinesis Analytics Application.
          */
-        name: string;
-        sqlType: string;
+        name: pulumi.Input<string>;
+        sqlType: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormat {
-        mappingParameters?: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParameters;
-        recordFormatType: string;
+        mappingParameters?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParameters>;
+        recordFormatType?: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
-        csv?: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv;
-        json?: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson;
+        csv?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv>;
+        json?: pulumi.Input<outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson>;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
-        recordColumnDelimiter: string;
-        recordRowDelimiter: string;
+        recordColumnDelimiter: pulumi.Input<string>;
+        recordRowDelimiter: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
-        recordRowPath: string;
+        recordRowPath: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationInputsStartingPositionConfiguration {
-        startingPosition: string;
+        startingPosition?: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationOutput {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
-        kinesisFirehose?: outputs.kinesis.AnalyticsApplicationOutputKinesisFirehose;
-        kinesisStream?: outputs.kinesis.AnalyticsApplicationOutputKinesisStream;
-        lambda?: outputs.kinesis.AnalyticsApplicationOutputLambda;
+        id?: pulumi.Input<string>;
+        kinesisFirehose?: pulumi.Input<outputs.kinesis.AnalyticsApplicationOutputKinesisFirehose>;
+        kinesisStream?: pulumi.Input<outputs.kinesis.AnalyticsApplicationOutputKinesisStream>;
+        lambda?: pulumi.Input<outputs.kinesis.AnalyticsApplicationOutputLambda>;
         /**
          * Name of the Kinesis Analytics Application.
          */
-        name: string;
-        schema: outputs.kinesis.AnalyticsApplicationOutputSchema;
+        name: pulumi.Input<string>;
+        schema: pulumi.Input<outputs.kinesis.AnalyticsApplicationOutputSchema>;
     }
 
     export interface AnalyticsApplicationOutputKinesisFirehose {
-        resourceArn: string;
-        roleArn: string;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationOutputKinesisStream {
-        resourceArn: string;
-        roleArn: string;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationOutputLambda {
-        resourceArn: string;
-        roleArn: string;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationOutputSchema {
-        recordFormatType?: string;
+        recordFormatType?: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationReferenceDataSources {
         /**
          * The ARN of the Kinesis Analytics Application.
          */
-        id: string;
-        s3: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesS3;
-        schema: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchema;
-        tableName: string;
+        id?: pulumi.Input<string>;
+        s3: pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesS3>;
+        schema: pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchema>;
+        tableName: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesS3 {
-        bucketArn: string;
-        fileKey: string;
-        roleArn: string;
+        bucketArn: pulumi.Input<string>;
+        fileKey: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchema {
-        recordColumns: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn[];
-        recordEncoding?: string;
-        recordFormat: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat;
+        recordColumns: pulumi.Input<pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn>[]>;
+        recordEncoding?: pulumi.Input<string>;
+        recordFormat: pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
-        mapping?: string;
+        mapping?: pulumi.Input<string>;
         /**
          * Name of the Kinesis Analytics Application.
          */
-        name: string;
-        sqlType: string;
+        name: pulumi.Input<string>;
+        sqlType: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
-        mappingParameters?: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters;
-        recordFormatType: string;
+        mappingParameters?: pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters>;
+        recordFormatType?: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
-        csv?: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv;
-        json?: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson;
+        csv?: pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv>;
+        json?: pulumi.Input<outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
-        recordColumnDelimiter: string;
-        recordRowDelimiter: string;
+        recordColumnDelimiter: pulumi.Input<string>;
+        recordRowDelimiter: pulumi.Input<string>;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
-        recordRowPath: string;
+        recordRowPath: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfiguration {
         /**
          * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
          */
-        bufferingInterval?: number;
+        bufferingInterval?: pulumi.Input<number>;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
          */
-        bufferingSize?: number;
+        bufferingSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions>;
         /**
          * The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
          */
-        domainArn: string;
+        domainArn: pulumi.Input<string>;
         /**
          * The Elasticsearch index name.
          */
-        indexName: string;
+        indexName: pulumi.Input<string>;
         /**
          * The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          */
-        indexRotationPeriod?: string;
+        indexRotationPeriod?: pulumi.Input<string>;
         /**
          * The data processing configuration.  More details are given below.
          */
-        processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
+        processingConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration>;
         /**
          * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
-        retryDuration?: number;
+        retryDuration?: pulumi.Input<number>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          */
-        s3BackupMode?: string;
+        s3BackupMode?: pulumi.Input<string>;
         /**
          * The Elasticsearch type name with maximum length of 100 characters.
          */
-        typeName?: string;
+        typeName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Array of data processors. More details are given below
          */
-        processors?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor[];
+        processors?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor {
         /**
          * Array of processor parameters. More details are given below
          */
-        parameters?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter[];
+        parameters?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
          * The type of processor. Valid Values: `Lambda`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
         /**
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
          */
-        parameterName: string;
+        parameterName: pulumi.Input<string>;
         /**
          * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          */
-        parameterValue: string;
+        parameterValue: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3Configuration {
         /**
          * The ARN of the S3 bucket
          */
-        bucketArn: string;
+        bucketArn: pulumi.Input<string>;
         /**
          * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
-        bufferInterval?: number;
+        bufferInterval?: pulumi.Input<number>;
         /**
          * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
          * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
-        bufferSize?: number;
+        bufferSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions>;
         /**
          * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
          */
-        compressionFormat?: string;
+        compressionFormat?: pulumi.Input<string>;
         /**
          * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
          */
-        dataFormatConversionConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration;
+        dataFormatConversionConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration>;
         /**
          * Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
          */
-        errorOutputPrefix?: string;
+        errorOutputPrefix?: pulumi.Input<string>;
         /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
         /**
          * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * The data processing configuration.  More details are given below.
          */
-        processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration;
+        processingConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
          */
-        s3BackupConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration;
+        s3BackupConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration>;
         /**
          * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          */
-        s3BackupMode?: string;
+        s3BackupMode?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
          */
-        inputFormatConfiguration: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration;
+        inputFormatConfiguration: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration>;
         /**
          * Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
          */
-        outputFormatConfiguration: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration;
+        outputFormatConfiguration: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration>;
         /**
          * Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
          */
-        schemaConfiguration: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration;
+        schemaConfiguration: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
         /**
          * Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
          */
-        deserializer: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer;
+        deserializer: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
         /**
          * Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
          */
-        hiveJsonSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe;
+        hiveJsonSerDe?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe>;
         /**
          * Nested argument that specifies the OpenX SerDe. More details below.
          */
-        openXJsonSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe;
+        openXJsonSerDe?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
         /**
          * A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
          */
-        timestampFormats?: string[];
+        timestampFormats?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
         /**
          * When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
          */
-        caseInsensitive?: boolean;
+        caseInsensitive?: pulumi.Input<boolean>;
         /**
          * A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
          */
-        columnToJsonKeyMappings?: {[key: string]: string};
+        columnToJsonKeyMappings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "aB" when using this option. Defaults to `false`.
          */
-        convertDotsInJsonKeysToUnderscores?: boolean;
+        convertDotsInJsonKeysToUnderscores?: pulumi.Input<boolean>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
         /**
          * Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
          */
-        serializer: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer;
+        serializer: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
         /**
          * Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
          */
-        orcSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe;
+        orcSerDe?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe>;
         /**
          * Nested argument that specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
          */
-        parquetSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe;
+        parquetSerDe?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
         /**
          * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
          */
-        blockSizeBytes?: number;
+        blockSizeBytes?: pulumi.Input<number>;
         /**
          * A list of column names for which you want Kinesis Data Firehose to create bloom filters.
          */
-        bloomFilterColumns?: string[];
+        bloomFilterColumns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
          */
-        bloomFilterFalsePositiveProbability?: number;
+        bloomFilterFalsePositiveProbability?: pulumi.Input<number>;
         /**
          * The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
          */
-        compression?: string;
+        compression?: pulumi.Input<string>;
         /**
          * A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
          */
-        dictionaryKeyThreshold?: number;
+        dictionaryKeyThreshold?: pulumi.Input<number>;
         /**
          * Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
          */
-        enablePadding?: boolean;
+        enablePadding?: pulumi.Input<boolean>;
         /**
          * The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
          */
-        formatVersion?: string;
+        formatVersion?: pulumi.Input<string>;
         /**
          * A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
          */
-        paddingTolerance?: number;
+        paddingTolerance?: pulumi.Input<number>;
         /**
          * The number of rows between index entries. The default is `10000` and the minimum is `1000`.
          */
-        rowIndexStride?: number;
+        rowIndexStride?: pulumi.Input<number>;
         /**
          * The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
          */
-        stripeSizeBytes?: number;
+        stripeSizeBytes?: pulumi.Input<number>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
         /**
          * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
          */
-        blockSizeBytes?: number;
+        blockSizeBytes?: pulumi.Input<number>;
         /**
          * The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
          */
-        compression?: string;
+        compression?: pulumi.Input<string>;
         /**
          * Indicates whether to enable dictionary compression.
          */
-        enableDictionaryCompression?: boolean;
+        enableDictionaryCompression?: pulumi.Input<boolean>;
         /**
          * The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
          */
-        maxPaddingBytes?: number;
+        maxPaddingBytes?: pulumi.Input<number>;
         /**
          * The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
          */
-        pageSizeBytes?: number;
+        pageSizeBytes?: pulumi.Input<number>;
         /**
          * Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
          */
-        writerVersion?: string;
+        writerVersion?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
         /**
          * The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
          */
-        catalogId: string;
+        catalogId?: pulumi.Input<string>;
         /**
          * Specifies the name of the AWS Glue database that contains the schema for the output data.
          */
-        databaseName: string;
+        databaseName: pulumi.Input<string>;
         /**
          * If you don't specify an AWS Region, the default is the current region.
          */
-        region: string;
+        region?: pulumi.Input<string>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * Specifies the AWS Glue table that contains the column information that constitutes your data schema.
          */
-        tableName: string;
+        tableName: pulumi.Input<string>;
         /**
          * Specifies the table version for the output data schema. Defaults to `LATEST`.
          */
-        versionId?: string;
+        versionId?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Array of data processors. More details are given below
          */
-        processors?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor[];
+        processors?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor {
         /**
          * Array of processor parameters. More details are given below
          */
-        parameters?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter[];
+        parameters?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
          * The type of processor. Valid Values: `Lambda`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter {
         /**
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
          */
-        parameterName: string;
+        parameterName: pulumi.Input<string>;
         /**
          * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          */
-        parameterValue: string;
+        parameterValue: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
         /**
          * The ARN of the S3 bucket
          */
-        bucketArn: string;
+        bucketArn: pulumi.Input<string>;
         /**
          * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
-        bufferInterval?: number;
+        bufferInterval?: pulumi.Input<number>;
         /**
          * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
          * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
-        bufferSize?: number;
+        bufferSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
         /**
          * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
          */
-        compressionFormat?: string;
+        compressionFormat?: pulumi.Input<string>;
         /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
         /**
          * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
         /**
          * The kinesis stream used as the source of the firehose delivery stream.
          */
-        kinesisStreamArn: string;
+        kinesisStreamArn: pulumi.Input<string>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfiguration {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions>;
         /**
          * The jdbcurl of the redshift cluster.
          */
-        clusterJdbcurl: string;
+        clusterJdbcurl: pulumi.Input<string>;
         /**
          * Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
          */
-        copyOptions?: string;
+        copyOptions?: pulumi.Input<string>;
         /**
          * The data table columns that will be targeted by the copy command.
          */
-        dataTableColumns?: string;
+        dataTableColumns?: pulumi.Input<string>;
         /**
          * The name of the table in the redshift cluster that the s3 bucket will copy to.
          */
-        dataTableName: string;
+        dataTableName: pulumi.Input<string>;
         /**
          * The password for the username above.
          */
-        password: string;
+        password: pulumi.Input<string>;
         /**
          * The data processing configuration.  More details are given below.
          */
-        processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
+        processingConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration>;
         /**
          * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
-        retryDuration?: number;
+        retryDuration?: pulumi.Input<number>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
          */
-        s3BackupConfiguration?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
+        s3BackupConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration>;
         /**
          * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          */
-        s3BackupMode?: string;
+        s3BackupMode?: pulumi.Input<string>;
         /**
          * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
          */
-        username: string;
+        username: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Array of data processors. More details are given below
          */
-        processors?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor[];
+        processors?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor {
         /**
          * Array of processor parameters. More details are given below
          */
-        parameters?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter[];
+        parameters?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
          * The type of processor. Valid Values: `Lambda`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter {
         /**
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
          */
-        parameterName: string;
+        parameterName: pulumi.Input<string>;
         /**
          * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          */
-        parameterValue: string;
+        parameterValue: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
         /**
          * The ARN of the S3 bucket
          */
-        bucketArn: string;
+        bucketArn: pulumi.Input<string>;
         /**
          * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
-        bufferInterval?: number;
+        bufferInterval?: pulumi.Input<number>;
         /**
          * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
          * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
-        bufferSize?: number;
+        bufferSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
         /**
          * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
          */
-        compressionFormat?: string;
+        compressionFormat?: pulumi.Input<string>;
         /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
         /**
          * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamS3Configuration {
         /**
          * The ARN of the S3 bucket
          */
-        bucketArn: string;
+        bucketArn: pulumi.Input<string>;
         /**
          * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          */
-        bufferInterval?: number;
+        bufferInterval?: pulumi.Input<number>;
         /**
          * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
          * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
-        bufferSize?: number;
+        bufferSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions>;
         /**
          * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
          */
-        compressionFormat?: string;
+        compressionFormat?: pulumi.Input<string>;
         /**
          * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
          * be used.
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
         /**
          * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamServerSideEncryption {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
-        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
+        cloudwatchLoggingOptions?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions>;
         /**
          * The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
          */
-        hecAcknowledgmentTimeout?: number;
+        hecAcknowledgmentTimeout?: pulumi.Input<number>;
         /**
          * The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
          */
-        hecEndpoint: string;
+        hecEndpoint: pulumi.Input<string>;
         /**
          * The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
          */
-        hecEndpointType?: string;
+        hecEndpointType?: pulumi.Input<string>;
         /**
          * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
          */
-        hecToken: string;
+        hecToken: pulumi.Input<string>;
         /**
          * The data processing configuration.  More details are given below.
          */
-        processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
+        processingConfiguration?: pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration>;
         /**
          * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
-        retryDuration?: number;
+        retryDuration?: pulumi.Input<number>;
         /**
          * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          */
-        s3BackupMode?: string;
+        s3BackupMode?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The CloudWatch group name for logging. This value is required if `enabled` is true.
          */
-        logGroupName?: string;
+        logGroupName?: pulumi.Input<string>;
         /**
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
-        logStreamName?: string;
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
         /**
          * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Array of data processors. More details are given below
          */
-        processors?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor[];
+        processors?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor>[]>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor {
         /**
          * Array of processor parameters. More details are given below
          */
-        parameters?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter[];
+        parameters?: pulumi.Input<pulumi.Input<outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
          * The type of processor. Valid Values: `Lambda`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter {
         /**
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
          */
-        parameterName: string;
+        parameterName: pulumi.Input<string>;
         /**
          * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
          */
-        parameterValue: string;
+        parameterValue: pulumi.Input<string>;
     }
 }
 
@@ -10054,8 +10364,8 @@ export namespace kms {
     }
 
     export interface GrantConstraint {
-        encryptionContextEquals?: {[key: string]: string};
-        encryptionContextSubset?: {[key: string]: string};
+        encryptionContextEquals?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        encryptionContextSubset?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 }
 
@@ -10064,7 +10374,7 @@ export namespace lambda {
         /**
          * A map that defines the proportion of events that should be sent to different versions of a lambda function.
          */
-        additionalVersionWeights?: {[key: string]: number};
+        additionalVersionWeights?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
     }
 
     export interface FunctionDeadLetterConfig {
@@ -10074,39 +10384,39 @@ export namespace lambda {
          * which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on
          * which service is targeted.
          */
-        targetArn: string;
+        targetArn: pulumi.Input<string>;
     }
 
     export interface FunctionEnvironment {
         /**
          * A map that defines environment variables for the Lambda function.
          */
-        variables?: {[key: string]: string};
+        variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface FunctionEventInvokeConfigDestinationConfig {
         /**
          * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
          */
-        onFailure?: outputs.lambda.FunctionEventInvokeConfigDestinationConfigOnFailure;
+        onFailure?: pulumi.Input<outputs.lambda.FunctionEventInvokeConfigDestinationConfigOnFailure>;
         /**
          * Configuration block with destination configuration for successful asynchronous invocations. See below for details.
          */
-        onSuccess?: outputs.lambda.FunctionEventInvokeConfigDestinationConfigOnSuccess;
+        onSuccess?: pulumi.Input<outputs.lambda.FunctionEventInvokeConfigDestinationConfigOnSuccess>;
     }
 
     export interface FunctionEventInvokeConfigDestinationConfigOnFailure {
         /**
          * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
          */
-        destination: string;
+        destination: pulumi.Input<string>;
     }
 
     export interface FunctionEventInvokeConfigDestinationConfigOnSuccess {
         /**
          * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
          */
-        destination: string;
+        destination: pulumi.Input<string>;
     }
 
     export interface FunctionTracingConfig {
@@ -10117,19 +10427,19 @@ export namespace lambda {
          * from an upstream service. If no tracing header is received, Lambda will call
          * X-Ray for a tracing decision.
          */
-        mode: string;
+        mode: pulumi.Input<string>;
     }
 
     export interface FunctionVpcConfig {
         /**
          * A list of security group IDs associated with the Lambda function.
          */
-        securityGroupIds: string[];
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of subnet IDs associated with the Lambda function.
          */
-        subnetIds: string[];
-        vpcId: string;
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId?: pulumi.Input<string>;
     }
 
     export interface GetFunctionDeadLetterConfig {
@@ -10235,464 +10545,468 @@ export namespace lb {
     }
 
     export interface ListenerDefaultAction {
-        authenticateCognito?: outputs.lb.ListenerDefaultActionAuthenticateCognito;
-        authenticateOidc?: outputs.lb.ListenerDefaultActionAuthenticateOidc;
+        authenticateCognito?: pulumi.Input<outputs.lb.ListenerDefaultActionAuthenticateCognito>;
+        authenticateOidc?: pulumi.Input<outputs.lb.ListenerDefaultActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.lb.ListenerDefaultActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.lb.ListenerDefaultActionRedirect;
+        redirect?: pulumi.Input<outputs.lb.ListenerDefaultActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleAction {
         /**
          * Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
          */
-        authenticateCognito?: outputs.lb.ListenerRuleActionAuthenticateCognito;
+        authenticateCognito?: pulumi.Input<outputs.lb.ListenerRuleActionAuthenticateCognito>;
         /**
          * Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
          */
-        authenticateOidc?: outputs.lb.ListenerRuleActionAuthenticateOidc;
+        authenticateOidc?: pulumi.Input<outputs.lb.ListenerRuleActionAuthenticateOidc>;
         /**
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
-        fixedResponse?: outputs.lb.ListenerRuleActionFixedResponse;
-        order: number;
+        fixedResponse?: pulumi.Input<outputs.lb.ListenerRuleActionFixedResponse>;
+        order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
-        redirect?: outputs.lb.ListenerRuleActionRedirect;
+        redirect?: pulumi.Input<outputs.lb.ListenerRuleActionRedirect>;
         /**
          * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
          */
-        targetGroupArn?: string;
+        targetGroupArn?: pulumi.Input<string>;
         /**
          * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateCognito {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The ARN of the Cognito user pool.
          */
-        userPoolArn: string;
+        userPoolArn: pulumi.Input<string>;
         /**
          * The ID of the Cognito user pool client.
          */
-        userPoolClientId: string;
+        userPoolClientId: pulumi.Input<string>;
         /**
          * The domain prefix or fully-qualified domain name of the Cognito user pool.
          */
-        userPoolDomain: string;
+        userPoolDomain: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionAuthenticateOidc {
         /**
          * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
          */
-        authenticationRequestExtraParams?: {[key: string]: any};
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: any}>;
         /**
          * The authorization endpoint of the IdP.
          */
-        authorizationEndpoint: string;
+        authorizationEndpoint: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client identifier.
          */
-        clientId: string;
+        clientId: pulumi.Input<string>;
         /**
          * The OAuth 2.0 client secret.
          */
-        clientSecret: string;
+        clientSecret: pulumi.Input<string>;
         /**
          * The OIDC issuer identifier of the IdP.
          */
-        issuer: string;
+        issuer: pulumi.Input<string>;
         /**
          * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
          */
-        onUnauthenticatedRequest: string;
+        onUnauthenticatedRequest?: pulumi.Input<string>;
         /**
          * The set of user claims to be requested from the IdP.
          */
-        scope: string;
+        scope?: pulumi.Input<string>;
         /**
          * The name of the cookie used to maintain session information.
          */
-        sessionCookieName: string;
+        sessionCookieName?: pulumi.Input<string>;
         /**
          * The maximum duration of the authentication session, in seconds.
          */
-        sessionTimeout: number;
+        sessionTimeout?: pulumi.Input<number>;
         /**
          * The token endpoint of the IdP.
          */
-        tokenEndpoint: string;
+        tokenEndpoint: pulumi.Input<string>;
         /**
          * The user info endpoint of the IdP.
          */
-        userInfoEndpoint: string;
+        userInfoEndpoint: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionFixedResponse {
         /**
          * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
          */
-        contentType: string;
+        contentType: pulumi.Input<string>;
         /**
          * The message body.
          */
-        messageBody?: string;
+        messageBody?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
          */
-        host?: string;
+        host?: pulumi.Input<string>;
         /**
          * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
          */
-        path?: string;
+        path?: pulumi.Input<string>;
         /**
          * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
          */
-        query?: string;
+        query?: pulumi.Input<string>;
         /**
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
-        statusCode: string;
+        statusCode: pulumi.Input<string>;
     }
 
     export interface ListenerRuleCondition {
         /**
          * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        field: string;
+        field?: pulumi.Input<string>;
         /**
          * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.lb.ListenerRuleConditionHostHeader;
+        hostHeader?: pulumi.Input<outputs.lb.ListenerRuleConditionHostHeader>;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
-        httpHeader?: outputs.lb.ListenerRuleConditionHttpHeader;
+        httpHeader?: pulumi.Input<outputs.lb.ListenerRuleConditionHttpHeader>;
         /**
          * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
          */
-        httpRequestMethod?: outputs.lb.ListenerRuleConditionHttpRequestMethod;
+        httpRequestMethod?: pulumi.Input<outputs.lb.ListenerRuleConditionHttpRequestMethod>;
         /**
          * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
-        pathPattern: outputs.lb.ListenerRuleConditionPathPattern;
+        pathPattern?: pulumi.Input<outputs.lb.ListenerRuleConditionPathPattern>;
         /**
          * Query strings to match. Query String block fields documented below.
          */
-        queryStrings?: outputs.lb.ListenerRuleConditionQueryString[];
+        queryStrings?: pulumi.Input<pulumi.Input<outputs.lb.ListenerRuleConditionQueryString>[]>;
         /**
          * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
-        sourceIp?: outputs.lb.ListenerRuleConditionSourceIp;
+        sourceIp?: pulumi.Input<outputs.lb.ListenerRuleConditionSourceIp>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
+         *
+         * @deprecated use 'host_header' or 'path_pattern' attribute instead
          */
-        values: string;
+        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
         /**
          * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
          */
-        httpHeaderName: string;
+        httpHeaderName: pulumi.Input<string>;
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
         /**
          * Query string key pattern to match.
          */
-        key?: string;
+        key?: pulumi.Input<string>;
         /**
          * Query string value pattern to match.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionSourceIp {
         /**
          * Query string pairs or values to match. Query String Value blocks documented below. Multiple `values` blocks can be specified, see example above. Maximum size of each string is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '\*' or '?' character in a query string, escape the character with a backslash (\\). Only one pair needs to match for the condition to be satisfied.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LoadBalancerAccessLogs {
         /**
          * The S3 bucket name to store the logs in.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The S3 bucket prefix. Logs are stored in the root if not configured.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerSubnetMapping {
         /**
          * The allocation ID of the Elastic IP address.
          */
-        allocationId?: string;
+        allocationId?: pulumi.Input<string>;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
-        subnetId: string;
+        subnetId: pulumi.Input<string>;
     }
 
     export interface TargetGroupHealthCheck {
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
          */
-        healthyThreshold?: number;
+        healthyThreshold?: pulumi.Input<number>;
         /**
          * The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
          */
-        interval?: number;
-        matcher: string;
+        interval?: pulumi.Input<number>;
+        matcher?: pulumi.Input<string>;
         /**
          * The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        path: string;
+        path?: pulumi.Input<string>;
         /**
          * The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
          */
-        port?: string;
+        port?: pulumi.Input<string>;
         /**
          * The protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
          */
-        protocol?: string;
+        protocol?: pulumi.Input<string>;
         /**
          * The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
          */
-        timeout: number;
+        timeout?: pulumi.Input<number>;
         /**
          * The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
          * * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
          */
-        unhealthyThreshold?: number;
+        unhealthyThreshold?: pulumi.Input<number>;
     }
 
     export interface TargetGroupStickiness {
         /**
          * The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
          */
-        cookieDuration?: number;
+        cookieDuration?: pulumi.Input<number>;
         /**
          * Indicates whether  health checks are enabled. Defaults to true.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * The type of sticky sessions. The only current possible value is `lbCookie`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -10702,12 +11016,12 @@ export namespace macie {
          * A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
          * The only valid value is the default value, `FULL`.
          */
-        continuous?: string;
+        continuous?: pulumi.Input<string>;
         /**
          * A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
          * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
          */
-        oneTime?: string;
+        oneTime?: pulumi.Input<string>;
     }
 }
 
@@ -10716,15 +11030,15 @@ export namespace mediaconvert {
         /**
          * The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
          */
-        commitment: string;
+        commitment: pulumi.Input<string>;
         /**
          * Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
          */
-        renewalType: string;
+        renewalType: pulumi.Input<string>;
         /**
          * Specifies the number of reserved transcode slots (RTS) for queue.
          */
-        reservedSlots: number;
+        reservedSlots: pulumi.Input<number>;
     }
 }
 
@@ -10733,22 +11047,22 @@ export namespace mediapackage {
         /**
          * A list of the ingest endpoints
          */
-        ingestEndpoints: outputs.mediapackage.ChannelHlsIngestIngestEndpoint[];
+        ingestEndpoints?: pulumi.Input<pulumi.Input<outputs.mediapackage.ChannelHlsIngestIngestEndpoint>[]>;
     }
 
     export interface ChannelHlsIngestIngestEndpoint {
         /**
          * The password
          */
-        password: string;
+        password?: pulumi.Input<string>;
         /**
          * The URL
          */
-        url: string;
+        url?: pulumi.Input<string>;
         /**
          * The username
          */
-        username: string;
+        username?: pulumi.Input<string>;
     }
 }
 
@@ -10757,73 +11071,73 @@ export namespace mq {
         /**
          * The Configuration ID.
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * Revision of the Configuration.
          */
-        revision: number;
+        revision?: pulumi.Input<number>;
     }
 
     export interface BrokerEncryptionOptions {
         /**
          * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS managed CMKs or customer managed CMKs are in use, this value must be configured.
          */
-        kmsKeyId: string;
+        kmsKeyId?: pulumi.Input<string>;
         /**
          * Boolean to enable an AWS owned Key Management Service (KMS) Customer Master Key (CMK) that is not in your account. Defaults to `true`. Setting to `false` without configuring `kmsKeyId` will create an AWS managed Customer Master Key (CMK) aliased to `aws/mq` in your account.
          */
-        useAwsOwnedKey?: boolean;
+        useAwsOwnedKey?: pulumi.Input<boolean>;
     }
 
     export interface BrokerInstance {
-        consoleUrl: string;
-        endpoints: string[];
-        ipAddress: string;
+        consoleUrl?: pulumi.Input<string>;
+        endpoints?: pulumi.Input<pulumi.Input<string>[]>;
+        ipAddress?: pulumi.Input<string>;
     }
 
     export interface BrokerLogs {
         /**
          * Enables audit logging. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
          */
-        audit?: boolean;
+        audit?: pulumi.Input<boolean>;
         /**
          * Enables general logging via CloudWatch. Defaults to `false`.
          */
-        general?: boolean;
+        general?: pulumi.Input<boolean>;
     }
 
     export interface BrokerMaintenanceWindowStartTime {
         /**
          * The day of the week. e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`
          */
-        dayOfWeek: string;
+        dayOfWeek: pulumi.Input<string>;
         /**
          * The time, in 24-hour format. e.g. `02:00`
          */
-        timeOfDay: string;
+        timeOfDay: pulumi.Input<string>;
         /**
          * The time zone, UTC by default, in either the Country/City format, or the UTC offset format. e.g. `CET`
          */
-        timeZone: string;
+        timeZone: pulumi.Input<string>;
     }
 
     export interface BrokerUser {
         /**
          * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
          */
-        consoleAccess?: boolean;
+        consoleAccess?: pulumi.Input<boolean>;
         /**
          * The list of groups (20 maximum) to which the ActiveMQ user belongs.
          */
-        groups?: string[];
+        groups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
          */
-        password: string;
+        password: pulumi.Input<string>;
         /**
          * The username of the user.
          */
-        username: string;
+        username: pulumi.Input<string>;
     }
 
     export interface GetBrokerConfiguration {
@@ -10865,70 +11179,70 @@ export namespace msk {
         /**
          * The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
          */
-        azDistribution?: string;
+        azDistribution?: pulumi.Input<string>;
         /**
          * A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
          */
-        clientSubnets: string[];
+        clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The size in GiB of the EBS volume for the data drive on each broker node.
          */
-        ebsVolumeSize: number;
+        ebsVolumeSize: pulumi.Input<number>;
         /**
          * Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
          */
-        instanceType: string;
+        instanceType: pulumi.Input<string>;
         /**
          * A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
          */
-        securityGroups: string[];
+        securityGroups: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ClusterClientAuthentication {
         /**
          * Configuration block for specifying TLS client authentication. See below.
          */
-        tls?: outputs.msk.ClusterClientAuthenticationTls;
+        tls?: pulumi.Input<outputs.msk.ClusterClientAuthenticationTls>;
     }
 
     export interface ClusterClientAuthenticationTls {
         /**
          * List of ACM Certificate Authority Amazon Resource Names (ARNs).
          */
-        certificateAuthorityArns?: string[];
+        certificateAuthorityArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ClusterConfigurationInfo {
         /**
          * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
          */
-        arn: string;
+        arn: pulumi.Input<string>;
         /**
          * Revision of the MSK Configuration to use in the cluster.
          */
-        revision: number;
+        revision: pulumi.Input<number>;
     }
 
     export interface ClusterEncryptionInfo {
         /**
          * You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
          */
-        encryptionAtRestKmsKeyArn: string;
+        encryptionAtRestKmsKeyArn?: pulumi.Input<string>;
         /**
          * Configuration block to specify encryption in transit. See below.
          */
-        encryptionInTransit?: outputs.msk.ClusterEncryptionInfoEncryptionInTransit;
+        encryptionInTransit?: pulumi.Input<outputs.msk.ClusterEncryptionInfoEncryptionInTransit>;
     }
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
         /**
          * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
          */
-        clientBroker?: string;
+        clientBroker?: pulumi.Input<string>;
         /**
          * Whether data communication among broker nodes is encrypted. Default value: `true`.
          */
-        inCluster?: boolean;
+        inCluster?: pulumi.Input<boolean>;
     }
 }
 
@@ -10937,201 +11251,195 @@ export namespace neptune {
         /**
          * Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
          */
-        applyMethod?: string;
+        applyMethod?: pulumi.Input<string>;
         /**
          * The name of the neptune parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the neptune parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ParameterGroupParameter {
         /**
          * The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
          */
-        applyMethod?: string;
+        applyMethod?: pulumi.Input<string>;
         /**
          * The name of the Neptune parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the Neptune parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 }
 
 export namespace opsworks {
     export interface ApplicationAppSource {
-        /**
-         * <elided>
-         */
-        password?: string;
+        password?: pulumi.Input<string>;
         /**
          * For sources that are version-aware, the revision to use.
          */
-        revision?: string;
-        /**
-         * <elided>
-         */
-        sshKey?: string;
+        revision?: pulumi.Input<string>;
+        sshKey?: pulumi.Input<string>;
         /**
          * The type of source to use. For example, "archive".
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * The URL where the app resource can be found.
          */
-        url?: string;
+        url?: pulumi.Input<string>;
         /**
          * Username to use when authenticating to the source.
          */
-        username?: string;
+        username?: pulumi.Input<string>;
     }
 
     export interface ApplicationEnvironment {
-        key: string;
-        secure?: boolean;
-        value: string;
+        key: pulumi.Input<string>;
+        secure?: pulumi.Input<boolean>;
+        value: pulumi.Input<string>;
     }
 
     export interface ApplicationSslConfiguration {
-        certificate: string;
-        chain?: string;
-        privateKey: string;
+        certificate: pulumi.Input<string>;
+        chain?: pulumi.Input<string>;
+        privateKey: pulumi.Input<string>;
     }
 
     export interface CustomLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface GangliaLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface HaproxyLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface InstanceEbsBlockDevice {
-        deleteOnTermination?: boolean;
-        deviceName: string;
-        iops: number;
-        snapshotId: string;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        deviceName: pulumi.Input<string>;
+        iops?: pulumi.Input<number>;
+        snapshotId?: pulumi.Input<string>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface InstanceEphemeralBlockDevice {
-        deviceName: string;
-        virtualName: string;
+        deviceName: pulumi.Input<string>;
+        virtualName: pulumi.Input<string>;
     }
 
     export interface InstanceRootBlockDevice {
-        deleteOnTermination?: boolean;
-        iops: number;
-        volumeSize: number;
-        volumeType: string;
+        deleteOnTermination?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface JavaAppLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface MemcachedLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface MysqlLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface NodejsAppLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface PhpAppLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface RailsAppLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 
     export interface StackCustomCookbooksSource {
-        password?: string;
-        revision?: string;
-        sshKey?: string;
-        type: string;
-        url: string;
-        username?: string;
+        password?: pulumi.Input<string>;
+        revision?: pulumi.Input<string>;
+        sshKey?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+        url: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
     }
 
     export interface StaticWebLayerEbsVolume {
-        encrypted?: boolean;
-        iops?: number;
-        mountPoint: string;
-        numberOfDisks: number;
-        raidLevel?: string;
-        size: number;
-        type?: string;
+        encrypted?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        mountPoint: pulumi.Input<string>;
+        numberOfDisks: pulumi.Input<number>;
+        raidLevel?: pulumi.Input<string>;
+        size: pulumi.Input<number>;
+        type?: pulumi.Input<string>;
     }
 }
 
@@ -11228,92 +11536,92 @@ export namespace organizations {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: pulumi.Input<string>;
         /**
          * Email of the account
          */
-        email: string;
+        email?: pulumi.Input<string>;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: pulumi.Input<string>;
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
+        status?: pulumi.Input<string>;
     }
 
     export interface OrganizationNonMasterAccount {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: pulumi.Input<string>;
         /**
          * Email of the account
          */
-        email: string;
+        email?: pulumi.Input<string>;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: pulumi.Input<string>;
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
+        status?: pulumi.Input<string>;
     }
 
     export interface OrganizationRoot {
         /**
          * ARN of the root
          */
-        arn: string;
+        arn?: pulumi.Input<string>;
         /**
          * Identifier of the root
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * The name of the policy type
          */
-        name: string;
+        name?: pulumi.Input<string>;
         /**
          * List of policy types enabled for this root. All elements have these attributes:
          */
-        policyTypes: outputs.organizations.OrganizationRootPolicyType[];
+        policyTypes?: pulumi.Input<pulumi.Input<outputs.organizations.OrganizationRootPolicyType>[]>;
     }
 
     export interface OrganizationRootPolicyType {
         /**
          * The status of the policy type as it relates to the associated root
          */
-        status: string;
-        type: string;
+        status?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface OrganizationalUnitAccount {
         /**
          * ARN of the organizational unit
          */
-        arn: string;
+        arn?: pulumi.Input<string>;
         /**
          * Email of the account
          */
-        email: string;
+        email?: pulumi.Input<string>;
         /**
          * Identifier of the organization unit
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * The name for the organizational unit
          */
-        name: string;
+        name?: pulumi.Input<string>;
     }
 }
 
@@ -11322,45 +11630,45 @@ export namespace pinpoint {
         /**
          * Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
          */
-        lambdaFunctionName?: string;
+        lambdaFunctionName?: pulumi.Input<string>;
         /**
          * What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
          */
-        mode?: string;
+        mode?: pulumi.Input<string>;
         /**
          * Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
          */
-        webUrl?: string;
+        webUrl?: pulumi.Input<string>;
     }
 
     export interface AppLimits {
         /**
          * The maximum number of messages that the campaign can send daily. 
          */
-        daily?: number;
+        daily?: pulumi.Input<number>;
         /**
          * The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
          */
-        maximumDuration?: number;
+        maximumDuration?: pulumi.Input<number>;
         /**
          * The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
          */
-        messagesPerSecond?: number;
+        messagesPerSecond?: pulumi.Input<number>;
         /**
          * The maximum total number of messages that the campaign can send.
          */
-        total?: number;
+        total?: pulumi.Input<number>;
     }
 
     export interface AppQuietTime {
         /**
          * The default end time for quiet time in ISO 8601 format. Required if `start` is set
          */
-        end?: string;
+        end?: pulumi.Input<string>;
         /**
          * The default start time for quiet time in ISO 8601 format. Required if `end` is set
          */
-        start?: string;
+        start?: pulumi.Input<string>;
     }
 }
 
@@ -11397,122 +11705,122 @@ export namespace rds {
          * engines can't apply some parameters without a reboot, and you will need to
          * specify "pending-reboot" here.
          */
-        applyMethod?: string;
+        applyMethod?: pulumi.Input<string>;
         /**
          * The name of the DB parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the DB parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ClusterS3Import {
         /**
          * The bucket name where your backup is stored
          */
-        bucketName: string;
+        bucketName: pulumi.Input<string>;
         /**
          * Can be blank, but is the path to your backup
          */
-        bucketPrefix?: string;
+        bucketPrefix?: pulumi.Input<string>;
         /**
          * Role applied to load the data.
          */
-        ingestionRole: string;
+        ingestionRole: pulumi.Input<string>;
         /**
          * Source engine for the backup
          */
-        sourceEngine: string;
+        sourceEngine: pulumi.Input<string>;
         /**
          * Version of the source engine used to make the backup
          */
-        sourceEngineVersion: string;
+        sourceEngineVersion: pulumi.Input<string>;
     }
 
     export interface ClusterScalingConfiguration {
         /**
          * Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
          */
-        autoPause?: boolean;
+        autoPause?: pulumi.Input<boolean>;
         /**
          * The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
          */
-        maxCapacity?: number;
+        maxCapacity?: pulumi.Input<number>;
         /**
          * The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
          */
-        minCapacity?: number;
+        minCapacity?: pulumi.Input<number>;
         /**
          * The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
          */
-        secondsUntilAutoPause?: number;
+        secondsUntilAutoPause?: pulumi.Input<number>;
         /**
          * The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
          */
-        timeoutAction?: string;
+        timeoutAction?: pulumi.Input<string>;
     }
 
     export interface InstanceS3Import {
         /**
          * The bucket name where your backup is stored
          */
-        bucketName: string;
+        bucketName: pulumi.Input<string>;
         /**
          * Can be blank, but is the path to your backup
          */
-        bucketPrefix?: string;
+        bucketPrefix?: pulumi.Input<string>;
         /**
          * Role applied to load the data.
          */
-        ingestionRole: string;
+        ingestionRole: pulumi.Input<string>;
         /**
          * Source engine for the backup
          */
-        sourceEngine: string;
+        sourceEngine: pulumi.Input<string>;
         /**
          * Version of the source engine used to make the backup
          */
-        sourceEngineVersion: string;
+        sourceEngineVersion: pulumi.Input<string>;
     }
 
     export interface OptionGroupOption {
         /**
          * A list of DB Security Groups for which the option is enabled.
          */
-        dbSecurityGroupMemberships?: string[];
+        dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Name of the Option (e.g. MEMCACHED).
          */
-        optionName: string;
+        optionName: pulumi.Input<string>;
         /**
          * A list of option settings to apply.
          */
-        optionSettings?: outputs.rds.OptionGroupOptionOptionSetting[];
+        optionSettings?: pulumi.Input<pulumi.Input<outputs.rds.OptionGroupOptionOptionSetting>[]>;
         /**
          * The Port number when connecting to the Option (e.g. 11211).
          */
-        port?: number;
+        port?: pulumi.Input<number>;
         /**
          * The version of the option (e.g. 13.1.0.0).
          */
-        version?: string;
+        version?: pulumi.Input<string>;
         /**
          * A list of VPC Security Groups for which the option is enabled.
          */
-        vpcSecurityGroupMemberships?: string[];
+        vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface OptionGroupOptionOptionSetting {
         /**
          * The Name of the setting.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The Value of the setting.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface ParameterGroupParameter {
@@ -11521,35 +11829,35 @@ export namespace rds {
          * engines can't apply some parameters without a reboot, and you will need to
          * specify "pending-reboot" here.
          */
-        applyMethod?: string;
+        applyMethod?: pulumi.Input<string>;
         /**
          * The name of the DB parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the DB parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface SecurityGroupIngress {
         /**
          * The CIDR block to accept
          */
-        cidr?: string;
+        cidr?: pulumi.Input<string>;
         /**
          * The ID of the security group to authorize
          */
-        securityGroupId: string;
+        securityGroupId?: pulumi.Input<string>;
         /**
          * The name of the security group to authorize
          */
-        securityGroupName: string;
+        securityGroupName?: pulumi.Input<string>;
         /**
          * The owner Id of the security group provided
          * by `securityGroupName`.
          */
-        securityGroupOwnerId: string;
+        securityGroupOwnerId?: pulumi.Input<string>;
     }
 }
 
@@ -11559,64 +11867,64 @@ export namespace redshift {
          * The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
          * For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
          */
-        bucketName: string;
+        bucketName?: pulumi.Input<string>;
         /**
          * Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
          */
-        enable: boolean;
+        enable: pulumi.Input<boolean>;
         /**
          * The prefix applied to the log file names.
          */
-        s3KeyPrefix: string;
+        s3KeyPrefix?: pulumi.Input<string>;
     }
 
     export interface ClusterSnapshotCopy {
         /**
          * The destination region that you want to copy snapshots to.
          */
-        destinationRegion: string;
+        destinationRegion: pulumi.Input<string>;
         /**
          * The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
          */
-        grantName?: string;
+        grantName?: pulumi.Input<string>;
         /**
          * The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
          */
-        retentionPeriod?: number;
+        retentionPeriod?: pulumi.Input<number>;
     }
 
     export interface ParameterGroupParameter {
         /**
          * The name of the Redshift parameter.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The value of the Redshift parameter.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface SecurityGroupIngress {
         /**
          * The CIDR block to accept
          */
-        cidr?: string;
+        cidr?: pulumi.Input<string>;
         /**
          * The name of the security group to authorize
          */
-        securityGroupName: string;
+        securityGroupName?: pulumi.Input<string>;
         /**
          * The owner Id of the security group provided
          * by `securityGroupName`.
          */
-        securityGroupOwnerId: string;
+        securityGroupOwnerId?: pulumi.Input<string>;
     }
 }
 
 export namespace resourcegroups {
     export interface GroupResourceQuery {
-        query: string;
-        type?: string;
+        query: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 }
 
@@ -11625,85 +11933,85 @@ export namespace route53 {
         /**
          * Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
          */
-        evaluateTargetHealth: boolean;
+        evaluateTargetHealth: pulumi.Input<boolean>;
         /**
          * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
          */
-        zoneId: string;
+        zoneId: pulumi.Input<string>;
     }
 
     export interface RecordFailoverRoutingPolicy {
         /**
          * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RecordGeolocationRoutingPolicy {
         /**
          * A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
          */
-        continent?: string;
+        continent?: pulumi.Input<string>;
         /**
          * A two-character country code or `*` to indicate a default resource record set.
          */
-        country?: string;
+        country?: pulumi.Input<string>;
         /**
          * A subdivision code for a country.
          */
-        subdivision?: string;
+        subdivision?: pulumi.Input<string>;
     }
 
     export interface RecordLatencyRoutingPolicy {
         /**
          * An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
          */
-        region: string;
+        region: pulumi.Input<string>;
     }
 
     export interface RecordWeightedRoutingPolicy {
         /**
          * A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
          */
-        weight: number;
+        weight: pulumi.Input<number>;
     }
 
     export interface ResolverEndpointIpAddress {
         /**
          * The IP address in the subnet that you want to use for DNS queries.
          */
-        ip: string;
-        ipId: string;
+        ip?: pulumi.Input<string>;
+        ipId?: pulumi.Input<string>;
         /**
          * The ID of the subnet that contains the IP address.
          */
-        subnetId: string;
+        subnetId: pulumi.Input<string>;
     }
 
     export interface ResolverRuleTargetIp {
         /**
          * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
          */
-        ip: string;
+        ip: pulumi.Input<string>;
         /**
          * The port at `ip` that you want to forward DNS queries to. Default value is `53`
          */
-        port?: number;
+        port?: pulumi.Input<number>;
     }
 
     export interface ZoneVpc {
         /**
          * ID of the VPC to associate.
          */
-        vpcId: string;
+        vpcId: pulumi.Input<string>;
         /**
          * Region of the VPC to associate. Defaults to AWS provider region.
          */
-        vpcRegion: string;
+        vpcRegion?: pulumi.Input<string>;
     }
 }
 
@@ -11712,320 +12020,320 @@ export namespace s3 {
         /**
          * Specifies which headers are allowed.
          */
-        allowedHeaders?: string[];
+        allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          */
-        allowedMethods: string[];
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies which origins are allowed.
          */
-        allowedOrigins: string[];
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies expose header in the response.
          */
-        exposeHeaders?: string[];
+        exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies time in seconds that browser can cache the response for a preflight request.
          */
-        maxAgeSeconds?: number;
+        maxAgeSeconds?: pulumi.Input<number>;
     }
 
     export interface BucketLifecycleRule {
         /**
          * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
          */
-        abortIncompleteMultipartUploadDays?: number;
+        abortIncompleteMultipartUploadDays?: pulumi.Input<number>;
         /**
          * Boolean which indicates if this criteria is enabled.
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
         /**
          * Specifies a period in the object's expire (documented below).
          */
-        expiration?: outputs.s3.BucketLifecycleRuleExpiration;
+        expiration?: pulumi.Input<outputs.s3.BucketLifecycleRuleExpiration>;
         /**
          * Unique identifier for the rule.
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * Specifies when noncurrent object versions expire (documented below).
          */
-        noncurrentVersionExpiration?: outputs.s3.BucketLifecycleRuleNoncurrentVersionExpiration;
+        noncurrentVersionExpiration?: pulumi.Input<outputs.s3.BucketLifecycleRuleNoncurrentVersionExpiration>;
         /**
          * Specifies when noncurrent object versions transitions (documented below).
          */
-        noncurrentVersionTransitions?: outputs.s3.BucketLifecycleRuleNoncurrentVersionTransition[];
+        noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<outputs.s3.BucketLifecycleRuleNoncurrentVersionTransition>[]>;
         /**
          * Object keyname prefix that identifies subset of objects to which the rule applies.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * A mapping of tags that identifies subset of objects to which the rule applies.
          * The rule applies only to objects having all the tags in its tagset.
          */
-        tags?: {[key: string]: any};
+        tags?: pulumi.Input<{[key: string]: any}>;
         /**
          * Specifies a period in the object's transitions (documented below).
          */
-        transitions?: outputs.s3.BucketLifecycleRuleTransition[];
+        transitions?: pulumi.Input<pulumi.Input<outputs.s3.BucketLifecycleRuleTransition>[]>;
     }
 
     export interface BucketLifecycleRuleExpiration {
         /**
          * Specifies the date after which you want the corresponding action to take effect.
          */
-        date?: string;
+        date?: pulumi.Input<string>;
         /**
          * The number of days that you want to specify for the default retention period.
          */
-        days?: number;
+        days?: pulumi.Input<number>;
         /**
          * On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
          */
-        expiredObjectDeleteMarker?: boolean;
+        expiredObjectDeleteMarker?: pulumi.Input<boolean>;
     }
 
     export interface BucketLifecycleRuleNoncurrentVersionExpiration {
         /**
          * The number of days that you want to specify for the default retention period.
          */
-        days?: number;
+        days?: pulumi.Input<number>;
     }
 
     export interface BucketLifecycleRuleNoncurrentVersionTransition {
         /**
          * The number of days that you want to specify for the default retention period.
          */
-        days?: number;
+        days?: pulumi.Input<number>;
         /**
          * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
          */
-        storageClass: string;
+        storageClass: pulumi.Input<string>;
     }
 
     export interface BucketLifecycleRuleTransition {
         /**
          * Specifies the date after which you want the corresponding action to take effect.
          */
-        date?: string;
+        date?: pulumi.Input<string>;
         /**
          * The number of days that you want to specify for the default retention period.
          */
-        days?: number;
+        days?: pulumi.Input<number>;
         /**
          * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
          */
-        storageClass: string;
+        storageClass: pulumi.Input<string>;
     }
 
     export interface BucketLogging {
         /**
          * The name of the bucket that will receive the log objects.
          */
-        targetBucket: string;
+        targetBucket: pulumi.Input<string>;
         /**
          * To specify a key prefix for log objects.
          */
-        targetPrefix?: string;
+        targetPrefix?: pulumi.Input<string>;
     }
 
     export interface BucketMetricFilter {
         /**
          * Object prefix for filtering (singular).
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * Object tags for filtering (up to 10).
          */
-        tags?: {[key: string]: any};
+        tags?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface BucketNotificationLambdaFunction {
         /**
          * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
-        events: string[];
+        events: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies object key name prefix.
          */
-        filterPrefix?: string;
+        filterPrefix?: pulumi.Input<string>;
         /**
          * Specifies object key name suffix.
          */
-        filterSuffix?: string;
+        filterSuffix?: pulumi.Input<string>;
         /**
          * Specifies unique identifier for each of the notification configurations.
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * Specifies Amazon Lambda function ARN.
          */
-        lambdaFunctionArn?: string;
+        lambdaFunctionArn?: pulumi.Input<string>;
     }
 
     export interface BucketNotificationQueue {
         /**
          * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
-        events: string[];
+        events: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies object key name prefix.
          */
-        filterPrefix?: string;
+        filterPrefix?: pulumi.Input<string>;
         /**
          * Specifies object key name suffix.
          */
-        filterSuffix?: string;
+        filterSuffix?: pulumi.Input<string>;
         /**
          * Specifies unique identifier for each of the notification configurations.
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * Specifies Amazon SQS queue ARN.
          */
-        queueArn: string;
+        queueArn: pulumi.Input<string>;
     }
 
     export interface BucketNotificationTopic {
         /**
          * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
-        events: string[];
+        events: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies object key name prefix.
          */
-        filterPrefix?: string;
+        filterPrefix?: pulumi.Input<string>;
         /**
          * Specifies object key name suffix.
          */
-        filterSuffix?: string;
+        filterSuffix?: pulumi.Input<string>;
         /**
          * Specifies unique identifier for each of the notification configurations.
          */
-        id: string;
+        id?: pulumi.Input<string>;
         /**
          * Specifies Amazon SNS topic ARN.
          */
-        topicArn: string;
+        topicArn: pulumi.Input<string>;
     }
 
     export interface BucketObjectLockConfiguration {
         /**
          * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
          */
-        objectLockEnabled: string;
+        objectLockEnabled: pulumi.Input<string>;
         /**
          * The Object Lock rule in place for this bucket.
          */
-        rule?: outputs.s3.BucketObjectLockConfigurationRule;
+        rule?: pulumi.Input<outputs.s3.BucketObjectLockConfigurationRule>;
     }
 
     export interface BucketObjectLockConfigurationRule {
         /**
          * The default retention period that you want to apply to new objects placed in this bucket.
          */
-        defaultRetention: outputs.s3.BucketObjectLockConfigurationRuleDefaultRetention;
+        defaultRetention: pulumi.Input<outputs.s3.BucketObjectLockConfigurationRuleDefaultRetention>;
     }
 
     export interface BucketObjectLockConfigurationRuleDefaultRetention {
         /**
          * The number of days that you want to specify for the default retention period.
          */
-        days?: number;
+        days?: pulumi.Input<number>;
         /**
          * The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
          */
-        mode: string;
+        mode: pulumi.Input<string>;
         /**
          * The number of years that you want to specify for the default retention period.
          */
-        years?: number;
+        years?: pulumi.Input<number>;
     }
 
     export interface BucketReplicationConfiguration {
         /**
          * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          */
-        role: string;
+        role: pulumi.Input<string>;
         /**
          * Specifies the rules managing the replication (documented below).
          */
-        rules: outputs.s3.BucketReplicationConfigurationRule[];
+        rules: pulumi.Input<pulumi.Input<outputs.s3.BucketReplicationConfigurationRule>[]>;
     }
 
     export interface BucketReplicationConfigurationRule {
         /**
          * Specifies the destination for the rule (documented below).
          */
-        destination: outputs.s3.BucketReplicationConfigurationRuleDestination;
+        destination: pulumi.Input<outputs.s3.BucketReplicationConfigurationRuleDestination>;
         /**
          * Filter that identifies subset of objects to which the replication rule applies (documented below).
          */
-        filter?: outputs.s3.BucketReplicationConfigurationRuleFilter;
+        filter?: pulumi.Input<outputs.s3.BucketReplicationConfigurationRuleFilter>;
         /**
          * Unique identifier for the rule.
          */
-        id?: string;
+        id?: pulumi.Input<string>;
         /**
          * Object keyname prefix that identifies subset of objects to which the rule applies.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * The priority associated with the rule.
          */
-        priority?: number;
+        priority?: pulumi.Input<number>;
         /**
          * Specifies special object selection criteria (documented below).
          */
-        sourceSelectionCriteria?: outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteria;
+        sourceSelectionCriteria?: pulumi.Input<outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteria>;
         /**
          * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          */
-        status: string;
+        status: pulumi.Input<string>;
     }
 
     export interface BucketReplicationConfigurationRuleDestination {
         /**
          * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
          */
-        accessControlTranslation?: outputs.s3.BucketReplicationConfigurationRuleDestinationAccessControlTranslation;
+        accessControlTranslation?: pulumi.Input<outputs.s3.BucketReplicationConfigurationRuleDestinationAccessControlTranslation>;
         /**
          * The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          */
-        accountId?: string;
+        accountId?: pulumi.Input<string>;
         /**
          * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          */
-        bucket: string;
+        bucket: pulumi.Input<string>;
         /**
          * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
          * `sseKmsEncryptedObjects` source selection criteria.
          */
-        replicaKmsKeyId?: string;
+        replicaKmsKeyId?: pulumi.Input<string>;
         /**
          * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
          */
-        storageClass?: string;
+        storageClass?: pulumi.Input<string>;
     }
 
     export interface BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
         /**
          * The override value for the owner on replicated objects. Currently only `Destination` is supported.
          */
-        owner: string;
+        owner: pulumi.Input<string>;
     }
 
     export interface BucketReplicationConfigurationRuleFilter {
         /**
          * Object keyname prefix that identifies subset of objects to which the rule applies.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
         /**
          * A mapping of tags that identifies subset of objects to which the rule applies.
          * The rule applies only to objects having all the tags in its tagset.
          */
-        tags?: {[key: string]: any};
+        tags?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface BucketReplicationConfigurationRuleSourceSelectionCriteria {
@@ -12033,166 +12341,165 @@ export namespace s3 {
          * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
          * in `destination` must be specified as well.
          */
-        sseKmsEncryptedObjects?: outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects;
+        sseKmsEncryptedObjects?: pulumi.Input<outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects>;
     }
 
     export interface BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
         /**
          * Boolean which indicates if this criteria is enabled.
          */
-        enabled: boolean;
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface BucketServerSideEncryptionConfiguration {
         /**
          * The Object Lock rule in place for this bucket.
          */
-        rule: outputs.s3.BucketServerSideEncryptionConfigurationRule;
+        rule: pulumi.Input<outputs.s3.BucketServerSideEncryptionConfigurationRule>;
     }
 
     export interface BucketServerSideEncryptionConfigurationRule {
         /**
          * A single object for setting server-side encryption by default. (documented below)
          */
-        applyServerSideEncryptionByDefault: outputs.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault;
+        applyServerSideEncryptionByDefault: pulumi.Input<outputs.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault>;
     }
 
     export interface BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
         /**
          * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
          */
-        kmsMasterKeyId?: string;
+        kmsMasterKeyId?: pulumi.Input<string>;
         /**
          * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
          */
-        sseAlgorithm: string;
+        sseAlgorithm: pulumi.Input<string>;
     }
 
     export interface BucketVersioning {
         /**
          * Boolean which indicates if this criteria is enabled.
          */
-        enabled?: boolean;
+        enabled?: pulumi.Input<boolean>;
         /**
          * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
          */
-        mfaDelete?: boolean;
+        mfaDelete?: pulumi.Input<boolean>;
     }
 
     export interface BucketWebsite {
         /**
          * An absolute path to the document to return in case of a 4XX error.
          */
-        errorDocument?: string;
+        errorDocument?: pulumi.Input<string>;
         /**
          * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
          */
-        indexDocument?: string;
+        indexDocument?: pulumi.Input<string>;
         /**
          * A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          */
-        redirectAllRequestsTo?: string;
+        redirectAllRequestsTo?: pulumi.Input<string>;
         /**
          * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
          */
-        routingRules?: string;
+        routingRules?: pulumi.Input<string> | pulumi.Input<pulumi.Input<RoutingRule>[]>;
     }
 
     export interface InventoryDestination {
         /**
          * The S3 bucket configuration where inventory results are published (documented below).
          */
-        bucket: outputs.s3.InventoryDestinationBucket;
+        bucket: pulumi.Input<outputs.s3.InventoryDestinationBucket>;
     }
 
     export interface InventoryDestinationBucket {
         /**
          * The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
          */
-        accountId?: string;
+        accountId?: pulumi.Input<string>;
         /**
          * The Amazon S3 bucket ARN of the destination.
          */
-        bucketArn: string;
+        bucketArn: pulumi.Input<string>;
         /**
          * Contains the type of server-side encryption to use to encrypt the inventory (documented below).
          */
-        encryption?: outputs.s3.InventoryDestinationBucketEncryption;
+        encryption?: pulumi.Input<outputs.s3.InventoryDestinationBucketEncryption>;
         /**
          * Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
          */
-        format: string;
+        format: pulumi.Input<string>;
         /**
          * The prefix that is prepended to all inventory results.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface InventoryDestinationBucketEncryption {
         /**
          * Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
          */
-        sseKms?: outputs.s3.InventoryDestinationBucketEncryptionSseKms;
+        sseKms?: pulumi.Input<outputs.s3.InventoryDestinationBucketEncryptionSseKms>;
         /**
          * Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
          */
-        sseS3?: outputs.s3.InventoryDestinationBucketEncryptionSseS3;
+        sseS3?: pulumi.Input<outputs.s3.InventoryDestinationBucketEncryptionSseS3>;
     }
 
     export interface InventoryDestinationBucketEncryptionSseKms {
         /**
          * The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
          */
-        keyId: string;
+        keyId: pulumi.Input<string>;
     }
 
     export interface InventoryDestinationBucketEncryptionSseS3 {
-    
     }
 
     export interface InventoryFilter {
         /**
          * The prefix that is prepended to all inventory results.
          */
-        prefix?: string;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface InventorySchedule {
         /**
          * Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
          */
-        frequency: string;
+        frequency: pulumi.Input<string>;
     }
 }
 
 export namespace sagemaker {
     export interface EndpointConfigurationProductionVariant {
-        acceleratorType?: string;
-        initialInstanceCount: number;
-        initialVariantWeight?: number;
-        instanceType: string;
-        modelName: string;
-        variantName: string;
+        acceleratorType?: pulumi.Input<string>;
+        initialInstanceCount: pulumi.Input<number>;
+        initialVariantWeight?: pulumi.Input<number>;
+        instanceType: pulumi.Input<string>;
+        modelName: pulumi.Input<string>;
+        variantName?: pulumi.Input<string>;
     }
 
     export interface ModelContainer {
-        containerHostname?: string;
-        environment?: {[key: string]: any};
-        image: string;
-        modelDataUrl?: string;
+        containerHostname?: pulumi.Input<string>;
+        environment?: pulumi.Input<{[key: string]: any}>;
+        image: pulumi.Input<string>;
+        modelDataUrl?: pulumi.Input<string>;
     }
 
     export interface ModelPrimaryContainer {
-        containerHostname?: string;
-        environment?: {[key: string]: any};
-        image: string;
-        modelDataUrl?: string;
+        containerHostname?: pulumi.Input<string>;
+        environment?: pulumi.Input<{[key: string]: any}>;
+        image: pulumi.Input<string>;
+        modelDataUrl?: pulumi.Input<string>;
     }
 
     export interface ModelVpcConfig {
-        securityGroupIds: string[];
-        subnets: string[];
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -12205,7 +12512,7 @@ export namespace secretsmanager {
         /**
          * Specifies the number of days between automatic scheduled rotations of the secret.
          */
-        automaticallyAfterDays: number;
+        automaticallyAfterDays: pulumi.Input<number>;
     }
 }
 
@@ -12214,48 +12521,48 @@ export namespace servicediscovery {
         /**
          * An array that contains one DnsRecord object for each resource record set.
          */
-        dnsRecords: outputs.servicediscovery.ServiceDnsConfigDnsRecord[];
+        dnsRecords: pulumi.Input<pulumi.Input<outputs.servicediscovery.ServiceDnsConfigDnsRecord>[]>;
         /**
          * The ID of the namespace to use for DNS configuration.
          */
-        namespaceId: string;
+        namespaceId: pulumi.Input<string>;
         /**
          * The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
          */
-        routingPolicy?: string;
+        routingPolicy?: pulumi.Input<string>;
     }
 
     export interface ServiceDnsConfigDnsRecord {
         /**
          * The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
          */
-        ttl: number;
+        ttl: pulumi.Input<number>;
         /**
          * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface ServiceHealthCheckConfig {
         /**
          * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
          */
-        failureThreshold?: number;
+        failureThreshold?: pulumi.Input<number>;
         /**
          * The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
          */
-        resourcePath?: string;
+        resourcePath?: pulumi.Input<string>;
         /**
          * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface ServiceHealthCheckCustomConfig {
         /**
          * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
          */
-        failureThreshold?: number;
+        failureThreshold?: pulumi.Input<number>;
     }
 }
 
@@ -12264,158 +12571,158 @@ export namespace ses {
         /**
          * The default value for the event
          */
-        defaultValue: string;
+        defaultValue: pulumi.Input<string>;
         /**
          * The name for the dimension
          */
-        dimensionName: string;
+        dimensionName: pulumi.Input<string>;
         /**
          * The source for the value. It can be either `"messageTag"` or `"emailHeader"`
          */
-        valueSource: string;
+        valueSource: pulumi.Input<string>;
     }
 
     export interface EventDestinationKinesisDestination {
         /**
          * The ARN of the role that has permissions to access the Kinesis Stream
          */
-        roleArn: string;
+        roleArn: pulumi.Input<string>;
         /**
          * The ARN of the Kinesis Stream
          */
-        streamArn: string;
+        streamArn: pulumi.Input<string>;
     }
 
     export interface EventDestinationSnsDestination {
         /**
          * The ARN of the SNS topic
          */
-        topicArn: string;
+        topicArn: pulumi.Input<string>;
     }
 
     export interface ReceiptRuleAddHeaderAction {
         /**
          * The name of the header to add
          */
-        headerName: string;
+        headerName: pulumi.Input<string>;
         /**
          * The value of the header to add
          */
-        headerValue: string;
+        headerValue: pulumi.Input<string>;
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
     }
 
     export interface ReceiptRuleBounceAction {
         /**
          * The message to send
          */
-        message: string;
+        message: pulumi.Input<string>;
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
         /**
          * The email address of the sender
          */
-        sender: string;
+        sender: pulumi.Input<string>;
         /**
          * The RFC 5321 SMTP reply code
          */
-        smtpReplyCode: string;
+        smtpReplyCode: pulumi.Input<string>;
         /**
          * The RFC 3463 SMTP enhanced status code
          */
-        statusCode?: string;
+        statusCode?: pulumi.Input<string>;
         /**
          * The ARN of an SNS topic to notify
          */
-        topicArn?: string;
+        topicArn?: pulumi.Input<string>;
     }
 
     export interface ReceiptRuleLambdaAction {
         /**
          * The ARN of the Lambda function to invoke
          */
-        functionArn: string;
+        functionArn: pulumi.Input<string>;
         /**
          * Event or RequestResponse
          */
-        invocationType: string;
+        invocationType?: pulumi.Input<string>;
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
         /**
          * The ARN of an SNS topic to notify
          */
-        topicArn?: string;
+        topicArn?: pulumi.Input<string>;
     }
 
     export interface ReceiptRuleS3Action {
         /**
          * The name of the S3 bucket
          */
-        bucketName: string;
+        bucketName: pulumi.Input<string>;
         /**
          * The ARN of the KMS key
          */
-        kmsKeyArn?: string;
+        kmsKeyArn?: pulumi.Input<string>;
         /**
          * The key prefix of the S3 bucket
          */
-        objectKeyPrefix?: string;
+        objectKeyPrefix?: pulumi.Input<string>;
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
         /**
          * The ARN of an SNS topic to notify
          */
-        topicArn?: string;
+        topicArn?: pulumi.Input<string>;
     }
 
     export interface ReceiptRuleSnsAction {
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
         /**
          * The ARN of an SNS topic to notify
          */
-        topicArn: string;
+        topicArn: pulumi.Input<string>;
     }
 
     export interface ReceiptRuleStopAction {
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
         /**
          * The scope to apply
          */
-        scope: string;
+        scope: pulumi.Input<string>;
         /**
          * The ARN of an SNS topic to notify
          */
-        topicArn?: string;
+        topicArn?: pulumi.Input<string>;
     }
 
     export interface ReceiptRuleWorkmailAction {
         /**
          * The ARN of the WorkMail organization
          */
-        organizationArn: string;
+        organizationArn: pulumi.Input<string>;
         /**
          * The position of the action in the receipt rule
          */
-        position: number;
+        position: pulumi.Input<number>;
         /**
          * The ARN of an SNS topic to notify
          */
-        topicArn?: string;
+        topicArn?: pulumi.Input<string>;
     }
 }
 
@@ -12424,236 +12731,236 @@ export namespace ssm {
         /**
          * The S3 bucket name.
          */
-        s3BucketName: string;
+        s3BucketName: pulumi.Input<string>;
         /**
          * The S3 bucket prefix. Results stored in the root if not configured.
          */
-        s3KeyPrefix?: string;
+        s3KeyPrefix?: pulumi.Input<string>;
     }
 
     export interface AssociationTarget {
         /**
          * Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
          */
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * A list of instance IDs or tag values. AWS currently limits this list size to one value.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DocumentAttachmentsSource {
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * The name of the document.
          */
-        name?: string;
-        values: string[];
+        name?: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DocumentParameter {
-        defaultValue?: string;
+        defaultValue?: pulumi.Input<string>;
         /**
          * The description of the document.
          */
-        description?: string;
+        description?: pulumi.Input<string>;
         /**
          * The name of the document.
          */
-        name?: string;
-        type?: string;
+        name?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface DocumentPermissions {
-        accountIds: string;
-        type: string;
+        accountIds: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface MaintenanceWindowTargetTarget {
-        key: string;
-        values: string[];
+        key: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MaintenanceWindowTaskLoggingInfo {
-        s3BucketName: string;
-        s3BucketPrefix?: string;
-        s3Region: string;
+        s3BucketName: pulumi.Input<string>;
+        s3BucketPrefix?: pulumi.Input<string>;
+        s3Region: pulumi.Input<string>;
     }
 
     export interface MaintenanceWindowTaskTarget {
-        key: string;
+        key: pulumi.Input<string>;
         /**
          * The array of strings.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParameters {
         /**
          * The parameters for an AUTOMATION task type. Documented below.
          */
-        automationParameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters;
+        automationParameters?: pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters>;
         /**
          * The parameters for a LAMBDA task type. Documented below.
          */
-        lambdaParameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters;
+        lambdaParameters?: pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters>;
         /**
          * The parameters for a RUN_COMMAND task type. Documented below.
          */
-        runCommandParameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters;
+        runCommandParameters?: pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters>;
         /**
          * The parameters for a STEP_FUNCTIONS task type. Documented below.
          */
-        stepFunctionsParameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters;
+        stepFunctionsParameters?: pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
         /**
          * The version of an Automation document to use during task execution.
          */
-        documentVersion?: string;
+        documentVersion?: pulumi.Input<string>;
         /**
          * The parameters for the RUN_COMMAND task execution. Documented below.
          */
-        parameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter[];
+        parameters?: pulumi.Input<pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter>[]>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter {
         /**
          * The parameter name.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The array of strings.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersLambdaParameters {
         /**
          * Pass client-specific information to the Lambda function that you are invoking.
          */
-        clientContext?: string;
+        clientContext?: pulumi.Input<string>;
         /**
          * JSON to provide to your Lambda function as input.
          */
-        payload?: string;
+        payload?: pulumi.Input<string>;
         /**
          * Specify a Lambda function version or alias name.
          */
-        qualifier?: string;
+        qualifier?: pulumi.Input<string>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
         /**
          * Information about the command(s) to execute.
          */
-        comment?: string;
+        comment?: pulumi.Input<string>;
         /**
          * The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
          */
-        documentHash?: string;
+        documentHash?: pulumi.Input<string>;
         /**
          * SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
          */
-        documentHashType?: string;
+        documentHashType?: pulumi.Input<string>;
         /**
          * Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
          */
-        notificationConfig?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig;
+        notificationConfig?: pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig>;
         /**
          * The name of the Amazon S3 bucket.
          */
-        outputS3Bucket?: string;
+        outputS3Bucket?: pulumi.Input<string>;
         /**
          * The Amazon S3 bucket subfolder.
          */
-        outputS3KeyPrefix?: string;
+        outputS3KeyPrefix?: pulumi.Input<string>;
         /**
          * The parameters for the RUN_COMMAND task execution. Documented below.
          */
-        parameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter[];
+        parameters?: pulumi.Input<pulumi.Input<outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter>[]>;
         /**
          * The IAM service role to assume during task execution.
          */
-        serviceRoleArn?: string;
+        serviceRoleArn?: pulumi.Input<string>;
         /**
          * If this time is reached and the command has not already started executing, it doesn't run.
          */
-        timeoutSeconds?: number;
+        timeoutSeconds?: pulumi.Input<number>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
         /**
          * An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
          */
-        notificationArn?: string;
+        notificationArn?: pulumi.Input<string>;
         /**
          * The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
          */
-        notificationEvents?: string[];
+        notificationEvents?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
          */
-        notificationType?: string;
+        notificationType?: pulumi.Input<string>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter {
         /**
          * The parameter name.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The array of strings.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters {
         /**
          * The inputs for the STEP_FUNCTION task.
          */
-        input?: string;
+        input?: pulumi.Input<string>;
         /**
          * The parameter name.
          */
-        name?: string;
+        name?: pulumi.Input<string>;
     }
 
     export interface MaintenanceWindowTaskTaskParameter {
         /**
          * The parameter name.
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * The array of strings.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PatchBaselineApprovalRule {
-        approveAfterDays: number;
-        complianceLevel?: string;
-        enableNonSecurity?: boolean;
-        patchFilters: outputs.ssm.PatchBaselineApprovalRulePatchFilter[];
+        approveAfterDays: pulumi.Input<number>;
+        complianceLevel?: pulumi.Input<string>;
+        enableNonSecurity?: pulumi.Input<boolean>;
+        patchFilters: pulumi.Input<pulumi.Input<outputs.ssm.PatchBaselineApprovalRulePatchFilter>[]>;
     }
 
     export interface PatchBaselineApprovalRulePatchFilter {
-        key: string;
-        values: string[];
+        key: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PatchBaselineGlobalFilter {
-        key: string;
-        values: string[];
+        key: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ResourceDataSyncS3Destination {
-        bucketName: string;
-        kmsKeyArn?: string;
-        prefix?: string;
-        region: string;
-        syncFormat?: string;
+        bucketName: pulumi.Input<string>;
+        kmsKeyArn?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+        region: pulumi.Input<string>;
+        syncFormat?: pulumi.Input<string>;
     }
 }
 
@@ -12662,34 +12969,34 @@ export namespace storagegateway {
         /**
          * The name of the domain that you want the gateway to join.
          */
-        domainName: string;
+        domainName: pulumi.Input<string>;
         /**
          * The password of the user who has permission to add the gateway to the Active Directory domain.
          */
-        password: string;
+        password: pulumi.Input<string>;
         /**
          * The user name of user who has permission to add the gateway to the Active Directory domain.
          */
-        username: string;
+        username: pulumi.Input<string>;
     }
 
     export interface NfsFileShareNfsFileShareDefaults {
         /**
          * The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
          */
-        directoryMode?: string;
+        directoryMode?: pulumi.Input<string>;
         /**
          * The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
          */
-        fileMode?: string;
+        fileMode?: pulumi.Input<string>;
         /**
          * The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
          */
-        groupId?: number;
+        groupId?: pulumi.Input<number>;
         /**
          * The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
          */
-        ownerId?: number;
+        ownerId?: pulumi.Input<number>;
     }
 }
 
@@ -12698,7 +13005,7 @@ export namespace transfer {
         /**
          * The ID of the VPC endpoint.
          */
-        vpcEndpointId: string;
+        vpcEndpointId: pulumi.Input<string>;
     }
 }
 
@@ -12707,7 +13014,7 @@ export namespace waf {
         /**
          * The part of a web request that you want to search, such as a specified header or a query string.
          */
-        fieldToMatch: outputs.waf.ByteMatchSetByteMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.waf.ByteMatchSetByteMatchTupleFieldToMatch>;
         /**
          * Within the portion of a web request that you want to search
          * (for example, in the query string, if any), specify where you want to search.
@@ -12715,13 +13022,13 @@ export namespace waf {
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
          * for all supported values.
          */
-        positionalConstraint: string;
+        positionalConstraint: pulumi.Input<string>;
         /**
          * The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
          * for all supported values.
          */
-        targetString?: string;
+        targetString?: pulumi.Input<string>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
@@ -12729,7 +13036,7 @@ export namespace waf {
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface ByteMatchSetByteMatchTupleFieldToMatch {
@@ -12737,75 +13044,75 @@ export namespace waf {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface GeoMatchSetGeoMatchConstraint {
         /**
          * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * The country that you want AWS WAF to search for.
          * This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface IpSetIpSetDescriptor {
         /**
          * Type of the IP address - `IPV4` or `IPV6`.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * An IPv4 or IPv6 address specified via CIDR notation.
          * e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface RateBasedRulePredicate {
         /**
          * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
          */
-        dataId: string;
+        dataId: pulumi.Input<string>;
         /**
          * Set this to `false` if you want to allow, block, or count requests
          * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
          * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
          * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
          */
-        negated: boolean;
+        negated: pulumi.Input<boolean>;
         /**
          * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RegexMatchSetRegexMatchTuple {
         /**
          * The part of a web request that you want to search, such as a specified header or a query string.
          */
-        fieldToMatch: outputs.waf.RegexMatchSetRegexMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.waf.RegexMatchSetRegexMatchTupleFieldToMatch>;
         /**
          * The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
          */
-        regexPatternSetId: string;
+        regexPatternSetId: pulumi.Input<string>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface RegexMatchSetRegexMatchTupleFieldToMatch {
@@ -12813,58 +13120,58 @@ export namespace waf {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RuleGroupActivatedRule {
         /**
          * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
          */
-        action: outputs.waf.RuleGroupActivatedRuleAction;
+        action: pulumi.Input<outputs.waf.RuleGroupActivatedRuleAction>;
         /**
          * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
          */
-        priority: number;
+        priority: pulumi.Input<number>;
         /**
          * The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
          */
-        ruleId: string;
+        ruleId: pulumi.Input<string>;
         /**
          * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface RuleGroupActivatedRuleAction {
         /**
          * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RulePredicate {
         /**
          * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
          */
-        dataId: string;
+        dataId: pulumi.Input<string>;
         /**
          * Set this to `false` if you want to allow, block, or count requests
          * based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [aws.waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [aws.waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [aws.waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
          * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
          * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
          */
-        negated: boolean;
+        negated: pulumi.Input<boolean>;
         /**
          * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraint {
@@ -12873,16 +13180,16 @@ export namespace waf {
          * e.g. `EQ`, `NE`, `LT`, `GT`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
          */
-        comparisonOperator: string;
+        comparisonOperator: pulumi.Input<string>;
         /**
          * Specifies where in a web request to look for the size constraint.
          */
-        fieldToMatch: outputs.waf.SizeConstraintSetSizeConstraintFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.waf.SizeConstraintSetSizeConstraintFieldToMatch>;
         /**
          * The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
          * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
          */
-        size: number;
+        size: pulumi.Input<number>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
@@ -12891,7 +13198,7 @@ export namespace waf {
          * for all supported values.
          * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
@@ -12899,21 +13206,21 @@ export namespace waf {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTuple {
         /**
          * Specifies where in a web request to look for snippets of malicious SQL code.
          */
-        fieldToMatch: outputs.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
@@ -12921,7 +13228,7 @@ export namespace waf {
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
          * for all supported values.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
@@ -12929,95 +13236,95 @@ export namespace waf {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclDefaultAction {
         /**
          * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclLoggingConfiguration {
         /**
          * Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
          */
-        logDestination: string;
+        logDestination: pulumi.Input<string>;
         /**
          * Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
          */
-        redactedFields?: outputs.waf.WebAclLoggingConfigurationRedactedFields;
+        redactedFields?: pulumi.Input<outputs.waf.WebAclLoggingConfigurationRedactedFields>;
     }
 
     export interface WebAclLoggingConfigurationRedactedFields {
         /**
          * Set of configuration blocks for fields to redact. Detailed below.
          */
-        fieldToMatches: outputs.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatch[];
+        fieldToMatches: pulumi.Input<pulumi.Input<outputs.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatch>[]>;
     }
 
     export interface WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
         /**
          * When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclRule {
         /**
          * The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
          */
-        action?: outputs.waf.WebAclRuleAction;
+        action?: pulumi.Input<outputs.waf.WebAclRuleAction>;
         /**
          * Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
          */
-        overrideAction?: outputs.waf.WebAclRuleOverrideAction;
+        overrideAction?: pulumi.Input<outputs.waf.WebAclRuleOverrideAction>;
         /**
          * Specifies the order in which the rules in a WebACL are evaluated.
          * Rules with a lower value are evaluated before rules with a higher value.
          */
-        priority: number;
+        priority: pulumi.Input<number>;
         /**
          * ID of the associated WAF (Global) rule (e.g. [`aws.waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
          */
-        ruleId: string;
+        ruleId: pulumi.Input<string>;
         /**
          * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface WebAclRuleAction {
         /**
          * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
          * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface XssMatchSetXssMatchTuple {
         /**
          * Specifies where in a web request to look for cross-site scripting attacks.
          */
-        fieldToMatch: outputs.waf.XssMatchSetXssMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.waf.XssMatchSetXssMatchTupleFieldToMatch>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
@@ -13025,7 +13332,7 @@ export namespace waf {
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
          * for all supported values.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface XssMatchSetXssMatchTupleFieldToMatch {
@@ -13033,14 +13340,14 @@ export namespace waf {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -13049,90 +13356,90 @@ export namespace wafregional {
         /**
          * Settings for the ByteMatchTuple. FieldToMatch documented below.
          */
-        fieldToMatch: outputs.wafregional.ByteMatchSetByteMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.wafregional.ByteMatchSetByteMatchTupleFieldToMatch>;
         /**
          * Within the portion of a web request that you want to search.
          */
-        positionalConstraint: string;
+        positionalConstraint: pulumi.Input<string>;
         /**
          * The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
          */
-        targetString?: string;
+        targetString?: pulumi.Input<string>;
         /**
          * The formatting way for web request.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface ByteMatchSetByteMatchTupleFieldToMatch {
         /**
          * When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface GeoMatchSetGeoMatchConstraint {
         /**
          * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * The country that you want AWS WAF to search for.
          * This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface IpSetIpSetDescriptor {
         /**
          * The string like IPV4 or IPV6.
          */
-        type: string;
+        type: pulumi.Input<string>;
         /**
          * The CIDR notation.
          */
-        value: string;
+        value: pulumi.Input<string>;
     }
 
     export interface RateBasedRulePredicate {
         /**
          * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
          */
-        dataId: string;
+        dataId: pulumi.Input<string>;
         /**
          * Set this to `false` if you want to allow, block, or count requests
          * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
          * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
          * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
          */
-        negated: boolean;
+        negated: pulumi.Input<boolean>;
         /**
          * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RegexMatchSetRegexMatchTuple {
         /**
          * The part of a web request that you want to search, such as a specified header or a query string.
          */
-        fieldToMatch: outputs.wafregional.RegexMatchSetRegexMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.wafregional.RegexMatchSetRegexMatchTupleFieldToMatch>;
         /**
          * The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
          */
-        regexPatternSetId: string;
+        regexPatternSetId: pulumi.Input<string>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface RegexMatchSetRegexMatchTupleFieldToMatch {
@@ -13140,46 +13447,46 @@ export namespace wafregional {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RuleGroupActivatedRule {
         /**
          * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
          */
-        action: outputs.wafregional.RuleGroupActivatedRuleAction;
+        action: pulumi.Input<outputs.wafregional.RuleGroupActivatedRuleAction>;
         /**
          * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
          */
-        priority: number;
+        priority: pulumi.Input<number>;
         /**
          * The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
          */
-        ruleId: string;
+        ruleId: pulumi.Input<string>;
         /**
          * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface RuleGroupActivatedRuleAction {
         /**
          * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface RulePredicate {
-        dataId: string;
-        negated: boolean;
-        type: string;
+        dataId: pulumi.Input<string>;
+        negated: pulumi.Input<boolean>;
+        type: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraint {
@@ -13188,16 +13495,16 @@ export namespace wafregional {
          * e.g. `EQ`, `NE`, `LT`, `GT`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-ComparisonOperator) for all supported values.
          */
-        comparisonOperator: string;
+        comparisonOperator: pulumi.Input<string>;
         /**
          * Specifies where in a web request to look for the size constraint.
          */
-        fieldToMatch: outputs.wafregional.SizeConstraintSetSizeConstraintFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.wafregional.SizeConstraintSetSizeConstraintFieldToMatch>;
         /**
          * The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
          * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
          */
-        size: number;
+        size: pulumi.Input<number>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
@@ -13206,7 +13513,7 @@ export namespace wafregional {
          * for all supported values.
          * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
@@ -13214,21 +13521,21 @@ export namespace wafregional {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTuple {
         /**
          * Specifies where in a web request to look for snippets of malicious SQL code.
          */
-        fieldToMatch: outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch>;
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
@@ -13236,7 +13543,7 @@ export namespace wafregional {
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_SqlInjectionMatchTuple.html#WAF-Type-regional_SqlInjectionMatchTuple-TextTransformation)
          * for all supported values.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
@@ -13244,110 +13551,110 @@ export namespace wafregional {
          * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
          * e.g. `HEADER`, `METHOD` or `BODY`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_FieldToMatch.html)
          * for all supported values.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclDefaultAction {
         /**
          * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclLoggingConfiguration {
         /**
          * Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
          */
-        logDestination: string;
+        logDestination: pulumi.Input<string>;
         /**
          * Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
          */
-        redactedFields?: outputs.wafregional.WebAclLoggingConfigurationRedactedFields;
+        redactedFields?: pulumi.Input<outputs.wafregional.WebAclLoggingConfigurationRedactedFields>;
     }
 
     export interface WebAclLoggingConfigurationRedactedFields {
         /**
          * Set of configuration blocks for fields to redact. Detailed below.
          */
-        fieldToMatches: outputs.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatch[];
+        fieldToMatches: pulumi.Input<pulumi.Input<outputs.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatch>[]>;
     }
 
     export interface WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
         /**
          * When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclRule {
         /**
          * Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
          */
-        action?: outputs.wafregional.WebAclRuleAction;
+        action?: pulumi.Input<outputs.wafregional.WebAclRuleAction>;
         /**
          * Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
          */
-        overrideAction?: outputs.wafregional.WebAclRuleOverrideAction;
+        overrideAction?: pulumi.Input<outputs.wafregional.WebAclRuleOverrideAction>;
         /**
          * Specifies the order in which the rules in a WebACL are evaluated.
          * Rules with a lower value are evaluated before rules with a higher value.
          */
-        priority: number;
+        priority: pulumi.Input<number>;
         /**
          * ID of the associated WAF (Regional) rule (e.g. [`aws.wafregional.Rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
          */
-        ruleId: string;
+        ruleId: pulumi.Input<string>;
         /**
          * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
          */
-        type?: string;
+        type?: pulumi.Input<string>;
     }
 
     export interface WebAclRuleAction {
         /**
          * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
          * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface XssMatchSetXssMatchTuple {
         /**
          * Specifies where in a web request to look for cross-site scripting attacks.
          */
-        fieldToMatch: outputs.wafregional.XssMatchSetXssMatchTupleFieldToMatch;
+        fieldToMatch: pulumi.Input<outputs.wafregional.XssMatchSetXssMatchTupleFieldToMatch>;
         /**
          * Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
          */
-        textTransformation: string;
+        textTransformation: pulumi.Input<string>;
     }
 
     export interface XssMatchSetXssMatchTupleFieldToMatch {
         /**
          * When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
          */
-        data?: string;
+        data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -13356,26 +13663,26 @@ export namespace worklink {
         /**
          * The SAML metadata document provided by the customer’s identity provider.
          */
-        samlMetadata: string;
+        samlMetadata: pulumi.Input<string>;
         /**
          * The type of identity provider.
          */
-        type: string;
+        type: pulumi.Input<string>;
     }
 
     export interface FleetNetwork {
         /**
          * A list of security group IDs associated with access to the provided subnets.
          */
-        securityGroupIds: string[];
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
          */
-        subnetIds: string[];
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The VPC ID with connectivity to associated websites.
          */
-        vpcId: string;
+        vpcId: pulumi.Input<string>;
     }
 }
 
@@ -13384,23 +13691,23 @@ export namespace workspaces {
         /**
          * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
          */
-        changeComputeType?: boolean;
+        changeComputeType?: pulumi.Input<boolean>;
         /**
          * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
          */
-        increaseVolumeSize?: boolean;
+        increaseVolumeSize?: pulumi.Input<boolean>;
         /**
          * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
          */
-        rebuildWorkspace?: boolean;
+        rebuildWorkspace?: pulumi.Input<boolean>;
         /**
          * Whether WorkSpaces directory users can restart their workspace. Default `true`.
          */
-        restartWorkspace?: boolean;
+        restartWorkspace?: pulumi.Input<boolean>;
         /**
          * Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
          */
-        switchRunningMode?: boolean;
+        switchRunningMode?: pulumi.Input<boolean>;
     }
 
     export interface GetBundleComputeType {
@@ -13428,10 +13735,11 @@ export namespace workspaces {
         /**
          * The description.
          */
-        description?: string;
+        description?: pulumi.Input<string>;
         /**
          * The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
          */
-        source: string;
+        source: pulumi.Input<string>;
     }
 }
+

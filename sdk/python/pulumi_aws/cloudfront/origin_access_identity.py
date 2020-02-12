@@ -44,17 +44,17 @@ class OriginAccessIdentity(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, comment=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates an Amazon CloudFront origin access identity.
-        
+
         For information about CloudFront distributions, see the
         [Amazon CloudFront Developer Guide][1]. For more information on generating
         origin access identities, see
         [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment for the origin access identity.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,7 +90,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         """
         Get an existing OriginAccessIdentity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,12 +107,11 @@ class OriginAccessIdentity(pulumi.CustomResource):
         :param pulumi.Input[str] s3_canonical_user_id: The Amazon S3 canonical user ID for the origin
                access identity, which you use when giving the origin access identity read
                permission to an object in Amazon S3.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudfront_origin_access_identity.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["caller_reference"] = caller_reference
         __props__["cloudfront_access_identity_path"] = cloudfront_access_identity_path
         __props__["comment"] = comment

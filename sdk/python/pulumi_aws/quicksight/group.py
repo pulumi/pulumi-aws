@@ -33,15 +33,15 @@ class Group(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, aws_account_id=None, description=None, group_name=None, namespace=None, __props__=None, __name__=None, __opts__=None):
         """
         Resource for managing QuickSight Group
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[str] description: A description for the group.
         :param pulumi.Input[str] group_name: A name for the group.
         :param pulumi.Input[str] namespace: The namespace. Currently, you should set this to `default`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +78,7 @@ class Group(pulumi.CustomResource):
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,12 +87,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the group.
         :param pulumi.Input[str] group_name: A name for the group.
         :param pulumi.Input[str] namespace: The namespace. Currently, you should set this to `default`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/quicksight_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["aws_account_id"] = aws_account_id
         __props__["description"] = description

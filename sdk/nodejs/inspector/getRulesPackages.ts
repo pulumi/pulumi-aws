@@ -2,19 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * The AWS Inspector Rules Packages data source allows access to the list of AWS
  * Inspector Rules Packages which can be used by AWS Inspector within the region
  * configured in the provider.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Declare the data source
  * const rules = aws.inspector.getRulesPackages();
  * // e.g. Use in aws.inspector.AssessmentTemplate

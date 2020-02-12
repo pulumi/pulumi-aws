@@ -12,10 +12,10 @@ import (
 // by using an AWS KMS customer master key. The value returned by this data source
 // changes every apply. For a stable ciphertext value, see the [`kms.Ciphertext`
 // resource](https://www.terraform.io/docs/providers/aws/r/kms_ciphertext.html).
-// 
+//
 // > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_ciphertext.html.markdown.
 func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.InvokeOption) (*GetCipherTextResult, error) {
 	var rv GetCipherTextResult

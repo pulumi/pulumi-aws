@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Log Metric Filter resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const dada = new aws.cloudwatch.LogGroup("dada", {});
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
  *     logGroupName: dada.name,

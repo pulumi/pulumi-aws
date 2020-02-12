@@ -25,21 +25,21 @@ class Attachment(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, alb_target_group_arn=None, autoscaling_group_name=None, elb=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Attachment resource.
-        
+
         > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
         both a standalone ASG Attachment resource (describing an ASG attached to
         an ELB), and an AutoScaling Group resource with
         `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
         load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_attachment.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: The name of the ELB.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,19 +74,18 @@ class Attachment(pulumi.CustomResource):
         """
         Get an existing Attachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: The name of the ELB.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_attachment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["alb_target_group_arn"] = alb_target_group_arn
         __props__["autoscaling_group_name"] = autoscaling_group_name
         __props__["elb"] = elb

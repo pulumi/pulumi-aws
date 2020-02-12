@@ -8,27 +8,27 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * The following shows outputing all network ACL ids in a vpc.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
  *     vpcId: var_vpc_id,
  * });
- * 
+ *
  * export const example = exampleNetworkAcls.ids;
  * ```
- * 
+ *
  * The following example retrieves a list of all network ACL ids in a VPC with a custom
  * tag of `Tier` set to a value of "Private".
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.ec2.getNetworkAcls({
  *     tags: {
  *         Tier: "Private",
@@ -36,14 +36,14 @@ import * as utilities from "../utilities";
  *     vpcId: var_vpc_id,
  * });
  * ```
- * 
+ *
  * The following example retrieves a network ACL id in a VPC which associated
  * with specific subnet.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws_subnet_test.id.apply(id => aws.ec2.getNetworkAcls({
  *     filters: [{
  *         name: "association.subnet-id",
@@ -98,13 +98,13 @@ export interface GetNetworkAclsArgs {
 export interface GetNetworkAclsResult {
     readonly filters?: outputs.ec2.GetNetworkAclsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the network ACL ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

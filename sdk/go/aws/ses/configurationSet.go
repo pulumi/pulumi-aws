@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an SES configuration set resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_configuration_set.html.markdown.
 type ConfigurationSet struct {
 	pulumi.CustomResourceState

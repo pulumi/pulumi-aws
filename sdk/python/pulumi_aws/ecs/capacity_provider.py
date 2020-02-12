@@ -17,15 +17,14 @@ class CapacityProvider(pulumi.CustomResource):
     auto_scaling_group_provider: pulumi.Output[dict]
     """
     Nested argument defining the provider for the ECS auto scaling group. Defined below.
-    
+
       * `autoScalingGroupArn` (`str`)
       * `managedScaling` (`dict`)
-    
         * `maximumScalingStepSize` (`float`)
         * `minimumScalingStepSize` (`float`)
         * `status` (`str`)
-        * `target_capacity` (`float`)
-    
+        * `targetCapacity` (`float`)
+
       * `managedTerminationProtection` (`str`)
     """
     name: pulumi.Output[str]
@@ -38,27 +37,24 @@ class CapacityProvider(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, auto_scaling_group_provider=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a CapacityProvider resource with the given unique name, props, and options.
-        
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
         :param pulumi.Input[str] name: The name of the capacity provider.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
-        
+
         The **auto_scaling_group_provider** object supports the following:
-        
+
           * `autoScalingGroupArn` (`pulumi.Input[str]`)
           * `managedScaling` (`pulumi.Input[dict]`)
-        
             * `maximumScalingStepSize` (`pulumi.Input[float]`)
             * `minimumScalingStepSize` (`pulumi.Input[float]`)
             * `status` (`pulumi.Input[str]`)
-            * `target_capacity` (`pulumi.Input[float]`)
-        
-          * `managedTerminationProtection` (`pulumi.Input[str]`)
+            * `targetCapacity` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
+          * `managedTerminationProtection` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +90,7 @@ class CapacityProvider(pulumi.CustomResource):
         """
         Get an existing CapacityProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,24 +98,22 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[dict] auto_scaling_group_provider: Nested argument defining the provider for the ECS auto scaling group. Defined below.
         :param pulumi.Input[str] name: The name of the capacity provider.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
-        
+
         The **auto_scaling_group_provider** object supports the following:
-        
+
           * `autoScalingGroupArn` (`pulumi.Input[str]`)
           * `managedScaling` (`pulumi.Input[dict]`)
-        
             * `maximumScalingStepSize` (`pulumi.Input[float]`)
             * `minimumScalingStepSize` (`pulumi.Input[float]`)
             * `status` (`pulumi.Input[str]`)
-            * `target_capacity` (`pulumi.Input[float]`)
-        
-          * `managedTerminationProtection` (`pulumi.Input[str]`)
+            * `targetCapacity` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_capacity_provider.html.markdown.
+          * `managedTerminationProtection` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["auto_scaling_group_provider"] = auto_scaling_group_provider
         __props__["name"] = name

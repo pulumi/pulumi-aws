@@ -9,7 +9,7 @@ import (
 )
 
 // `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/waf_web_acl.html.markdown.
 func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
 	var rv LookupWebAclResult

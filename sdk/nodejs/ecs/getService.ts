@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * The ECS Service data source allows access to details of a specific
  * Service within a AWS ECS Cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws_ecs_cluster_example.arn.apply(arn => aws.ecs.getService({
  *     clusterArn: arn,
  *     serviceName: "example",
@@ -68,6 +68,10 @@ export interface GetServiceResult {
      */
     readonly desiredCount: number;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The launch type for the ECS Service
      */
     readonly launchType: string;
@@ -80,8 +84,4 @@ export interface GetServiceResult {
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

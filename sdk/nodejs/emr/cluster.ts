@@ -10,17 +10,17 @@ import * as utilities from "../utilities";
  * Provides an Elastic MapReduce Cluster, a web service that makes it easy to
  * process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
  * for more information.
- * 
+ *
  * To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the [`aws.emr.InstanceGroup` resource](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html).
- * 
+ *
  * > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cluster = new aws.emr.Cluster("cluster", {
  *     additionalInfo: `{
  *   "instanceAwsClientConfiguration": {
@@ -127,7 +127,7 @@ import * as utilities from "../utilities";
  *     terminationProtection: false,
  * });
  * ```
- * 
+ *
  * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster
  * to use as a service, and another to place on your Cluster Instances to interact
  * with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
@@ -135,18 +135,18 @@ import * as utilities from "../utilities";
  * Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
  * guide for more information on these IAM roles. There is also a fully-bootable
  * example this provider configuration at the bottom of this page.
- * 
+ *
  * ### Enable Debug Logging
- * 
+ *
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html)
  * is implemented as a step. It is highly recommended to utilize the
  * [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other
  * steps are being managed outside of this provider.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.emr.Cluster("example", {
  *     steps: [{
  *         actionOnFailure: "TERMINATE_CLUSTER",
@@ -158,15 +158,15 @@ import * as utilities from "../utilities";
  *     }],
  * }, {ignoreChanges: ["stepConcurrencyLevel", "steps"]});
  * ```
- * 
+ *
  * ### Multiple Node Master Instance Group
- * 
+ *
  * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Map public IP on launch must be enabled for public (Internet accessible) subnets
  * const exampleSubnet = new aws.ec2.Subnet("example", {
  *     mapPublicIpOnLaunch: true,
@@ -188,22 +188,22 @@ import * as utilities from "../utilities";
  *     terminationProtection: true,
  * });
  * ```
- * 
+ *
  * ## coreInstanceGroup Configuration Block
- * 
+ *
  * Supported arguments for the `coreInstanceGroup` configuration block:
- * 
+ *
  * * `instanceType` - (Required) EC2 instance type for all instances in the instance group.
  * * `autoscalingPolicy` - (Optional) String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
  * * `bidPrice` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
  * * `ebsConfig` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
  * * `instanceCount` - (Optional) Target number of instances for the instance group. Must be at least 1. Defaults to 1.
  * * `name` - (Optional) Friendly name given to the instance group.
- * 
+ *
  * ## ec2Attributes
- * 
+ *
  * Attributes for the Amazon EC2 instances running the job flow
- * 
+ *
  * * `keyName` - (Optional) Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
  * * `subnetId` - (Optional) VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
  * * `additionalMasterSecurityGroups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
@@ -212,7 +212,7 @@ import * as utilities from "../utilities";
  * * `emrManagedSlaveSecurityGroup` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
  * * `serviceAccessSecurityGroup` - (Optional) Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
  * * `instanceProfile` - (Required) Instance Profile for EC2 instances of the cluster assume this role
- * 
+ *
  * > **NOTE on EMR-Managed security groups:** These security groups will have any
  * missing inbound or outbound access rules added and maintained by AWS, to ensure
  * proper communication between instances in a cluster. The EMR service will
@@ -227,21 +227,21 @@ import * as utilities from "../utilities";
  * `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security
  * Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)
  * for more information about the EMR-managed security group rules.
- * 
+ *
  * ## kerberosAttributes
- * 
+ *
  * Attributes for Kerberos configuration
- * 
+ *
  * * `adDomainJoinPassword` - (Optional) The Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
  * * `adDomainJoinUser` - (Optional) Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
  * * `crossRealmTrustPrincipalPassword` - (Optional) Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
  * * `kdcAdminPassword` - (Required) The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
  * * `realm` - (Required) The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
- * 
+ *
  * ## instanceGroup
- * 
+ *
  * Attributes for each task instance group in the cluster
- * 
+ *
  * * `instanceRole` - (Required) The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
  * * `instanceType` - (Required) The EC2 instance type for all instances in the instance group
  * * `instanceCount` - (Optional) Target number of instances for the instance group
@@ -249,59 +249,59 @@ import * as utilities from "../utilities";
  * * `bidPrice` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
  * * `ebsConfig` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebsConfig` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
  * * `autoscalingPolicy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
- * 
+ *
  * ## masterInstanceGroup Configuration Block
- * 
+ *
  * Supported nested arguments for the `masterInstanceGroup` configuration block:
- * 
+ *
  * * `instanceType` - (Required) EC2 instance type for all instances in the instance group.
  * * `bidPrice` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
  * * `ebsConfig` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
  * * `instanceCount` - (Optional) Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
  * * `name` - (Optional) Friendly name given to the instance group.
- * 
+ *
  * ## ebsConfig
- * 
+ *
  * Attributes for the EBS volumes attached to each EC2 instance in the `instanceGroup`
- * 
+ *
  * * `size` - (Required) The volume size, in gibibytes (GiB).
  * * `type` - (Required) The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
  * * `iops` - (Optional) The number of I/O operations per second (IOPS) that the volume supports
  * * `volumesPerInstance` - (Optional) The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
- * 
+ *
  * ## bootstrapAction
- * 
+ *
  * * `name` - (Required) Name of the bootstrap action
  * * `path` - (Required) Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
  * * `args` - (Optional) List of command line arguments to pass to the bootstrap action script
- * 
+ *
  * ## step
- * 
+ *
  * Attributes for step configuration
- * 
+ *
  * * `actionOnFailure` - (Required) The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
  * * `hadoopJarStep` - (Required) The JAR file used for the step. Defined below.
  * * `name` - (Required) The name of the step.
- * 
+ *
  * ### hadoopJarStep
- * 
+ *
  * Attributes for Hadoop job step configuration
- * 
+ *
  * * `args` - (Optional) List of command line arguments passed to the JAR file's main function when executed.
  * * `jar` - (Required) Path to a JAR file run during the step.
  * * `mainClass` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
  * * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
- * 
+ *
  * ## Example bootable config
- * 
+ *
  * **NOTE:** This configuration demonstrates a minimal configuration needed to
  * boot an example EMR Cluster. It is not meant to display best practices. Please
  * use at your own risk.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainVpc = new aws.ec2.Vpc("main", {
  *     cidrBlock: "168.31.0.0/16",
  *     enableDnsHostnames: true,
@@ -603,6 +603,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
+     *
+     * @deprecated use `core_instance_group` configuration block `instance_count` argument instead
      */
     public readonly coreInstanceCount!: pulumi.Output<number>;
     /**
@@ -611,6 +613,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly coreInstanceGroup!: pulumi.Output<outputs.emr.ClusterCoreInstanceGroup>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
+     *
+     * @deprecated use `core_instance_group` configuration block `instance_type` argument instead
      */
     public readonly coreInstanceType!: pulumi.Output<string>;
     /**
@@ -627,6 +631,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly ec2Attributes!: pulumi.Output<outputs.emr.ClusterEc2Attributes | undefined>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
+     *
+     * @deprecated use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead
      */
     public readonly instanceGroups!: pulumi.Output<outputs.emr.ClusterInstanceGroup[]>;
     /**
@@ -647,6 +653,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
+     *
+     * @deprecated use `master_instance_group` configuration block `instance_type` argument instead
      */
     public readonly masterInstanceType!: pulumi.Output<string>;
     /**
@@ -675,13 +683,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-     */
-    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
-    /**
      * The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
      */
     public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
+    /**
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     */
+    public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -733,8 +741,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
             inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["steps"] = state ? state.steps : undefined;
             inputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
+            inputs["steps"] = state ? state.steps : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["terminationProtection"] = state ? state.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
@@ -769,8 +777,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["steps"] = args ? args.steps : undefined;
             inputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
+            inputs["steps"] = args ? args.steps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
@@ -821,6 +829,8 @@ export interface ClusterState {
     readonly configurationsJson?: pulumi.Input<string>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
+     *
+     * @deprecated use `core_instance_group` configuration block `instance_count` argument instead
      */
     readonly coreInstanceCount?: pulumi.Input<number>;
     /**
@@ -829,6 +839,8 @@ export interface ClusterState {
     readonly coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
+     *
+     * @deprecated use `core_instance_group` configuration block `instance_type` argument instead
      */
     readonly coreInstanceType?: pulumi.Input<string>;
     /**
@@ -845,6 +857,8 @@ export interface ClusterState {
     readonly ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
+     *
+     * @deprecated use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead
      */
     readonly instanceGroups?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroup>[]>;
     /**
@@ -865,6 +879,8 @@ export interface ClusterState {
     readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
+     *
+     * @deprecated use `master_instance_group` configuration block `instance_type` argument instead
      */
     readonly masterInstanceType?: pulumi.Input<string>;
     /**
@@ -893,13 +909,13 @@ export interface ClusterState {
      */
     readonly serviceRole?: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-     */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
-    /**
      * The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
      */
     readonly stepConcurrencyLevel?: pulumi.Input<number>;
+    /**
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     */
+    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */
@@ -944,6 +960,8 @@ export interface ClusterArgs {
     readonly configurationsJson?: pulumi.Input<string>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceCount` argument instead. Number of Amazon EC2 instances used to execute the job flow. EMR will use one node as the cluster's master node and use the remainder of the nodes (`coreInstanceCount`-1) as core nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set. Default `1`
+     *
+     * @deprecated use `core_instance_group` configuration block `instance_count` argument instead
      */
     readonly coreInstanceCount?: pulumi.Input<number>;
     /**
@@ -952,6 +970,8 @@ export interface ClusterArgs {
     readonly coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
     /**
      * Use the `coreInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the slave nodes. Cannot be specified if `coreInstanceGroup` or `instanceGroup` configuration blocks are set.
+     *
+     * @deprecated use `core_instance_group` configuration block `instance_type` argument instead
      */
     readonly coreInstanceType?: pulumi.Input<string>;
     /**
@@ -968,6 +988,8 @@ export interface ClusterArgs {
     readonly ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
     /**
      * Use the `masterInstanceGroup` configuration block, `coreInstanceGroup` configuration block and [`aws.emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instanceGroup` objects for each instance group in the cluster. Exactly one of `masterInstanceType` and `instanceGroup` must be specified. If `instanceGroup` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `masterInstanceGroup` or `coreInstanceGroup` configuration blocks are set. Defined below
+     *
+     * @deprecated use `master_instance_group` configuration block, `core_instance_group` configuration block, and `aws_emr_instance_group` resource(s) instead
      */
     readonly instanceGroups?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroup>[]>;
     /**
@@ -988,6 +1010,8 @@ export interface ClusterArgs {
     readonly masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
      * Use the `masterInstanceGroup` configuration block `instanceType` argument instead. The EC2 instance type of the master node. Cannot be specified if `masterInstanceGroup` or `instanceGroup` configuration blocks are set.
+     *
+     * @deprecated use `master_instance_group` configuration block `instance_type` argument instead
      */
     readonly masterInstanceType?: pulumi.Input<string>;
     /**
@@ -1011,13 +1035,13 @@ export interface ClusterArgs {
      */
     readonly serviceRole: pulumi.Input<string>;
     /**
-     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-     */
-    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
-    /**
      * The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater. (default is 1)
      */
     readonly stepConcurrencyLevel?: pulumi.Input<number>;
+    /**
+     * List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignoreChanges` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+     */
+    readonly steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
     /**
      * list of tags to apply to the EMR Cluster
      */

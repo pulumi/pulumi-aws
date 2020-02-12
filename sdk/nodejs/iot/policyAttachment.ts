@@ -4,19 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Policy} from ".";
-import {ARN} from "../index";
+import {ARN} from "..";
+import {Policy} from "./index";
 
 /**
  * Provides an IoT policy attachment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const pubsub = new aws.iot.Policy("pubsub", {
  *     policy: `{
  *   "Version": "2012-10-17",
@@ -123,7 +123,7 @@ export interface PolicyAttachmentState {
     /**
      * The name of the policy to attach.
      */
-    readonly policy?: pulumi.Input<string | Policy>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<Policy>;
     /**
      * The identity to which the policy is attached.
      */
@@ -137,7 +137,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The name of the policy to attach.
      */
-    readonly policy: pulumi.Input<string | Policy>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<Policy>;
     /**
      * The identity to which the policy is attached.
      */

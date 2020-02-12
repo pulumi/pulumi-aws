@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Template.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultLaunchTemplate = aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
  * });
@@ -94,6 +94,10 @@ export interface GetLaunchTemplateResult {
      */
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The AMI from which to launch the instance.
      */
     readonly imageId: string;
@@ -162,8 +166,4 @@ export interface GetLaunchTemplateResult {
      * A list of security group IDs to associate with.
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

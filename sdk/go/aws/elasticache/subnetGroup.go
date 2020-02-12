@@ -12,11 +12,11 @@ import (
 )
 
 // Provides an ElastiCache Subnet Group resource.
-// 
+//
 // > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
 // ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
 // ElastiCache Security Group resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_subnet_group.html.markdown.
 type SubnetGroup struct {
 	pulumi.CustomResourceState

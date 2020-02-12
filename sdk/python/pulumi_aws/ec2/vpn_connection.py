@@ -103,13 +103,15 @@ class VpnConnection(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, customer_gateway_id=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
-        
+
         > **Note:** All arguments including `tunnel1_preshared_key` and `tunnel2_preshared_key` will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
         > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
         [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
@@ -122,8 +124,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_preshared_key: The preshared key of the second VPN tunnel.
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -181,7 +181,7 @@ class VpnConnection(pulumi.CustomResource):
         """
         Get an existing VpnConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,26 +207,25 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
-        
+
         The **routes** object supports the following:
-        
+
           * `destination_cidr_block` (`pulumi.Input[str]`)
           * `source` (`pulumi.Input[str]`)
           * `state` (`pulumi.Input[str]`)
-        
+
         The **vgw_telemetries** object supports the following:
-        
+
           * `acceptedRouteCount` (`pulumi.Input[float]`)
           * `lastStatusChange` (`pulumi.Input[str]`)
           * `outsideIpAddress` (`pulumi.Input[str]`)
           * `status` (`pulumi.Input[str]`)
           * `statusMessage` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_connection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["customer_gateway_configuration"] = customer_gateway_configuration
         __props__["customer_gateway_id"] = customer_gateway_id
         __props__["routes"] = routes

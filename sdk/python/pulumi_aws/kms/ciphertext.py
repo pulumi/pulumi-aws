@@ -32,17 +32,17 @@ class Ciphertext(pulumi.CustomResource):
         by using an AWS KMS customer master key. The value returned by this resource
         is stable across every apply. For a changing ciphertext value each apply, see
         the [`kms.Ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
-        
+
         > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,7 +80,7 @@ class Ciphertext(pulumi.CustomResource):
         """
         Get an existing Ciphertext resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,12 +88,11 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.Input[dict] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["ciphertext_blob"] = ciphertext_blob
         __props__["context"] = context
         __props__["key_id"] = key_id

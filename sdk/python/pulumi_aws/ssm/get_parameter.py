@@ -13,10 +13,16 @@ class GetParameterResult:
     """
     A collection of values returned by getParameter.
     """
-    def __init__(__self__, arn=None, name=None, type=None, value=None, version=None, with_decryption=None, id=None):
+    def __init__(__self__, arn=None, id=None, name=None, type=None, value=None, version=None, with_decryption=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -32,12 +38,6 @@ class GetParameterResult:
         if with_decryption and not isinstance(with_decryption, bool):
             raise TypeError("Expected argument 'with_decryption' to be a bool")
         __self__.with_decryption = with_decryption
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetParameterResult(GetParameterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -45,23 +45,25 @@ class AwaitableGetParameterResult(GetParameterResult):
             yield self
         return GetParameterResult(
             arn=self.arn,
+            id=self.id,
             name=self.name,
             type=self.type,
             value=self.value,
             version=self.version,
-            with_decryption=self.with_decryption,
-            id=self.id)
+            with_decryption=self.with_decryption)
 
 def get_parameter(name=None,with_decryption=None,opts=None):
     """
     Provides an SSM Parameter data source.
-    
-    :param str name: The name of the parameter.
-    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_parameter.html.markdown.
+
+
+    :param str name: The name of the parameter.
+    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['withDecryption'] = with_decryption
@@ -73,9 +75,9 @@ def get_parameter(name=None,with_decryption=None,opts=None):
 
     return AwaitableGetParameterResult(
         arn=__ret__.get('arn'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         type=__ret__.get('type'),
         value=__ret__.get('value'),
         version=__ret__.get('version'),
-        with_decryption=__ret__.get('withDecryption'),
-        id=__ret__.get('id'))
+        with_decryption=__ret__.get('withDecryption'))

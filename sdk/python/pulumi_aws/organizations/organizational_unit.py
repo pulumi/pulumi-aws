@@ -13,7 +13,7 @@ class OrganizationalUnit(pulumi.CustomResource):
     accounts: pulumi.Output[list]
     """
     List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-    
+
       * `arn` (`str`) - ARN of the organizational unit
       * `email` (`str`) - Email of the account
       * `id` (`str`) - Identifier of the organization unit
@@ -34,13 +34,13 @@ class OrganizationalUnit(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, parent_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create an organizational unit.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name for the organizational unit
         :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,7 +76,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         """
         Get an existing OrganizationalUnit resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,19 +84,18 @@ class OrganizationalUnit(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the organizational unit
         :param pulumi.Input[str] name: The name for the organizational unit
         :param pulumi.Input[str] parent_id: ID of the parent organizational unit, which may be the root
-        
+
         The **accounts** object supports the following:
-        
+
           * `arn` (`pulumi.Input[str]`) - ARN of the organizational unit
           * `email` (`pulumi.Input[str]`) - Email of the account
           * `id` (`pulumi.Input[str]`) - Identifier of the organization unit
           * `name` (`pulumi.Input[str]`) - The name for the organizational unit
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organizational_unit.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accounts"] = accounts
         __props__["arn"] = arn
         __props__["name"] = name

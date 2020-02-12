@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * The Batch Job Queue data source allows access to details of a specific
  * job queue within AWS Batch.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testQueue = aws.batch.getJobQueue({
  *     name: "tf-test-batch-job-queue",
  * });
@@ -63,6 +63,10 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
     readonly computeEnvironmentOrders: outputs.batch.GetJobQueueComputeEnvironmentOrder[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -82,8 +86,4 @@ export interface GetJobQueueResult {
      * of the job queue.
      */
     readonly statusReason: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

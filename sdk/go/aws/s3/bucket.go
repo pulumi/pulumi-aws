@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a S3 bucket resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
 type Bucket struct {
 	pulumi.CustomResourceState

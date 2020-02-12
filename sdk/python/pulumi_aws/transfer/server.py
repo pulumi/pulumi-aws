@@ -21,8 +21,8 @@ class Server(pulumi.CustomResource):
     endpoint_details: pulumi.Output[dict]
     """
     The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
-    
-      * `vpc_endpoint_id` (`str`) - The ID of the VPC endpoint.
+
+      * `vpcEndpointId` (`str`) - The ID of the VPC endpoint.
     """
     endpoint_type: pulumi.Output[str]
     """
@@ -55,7 +55,9 @@ class Server(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, endpoint_details=None, endpoint_type=None, force_destroy=None, identity_provider_type=None, invocation_role=None, logging_role=None, tags=None, url=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a AWS Transfer Server resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -66,12 +68,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        
-        The **endpoint_details** object supports the following:
-        
-          * `vpc_endpoint_id` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.
+        The **endpoint_details** object supports the following:
+
+          * `vpcEndpointId` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +111,7 @@ class Server(pulumi.CustomResource):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,16 +125,15 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        
-        The **endpoint_details** object supports the following:
-        
-          * `vpc_endpoint_id` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_server.html.markdown.
+        The **endpoint_details** object supports the following:
+
+          * `vpcEndpointId` (`pulumi.Input[str]`) - The ID of the VPC endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["endpoint"] = endpoint
         __props__["endpoint_details"] = endpoint_details

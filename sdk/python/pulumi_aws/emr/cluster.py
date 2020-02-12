@@ -26,7 +26,7 @@ class Cluster(pulumi.CustomResource):
     bootstrap_actions: pulumi.Output[list]
     """
     List of bootstrap actions that will be run before Hadoop is started on the cluster nodes. Defined below
-    
+
       * `args` (`list`)
       * `name` (`str`) - The name of the job flow
       * `path` (`str`)
@@ -47,16 +47,15 @@ class Cluster(pulumi.CustomResource):
     core_instance_group: pulumi.Output[dict]
     """
     Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core). Cannot be specified if `core_instance_count` argument, `core_instance_type` argument, or `instance_group` configuration blocks are set. Detailed below.
-    
+
       * `autoscaling_policy` (`str`)
       * `bid_price` (`str`)
       * `ebs_configs` (`list`)
-    
         * `iops` (`float`)
         * `size` (`float`)
         * `type` (`str`)
         * `volumesPerInstance` (`float`)
-    
+
       * `id` (`str`) - The ID of the EMR Cluster
       * `instance_count` (`float`)
       * `instance_type` (`str`)
@@ -77,29 +76,28 @@ class Cluster(pulumi.CustomResource):
     ec2_attributes: pulumi.Output[dict]
     """
     Attributes for the EC2 instances running the job flow. Defined below
-    
+
       * `additionalMasterSecurityGroups` (`str`)
       * `additionalSlaveSecurityGroups` (`str`)
       * `emrManagedMasterSecurityGroup` (`str`)
       * `emrManagedSlaveSecurityGroup` (`str`)
       * `instanceProfile` (`str`)
-      * `key_name` (`str`)
+      * `keyName` (`str`)
       * `serviceAccessSecurityGroup` (`str`)
       * `subnet_id` (`str`)
     """
     instance_groups: pulumi.Output[list]
     """
     Use the `master_instance_group` configuration block, `core_instance_group` configuration block and [`emr.InstanceGroup` resource(s)](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html) instead. A list of `instance_group` objects for each instance group in the cluster. Exactly one of `master_instance_type` and `instance_group` must be specified. If `instance_group` is set, then it must contain a configuration block for at least the `MASTER` instance group type (as well as any additional instance groups). Cannot be specified if `master_instance_group` or `core_instance_group` configuration blocks are set. Defined below
-    
+
       * `autoscaling_policy` (`str`)
       * `bid_price` (`str`)
       * `ebs_configs` (`list`)
-    
         * `iops` (`float`)
         * `size` (`float`)
         * `type` (`str`)
         * `volumesPerInstance` (`float`)
-    
+
       * `id` (`str`) - The ID of the EMR Cluster
       * `instance_count` (`float`)
       * `instanceRole` (`str`)
@@ -113,7 +111,7 @@ class Cluster(pulumi.CustomResource):
     kerberos_attributes: pulumi.Output[dict]
     """
     Kerberos configuration for the cluster. Defined below
-    
+
       * `adDomainJoinPassword` (`str`)
       * `adDomainJoinUser` (`str`)
       * `crossRealmTrustPrincipalPassword` (`str`)
@@ -127,15 +125,14 @@ class Cluster(pulumi.CustomResource):
     master_instance_group: pulumi.Output[dict]
     """
     Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master). Cannot be specified if `master_instance_type` argument or `instance_group` configuration blocks are set. Detailed below.
-    
+
       * `bid_price` (`str`)
       * `ebs_configs` (`list`)
-    
         * `iops` (`float`)
         * `size` (`float`)
         * `type` (`str`)
         * `volumesPerInstance` (`float`)
-    
+
       * `id` (`str`) - The ID of the EMR Cluster
       * `instance_count` (`float`)
       * `instance_type` (`str`)
@@ -170,23 +167,22 @@ class Cluster(pulumi.CustomResource):
     """
     IAM role that will be assumed by the Amazon EMR service to access AWS resources
     """
+    step_concurrency_level: pulumi.Output[float]
+    """
+    The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+    """
     steps: pulumi.Output[list]
     """
     List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
-    
+
       * `actionOnFailure` (`str`)
       * `hadoopJarStep` (`dict`)
-    
         * `args` (`list`)
         * `jar` (`str`)
         * `mainClass` (`str`)
         * `properties` (`dict`)
-    
+
       * `name` (`str`) - The name of the job flow
-    """
-    step_concurrency_level: pulumi.Output[float]
-    """
-    The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
     """
     tags: pulumi.Output[dict]
     """
@@ -200,31 +196,31 @@ class Cluster(pulumi.CustomResource):
     """
     Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
     """
-    def __init__(__self__, resource_name, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, step_concurrency_level=None, tags=None, termination_protection=None, visible_to_all_users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_info=None, applications=None, autoscaling_role=None, bootstrap_actions=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, step_concurrency_level=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic MapReduce Cluster, a web service that makes it easy to
         process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/)
         for more information.
-        
+
         To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the [`emr.InstanceGroup` resource](https://www.terraform.io/docs/providers/aws/r/emr_instance_group.html).
-        
+
         > Support for [Instance Fleets](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-fleets) will be made available in an upcoming release.
-        
+
         ## core_instance_group Configuration Block
-        
+
         Supported arguments for the `core_instance_group` configuration block:
-        
+
         * `instance_type` - (Required) EC2 instance type for all instances in the instance group.
         * `autoscaling_policy` - (Optional) String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         * `bid_price` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         * `ebs_config` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         * `instance_count` - (Optional) Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         * `name` - (Optional) Friendly name given to the instance group.
-        
+
         ## ec2_attributes
-        
+
         Attributes for the Amazon EC2 instances running the job flow
-        
+
         * `key_name` - (Optional) Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
         * `subnet_id` - (Optional) VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
         * `additional_master_security_groups` - (Optional) String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
@@ -233,7 +229,7 @@ class Cluster(pulumi.CustomResource):
         * `emr_managed_slave_security_group` - (Optional) Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
         * `service_access_security_group` - (Optional) Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
         * `instance_profile` - (Required) Instance Profile for EC2 instances of the cluster assume this role
-        
+
         > **NOTE on EMR-Managed security groups:** These security groups will have any
         missing inbound or outbound access rules added and maintained by AWS, to ensure
         proper communication between instances in a cluster. The EMR service will
@@ -248,21 +244,21 @@ class Cluster(pulumi.CustomResource):
         `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security
         Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)
         for more information about the EMR-managed security group rules.
-        
+
         ## kerberos_attributes
-        
+
         Attributes for Kerberos configuration
-        
+
         * `ad_domain_join_password` - (Optional) The Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
         * `ad_domain_join_user` - (Optional) Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
         * `cross_realm_trust_principal_password` - (Optional) Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
         * `kdc_admin_password` - (Required) The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
         * `realm` - (Required) The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-        
+
         ## instance_group
-        
+
         Attributes for each task instance group in the cluster
-        
+
         * `instance_role` - (Required) The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
         * `instance_type` - (Required) The EC2 instance type for all instances in the instance group
         * `instance_count` - (Optional) Target number of instances for the instance group
@@ -270,49 +266,51 @@ class Cluster(pulumi.CustomResource):
         * `bid_price` - (Optional) If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         * `ebs_config` - (Optional) A list of attributes for the EBS volumes attached to each instance in the instance group. Each `ebs_config` defined will result in additional EBS volumes being attached to _each_ instance in the instance group. Defined below
         * `autoscaling_policy` - (Optional) The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        
+
         ## master_instance_group Configuration Block
-        
+
         Supported nested arguments for the `master_instance_group` configuration block:
-        
+
         * `instance_type` - (Required) EC2 instance type for all instances in the instance group.
         * `bid_price` - (Optional) Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         * `ebs_config` - (Optional) Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         * `instance_count` - (Optional) Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
         * `name` - (Optional) Friendly name given to the instance group.
-        
+
         ## ebs_config
-        
+
         Attributes for the EBS volumes attached to each EC2 instance in the `instance_group`
-        
+
         * `size` - (Required) The volume size, in gibibytes (GiB).
         * `type` - (Required) The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         * `iops` - (Optional) The number of I/O operations per second (IOPS) that the volume supports
         * `volumes_per_instance` - (Optional) The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-        
+
         ## bootstrap_action
-        
+
         * `name` - (Required) Name of the bootstrap action
         * `path` - (Required) Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
         * `args` - (Optional) List of command line arguments to pass to the bootstrap action script
-        
+
         ## step
-        
+
         Attributes for step configuration
-        
+
         * `action_on_failure` - (Required) The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
         * `hadoop_jar_step` - (Required) The JAR file used for the step. Defined below.
         * `name` - (Required) The name of the step.
-        
+
         ### hadoop_jar_step
-        
+
         Attributes for Hadoop job step configuration
-        
+
         * `args` - (Optional) List of command line arguments passed to the JAR file's main function when executed.
         * `jar` - (Required) Path to a JAR file run during the step.
         * `main_class` - (Optional) Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
         * `properties` - (Optional) Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_info: A JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
@@ -338,98 +336,92 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] scale_down_behavior: The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources
-        :param pulumi.Input[list] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[float] step_concurrency_level: The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        :param pulumi.Input[list] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
-        
+
         The **bootstrap_actions** object supports the following:
-        
+
           * `args` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
           * `path` (`pulumi.Input[str]`)
-        
+
         The **core_instance_group** object supports the following:
-        
+
           * `autoscaling_policy` (`pulumi.Input[str]`)
           * `bid_price` (`pulumi.Input[str]`)
           * `ebs_configs` (`pulumi.Input[list]`)
-        
             * `iops` (`pulumi.Input[float]`)
             * `size` (`pulumi.Input[float]`)
             * `type` (`pulumi.Input[str]`)
             * `volumesPerInstance` (`pulumi.Input[float]`)
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
           * `instance_count` (`pulumi.Input[float]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
-        
+
         The **ec2_attributes** object supports the following:
-        
+
           * `additionalMasterSecurityGroups` (`pulumi.Input[str]`)
           * `additionalSlaveSecurityGroups` (`pulumi.Input[str]`)
           * `emrManagedMasterSecurityGroup` (`pulumi.Input[str]`)
           * `emrManagedSlaveSecurityGroup` (`pulumi.Input[str]`)
           * `instanceProfile` (`pulumi.Input[str]`)
-          * `key_name` (`pulumi.Input[str]`)
+          * `keyName` (`pulumi.Input[str]`)
           * `serviceAccessSecurityGroup` (`pulumi.Input[str]`)
           * `subnet_id` (`pulumi.Input[str]`)
-        
+
         The **instance_groups** object supports the following:
-        
+
           * `autoscaling_policy` (`pulumi.Input[str]`)
           * `bid_price` (`pulumi.Input[str]`)
           * `ebs_configs` (`pulumi.Input[list]`)
-        
             * `iops` (`pulumi.Input[float]`)
             * `size` (`pulumi.Input[float]`)
             * `type` (`pulumi.Input[str]`)
             * `volumesPerInstance` (`pulumi.Input[float]`)
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
           * `instance_count` (`pulumi.Input[float]`)
           * `instanceRole` (`pulumi.Input[str]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
-        
+
         The **kerberos_attributes** object supports the following:
-        
+
           * `adDomainJoinPassword` (`pulumi.Input[str]`)
           * `adDomainJoinUser` (`pulumi.Input[str]`)
           * `crossRealmTrustPrincipalPassword` (`pulumi.Input[str]`)
           * `kdcAdminPassword` (`pulumi.Input[str]`)
           * `realm` (`pulumi.Input[str]`)
-        
+
         The **master_instance_group** object supports the following:
-        
+
           * `bid_price` (`pulumi.Input[str]`)
           * `ebs_configs` (`pulumi.Input[list]`)
-        
             * `iops` (`pulumi.Input[float]`)
             * `size` (`pulumi.Input[float]`)
             * `type` (`pulumi.Input[str]`)
             * `volumesPerInstance` (`pulumi.Input[float]`)
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
           * `instance_count` (`pulumi.Input[float]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
-        
+
         The **steps** object supports the following:
-        
+
           * `actionOnFailure` (`pulumi.Input[str]`)
           * `hadoopJarStep` (`pulumi.Input[dict]`)
-        
             * `args` (`pulumi.Input[list]`)
             * `jar` (`pulumi.Input[str]`)
             * `mainClass` (`pulumi.Input[str]`)
             * `properties` (`pulumi.Input[dict]`)
-        
-          * `name` (`pulumi.Input[str]`) - The name of the job flow
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -475,8 +467,8 @@ class Cluster(pulumi.CustomResource):
             if service_role is None:
                 raise TypeError("Missing required property 'service_role'")
             __props__['service_role'] = service_role
-            __props__['steps'] = steps
             __props__['step_concurrency_level'] = step_concurrency_level
+            __props__['steps'] = steps
             __props__['tags'] = tags
             __props__['termination_protection'] = termination_protection
             __props__['visible_to_all_users'] = visible_to_all_users
@@ -490,11 +482,11 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_info=None, applications=None, arn=None, autoscaling_role=None, bootstrap_actions=None, cluster_state=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, master_public_dns=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, steps=None, step_concurrency_level=None, tags=None, termination_protection=None, visible_to_all_users=None):
+    def get(resource_name, id, opts=None, additional_info=None, applications=None, arn=None, autoscaling_role=None, bootstrap_actions=None, cluster_state=None, configurations=None, configurations_json=None, core_instance_count=None, core_instance_group=None, core_instance_type=None, custom_ami_id=None, ebs_root_volume_size=None, ec2_attributes=None, instance_groups=None, keep_job_flow_alive_when_no_steps=None, kerberos_attributes=None, log_uri=None, master_instance_group=None, master_instance_type=None, master_public_dns=None, name=None, release_label=None, scale_down_behavior=None, security_configuration=None, service_role=None, step_concurrency_level=None, steps=None, tags=None, termination_protection=None, visible_to_all_users=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -523,102 +515,97 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] scale_down_behavior: The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: The security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources
-        :param pulumi.Input[list] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[float] step_concurrency_level: The number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater. (default is 1)
+        :param pulumi.Input[list] steps: List of steps to run when creating the cluster. Defined below. It is highly recommended to utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/resources.html) with `ignore_changes` if other steps are being managed outside of this provider. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         :param pulumi.Input[dict] tags: list of tags to apply to the EMR Cluster
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default `true`
-        
+
         The **bootstrap_actions** object supports the following:
-        
+
           * `args` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
           * `path` (`pulumi.Input[str]`)
-        
+
         The **core_instance_group** object supports the following:
-        
+
           * `autoscaling_policy` (`pulumi.Input[str]`)
           * `bid_price` (`pulumi.Input[str]`)
           * `ebs_configs` (`pulumi.Input[list]`)
-        
             * `iops` (`pulumi.Input[float]`)
             * `size` (`pulumi.Input[float]`)
             * `type` (`pulumi.Input[str]`)
             * `volumesPerInstance` (`pulumi.Input[float]`)
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
           * `instance_count` (`pulumi.Input[float]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
-        
+
         The **ec2_attributes** object supports the following:
-        
+
           * `additionalMasterSecurityGroups` (`pulumi.Input[str]`)
           * `additionalSlaveSecurityGroups` (`pulumi.Input[str]`)
           * `emrManagedMasterSecurityGroup` (`pulumi.Input[str]`)
           * `emrManagedSlaveSecurityGroup` (`pulumi.Input[str]`)
           * `instanceProfile` (`pulumi.Input[str]`)
-          * `key_name` (`pulumi.Input[str]`)
+          * `keyName` (`pulumi.Input[str]`)
           * `serviceAccessSecurityGroup` (`pulumi.Input[str]`)
           * `subnet_id` (`pulumi.Input[str]`)
-        
+
         The **instance_groups** object supports the following:
-        
+
           * `autoscaling_policy` (`pulumi.Input[str]`)
           * `bid_price` (`pulumi.Input[str]`)
           * `ebs_configs` (`pulumi.Input[list]`)
-        
             * `iops` (`pulumi.Input[float]`)
             * `size` (`pulumi.Input[float]`)
             * `type` (`pulumi.Input[str]`)
             * `volumesPerInstance` (`pulumi.Input[float]`)
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
           * `instance_count` (`pulumi.Input[float]`)
           * `instanceRole` (`pulumi.Input[str]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
-        
+
         The **kerberos_attributes** object supports the following:
-        
+
           * `adDomainJoinPassword` (`pulumi.Input[str]`)
           * `adDomainJoinUser` (`pulumi.Input[str]`)
           * `crossRealmTrustPrincipalPassword` (`pulumi.Input[str]`)
           * `kdcAdminPassword` (`pulumi.Input[str]`)
           * `realm` (`pulumi.Input[str]`)
-        
+
         The **master_instance_group** object supports the following:
-        
+
           * `bid_price` (`pulumi.Input[str]`)
           * `ebs_configs` (`pulumi.Input[list]`)
-        
             * `iops` (`pulumi.Input[float]`)
             * `size` (`pulumi.Input[float]`)
             * `type` (`pulumi.Input[str]`)
             * `volumesPerInstance` (`pulumi.Input[float]`)
-        
+
           * `id` (`pulumi.Input[str]`) - The ID of the EMR Cluster
           * `instance_count` (`pulumi.Input[float]`)
           * `instance_type` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - The name of the job flow
-        
+
         The **steps** object supports the following:
-        
+
           * `actionOnFailure` (`pulumi.Input[str]`)
           * `hadoopJarStep` (`pulumi.Input[dict]`)
-        
             * `args` (`pulumi.Input[list]`)
             * `jar` (`pulumi.Input[str]`)
             * `mainClass` (`pulumi.Input[str]`)
             * `properties` (`pulumi.Input[dict]`)
-        
-          * `name` (`pulumi.Input[str]`) - The name of the job flow
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/emr_cluster.html.markdown.
+          * `name` (`pulumi.Input[str]`) - The name of the job flow
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["additional_info"] = additional_info
         __props__["applications"] = applications
         __props__["arn"] = arn
@@ -645,8 +632,8 @@ class Cluster(pulumi.CustomResource):
         __props__["scale_down_behavior"] = scale_down_behavior
         __props__["security_configuration"] = security_configuration
         __props__["service_role"] = service_role
-        __props__["steps"] = steps
         __props__["step_concurrency_level"] = step_concurrency_level
+        __props__["steps"] = steps
         __props__["tags"] = tags
         __props__["termination_protection"] = termination_protection
         __props__["visible_to_all_users"] = visible_to_all_users

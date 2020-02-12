@@ -14,22 +14,22 @@ import (
 // Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
 // you to deploy and manage applications in the AWS cloud without worrying about
 // the infrastructure that runs those applications.
-// 
+//
 // Environments are often things such as `development`, `integration`, or
 // `production`.
-// 
+//
 // ## Option Settings
-// 
+//
 // Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
 // for supported options and examples.
-// 
+//
 // The `setting` and `allSettings` mappings support the following format:
-// 
+//
 // * `namespace` - unique namespace identifying the option's associated AWS resource
 // * `name` - name of the configuration option
 // * `value` - value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_environment.html.markdown.
 type Environment struct {
 	pulumi.CustomResourceState

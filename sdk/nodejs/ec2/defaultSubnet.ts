@@ -2,26 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a [default AWS VPC subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics)
  * in the current region.
- * 
+ *
  * The `aws.ec2.DefaultSubnet` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage with tags:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultAz1 = new aws.ec2.DefaultSubnet("defaultAz1", {
  *     availabilityZone: "us-west-2a",
  *     tags: {

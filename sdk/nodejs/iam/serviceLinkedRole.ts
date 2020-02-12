@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {
  *     awsServiceName: "elasticbeanstalk.amazonaws.com",
  * });

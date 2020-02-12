@@ -2,22 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### CloudWatch Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
  * const exampleRole = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
@@ -62,13 +60,13 @@ import * as utilities from "../utilities";
  *     role: exampleRole.id,
  * });
  * ```
- * 
+ *
  * ### S3 Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleBucket = new aws.s3.Bucket("example", {});
  * const exampleFlowLog = new aws.ec2.FlowLog("example", {
  *     logDestination: exampleBucket.arn,
@@ -129,6 +127,8 @@ export class FlowLog extends pulumi.CustomResource {
     public readonly logFormat!: pulumi.Output<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     *
+     * @deprecated use 'log_destination' argument instead
      */
     public readonly logGroupName!: pulumi.Output<string>;
     /**
@@ -217,6 +217,8 @@ export interface FlowLogState {
     readonly logFormat?: pulumi.Input<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     *
+     * @deprecated use 'log_destination' argument instead
      */
     readonly logGroupName?: pulumi.Input<string>;
     /**
@@ -259,6 +261,8 @@ export interface FlowLogArgs {
     readonly logFormat?: pulumi.Input<string>;
     /**
      * *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group.
+     *
+     * @deprecated use 'log_destination' argument instead
      */
     readonly logGroupName?: pulumi.Input<string>;
     /**

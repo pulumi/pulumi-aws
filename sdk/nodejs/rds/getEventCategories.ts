@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * List the event categories of all the RDS resources. 
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleEventCategories = aws.rds.getEventCategories();
- * 
+ *
  * export const example = exampleEventCategories.eventCategories;
  * ```
- * 
+ *
  * List the event categories specific to the RDS resource `db-snapshot`.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleEventCategories = aws.rds.getEventCategories({
  *     sourceType: "db-snapshot",
  * });
- * 
+ *
  * export const example = exampleEventCategories.eventCategories;
  * ```
  *
@@ -69,9 +69,9 @@ export interface GetEventCategoriesResult {
      * A list of the event categories.
      */
     readonly eventCategories: string[];
-    readonly sourceType?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly sourceType?: string;
 }

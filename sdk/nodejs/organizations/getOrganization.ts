@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about the organization that the user's account belongs to
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### SNS topic that can be interacted by the organization only
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.organizations.getOrganization();
  * const snsTopic = new aws.sns.Topic("snsTopic", {});
  * const snsTopicPolicyPolicyDocument = snsTopic.arn.apply(arn => aws.iam.getPolicyDocument({
@@ -85,6 +85,10 @@ export interface GetOrganizationResult {
      */
     readonly featureSet: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
      */
     readonly masterAccountArn: string;
@@ -104,8 +108,4 @@ export interface GetOrganizationResult {
      * List of organization roots. All elements have these attributes:
      */
     readonly roots: outputs.organizations.GetOrganizationRoot[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

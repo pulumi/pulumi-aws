@@ -13,7 +13,13 @@ class GetClusterAuthResult:
     """
     A collection of values returned by getClusterAuth.
     """
-    def __init__(__self__, name=None, token=None, id=None):
+    def __init__(__self__, id=None, name=None, token=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -23,36 +29,32 @@ class GetClusterAuthResult:
         """
         The token to use to authenticate with the cluster.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterAuthResult(GetClusterAuthResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetClusterAuthResult(
+            id=self.id,
             name=self.name,
-            token=self.token,
-            id=self.id)
+            token=self.token)
 
 def get_cluster_auth(name=None,opts=None):
     """
     Get an authentication token to communicate with an EKS cluster.
-    
+
     Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
     [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
     This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
     server configured.
-    
-    :param str name: The name of the cluster
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/eks_cluster_auth.html.markdown.
+
+
+    :param str name: The name of the cluster
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -62,6 +64,6 @@ def get_cluster_auth(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts).value
 
     return AwaitableGetClusterAuthResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
-        token=__ret__.get('token'),
-        id=__ret__.get('id'))
+        token=__ret__.get('token'))

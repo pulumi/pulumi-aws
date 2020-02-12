@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a SMB Location within AWS DataSync.
- * 
+ *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.datasync.LocationSmb("example", {
  *     agentArns: [aws_datasync_agent_example.arn],
  *     password: "ANotGreatPassword",

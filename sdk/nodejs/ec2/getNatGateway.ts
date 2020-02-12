@@ -8,27 +8,27 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Nat Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const subnetId = config.require("subnetId");
- * 
+ *
  * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
  *     subnetId: id,
  * }));
  * ```
- * 
+ *
  * Usage with tags:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
  *     subnetId: id,
  *     tags: {

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES event destination
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### CloudWatch Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cloudwatch = new aws.ses.EventDestination("cloudwatch", {
  *     cloudwatchDestinations: [{
  *         defaultValue: "default",
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * 
+ *
  * ### Kinesis Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const kinesis = new aws.ses.EventDestination("kinesis", {
  *     configurationSetName: aws_ses_configuration_set_example.name,
  *     enabled: true,
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * 
+ *
  * ### SNS Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sns = new aws.ses.EventDestination("sns", {
  *     configurationSetName: aws_ses_configuration_set_example.name,
  *     enabled: true,

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an API Gateway Usage Plan.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myapi = new aws.apigateway.RestApi("myapi", {});
  * const dev = new aws.apigateway.Deployment("dev", {
  *     restApi: myapi.id,

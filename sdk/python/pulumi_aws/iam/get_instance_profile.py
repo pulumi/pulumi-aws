@@ -13,7 +13,7 @@ class GetInstanceProfileResult:
     """
     A collection of values returned by getInstanceProfile.
     """
-    def __init__(__self__, arn=None, create_date=None, name=None, path=None, role_arn=None, role_id=None, role_name=None, id=None):
+    def __init__(__self__, arn=None, create_date=None, id=None, name=None, path=None, role_arn=None, role_id=None, role_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -26,6 +26,12 @@ class GetInstanceProfileResult:
         """
         The string representation of the date the instance profile
         was created.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -54,12 +60,6 @@ class GetInstanceProfileResult:
         """
         The role name associated with this instance profile.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInstanceProfileResult(GetInstanceProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -68,24 +68,26 @@ class AwaitableGetInstanceProfileResult(GetInstanceProfileResult):
         return GetInstanceProfileResult(
             arn=self.arn,
             create_date=self.create_date,
+            id=self.id,
             name=self.name,
             path=self.path,
             role_arn=self.role_arn,
             role_id=self.role_id,
-            role_name=self.role_name,
-            id=self.id)
+            role_name=self.role_name)
 
 def get_instance_profile(name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM instance profile. By using this data source, you can reference IAM
     instance profile properties without having to hard code ARNs as input.
-    
-    :param str name: The friendly IAM instance profile name to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_instance_profile.html.markdown.
+
+
+    :param str name: The friendly IAM instance profile name to match.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -97,9 +99,9 @@ def get_instance_profile(name=None,opts=None):
     return AwaitableGetInstanceProfileResult(
         arn=__ret__.get('arn'),
         create_date=__ret__.get('createDate'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         path=__ret__.get('path'),
         role_arn=__ret__.get('roleArn'),
         role_id=__ret__.get('roleId'),
-        role_name=__ret__.get('roleName'),
-        id=__ret__.get('id'))
+        role_name=__ret__.get('roleName'))

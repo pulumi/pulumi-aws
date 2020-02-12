@@ -15,10 +15,10 @@ import (
 // by using an AWS KMS customer master key. The value returned by this resource
 // is stable across every apply. For a changing ciphertext value each apply, see
 // the [`kms.Ciphertext` data source](https://www.terraform.io/docs/providers/aws/d/kms_ciphertext.html).
-// 
+//
 // > **Note:** All arguments including the plaintext be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_ciphertext.html.markdown.
 type Ciphertext struct {
 	pulumi.CustomResourceState

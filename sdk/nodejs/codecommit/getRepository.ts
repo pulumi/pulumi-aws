@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = aws.codecommit.getRepository({
  *     repositoryName: "MyTestRepository",
  * });
@@ -64,12 +64,12 @@ export interface GetRepositoryResult {
      */
     readonly cloneUrlSsh: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the repository
      */
     readonly repositoryId: string;
     readonly repositoryName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

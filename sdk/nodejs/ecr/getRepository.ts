@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const service = aws.ecr.getRepository({
  *     name: "ecr-repository",
  * });
@@ -57,6 +57,10 @@ export interface GetRepositoryResult {
      * Full ARN of the repository.
      */
     readonly arn: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The registry ID where the repository was created.
@@ -70,8 +74,4 @@ export interface GetRepositoryResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

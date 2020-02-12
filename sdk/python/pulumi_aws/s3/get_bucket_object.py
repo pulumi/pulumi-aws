@@ -13,7 +13,7 @@ class GetBucketObjectResult:
     """
     A collection of values returned by getBucketObject.
     """
-    def __init__(__self__, body=None, bucket=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None, id=None):
+    def __init__(__self__, body=None, bucket=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         __self__.body = body
@@ -76,6 +76,12 @@ class GetBucketObjectResult:
         __self__.expires = expires
         """
         The date and time at which the object is no longer cacheable.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if key and not isinstance(key, str):
             raise TypeError("Expected argument 'key' to be a str")
@@ -149,12 +155,6 @@ class GetBucketObjectResult:
         """
         If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetBucketObjectResult(GetBucketObjectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -172,6 +172,7 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
             etag=self.etag,
             expiration=self.expiration,
             expires=self.expires,
+            id=self.id,
             key=self.key,
             last_modified=self.last_modified,
             metadata=self.metadata,
@@ -184,23 +185,24 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
             storage_class=self.storage_class,
             tags=self.tags,
             version_id=self.version_id,
-            website_redirect_location=self.website_redirect_location,
-            id=self.id)
+            website_redirect_location=self.website_redirect_location)
 
 def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,opts=None):
     """
     The S3 object data source allows access to the metadata and
     _optionally_ (see below) content of an object stored inside S3 bucket.
-    
+
     > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
+
+
     :param str bucket: The name of the bucket to read the object from
     :param str key: The full path to the object inside the bucket
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket_object.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['bucket'] = bucket
     __args__['key'] = key
@@ -225,6 +227,7 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
         etag=__ret__.get('etag'),
         expiration=__ret__.get('expiration'),
         expires=__ret__.get('expires'),
+        id=__ret__.get('id'),
         key=__ret__.get('key'),
         last_modified=__ret__.get('lastModified'),
         metadata=__ret__.get('metadata'),
@@ -237,5 +240,4 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
         storage_class=__ret__.get('storageClass'),
         tags=__ret__.get('tags'),
         version_id=__ret__.get('versionId'),
-        website_redirect_location=__ret__.get('websiteRedirectLocation'),
-        id=__ret__.get('id'))
+        website_redirect_location=__ret__.get('websiteRedirectLocation'))

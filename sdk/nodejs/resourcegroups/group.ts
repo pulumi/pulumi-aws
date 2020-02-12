@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Resource Group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.resourcegroups.Group("test", {
  *     resourceQuery: {
  *         query: `{

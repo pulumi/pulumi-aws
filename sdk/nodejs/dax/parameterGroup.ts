@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DAX Parameter Group resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.dax.ParameterGroup("example", {
  *     parameters: [
  *         {
@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * 
+ *
  * ## parameters
- * 
+ *
  * `parameters` supports the following:
- * 
+ *
  * * `name` - (Required) The name of the parameter.
  * * `value` - (Required) The value for the parameter.
  *

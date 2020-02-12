@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a DB event subscription resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultInstance = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
  *     dbSubnetGroupName: "myDatabaseSubnetGroup",
@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  *     sourceType: "db-instance",
  * });
  * ```
- * 
+ *
  * ## Attributes
- * 
+ *
  * The following additional atttributes are provided:
- * 
+ *
  * * `id` - The name of the RDS event notification subscription
  * * `arn` - The Amazon Resource Name of the RDS event notification subscription
  * * `customerAwsId` - The AWS customer account associated with the RDS event notification subscription

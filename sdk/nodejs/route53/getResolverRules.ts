@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * The following example shows how to get Route53 Resolver rules based on tags.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.route53.getResolverRules({
  *     tags: [{
  *         Environment: "dev",
@@ -72,6 +72,10 @@ export interface GetResolverRulesArgs {
  * A collection of values returned by getResolverRules.
  */
 export interface GetResolverRulesResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ownerId?: string;
     readonly resolverEndpointId?: string;
     /**
@@ -80,8 +84,4 @@ export interface GetResolverRulesResult {
     readonly resolverRuleIds: string[];
     readonly ruleType?: string;
     readonly shareStatus?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

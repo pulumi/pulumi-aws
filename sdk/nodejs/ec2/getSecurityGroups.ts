@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get IDs and VPC membership of Security Groups that are created
  * outside of this provider.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = aws.ec2.getSecurityGroups({
  *     tags: {
  *         Application: "k8s",
@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = aws.ec2.getSecurityGroups({
  *     filters: [
  *         {
@@ -84,6 +84,10 @@ export interface GetSecurityGroupsArgs {
 export interface GetSecurityGroupsResult {
     readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * IDs of the matches security groups.
      */
     readonly ids: string[];
@@ -93,8 +97,4 @@ export interface GetSecurityGroupsResult {
      * unless the `vpc-id` filter is also used.
      */
     readonly vpcIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

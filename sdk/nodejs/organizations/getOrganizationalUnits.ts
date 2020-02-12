@@ -44,9 +44,9 @@ export interface GetOrganizationalUnitsResult {
      * List of child organizational units, which have the following attributes:
      */
     readonly childrens: outputs.organizations.GetOrganizationalUnitsChildren[];
-    readonly parentId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly parentId: string;
 }

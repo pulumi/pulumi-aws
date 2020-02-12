@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a SSM resource data sync.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const hogeBucket = new aws.s3.Bucket("hoge", {
  *     region: "us-east-1",
  * });
@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## s3Destination
- * 
+ *
  * `s3Destination` supports the following:
- * 
+ *
  * * `bucketName` - (Required) Name of S3 bucket where the aggregated data is stored.
  * * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
  * * `kmsKeyArn` - (Optional) ARN of an encryption key for a destination in Amazon S3.

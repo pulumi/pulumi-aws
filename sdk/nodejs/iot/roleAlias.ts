@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IoT role alias.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("role", {
  *     policy: `{
  *   "Version": "2012-10-17",

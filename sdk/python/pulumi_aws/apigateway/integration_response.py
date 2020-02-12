@@ -49,10 +49,12 @@ class IntegrationResponse(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, content_handling=None, http_method=None, resource_id=None, response_parameters=None, response_templates=None, rest_api=None, selection_pattern=None, status_code=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
-        
+
         > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
         you might need to add an explicit `depends_on` for clean runs.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_handling: Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
@@ -67,8 +69,6 @@ class IntegrationResponse(pulumi.CustomResource):
                If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
                For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         :param pulumi.Input[str] status_code: The HTTP status code
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,7 +114,7 @@ class IntegrationResponse(pulumi.CustomResource):
         """
         Get an existing IntegrationResponse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,12 +130,11 @@ class IntegrationResponse(pulumi.CustomResource):
                If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
                For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         :param pulumi.Input[str] status_code: The HTTP status code
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["content_handling"] = content_handling
         __props__["http_method"] = http_method
         __props__["resource_id"] = resource_id

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Size Constraint Set Resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sizeConstraintSet = new aws.waf.SizeConstraintSet("sizeConstraintSet", {
  *     sizeConstraints: [{
  *         comparisonOperator: "EQ",

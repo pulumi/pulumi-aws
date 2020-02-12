@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF SQL Injection Match Set Resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sqlInjectionMatchSet = new aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", {
  *     sqlInjectionMatchTuples: [{
  *         fieldToMatch: {

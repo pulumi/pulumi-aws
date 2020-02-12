@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
- * 
+ *
  * For more details, see the [Amazon Kinesis Firehose Documentation][1].
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Extended S3 Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  * });
@@ -78,13 +78,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### S3 Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  * });
@@ -112,13 +112,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Redshift Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testCluster = new aws.redshift.Cluster("testCluster", {
  *     clusterIdentifier: "tf-redshift-cluster-%d",
  *     clusterType: "single-node",
@@ -155,13 +155,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Elasticsearch Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testCluster = new aws.elasticsearch.Domain("testCluster", {});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "elasticsearch",
@@ -190,14 +190,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
- * 
+ *
+ *
  * ### Splunk Destination
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "splunk",
  *     s3Configuration: {

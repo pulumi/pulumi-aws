@@ -12,10 +12,10 @@ import (
 )
 
 // Provides an HTTP Method Integration Response for an API Gateway Resource.
-// 
+//
 // > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
 // you might need to add an explicit `dependsOn` for clean runs.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_integration_response.html.markdown.
 type IntegrationResponse struct {
 	pulumi.CustomResourceState

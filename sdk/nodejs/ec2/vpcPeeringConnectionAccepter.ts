@@ -8,20 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the accepter's side of a VPC Peering Connection.
- * 
+ *
  * When a cross-account (requester's AWS account differs from the accepter's AWS account) or an inter-region
  * VPC Peering Connection is created, a VPC Peering Connection resource is automatically created in the
  * accepter's account.
  * The requester can use the `aws.ec2.VpcPeeringConnection` resource to manage its side of the connection
  * and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
  * connection into management.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const peer = new aws.Provider("peer", {
  *     region: "us-west-2",
  * });

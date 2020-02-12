@@ -254,9 +254,9 @@ class Instance(pulumi.CustomResource):
     s3_import: pulumi.Output[dict]
     """
     Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-    
-      * `bucket_name` (`str`) - The bucket name where your backup is stored
-      * `bucketPrefix` (`str`) - Can be blank, but is the path to your backup
+
+      * `bucketName` (`str`) - The bucket name where your backup is stored
+      * `bucket_prefix` (`str`) - Can be blank, but is the path to your backup
       * `ingestionRole` (`str`) - Role applied to load the data.
       * `sourceEngine` (`str`) - Source engine for the backup
       * `sourceEngineVersion` (`str`) - Version of the source engine used to make the backup
@@ -325,30 +325,32 @@ class Instance(pulumi.CustomResource):
         Provides an RDS instance resource.  A DB instance is an isolated database
         environment in the cloud.  A DB instance can contain multiple user-created
         databases.
-        
+
         Changes to a DB instance can occur when you manually change a parameter, such as
         `allocated_storage`, and are reflected in the next maintenance window. Because
         of this, this provider may report a difference in its planning phase because a
         modification has not yet taken place. You can use the `apply_immediately` flag
         to instruct the service to apply the change immediately (see documentation
         below).
-        
+
         When upgrading the major version of an engine, `allow_major_version_upgrade`
         must be set to `true`.
-        
+
         > **Note:** using `apply_immediately` can result in a brief downtime as the
         server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
-        
+
         > **Note:** All arguments including the username and password will be stored in
         the raw state as plain-text. [Read more about sensitive data in
         state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
         ## RDS Instance Class Types
-        
+
         Amazon RDS supports three types of instance classes: Standard, Memory Optimized,
         and Burstable Performance. For more information please read the AWS RDS documentation
         about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
@@ -407,7 +409,7 @@ class Instance(pulumi.CustomResource):
                if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
+        :param pulumi.Input[dict] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[float] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -466,7 +468,7 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[str] storage_type: One of "standard" (magnetic), "gp2" (general
+        :param pulumi.Input[dict] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -479,16 +481,14 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
-        
+
         The **s3_import** object supports the following:
-        
-          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
-          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+
+          * `bucketName` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucket_prefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
           * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
           * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
           * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -577,7 +577,7 @@ class Instance(pulumi.CustomResource):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -642,7 +642,7 @@ class Instance(pulumi.CustomResource):
                if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique
                identifier beginning with the specified prefix. Conflicts with `identifier`.
-        :param pulumi.Input[str] instance_class: The instance type of the RDS instance.
+        :param pulumi.Input[dict] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[float] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -703,7 +703,7 @@ class Instance(pulumi.CustomResource):
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
                default is `false` if not specified.
-        :param pulumi.Input[str] storage_type: One of "standard" (magnetic), "gp2" (general
+        :param pulumi.Input[dict] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
                specified, "gp2" if not.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -716,20 +716,19 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
-        
+
         The **s3_import** object supports the following:
-        
-          * `bucket_name` (`pulumi.Input[str]`) - The bucket name where your backup is stored
-          * `bucketPrefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
+
+          * `bucketName` (`pulumi.Input[str]`) - The bucket name where your backup is stored
+          * `bucket_prefix` (`pulumi.Input[str]`) - Can be blank, but is the path to your backup
           * `ingestionRole` (`pulumi.Input[str]`) - Role applied to load the data.
           * `sourceEngine` (`pulumi.Input[str]`) - Source engine for the backup
           * `sourceEngineVersion` (`pulumi.Input[str]`) - Version of the source engine used to make the backup
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address"] = address
         __props__["allocated_storage"] = allocated_storage
         __props__["allow_major_version_upgrade"] = allow_major_version_upgrade

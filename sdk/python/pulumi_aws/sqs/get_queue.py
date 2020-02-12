@@ -13,12 +13,18 @@ class GetQueueResult:
     """
     A collection of values returned by getQueue.
     """
-    def __init__(__self__, arn=None, name=None, tags=None, url=None, id=None):
+    def __init__(__self__, arn=None, id=None, name=None, tags=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The Amazon Resource Name (ARN) of the queue.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -35,12 +41,6 @@ class GetQueueResult:
         """
         The URL of the queue.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetQueueResult(GetQueueResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -48,22 +48,24 @@ class AwaitableGetQueueResult(GetQueueResult):
             yield self
         return GetQueueResult(
             arn=self.arn,
+            id=self.id,
             name=self.name,
             tags=self.tags,
-            url=self.url,
-            id=self.id)
+            url=self.url)
 
 def get_queue(name=None,tags=None,opts=None):
     """
     Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
     By using this data source, you can reference SQS queues without having to hardcode
     the ARNs as input.
-    
-    :param str name: The name of the queue to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sqs_queue.html.markdown.
+
+
+    :param str name: The name of the queue to match.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -75,7 +77,7 @@ def get_queue(name=None,tags=None,opts=None):
 
     return AwaitableGetQueueResult(
         arn=__ret__.get('arn'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),
-        url=__ret__.get('url'),
-        id=__ret__.get('id'))
+        url=__ret__.get('url'))

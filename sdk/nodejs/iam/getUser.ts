@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * IAM user. By using this data source, you can reference IAM user
  * properties without having to hard code ARNs or unique IDs as input.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.iam.getUser({
  *     userName: "anExampleUserName",
  * });
@@ -58,6 +58,10 @@ export interface GetUserResult {
      */
     readonly arn: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Path in which this user was created.
      */
     readonly path: string;
@@ -73,8 +77,4 @@ export interface GetUserResult {
      * The name associated to this User
      */
     readonly userName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

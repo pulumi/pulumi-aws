@@ -18,10 +18,9 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     Specify volumes to attach to the instance besides the volumes specified by the AMI.
     See Block Devices below for details.
-    
+
       * `device_name` (`str`) - The name of the device to mount.
       * `ebs` (`dict`) - Configure EBS volume properties.
-    
         * `deleteOnTermination` (`str`)
         * `encrypted` (`str`)
         * `iops` (`float`)
@@ -29,7 +28,7 @@ class LaunchTemplate(pulumi.CustomResource):
         * `snapshot_id` (`str`)
         * `volume_size` (`float`)
         * `volumeType` (`str`)
-    
+
       * `noDevice` (`str`) - Suppresses the specified device included in the AMI's block device mapping.
       * `virtualName` (`str`) - The [Instance Store Device
         Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
@@ -38,17 +37,16 @@ class LaunchTemplate(pulumi.CustomResource):
     capacity_reservation_specification: pulumi.Output[dict]
     """
     Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
-    
+
       * `capacityReservationPreference` (`str`)
       * `capacityReservationTarget` (`dict`)
-    
         * `capacityReservationId` (`str`)
     """
     credit_specification: pulumi.Output[dict]
     """
     Customize the credit specification of the instance. See Credit
     Specification below for more details.
-    
+
       * `cpuCredits` (`str`)
     """
     default_version: pulumi.Output[float]
@@ -72,20 +70,20 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     The elastic GPU to attach to the instance. See Elastic GPU
     below for more details.
-    
+
       * `type` (`str`) - Accelerator type.
     """
     elastic_inference_accelerator: pulumi.Output[dict]
     """
     Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-    
+
       * `type` (`str`) - Accelerator type.
     """
     iam_instance_profile: pulumi.Output[dict]
     """
     The IAM Instance Profile to launch the instance with. See Instance Profile
     below for more details.
-    
+
       * `arn` (`str`) - Amazon Resource Name (ARN) of the launch template.
       * `name` (`str`) - The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
     """
@@ -102,10 +100,9 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     The market (purchasing) option for the instance. See Market Options
     below for details.
-    
+
       * `marketType` (`str`)
       * `spot_options` (`dict`)
-    
         * `block_duration_minutes` (`float`)
         * `instanceInterruptionBehavior` (`str`)
         * `maxPrice` (`str`)
@@ -131,13 +128,13 @@ class LaunchTemplate(pulumi.CustomResource):
     license_specifications: pulumi.Output[list]
     """
     A list of license specifications to associate with. See License Specification below for more details.
-    
-      * `licenseConfigurationArn` (`str`)
+
+      * `license_configuration_arn` (`str`)
     """
     monitoring: pulumi.Output[dict]
     """
     The monitoring option for the instance. See Monitoring below for more details.
-    
+
       * `enabled` (`bool`)
     """
     name: pulumi.Output[str]
@@ -152,7 +149,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     Customize network interfaces to be attached at instance boot time. See Network
     Interfaces below for more details.
-    
+
       * `associate_public_ip_address` (`str`)
       * `deleteOnTermination` (`bool`)
       * `description` (`str`) - Description of the launch template.
@@ -169,10 +166,10 @@ class LaunchTemplate(pulumi.CustomResource):
     placement: pulumi.Output[dict]
     """
     The placement of the instance. See Placement below for more details.
-    
+
       * `affinity` (`str`)
       * `availability_zone` (`str`)
-      * `groupName` (`str`)
+      * `group_name` (`str`)
       * `host_id` (`str`)
       * `spreadDomain` (`str`)
       * `tenancy` (`str`)
@@ -189,8 +186,8 @@ class LaunchTemplate(pulumi.CustomResource):
     tag_specifications: pulumi.Output[list]
     """
     The tags to apply to the resources during launch. See Tag Specifications below for more details.
-    
-      * `resourceType` (`str`)
+
+      * `resource_type` (`str`)
       * `tags` (`dict`) - A mapping of tags to assign to the launch template.
     """
     tags: pulumi.Output[dict]
@@ -208,7 +205,9 @@ class LaunchTemplate(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
@@ -247,12 +246,11 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
-        
+
         The **block_device_mappings** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `ebs` (`pulumi.Input[dict]`) - Configure EBS volume properties.
-        
             * `deleteOnTermination` (`pulumi.Input[str]`)
             * `encrypted` (`pulumi.Input[str]`)
             * `iops` (`pulumi.Input[float]`)
@@ -260,57 +258,55 @@ class LaunchTemplate(pulumi.CustomResource):
             * `snapshot_id` (`pulumi.Input[str]`)
             * `volume_size` (`pulumi.Input[float]`)
             * `volumeType` (`pulumi.Input[str]`)
-        
+
           * `noDevice` (`pulumi.Input[str]`) - Suppresses the specified device included in the AMI's block device mapping.
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
-        
+
         The **capacity_reservation_specification** object supports the following:
-        
+
           * `capacityReservationPreference` (`pulumi.Input[str]`)
           * `capacityReservationTarget` (`pulumi.Input[dict]`)
-        
             * `capacityReservationId` (`pulumi.Input[str]`)
-        
+
         The **credit_specification** object supports the following:
-        
+
           * `cpuCredits` (`pulumi.Input[str]`)
-        
+
         The **elastic_gpu_specifications** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`) - Accelerator type.
-        
+
         The **elastic_inference_accelerator** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`) - Accelerator type.
-        
+
         The **iam_instance_profile** object supports the following:
-        
+
           * `arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the launch template.
           * `name` (`pulumi.Input[str]`) - The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        
+
         The **instance_market_options** object supports the following:
-        
+
           * `marketType` (`pulumi.Input[str]`)
           * `spot_options` (`pulumi.Input[dict]`)
-        
             * `block_duration_minutes` (`pulumi.Input[float]`)
             * `instanceInterruptionBehavior` (`pulumi.Input[str]`)
             * `maxPrice` (`pulumi.Input[str]`)
             * `spotInstanceType` (`pulumi.Input[str]`)
             * `valid_until` (`pulumi.Input[str]`)
-        
+
         The **license_specifications** object supports the following:
-        
-          * `licenseConfigurationArn` (`pulumi.Input[str]`)
-        
+
+          * `license_configuration_arn` (`pulumi.Input[str]`)
+
         The **monitoring** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
-        
+
         The **network_interfaces** object supports the following:
-        
+
           * `associate_public_ip_address` (`pulumi.Input[str]`)
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `description` (`pulumi.Input[str]`) - Description of the launch template.
@@ -323,22 +319,20 @@ class LaunchTemplate(pulumi.CustomResource):
           * `private_ip_address` (`pulumi.Input[str]`)
           * `security_groups` (`pulumi.Input[list]`)
           * `subnet_id` (`pulumi.Input[str]`)
-        
+
         The **placement** object supports the following:
-        
+
           * `affinity` (`pulumi.Input[str]`)
           * `availability_zone` (`pulumi.Input[str]`)
-          * `groupName` (`pulumi.Input[str]`)
+          * `group_name` (`pulumi.Input[str]`)
           * `host_id` (`pulumi.Input[str]`)
           * `spreadDomain` (`pulumi.Input[str]`)
           * `tenancy` (`pulumi.Input[str]`)
-        
-        The **tag_specifications** object supports the following:
-        
-          * `resourceType` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the launch template.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
+        The **tag_specifications** object supports the following:
+
+          * `resource_type` (`pulumi.Input[str]`)
+          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the launch template.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -398,7 +392,7 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -441,12 +435,11 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the launch template.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
-        
+
         The **block_device_mappings** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `ebs` (`pulumi.Input[dict]`) - Configure EBS volume properties.
-        
             * `deleteOnTermination` (`pulumi.Input[str]`)
             * `encrypted` (`pulumi.Input[str]`)
             * `iops` (`pulumi.Input[float]`)
@@ -454,57 +447,55 @@ class LaunchTemplate(pulumi.CustomResource):
             * `snapshot_id` (`pulumi.Input[str]`)
             * `volume_size` (`pulumi.Input[float]`)
             * `volumeType` (`pulumi.Input[str]`)
-        
+
           * `noDevice` (`pulumi.Input[str]`) - Suppresses the specified device included in the AMI's block device mapping.
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
-        
+
         The **capacity_reservation_specification** object supports the following:
-        
+
           * `capacityReservationPreference` (`pulumi.Input[str]`)
           * `capacityReservationTarget` (`pulumi.Input[dict]`)
-        
             * `capacityReservationId` (`pulumi.Input[str]`)
-        
+
         The **credit_specification** object supports the following:
-        
+
           * `cpuCredits` (`pulumi.Input[str]`)
-        
+
         The **elastic_gpu_specifications** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`) - Accelerator type.
-        
+
         The **elastic_inference_accelerator** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`) - Accelerator type.
-        
+
         The **iam_instance_profile** object supports the following:
-        
+
           * `arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the launch template.
           * `name` (`pulumi.Input[str]`) - The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
-        
+
         The **instance_market_options** object supports the following:
-        
+
           * `marketType` (`pulumi.Input[str]`)
           * `spot_options` (`pulumi.Input[dict]`)
-        
             * `block_duration_minutes` (`pulumi.Input[float]`)
             * `instanceInterruptionBehavior` (`pulumi.Input[str]`)
             * `maxPrice` (`pulumi.Input[str]`)
             * `spotInstanceType` (`pulumi.Input[str]`)
             * `valid_until` (`pulumi.Input[str]`)
-        
+
         The **license_specifications** object supports the following:
-        
-          * `licenseConfigurationArn` (`pulumi.Input[str]`)
-        
+
+          * `license_configuration_arn` (`pulumi.Input[str]`)
+
         The **monitoring** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`)
-        
+
         The **network_interfaces** object supports the following:
-        
+
           * `associate_public_ip_address` (`pulumi.Input[str]`)
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `description` (`pulumi.Input[str]`) - Description of the launch template.
@@ -517,26 +508,25 @@ class LaunchTemplate(pulumi.CustomResource):
           * `private_ip_address` (`pulumi.Input[str]`)
           * `security_groups` (`pulumi.Input[list]`)
           * `subnet_id` (`pulumi.Input[str]`)
-        
+
         The **placement** object supports the following:
-        
+
           * `affinity` (`pulumi.Input[str]`)
           * `availability_zone` (`pulumi.Input[str]`)
-          * `groupName` (`pulumi.Input[str]`)
+          * `group_name` (`pulumi.Input[str]`)
           * `host_id` (`pulumi.Input[str]`)
           * `spreadDomain` (`pulumi.Input[str]`)
           * `tenancy` (`pulumi.Input[str]`)
-        
-        The **tag_specifications** object supports the following:
-        
-          * `resourceType` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the launch template.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_template.html.markdown.
+        The **tag_specifications** object supports the following:
+
+          * `resource_type` (`pulumi.Input[str]`)
+          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the launch template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["block_device_mappings"] = block_device_mappings
         __props__["capacity_reservation_specification"] = capacity_reservation_specification

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Function State Machine resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
  *     definition: pulumi.interpolate`{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",

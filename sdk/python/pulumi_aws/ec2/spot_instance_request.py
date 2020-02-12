@@ -42,7 +42,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     credit_specification: pulumi.Output[dict]
     """
     Customize the credit specification of the instance. See Credit Specification below for more details.
-    
+
       * `cpuCredits` (`str`)
     """
     disable_api_termination: pulumi.Output[bool]
@@ -54,7 +54,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     Additional EBS block devices to attach to the
     instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
-    
+
       * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
       * `device_name` (`str`) - The name of the block device to mount on the instance.
@@ -83,7 +83,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     Customize Ephemeral (also known as
     "Instance Store") volumes on the instance. See Block Devices below for details.
-    
+
       * `device_name` (`str`) - The name of the block device to mount on the instance.
       * `noDevice` (`bool`) - Suppresses the specified device included in the AMI's block device mapping.
       * `virtualName` (`str`) - The [Instance Store Device
@@ -141,7 +141,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     network_interfaces: pulumi.Output[list]
     """
     Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
-    
+
       * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
       * `device_index` (`float`)
@@ -177,7 +177,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     """
     Customize details about the root block
     device of the instance. See Block Devices below for details.
-    
+
       * `deleteOnTermination` (`bool`) - Whether the volume should be destroyed
         on instance termination (Default: `true`).
       * `encrypted` (`bool`) - Enables [EBS
@@ -271,19 +271,19 @@ class SpotInstanceRequest(pulumi.CustomResource):
         """
         Provides an EC2 Spot Instance Request resource. This allows instances to be
         requested on the spot market.
-        
+
         By default this provider creates Spot Instance Requests with a `persistent` type,
         which means that for the duration of their lifetime, AWS will launch an
         instance with the configured details if and when the spot market will accept
         the requested price.
-        
+
         On destruction, this provider will make an attempt to terminate the associated Spot
         Instance if there is one present.
-        
+
         Spot Instances requests with a `one-time` type will close the spot request
         when the instance is terminated either by the request being below the current spot
         price availability or by a user.
-        
+
         > **NOTE:** Because their behavior depends on the live status of the spot
         market, Spot Instance Requests have a unique lifecycle that makes them behave
         differently than other resources. Most importantly: there is __no
@@ -291,7 +291,9 @@ class SpotInstanceRequest(pulumi.CustomResource):
         point in time. See the [AWS Spot Instance
         documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         for more information.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ami: The AMI to use for the instance.
@@ -356,13 +358,13 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
-        
+
         The **credit_specification** object supports the following:
-        
+
           * `cpuCredits` (`pulumi.Input[str]`)
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
@@ -378,24 +380,24 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
           * `noDevice` (`pulumi.Input[bool]`) - Suppresses the specified device included in the AMI's block device mapping.
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
-        
+
         The **network_interfaces** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_index` (`pulumi.Input[float]`)
           * `network_interface_id` (`pulumi.Input[str]`)
-        
+
         The **root_block_device** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
@@ -409,8 +411,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -494,7 +494,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         """
         Get an existing SpotInstanceRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -574,13 +574,13 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
-        
+
         The **credit_specification** object supports the following:
-        
+
           * `cpuCredits` (`pulumi.Input[str]`)
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
@@ -596,24 +596,24 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`) - The name of the block device to mount on the instance.
           * `noDevice` (`pulumi.Input[bool]`) - Suppresses the specified device included in the AMI's block device mapping.
           * `virtualName` (`pulumi.Input[str]`) - The [Instance Store Device
             Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
             (e.g. `"ephemeral0"`).
-        
+
         The **network_interfaces** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `device_index` (`pulumi.Input[float]`)
           * `network_interface_id` (`pulumi.Input[str]`)
-        
+
         The **root_block_device** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the volume should be destroyed
             on instance termination (Default: `true`).
           * `encrypted` (`pulumi.Input[bool]`) - Enables [EBS
@@ -627,12 +627,11 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
             or `"io1"`. (Default: `"standard"`).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["ami"] = ami
         __props__["arn"] = arn
         __props__["associate_public_ip_address"] = associate_public_ip_address

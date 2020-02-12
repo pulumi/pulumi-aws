@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.fsx.LustreFileSystem("example", {
  *     importPath: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
  *     storageCapacity: 1200,

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticsearch Domain
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDomain = aws.elasticsearch.getDomain({
  *     domainName: "my-domain-name",
  * });
@@ -103,6 +103,10 @@ export interface GetDomainResult {
      */
     readonly endpoint: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Domain-specific endpoint used to access the Kibana application.
      */
     readonly kibanaEndpoint: string;
@@ -128,8 +132,4 @@ export interface GetDomainResult {
      * VPC Options for private Elasticsearch domains.
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

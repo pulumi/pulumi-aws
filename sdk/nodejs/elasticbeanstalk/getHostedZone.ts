@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = aws.elasticbeanstalk.getHostedZone();
  * ```
  *
@@ -51,11 +51,11 @@ export interface GetHostedZoneArgs {
  */
 export interface GetHostedZoneResult {
     /**
-     * The region of the hosted zone.
-     */
-    readonly region?: string;
-    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The region of the hosted zone.
+     */
+    readonly region?: string;
 }

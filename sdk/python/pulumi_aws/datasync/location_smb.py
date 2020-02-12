@@ -25,7 +25,7 @@ class LocationSmb(pulumi.CustomResource):
     mount_options: pulumi.Output[dict]
     """
     Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
-    
+
       * `version` (`str`) - The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
     """
     password: pulumi.Output[str]
@@ -52,9 +52,11 @@ class LocationSmb(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, agent_arns=None, domain=None, mount_options=None, password=None, server_hostname=None, subdirectory=None, tags=None, user=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a SMB Location within AWS DataSync.
-        
+
         > **NOTE:** The DataSync Agents must be available before creating this resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_smb.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
@@ -65,12 +67,10 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
         :param pulumi.Input[str] user: The user who can mount the share and has file and folder permissions in the SMB share.
-        
-        The **mount_options** object supports the following:
-        
-          * `version` (`pulumi.Input[str]`) - The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_smb.html.markdown.
+        The **mount_options** object supports the following:
+
+          * `version` (`pulumi.Input[str]`) - The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,7 +120,7 @@ class LocationSmb(pulumi.CustomResource):
         """
         Get an existing LocationSmb resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,16 +133,15 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Location.
         :param pulumi.Input[str] user: The user who can mount the share and has file and folder permissions in the SMB share.
-        
-        The **mount_options** object supports the following:
-        
-          * `version` (`pulumi.Input[str]`) - The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_location_smb.html.markdown.
+        The **mount_options** object supports the following:
+
+          * `version` (`pulumi.Input[str]`) - The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["agent_arns"] = agent_arns
         __props__["arn"] = arn
         __props__["domain"] = domain

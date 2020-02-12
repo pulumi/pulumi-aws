@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Layer Version.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const layerName = config.require("layerName");
- * 
+ *
  * const existing = aws.lambda.getLayerVersion({
  *     layerName: layerName,
  * });
@@ -82,6 +82,10 @@ export interface GetLayerVersionResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
     readonly layerArn: string;
@@ -102,8 +106,4 @@ export interface GetLayerVersionResult {
      * This Lamba Layer version.
      */
     readonly version: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

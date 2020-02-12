@@ -58,21 +58,21 @@ class VpcEndpointService(pulumi.CustomResource):
         """
         Provides a VPC Endpoint Service resource.
         Service consumers can create an _Interface_ VPC Endpoint to connect to the service.
-        
+
         > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
         both a standalone VPC Endpoint Service Allowed Principal resource
         and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
         a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
         and will overwrite the association.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[list] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[list] network_load_balancer_arns: The ARNs of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +117,7 @@ class VpcEndpointService(pulumi.CustomResource):
         """
         Get an existing VpcEndpointService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,12 +132,11 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[str] state: The state of the VPC endpoint service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint_service.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["acceptance_required"] = acceptance_required
         __props__["allowed_principals"] = allowed_principals
         __props__["availability_zones"] = availability_zones

@@ -9,7 +9,7 @@ import (
 )
 
 // Parses an Amazon Resource Name (ARN) into its constituent parts.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
 	var rv GetArnResult

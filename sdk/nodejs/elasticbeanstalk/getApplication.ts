@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an Elastic Beanstalk Application.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.elasticbeanstalk.getApplication({
  *     name: "example",
  * });
- * 
+ *
  * export const arn = example.arn;
  * export const description = example.description;
  * ```
@@ -63,9 +63,9 @@ export interface GetApplicationResult {
      * Short description of the application
      */
     readonly description: string;
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

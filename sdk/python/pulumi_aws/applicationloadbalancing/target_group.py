@@ -25,7 +25,7 @@ class TargetGroup(pulumi.CustomResource):
     health_check: pulumi.Output[dict]
     """
     A Health Check block. Health Check blocks are documented below.
-    
+
       * `enabled` (`bool`) - Indicates whether  health checks are enabled. Defaults to true.
       * `healthyThreshold` (`float`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
       * `interval` (`float`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
@@ -68,7 +68,7 @@ class TargetGroup(pulumi.CustomResource):
     stickiness: pulumi.Output[dict]
     """
     A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
-    
+
       * `cookieDuration` (`float`) - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
       * `enabled` (`bool`) - Indicates whether  health checks are enabled. Defaults to true.
       * `type` (`str`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
@@ -93,9 +93,11 @@ class TargetGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
-        
+
         > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_legacy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -116,9 +118,9 @@ class TargetGroup(pulumi.CustomResource):
                the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        
+
         The **health_check** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
           * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
           * `interval` (`pulumi.Input[float]`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
@@ -129,14 +131,12 @@ class TargetGroup(pulumi.CustomResource):
           * `timeout` (`pulumi.Input[float]`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
           * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
             * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        
+
         The **stickiness** object supports the following:
-        
+
           * `cookieDuration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
           * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
           * `type` (`pulumi.Input[str]`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -181,7 +181,7 @@ class TargetGroup(pulumi.CustomResource):
         """
         Get an existing TargetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,9 +205,9 @@ class TargetGroup(pulumi.CustomResource):
                the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        
+
         The **health_check** object supports the following:
-        
+
           * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
           * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
           * `interval` (`pulumi.Input[float]`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
@@ -218,18 +218,17 @@ class TargetGroup(pulumi.CustomResource):
           * `timeout` (`pulumi.Input[float]`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
           * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
             * `matcher` (Required for HTTP/HTTPS ALB) The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-        
+
         The **stickiness** object supports the following:
-        
+
           * `cookieDuration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
           * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
           * `type` (`pulumi.Input[str]`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_target_group_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["arn_suffix"] = arn_suffix
         __props__["deregistration_delay"] = deregistration_delay

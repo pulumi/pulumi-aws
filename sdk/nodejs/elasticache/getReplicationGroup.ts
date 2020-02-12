@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an Elasticache Replication Group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bar = aws.elasticache.getReplicationGroup({
  *     replicationGroupId: "example",
  * });
@@ -64,6 +64,10 @@ export interface GetReplicationGroupResult {
      */
     readonly configurationEndpointAddress: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The identifiers of all the nodes that are part of this replication group.
      */
     readonly memberClusters: string[];
@@ -99,8 +103,4 @@ export interface GetReplicationGroupResult {
      * The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      */
     readonly snapshotWindow: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

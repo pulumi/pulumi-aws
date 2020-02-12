@@ -21,7 +21,7 @@ class SecurityGroup(pulumi.CustomResource):
     ingress: pulumi.Output[list]
     """
     A list of ingress rules.
-    
+
       * `cidr` (`str`) - The CIDR block to accept
       * `security_group_id` (`str`) - The ID of the security group to authorize
       * `securityGroupName` (`str`) - The name of the security group to authorize
@@ -42,23 +42,23 @@ class SecurityGroup(pulumi.CustomResource):
         EC2-Classic Platform. For instances inside a VPC, use the
         [`aws_db_instance.vpc_security_group_ids`](https://www.terraform.io/docs/providers/aws/r/db_instance.html#vpc_security_group_ids)
         attribute instead.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **ingress** object supports the following:
-        
+
           * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
           * `security_group_id` (`pulumi.Input[str]`) - The ID of the security group to authorize
           * `securityGroupName` (`pulumi.Input[str]`) - The name of the security group to authorize
           * `securityGroupOwnerId` (`pulumi.Input[str]`) - The owner Id of the security group provided
             by `security_group_name`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,7 +97,7 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Get an existing SecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,20 +106,19 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the DB security group.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
+
         The **ingress** object supports the following:
-        
+
           * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
           * `security_group_id` (`pulumi.Input[str]`) - The ID of the security group to authorize
           * `securityGroupName` (`pulumi.Input[str]`) - The name of the security group to authorize
           * `securityGroupOwnerId` (`pulumi.Input[str]`) - The owner Id of the security group provided
             by `security_group_name`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_security_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["ingress"] = ingress

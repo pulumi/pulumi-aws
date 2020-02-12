@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeDeploy deployment config for an application
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Server Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("foo", {
  *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Lambda Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("foo", {
  *     computePlatform: "Lambda",
  *     deploymentConfigName: "test-deployment-config",

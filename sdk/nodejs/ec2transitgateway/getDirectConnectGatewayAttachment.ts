@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### By Transit Gateway and Direct Connect Gateway Identifiers
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = pulumi.all([aws_dx_gateway_example.id, aws_ec2_transit_gateway_example.id]).apply(([aws_dx_gateway_exampleId, aws_ec2_transit_gateway_exampleId]) => aws.ec2transitgateway.getDirectConnectGatewayAttachment({
  *     dxGatewayId: aws_dx_gateway_exampleId,
  *     transitGatewayId: aws_ec2_transit_gateway_exampleId,
@@ -63,12 +63,12 @@ export interface GetDirectConnectGatewayAttachmentArgs {
 export interface GetDirectConnectGatewayAttachmentResult {
     readonly dxGatewayId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Key-value tags for the EC2 Transit Gateway Attachment
      */
     readonly tags: {[key: string]: any};
     readonly transitGatewayId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

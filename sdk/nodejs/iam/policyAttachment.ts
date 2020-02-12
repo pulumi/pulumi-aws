@@ -4,24 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {Group} from "./group";
-import {Role} from "./role";
-import {User} from "./user";
+import {ARN} from "..";
+import {Group, Role, User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- * 
+ *
  * !> **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const user = new aws.iam.User("user", {});
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
@@ -160,7 +158,7 @@ export interface PolicyAttachmentState {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    readonly groups?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -172,11 +170,11 @@ export interface PolicyAttachmentState {
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<string> | pulumi.Input<User>[]>;
 }
 
 /**
@@ -186,7 +184,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    readonly groups?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
@@ -198,9 +196,9 @@ export interface PolicyAttachmentArgs {
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string> | pulumi.Input<Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    readonly users?: pulumi.Input<pulumi.Input<string> | pulumi.Input<User>[]>;
 }

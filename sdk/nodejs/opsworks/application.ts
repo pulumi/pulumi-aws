@@ -8,14 +8,14 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks application resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const fooApp = new aws.opsworks.Application("foo-app", {
  *     appSources: [{
  *         revision: "master",

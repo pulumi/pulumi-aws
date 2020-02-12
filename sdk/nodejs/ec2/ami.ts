@@ -9,19 +9,19 @@ import * as utilities from "../utilities";
 /**
  * The AMI resource allows the creation and management of a completely-custom
  * *Amazon Machine Image* (AMI).
- * 
+ *
  * If you just want to duplicate an existing AMI, possibly copying it to another
  * region, it's better to use `aws.ec2.AmiCopy` instead.
- * 
+ *
  * If you just want to share an existing AMI with another AWS account,
  * it's better to use `aws.ec2.AmiLaunchPermission` instead.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Create an AMI that will start a machine whose root device is backed by
  * // an EBS volume populated from a snapshot. It is assumed that such a snapshot
  * // already exists with the id "snap-xxxxxxxx".

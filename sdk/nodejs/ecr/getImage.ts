@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const serviceImage = aws.ecr.getImage({
  *     imageTag: "latest",
  *     repositoryName: "my/service",
@@ -67,6 +67,10 @@ export interface GetImageArgs {
  * A collection of values returned by getImage.
  */
 export interface GetImageResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly imageDigest: string;
     /**
      * The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
@@ -83,8 +87,4 @@ export interface GetImageResult {
     readonly imageTags: string[];
     readonly registryId: string;
     readonly repositoryName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

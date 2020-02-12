@@ -2,21 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage a CloudWatch log resource policy.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Elasticsearch Log Publishing
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const elasticsearch_log_publishing_policyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -36,13 +34,13 @@ import * as utilities from "../utilities";
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
- * 
+ *
  * ### Route53 Query Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const route53_query_logging_policyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [

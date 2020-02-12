@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Rule Group Resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleRule = new aws.waf.Rule("example", {
  *     metricName: "example",
  * });

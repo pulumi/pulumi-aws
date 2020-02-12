@@ -11,13 +11,13 @@ import * as utilities from "../utilities";
  * API Gateway. To fetch the REST API you must provide a name to match against. 
  * As there is no unique name constraint on REST APIs this data source will 
  * error if there is more than one match.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myRestApi = aws.apigateway.getRestApi({
  *     name: "my-rest-api",
  * });
@@ -55,13 +55,13 @@ export interface GetRestApiArgs {
  * A collection of values returned by getRestApi.
  */
 export interface GetRestApiResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
      */
     readonly rootResourceId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint App resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.pinpoint.App("example", {
  *     limits: {
  *         maximumDuration: 600,

@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Route53 query logging configuration resource.
- * 
+ *
  * > **NOTE:** There are restrictions on the configuration of query logging. Notably,
  * the CloudWatch log group must be in the `us-east-1` region,
  * a permissive CloudWatch log resource policy must be in place, and
  * the Route53 hosted zone must be public.
  * See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const usEast1 = new aws.Provider("us-east-1", {
  *     region: "us-east-1",
  * });

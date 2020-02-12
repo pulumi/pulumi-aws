@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage VPC peering connection options.
- * 
+ *
  * > **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
  * both a standalone VPC Peering Connection Options and a VPC Peering Connection
  * resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * Using a VPC Peering Connection Options resource decouples management of the connection options from
  * management of the VPC Peering Connection and allows options to be set correctly in cross-region and
  * cross-account scenarios.
- * 
+ *
  * Basic usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const fooVpc = new aws.ec2.Vpc("foo", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  * });
  * ```
- * 
+ *
  * Basic cross-account usage:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const requester = new aws.Provider("requester", {});
  * const accepter = new aws.Provider("accepter", {});
  * const main = new aws.ec2.Vpc("main", {

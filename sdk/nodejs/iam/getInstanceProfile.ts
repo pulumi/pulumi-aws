@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
@@ -9,13 +10,13 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * IAM instance profile. By using this data source, you can reference IAM
  * instance profile properties without having to hard code ARNs as input.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.iam.getInstanceProfile({
  *     name: "anExampleInstanceProfileName",
  * });
@@ -61,6 +62,10 @@ export interface GetInstanceProfileResult {
      * was created.
      */
     readonly createDate: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The path to the instance profile.
@@ -78,8 +83,4 @@ export interface GetInstanceProfileResult {
      * The role name associated with this instance profile.
      */
     readonly roleName: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

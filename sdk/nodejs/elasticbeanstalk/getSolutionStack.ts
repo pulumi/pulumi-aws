@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the name of a elastic beanstalk solution stack.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const multiDocker = aws.elasticbeanstalk.getSolutionStack({
  *     mostRecent: true,
  *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
@@ -60,14 +60,14 @@ export interface GetSolutionStackArgs {
  * A collection of values returned by getSolutionStack.
  */
 export interface GetSolutionStackResult {
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly mostRecent?: boolean;
     /**
      * The name of the solution stack.
      */
     readonly name: string;
     readonly nameRegex: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

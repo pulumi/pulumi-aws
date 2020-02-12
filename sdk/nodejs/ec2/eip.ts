@@ -2,37 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic IP resource.
- * 
+ *
  * > **Note:** EIP may require IGW to exist prior to association. Use `dependsOn` to set an explicit dependency on the IGW.
- * 
+ *
  * > **Note:** Do not use `networkInterface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Single EIP associated with an instance:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lb = new aws.ec2.Eip("lb", {
  *     instance: aws_instance_web.id,
  *     vpc: true,
  * });
  * ```
- * 
+ *
  * Multiple EIPs associated with a single network interface:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const multiIp = new aws.ec2.NetworkInterface("multi-ip", {
  *     privateIps: [
  *         "10.0.0.10",
@@ -51,13 +49,13 @@ import * as utilities from "../utilities";
  *     vpc: true,
  * });
  * ```
- * 
+ *
  * Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultVpc = new aws.ec2.Vpc("default", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsHostnames: true,
@@ -83,13 +81,13 @@ import * as utilities from "../utilities";
  *     vpc: true,
  * }, {dependsOn: [gw]});
  * ```
- * 
+ *
  * Allocating EIP from the BYOIP pool:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byoipIp = new aws.ec2.Eip("byoip-ip", {
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
  *     vpc: true,

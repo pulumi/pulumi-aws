@@ -2,24 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Virtual Private Gateway attachment resource, allowing for an existing
  * hardware VPN gateway to be attached and/or detached from a VPC.
- * 
+ *
  * > **Note:** The `aws.ec2.VpnGateway`
  * resource can also automatically attach the Virtual Private Gateway it creates
  * to an existing VPC by setting the `vpcId` attribute accordingly.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const network = new aws.ec2.Vpc("network", {
  *     cidrBlock: "10.0.0.0/16",
  * });
@@ -33,7 +31,7 @@ import * as utilities from "../utilities";
  *     vpnGatewayId: vpn.id,
  * });
  * ```
- * 
+ *
  * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
  * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
  * guides for more information.

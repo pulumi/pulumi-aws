@@ -12,19 +12,19 @@ import (
 )
 
 // Provides an WAF Regional Rule Resource for use with Application Load Balancer.
-// 
+//
 // ## Nested Fields
-// 
+//
 // ### `predicate`
-// 
+//
 // See the [WAF Documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html) for more information.
-// 
+//
 // #### Arguments
-// 
+//
 // * `type` - (Required) The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
 // * `dataId` - (Required) The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
 // * `negated` - (Required) Whether to use the settings or the negated settings that you specified in the objects.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/wafregional_rule.html.markdown.
 type Rule struct {
 	pulumi.CustomResourceState

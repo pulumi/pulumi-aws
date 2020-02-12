@@ -8,22 +8,22 @@ import * as utilities from "../utilities";
 
 /**
  * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
- * 
+ *
  * Provides information about a Load Balancer Listener.
- * 
+ *
  * This data source can prove useful when a module accepts an LB Listener as an
  * input variable and needs to know the LB it is attached to, or other
  * information specific to the listener in question.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const listenerArn = config.require("listenerArn");
- * 
+ *
  * const listener = aws.lb.getListener({
  *     arn: listenerArn,
  * });
@@ -81,12 +81,12 @@ export interface GetListenerResult {
     readonly arn: string;
     readonly certificateArn: string;
     readonly defaultActions: outputs.alb.GetListenerDefaultAction[];
-    readonly loadBalancerArn: string;
-    readonly port: number;
-    readonly protocol: string;
-    readonly sslPolicy: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly loadBalancerArn: string;
+    readonly port: number;
+    readonly protocol: string;
+    readonly sslPolicy: string;
 }

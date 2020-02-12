@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### With AppMesh Proxy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf-8"),
  *     family: "service",

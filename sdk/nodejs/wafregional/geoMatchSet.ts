@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a WAF Regional Geo Match Set Resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const geoMatchSet = new aws.wafregional.GeoMatchSet("geoMatchSet", {
  *     geoMatchConstraints: [
  *         {

@@ -8,21 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
- * 
+ *
  * > **Note:** All arguments including `tunnel1PresharedKey` and `tunnel2PresharedKey` will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### EC2 Transit Gateway
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
  *     bgpAsn: 65000,
@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  *     type: exampleCustomerGateway.type,
  * });
  * ```
- * 
+ *
  * ### Virtual Private Gateway
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const vpc = new aws.ec2.Vpc("vpc", {
  *     cidrBlock: "10.0.0.0/16",
  * });

@@ -13,7 +13,7 @@ class GetConfigurationResult:
     """
     A collection of values returned by getConfiguration.
     """
-    def __init__(__self__, arn=None, description=None, kafka_versions=None, latest_revision=None, name=None, server_properties=None, id=None):
+    def __init__(__self__, arn=None, description=None, id=None, kafka_versions=None, latest_revision=None, name=None, server_properties=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -25,6 +25,12 @@ class GetConfigurationResult:
         __self__.description = description
         """
         Description of the configuration.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if kafka_versions and not isinstance(kafka_versions, list):
             raise TypeError("Expected argument 'kafka_versions' to be a list")
@@ -47,12 +53,6 @@ class GetConfigurationResult:
         """
         Contents of the server.properties file.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetConfigurationResult(GetConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -61,21 +61,23 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
         return GetConfigurationResult(
             arn=self.arn,
             description=self.description,
+            id=self.id,
             kafka_versions=self.kafka_versions,
             latest_revision=self.latest_revision,
             name=self.name,
-            server_properties=self.server_properties,
-            id=self.id)
+            server_properties=self.server_properties)
 
 def get_configuration(name=None,opts=None):
     """
     Get information on an Amazon MSK Configuration.
-    
-    :param str name: Name of the configuration.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_configuration.html.markdown.
+
+
+    :param str name: Name of the configuration.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -87,8 +89,8 @@ def get_configuration(name=None,opts=None):
     return AwaitableGetConfigurationResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         kafka_versions=__ret__.get('kafkaVersions'),
         latest_revision=__ret__.get('latestRevision'),
         name=__ret__.get('name'),
-        server_properties=__ret__.get('serverProperties'),
-        id=__ret__.get('id'))
+        server_properties=__ret__.get('serverProperties'))

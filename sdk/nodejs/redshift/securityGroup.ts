@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultSecurityGroup = new aws.redshift.SecurityGroup("default", {
  *     ingress: [{
  *         cidr: "10.0.0.0/24",

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get a list of cognito user pools.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selectedRestApi = aws.apigateway.getRestApi({
  *     name: var_api_gateway_name,
  * });
@@ -61,12 +61,12 @@ export interface GetUserPoolsArgs {
 export interface GetUserPoolsResult {
     readonly arns: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The list of cognito user pool ids.
      */
     readonly ids: string[];
     readonly name: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -33,14 +33,14 @@ class Vault(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, kms_key_arn=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS Backup vault resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kms_key_arn: The server-side encryption key that is used to protect your backups.
         :param pulumi.Input[str] name: Name of the backup vault to create.
         :param pulumi.Input[dict] tags: Metadata that you can assign to help organize the resources that you create.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +75,7 @@ class Vault(pulumi.CustomResource):
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,12 +84,11 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the backup vault to create.
         :param pulumi.Input[float] recovery_points: The number of recovery points that are stored in a backup vault.
         :param pulumi.Input[dict] tags: Metadata that you can assign to help organize the resources that you create.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_vault.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["kms_key_arn"] = kms_key_arn
         __props__["name"] = name

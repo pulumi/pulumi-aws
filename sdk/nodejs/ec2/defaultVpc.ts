@@ -2,30 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
  * in the current region.
- * 
+ *
  * For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
  * **This is an advanced resource**, and has special caveats to be aware of when
  * using it. Please read this document in its entirety before using this resource.
- * 
+ *
  * The `aws.ec2.DefaultVpc` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage with tags:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultDefaultVpc = new aws.ec2.DefaultVpc("default", {
  *     tags: {
  *         Name: "Default VPC",

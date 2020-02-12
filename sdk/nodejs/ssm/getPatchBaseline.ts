@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * To retrieve a baseline provided by AWS:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const centos = aws.ssm.getPatchBaseline({
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
  *     owner: "AWS",
  * });
  * ```
- * 
+ *
  * To retrieve a baseline on your account:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultCustom = aws.ssm.getPatchBaseline({
  *     defaultBaseline: true,
  *     namePrefix: "MyCustomBaseline",
@@ -90,14 +90,14 @@ export interface GetPatchBaselineResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the baseline.
      */
     readonly name: string;
     readonly namePrefix?: string;
     readonly operatingSystem?: string;
     readonly owner: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

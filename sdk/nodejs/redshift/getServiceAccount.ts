@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
  * in a given region for the purpose of allowing Redshift to store audit data in S3.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = aws.redshift.getServiceAccount();
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
@@ -83,9 +83,9 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS Redshift service account in the selected region.
      */
     readonly arn: string;
-    readonly region?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

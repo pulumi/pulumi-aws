@@ -12,7 +12,7 @@ import (
 )
 
 // Attaches a load balancer policy to an ELB Listener.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_listener_policy.html.markdown.
 type ListenerPolicy struct {
 	pulumi.CustomResourceState

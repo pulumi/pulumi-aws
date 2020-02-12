@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const vpcId = config.require("vpcId");
- * 
+ *
  * const defaultInternetGateway = aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",
@@ -71,14 +71,14 @@ export interface GetInternetGatewayArgs {
 export interface GetInternetGatewayResult {
     readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
     readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly internetGatewayId: string;
     /**
      * The ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId: string;
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

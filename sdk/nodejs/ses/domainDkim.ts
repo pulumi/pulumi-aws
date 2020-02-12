@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES domain DKIM generation resource.
- * 
+ *
  * Domain ownership needs to be confirmed first using [sesDomainIdentity Resource](https://www.terraform.io/docs/providers/aws/r/ses_domain_identity.html)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });

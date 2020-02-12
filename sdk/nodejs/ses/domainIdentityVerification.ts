@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a successful verification of an SES domain identity.
- * 
+ *
  * Most commonly, this resource is used together with `aws.route53.Record` and
  * `aws.ses.DomainIdentity` to request an SES domain identity,
  * deploy the required DNS verification records, and wait for verification to complete.
- * 
+ *
  * > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.ses.DomainIdentity("example", {
  *     domain: "example.com",
  * });

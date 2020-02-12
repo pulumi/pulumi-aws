@@ -9,18 +9,18 @@ import * as utilities from "../utilities";
 /**
  * The S3 object data source allows access to the metadata and
  * _optionally_ (see below) content of an object stored inside S3 bucket.
- * 
+ *
  * > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bootstrapScript = aws.s3.getBucketObject({
  *     bucket: "ourcorp-deploy-config",
  *     key: "ec2-bootstrap-script.sh",
@@ -31,17 +31,17 @@ import * as utilities from "../utilities";
  *     userData: bootstrapScript.body,
  * });
  * ```
- * 
+ *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
  * to AWS Lambda for use as a function implementation. More information about
  * Lambda functions is available in the documentation for
  * [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html).
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const lambda = aws.s3.getBucketObject({
  *     bucket: "ourcorp-lambda-functions",
  *     key: "hello-world.zip",
@@ -141,6 +141,10 @@ export interface GetBucketObjectResult {
      * The date and time at which the object is no longer cacheable.
      */
     readonly expires: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly key: string;
     /**
      * Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
@@ -187,8 +191,4 @@ export interface GetBucketObjectResult {
      * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
      */
     readonly websiteRedirectLocation: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -46,6 +46,10 @@ export interface GetTaskDefinitionResult {
      */
     readonly family: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Docker networking mode to use for the containers in this task.
      */
     readonly networkMode: string;
@@ -62,8 +66,4 @@ export interface GetTaskDefinitionResult {
      * The ARN of the IAM role that containers in this task can assume
      */
     readonly taskRoleArn: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

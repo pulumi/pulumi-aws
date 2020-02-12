@@ -2,20 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * The IAM Account Alias data source allows access to the account alias
  * for the effective account in which this provider is working.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = aws.iam.getAccountAlias();
- * 
+ *
  * export const accountId = current.accountAlias;
  * ```
  *

@@ -6,19 +6,19 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Manages an AWS Elasticsearch Domain.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticsearch.Domain("example", {
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
@@ -32,18 +32,18 @@ import {PolicyDocument} from "../iam/documents";
  *     },
  * });
  * ```
- * 
+ *
  * ### Access Policy
- * 
+ *
  * > See also: [`aws.elasticsearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- * 
+ *
  * const currentRegion = aws.getRegion();
  * const currentCallerIdentity = aws.getCallerIdentity();
  * const example = new aws.elasticsearch.Domain("example", {
@@ -64,13 +64,13 @@ import {PolicyDocument} from "../iam/documents";
  * `,
  * });
  * ```
- * 
+ *
  * ### Log Publishing to CloudWatch Logs
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyDocument: `{
@@ -100,17 +100,17 @@ import {PolicyDocument} from "../iam/documents";
  *     }],
  * });
  * ```
- * 
+ *
  * ### VPC based ES
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const vpc = config.require("vpc");
  * const domain = config.get("domain") || "tf-test";
- * 
+ *
  * const selectedVpc = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
@@ -346,7 +346,7 @@ export interface DomainState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    readonly accessPolicies?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options.
      * Note that the values for these configuration options must be strings (wrapped in quotes) or they
@@ -426,7 +426,7 @@ export interface DomainArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    readonly accessPolicies?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options.
      * Note that the values for these configuration options must be strings (wrapped in quotes) or they

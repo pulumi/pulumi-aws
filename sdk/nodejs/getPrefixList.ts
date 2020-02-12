@@ -9,18 +9,18 @@ import * as utilities from "./utilities";
 /**
  * `aws..getPrefixList` provides details about a specific prefix list (PL)
  * in the current region.
- * 
+ *
  * This can be used both to validate a prefix list given in a variable
  * and to obtain the CIDR blocks (IP address ranges) for the associated
  * AWS service. The latter may be useful e.g. for adding network ACL
  * rules.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("privateS3", {
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     vpcId: aws_vpc_foo.id,
@@ -86,12 +86,12 @@ export interface GetPrefixListResult {
      */
     readonly cidrBlocks: string[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the selected prefix list.
      */
     readonly name: string;
     readonly prefixListId?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

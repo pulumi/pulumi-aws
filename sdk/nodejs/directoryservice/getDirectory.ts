@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws_directory_service_directory_main.id.apply(id => aws.directoryservice.getDirectory({
  *     directoryId: id,
  * }));
@@ -80,6 +80,10 @@ export interface GetDirectoryResult {
      */
     readonly enableSso: boolean;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The fully qualified name for the directory/connector.
      */
     readonly name: string;
@@ -104,8 +108,4 @@ export interface GetDirectoryResult {
      */
     readonly type: string;
     readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

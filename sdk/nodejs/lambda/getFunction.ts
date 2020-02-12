@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Function.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const functionName = config.require("functionName");
- * 
+ *
  * const existing = aws.lambda.getFunction({
  *     functionName: functionName,
  * });
@@ -83,6 +83,10 @@ export interface GetFunctionResult {
      */
     readonly handler: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN to be used for invoking Lambda Function from API Gateway.
      */
     readonly invokeArn: string;
@@ -144,8 +148,4 @@ export interface GetFunctionResult {
      * VPC configuration associated with your Lambda function.
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

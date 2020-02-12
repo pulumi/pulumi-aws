@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an EC2 Transit Gateway VPC Attachment.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### By Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.ec2transitgateway.getVpcAttachment({
  *     filters: [{
  *         name: "vpc-id",
@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### By Identifier
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.ec2transitgateway.getVpcAttachment({
  *     id: "tgw-attach-12345678",
  * });

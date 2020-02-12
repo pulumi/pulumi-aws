@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Elastic Container Registry Repository.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foo = new aws.ecr.Repository("foo", {
  *     imageScanningConfiguration: {
  *         scanOnPush: true,

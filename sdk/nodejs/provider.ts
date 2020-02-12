@@ -6,7 +6,7 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-import {Region} from "./region";
+import {Region} from "./index";
 
 /**
  * The provider type for the aws package. By default, resources use package-wide configuration
@@ -43,24 +43,38 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         {
             inputs["accessKey"] = (args ? args.accessKey : undefined) || utilities.getEnv("AWS_ACCESS_KEY_ID");
-            inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
-            inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
-            inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
-            inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
-            inputs["ignoreTagPrefixes"] = pulumi.output(args ? args.ignoreTagPrefixes : undefined).apply(JSON.stringify);
-            inputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
-            inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
-            inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify)
+;
+            inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify)
+;
+            inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify)
+;
+            inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify)
+;
+            inputs["ignoreTagPrefixes"] = pulumi.output(args ? args.ignoreTagPrefixes : undefined).apply(JSON.stringify)
+;
+            inputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify)
+;
+            inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify)
+;
+            inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify)
+;
             inputs["profile"] = (args ? args.profile : undefined) || utilities.getEnv("AWS_PROFILE");
-            inputs["region"] = (args ? args.region : undefined) || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
-            inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
+            inputs["region"] = (args ? args.region : undefined) || <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify)
+;
             inputs["secretKey"] = (args ? args.secretKey : undefined) || utilities.getEnv("AWS_SECRET_ACCESS_KEY");
             inputs["sharedCredentialsFile"] = (args ? args.sharedCredentialsFile : undefined) || utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
-            inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
-            inputs["skipGetEc2Platforms"] = pulumi.output(args ? args.skipGetEc2Platforms : undefined).apply(JSON.stringify);
-            inputs["skipMetadataApiCheck"] = pulumi.output(args ? args.skipMetadataApiCheck : undefined).apply(JSON.stringify);
-            inputs["skipRegionValidation"] = pulumi.output(args ? args.skipRegionValidation : undefined).apply(JSON.stringify);
-            inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
+            inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify)
+;
+            inputs["skipGetEc2Platforms"] = pulumi.output(args ? args.skipGetEc2Platforms : undefined).apply(JSON.stringify)
+;
+            inputs["skipMetadataApiCheck"] = pulumi.output(args ? args.skipMetadataApiCheck : undefined).apply(JSON.stringify)
+;
+            inputs["skipRegionValidation"] = pulumi.output(args ? args.skipRegionValidation : undefined).apply(JSON.stringify)
+;
+            inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify)
+;
             inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("AWS_SESSION_TOKEN");
         }
         if (!opts) {
@@ -79,8 +93,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS
-     * console.
+     * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     readonly accessKey?: pulumi.Input<string>;
     readonly allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -100,8 +113,7 @@ export interface ProviderArgs {
      */
     readonly insecure?: pulumi.Input<boolean>;
     /**
-     * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is
-     * thrown.
+     * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
      */
     readonly maxRetries?: pulumi.Input<number>;
     /**
@@ -119,8 +131,7 @@ export interface ProviderArgs {
      */
     readonly s3ForcePathStyle?: pulumi.Input<boolean>;
     /**
-     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS
-     * console.
+     * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     readonly secretKey?: pulumi.Input<string>;
     /**
@@ -138,8 +149,8 @@ export interface ProviderArgs {
     readonly skipGetEc2Platforms?: pulumi.Input<boolean>;
     readonly skipMetadataApiCheck?: pulumi.Input<boolean>;
     /**
-     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that
-     * are not public (yet).
+     * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
+     * not public (yet).
      */
     readonly skipRegionValidation?: pulumi.Input<boolean>;
     /**

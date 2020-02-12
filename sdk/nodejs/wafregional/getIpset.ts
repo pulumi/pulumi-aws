@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.wafregional.getIpset({
  *     name: "tfWAFRegionalIPSet",
  * });
@@ -51,9 +51,9 @@ export interface GetIpsetArgs {
  * A collection of values returned by getIpset.
  */
 export interface GetIpsetResult {
-    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

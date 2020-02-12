@@ -13,16 +13,16 @@ import (
 
 // The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
 // including cross-region copies.
-// 
+//
 // If the source AMI has associated EBS snapshots, those will also be duplicated
 // along with the AMI.
-// 
+//
 // This is useful for taking a single AMI provisioned in one region and making
 // it available in another for a multi-region deployment.
-// 
+//
 // Copying an AMI can take several minutes. The creation of this resource will
 // block until the new AMI is available for use on new instances.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_copy.html.markdown.
 type AmiCopy struct {
 	pulumi.CustomResourceState

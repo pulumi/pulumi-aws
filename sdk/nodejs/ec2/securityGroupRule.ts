@@ -2,33 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a security group rule resource. Represents a single `ingress` or
  * `egress` group rule, which can be added to external Security Groups.
- * 
+ *
  * > **NOTE on Security Groups and Security Group Rules:** This provider currently
  * provides both a standalone Security Group Rule resource (a single `ingress` or
  * `egress` rule), and a Security Group resource with `ingress` and `egress` rules
  * defined in-line. At this time you cannot use a Security Group with in-line rules
  * in conjunction with any Security Group Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
- * 
+ *
  * > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `fromPort` and `toPort` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
- * 
+ *
  * > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
  *     // Opening to 0.0.0.0/0 can lead to security vulnerabilities.
  *     cidrBlocks: "", // add a CIDR block here
@@ -40,17 +38,17 @@ import * as utilities from "../utilities";
  *     type: "ingress",
  * });
  * ```
- * 
+ *
  * ## Usage with prefix list IDs
- * 
+ *
  * Prefix list IDs are manged by AWS internally. Prefix list IDs
  * are associated with a prefix list name, or service name, that is linked to a specific region.
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // ...
  * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
  * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {

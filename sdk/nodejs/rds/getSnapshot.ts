@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Snapshot for use when provisioning DB instances
- * 
+ *
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  * See the [`aws.rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const prod = new aws.rds.Instance("prod", {
  *     allocatedStorage: 10,
  *     dbSubnetGroupName: "myDatabaseSubnetGroup",
@@ -130,6 +130,10 @@ export interface GetSnapshotResult {
      * Specifies the version of the database engine.
      */
     readonly engineVersion: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -175,8 +179,4 @@ export interface GetSnapshotResult {
      * Specifies the ID of the VPC associated with the DB snapshot.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

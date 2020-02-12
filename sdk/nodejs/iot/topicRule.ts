@@ -8,11 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mytopic = new aws.sns.Topic("mytopic", {});
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{

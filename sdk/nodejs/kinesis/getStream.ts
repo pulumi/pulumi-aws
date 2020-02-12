@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get information about a Kinesis Stream for use in other
  * resources.
- * 
+ *
  * For more details, see the [Amazon Kinesis Documentation][1].
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const stream = aws.kinesis.getStream({
  *     name: "stream-name",
  * });
@@ -69,6 +69,10 @@ export interface GetStreamResult {
      */
     readonly creationTimestamp: number;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the Kinesis Stream.
      */
     readonly name: string;
@@ -92,8 +96,4 @@ export interface GetStreamResult {
      * A mapping of tags to assigned to the stream.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

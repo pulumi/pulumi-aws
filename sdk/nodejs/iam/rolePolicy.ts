@@ -4,8 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./documents";
-import {Role} from "./role";
+import {PolicyDocument, Role} from "./index";
 
 /**
  * Provides an IAM role policy.
@@ -109,11 +108,11 @@ export interface RolePolicyState {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role?: pulumi.Input<string | Role>;
+    readonly role?: pulumi.Input<string> | pulumi.Input<Role>;
 }
 
 /**
@@ -130,9 +129,9 @@ export interface RolePolicyArgs {
      * prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role: pulumi.Input<string | Role>;
+    readonly role: pulumi.Input<string> | pulumi.Input<Role>;
 }

@@ -21,7 +21,7 @@ class IpGroup(pulumi.CustomResource):
     rules: pulumi.Output[list]
     """
     One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-    
+
       * `description` (`str`) - The description.
       * `source` (`str`) - The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
     """
@@ -29,19 +29,19 @@ class IpGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IP access control group in AWS WorkSpaces Service
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
         :param pulumi.Input[list] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        
+
         The **rules** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`) - The description.
           * `source` (`pulumi.Input[str]`) - The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,24 +75,23 @@ class IpGroup(pulumi.CustomResource):
         """
         Get an existing IpGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
         :param pulumi.Input[list] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        
+
         The **rules** object supports the following:
-        
+
           * `description` (`pulumi.Input[str]`) - The description.
           * `source` (`pulumi.Input[str]`) - The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/workspaces_ip_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["name"] = name
         __props__["rules"] = rules

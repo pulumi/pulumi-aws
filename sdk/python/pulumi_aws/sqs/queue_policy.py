@@ -19,12 +19,12 @@ class QueuePolicy(pulumi.CustomResource):
         """
         Allows you to set a policy of an SQS Queue
         while referencing ARN of the queue within the policy.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,17 +60,16 @@ class QueuePolicy(pulumi.CustomResource):
         """
         Get an existing QueuePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["policy"] = policy
         __props__["queue_url"] = queue_url
         return QueuePolicy(resource_name, opts=opts, __props__=__props__)

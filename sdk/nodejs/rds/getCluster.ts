@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a RDS cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const clusterName = aws.rds.getCluster({
  *     clusterIdentifier: "clusterName",
  * });
@@ -70,6 +70,10 @@ export interface GetClusterResult {
     readonly hostedZoneId: string;
     readonly iamDatabaseAuthenticationEnabled: boolean;
     readonly iamRoles: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly kmsKeyId: string;
     readonly masterUsername: string;
     readonly port: number;
@@ -80,8 +84,4 @@ export interface GetClusterResult {
     readonly storageEncrypted: boolean;
     readonly tags: {[key: string]: any};
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

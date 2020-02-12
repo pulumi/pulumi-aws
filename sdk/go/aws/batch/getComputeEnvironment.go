@@ -10,7 +10,7 @@ import (
 
 // The Batch Compute Environment data source allows access to details of a specific
 // compute environment within AWS Batch.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_compute_environment.html.markdown.
 func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupComputeEnvironmentResult, error) {
 	var rv LookupComputeEnvironmentResult

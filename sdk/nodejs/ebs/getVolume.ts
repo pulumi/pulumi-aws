@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get information about an EBS volume for use in other
  * resources.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ebsVolume = aws.ebs.getVolume({
  *     filters: [
  *         {
@@ -87,6 +87,10 @@ export interface GetVolumeResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetVolumeFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The amount of IOPS for the disk.
      */
     readonly iops: number;
@@ -115,8 +119,4 @@ export interface GetVolumeResult {
      * The type of EBS volume.
      */
     readonly volumeType: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

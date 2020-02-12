@@ -54,6 +54,10 @@ export interface GetInvocationArgs {
  */
 export interface GetInvocationResult {
     readonly functionName: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly input: string;
     readonly qualifier?: string;
     /**
@@ -64,8 +68,4 @@ export interface GetInvocationResult {
      * This field is set only if result is a map of primitive types, where the map is string keys and string values.
      */
     readonly resultMap: {[key: string]: string};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

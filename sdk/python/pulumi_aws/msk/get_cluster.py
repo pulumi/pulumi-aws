@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, cluster_name=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, id=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -35,6 +35,12 @@ class GetClusterResult:
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         __self__.cluster_name = cluster_name
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kafka_version and not isinstance(kafka_version, str):
             raise TypeError("Expected argument 'kafka_version' to be a str")
         __self__.kafka_version = kafka_version
@@ -59,12 +65,6 @@ class GetClusterResult:
         """
         A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -75,21 +75,23 @@ class AwaitableGetClusterResult(GetClusterResult):
             bootstrap_brokers=self.bootstrap_brokers,
             bootstrap_brokers_tls=self.bootstrap_brokers_tls,
             cluster_name=self.cluster_name,
+            id=self.id,
             kafka_version=self.kafka_version,
             number_of_broker_nodes=self.number_of_broker_nodes,
             tags=self.tags,
-            zookeeper_connect_string=self.zookeeper_connect_string,
-            id=self.id)
+            zookeeper_connect_string=self.zookeeper_connect_string)
 
 def get_cluster(cluster_name=None,tags=None,opts=None):
     """
     Get information on an Amazon MSK Cluster.
-    
-    :param str cluster_name: Name of the cluster.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/msk_cluster.html.markdown.
+
+
+    :param str cluster_name: Name of the cluster.
     """
     __args__ = dict()
+
 
     __args__['clusterName'] = cluster_name
     __args__['tags'] = tags
@@ -104,8 +106,8 @@ def get_cluster(cluster_name=None,tags=None,opts=None):
         bootstrap_brokers=__ret__.get('bootstrapBrokers'),
         bootstrap_brokers_tls=__ret__.get('bootstrapBrokersTls'),
         cluster_name=__ret__.get('clusterName'),
+        id=__ret__.get('id'),
         kafka_version=__ret__.get('kafkaVersion'),
         number_of_broker_nodes=__ret__.get('numberOfBrokerNodes'),
         tags=__ret__.get('tags'),
-        zookeeper_connect_string=__ret__.get('zookeeperConnectString'),
-        id=__ret__.get('id'))
+        zookeeper_connect_string=__ret__.get('zookeeperConnectString'))

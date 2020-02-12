@@ -6,21 +6,20 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
-import {CannedAcl} from "./cannedAcl";
-import {RoutingRule} from "./routingRules";
+import {PolicyDocument} from "../iam";
+import {CannedAcl} from "./index";
 
 /**
  * Provides a S3 bucket resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Private Bucket w/ Tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     tags: {
@@ -29,14 +28,14 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Static Website Hosting
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "public-read",
  *     policy: fs.readFileSync("policy.json", "utf-8"),
@@ -55,13 +54,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Using CORS
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "public-read",
  *     corsRules: [{
@@ -76,13 +75,13 @@ import {RoutingRule} from "./routingRules";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Using versioning
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {
  *     acl: "private",
  *     versioning: {
@@ -90,13 +89,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Enable Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const logBucket = new aws.s3.Bucket("logBucket", {
  *     acl: "log-delivery-write",
  * });
@@ -108,13 +107,13 @@ import {RoutingRule} from "./routingRules";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Using object lifecycle
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     lifecycleRules: [
@@ -174,13 +173,13 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
- * 
+ *
  * ### Using replication configuration
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const central = new aws.Provider("central", {
  *     region: "eu-central-1",
  * });
@@ -266,13 +265,13 @@ import {RoutingRule} from "./routingRules";
  *     role: replicationRole.name,
  * });
  * ```
- * 
+ *
  * ### Enable Default Server Side Encryption
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mykey = new aws.kms.Key("mykey", {
  *     deletionWindowInDays: 10,
  *     description: "This key is used to encrypt bucket objects",
@@ -498,7 +497,7 @@ export interface BucketState {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: pulumi.Input<string> | pulumi.Input<CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -546,7 +545,7 @@ export interface BucketState {
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */
@@ -600,7 +599,7 @@ export interface BucketArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
      */
-    readonly acl?: pulumi.Input<string | CannedAcl>;
+    readonly acl?: pulumi.Input<string> | pulumi.Input<CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -640,7 +639,7 @@ export interface BucketArgs {
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
      */

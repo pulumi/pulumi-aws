@@ -11,9 +11,9 @@ import (
 )
 
 // Provides a Load Balancer resource.
-// 
+//
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/alb_legacy.html.markdown.
 type LoadBalancer struct {
 	pulumi.CustomResourceState

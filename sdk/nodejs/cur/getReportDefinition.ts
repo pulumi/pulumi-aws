@@ -2,21 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an AWS Cost and Usage Report Definition.
- * 
+ *
  * > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
- * 
+ *
  * > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const reportDefinition = aws.cur.getReportDefinition({
  *     reportName: "example",
  * });
@@ -69,6 +71,10 @@ export interface GetReportDefinitionResult {
      * Preferred compression format for report.
      */
     readonly format: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly reportName: string;
     /**
      * Name of customer S3 bucket.
@@ -86,8 +92,4 @@ export interface GetReportDefinitionResult {
      * The frequency on which report data are measured and displayed.
      */
     readonly timeUnit: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

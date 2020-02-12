@@ -2,23 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Attaches a policy to an S3 bucket resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const bucket = new aws.s3.Bucket("b", {});
  * const bucketPolicy = new aws.s3.BucketPolicy("b", {
  *     bucket: bucket.id,
@@ -121,7 +119,7 @@ export interface BucketPolicyState {
      * The name of the bucket to which to apply the policy.
      */
     readonly bucket?: pulumi.Input<string>;
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    readonly policy?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }
 
 /**
@@ -132,5 +130,5 @@ export interface BucketPolicyArgs {
      * The name of the bucket to which to apply the policy.
      */
     readonly bucket: pulumi.Input<string>;
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    readonly policy: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
 }

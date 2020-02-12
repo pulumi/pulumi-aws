@@ -2,30 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
  * in the current region.
- * 
+ *
  * Each AWS region comes with a default set of DHCP options.
  * **This is an advanced resource**, and has special caveats to be aware of when
  * using it. Please read this document in its entirety before using this resource.
- * 
+ *
  * The `aws.ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * Basic usage with tags:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const defaultDefaultVpcDhcpOptions = new aws.ec2.DefaultVpcDhcpOptions("default", {
  *     tags: {
  *         Name: "Default DHCP Option Set",

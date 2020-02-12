@@ -4,20 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {User} from "./user";
+import {ARN} from "..";
+import {User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM user
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const user = new aws.iam.User("user", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
@@ -114,7 +114,7 @@ export interface UserPolicyAttachmentState {
     /**
      * The user the policy should be applied to
      */
-    readonly user?: pulumi.Input<string | User>;
+    readonly user?: pulumi.Input<string> | pulumi.Input<User>;
 }
 
 /**
@@ -128,5 +128,5 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The user the policy should be applied to
      */
-    readonly user: pulumi.Input<string | User>;
+    readonly user: pulumi.Input<string> | pulumi.Input<User>;
 }

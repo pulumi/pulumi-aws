@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Gamelift Game Session Queue resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.gamelift.GameSessionQueue("test", {
  *     destinations: [
  *         aws_gamelift_fleet_us_west_2_fleet.arn,

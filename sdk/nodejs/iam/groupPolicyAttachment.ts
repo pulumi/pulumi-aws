@@ -4,20 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {Group} from "./group";
+import {ARN} from "..";
+import {Group} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM group
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const group = new aws.iam.Group("group", {});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
@@ -110,7 +110,7 @@ export interface GroupPolicyAttachmentState {
     /**
      * The group the policy should be applied to
      */
-    readonly group?: pulumi.Input<string | Group>;
+    readonly group?: pulumi.Input<string> | pulumi.Input<Group>;
     /**
      * The ARN of the policy you want to apply
      */
@@ -124,7 +124,7 @@ export interface GroupPolicyAttachmentArgs {
     /**
      * The group the policy should be applied to
      */
-    readonly group: pulumi.Input<string | Group>;
+    readonly group: pulumi.Input<string> | pulumi.Input<Group>;
     /**
      * The ARN of the policy you want to apply
      */

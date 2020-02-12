@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EKS Cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Example IAM Role for EKS Cluster
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.iam.Role("example", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -41,20 +41,20 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
- * 
+ *
  * ### Enabling Control Plane Logging
- * 
+ *
  * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabledClusterLogTypes` argument. To manage the CloudWatch Log Group retention period, the [`aws.cloudwatch.LogGroup` resource](https://www.terraform.io/docs/providers/aws/r/cloudwatch_log_group.html) can be used.
- * 
+ *
  * > The below configuration uses [`dependsOn`](https://www.terraform.io/docs/configuration/resources.html#depends_on-explicit-resource-dependencies) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
- * 
+ *
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
  *     retentionInDays: 7,
  * });
@@ -65,15 +65,15 @@ import * as utilities from "../utilities";
  *     ],
  * }, {dependsOn: [exampleLogGroup]});
  * ```
- * 
+ *
  * ### Enabling IAM Roles for Service Accounts
- * 
+ *
  * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleCluster = new aws.eks.Cluster("example", {});
  * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
  *     clientIdLists: ["sts.amazonaws.com"],
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: exampleAssumeRolePolicy.json,
  * });
  * ```
- * 
+ *
  * After adding inline IAM Policies (e.g. [`aws.iam.RolePolicy` resource](https://www.terraform.io/docs/providers/aws/r/iam_role_policy.html)) or attaching IAM Policies (e.g. [`aws.iam.Policy` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) and [`aws.iam.RolePolicyAttachment` resource](https://www.terraform.io/docs/providers/aws/r/iam_policy.html)) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g. [`kubernetesServiceAccount` resource](https://www.terraform.io/docs/providers/kubernetes/r/service_account.html)) and recreate any pods.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/eks_cluster.html.markdown.

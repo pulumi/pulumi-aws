@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to lookup current AWS partition in which this provider is working
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/partition.html.markdown.
 func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	var rv GetPartitionResult

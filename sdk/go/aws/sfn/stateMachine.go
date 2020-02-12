@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Step Function State Machine resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sfn_state_machine.html.markdown.
 type StateMachine struct {
 	pulumi.CustomResourceState

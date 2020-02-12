@@ -28,15 +28,15 @@ class Notification(pulumi.CustomResource):
         Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
         the `notifications` map to a [Notification Configuration][2] inside Amazon Web
         Services, and are applied to each AutoScaling Group you supply.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] group_names: A list of AutoScaling Group Names
         :param pulumi.Input[list] notifications: A list of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here][1]
         :param pulumi.Input[str] topic_arn: The Topic ARN for notifications to be sent through
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +75,7 @@ class Notification(pulumi.CustomResource):
         """
         Get an existing Notification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,12 +83,11 @@ class Notification(pulumi.CustomResource):
         :param pulumi.Input[list] notifications: A list of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here][1]
         :param pulumi.Input[str] topic_arn: The Topic ARN for notifications to be sent through
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_notification.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["group_names"] = group_names
         __props__["notifications"] = notifications
         __props__["topic_arn"] = topic_arn

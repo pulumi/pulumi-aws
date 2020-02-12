@@ -13,7 +13,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, arn=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None, id=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, arn=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         __self__.access_policies = access_policies
@@ -89,6 +89,12 @@ class GetDomainResult:
         """
         Domain-specific endpoint used to submit index, search, and data upload requests.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kibana_endpoint and not isinstance(kibana_endpoint, str):
             raise TypeError("Expected argument 'kibana_endpoint' to be a str")
         __self__.kibana_endpoint = kibana_endpoint
@@ -129,12 +135,6 @@ class GetDomainResult:
         """
         VPC Options for private Elasticsearch domains.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetDomainResult(GetDomainResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -154,24 +154,26 @@ class AwaitableGetDomainResult(GetDomainResult):
             elasticsearch_version=self.elasticsearch_version,
             encryption_at_rests=self.encryption_at_rests,
             endpoint=self.endpoint,
+            id=self.id,
             kibana_endpoint=self.kibana_endpoint,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryptions=self.node_to_node_encryptions,
             processing=self.processing,
             snapshot_options=self.snapshot_options,
             tags=self.tags,
-            vpc_options=self.vpc_options,
-            id=self.id)
+            vpc_options=self.vpc_options)
 
 def get_domain(domain_name=None,tags=None,opts=None):
     """
     Use this data source to get information about an Elasticsearch Domain
-    
-    :param str domain_name: Name of the domain.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticsearch_domain.html.markdown.
+
+
+    :param str domain_name: Name of the domain.
     """
     __args__ = dict()
+
 
     __args__['domainName'] = domain_name
     __args__['tags'] = tags
@@ -195,11 +197,11 @@ def get_domain(domain_name=None,tags=None,opts=None):
         elasticsearch_version=__ret__.get('elasticsearchVersion'),
         encryption_at_rests=__ret__.get('encryptionAtRests'),
         endpoint=__ret__.get('endpoint'),
+        id=__ret__.get('id'),
         kibana_endpoint=__ret__.get('kibanaEndpoint'),
         log_publishing_options=__ret__.get('logPublishingOptions'),
         node_to_node_encryptions=__ret__.get('nodeToNodeEncryptions'),
         processing=__ret__.get('processing'),
         snapshot_options=__ret__.get('snapshotOptions'),
         tags=__ret__.get('tags'),
-        vpc_options=__ret__.get('vpcOptions'),
-        id=__ret__.get('id'))
+        vpc_options=__ret__.get('vpcOptions'))

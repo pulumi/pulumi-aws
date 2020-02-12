@@ -7,39 +7,39 @@ import * as utilities from "../utilities";
 /**
  * Provides an IAM Server Certificate resource to upload Server Certificates.
  * Certs uploaded to IAM can easily work with other AWS services such as:
- * 
+ *
  * - AWS Elastic Beanstalk
  * - Elastic Load Balancing
  * - CloudFront
  * - AWS OpsWorks
- * 
+ *
  * For information about server certificates in IAM, see [Managing Server
  * Certificates][2] in AWS Documentation.
- * 
+ *
  * > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * **Using certs on file:**
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });
  * ```
- * 
+ *
  * **Example with cert in-line:**
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
@@ -51,21 +51,21 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * 
+ *
  * **Use in combination with an AWS ELB resource:**
- * 
+ *
  * Some properties of an IAM Server Certificates cannot be updated while they are
  * in use. In order for this provider to effectively manage a Certificate in this situation, it is
  * recommended you utilize the `namePrefix` attribute and enable the
  * `createBeforeDestroy` [lifecycle block][lifecycle]. This will allow this provider
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
- * 
+ *
  * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     namePrefix: "example-cert",

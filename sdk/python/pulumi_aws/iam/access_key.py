@@ -53,7 +53,9 @@ class AccessKey(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, pgp_key=None, status=None, user=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
@@ -62,8 +64,6 @@ class AccessKey(pulumi.CustomResource):
         :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
                Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,7 +102,7 @@ class AccessKey(pulumi.CustomResource):
         """
         Get an existing AccessKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,12 +125,11 @@ class AccessKey(pulumi.CustomResource):
         :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
                Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_access_key.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["encrypted_secret"] = encrypted_secret
         __props__["key_fingerprint"] = key_fingerprint
         __props__["pgp_key"] = pgp_key

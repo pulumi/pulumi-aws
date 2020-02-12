@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
- * 
+ *
  * For information about AWS Batch, see [What is AWS Batch?][1] .
  * For information about compute environment, see [Compute Environments][2] .
- * 
+ *
  * > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicyAttachment`;
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRole", {
  *     assumeRolePolicy: `{
  *     "Version": "2012-10-17",

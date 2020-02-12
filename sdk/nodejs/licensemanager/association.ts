@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a License Manager association.
- * 
+ *
  * > **Note:** License configurations can also be associated with launch templates by specifying the `licenseSpecifications` block for an `aws.ec2.LaunchTemplate`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleAmi = aws.getAmi({
  *     filters: [{
  *         name: "name",

@@ -13,7 +13,7 @@ class GetCertificateAuthorityResult:
     """
     A collection of values returned by getCertificateAuthority.
     """
-    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, id=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -34,6 +34,12 @@ class GetCertificateAuthorityResult:
         __self__.certificate_signing_request = certificate_signing_request
         """
         The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if not_after and not isinstance(not_after, str):
             raise TypeError("Expected argument 'not_after' to be a str")
@@ -82,12 +88,6 @@ class GetCertificateAuthorityResult:
         """
         The type of the certificate authority.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -98,33 +98,34 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             certificate=self.certificate,
             certificate_chain=self.certificate_chain,
             certificate_signing_request=self.certificate_signing_request,
+            id=self.id,
             not_after=self.not_after,
             not_before=self.not_before,
             revocation_configurations=self.revocation_configurations,
             serial=self.serial,
             status=self.status,
             tags=self.tags,
-            type=self.type,
-            id=self.id)
+            type=self.type)
 
 def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
+
+
     :param str arn: Amazon Resource Name (ARN) of the certificate authority.
-    
+
     The **revocation_configurations** object supports the following:
-    
+
       * `crlConfigurations` (`list`)
-    
         * `customCname` (`str`)
         * `enabled` (`bool`)
         * `expirationInDays` (`float`)
         * `s3BucketName` (`str`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/acmpca_certificate_authority.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     __args__['revocationConfigurations'] = revocation_configurations
@@ -140,11 +141,11 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
         certificate=__ret__.get('certificate'),
         certificate_chain=__ret__.get('certificateChain'),
         certificate_signing_request=__ret__.get('certificateSigningRequest'),
+        id=__ret__.get('id'),
         not_after=__ret__.get('notAfter'),
         not_before=__ret__.get('notBefore'),
         revocation_configurations=__ret__.get('revocationConfigurations'),
         serial=__ret__.get('serial'),
         status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'),
-        id=__ret__.get('id'))
+        type=__ret__.get('type'))

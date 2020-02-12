@@ -4,20 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {Role} from "./role";
+import {ARN} from "..";
+import {Role} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM role
- * 
+ *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `    {
  *       "Version": "2012-10-17",
@@ -141,7 +141,7 @@ export interface RolePolicyAttachmentState {
     /**
      * The role the policy should be applied to
      */
-    readonly role?: pulumi.Input<string | Role>;
+    readonly role?: pulumi.Input<string> | pulumi.Input<Role>;
 }
 
 /**
@@ -155,5 +155,5 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The role the policy should be applied to
      */
-    readonly role: pulumi.Input<string | Role>;
+    readonly role: pulumi.Input<string> | pulumi.Input<Role>;
 }

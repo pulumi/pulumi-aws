@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an Application AutoScaling ScheduledAction resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appautoscaling_scheduled_action.html.markdown.
 type ScheduledAction struct {
 	pulumi.CustomResourceState

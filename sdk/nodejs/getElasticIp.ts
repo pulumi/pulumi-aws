@@ -8,26 +8,26 @@ import * as utilities from "./utilities";
 
 /**
  * `aws.ec2.Eip` provides details about a specific Elastic IP.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Search By Allocation ID (VPC only)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byAllocationId = aws.getElasticIp({
  *     id: "eipalloc-12345678",
  * });
  * ```
- * 
+ *
  * ### Search By Filters (EC2-Classic or VPC)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byFilter = aws.getElasticIp({
  *     filters: [{
  *         name: "tag:Name",
@@ -35,24 +35,24 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ### Search By Public IP (EC2-Classic or VPC)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byPublicIp = aws.getElasticIp({
  *     publicIp: "1.2.3.4",
  * });
  * ```
- * 
+ *
  * ### Search By Tags (EC2-Classic or VPC)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byTags = aws.getElasticIp({
  *     tags: {
  *         Name: "exampleNameTagValue",

@@ -33,17 +33,17 @@ class Agent(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, activation_key=None, ip_address=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS DataSync Agent deployed on premises.
-        
+
         > **NOTE:** One of `activation_key` or `ip_address` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ip_address`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         :param pulumi.Input[str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[str] name: Name of the DataSync Agent.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Agent.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +78,7 @@ class Agent(pulumi.CustomResource):
         """
         Get an existing Agent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,12 +87,11 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[str] name: Name of the DataSync Agent.
         :param pulumi.Input[dict] tags: Key-value pairs of resource tags to assign to the DataSync Agent.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/datasync_agent.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["activation_key"] = activation_key
         __props__["arn"] = arn
         __props__["ip_address"] = ip_address

@@ -2,22 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
  * scales elastically for real-time processing of streaming big data.
- * 
+ *
  * For more details, see the [Amazon Kinesis Documentation][1].
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const testStream = new aws.kinesis.Stream("testStream", {
  *     retentionPeriod: 48,
  *     shardCount: 1,

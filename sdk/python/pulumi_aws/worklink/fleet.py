@@ -37,7 +37,7 @@ class Fleet(pulumi.CustomResource):
     identity_provider: pulumi.Output[dict]
     """
     Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-    
+
       * `samlMetadata` (`str`) - The SAML metadata document provided by the customer’s identity provider.
       * `type` (`str`) - The type of identity provider.
     """
@@ -52,7 +52,7 @@ class Fleet(pulumi.CustomResource):
     network: pulumi.Output[dict]
     """
     Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-    
+
       * `security_group_ids` (`list`) - A list of security group IDs associated with access to the provided subnets.
       * `subnet_ids` (`list`) - A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
       * `vpc_id` (`str`) - The VPC ID with connectivity to associated websites.
@@ -64,7 +64,6 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, audit_stream_arn=None, device_ca_certificate=None, display_name=None, identity_provider=None, name=None, network=None, optimize_for_end_user_location=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a Fleet resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events.
@@ -74,19 +73,17 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[dict] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-        
+
         The **identity_provider** object supports the following:
-        
+
           * `samlMetadata` (`pulumi.Input[str]`) - The SAML metadata document provided by the customer’s identity provider.
           * `type` (`pulumi.Input[str]`) - The type of identity provider.
-        
+
         The **network** object supports the following:
-        
+
           * `security_group_ids` (`pulumi.Input[list]`) - A list of security group IDs associated with access to the provided subnets.
           * `subnet_ids` (`pulumi.Input[list]`) - A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
           * `vpc_id` (`pulumi.Input[str]`) - The VPC ID with connectivity to associated websites.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_fleet.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +124,7 @@ class Fleet(pulumi.CustomResource):
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,23 +139,22 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[dict] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-        
+
         The **identity_provider** object supports the following:
-        
+
           * `samlMetadata` (`pulumi.Input[str]`) - The SAML metadata document provided by the customer’s identity provider.
           * `type` (`pulumi.Input[str]`) - The type of identity provider.
-        
+
         The **network** object supports the following:
-        
+
           * `security_group_ids` (`pulumi.Input[list]`) - A list of security group IDs associated with access to the provided subnets.
           * `subnet_ids` (`pulumi.Input[list]`) - A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
           * `vpc_id` (`pulumi.Input[str]`) - The VPC ID with connectivity to associated websites.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_fleet.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["audit_stream_arn"] = audit_stream_arn
         __props__["company_code"] = company_code

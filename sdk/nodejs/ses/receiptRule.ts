@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SES receipt rule resource
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * // Add a header to the email and store it in S3
  * const store = new aws.ses.ReceiptRule("store", {
  *     addHeaderActions: [{

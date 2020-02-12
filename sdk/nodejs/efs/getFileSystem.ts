@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about an Elastic File System (EFS).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const fileSystemId = config.get("fileSystemId") || "";
- * 
+ *
  * const byId = aws.efs.getFileSystem({
  *     fileSystemId: fileSystemId,
  * });
@@ -77,6 +77,10 @@ export interface GetFileSystemResult {
     readonly encrypted: boolean;
     readonly fileSystemId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -98,8 +102,4 @@ export interface GetFileSystemResult {
      * Throughput mode for the file system.
      */
     readonly throughputMode: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

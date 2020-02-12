@@ -10,7 +10,7 @@ import (
 
 // The Batch Job Queue data source allows access to details of a specific
 // job queue within AWS Batch.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
 func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulumi.InvokeOption) (*LookupJobQueueResult, error) {
 	var rv LookupJobQueueResult

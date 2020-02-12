@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CloudWatch Event Target resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const console = new aws.cloudwatch.EventRule("console", {
  *     description: "Capture all EC2 scaling events",
  *     eventPattern: `{
@@ -48,13 +48,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * 
+ *
  * ## Example SSM Document Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ssmLifecycleTrust = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     "schemaVersion": "1.2",
  *     "description": "Stop an instance",
  *     "parameters": {
- * 
+ *
  *     },
  *     "runtimeConfig": {
  *       "aws:runShellScript": {
@@ -124,13 +124,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example RunCommand Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstances", {
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",
@@ -146,13 +146,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example ECS Run Task with Role and Task Override Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ecsEvents = new aws.iam.Role("ecsEvents", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",

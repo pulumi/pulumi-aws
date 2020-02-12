@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Pinpoint SMS Channel resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.html.markdown.
 type EmailChannel struct {
 	pulumi.CustomResourceState

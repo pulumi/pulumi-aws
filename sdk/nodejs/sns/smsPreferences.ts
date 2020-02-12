@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a way to set SNS SMS preferences.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const updateSmsPrefs = new aws.sns.SmsPreferences("updateSmsPrefs", {});
  * ```
  *

@@ -4,43 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Topic} from "./topic";
+import {Topic} from "./index";
 
 /**
  *   Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
  * This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
  * to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case will
  * probably be SQS queues.
- * 
+ *
  * > **NOTE:** If the SNS topic and SQS queue are in different AWS regions, it is important for the "aws.sns.TopicSubscription" to use an AWS provider that is in the same region of the SNS topic. If the "aws.sns.TopicSubscription" is using a provider with a different region than the SNS topic, the subscription will fail to create.
- * 
+ *
  * > **NOTE:** Setup of cross-account subscriptions from SNS topics to SQS queues requires the provider to have access to BOTH accounts.
- * 
+ *
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "aws.sns.TopicSubscription" to use the AWS provider of the account with the SQS queue. If "aws.sns.TopicSubscription" is using a Provider with a different account than the SQS queue, the provider creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
- * 
+ *
  * > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
  *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
  *     protocol: "sqs",
  *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",
  * });
  * ```
- * 
+ *
  * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const userUpdates = new aws.sns.Topic("userUpdates", {});
  * const userUpdatesQueue = new aws.sqs.Queue("userUpdatesQueue", {});
  * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
@@ -49,13 +49,13 @@ import {Topic} from "./topic";
  *     topic: userUpdates.arn,
  * });
  * ```
- * 
+ *
  * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * //#
  * //# Variables
@@ -73,7 +73,7 @@ import {Topic} from "./topic";
  *     region: "us-east-1",
  *     "role-name": "service/service",
  * };
- * 
+ *
  * const snsTopicPolicy = aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
  *     statements: [

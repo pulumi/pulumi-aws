@@ -2,23 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Bucket} from "./bucket";
+import {Bucket} from "./index";
 
 /**
  * Provides a S3 bucket object resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Encrypting with KMS Key
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplekms = new aws.kms.Key("examplekms", {
  *     deletionWindowInDays: 7,
  *     description: "KMS key 1",
@@ -33,13 +31,13 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
- * 
+ *
  * ### Server Side Encryption with S3 Default Master Key
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
@@ -50,13 +48,13 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
- * 
+ *
  * ### Server Side Encryption with AWS-Managed Key
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
@@ -67,13 +65,13 @@ import {Bucket} from "./bucket";
  *     source: new pulumi.asset.FileAsset("index.html"),
  * });
  * ```
- * 
+ *
  * ### S3 Object Lock
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  *     objectLockConfiguration: {
@@ -309,7 +307,7 @@ export interface BucketObjectState {
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket?: pulumi.Input<string | Bucket>;
+    readonly bucket?: pulumi.Input<string> | pulumi.Input<Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
@@ -414,7 +412,7 @@ export interface BucketObjectArgs {
     /**
      * The name of the bucket to put the file in.
      */
-    readonly bucket: pulumi.Input<string | Bucket>;
+    readonly bucket: pulumi.Input<string> | pulumi.Input<Bucket>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */

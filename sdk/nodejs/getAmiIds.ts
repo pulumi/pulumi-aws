@@ -8,13 +8,13 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ubuntu = aws.getAmiIds({
  *     filters: [{
  *         name: "name",
@@ -84,12 +84,12 @@ export interface GetAmiIdsArgs {
 export interface GetAmiIdsResult {
     readonly executableUsers?: string[];
     readonly filters?: outputs.GetAmiIdsFilter[];
-    readonly ids: string[];
-    readonly nameRegex?: string;
-    readonly owners: string[];
-    readonly sortAscending?: boolean;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids: string[];
+    readonly nameRegex?: string;
+    readonly owners: string[];
+    readonly sortAscending?: boolean;
 }

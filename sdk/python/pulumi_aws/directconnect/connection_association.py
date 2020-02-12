@@ -21,13 +21,13 @@ class ConnectionAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, connection_id=None, lag_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Associates a Direct Connect Connection with a LAG.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_id: The ID of the connection.
         :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class ConnectionAssociation(pulumi.CustomResource):
         """
         Get an existing ConnectionAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_id: The ID of the connection.
         :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_connection_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["connection_id"] = connection_id
         __props__["lag_id"] = lag_id
         return ConnectionAssociation(resource_name, opts=opts, __props__=__props__)

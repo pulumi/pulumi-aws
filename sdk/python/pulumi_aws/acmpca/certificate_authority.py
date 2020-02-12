@@ -21,11 +21,10 @@ class CertificateAuthority(pulumi.CustomResource):
     certificate_authority_configuration: pulumi.Output[dict]
     """
     Nested argument containing algorithms and certificate subject information. Defined below.
-    
+
       * `keyAlgorithm` (`str`) - Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
       * `signingAlgorithm` (`str`) - Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
       * `subject` (`dict`) - Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-    
         * `commonName` (`str`) - Fully qualified domain name (FQDN) associated with the certificate subject.
         * `country` (`str`) - Two digit code that specifies the country in which the certificate subject located.
         * `distinguishedNameQualifier` (`str`) - Disambiguating information for the certificate subject.
@@ -67,9 +66,8 @@ class CertificateAuthority(pulumi.CustomResource):
     revocation_configuration: pulumi.Output[dict]
     """
     Nested argument containing revocation configuration. Defined below.
-    
+
       * `crlConfiguration` (`dict`) - Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-    
         * `customCname` (`str`) - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
         * `enabled` (`bool`) - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         * `expirationInDays` (`float`) - Number of days until a certificate expires. Must be between 1 and 5000.
@@ -94,9 +92,11 @@ class CertificateAuthority(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, certificate_authority_configuration=None, enabled=None, permanent_deletion_time_in_days=None, revocation_configuration=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
-        
+
         > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
@@ -105,13 +105,12 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[dict] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-        
+
         The **certificate_authority_configuration** object supports the following:
-        
+
           * `keyAlgorithm` (`pulumi.Input[str]`) - Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
           * `signingAlgorithm` (`pulumi.Input[str]`) - Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
           * `subject` (`pulumi.Input[dict]`) - Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        
             * `commonName` (`pulumi.Input[str]`) - Fully qualified domain name (FQDN) associated with the certificate subject.
             * `country` (`pulumi.Input[str]`) - Two digit code that specifies the country in which the certificate subject located.
             * `distinguishedNameQualifier` (`pulumi.Input[str]`) - Disambiguating information for the certificate subject.
@@ -125,17 +124,14 @@ class CertificateAuthority(pulumi.CustomResource):
             * `state` (`pulumi.Input[str]`) - State in which the subject of the certificate is located.
             * `surname` (`pulumi.Input[str]`) - Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
             * `title` (`pulumi.Input[str]`) - A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
-        
+
         The **revocation_configuration** object supports the following:
-        
+
           * `crlConfiguration` (`pulumi.Input[dict]`) - Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        
             * `customCname` (`pulumi.Input[str]`) - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
             * `enabled` (`pulumi.Input[bool]`) - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
             * `expirationInDays` (`pulumi.Input[float]`) - Number of days until a certificate expires. Must be between 1 and 5000.
             * `s3BucketName` (`pulumi.Input[str]`) - Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -181,7 +177,7 @@ class CertificateAuthority(pulumi.CustomResource):
         """
         Get an existing CertificateAuthority resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,13 +195,12 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of the certificate authority.
         :param pulumi.Input[dict] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         :param pulumi.Input[str] type: The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-        
+
         The **certificate_authority_configuration** object supports the following:
-        
+
           * `keyAlgorithm` (`pulumi.Input[str]`) - Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
           * `signingAlgorithm` (`pulumi.Input[str]`) - Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
           * `subject` (`pulumi.Input[dict]`) - Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        
             * `commonName` (`pulumi.Input[str]`) - Fully qualified domain name (FQDN) associated with the certificate subject.
             * `country` (`pulumi.Input[str]`) - Two digit code that specifies the country in which the certificate subject located.
             * `distinguishedNameQualifier` (`pulumi.Input[str]`) - Disambiguating information for the certificate subject.
@@ -219,21 +214,19 @@ class CertificateAuthority(pulumi.CustomResource):
             * `state` (`pulumi.Input[str]`) - State in which the subject of the certificate is located.
             * `surname` (`pulumi.Input[str]`) - Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
             * `title` (`pulumi.Input[str]`) - A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
-        
+
         The **revocation_configuration** object supports the following:
-        
+
           * `crlConfiguration` (`pulumi.Input[dict]`) - Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        
             * `customCname` (`pulumi.Input[str]`) - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
             * `enabled` (`pulumi.Input[bool]`) - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
             * `expirationInDays` (`pulumi.Input[float]`) - Number of days until a certificate expires. Must be between 1 and 5000.
             * `s3BucketName` (`pulumi.Input[str]`) - Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/acmpca_certificate_authority.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["certificate"] = certificate
         __props__["certificate_authority_configuration"] = certificate_authority_configuration

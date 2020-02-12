@@ -8,26 +8,26 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`aws.secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### ARN
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byArn = aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * });
  * ```
- * 
+ *
  * ### Name
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const byName = aws.secretsmanager.getSecret({
  *     name: "example",
  * });
@@ -79,6 +79,10 @@ export interface GetSecretResult {
      */
     readonly description: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
@@ -103,8 +107,4 @@ export interface GetSecretResult {
      * Tags of the secret.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

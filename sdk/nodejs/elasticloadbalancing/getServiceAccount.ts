@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
  * in a given region for the purpose of whitelisting in S3 bucket policy.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = aws.elb.getServiceAccount();
  * const elbLogs = new aws.s3.Bucket("elbLogs", {
  *     acl: "private",
@@ -91,9 +91,9 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS ELB service account in the selected region.
      */
     readonly arn: string;
-    readonly region?: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

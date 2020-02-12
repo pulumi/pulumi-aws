@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
- * 
+ *
  * > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a MediaStore Container Policy.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const currentRegion = aws.getRegion();
  * const currentCallerIdentity = aws.getCallerIdentity();
  * const exampleContainer = new aws.mediastore.Container("example", {});

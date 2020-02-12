@@ -21,7 +21,7 @@ class Job(pulumi.CustomResource):
     command: pulumi.Output[dict]
     """
     The command of the job. Defined below.
-    
+
       * `name` (`str`) - The name of the job command. Defaults to `glueetl`
       * `pythonVersion` (`str`) - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
       * `scriptLocation` (`str`) - Specifies the S3 path to a script that executes a job.
@@ -41,7 +41,7 @@ class Job(pulumi.CustomResource):
     execution_property: pulumi.Output[dict]
     """
     Execution property of the job. Defined below.
-    
+
       * `maxConcurrentRuns` (`float`) - The maximum number of concurrent runs allowed for a job. The default is 1.
     """
     glue_version: pulumi.Output[str]
@@ -87,9 +87,11 @@ class Job(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Job resource.
-        
+
         > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_capacity: **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -108,18 +110,16 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[float] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
-        
+
         The **command** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the job command. Defaults to `glueetl`
           * `pythonVersion` (`pulumi.Input[str]`) - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
           * `scriptLocation` (`pulumi.Input[str]`) - Specifies the S3 path to a script that executes a job.
-        
-        The **execution_property** object supports the following:
-        
-          * `maxConcurrentRuns` (`pulumi.Input[float]`) - The maximum number of concurrent runs allowed for a job. The default is 1.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
+        The **execution_property** object supports the following:
+
+          * `maxConcurrentRuns` (`pulumi.Input[float]`) - The maximum number of concurrent runs allowed for a job. The default is 1.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -170,7 +170,7 @@ class Job(pulumi.CustomResource):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,22 +191,21 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[float] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
-        
+
         The **command** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The name of the job command. Defaults to `glueetl`
           * `pythonVersion` (`pulumi.Input[str]`) - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
           * `scriptLocation` (`pulumi.Input[str]`) - Specifies the S3 path to a script that executes a job.
-        
-        The **execution_property** object supports the following:
-        
-          * `maxConcurrentRuns` (`pulumi.Input[float]`) - The maximum number of concurrent runs allowed for a job. The default is 1.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
+        The **execution_property** object supports the following:
+
+          * `maxConcurrentRuns` (`pulumi.Input[float]`) - The maximum number of concurrent runs allowed for a job. The default is 1.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allocated_capacity"] = allocated_capacity
         __props__["arn"] = arn
         __props__["command"] = command

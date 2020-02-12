@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an AWS Cognito Identity Pool.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_identity_pool.html.markdown.
 type IdentityPool struct {
 	pulumi.CustomResourceState

@@ -62,18 +62,20 @@ class SecurityGroupRule(pulumi.CustomResource):
         """
         Provides a security group rule resource. Represents a single `ingress` or
         `egress` group rule, which can be added to external Security Groups.
-        
+
         > **NOTE on Security Groups and Security Group Rules:** This provider currently
         provides both a standalone Security Group Rule resource (a single `ingress` or
         `egress` rule), and a Security Group resource with `ingress` and `egress` rules
         defined in-line. At this time you cannot use a Security Group with in-line rules
         in conjunction with any Security Group Rule resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
-        
+
         > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
-        
+
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id`.
@@ -91,8 +93,6 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[float] to_port: The end port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,7 +143,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         """
         Get an existing SecurityGroupRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,12 +162,11 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[float] to_port: The end port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: The type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group_rule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cidr_blocks"] = cidr_blocks
         __props__["description"] = description
         __props__["from_port"] = from_port

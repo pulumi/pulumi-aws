@@ -12,14 +12,14 @@ import (
 )
 
 // Provides an AutoScaling Attachment resource.
-// 
+//
 // > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
 // both a standalone ASG Attachment resource (describing an ASG attached to
 // an ELB), and an AutoScaling Group resource with
 // `loadBalancers` defined in-line. At this time you cannot use an ASG with in-line
 // load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
 // conflict and will overwrite attachments.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_attachment.html.markdown.
 type Attachment struct {
 	pulumi.CustomResourceState

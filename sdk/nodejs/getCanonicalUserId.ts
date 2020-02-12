@@ -9,15 +9,15 @@ import * as utilities from "./utilities";
 /**
  * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
  * for the effective account in which this provider is working.  
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const current = aws.getCanonicalUserId();
- * 
+ *
  * export const canonicalUserId = current.id;
  * ```
  *

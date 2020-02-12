@@ -9,11 +9,11 @@ import (
 )
 
 // `ec2.RouteTable` provides details about a specific Route Table.
-// 
+//
 // This resource can prove useful when a module accepts a Subnet id as
 // an input variable and needs to, for example, add a route in
 // the Route Table.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_table.html.markdown.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult

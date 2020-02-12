@@ -11,7 +11,7 @@ import (
 )
 
 // Manages an EC2 Transit Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway.html.markdown.
 type TransitGateway struct {
 	pulumi.CustomResourceState

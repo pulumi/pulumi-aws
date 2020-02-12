@@ -6,21 +6,20 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {LaunchConfiguration} from "../ec2/launchConfiguration";
-import {PlacementGroup} from "../ec2/placementGroup";
-import {Metric, MetricsGranularity} from "./metrics";
+import {LaunchConfiguration, PlacementGroup} from "../ec2";
+import {Metric, MetricsGranularity} from "./index";
 
 /**
  * Provides an AutoScaling Group resource.
- * 
+ *
  * > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const test = new aws.ec2.PlacementGroup("test", {
  *     strategy: "cluster",
  * });
@@ -65,13 +64,13 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     delete: "15m",
  * }});
  * ```
- * 
+ *
  * ### With Latest Version Of Launch Template
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const foobar = new aws.ec2.LaunchTemplate("foobar", {
  *     imageId: "ami-1a2b3c",
  *     instanceType: "t2.micro",
@@ -88,13 +87,13 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     minSize: 1,
  * });
  * ```
- * 
+ *
  * ### Mixed Instances Policy
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("example", {
  *     imageId: aws_ami_example.id,
  *     instanceType: "c5.large",
@@ -124,13 +123,13 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     },
  * });
  * ```
- * 
+ *
  * ## Interpolated tags
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const config = new pulumi.Config();
  * const extraTags = config.get("extraTags") || [
  *     {
@@ -144,7 +143,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  *         value: "Bam",
  *     },
  * ];
- * 
+ *
  * const bar = new aws.autoscaling.Group("bar", {
  *     launchConfiguration: aws_launch_configuration_foobar.name,
  *     maxSize: 5,
@@ -168,64 +167,64 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     ],
  * });
  * ```
- * 
+ *
  * ## Waiting for Capacity
- * 
+ *
  * A newly-created ASG is initially empty and begins to scale to `minSize` (or
  * `desiredCapacity`, if specified) by launching instances using the provided
  * Launch Configuration. These instances take time to launch and boot.
- * 
+ *
  * On ASG Update, changes to these values also take time to result in the target
  * number of instances providing service.
- * 
+ *
  * This provider provides two mechanisms to help consistently manage ASG scale up
  * time across dependent resources.
- * 
+ *
  * #### Waiting for ASG Capacity
- * 
+ *
  * The first is default behavior. This provider waits after ASG creation for
  * `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
  * in the ASG before continuing.
- * 
+ *
  * If `minSize` or `desiredCapacity` are changed in a subsequent update,
  * this provider will also wait for the correct number of healthy instances before
  * continuing.
- * 
+ *
  * This provider considers an instance "healthy" when the ASG reports `HealthStatus:
  * "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
  * Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
  * for more information on an ASG's lifecycle.
- * 
+ *
  * This provider will wait for healthy instances for up to
  * `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
  * it's worth investigating for scaling activity errors, which can be caused by
  * problems with the selected Launch Configuration.
- * 
+ *
  * Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
- * 
+ *
  * #### Waiting for ELB Capacity
- * 
+ *
  * The second mechanism is optional, and affects ASGs with attached ELBs specified
  * via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
- * 
+ *
  * The `minElbCapacity` parameter causes this provider to wait for at least the
  * requested number of instances to show up `"InService"` in all attached ELBs
  * during ASG creation.  It has no effect on ASG updates.
- * 
+ *
  * If `waitForElbCapacity` is set, this provider will wait for exactly that number
  * of Instances to be `"InService"` in all attached ELBs on both creation and
  * updates.
- * 
+ *
  * These parameters can be used to ensure that service is being provided before
  * this provider moves on. If new instances don't pass the ELB's health checks for any
  * reason, the deployment will time out, and the ASG will be marked as
  * tainted (i.e. marked to be destroyed in a follow up run).
- * 
+ *
  * As with ASG Capacity, this provider will wait for up to `waitForCapacityTimeout`
  * for the proper number of instances to be healthy.
- * 
+ *
  * #### Troubleshooting Capacity Waiting Timeouts
- * 
+ *
  * If ASG creation takes more than a few minutes, this could indicate one of a
  * number of configuration problems. See the [AWS Docs on Load Balancer
  * Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
@@ -566,7 +565,7 @@ export interface GroupState {
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
+    readonly launchConfiguration?: pulumi.Input<string> | pulumi.Input<LaunchConfiguration>;
     /**
      * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
@@ -587,7 +586,7 @@ export interface GroupState {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
+    readonly metricsGranularity?: pulumi.Input<string> | pulumi.Input<MetricsGranularity>;
     /**
      * Setting this causes this provider to wait for
      * this number of instances from this autoscaling group to show up healthy in the
@@ -616,7 +615,7 @@ export interface GroupState {
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
+    readonly placementGroup?: pulumi.Input<string> | pulumi.Input<PlacementGroup>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination
@@ -719,7 +718,7 @@ export interface GroupArgs {
     /**
      * The name of the launch configuration to use.
      */
-    readonly launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
+    readonly launchConfiguration?: pulumi.Input<string> | pulumi.Input<LaunchConfiguration>;
     /**
      * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      */
@@ -740,7 +739,7 @@ export interface GroupArgs {
     /**
      * The granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      */
-    readonly metricsGranularity?: pulumi.Input<string | MetricsGranularity>;
+    readonly metricsGranularity?: pulumi.Input<string> | pulumi.Input<MetricsGranularity>;
     /**
      * Setting this causes this provider to wait for
      * this number of instances from this autoscaling group to show up healthy in the
@@ -769,7 +768,7 @@ export interface GroupArgs {
     /**
      * The name of the placement group into which you'll launch your instances, if any.
      */
-    readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
+    readonly placementGroup?: pulumi.Input<string> | pulumi.Input<PlacementGroup>;
     /**
      * Allows setting instance protection. The
      * autoscaling group will not select instances with this setting for terminination

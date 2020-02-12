@@ -8,26 +8,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an AWS App Mesh virtual node resource.
- * 
+ *
  * ## Breaking Changes
- * 
+ *
  * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws.appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- * 
+ *
  * * Rename the `serviceName` attribute of the `dns` object to `hostname`.
- * 
+ *
  * * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
  * setting `virtualServiceName` to the name of the service.
- * 
+ *
  * The state associated with existing resources will automatically be migrated.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Basic
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -50,13 +50,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### AWS Cloud Map Service Discovery
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.servicediscovery.HttpNamespace("example", {});
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
@@ -84,13 +84,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Listener Health Check
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {
@@ -121,13 +121,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ### Logging
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
  *     meshName: aws_appmesh_mesh_simple.id,
  *     spec: {

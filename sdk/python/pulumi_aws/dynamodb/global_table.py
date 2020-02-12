@@ -21,25 +21,25 @@ class GlobalTable(pulumi.CustomResource):
     replicas: pulumi.Output[list]
     """
     Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-    
+
       * `regionName` (`str`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
     """
     def __init__(__self__, resource_name, opts=None, name=None, replicas=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage a DynamoDB Global Table. These are layered on top of existing DynamoDB Tables.
-        
+
         > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[list] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        
-        The **replicas** object supports the following:
-        
-          * `regionName` (`pulumi.Input[str]`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
+        The **replicas** object supports the following:
+
+          * `regionName` (`pulumi.Input[str]`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,23 +74,22 @@ class GlobalTable(pulumi.CustomResource):
         """
         Get an existing GlobalTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the DynamoDB Global Table
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[list] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        
-        The **replicas** object supports the following:
-        
-          * `regionName` (`pulumi.Input[str]`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_global_table.html.markdown.
+        The **replicas** object supports the following:
+
+          * `regionName` (`pulumi.Input[str]`) - AWS region name of replica DynamoDB Table. e.g. `us-east-1`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["name"] = name
         __props__["replicas"] = replicas

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a directory registration in AWS WorkSpaces Service
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const mainVpc = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });

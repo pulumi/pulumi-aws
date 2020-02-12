@@ -2,34 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Domain resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Amazon Cognito domain
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     domain: "example-domain",
  *     userPoolId: example.id,
  * });
  * ```
- * 
+ *
  * ### Custom Cognito domain
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     certificateArn: aws_acm_certificate_cert.arn,

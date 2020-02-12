@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific S3 bucket.
- * 
+ *
  * This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
  * Distribution.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Route53 Record
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = aws.s3.getBucket({
  *     bucket: "bucket.test.com",
  * });
@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     zoneId: testZone.id,
  * });
  * ```
- * 
+ *
  * ### CloudFront Origin
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const selected = aws.s3.getBucket({
  *     bucket: "a-test-bucket",
  * });
@@ -103,6 +103,10 @@ export interface GetBucketResult {
      */
     readonly hostedZoneId: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The AWS region this bucket resides in.
      */
     readonly region: string;
@@ -114,8 +118,4 @@ export interface GetBucketResult {
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
     readonly websiteEndpoint: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

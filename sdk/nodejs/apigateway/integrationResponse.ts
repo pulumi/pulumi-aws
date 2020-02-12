@@ -2,24 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
- * 
+ *
  * > **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
  * you might need to add an explicit `dependsOn` for clean runs.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });

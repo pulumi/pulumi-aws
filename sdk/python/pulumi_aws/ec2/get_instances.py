@@ -13,10 +13,16 @@ class GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, filters=None, ids=None, instance_state_names=None, instance_tags=None, private_ips=None, public_ips=None, id=None):
+    def __init__(__self__, filters=None, id=None, ids=None, instance_state_names=None, instance_tags=None, private_ips=None, public_ips=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         __self__.ids = ids
@@ -41,12 +47,6 @@ class GetInstancesResult:
         """
         Public IP addresses of instances found through the filter
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -54,32 +54,32 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             yield self
         return GetInstancesResult(
             filters=self.filters,
+            id=self.id,
             ids=self.ids,
             instance_state_names=self.instance_state_names,
             instance_tags=self.instance_tags,
             private_ips=self.private_ips,
-            public_ips=self.public_ips,
-            id=self.id)
+            public_ips=self.public_ips)
 
 def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
-    
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
+
+
     :param list filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param list instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param dict instance_tags: A mapping of tags, each pair of which must
            exactly match a pair on desired instances.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`)
       * `values` (`list`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instances.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['instanceStateNames'] = instance_state_names
@@ -92,9 +92,9 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
 
     return AwaitableGetInstancesResult(
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         ids=__ret__.get('ids'),
         instance_state_names=__ret__.get('instanceStateNames'),
         instance_tags=__ret__.get('instanceTags'),
         private_ips=__ret__.get('privateIps'),
-        public_ips=__ret__.get('publicIps'),
-        id=__ret__.get('id'))
+        public_ips=__ret__.get('publicIps'))

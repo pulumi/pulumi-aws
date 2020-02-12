@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
  * Provides a Direct Connect hosted transit virtual interface resource.
  * This resource represents the allocator's side of the hosted virtual interface.
  * A hosted virtual interface is a virtual interface that is owned by another AWS account.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.directconnect.HostedTransitVirtualInterface("example", {
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,

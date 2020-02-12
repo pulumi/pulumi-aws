@@ -8,26 +8,26 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EC2 DHCP Options configuration.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Lookup by DHCP Options ID
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.ec2.getVpcDhcpOptions({
  *     dhcpOptionsId: "dopts-12345678",
  * });
  * ```
- * 
+ *
  * ### Lookup by Filter
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.ec2.getVpcDhcpOptions({
  *     filters: [
  *         {
@@ -95,6 +95,10 @@ export interface GetVpcDhcpOptionsResult {
     readonly domainNameServers: string[];
     readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of NETBIOS name servers.
      */
     readonly netbiosNameServers: string[];
@@ -114,8 +118,4 @@ export interface GetVpcDhcpOptionsResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

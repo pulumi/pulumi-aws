@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a WAF IPSet Resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_ipset.html.markdown.
 type IpSet struct {
 	pulumi.CustomResourceState

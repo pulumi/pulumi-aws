@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
- * 
+ *
  * > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const app = new aws.pinpoint.App("app", {});
  * const channel = new aws.pinpoint.AdmChannel("channel", {
  *     applicationId: app.applicationId,

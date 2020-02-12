@@ -2,21 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
+import {PolicyDocument} from "../iam";
 
 /**
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.elasticsearch.Domain("example", {
  *     elasticsearchVersion: "2.3",
  * });
@@ -121,7 +119,7 @@ export interface DomainPolicyState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    readonly accessPolicies?: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * Name of the domain.
      */
@@ -135,7 +133,7 @@ export interface DomainPolicyArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies: pulumi.Input<string | PolicyDocument>;
+    readonly accessPolicies: pulumi.Input<string> | pulumi.Input<PolicyDocument>;
     /**
      * Name of the domain.
      */

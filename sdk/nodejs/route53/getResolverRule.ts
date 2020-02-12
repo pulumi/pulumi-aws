@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.route53.getResolverRule({
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
@@ -82,6 +82,10 @@ export interface GetResolverRuleResult {
      */
     readonly arn: string;
     readonly domainName: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -99,8 +103,4 @@ export interface GetResolverRuleResult {
      * A mapping of tags assigned to the resolver rule.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

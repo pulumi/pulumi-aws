@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a CloudHSM v2 cluster
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const cluster = aws.cloudhsmv2.getCluster({
  *     clusterId: "cluster-testclusterid",
  * });
@@ -69,6 +69,10 @@ export interface GetClusterResult {
     readonly clusterId: string;
     readonly clusterState: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
     readonly securityGroupId: string;
@@ -80,8 +84,4 @@ export interface GetClusterResult {
      * The id of the VPC that the CloudHSM cluster resides in.
      */
     readonly vpcId: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

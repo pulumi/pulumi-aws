@@ -8,13 +8,13 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documention][1].
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const europeanEc2 = aws.getIpRanges({
  *     regions: [
  *         "eu-west-1",
@@ -93,6 +93,10 @@ export interface GetIpRangesResult {
      */
     readonly createDate: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The lexically ordered list of IPv6 CIDR blocks.
      */
     readonly ipv6CidrBlocks: string[];
@@ -104,8 +108,4 @@ export interface GetIpRangesResult {
      */
     readonly syncToken: number;
     readonly url?: string;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

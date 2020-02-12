@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks stack resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const main = new aws.opsworks.Stack("main", {
  *     customJson: `{
  *  "foobar": {

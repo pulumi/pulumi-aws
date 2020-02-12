@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DocumentDB Cluster Parameter Group
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = new aws.docdb.ClusterParameterGroup("example", {
  *     description: "docdb cluster parameter group",
  *     family: "docdb3.6",

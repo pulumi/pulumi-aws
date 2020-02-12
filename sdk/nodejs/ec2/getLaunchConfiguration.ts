@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Configuration.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ubuntu = aws.ec2.getLaunchConfiguration({
  *     name: "test-launch-config",
  * });
@@ -80,6 +80,10 @@ export interface GetLaunchConfigurationResult {
      */
     readonly iamInstanceProfile: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The EC2 Image ID of the instance.
      */
     readonly imageId: string;
@@ -123,8 +127,4 @@ export interface GetLaunchConfigurationResult {
      * The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      */
     readonly vpcClassicLinkSecurityGroups: string[];
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

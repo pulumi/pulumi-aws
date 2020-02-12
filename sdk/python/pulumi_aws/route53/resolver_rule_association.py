@@ -25,14 +25,14 @@ class ResolverRuleAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, resolver_rule_id=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Route53 Resolver rule association.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A name for the association that you're creating between a resolver rule and a VPC.
         :param pulumi.Input[str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,19 +69,18 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         """
         Get an existing ResolverRuleAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A name for the association that you're creating between a resolver rule and a VPC.
         :param pulumi.Input[str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route53_resolver_rule_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["resolver_rule_id"] = resolver_rule_id
         __props__["vpc_id"] = vpc_id

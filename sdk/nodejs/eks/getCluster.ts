@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EKS Cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const example = aws.eks.getCluster({
  *     name: "example",
  * });
- * 
+ *
  * export const endpoint = example.endpoint;
  * export const kubeconfigCertificateAuthorityData = example.certificateAuthority.data;
  * // Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
@@ -79,6 +79,10 @@ export interface GetClusterResult {
      */
     readonly endpoint: string;
     /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the [`aws.eks.Cluster` resource documentation](https://www.terraform.io/docs/providers/aws/r/eks_cluster.html).
      */
     readonly identities: outputs.eks.GetClusterIdentity[];
@@ -107,8 +111,4 @@ export interface GetClusterResult {
      * Nested list containing VPC configuration for the cluster.
      */
     readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

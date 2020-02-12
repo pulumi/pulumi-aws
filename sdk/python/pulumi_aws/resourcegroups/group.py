@@ -25,7 +25,7 @@ class Group(pulumi.CustomResource):
     resource_query: pulumi.Output[dict]
     """
     A `resource_query` block. Resource queries are documented below.
-    
+
       * `query` (`str`)
       * `type` (`str`)
     """
@@ -36,20 +36,20 @@ class Group(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name=None, resource_query=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Resource Group.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/resourcegroups_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the resource group.
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **resource_query** object supports the following:
-        
+
           * `query` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/resourcegroups_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,7 +86,7 @@ class Group(pulumi.CustomResource):
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -95,17 +95,16 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] name: The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         :param pulumi.Input[dict] resource_query: A `resource_query` block. Resource queries are documented below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **resource_query** object supports the following:
-        
+
           * `query` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/resourcegroups_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["name"] = name

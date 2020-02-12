@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get a list of EBS Snapshot IDs matching the specified
  * criteria.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const ebsVolumes = aws.ebs.getSnapshotIds({
  *     filters: [
  *         {
@@ -76,11 +76,11 @@ export interface GetSnapshotIdsArgs {
  */
 export interface GetSnapshotIdsResult {
     readonly filters?: outputs.ebs.GetSnapshotIdsFilter[];
-    readonly ids: string[];
-    readonly owners?: string[];
-    readonly restorableByUserIds?: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids: string[];
+    readonly owners?: string[];
+    readonly restorableByUserIds?: string[];
 }

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a DynamoDB table.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * 
+ *
  * const tableName = aws.dynamodb.getTable({
  *     name: "tableName",
  * });
@@ -60,6 +60,10 @@ export interface GetTableResult {
     readonly billingMode: string;
     readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
     readonly hashKey: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
     readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
@@ -73,8 +77,4 @@ export interface GetTableResult {
     readonly tags: {[key: string]: any};
     readonly ttl: outputs.dynamodb.GetTableTtl;
     readonly writeCapacity: number;
-    /**
-     * id is the provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
