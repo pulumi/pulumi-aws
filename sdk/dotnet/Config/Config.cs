@@ -13,7 +13,7 @@ namespace Pulumi.Aws
         /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of
         /// the AWS console.
         /// </summary>
-        public static string? AccessKey { get; set; } = __config.Get("accessKey");
+        public static string? AccessKey { get; set; } = __config.Get("accessKey") ?? Utilities.GetEnv("AWS_ACCESS_KEY_ID");
 
         public static ImmutableArray<string> AllowedAccountIds { get; set; } = __config.GetObject<ImmutableArray<string>>("allowedAccountIds");
 
@@ -65,12 +65,12 @@ namespace Pulumi.Aws
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of
         /// the AWS console.
         /// </summary>
-        public static string? SecretKey { get; set; } = __config.Get("secretKey");
+        public static string? SecretKey { get; set; } = __config.Get("secretKey") ?? Utilities.GetEnv("AWS_SECRET_ACCESS_KEY");
 
         /// <summary>
         /// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
         /// </summary>
-        public static string? SharedCredentialsFile { get; set; } = __config.Get("sharedCredentialsFile");
+        public static string? SharedCredentialsFile { get; set; } = __config.Get("sharedCredentialsFile") ?? Utilities.GetEnv("AWS_SHARED_CREDENTIALS_FILE");
 
         /// <summary>
         /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
@@ -101,7 +101,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// session token. A session token is only required if you are using temporary security credentials.
         /// </summary>
-        public static string? Token { get; set; } = __config.Get("token");
+        public static string? Token { get; set; } = __config.Get("token") ?? Utilities.GetEnv("AWS_SESSION_TOKEN");
 
     }
     namespace ConfigTypes

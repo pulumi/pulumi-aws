@@ -42,7 +42,7 @@ export class Provider extends pulumi.ProviderResource {
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            inputs["accessKey"] = args ? args.accessKey : undefined;
+            inputs["accessKey"] = (args ? args.accessKey : undefined) || utilities.getEnv("AWS_ACCESS_KEY_ID");
             inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
@@ -54,14 +54,14 @@ export class Provider extends pulumi.ProviderResource {
             inputs["profile"] = (args ? args.profile : undefined) || utilities.getEnv("AWS_PROFILE");
             inputs["region"] = (args ? args.region : undefined) || utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
-            inputs["secretKey"] = args ? args.secretKey : undefined;
-            inputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
+            inputs["secretKey"] = (args ? args.secretKey : undefined) || utilities.getEnv("AWS_SECRET_ACCESS_KEY");
+            inputs["sharedCredentialsFile"] = (args ? args.sharedCredentialsFile : undefined) || utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
             inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
             inputs["skipGetEc2Platforms"] = pulumi.output(args ? args.skipGetEc2Platforms : undefined).apply(JSON.stringify);
             inputs["skipMetadataApiCheck"] = pulumi.output(args ? args.skipMetadataApiCheck : undefined).apply(JSON.stringify);
             inputs["skipRegionValidation"] = pulumi.output(args ? args.skipRegionValidation : undefined).apply(JSON.stringify);
             inputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
-            inputs["token"] = args ? args.token : undefined;
+            inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("AWS_SESSION_TOKEN");
         }
         if (!opts) {
             opts = {}
