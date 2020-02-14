@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Read standard AWS environment variables for configuration
+* Upgrade to v2.49.0 of the AWS Terraform Provider
 
 ---
 
