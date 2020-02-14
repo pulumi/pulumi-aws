@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Read standard AWS environment variables for configuration
-* Upgrade to v2.49.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.22.0 (2020-02-14)
+* Read standard AWS environment variables for configuration
+* Upgrade to v2.49.0 of the AWS Terraform Provider
 
 ## 1.21.0 (2020-02-07)
 * Upgrade to v2.48.0 of the AWS Terraform Provider
