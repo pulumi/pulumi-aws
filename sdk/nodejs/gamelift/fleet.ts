@@ -110,6 +110,10 @@ export class Fleet extends pulumi.CustomResource {
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
     public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -137,6 +141,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
             inputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
             inputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
             if (!args || args.buildId === undefined) {
@@ -156,6 +161,7 @@ export class Fleet extends pulumi.CustomResource {
             inputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
             inputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
             inputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["logPaths"] = undefined /*out*/;
             inputs["operatingSystem"] = undefined /*out*/;
@@ -228,6 +234,10 @@ export interface FleetState {
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
     readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
 /**
@@ -278,4 +288,8 @@ export interface FleetArgs {
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
     readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    /**
+     * Key-value mapping of resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

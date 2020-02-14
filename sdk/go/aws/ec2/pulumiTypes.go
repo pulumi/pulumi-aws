@@ -3758,6 +3758,124 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 	return o.ApplyT(func (v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
 }
 
+type LaunchTemplateCpuOptions struct {
+	CoreCount *int `pulumi:"coreCount"`
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+type LaunchTemplateCpuOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput
+	ToLaunchTemplateCpuOptionsOutputWithContext(context.Context) LaunchTemplateCpuOptionsOutput
+}
+
+type LaunchTemplateCpuOptionsArgs struct {
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (LaunchTemplateCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput {
+	return i.ToLaunchTemplateCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput)
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return i.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput).ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx)
+}
+
+type LaunchTemplateCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput
+	ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Context) LaunchTemplateCpuOptionsPtrOutput
+}
+
+type launchTemplateCpuOptionsPtrType LaunchTemplateCpuOptionsArgs
+
+func LaunchTemplateCpuOptionsPtr(v *LaunchTemplateCpuOptionsArgs) LaunchTemplateCpuOptionsPtrInput {	return (*launchTemplateCpuOptionsPtrType)(v)
+}
+
+func (*launchTemplateCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return i.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsOutput struct { *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptions {
+		return &v
+	}).(LaunchTemplateCpuOptionsPtrOutput)
+}
+func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsPtrOutput struct { *pulumi.OutputState}
+
+func (LaunchTemplateCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput {
+	return o.ApplyT(func (v *LaunchTemplateCpuOptions) LaunchTemplateCpuOptions { return *v }).(LaunchTemplateCpuOptionsOutput)
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
 type LaunchTemplateCreditSpecification struct {
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
@@ -13368,6 +13486,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})

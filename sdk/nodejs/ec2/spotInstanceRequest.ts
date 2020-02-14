@@ -138,6 +138,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly getPasswordData!: pulumi.Output<boolean | undefined>;
     /**
+     * If true, the launched EC2 instance will support hibernation.
+     */
+    public readonly hibernation!: pulumi.Output<boolean | undefined>;
+    /**
      * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
     public readonly hostId!: pulumi.Output<string>;
@@ -317,6 +321,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
             inputs["getPasswordData"] = state ? state.getPasswordData : undefined;
+            inputs["hibernation"] = state ? state.hibernation : undefined;
             inputs["hostId"] = state ? state.hostId : undefined;
             inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
@@ -374,6 +379,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
             inputs["getPasswordData"] = args ? args.getPasswordData : undefined;
+            inputs["hibernation"] = args ? args.hibernation : undefined;
             inputs["hostId"] = args ? args.hostId : undefined;
             inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
@@ -488,6 +494,10 @@ export interface SpotInstanceRequestState {
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: pulumi.Input<boolean>;
+    /**
+     * If true, the launched EC2 instance will support hibernation.
+     */
+    readonly hibernation?: pulumi.Input<boolean>;
     /**
      * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
@@ -707,6 +717,10 @@ export interface SpotInstanceRequestArgs {
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
     readonly getPasswordData?: pulumi.Input<boolean>;
+    /**
+     * If true, the launched EC2 instance will support hibernation.
+     */
+    readonly hibernation?: pulumi.Input<boolean>;
     /**
      * The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */

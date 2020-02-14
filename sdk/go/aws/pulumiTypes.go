@@ -854,6 +854,7 @@ type ProviderEndpoint struct {
 	Wafregional *string `pulumi:"wafregional"`
 	Wafv2 *string `pulumi:"wafv2"`
 	Worklink *string `pulumi:"worklink"`
+	Workmail *string `pulumi:"workmail"`
 	Workspaces *string `pulumi:"workspaces"`
 	Xray *string `pulumi:"xray"`
 }
@@ -997,6 +998,7 @@ type ProviderEndpointArgs struct {
 	Wafregional pulumi.StringPtrInput `pulumi:"wafregional"`
 	Wafv2 pulumi.StringPtrInput `pulumi:"wafv2"`
 	Worklink pulumi.StringPtrInput `pulumi:"worklink"`
+	Workmail pulumi.StringPtrInput `pulumi:"workmail"`
 	Workspaces pulumi.StringPtrInput `pulumi:"workspaces"`
 	Xray pulumi.StringPtrInput `pulumi:"xray"`
 }
@@ -1570,6 +1572,10 @@ func (o ProviderEndpointOutput) Wafv2() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Worklink() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ProviderEndpoint) *string { return v.Worklink }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Workmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ProviderEndpoint) *string { return v.Workmail }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Workspaces() pulumi.StringPtrOutput {

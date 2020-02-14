@@ -46,7 +46,7 @@ import {ARN} from "../index";
  * });
  * ```
  * 
- * ##  Example with Server-side encryption (SSE)
+ * ## Example with Server-side encryption (SSE)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

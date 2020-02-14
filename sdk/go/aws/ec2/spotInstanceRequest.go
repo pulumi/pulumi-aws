@@ -74,6 +74,8 @@ type SpotInstanceRequest struct {
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrOutput `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrOutput `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -236,6 +238,8 @@ type spotInstanceRequestState struct {
 	EphemeralBlockDevices []SpotInstanceRequestEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation *bool `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -365,6 +369,8 @@ type SpotInstanceRequestState struct {
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrInput
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to
@@ -497,6 +503,8 @@ type spotInstanceRequestArgs struct {
 	EphemeralBlockDevices []SpotInstanceRequestEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation *bool `pulumi:"hibernation"`
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// The IAM Instance Profile to
@@ -603,6 +611,8 @@ type SpotInstanceRequestArgs struct {
 	EphemeralBlockDevices SpotInstanceRequestEphemeralBlockDeviceArrayInput
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput
+	// If true, the launched EC2 instance will support hibernation.
+	Hibernation pulumi.BoolPtrInput
 	// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// The IAM Instance Profile to

@@ -703,7 +703,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         /// </summary>
         [Input("hostHeader")]
         public Input<ListenerRuleConditionsHostHeaderArgs>? HostHeader { get; set; }
@@ -721,7 +721,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<ListenerRuleConditionsHttpRequestMethodArgs>? HttpRequestMethod { get; set; }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
         /// </summary>
         [Input("pathPattern")]
         public Input<ListenerRuleConditionsPathPatternArgs>? PathPattern { get; set; }
@@ -739,7 +739,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+        /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
         /// </summary>
         [Input("sourceIp")]
         public Input<ListenerRuleConditionsSourceIpArgs>? SourceIp { get; set; }
@@ -764,7 +764,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         /// </summary>
         [Input("hostHeader")]
         public Input<ListenerRuleConditionsHostHeaderGetArgs>? HostHeader { get; set; }
@@ -782,7 +782,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public Input<ListenerRuleConditionsHttpRequestMethodGetArgs>? HttpRequestMethod { get; set; }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
         /// </summary>
         [Input("pathPattern")]
         public Input<ListenerRuleConditionsPathPatternGetArgs>? PathPattern { get; set; }
@@ -800,7 +800,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         }
 
         /// <summary>
-        /// Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+        /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
         /// </summary>
         [Input("sourceIp")]
         public Input<ListenerRuleConditionsSourceIpGetArgs>? SourceIp { get; set; }
@@ -1325,7 +1325,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         public readonly string Field;
         /// <summary>
-        /// Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         /// </summary>
         public readonly ListenerRuleConditionsHostHeader HostHeader;
         /// <summary>
@@ -1337,7 +1337,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         public readonly ListenerRuleConditionsHttpRequestMethod? HttpRequestMethod;
         /// <summary>
-        /// Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+        /// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
         /// </summary>
         public readonly ListenerRuleConditionsPathPattern PathPattern;
         /// <summary>
@@ -1345,7 +1345,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// </summary>
         public readonly ImmutableArray<ListenerRuleConditionsQueryStrings> QueryStrings;
         /// <summary>
-        /// Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+        /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
         /// </summary>
         public readonly ListenerRuleConditionsSourceIp? SourceIp;
         /// <summary>

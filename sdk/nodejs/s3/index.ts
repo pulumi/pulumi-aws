@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./accountPublicAccessBlock";
+export * from "./analyticsConfiguration";
 export * from "./bucket";
 export * from "./bucketMetric";
 export * from "./bucketNotification";

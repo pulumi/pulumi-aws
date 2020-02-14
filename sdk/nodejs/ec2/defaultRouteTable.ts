@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * a conflict of rule settings and will overwrite routes.
  * 
  * 
- * ## Example usage with tags:
+ * ## Example usage with tags
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

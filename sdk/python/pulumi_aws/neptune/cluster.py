@@ -42,6 +42,11 @@ class Cluster(pulumi.CustomResource):
     """
     The Neptune Cluster Resource ID
     """
+    deletion_protection: pulumi.Output[bool]
+    enable_cloudwatch_logs_exports: pulumi.Output[list]
+    """
+    A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+    """
     endpoint: pulumi.Output[str]
     """
     The DNS address of the Neptune instance
@@ -122,7 +127,7 @@ class Cluster(pulumi.CustomResource):
     """
     List of VPC security groups to associate with the Cluster
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
         applied to the entire cluster of Neptune Cluster Instances.
@@ -141,6 +146,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[float] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[list] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
@@ -183,6 +189,8 @@ class Cluster(pulumi.CustomResource):
             __props__['backup_retention_period'] = backup_retention_period
             __props__['cluster_identifier'] = cluster_identifier
             __props__['cluster_identifier_prefix'] = cluster_identifier_prefix
+            __props__['deletion_protection'] = deletion_protection
+            __props__['enable_cloudwatch_logs_exports'] = enable_cloudwatch_logs_exports
             __props__['engine'] = engine
             __props__['engine_version'] = engine_version
             __props__['final_snapshot_identifier'] = final_snapshot_identifier
@@ -213,7 +221,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_arn=None, neptune_cluster_parameter_group_name=None, neptune_subnet_group_name=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -229,6 +237,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[list] cluster_members: List of Neptune Instances that are a part of this cluster
         :param pulumi.Input[str] cluster_resource_id: The Neptune Cluster Resource ID
+        :param pulumi.Input[list] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] endpoint: The DNS address of the Neptune instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
@@ -263,6 +272,8 @@ class Cluster(pulumi.CustomResource):
         __props__["cluster_identifier_prefix"] = cluster_identifier_prefix
         __props__["cluster_members"] = cluster_members
         __props__["cluster_resource_id"] = cluster_resource_id
+        __props__["deletion_protection"] = deletion_protection
+        __props__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         __props__["endpoint"] = endpoint
         __props__["engine"] = engine
         __props__["engine_version"] = engine_version

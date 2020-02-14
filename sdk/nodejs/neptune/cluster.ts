@@ -96,6 +96,11 @@ export class Cluster extends pulumi.CustomResource {
      * The Neptune Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
+    public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+     */
+    public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
      * The DNS address of the Neptune instance
      */
@@ -197,6 +202,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
             inputs["clusterMembers"] = state ? state.clusterMembers : undefined;
             inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
+            inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            inputs["enableCloudwatchLogsExports"] = state ? state.enableCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
@@ -224,6 +231,8 @@ export class Cluster extends pulumi.CustomResource {
             inputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
+            inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            inputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
@@ -295,6 +304,11 @@ export interface ClusterState {
      * The Neptune Cluster Resource ID
      */
     readonly clusterResourceId?: pulumi.Input<string>;
+    readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+     */
+    readonly enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DNS address of the Neptune instance
      */
@@ -401,6 +415,11 @@ export interface ClusterArgs {
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     readonly clusterIdentifierPrefix?: pulumi.Input<string>;
+    readonly deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+     */
+    readonly enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      */

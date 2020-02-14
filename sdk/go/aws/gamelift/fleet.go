@@ -44,6 +44,8 @@ type Fleet struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrOutput `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrOutput `pulumi:"runtimeConfiguration"`
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +109,8 @@ type fleetState struct {
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type FleetState struct {
@@ -137,6 +141,8 @@ type FleetState struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 }
 
 func (FleetState) ElementType() reflect.Type {
@@ -166,6 +172,8 @@ type fleetArgs struct {
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
@@ -192,6 +200,8 @@ type FleetArgs struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {

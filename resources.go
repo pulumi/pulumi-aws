@@ -38,113 +38,114 @@ const (
 	// packages:
 	awsPkg = "aws"
 	// modules:
-	awsMod               = "index"             // the root index.
-	acmMod               = "Acm"               // AWS Certificate Manager
-	acmpcaMod            = "Acmpca"            // AWS Private Certificate Authority
-	accessAnalyzerMod    = "AccessAnalyzer"    // Access Analyzer
-	appsyncMod           = "AppSync"           // AppSync
-	appmeshMod           = "AppMesh"           // AppMesh
-	apigatewayMod        = "ApiGateway"        // API Gateway
-	appautoscalingMod    = "AppAutoScaling"    // Application Auto Scaling
-	athenaMod            = "Athena"            // Athena
-	autoscalingMod       = "AutoScaling"       // Auto Scaling
-	backupMod            = "Backup"            // Backup
-	batchMod             = "Batch"             // Batch
-	budgetsMod           = "Budgets"           // Budgets
-	cloud9Mod            = "Cloud9"            // Cloud9
-	cloudformationMod    = "CloudFormation"    // Cloud Formation
-	cloudhsmv2Mod        = "CloudHsmV2"        // Cloud HSM
-	cloudfrontMod        = "CloudFront"        // Cloud Front
-	cloudtrailMod        = "CloudTrail"        // Cloud Trail
-	cloudwatchMod        = "CloudWatch"        // Cloud Watch
-	codebuildMod         = "CodeBuild"         // Code Build
-	codecommitMod        = "CodeCommit"        // Code Commit
-	codedeployMod        = "CodeDeploy"        // Code Deploy
-	codepipelineMod      = "CodePipeline"      // Code Pipeline
-	cognitoMod           = "Cognito"           // Cognito
-	curMod               = "Cur"               // Cost and Usage Report
-	cfgMod               = "Cfg"               // Resource Config
-	datapipelineMod      = "DataPipeline"      // Data Pipeline
-	datasyncMod          = "DataSync"          // DataSync
-	daxMod               = "Dax"               // DynamoDB Accelerator
-	dlmMod               = "Dlm"               // Data Lifecycle Manager
-	devicefarmMod        = "DeviceFarm"        // Device Farm
-	directoryserviceMod  = "DirectoryService"  // Directory Services
-	docdbMod             = "DocDB"             // Document DB
-	dynamodbMod          = "DynamoDB"          // DynamoDB
-	dxMod                = "DirectConnect"     // Direct Connect
-	dmsMod               = "Dms"               // Data Migraiton Services
-	ebsMod               = "Ebs"               // Elastic Block Store
-	ec2Mod               = "Ec2"               // EC2
-	ec2ClientVpnMod      = "Ec2ClientVpn"      // EC2 Client VPN
-	ec2TransitGatewayMod = "Ec2TransitGateway" // EC2 Transit Gateway
-	ecrMod               = "Ecr"               // Elastic Container Registry
-	ecsMod               = "Ecs"               // Elastic Container Service
-	efsMod               = "Efs"               // Elastic Filesystem
-	eksMod               = "Eks"               // ECS for Kubernetes
-	elasticacheMod       = "ElastiCache"       // ElastiCache
-	elasticbeanstalkMod  = "ElasticBeanstalk"  // Elastic Beanstalk
-	elasticsearchMod     = "ElasticSearch"     // ElasticSearch
-	elastictranscoderMod = "ElasticTranscoder" // Elastic Transcoder
-	elbMod               = "Elb"               // Elastic Load Balancing
-	albMod               = "Alb"               // Elastic Load Balancing (V2: Application)
-	lbMod                = "LB"                // Elastic Load Balancing (V2: Application and Network)
-	emrMod               = "Emr"               // Elastic MapReduce
-	fmsMod               = "Fms"               // FMS
-	fsxMod               = "Fsx"               // FSX
-	gameliftMod          = "GameLift"          // Gamelift
-	glacierMod           = "Glacier"           // Glacier
-	globalacceleratorMod = "GlobalAccelerator" // Global Accelerator
-	glueMod              = "Glue"              // Glue
-	guarddutyMod         = "GuardDuty"         // Guard Duty
-	iamMod               = "Iam"               // Identity and Access Management (IAM)
-	inspectorMod         = "Inspector"         // Inspector
-	iotMod               = "Iot"               // Internet of Things (IoT)
-	kinesisMod           = "Kinesis"           // Kinesis
-	kmsMod               = "Kms"               // Key Management Service (KMS)
-	lambdaMod            = "Lambda"            // Lambda
-	licensemanagerMod    = "LicenseManager"    // License Manager
-	lightsailMod         = "LightSail"         // LightSail
-	macieMod             = "Macie"             // Macie
-	mediaconvertMod      = "MediaConvert"      // Media Convert
-	mediapackageMod      = "MediaPackage"      // Elemental MediaPackage
-	mediastoreMod        = "MediaStore"        // Elemental MediaStore
-	mqMod                = "Mq"                // MQ
-	mskMod               = "Msk"               // MSK
-	neptuneMod           = "Neptune"           // Neptune
-	opsworksMod          = "OpsWorks"          // OpsWorks
-	organizationsMod     = "Organizations"     // Organizations
-	pinpointMod          = "Pinpoint"          // Pinpoint
-	pricingMod           = "Pricing"           // Pricing
-	qldbMod              = "Qldb"              // QLDB
-	quicksightMod        = "Quicksight"        // Quicksight
-	ramMod               = "Ram"               // Resource Access Manager
-	rdsMod               = "Rds"               // Relational Database Service (RDS)
-	redshiftMod          = "RedShift"          // RedShift
-	resourcegroupsMod    = "ResourceGroups"    // Resource Groups
-	route53Mod           = "Route53"           // Route 53 (DNS)
-	sagemakerMod         = "Sagemaker"         // Sagemaker
-	securityhubMod       = "SecurityHub"       // SecurityHub
-	sesMod               = "Ses"               // Simple Email Service (SES)
-	s3Mod                = "S3"                // Simple Storage (S3)
-	ssmMod               = "Ssm"               // System Manager
-	secretsmanagerMod    = "SecretsManager"    // Secrets Manager
-	servicecatalogMod    = "ServiceCatalog"    // Service Catalog
-	servicediscoveryMod  = "ServiceDiscovery"  // Service Discovery
-	servicequotasMod     = "ServiceQuotas"     // Service Quotas
-	sfnMod               = "Sfn"               // Step Functions (SFN)
-	shieldMod            = "Shield"            // Shield
-	simpledbMod          = "SimpleDB"          // Simple DB
-	snsMod               = "Sns"               // Simple Notification Service (SNS)
-	sqsMod               = "Sqs"               // Simple Queueing Service (SQS)
-	storagegatewayMod    = "StorageGateway"    // Storage Gateway
-	swfMod               = "Swf"               // Simple Workflow Service (SWF)
-	transferMod          = "Transfer"          // Transfer Service
-	wafMod               = "Waf"               // Web Application Firewall (WAF)
-	wafregionalMod       = "WafRegional"       // Web Application Firewall (WAF) Regional
-	worklinkMod          = "WorkLink"          // Worklink
-	workspacesMod        = "Workspaces"        // Workspaces
-	xrayMod              = "Xray"              // X-Ray
+	awsMod                    = "index"                 // the root index.
+	acmMod                    = "Acm"                   // AWS Certificate Manager
+	acmpcaMod                 = "Acmpca"                // AWS Private Certificate Authority
+	accessAnalyzerMod         = "AccessAnalyzer"        // Access Analyzer
+	appsyncMod                = "AppSync"               // AppSync
+	appmeshMod                = "AppMesh"               // AppMesh
+	apigatewayMod             = "ApiGateway"            // API Gateway
+	appautoscalingMod         = "AppAutoScaling"        // Application Auto Scaling
+	athenaMod                 = "Athena"                // Athena
+	autoscalingMod            = "AutoScaling"           // Auto Scaling
+	backupMod                 = "Backup"                // Backup
+	batchMod                  = "Batch"                 // Batch
+	budgetsMod                = "Budgets"               // Budgets
+	cloud9Mod                 = "Cloud9"                // Cloud9
+	cloudformationMod         = "CloudFormation"        // Cloud Formation
+	cloudhsmv2Mod             = "CloudHsmV2"            // Cloud HSM
+	cloudfrontMod             = "CloudFront"            // Cloud Front
+	cloudtrailMod             = "CloudTrail"            // Cloud Trail
+	cloudwatchMod             = "CloudWatch"            // Cloud Watch
+	codebuildMod              = "CodeBuild"             // Code Build
+	codecommitMod             = "CodeCommit"            // Code Commit
+	codedeployMod             = "CodeDeploy"            // Code Deploy
+	codepipelineMod           = "CodePipeline"          // Code Pipeline
+	codestarNotificiationsMod = "CodeStarNotifications" // CodeStar Notificiations
+	cognitoMod                = "Cognito"               // Cognito
+	curMod                    = "Cur"                   // Cost and Usage Report
+	cfgMod                    = "Cfg"                   // Resource Config
+	datapipelineMod           = "DataPipeline"          // Data Pipeline
+	datasyncMod               = "DataSync"              // DataSync
+	daxMod                    = "Dax"                   // DynamoDB Accelerator
+	dlmMod                    = "Dlm"                   // Data Lifecycle Manager
+	devicefarmMod             = "DeviceFarm"            // Device Farm
+	directoryserviceMod       = "DirectoryService"      // Directory Services
+	docdbMod                  = "DocDB"                 // Document DB
+	dynamodbMod               = "DynamoDB"              // DynamoDB
+	dxMod                     = "DirectConnect"         // Direct Connect
+	dmsMod                    = "Dms"                   // Data Migraiton Services
+	ebsMod                    = "Ebs"                   // Elastic Block Store
+	ec2Mod                    = "Ec2"                   // EC2
+	ec2ClientVpnMod           = "Ec2ClientVpn"          // EC2 Client VPN
+	ec2TransitGatewayMod      = "Ec2TransitGateway"     // EC2 Transit Gateway
+	ecrMod                    = "Ecr"                   // Elastic Container Registry
+	ecsMod                    = "Ecs"                   // Elastic Container Service
+	efsMod                    = "Efs"                   // Elastic Filesystem
+	eksMod                    = "Eks"                   // ECS for Kubernetes
+	elasticacheMod            = "ElastiCache"           // ElastiCache
+	elasticbeanstalkMod       = "ElasticBeanstalk"      // Elastic Beanstalk
+	elasticsearchMod          = "ElasticSearch"         // ElasticSearch
+	elastictranscoderMod      = "ElasticTranscoder"     // Elastic Transcoder
+	elbMod                    = "Elb"                   // Elastic Load Balancing
+	albMod                    = "Alb"                   // Elastic Load Balancing (V2: Application)
+	lbMod                     = "LB"                    // Elastic Load Balancing (V2: Application and Network)
+	emrMod                    = "Emr"                   // Elastic MapReduce
+	fmsMod                    = "Fms"                   // FMS
+	fsxMod                    = "Fsx"                   // FSX
+	gameliftMod               = "GameLift"              // Gamelift
+	glacierMod                = "Glacier"               // Glacier
+	globalacceleratorMod      = "GlobalAccelerator"     // Global Accelerator
+	glueMod                   = "Glue"                  // Glue
+	guarddutyMod              = "GuardDuty"             // Guard Duty
+	iamMod                    = "Iam"                   // Identity and Access Management (IAM)
+	inspectorMod              = "Inspector"             // Inspector
+	iotMod                    = "Iot"                   // Internet of Things (IoT)
+	kinesisMod                = "Kinesis"               // Kinesis
+	kmsMod                    = "Kms"                   // Key Management Service (KMS)
+	lambdaMod                 = "Lambda"                // Lambda
+	licensemanagerMod         = "LicenseManager"        // License Manager
+	lightsailMod              = "LightSail"             // LightSail
+	macieMod                  = "Macie"                 // Macie
+	mediaconvertMod           = "MediaConvert"          // Media Convert
+	mediapackageMod           = "MediaPackage"          // Elemental MediaPackage
+	mediastoreMod             = "MediaStore"            // Elemental MediaStore
+	mqMod                     = "Mq"                    // MQ
+	mskMod                    = "Msk"                   // MSK
+	neptuneMod                = "Neptune"               // Neptune
+	opsworksMod               = "OpsWorks"              // OpsWorks
+	organizationsMod          = "Organizations"         // Organizations
+	pinpointMod               = "Pinpoint"              // Pinpoint
+	pricingMod                = "Pricing"               // Pricing
+	qldbMod                   = "Qldb"                  // QLDB
+	quicksightMod             = "Quicksight"            // Quicksight
+	ramMod                    = "Ram"                   // Resource Access Manager
+	rdsMod                    = "Rds"                   // Relational Database Service (RDS)
+	redshiftMod               = "RedShift"              // RedShift
+	resourcegroupsMod         = "ResourceGroups"        // Resource Groups
+	route53Mod                = "Route53"               // Route 53 (DNS)
+	sagemakerMod              = "Sagemaker"             // Sagemaker
+	securityhubMod            = "SecurityHub"           // SecurityHub
+	sesMod                    = "Ses"                   // Simple Email Service (SES)
+	s3Mod                     = "S3"                    // Simple Storage (S3)
+	ssmMod                    = "Ssm"                   // System Manager
+	secretsmanagerMod         = "SecretsManager"        // Secrets Manager
+	servicecatalogMod         = "ServiceCatalog"        // Service Catalog
+	servicediscoveryMod       = "ServiceDiscovery"      // Service Discovery
+	servicequotasMod          = "ServiceQuotas"         // Service Quotas
+	sfnMod                    = "Sfn"                   // Step Functions (SFN)
+	shieldMod                 = "Shield"                // Shield
+	simpledbMod               = "SimpleDB"              // Simple DB
+	snsMod                    = "Sns"                   // Simple Notification Service (SNS)
+	sqsMod                    = "Sqs"                   // Simple Queueing Service (SQS)
+	storagegatewayMod         = "StorageGateway"        // Storage Gateway
+	swfMod                    = "Swf"                   // Simple Workflow Service (SWF)
+	transferMod               = "Transfer"              // Transfer Service
+	wafMod                    = "Waf"                   // Web Application Firewall (WAF)
+	wafregionalMod            = "WafRegional"           // Web Application Firewall (WAF) Regional
+	worklinkMod               = "WorkLink"              // Worklink
+	workspacesMod             = "Workspaces"            // Workspaces
+	xrayMod                   = "Xray"                  // X-Ray
 
 	// Legacy Mods
 	legacyElbMod   = "ElasticLoadBalancing"
@@ -1880,7 +1881,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_s3_bucket_public_access_block": {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
+			"aws_s3_bucket_public_access_block":     {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
+			"aws_s3_bucket_analytics_configuration": {Tok: awsResource(s3Mod, "AnalyticsConfiguration")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -2016,6 +2018,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_workspaces_directory": {Tok: awsResource(workspacesMod, "Directory")},
 			// Access Analyzer
 			"aws_accessanalyzer_analyzer": {Tok: awsResource(accessAnalyzerMod, "Analyzer")},
+			// CodeStar Notifications
+			"aws_codestarnotifications_notification_rule": {Tok: awsResource(codestarNotificiationsMod, "NotificationRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// AWS

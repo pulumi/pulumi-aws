@@ -2765,7 +2765,7 @@ type FirehoseDeliveryStreamElasticsearchConfiguration struct {
 	IndexRotationPeriod *string `pulumi:"indexRotationPeriod"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
 	// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	RoleArn string `pulumi:"roleArn"`
@@ -2797,7 +2797,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
 	IndexRotationPeriod pulumi.StringPtrInput `pulumi:"indexRotationPeriod"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -2909,7 +2909,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ProcessingConfig
 	return o.ApplyT(func (v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration { return v.ProcessingConfiguration }).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput)
 }
 
-// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v FirehoseDeliveryStreamElasticsearchConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
@@ -2982,7 +2982,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ProcessingCon
 	return o.ApplyT(func (v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration { return v.ProcessingConfiguration }).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput)
 }
 
-// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v FirehoseDeliveryStreamElasticsearchConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
@@ -5842,7 +5842,7 @@ type FirehoseDeliveryStreamRedshiftConfiguration struct {
 	Password string `pulumi:"password"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
 	// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	RoleArn string `pulumi:"roleArn"`
@@ -5876,7 +5876,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationArgs struct {
 	Password pulumi.StringInput `pulumi:"password"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -5990,7 +5990,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ProcessingConfigurati
 	return o.ApplyT(func (v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration { return v.ProcessingConfiguration }).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
 }
 
-// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v FirehoseDeliveryStreamRedshiftConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
@@ -6068,7 +6068,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ProcessingConfigur
 	return o.ApplyT(func (v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration { return v.ProcessingConfiguration }).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
 }
 
-// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v FirehoseDeliveryStreamRedshiftConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
@@ -7396,7 +7396,7 @@ type FirehoseDeliveryStreamSplunkConfiguration struct {
 	HecToken string `pulumi:"hecToken"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
@@ -7422,7 +7422,7 @@ type FirehoseDeliveryStreamSplunkConfigurationArgs struct {
 	HecToken pulumi.StringInput `pulumi:"hecToken"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
@@ -7525,7 +7525,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ProcessingConfiguration
 	return o.ApplyT(func (v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration { return v.ProcessingConfiguration }).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput)
 }
 
-// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
@@ -7583,7 +7583,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) ProcessingConfigurat
 	return o.ApplyT(func (v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration { return v.ProcessingConfiguration }).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput)
 }
 
-// After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }

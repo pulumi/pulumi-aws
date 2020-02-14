@@ -79,7 +79,11 @@ class Fleet(pulumi.CustomResource):
         * `launchPath` (`str`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
         * `parameters` (`str`) - Optional list of parameters to pass to the server executable on launch.
     """
-    def __init__(__self__, resource_name, opts=None, build_id=None, description=None, ec2_inbound_permissions=None, ec2_instance_type=None, fleet_type=None, instance_role_arn=None, metric_groups=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags
+    """
+    def __init__(__self__, resource_name, opts=None, build_id=None, description=None, ec2_inbound_permissions=None, ec2_instance_type=None, fleet_type=None, instance_role_arn=None, metric_groups=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Gamelift Fleet resource.
         
@@ -96,6 +100,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[dict] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[dict] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **ec2_inbound_permissions** object supports the following:
         
@@ -153,6 +158,7 @@ class Fleet(pulumi.CustomResource):
             __props__['new_game_session_protection_policy'] = new_game_session_protection_policy
             __props__['resource_creation_limit_policy'] = resource_creation_limit_policy
             __props__['runtime_configuration'] = runtime_configuration
+            __props__['tags'] = tags
             __props__['arn'] = None
             __props__['log_paths'] = None
             __props__['operating_system'] = None
@@ -163,7 +169,7 @@ class Fleet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, build_id=None, description=None, ec2_inbound_permissions=None, ec2_instance_type=None, fleet_type=None, instance_role_arn=None, log_paths=None, metric_groups=None, name=None, new_game_session_protection_policy=None, operating_system=None, resource_creation_limit_policy=None, runtime_configuration=None):
+    def get(resource_name, id, opts=None, arn=None, build_id=None, description=None, ec2_inbound_permissions=None, ec2_instance_type=None, fleet_type=None, instance_role_arn=None, log_paths=None, metric_groups=None, name=None, new_game_session_protection_policy=None, operating_system=None, resource_creation_limit_policy=None, runtime_configuration=None, tags=None):
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -184,6 +190,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
         :param pulumi.Input[dict] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[dict] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         
         The **ec2_inbound_permissions** object supports the following:
         
@@ -226,6 +233,7 @@ class Fleet(pulumi.CustomResource):
         __props__["operating_system"] = operating_system
         __props__["resource_creation_limit_policy"] = resource_creation_limit_policy
         __props__["runtime_configuration"] = runtime_configuration
+        __props__["tags"] = tags
         return Fleet(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

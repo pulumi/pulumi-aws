@@ -19,12 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// &gt; **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
     /// Elastic Beanstalk Environments it is possible that an error may be returned
     /// when attempting to delete an Application Version while it is still in use by a different environment.
-    /// To work around this you can:
-    /// &lt;ol&gt;
-    /// &lt;li&gt;Create each environment in a separate AWS account&lt;/li&gt;
-    /// &lt;li&gt;Create your `aws.elasticbeanstalk.ApplicationVersion` resources with a unique names in your 
-    /// Elastic Beanstalk Application. For example &amp;lt;revision&amp;gt;-&amp;lt;environment&amp;gt;.&lt;/li&gt;
-    /// &lt;/ol&gt;
+    /// To work around this you can either create each environment in a separate AWS account or create your `aws.elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &amp;lt;revision&amp;gt;-&amp;lt;environment&amp;gt;.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application_version.html.markdown.
     /// </summary>

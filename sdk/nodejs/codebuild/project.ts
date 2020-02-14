@@ -138,9 +138,9 @@ import * as utilities from "../utilities";
  *             fetchSubmodules: true,
  *         },
  *         location: "https://github.com/mitchellh/packer.git",
- *         sourceVersion: "master",
  *         type: "GITHUB",
  *     },
+ *     sourceVersion: "master",
  *     tags: {
  *         Environment: "Test",
  *     },
