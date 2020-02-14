@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ## Example config to deny all traffic to any Subnet in the Default Network ACL:
+ * ## Example config to deny all traffic to any Subnet in the Default Network ACL
  * 
  * This config denies all traffic in the Default ACL. This can be useful if you
  * want a locked down default to force all resources in the VPC to assign a

@@ -71,6 +71,15 @@ namespace Pulumi.Aws.Neptune
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
+        [Output("deletionProtection")]
+        public Output<bool?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        /// </summary>
+        [Output("enableCloudwatchLogsExports")]
+        public Output<ImmutableArray<string>> EnableCloudwatchLogsExports { get; private set; } = null!;
+
         /// <summary>
         /// The DNS address of the Neptune instance
         /// </summary>
@@ -273,6 +282,21 @@ namespace Pulumi.Aws.Neptune
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
 
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
+
+        [Input("enableCloudwatchLogsExports")]
+        private InputList<string>? _enableCloudwatchLogsExports;
+
+        /// <summary>
+        /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        /// </summary>
+        public InputList<string> EnableCloudwatchLogsExports
+        {
+            get => _enableCloudwatchLogsExports ?? (_enableCloudwatchLogsExports = new InputList<string>());
+            set => _enableCloudwatchLogsExports = value;
+        }
+
         /// <summary>
         /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         /// </summary>
@@ -459,6 +483,21 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
+
+        [Input("deletionProtection")]
+        public Input<bool>? DeletionProtection { get; set; }
+
+        [Input("enableCloudwatchLogsExports")]
+        private InputList<string>? _enableCloudwatchLogsExports;
+
+        /// <summary>
+        /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        /// </summary>
+        public InputList<string> EnableCloudwatchLogsExports
+        {
+            get => _enableCloudwatchLogsExports ?? (_enableCloudwatchLogsExports = new InputList<string>());
+            set => _enableCloudwatchLogsExports = value;
+        }
 
         /// <summary>
         /// The DNS address of the Neptune instance

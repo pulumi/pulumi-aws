@@ -35,6 +35,7 @@ export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): P
     }
     const promise: Promise<GetRestApiResult> = pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -45,21 +46,57 @@ export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetRestApiArgs {
     /**
-     * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. 
-     * If multiple REST APIs are found with this name, an error will be returned.
+     * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
      */
     readonly name: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**
  * A collection of values returned by getRestApi.
  */
 export interface GetRestApiResult {
+    /**
+     * The source of the API key for requests.
+     */
+    readonly apiKeySource: string;
+    /**
+     * The ARN of the REST API.
+     */
+    readonly arn: string;
+    /**
+     * The list of binary media types supported by the REST API.
+     */
+    readonly binaryMediaTypes: string[];
+    /**
+     * The description of the REST API.
+     */
+    readonly description: string;
+    /**
+     * The endpoint configuration of this RestApi showing the endpoint types of the API.
+     */
+    readonly endpointConfigurations: outputs.apigateway.GetRestApiEndpointConfiguration[];
+    /**
+     * The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     */
+    readonly executionArn: string;
+    /**
+     * Minimum response size to compress for the REST API.
+     */
+    readonly minimumCompressionSize: number;
     readonly name: string;
+    /**
+     * JSON formatted policy document that controls access to the API Gateway.
+     */
+    readonly policy: string;
     /**
      * Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
      */
     readonly rootResourceId: string;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

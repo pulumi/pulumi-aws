@@ -52,6 +52,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.LaunchTemplateCapacityReservationSpecification | undefined>;
     /**
+     * The CPU options for the instance. See CPU Options below for more details.
+     */
+    public readonly cpuOptions!: pulumi.Output<outputs.ec2.LaunchTemplateCpuOptions | undefined>;
+    /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
@@ -183,6 +187,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["blockDeviceMappings"] = state ? state.blockDeviceMappings : undefined;
             inputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
+            inputs["cpuOptions"] = state ? state.cpuOptions : undefined;
             inputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -214,6 +219,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             const args = argsOrState as LaunchTemplateArgs | undefined;
             inputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
             inputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
+            inputs["cpuOptions"] = args ? args.cpuOptions : undefined;
             inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
@@ -271,6 +277,10 @@ export interface LaunchTemplateState {
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
     readonly capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification>;
+    /**
+     * The CPU options for the instance. See CPU Options below for more details.
+     */
+    readonly cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptions>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
@@ -402,6 +412,10 @@ export interface LaunchTemplateArgs {
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
     readonly capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification>;
+    /**
+     * The CPU options for the instance. See CPU Options below for more details.
+     */
+    readonly cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptions>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.

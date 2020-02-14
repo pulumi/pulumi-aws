@@ -1275,6 +1275,98 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 	return o.ApplyT(func (v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
 
+type GetRestApiEndpointConfiguration struct {
+	Types []string `pulumi:"types"`
+	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
+}
+
+type GetRestApiEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToGetRestApiEndpointConfigurationOutput() GetRestApiEndpointConfigurationOutput
+	ToGetRestApiEndpointConfigurationOutputWithContext(context.Context) GetRestApiEndpointConfigurationOutput
+}
+
+type GetRestApiEndpointConfigurationArgs struct {
+	Types pulumi.StringArrayInput `pulumi:"types"`
+	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
+}
+
+func (GetRestApiEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (i GetRestApiEndpointConfigurationArgs) ToGetRestApiEndpointConfigurationOutput() GetRestApiEndpointConfigurationOutput {
+	return i.ToGetRestApiEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetRestApiEndpointConfigurationArgs) ToGetRestApiEndpointConfigurationOutputWithContext(ctx context.Context) GetRestApiEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRestApiEndpointConfigurationOutput)
+}
+
+type GetRestApiEndpointConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetRestApiEndpointConfigurationArrayOutput() GetRestApiEndpointConfigurationArrayOutput
+	ToGetRestApiEndpointConfigurationArrayOutputWithContext(context.Context) GetRestApiEndpointConfigurationArrayOutput
+}
+
+type GetRestApiEndpointConfigurationArray []GetRestApiEndpointConfigurationInput
+
+func (GetRestApiEndpointConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (i GetRestApiEndpointConfigurationArray) ToGetRestApiEndpointConfigurationArrayOutput() GetRestApiEndpointConfigurationArrayOutput {
+	return i.ToGetRestApiEndpointConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRestApiEndpointConfigurationArray) ToGetRestApiEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetRestApiEndpointConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRestApiEndpointConfigurationArrayOutput)
+}
+
+type GetRestApiEndpointConfigurationOutput struct { *pulumi.OutputState }
+
+func (GetRestApiEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (o GetRestApiEndpointConfigurationOutput) ToGetRestApiEndpointConfigurationOutput() GetRestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o GetRestApiEndpointConfigurationOutput) ToGetRestApiEndpointConfigurationOutputWithContext(ctx context.Context) GetRestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o GetRestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetRestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetRestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
+}
+
+type GetRestApiEndpointConfigurationArrayOutput struct { *pulumi.OutputState}
+
+func (GetRestApiEndpointConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (o GetRestApiEndpointConfigurationArrayOutput) ToGetRestApiEndpointConfigurationArrayOutput() GetRestApiEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRestApiEndpointConfigurationArrayOutput) ToGetRestApiEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetRestApiEndpointConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRestApiEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) GetRestApiEndpointConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetRestApiEndpointConfiguration {
+		return vs[0].([]GetRestApiEndpointConfiguration)[vs[1].(int)]
+	}).(GetRestApiEndpointConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(AccountThrottleSettingsPtrOutput{})
@@ -1294,4 +1386,6 @@ func init() {
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRestApiEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(GetRestApiEndpointConfigurationArrayOutput{})
 }

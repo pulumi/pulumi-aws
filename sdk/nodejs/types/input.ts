@@ -174,6 +174,7 @@ export interface ProviderEndpoint {
     wafregional?: pulumi.Input<string>;
     wafv2?: pulumi.Input<string>;
     worklink?: pulumi.Input<string>;
+    workmail?: pulumi.Input<string>;
     workspaces?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
 }
@@ -617,7 +618,7 @@ export namespace alb {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.alb.ListenerRuleConditionHostHeader>;
         /**
@@ -629,7 +630,7 @@ export namespace alb {
          */
         httpRequestMethod?: pulumi.Input<inputs.alb.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.alb.ListenerRuleConditionPathPattern>;
         /**
@@ -637,7 +638,7 @@ export namespace alb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.alb.ListenerRuleConditionSourceIp>;
         /**
@@ -1283,7 +1284,7 @@ export namespace applicationloadbalancing {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHostHeader>;
         /**
@@ -1295,7 +1296,7 @@ export namespace applicationloadbalancing {
          */
         httpRequestMethod?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionPathPattern>;
         /**
@@ -1303,7 +1304,7 @@ export namespace applicationloadbalancing {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionSourceIp>;
         /**
@@ -3840,6 +3841,17 @@ export namespace codepipeline {
     }
 }
 
+export namespace codestarnotifications {
+    export interface NotificationRuleTarget {
+        address: pulumi.Input<string>;
+        /**
+         * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+         */
+        status?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+    }
+}
+
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProvider {
         /**
@@ -5184,6 +5196,11 @@ export namespace ec2 {
 
     export interface LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
         capacityReservationId?: pulumi.Input<string>;
+    }
+
+    export interface LaunchTemplateCpuOptions {
+        coreCount?: pulumi.Input<number>;
+        threadsPerCore?: pulumi.Input<number>;
     }
 
     export interface LaunchTemplateCreditSpecification {
@@ -6571,7 +6588,7 @@ export namespace elasticloadbalancingv2 {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader>;
         /**
@@ -6583,7 +6600,7 @@ export namespace elasticloadbalancingv2 {
          */
         httpRequestMethod?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern>;
         /**
@@ -6591,7 +6608,7 @@ export namespace elasticloadbalancingv2 {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp>;
         /**
@@ -8473,7 +8490,7 @@ export namespace kinesis {
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration>;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: pulumi.Input<number>;
         /**
@@ -8910,7 +8927,7 @@ export namespace kinesis {
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration>;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: pulumi.Input<number>;
         /**
@@ -9116,7 +9133,7 @@ export namespace kinesis {
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration>;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: pulumi.Input<number>;
         /**
@@ -9586,7 +9603,7 @@ export namespace lb {
          */
         field?: pulumi.Input<string>;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.lb.ListenerRuleConditionHostHeader>;
         /**
@@ -9598,7 +9615,7 @@ export namespace lb {
          */
         httpRequestMethod?: pulumi.Input<inputs.lb.ListenerRuleConditionHttpRequestMethod>;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern?: pulumi.Input<inputs.lb.ListenerRuleConditionPathPattern>;
         /**
@@ -9606,7 +9623,7 @@ export namespace lb {
          */
         queryStrings?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleConditionQueryString>[]>;
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.lb.ListenerRuleConditionSourceIp>;
         /**
@@ -10640,6 +10657,31 @@ export namespace route53 {
 }
 
 export namespace s3 {
+    export interface AnalyticsConfigurationFilter {
+        prefix?: pulumi.Input<string>;
+        tags?: pulumi.Input<{[key: string]: any}>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysis {
+        dataExport: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExport>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExport {
+        destination: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestination>;
+        outputSchemaVersion?: pulumi.Input<string>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
+        s3BucketDestination: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination>;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+        bucketAccountId?: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
+        format?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
     export interface BucketCorsRule {
         /**
          * Specifies which headers are allowed.

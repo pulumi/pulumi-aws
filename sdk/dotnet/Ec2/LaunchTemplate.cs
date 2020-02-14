@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateCapacityReservationSpecification?> CapacityReservationSpecification { get; private set; } = null!;
 
         /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Output("cpuOptions")]
+        public Output<Outputs.LaunchTemplateCpuOptions?> CpuOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Customize the credit specification of the instance. See Credit
         /// Specification below for more details.
         /// </summary>
@@ -270,6 +276,12 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        public Input<Inputs.LaunchTemplateCpuOptionsArgs>? CpuOptions { get; set; }
+
+        /// <summary>
         /// Customize the credit specification of the instance. See Credit
         /// Specification below for more details.
         /// </summary>
@@ -500,6 +512,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.LaunchTemplateCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
+
+        /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        public Input<Inputs.LaunchTemplateCpuOptionsGetArgs>? CpuOptions { get; set; }
 
         /// <summary>
         /// Customize the credit specification of the instance. See Credit
@@ -885,6 +903,32 @@ namespace Pulumi.Aws.Ec2
         public Input<LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetGetArgs>? CapacityReservationTarget { get; set; }
 
         public LaunchTemplateCapacityReservationSpecificationGetArgs()
+        {
+        }
+    }
+
+    public sealed class LaunchTemplateCpuOptionsArgs : Pulumi.ResourceArgs
+    {
+        [Input("coreCount")]
+        public Input<int>? CoreCount { get; set; }
+
+        [Input("threadsPerCore")]
+        public Input<int>? ThreadsPerCore { get; set; }
+
+        public LaunchTemplateCpuOptionsArgs()
+        {
+        }
+    }
+
+    public sealed class LaunchTemplateCpuOptionsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("coreCount")]
+        public Input<int>? CoreCount { get; set; }
+
+        [Input("threadsPerCore")]
+        public Input<int>? ThreadsPerCore { get; set; }
+
+        public LaunchTemplateCpuOptionsGetArgs()
         {
         }
     }
@@ -1421,6 +1465,22 @@ namespace Pulumi.Aws.Ec2
         private LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(string? capacityReservationId)
         {
             CapacityReservationId = capacityReservationId;
+        }
+    }
+
+    [OutputType]
+    public sealed class LaunchTemplateCpuOptions
+    {
+        public readonly int? CoreCount;
+        public readonly int? ThreadsPerCore;
+
+        [OutputConstructor]
+        private LaunchTemplateCpuOptions(
+            int? coreCount,
+            int? threadsPerCore)
+        {
+            CoreCount = coreCount;
+            ThreadsPerCore = threadsPerCore;
         }
     }
 

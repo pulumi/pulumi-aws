@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+        /// </summary>
+        [Output("deleteAutomatedBackups")]
+        public Output<bool?> DeleteAutomatedBackups { get; private set; } = null!;
+
+        /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Output("deletionProtection")]
@@ -157,7 +163,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+        /// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -591,6 +597,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        public Input<bool>? DeleteAutomatedBackups { get; set; }
+
+        /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Input("deletionProtection")]
@@ -612,7 +624,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+        /// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -1012,6 +1024,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        public Input<bool>? DeleteAutomatedBackups { get; set; }
+
+        /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Input("deletionProtection")]
@@ -1033,7 +1051,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
+        /// List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`): `agent` (MSSQL), `alert`, `audit`, `error`, `general`, `listener`, `slowquery`, `trace`, `postgresql` (PostgreSQL), `upgrade` (PostgreSQL).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {

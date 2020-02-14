@@ -11,6 +11,391 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+type AnalyticsConfigurationFilter struct {
+	Prefix *string `pulumi:"prefix"`
+	Tags map[string]interface{} `pulumi:"tags"`
+}
+
+type AnalyticsConfigurationFilterInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationFilterOutput() AnalyticsConfigurationFilterOutput
+	ToAnalyticsConfigurationFilterOutputWithContext(context.Context) AnalyticsConfigurationFilterOutput
+}
+
+type AnalyticsConfigurationFilterArgs struct {
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Tags pulumi.MapInput `pulumi:"tags"`
+}
+
+func (AnalyticsConfigurationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationFilter)(nil)).Elem()
+}
+
+func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterOutput() AnalyticsConfigurationFilterOutput {
+	return i.ToAnalyticsConfigurationFilterOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationFilterOutput)
+}
+
+func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterPtrOutput() AnalyticsConfigurationFilterPtrOutput {
+	return i.ToAnalyticsConfigurationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationFilterOutput).ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx)
+}
+
+type AnalyticsConfigurationFilterPtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationFilterPtrOutput() AnalyticsConfigurationFilterPtrOutput
+	ToAnalyticsConfigurationFilterPtrOutputWithContext(context.Context) AnalyticsConfigurationFilterPtrOutput
+}
+
+type analyticsConfigurationFilterPtrType AnalyticsConfigurationFilterArgs
+
+func AnalyticsConfigurationFilterPtr(v *AnalyticsConfigurationFilterArgs) AnalyticsConfigurationFilterPtrInput {	return (*analyticsConfigurationFilterPtrType)(v)
+}
+
+func (*analyticsConfigurationFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsConfigurationFilter)(nil)).Elem()
+}
+
+func (i *analyticsConfigurationFilterPtrType) ToAnalyticsConfigurationFilterPtrOutput() AnalyticsConfigurationFilterPtrOutput {
+	return i.ToAnalyticsConfigurationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsConfigurationFilterPtrType) ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationFilterPtrOutput)
+}
+
+type AnalyticsConfigurationFilterOutput struct { *pulumi.OutputState }
+
+func (AnalyticsConfigurationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationFilter)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterOutput() AnalyticsConfigurationFilterOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterPtrOutput() AnalyticsConfigurationFilterPtrOutput {
+	return o.ToAnalyticsConfigurationFilterPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterPtrOutput {
+	return o.ApplyT(func(v AnalyticsConfigurationFilter) *AnalyticsConfigurationFilter {
+		return &v
+	}).(AnalyticsConfigurationFilterPtrOutput)
+}
+func (o AnalyticsConfigurationFilterOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyticsConfigurationFilterOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+}
+
+type AnalyticsConfigurationFilterPtrOutput struct { *pulumi.OutputState}
+
+func (AnalyticsConfigurationFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsConfigurationFilter)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationFilterPtrOutput) ToAnalyticsConfigurationFilterPtrOutput() AnalyticsConfigurationFilterPtrOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationFilterPtrOutput) ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterPtrOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationFilterPtrOutput) Elem() AnalyticsConfigurationFilterOutput {
+	return o.ApplyT(func (v *AnalyticsConfigurationFilter) AnalyticsConfigurationFilter { return *v }).(AnalyticsConfigurationFilterOutput)
+}
+
+func (o AnalyticsConfigurationFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyticsConfigurationFilterPtrOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysis struct {
+	DataExport AnalyticsConfigurationStorageClassAnalysisDataExport `pulumi:"dataExport"`
+}
+
+type AnalyticsConfigurationStorageClassAnalysisInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationStorageClassAnalysisOutput() AnalyticsConfigurationStorageClassAnalysisOutput
+	ToAnalyticsConfigurationStorageClassAnalysisOutputWithContext(context.Context) AnalyticsConfigurationStorageClassAnalysisOutput
+}
+
+type AnalyticsConfigurationStorageClassAnalysisArgs struct {
+	DataExport AnalyticsConfigurationStorageClassAnalysisDataExportInput `pulumi:"dataExport"`
+}
+
+func (AnalyticsConfigurationStorageClassAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysis)(nil)).Elem()
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfigurationStorageClassAnalysisOutput() AnalyticsConfigurationStorageClassAnalysisOutput {
+	return i.ToAnalyticsConfigurationStorageClassAnalysisOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfigurationStorageClassAnalysisOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisOutput)
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfigurationStorageClassAnalysisPtrOutput() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return i.ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisOutput).ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationStorageClassAnalysisPtrOutput() AnalyticsConfigurationStorageClassAnalysisPtrOutput
+	ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput
+}
+
+type analyticsConfigurationStorageClassAnalysisPtrType AnalyticsConfigurationStorageClassAnalysisArgs
+
+func AnalyticsConfigurationStorageClassAnalysisPtr(v *AnalyticsConfigurationStorageClassAnalysisArgs) AnalyticsConfigurationStorageClassAnalysisPtrInput {	return (*analyticsConfigurationStorageClassAnalysisPtrType)(v)
+}
+
+func (*analyticsConfigurationStorageClassAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsConfigurationStorageClassAnalysis)(nil)).Elem()
+}
+
+func (i *analyticsConfigurationStorageClassAnalysisPtrType) ToAnalyticsConfigurationStorageClassAnalysisPtrOutput() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return i.ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsConfigurationStorageClassAnalysisPtrType) ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisPtrOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisOutput struct { *pulumi.OutputState }
+
+func (AnalyticsConfigurationStorageClassAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysis)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurationStorageClassAnalysisOutput() AnalyticsConfigurationStorageClassAnalysisOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurationStorageClassAnalysisOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurationStorageClassAnalysisPtrOutput() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return o.ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysis) *AnalyticsConfigurationStorageClassAnalysis {
+		return &v
+	}).(AnalyticsConfigurationStorageClassAnalysisPtrOutput)
+}
+func (o AnalyticsConfigurationStorageClassAnalysisOutput) DataExport() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysis) AnalyticsConfigurationStorageClassAnalysisDataExport { return v.DataExport }).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisPtrOutput struct { *pulumi.OutputState}
+
+func (AnalyticsConfigurationStorageClassAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsConfigurationStorageClassAnalysis)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) ToAnalyticsConfigurationStorageClassAnalysisPtrOutput() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisOutput {
+	return o.ApplyT(func (v *AnalyticsConfigurationStorageClassAnalysis) AnalyticsConfigurationStorageClassAnalysis { return *v }).(AnalyticsConfigurationStorageClassAnalysisOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) DataExport() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysis) AnalyticsConfigurationStorageClassAnalysisDataExport { return v.DataExport }).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExport struct {
+	Destination AnalyticsConfigurationStorageClassAnalysisDataExportDestination `pulumi:"destination"`
+	OutputSchemaVersion *string `pulumi:"outputSchemaVersion"`
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationStorageClassAnalysisDataExportOutput() AnalyticsConfigurationStorageClassAnalysisDataExportOutput
+	ToAnalyticsConfigurationStorageClassAnalysisDataExportOutputWithContext(context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportOutput
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportArgs struct {
+	Destination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput `pulumi:"destination"`
+	OutputSchemaVersion pulumi.StringPtrInput `pulumi:"outputSchemaVersion"`
+}
+
+func (AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExport)(nil)).Elem()
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportOutput() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
+	return i.ToAnalyticsConfigurationStorageClassAnalysisDataExportOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportOutput struct { *pulumi.OutputState }
+
+func (AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExport)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportOutput() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) Destination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExport) AnalyticsConfigurationStorageClassAnalysisDataExportDestination { return v.Destination }).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExport) *string { return v.OutputSchemaVersion }).(pulumi.StringPtrOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestination struct {
+	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination `pulumi:"s3BucketDestination"`
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput
+	ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutputWithContext(context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs struct {
+	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput `pulumi:"s3BucketDestination"`
+}
+
+func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestination)(nil)).Elem()
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
+	return i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput struct { *pulumi.OutputState }
+
+func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestination)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination { return v.S3BucketDestination }).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination struct {
+	BucketAccountId *string `pulumi:"bucketAccountId"`
+	BucketArn string `pulumi:"bucketArn"`
+	Format *string `pulumi:"format"`
+	Prefix *string `pulumi:"prefix"`
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput interface {
+	pulumi.Input
+
+	ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput
+	ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutputWithContext(context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs struct {
+	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination)(nil)).Elem()
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
+	return i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutputWithContext(context.Background())
+}
+
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput)
+}
+
+type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput struct { *pulumi.OutputState }
+
+func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination)(nil)).Elem()
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
+	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
 type BucketCorsRule struct {
 	// Specifies which headers are allowed.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
@@ -3744,6 +4129,13 @@ func (o InventorySchedulePtrOutput) Frequency() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AnalyticsConfigurationFilterOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationFilterPtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput{})
+	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleOutput{})

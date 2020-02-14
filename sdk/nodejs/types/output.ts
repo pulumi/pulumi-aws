@@ -566,7 +566,7 @@ export namespace alb {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.alb.ListenerRuleConditionHostHeader;
         /**
@@ -578,7 +578,7 @@ export namespace alb {
          */
         httpRequestMethod?: outputs.alb.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.alb.ListenerRuleConditionPathPattern;
         /**
@@ -586,7 +586,7 @@ export namespace alb {
          */
         queryStrings?: outputs.alb.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.alb.ListenerRuleConditionSourceIp;
         /**
@@ -764,6 +764,11 @@ export namespace apigateway {
          * A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
          */
         types: string;
+    }
+
+    export interface GetRestApiEndpointConfiguration {
+        types: string[];
+        vpcEndpointIds: string[];
     }
 
     export interface MethodSettingsSettings {
@@ -1314,7 +1319,7 @@ export namespace applicationloadbalancing {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.applicationloadbalancing.ListenerRuleConditionHostHeader;
         /**
@@ -1326,7 +1331,7 @@ export namespace applicationloadbalancing {
          */
         httpRequestMethod?: outputs.applicationloadbalancing.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
         /**
@@ -1334,7 +1339,7 @@ export namespace applicationloadbalancing {
          */
         queryStrings?: outputs.applicationloadbalancing.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.applicationloadbalancing.ListenerRuleConditionSourceIp;
         /**
@@ -3884,6 +3889,17 @@ export namespace codepipeline {
     }
 }
 
+export namespace codestarnotifications {
+    export interface NotificationRuleTarget {
+        address: string;
+        /**
+         * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+         */
+        status: string;
+        type?: string;
+    }
+}
+
 export namespace cognito {
     export interface IdentityPoolCognitoIdentityProvider {
         /**
@@ -3966,7 +3982,7 @@ export namespace cognito {
         /**
          * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
          */
-        unusedAccountValidityDays?: number;
+        unusedAccountValidityDays: number;
     }
 
     export interface UserPoolAdminCreateUserConfigInviteMessageTemplate {
@@ -5660,6 +5676,11 @@ export namespace ec2 {
         capacityReservationId?: string;
     }
 
+    export interface LaunchTemplateCpuOptions {
+        coreCount?: number;
+        threadsPerCore?: number;
+    }
+
     export interface LaunchTemplateCreditSpecification {
         cpuCredits?: string;
     }
@@ -7244,7 +7265,7 @@ export namespace elasticloadbalancingv2 {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader;
         /**
@@ -7256,7 +7277,7 @@ export namespace elasticloadbalancingv2 {
          */
         httpRequestMethod?: outputs.elasticloadbalancingv2.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
         /**
@@ -7264,7 +7285,7 @@ export namespace elasticloadbalancingv2 {
          */
         queryStrings?: outputs.elasticloadbalancingv2.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp;
         /**
@@ -9325,7 +9346,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: number;
         /**
@@ -9762,7 +9783,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: number;
         /**
@@ -9968,7 +9989,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
         /**
-         * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
          */
         retryDuration?: number;
         /**
@@ -10538,7 +10559,7 @@ export namespace lb {
          */
         field: string;
         /**
-         * Contains a single `value` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader: outputs.lb.ListenerRuleConditionHostHeader;
         /**
@@ -10550,7 +10571,7 @@ export namespace lb {
          */
         httpRequestMethod?: outputs.lb.ListenerRuleConditionHttpRequestMethod;
         /**
-         * Contains a single `value` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
+         * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard charaters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query-string` condition.
          */
         pathPattern: outputs.lb.ListenerRuleConditionPathPattern;
         /**
@@ -10558,7 +10579,7 @@ export namespace lb {
          */
         queryStrings?: outputs.lb.ListenerRuleConditionQueryString[];
         /**
-         * Contains a single `value` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
+         * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http-header` condition instead.
          */
         sourceIp?: outputs.lb.ListenerRuleConditionSourceIp;
         /**
@@ -11708,6 +11729,31 @@ export namespace route53 {
 }
 
 export namespace s3 {
+    export interface AnalyticsConfigurationFilter {
+        prefix?: string;
+        tags?: {[key: string]: any};
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysis {
+        dataExport: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExport;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExport {
+        destination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestination;
+        outputSchemaVersion?: string;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
+        s3BucketDestination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination;
+    }
+
+    export interface AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+        bucketAccountId?: string;
+        bucketArn: string;
+        format?: string;
+        prefix?: string;
+    }
+
     export interface BucketCorsRule {
         /**
          * Specifies which headers are allowed.

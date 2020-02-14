@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  * 
  * More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
  * 
- * > **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
- * 
  * ## Example Usage
  * 
  * ```typescript
@@ -90,11 +88,12 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Engine version of the Aurora global database.
+     * * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -172,11 +171,12 @@ export interface GlobalClusterState {
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
-     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
      */
     readonly engine?: pulumi.Input<string>;
     /**
      * Engine version of the Aurora global database.
+     * * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**
@@ -206,11 +206,12 @@ export interface GlobalClusterArgs {
      */
     readonly deletionProtection?: pulumi.Input<boolean>;
     /**
-     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+     * Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
      */
     readonly engine?: pulumi.Input<string>;
     /**
      * Engine version of the Aurora global database.
+     * * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
      */
     readonly engineVersion?: pulumi.Input<string>;
     /**

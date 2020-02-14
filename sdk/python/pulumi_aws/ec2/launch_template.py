@@ -44,6 +44,13 @@ class LaunchTemplate(pulumi.CustomResource):
     
         * `capacityReservationId` (`str`)
     """
+    cpu_options: pulumi.Output[dict]
+    """
+    The CPU options for the instance. See CPU Options below for more details.
+    
+      * `coreCount` (`float`)
+      * `threadsPerCore` (`float`)
+    """
     credit_specification: pulumi.Output[dict]
     """
     Customize the credit specification of the instance. See Credit
@@ -205,7 +212,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
         
@@ -214,6 +221,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[list] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
         :param pulumi.Input[dict] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[dict] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[dict] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[str] description: Description of the launch template.
@@ -272,6 +280,11 @@ class LaunchTemplate(pulumi.CustomResource):
           * `capacityReservationTarget` (`pulumi.Input[dict]`)
         
             * `capacityReservationId` (`pulumi.Input[str]`)
+        
+        The **cpu_options** object supports the following:
+        
+          * `coreCount` (`pulumi.Input[float]`)
+          * `threadsPerCore` (`pulumi.Input[float]`)
         
         The **credit_specification** object supports the following:
         
@@ -359,6 +372,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
             __props__['block_device_mappings'] = block_device_mappings
             __props__['capacity_reservation_specification'] = capacity_reservation_specification
+            __props__['cpu_options'] = cpu_options
             __props__['credit_specification'] = credit_specification
             __props__['description'] = description
             __props__['disable_api_termination'] = disable_api_termination
@@ -394,7 +408,7 @@ class LaunchTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         """
         Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -406,6 +420,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[list] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
         :param pulumi.Input[dict] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+        :param pulumi.Input[dict] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[dict] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[float] default_version: The default version of the launch template.
@@ -466,6 +481,11 @@ class LaunchTemplate(pulumi.CustomResource):
           * `capacityReservationTarget` (`pulumi.Input[dict]`)
         
             * `capacityReservationId` (`pulumi.Input[str]`)
+        
+        The **cpu_options** object supports the following:
+        
+          * `coreCount` (`pulumi.Input[float]`)
+          * `threadsPerCore` (`pulumi.Input[float]`)
         
         The **credit_specification** object supports the following:
         
@@ -540,6 +560,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["block_device_mappings"] = block_device_mappings
         __props__["capacity_reservation_specification"] = capacity_reservation_specification
+        __props__["cpu_options"] = cpu_options
         __props__["credit_specification"] = credit_specification
         __props__["default_version"] = default_version
         __props__["description"] = description

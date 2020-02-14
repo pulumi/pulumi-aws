@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
     /// 
-    /// &gt; **NOTE:** RDS only supports the `aurora` engine (MySQL 5.6 compatible) for Global Clusters at this time.
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_global_cluster.html.markdown.
     /// </summary>
     public partial class GlobalCluster : Pulumi.CustomResource
@@ -38,13 +36,14 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Engine version of the Aurora global database.
+        /// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -126,13 +125,14 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
         /// Engine version of the Aurora global database.
+        /// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -175,13 +175,14 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`. Defaults to `aurora`.
+        /// Name of the database engine to be used for this DB cluster. Valid values: `aurora`, `aurora-mysql`. Defaults to `aurora`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
         /// Engine version of the Aurora global database.
+        /// * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

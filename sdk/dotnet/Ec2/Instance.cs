@@ -98,6 +98,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> GetPasswordData { get; private set; } = null!;
 
         /// <summary>
+        /// If true, the launched EC2 instance will support hibernation.
+        /// </summary>
+        [Output("hibernation")]
+        public Output<bool?> Hibernation { get; private set; } = null!;
+
+        /// <summary>
         /// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         /// </summary>
         [Output("hostId")]
@@ -405,6 +411,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? GetPasswordData { get; set; }
 
         /// <summary>
+        /// If true, the launched EC2 instance will support hibernation.
+        /// </summary>
+        [Input("hibernation")]
+        public Input<bool>? Hibernation { get; set; }
+
+        /// <summary>
         /// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         /// </summary>
         [Input("hostId")]
@@ -670,6 +682,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("getPasswordData")]
         public Input<bool>? GetPasswordData { get; set; }
+
+        /// <summary>
+        /// If true, the launched EC2 instance will support hibernation.
+        /// </summary>
+        [Input("hibernation")]
+        public Input<bool>? Hibernation { get; set; }
 
         /// <summary>
         /// The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.

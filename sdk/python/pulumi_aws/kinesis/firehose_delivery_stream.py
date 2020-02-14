@@ -46,7 +46,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     
           * `type` (`str`) - The type of processor. Valid Values: `Lambda`
     
-      * `retryDuration` (`float`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+      * `retryDuration` (`float`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
       * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
       * `s3BackupMode` (`str`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
       * `typeName` (`str`) - The Elasticsearch type name with maximum length of 100 characters.
@@ -196,7 +196,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     
           * `type` (`str`) - The type of processor. Valid Values: `Lambda`
     
-      * `retryDuration` (`float`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+      * `retryDuration` (`float`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
       * `role_arn` (`str`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
       * `s3BackupConfiguration` (`dict`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
     
@@ -306,7 +306,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
         
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
           * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
           * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
           * `typeName` (`pulumi.Input[str]`) - The Elasticsearch type name with maximum length of 100 characters.
@@ -443,7 +443,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
         
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
           * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
           * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         
@@ -512,7 +512,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
         
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
           * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.
@@ -606,7 +606,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
         
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
           * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
           * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
           * `typeName` (`pulumi.Input[str]`) - The Elasticsearch type name with maximum length of 100 characters.
@@ -743,7 +743,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
         
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
           * `role_arn` (`pulumi.Input[str]`) - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
           * `s3BackupConfiguration` (`pulumi.Input[dict]`) - The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         
@@ -812,7 +812,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         
               * `type` (`pulumi.Input[str]`) - The type of processor. Valid Values: `Lambda`
         
-          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+          * `retryDuration` (`pulumi.Input[float]`) - After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
           * `s3BackupMode` (`pulumi.Input[str]`) - Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kinesis_firehose_delivery_stream.html.markdown.

@@ -614,6 +614,9 @@ namespace Pulumi.Aws
         [Input("worklink")]
         public Input<string>? Worklink { get; set; }
 
+        [Input("workmail")]
+        public Input<string>? Workmail { get; set; }
+
         [Input("workspaces")]
         public Input<string>? Workspaces { get; set; }
 

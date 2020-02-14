@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .account_public_access_block import *
 from .bucket import *
+from .analytics_configuration import *
 from .inventory import *
 from .bucket_metric import *
 from .bucket_notification import *
