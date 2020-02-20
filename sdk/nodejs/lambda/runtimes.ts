@@ -23,6 +23,7 @@ export type Runtime =
     "java8"          |
     "java11"         |
     "ruby2.5"        |
+    "ruby2.7"        |
     "nodejs4.3-edge" |
     "nodejs4.3"      |
     "nodejs6.10"     |
@@ -40,7 +41,8 @@ export let DotnetCore2d1Runtime: Runtime = "dotnetcore2.1";
 export let Go1dxRuntime:         Runtime = "go1.x";
 export let Java8Runtime:         Runtime = "java8";
 export let Java11Runtime:        Runtime = "java11";
-export let Ruby2d5Runtime:       Runtime = "ruby2.5"
+export let Ruby2d5Runtime:       Runtime = "ruby2.5";
+export let Ruby2d7Runtime:       Runtime = "ruby2.7";
 export let NodeJS10dXRuntime:    Runtime = "nodejs10.x";
 export let NodeJS12dXRuntime:    Runtime = "nodejs12.x";
 export let Python2d7Runtime:     Runtime = "python2.7";
@@ -61,5 +63,5 @@ export let NodeJS6d10Runtime: Runtime = "nodejs6.10";
 export let DotnetCore1d0Runtime: Runtime = "dotnetcore1.0";
 /** @deprecated No longer supported. New lambda functions created using this runtime will fail */
 export let DotnetCore2d0Runtime: Runtime = "dotnetcore2.0";
-/** @deprecated New lambdas created using this runtime will succeed until December 31, 2019, at which point they may start to fail */
+/** @deprecated No longer supported. New lambda functions created using this runtime will fail */
 export let NodeJS8d10Runtime: Runtime = "nodejs8.10";
