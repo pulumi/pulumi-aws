@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for Ruby 2.7 Lambda Runtime
 
 ---
 
