@@ -238,6 +238,9 @@ func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 type RouteSpec struct {
 	// The HTTP routing information for the route.
 	HttpRoute *RouteSpecHttpRoute `pulumi:"httpRoute"`
+	// The priority for the route, between `0` and `1000`.
+	// Routes are matched based on the specified value, where `0` is the highest priority.
+	Priority *int `pulumi:"priority"`
 	// The TCP routing information for the route.
 	TcpRoute *RouteSpecTcpRoute `pulumi:"tcpRoute"`
 }
@@ -252,6 +255,9 @@ type RouteSpecInput interface {
 type RouteSpecArgs struct {
 	// The HTTP routing information for the route.
 	HttpRoute RouteSpecHttpRoutePtrInput `pulumi:"httpRoute"`
+	// The priority for the route, between `0` and `1000`.
+	// Routes are matched based on the specified value, where `0` is the highest priority.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The TCP routing information for the route.
 	TcpRoute RouteSpecTcpRoutePtrInput `pulumi:"tcpRoute"`
 }
@@ -328,6 +334,12 @@ func (o RouteSpecOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func (v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
 }
 
+// The priority for the route, between `0` and `1000`.
+// Routes are matched based on the specified value, where `0` is the highest priority.
+func (o RouteSpecOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
 // The TCP routing information for the route.
 func (o RouteSpecOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 	return o.ApplyT(func (v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
@@ -356,6 +368,12 @@ func (o RouteSpecPtrOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func (v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
 }
 
+// The priority for the route, between `0` and `1000`.
+// Routes are matched based on the specified value, where `0` is the highest priority.
+func (o RouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
 // The TCP routing information for the route.
 func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 	return o.ApplyT(func (v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
@@ -364,7 +382,7 @@ func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 type RouteSpecHttpRoute struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttpRouteAction `pulumi:"action"`
-	// The criteria for determining an HTTP request match.
+	// The method and value to match the header value sent with a request. Specify one match method.
 	Match RouteSpecHttpRouteMatch `pulumi:"match"`
 }
 
@@ -378,7 +396,7 @@ type RouteSpecHttpRouteInput interface {
 type RouteSpecHttpRouteArgs struct {
 	// The action to take if a match is determined.
 	Action RouteSpecHttpRouteActionInput `pulumi:"action"`
-	// The criteria for determining an HTTP request match.
+	// The method and value to match the header value sent with a request. Specify one match method.
 	Match RouteSpecHttpRouteMatchInput `pulumi:"match"`
 }
 
@@ -454,7 +472,7 @@ func (o RouteSpecHttpRouteOutput) Action() RouteSpecHttpRouteActionOutput {
 	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
-// The criteria for determining an HTTP request match.
+// The method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttpRouteOutput) Match() RouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
@@ -482,7 +500,7 @@ func (o RouteSpecHttpRoutePtrOutput) Action() RouteSpecHttpRouteActionOutput {
 	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
-// The criteria for determining an HTTP request match.
+// The method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttpRoutePtrOutput) Match() RouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func (v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
@@ -637,9 +655,15 @@ func (o RouteSpecHttpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInp
 }
 
 type RouteSpecHttpRouteMatch struct {
-	// Specifies the path with which to match requests.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	// The client request headers to match on.
+	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
+	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+	Method *string `pulumi:"method"`
+	// The header value sent by the client must begin with the specified characters.
+	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 	Prefix string `pulumi:"prefix"`
+	// The client request header scheme to match on. Valid values: `http`, `https`.
+	Scheme *string `pulumi:"scheme"`
 }
 
 type RouteSpecHttpRouteMatchInput interface {
@@ -650,9 +674,15 @@ type RouteSpecHttpRouteMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchArgs struct {
-	// Specifies the path with which to match requests.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+	// The client request headers to match on.
+	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
+	// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The header value sent by the client must begin with the specified characters.
+	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The client request header scheme to match on. Valid values: `http`, `https`.
+	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
 }
 
 func (RouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
@@ -681,10 +711,426 @@ func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchOutputWithContex
 	return o
 }
 
-// Specifies the path with which to match requests.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+// The client request headers to match on.
+func (o RouteSpecHttpRouteMatchOutput) Headers() RouteSpecHttpRouteMatchHeaderArrayOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatch) []RouteSpecHttpRouteMatchHeader { return v.Headers }).(RouteSpecHttpRouteMatchHeaderArrayOutput)
+}
+
+// The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The header value sent by the client must begin with the specified characters.
+// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func (v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// The client request header scheme to match on. Valid values: `http`, `https`.
+func (o RouteSpecHttpRouteMatchOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttpRouteMatchHeader struct {
+	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+	Invert *bool `pulumi:"invert"`
+	// The method and value to match the header value sent with a request. Specify one match method.
+	Match *RouteSpecHttpRouteMatchHeaderMatch `pulumi:"match"`
+	// A name for the HTTP header in the client request that will be matched on.
+	Name string `pulumi:"name"`
+}
+
+type RouteSpecHttpRouteMatchHeaderInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchHeaderOutput() RouteSpecHttpRouteMatchHeaderOutput
+	ToRouteSpecHttpRouteMatchHeaderOutputWithContext(context.Context) RouteSpecHttpRouteMatchHeaderOutput
+}
+
+type RouteSpecHttpRouteMatchHeaderArgs struct {
+	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+	Invert pulumi.BoolPtrInput `pulumi:"invert"`
+	// The method and value to match the header value sent with a request. Specify one match method.
+	Match RouteSpecHttpRouteMatchHeaderMatchPtrInput `pulumi:"match"`
+	// A name for the HTTP header in the client request that will be matched on.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RouteSpecHttpRouteMatchHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteMatchHeaderArgs) ToRouteSpecHttpRouteMatchHeaderOutput() RouteSpecHttpRouteMatchHeaderOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteMatchHeaderArgs) ToRouteSpecHttpRouteMatchHeaderOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchHeaderArrayOutput() RouteSpecHttpRouteMatchHeaderArrayOutput
+	ToRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(context.Context) RouteSpecHttpRouteMatchHeaderArrayOutput
+}
+
+type RouteSpecHttpRouteMatchHeaderArray []RouteSpecHttpRouteMatchHeaderInput
+
+func (RouteSpecHttpRouteMatchHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteMatchHeaderArray) ToRouteSpecHttpRouteMatchHeaderArrayOutput() RouteSpecHttpRouteMatchHeaderArrayOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteMatchHeaderArray) ToRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderArrayOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderOutput struct { *pulumi.OutputState }
+
+func (RouteSpecHttpRouteMatchHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteMatchHeaderOutput) ToRouteSpecHttpRouteMatchHeaderOutput() RouteSpecHttpRouteMatchHeaderOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderOutput) ToRouteSpecHttpRouteMatchHeaderOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderOutput {
+	return o
+}
+
+// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+func (o RouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
+}
+
+// The method and value to match the header value sent with a request. Specify one match method.
+func (o RouteSpecHttpRouteMatchHeaderOutput) Match() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeader) *RouteSpecHttpRouteMatchHeaderMatch { return v.Match }).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
+}
+
+// A name for the HTTP header in the client request that will be matched on.
+func (o RouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderArrayOutput struct { *pulumi.OutputState}
+
+func (RouteSpecHttpRouteMatchHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteSpecHttpRouteMatchHeader)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteMatchHeaderArrayOutput) ToRouteSpecHttpRouteMatchHeaderArrayOutput() RouteSpecHttpRouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderArrayOutput) ToRouteSpecHttpRouteMatchHeaderArrayOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderArrayOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) RouteSpecHttpRouteMatchHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) RouteSpecHttpRouteMatchHeader {
+		return vs[0].([]RouteSpecHttpRouteMatchHeader)[vs[1].(int)]
+	}).(RouteSpecHttpRouteMatchHeaderOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatch struct {
+	// The header value sent by the client must match the specified value exactly.
+	Exact *string `pulumi:"exact"`
+	// The header value sent by the client must begin with the specified characters.
+	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+	Prefix *string `pulumi:"prefix"`
+	Range *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
+	// The header value sent by the client must include the specified characters.
+	Regex *string `pulumi:"regex"`
+	// The header value sent by the client must end with the specified characters.
+	Suffix *string `pulumi:"suffix"`
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchHeaderMatchOutput() RouteSpecHttpRouteMatchHeaderMatchOutput
+	ToRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(context.Context) RouteSpecHttpRouteMatchHeaderMatchOutput
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
+	// The header value sent by the client must match the specified value exactly.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// The header value sent by the client must begin with the specified characters.
+	// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Range RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
+	// The header value sent by the client must include the specified characters.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The header value sent by the client must end with the specified characters.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (RouteSpecHttpRouteMatchHeaderMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchArgs) ToRouteSpecHttpRouteMatchHeaderMatchOutput() RouteSpecHttpRouteMatchHeaderMatchOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchArgs) ToRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchOutput)
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchArgs) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutput() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchArgs) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchOutput).ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchHeaderMatchPtrOutput() RouteSpecHttpRouteMatchHeaderMatchPtrOutput
+	ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(context.Context) RouteSpecHttpRouteMatchHeaderMatchPtrOutput
+}
+
+type routeSpecHttpRouteMatchHeaderMatchPtrType RouteSpecHttpRouteMatchHeaderMatchArgs
+
+func RouteSpecHttpRouteMatchHeaderMatchPtr(v *RouteSpecHttpRouteMatchHeaderMatchArgs) RouteSpecHttpRouteMatchHeaderMatchPtrInput {	return (*routeSpecHttpRouteMatchHeaderMatchPtrType)(v)
+}
+
+func (*routeSpecHttpRouteMatchHeaderMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteMatchHeaderMatchPtrType) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutput() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteMatchHeaderMatchPtrType) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchOutput struct { *pulumi.OutputState }
+
+func (RouteSpecHttpRouteMatchHeaderMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeaderMatchOutput() RouteSpecHttpRouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeaderMatchOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutput() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return o.ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatch {
+		return &v
+	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
+}
+// The header value sent by the client must match the specified value exactly.
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// The header value sent by the client must begin with the specified characters.
+// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
+}
+
+// The header value sent by the client must include the specified characters.
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The header value sent by the client must end with the specified characters.
+func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchPtrOutput struct { *pulumi.OutputState}
+
+func (RouteSpecHttpRouteMatchHeaderMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteMatchHeaderMatch)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutput() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMatchHeaderMatchOutput {
+	return o.ApplyT(func (v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch { return *v }).(RouteSpecHttpRouteMatchHeaderMatchOutput)
+}
+
+// The header value sent by the client must match the specified value exactly.
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// The header value sent by the client must begin with the specified characters.
+// * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
+}
+
+// The header value sent by the client must include the specified characters.
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The header value sent by the client must end with the specified characters.
+func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchRange struct {
+	// The end of the range.
+	End int `pulumi:"end"`
+	// The start of the range.
+	Start int `pulumi:"start"`
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchRangeInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchHeaderMatchRangeOutput() RouteSpecHttpRouteMatchHeaderMatchRangeOutput
+	ToRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(context.Context) RouteSpecHttpRouteMatchHeaderMatchRangeOutput
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchRangeArgs struct {
+	// The end of the range.
+	End pulumi.IntInput `pulumi:"end"`
+	// The start of the range.
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (RouteSpecHttpRouteMatchHeaderMatchRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToRouteSpecHttpRouteMatchHeaderMatchRangeOutput() RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutput() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecHttpRouteMatchHeaderMatchRangeArgs) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput).ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchRangePtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutput() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput
+	ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(context.Context) RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput
+}
+
+type routeSpecHttpRouteMatchHeaderMatchRangePtrType RouteSpecHttpRouteMatchHeaderMatchRangeArgs
+
+func RouteSpecHttpRouteMatchHeaderMatchRangePtr(v *RouteSpecHttpRouteMatchHeaderMatchRangeArgs) RouteSpecHttpRouteMatchHeaderMatchRangePtrInput {	return (*routeSpecHttpRouteMatchHeaderMatchRangePtrType)(v)
+}
+
+func (*routeSpecHttpRouteMatchHeaderMatchRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (i *routeSpecHttpRouteMatchHeaderMatchRangePtrType) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutput() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return i.ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecHttpRouteMatchHeaderMatchRangePtrType) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchRangeOutput struct { *pulumi.OutputState }
+
+func (RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangeOutput() RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangeOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutput() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return o.ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) *RouteSpecHttpRouteMatchHeaderMatchRange {
+		return &v
+	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
+}
+// The end of the range.
+func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+// The start of the range.
+func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput struct { *pulumi.OutputState}
+
+func (RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecHttpRouteMatchHeaderMatchRange)(nil)).Elem()
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutput() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
+	return o
+}
+
+func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
+	return o.ApplyT(func (v *RouteSpecHttpRouteMatchHeaderMatchRange) RouteSpecHttpRouteMatchHeaderMatchRange { return *v }).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
+}
+
+// The end of the range.
+func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
+}
+
+// The start of the range.
+func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func (v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
 }
 
 type RouteSpecTcpRoute struct {
@@ -3092,6 +3538,12 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecHttpRouteActionWeightedTargetOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteActionWeightedTargetArrayOutput{})
 	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchRangeOutput{})
+	pulumi.RegisterOutputType(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionOutput{})

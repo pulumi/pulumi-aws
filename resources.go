@@ -2146,6 +2146,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_function":      {Tok: awsDataSource(lambdaMod, "getFunction")},
 			"aws_lambda_invocation":    {Tok: awsDataSource(lambdaMod, "getInvocation")},
 			"aws_lambda_layer_version": {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
+			"aws_lambda_alias":         {Tok: awsDataSource(lambdaMod, "getAlias")},
 			// MQ
 			"aws_mq_broker": {Tok: awsDataSource(mqMod, "getBroker")},
 			// IAM

@@ -69,7 +69,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
       * `volume_id` (`str`)
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
       * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"standard"`).
+        or `"io1"`. (Default: `"gp2"`).
     """
     ebs_optimized: pulumi.Output[bool]
     """
@@ -194,7 +194,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
       * `volume_id` (`str`)
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
       * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`,
-        or `"io1"`. (Default: `"standard"`).
+        or `"io1"`. (Default: `"gp2"`).
     """
     security_groups: pulumi.Output[list]
     """
@@ -382,7 +382,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
-            or `"io1"`. (Default: `"standard"`).
+            or `"io1"`. (Default: `"gp2"`).
         
         The **ephemeral_block_devices** object supports the following:
         
@@ -413,7 +413,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
-            or `"io1"`. (Default: `"standard"`).
+            or `"io1"`. (Default: `"gp2"`).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
         """
@@ -602,7 +602,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
-            or `"io1"`. (Default: `"standard"`).
+            or `"io1"`. (Default: `"gp2"`).
         
         The **ephemeral_block_devices** object supports the following:
         
@@ -633,7 +633,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
           * `volume_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`) - The size of the volume in gibibytes (GiB).
           * `volumeType` (`pulumi.Input[str]`) - The type of volume. Can be `"standard"`, `"gp2"`,
-            or `"io1"`. (Default: `"standard"`).
+            or `"io1"`. (Default: `"gp2"`).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
         """

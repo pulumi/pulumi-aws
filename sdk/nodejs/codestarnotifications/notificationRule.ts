@@ -60,7 +60,7 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly resource!: pulumi.Output<string>;
     /**
-     * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface NotificationRuleState {
      */
     readonly resource?: pulumi.Input<string>;
     /**
-     * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface NotificationRuleArgs {
      */
     readonly resource: pulumi.Input<string>;
     /**
-     * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+     * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      */
     readonly status?: pulumi.Input<string>;
     /**

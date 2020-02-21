@@ -1496,6 +1496,11 @@ export namespace appmesh {
          */
         httpRoute?: outputs.appmesh.RouteSpecHttpRoute;
         /**
+         * The priority for the route, between `0` and `1000`.
+         * Routes are matched based on the specified value, where `0` is the highest priority.
+         */
+        priority?: number;
+        /**
          * The TCP routing information for the route.
          */
         tcpRoute?: outputs.appmesh.RouteSpecTcpRoute;
@@ -1507,7 +1512,7 @@ export namespace appmesh {
          */
         action: outputs.appmesh.RouteSpecHttpRouteAction;
         /**
-         * The criteria for determining an HTTP request match.
+         * The method and value to match the header value sent with a request. Specify one match method.
          */
         match: outputs.appmesh.RouteSpecHttpRouteMatch;
     }
@@ -1533,10 +1538,69 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatch {
         /**
-         * Specifies the path with which to match requests.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * The client request headers to match on.
+         */
+        headers?: outputs.appmesh.RouteSpecHttpRouteMatchHeader[];
+        /**
+         * The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         */
+        method?: string;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         prefix: string;
+        /**
+         * The client request header scheme to match on. Valid values: `http`, `https`.
+         */
+        scheme?: string;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeader {
+        /**
+         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         */
+        invert?: boolean;
+        /**
+         * The method and value to match the header value sent with a request. Specify one match method.
+         */
+        match?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatch;
+        /**
+         * A name for the HTTP header in the client request that will be matched on.
+         */
+        name: string;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatch {
+        /**
+         * The header value sent by the client must match the specified value exactly.
+         */
+        exact?: string;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+         */
+        prefix?: string;
+        range?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange;
+        /**
+         * The header value sent by the client must include the specified characters.
+         */
+        regex?: string;
+        /**
+         * The header value sent by the client must end with the specified characters.
+         */
+        suffix?: string;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatchRange {
+        /**
+         * The end of the range.
+         */
+        end: number;
+        /**
+         * The start of the range.
+         */
+        start: number;
     }
 
     export interface RouteSpecTcpRoute {
@@ -3893,7 +3957,7 @@ export namespace codestarnotifications {
     export interface NotificationRuleTarget {
         address: string;
         /**
-         * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+         * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
          */
         status: string;
         type?: string;
@@ -5546,7 +5610,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -5607,7 +5671,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -6064,7 +6128,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -6125,7 +6189,7 @@ export namespace ec2 {
         volumeSize: number;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType: string;
     }
@@ -6701,11 +6765,11 @@ export namespace elasticbeanstalk {
          */
         deleteSourceFromS3?: boolean;
         /**
-         * The number of days to retain an application version.
+         * The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxAgeInDays?: number;
         /**
-         * The maximum number of application versions to retain.
+         * The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxCount?: number;
         /**

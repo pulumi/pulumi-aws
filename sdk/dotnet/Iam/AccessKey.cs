@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
         /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
-        /// for example: `... | base64 --decode | keybase pgp decrypt`.
         /// </summary>
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
@@ -49,12 +48,20 @@ namespace Pulumi.Aws.Iam
         public Output<string> Secret { get; private set; } = null!;
 
         /// <summary>
-        /// The secret access key converted into an SES SMTP
+        /// **DEPRECATED** The secret access key converted into an SES SMTP
         /// password by applying [AWS's documented conversion
-        /// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
         /// </summary>
         [Output("sesSmtpPassword")]
         public Output<string> SesSmtpPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The secret access key converted into an SES SMTP
+        /// password by applying [AWS's documented Sigv4 conversion
+        /// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+        /// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+        /// </summary>
+        [Output("sesSmtpPasswordV4")]
+        public Output<string> SesSmtpPasswordV4 { get; private set; } = null!;
 
         /// <summary>
         /// The access key status to apply. Defaults to `Active`.
@@ -146,7 +153,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
         /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
-        /// for example: `... | base64 --decode | keybase pgp decrypt`.
         /// </summary>
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
@@ -177,12 +183,20 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Secret { get; set; }
 
         /// <summary>
-        /// The secret access key converted into an SES SMTP
+        /// **DEPRECATED** The secret access key converted into an SES SMTP
         /// password by applying [AWS's documented conversion
-        /// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
         /// </summary>
         [Input("sesSmtpPassword")]
         public Input<string>? SesSmtpPassword { get; set; }
+
+        /// <summary>
+        /// The secret access key converted into an SES SMTP
+        /// password by applying [AWS's documented Sigv4 conversion
+        /// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+        /// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+        /// </summary>
+        [Input("sesSmtpPasswordV4")]
+        public Input<string>? SesSmtpPasswordV4 { get; set; }
 
         /// <summary>
         /// The access key status to apply. Defaults to `Active`.

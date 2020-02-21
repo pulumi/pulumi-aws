@@ -49,7 +49,7 @@ class AwaitableGetSubnetIdsResult(GetSubnetIdsResult):
 
 def get_subnet_ids(filters=None,tags=None,vpc_id=None,opts=None):
     """
-    `ec2.getSubnetIds` provides a list of ids for a vpc_id
+    `ec2.getSubnetIds` provides a set of ids for a vpc_id
     
     This resource can be useful for getting back a set of subnet ids for a vpc.
     

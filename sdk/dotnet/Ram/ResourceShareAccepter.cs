@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ram
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the sender account which extends the invitation.
+        /// The account ID of the sender account which submits the invitation.
         /// </summary>
         [Output("senderAccountId")]
         public Output<string> SenderAccountId { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ram
         public Output<string> ShareName { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the invitation (e.g., ACCEPTED, REJECTED).
+        /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// The account ID of the sender account which extends the invitation.
+        /// The account ID of the sender account which submits the invitation.
         /// </summary>
         [Input("senderAccountId")]
         public Input<string>? SenderAccountId { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? ShareName { get; set; }
 
         /// <summary>
-        /// The status of the invitation (e.g., ACCEPTED, REJECTED).
+        /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

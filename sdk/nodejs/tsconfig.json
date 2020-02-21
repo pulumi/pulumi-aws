@@ -581,6 +581,7 @@
         "lambda/eventSourceMapping.ts",
         "lambda/function.ts",
         "lambda/functionEventInvokeConfig.ts",
+        "lambda/getAlias.ts",
         "lambda/getFunction.ts",
         "lambda/getInvocation.ts",
         "lambda/getLayerVersion.ts",

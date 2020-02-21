@@ -24,7 +24,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
     """
     sender_account_id: pulumi.Output[str]
     """
-    The account ID of the sender account which extends the invitation.
+    The account ID of the sender account which submits the invitation.
     """
     share_arn: pulumi.Output[str]
     """
@@ -40,7 +40,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
     """
     status: pulumi.Output[str]
     """
-    The status of the invitation (e.g., ACCEPTED, REJECTED).
+    The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
     """
     def __init__(__self__, resource_name, opts=None, share_arn=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -99,11 +99,11 @@ class ResourceShareAccepter(pulumi.CustomResource):
         :param pulumi.Input[str] invitation_arn: The ARN of the resource share invitation.
         :param pulumi.Input[str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
         :param pulumi.Input[list] resources: A list of the resource ARNs shared via the resource share.
-        :param pulumi.Input[str] sender_account_id: The account ID of the sender account which extends the invitation.
+        :param pulumi.Input[str] sender_account_id: The account ID of the sender account which submits the invitation.
         :param pulumi.Input[str] share_arn: The ARN of the resource share.
         :param pulumi.Input[str] share_id: The ID of the resource share as displayed in the console.
         :param pulumi.Input[str] share_name: The name of the resource share.
-        :param pulumi.Input[str] status: The status of the invitation (e.g., ACCEPTED, REJECTED).
+        :param pulumi.Input[str] status: The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ram_resource_share_accepter.html.markdown.
         """

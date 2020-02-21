@@ -19,7 +19,6 @@ type AccessKey struct {
 
 	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
 	// > **NOTE:** The encrypted secret may be decrypted using the command line,
-	// for example: `... | base64 --decode | keybase pgp decrypt`.
 	EncryptedSecret pulumi.StringOutput `pulumi:"encryptedSecret"`
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -34,10 +33,14 @@ type AccessKey struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret pulumi.StringOutput `pulumi:"secret"`
-	// The secret access key converted into an SES SMTP
+	// **DEPRECATED** The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
-	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
 	SesSmtpPassword pulumi.StringOutput `pulumi:"sesSmtpPassword"`
+	// The secret access key converted into an SES SMTP
+	// password by applying [AWS's documented Sigv4 conversion
+	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+	// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+	SesSmtpPasswordV4 pulumi.StringOutput `pulumi:"sesSmtpPasswordV4"`
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -78,7 +81,6 @@ func GetAccessKey(ctx *pulumi.Context,
 type accessKeyState struct {
 	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
 	// > **NOTE:** The encrypted secret may be decrypted using the command line,
-	// for example: `... | base64 --decode | keybase pgp decrypt`.
 	EncryptedSecret *string `pulumi:"encryptedSecret"`
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -93,10 +95,14 @@ type accessKeyState struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret *string `pulumi:"secret"`
-	// The secret access key converted into an SES SMTP
+	// **DEPRECATED** The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
-	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
 	SesSmtpPassword *string `pulumi:"sesSmtpPassword"`
+	// The secret access key converted into an SES SMTP
+	// password by applying [AWS's documented Sigv4 conversion
+	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+	// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+	SesSmtpPasswordV4 *string `pulumi:"sesSmtpPasswordV4"`
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.
 	Status *string `pulumi:"status"`
@@ -107,7 +113,6 @@ type accessKeyState struct {
 type AccessKeyState struct {
 	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
 	// > **NOTE:** The encrypted secret may be decrypted using the command line,
-	// for example: `... | base64 --decode | keybase pgp decrypt`.
 	EncryptedSecret pulumi.StringPtrInput
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -122,10 +127,14 @@ type AccessKeyState struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret pulumi.StringPtrInput
-	// The secret access key converted into an SES SMTP
+	// **DEPRECATED** The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented conversion
-	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
 	SesSmtpPassword pulumi.StringPtrInput
+	// The secret access key converted into an SES SMTP
+	// password by applying [AWS's documented Sigv4 conversion
+	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+	// As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
+	SesSmtpPasswordV4 pulumi.StringPtrInput
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.
 	Status pulumi.StringPtrInput

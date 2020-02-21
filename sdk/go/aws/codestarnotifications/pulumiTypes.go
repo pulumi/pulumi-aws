@@ -13,7 +13,7 @@ import (
 
 type NotificationRuleTarget struct {
 	Address string `pulumi:"address"`
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
 	Type *string `pulumi:"type"`
 }
@@ -27,7 +27,7 @@ type NotificationRuleTargetInput interface {
 
 type NotificationRuleTargetArgs struct {
 	Address pulumi.StringInput `pulumi:"address"`
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -83,7 +83,7 @@ func (o NotificationRuleTargetOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func (v NotificationRuleTarget) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 func (o NotificationRuleTargetOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v NotificationRuleTarget) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

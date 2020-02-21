@@ -28,7 +28,7 @@ type NotificationRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringOutput `pulumi:"resource"`
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -84,7 +84,7 @@ type notificationRuleState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource *string `pulumi:"resource"`
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -104,7 +104,7 @@ type NotificationRuleState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringPtrInput
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -126,7 +126,7 @@ type notificationRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource string `pulumi:"resource"`
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -145,7 +145,7 @@ type NotificationRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringInput
-	// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput

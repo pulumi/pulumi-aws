@@ -6,6 +6,7 @@ export * from "./alias";
 export * from "./eventSourceMapping";
 export * from "./function";
 export * from "./functionEventInvokeConfig";
+export * from "./getAlias";
 export * from "./getFunction";
 export * from "./getInvocation";
 export * from "./getLayerVersion";
