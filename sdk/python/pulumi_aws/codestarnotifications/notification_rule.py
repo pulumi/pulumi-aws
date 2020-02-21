@@ -33,7 +33,7 @@ class NotificationRule(pulumi.CustomResource):
     """
     status: pulumi.Output[str]
     """
-    The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+    The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
     """
     tags: pulumi.Output[dict]
     """
@@ -44,7 +44,7 @@ class NotificationRule(pulumi.CustomResource):
     Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
     
       * `address` (`str`)
-      * `status` (`str`) - The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+      * `status` (`str`) - The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
       * `type` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, detail_type=None, event_type_ids=None, name=None, resource=None, status=None, tags=None, targets=None, __props__=None, __name__=None, __opts__=None):
@@ -58,14 +58,14 @@ class NotificationRule(pulumi.CustomResource):
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
-        :param pulumi.Input[str] status: The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         
         The **targets** object supports the following:
         
           * `address` (`pulumi.Input[str]`)
-          * `status` (`pulumi.Input[str]`) - The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+          * `status` (`pulumi.Input[str]`) - The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
           * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codestarnotifications_notification_rule.html.markdown.
@@ -122,14 +122,14 @@ class NotificationRule(pulumi.CustomResource):
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
-        :param pulumi.Input[str] status: The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         
         The **targets** object supports the following:
         
           * `address` (`pulumi.Input[str]`)
-          * `status` (`pulumi.Input[str]`) - The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+          * `status` (`pulumi.Input[str]`) - The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
           * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codestarnotifications_notification_rule.html.markdown.

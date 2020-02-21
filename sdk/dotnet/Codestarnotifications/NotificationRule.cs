@@ -47,7 +47,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Output<string> Resource { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Input<string> Resource { get; set; } = null!;
 
         /// <summary>
-        /// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.CodeStarNotifications
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     {
         public readonly string Address;
         /// <summary>
-        /// The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         public readonly string Status;
         public readonly string? Type;

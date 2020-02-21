@@ -1173,7 +1173,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
+        /// or `"io1"`. (Default: `"gp2"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -1237,7 +1237,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
+        /// or `"io1"`. (Default: `"gp2"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -1383,7 +1383,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
+        /// or `"io1"`. (Default: `"gp2"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -1435,7 +1435,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
+        /// or `"io1"`. (Default: `"gp2"`).
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
@@ -1500,7 +1500,7 @@ namespace Pulumi.Aws.Ec2
         public readonly int VolumeSize;
         /// <summary>
         /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
+        /// or `"io1"`. (Default: `"gp2"`).
         /// </summary>
         public readonly string VolumeType;
 
@@ -1612,7 +1612,7 @@ namespace Pulumi.Aws.Ec2
         public readonly int VolumeSize;
         /// <summary>
         /// The type of volume. Can be `"standard"`, `"gp2"`,
-        /// or `"io1"`. (Default: `"standard"`).
+        /// or `"io1"`. (Default: `"gp2"`).
         /// </summary>
         public readonly string VolumeType;
 

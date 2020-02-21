@@ -1461,6 +1461,11 @@ export namespace appmesh {
          */
         httpRoute?: pulumi.Input<inputs.appmesh.RouteSpecHttpRoute>;
         /**
+         * The priority for the route, between `0` and `1000`.
+         * Routes are matched based on the specified value, where `0` is the highest priority.
+         */
+        priority?: pulumi.Input<number>;
+        /**
          * The TCP routing information for the route.
          */
         tcpRoute?: pulumi.Input<inputs.appmesh.RouteSpecTcpRoute>;
@@ -1472,7 +1477,7 @@ export namespace appmesh {
          */
         action: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteAction>;
         /**
-         * The criteria for determining an HTTP request match.
+         * The method and value to match the header value sent with a request. Specify one match method.
          */
         match: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatch>;
     }
@@ -1498,10 +1503,69 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatch {
         /**
-         * Specifies the path with which to match requests.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * The client request headers to match on.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeader>[]>;
+        /**
+         * The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+         */
+        method?: pulumi.Input<string>;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         prefix: pulumi.Input<string>;
+        /**
+         * The client request header scheme to match on. Valid values: `http`, `https`.
+         */
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeader {
+        /**
+         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         */
+        invert?: pulumi.Input<boolean>;
+        /**
+         * The method and value to match the header value sent with a request. Specify one match method.
+         */
+        match?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatch>;
+        /**
+         * A name for the HTTP header in the client request that will be matched on.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatch {
+        /**
+         * The header value sent by the client must match the specified value exactly.
+         */
+        exact?: pulumi.Input<string>;
+        /**
+         * The header value sent by the client must begin with the specified characters.
+         * * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
+         */
+        prefix?: pulumi.Input<string>;
+        range?: pulumi.Input<inputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange>;
+        /**
+         * The header value sent by the client must include the specified characters.
+         */
+        regex?: pulumi.Input<string>;
+        /**
+         * The header value sent by the client must end with the specified characters.
+         */
+        suffix?: pulumi.Input<string>;
+    }
+
+    export interface RouteSpecHttpRouteMatchHeaderMatchRange {
+        /**
+         * The end of the range.
+         */
+        end: pulumi.Input<number>;
+        /**
+         * The start of the range.
+         */
+        start: pulumi.Input<number>;
     }
 
     export interface RouteSpecTcpRoute {
@@ -3845,7 +3909,7 @@ export namespace codestarnotifications {
     export interface NotificationRuleTarget {
         address: pulumi.Input<string>;
         /**
-         * The status of the notification rule. Possible balues are `ENABLED` and `DISABLED`, default is `ENABLED`.
+         * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
          */
         status?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
@@ -5068,7 +5132,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -5129,7 +5193,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -5586,7 +5650,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -5647,7 +5711,7 @@ export namespace ec2 {
         volumeSize?: pulumi.Input<number>;
         /**
          * The type of volume. Can be `"standard"`, `"gp2"`,
-         * or `"io1"`. (Default: `"standard"`).
+         * or `"io1"`. (Default: `"gp2"`).
          */
         volumeType?: pulumi.Input<string>;
     }
@@ -6148,11 +6212,11 @@ export namespace elasticbeanstalk {
          */
         deleteSourceFromS3?: pulumi.Input<boolean>;
         /**
-         * The number of days to retain an application version.
+         * The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxAgeInDays?: pulumi.Input<number>;
         /**
-         * The maximum number of application versions to retain.
+         * The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
          */
         maxCount?: pulumi.Input<number>;
         /**

@@ -19,6 +19,7 @@ type EndpointGroup struct {
 
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayOutput `pulumi:"endpointConfigurations"`
+	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion pulumi.StringOutput `pulumi:"endpointGroupRegion"`
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrOutput `pulumi:"healthCheckIntervalSeconds"`
@@ -69,6 +70,7 @@ func GetEndpointGroup(ctx *pulumi.Context,
 type endpointGroupState struct {
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
+	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
@@ -89,6 +91,7 @@ type endpointGroupState struct {
 type EndpointGroupState struct {
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayInput
+	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion pulumi.StringPtrInput
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
@@ -113,6 +116,7 @@ func (EndpointGroupState) ElementType() reflect.Type {
 type endpointGroupArgs struct {
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
+	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
@@ -134,6 +138,7 @@ type endpointGroupArgs struct {
 type EndpointGroupArgs struct {
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayInput
+	// The name of the AWS Region where the endpoint group is located.
 	EndpointGroupRegion pulumi.StringPtrInput
 	// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
 	HealthCheckIntervalSeconds pulumi.IntPtrInput

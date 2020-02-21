@@ -177,13 +177,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<bool>? DeleteSourceFromS3 { get; set; }
 
         /// <summary>
-        /// The number of days to retain an application version.
+        /// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         /// </summary>
         [Input("maxAgeInDays")]
         public Input<int>? MaxAgeInDays { get; set; }
 
         /// <summary>
-        /// The maximum number of application versions to retain.
+        /// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
@@ -208,13 +208,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Input<bool>? DeleteSourceFromS3 { get; set; }
 
         /// <summary>
-        /// The number of days to retain an application version.
+        /// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         /// </summary>
         [Input("maxAgeInDays")]
         public Input<int>? MaxAgeInDays { get; set; }
 
         /// <summary>
-        /// The maximum number of application versions to retain.
+        /// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
@@ -242,11 +242,11 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public readonly bool? DeleteSourceFromS3;
         /// <summary>
-        /// The number of days to retain an application version.
+        /// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         /// </summary>
         public readonly int? MaxAgeInDays;
         /// <summary>
-        /// The maximum number of application versions to retain.
+        /// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         /// </summary>
         public readonly int? MaxCount;
         /// <summary>

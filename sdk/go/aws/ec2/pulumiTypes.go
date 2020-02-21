@@ -2287,7 +2287,7 @@ type InstanceEbsBlockDevice struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -2320,7 +2320,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -2416,7 +2416,7 @@ func (o InstanceEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"standard"`).
+// or `"io1"`. (Default: `"gp2"`).
 func (o InstanceEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v InstanceEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -2676,7 +2676,7 @@ type InstanceRootBlockDevice struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -2705,7 +2705,7 @@ type InstanceRootBlockDeviceArgs struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -2811,7 +2811,7 @@ func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"standard"`).
+// or `"io1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -2869,7 +2869,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"standard"`).
+// or `"io1"`. (Default: `"gp2"`).
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v InstanceRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -7056,7 +7056,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -7089,7 +7089,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -7185,7 +7185,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutpu
 }
 
 // The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"standard"`).
+// or `"io1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v SpotInstanceRequestEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -7445,7 +7445,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -7474,7 +7474,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	// The size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The type of volume. Can be `"standard"`, `"gp2"`,
-	// or `"io1"`. (Default: `"standard"`).
+	// or `"io1"`. (Default: `"gp2"`).
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -7580,7 +7580,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutp
 }
 
 // The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"standard"`).
+// or `"io1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -7638,7 +7638,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrO
 }
 
 // The type of volume. Can be `"standard"`, `"gp2"`,
-// or `"io1"`. (Default: `"standard"`).
+// or `"io1"`. (Default: `"gp2"`).
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `ec2.getSubnetIds` provides a list of ids for a vpcId
+// `ec2.getSubnetIds` provides a set of ids for a vpcId
 // 
 // This resource can be useful for getting back a set of subnet ids for a vpc.
 // 

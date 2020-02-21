@@ -57,6 +57,9 @@ export class EndpointGroup extends pulumi.CustomResource {
      * The list of endpoint objects. Fields documented below.
      */
     public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
+    /**
+     * The name of the AWS Region where the endpoint group is located.
+     */
     public readonly endpointGroupRegion!: pulumi.Output<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
@@ -142,6 +145,9 @@ export interface EndpointGroupState {
      * The list of endpoint objects. Fields documented below.
      */
     readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    /**
+     * The name of the AWS Region where the endpoint group is located.
+     */
     readonly endpointGroupRegion?: pulumi.Input<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
@@ -181,6 +187,9 @@ export interface EndpointGroupArgs {
      * The list of endpoint objects. Fields documented below.
      */
     readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    /**
+     * The name of the AWS Region where the endpoint group is located.
+     */
     readonly endpointGroupRegion?: pulumi.Input<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.

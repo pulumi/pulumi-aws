@@ -45,8 +45,8 @@ class Application(pulumi.CustomResource):
         The **appversion_lifecycle** object supports the following:
         
           * `deleteSourceFromS3` (`pulumi.Input[bool]`) - Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-          * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version.
-          * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain.
+          * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+          * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
           * `service_role` (`pulumi.Input[str]`) - The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
@@ -96,8 +96,8 @@ class Application(pulumi.CustomResource):
         The **appversion_lifecycle** object supports the following:
         
           * `deleteSourceFromS3` (`pulumi.Input[bool]`) - Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-          * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version.
-          * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain.
+          * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+          * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
           * `service_role` (`pulumi.Input[str]`) - The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.

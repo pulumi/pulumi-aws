@@ -42,6 +42,39 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
+ * ### HTTP Header Routing
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const serviceb = new aws.appmesh.Route("serviceb", {
+ *     meshName: aws_appmesh_mesh_simple.id,
+ *     spec: {
+ *         httpRoute: {
+ *             action: {
+ *                 weightedTargets: [{
+ *                     virtualNode: aws_appmesh_virtual_node_serviceb.name,
+ *                     weight: 100,
+ *                 }],
+ *             },
+ *             match: {
+ *                 headers: [{
+ *                     match: {
+ *                         prefix: "123",
+ *                     },
+ *                     name: "clientRequestId",
+ *                 }],
+ *                 method: "POST",
+ *                 prefix: "/",
+ *                 scheme: "https",
+ *             },
+ *         },
+ *     },
+ *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
+ * });
+ * ```
+ * 
  * ### TCP Routing
  * 
  * ```typescript
@@ -110,7 +143,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly meshName!: pulumi.Output<string>;
     /**
-     * The name to use for the route.
+     * A name for the HTTP header in the client request that will be matched on.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -198,7 +231,7 @@ export interface RouteState {
      */
     readonly meshName?: pulumi.Input<string>;
     /**
-     * The name to use for the route.
+     * A name for the HTTP header in the client request that will be matched on.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -224,7 +257,7 @@ export interface RouteArgs {
      */
     readonly meshName: pulumi.Input<string>;
     /**
-     * The name to use for the route.
+     * A name for the HTTP header in the client request that will be matched on.
      */
     readonly name?: pulumi.Input<string>;
     /**

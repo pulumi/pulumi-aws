@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for Ruby 2.7 Lambda Runtime
+* Upgrade to v2.50.0 of the AWS Terraform Provider
 
 ---
 

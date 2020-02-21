@@ -14,9 +14,9 @@ import (
 type ApplicationAppversionLifecycle struct {
 	// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
+	// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxAgeInDays *int `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
+	// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxCount *int `pulumi:"maxCount"`
 	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 	ServiceRole string `pulumi:"serviceRole"`
@@ -32,9 +32,9 @@ type ApplicationAppversionLifecycleInput interface {
 type ApplicationAppversionLifecycleArgs struct {
 	// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
 	DeleteSourceFromS3 pulumi.BoolPtrInput `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
+	// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxAgeInDays pulumi.IntPtrInput `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
+	// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
 	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
@@ -112,12 +112,12 @@ func (o ApplicationAppversionLifecycleOutput) DeleteSourceFromS3() pulumi.BoolPt
 	return o.ApplyT(func (v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain an application version.
+// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecycleOutput) MaxAgeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of application versions to retain.
+// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecycleOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
@@ -150,12 +150,12 @@ func (o ApplicationAppversionLifecyclePtrOutput) DeleteSourceFromS3() pulumi.Boo
 	return o.ApplyT(func (v ApplicationAppversionLifecycle) *bool { return v.DeleteSourceFromS3 }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain an application version.
+// The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecyclePtrOutput) MaxAgeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxAgeInDays }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of application versions to retain.
+// The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
 func (o ApplicationAppversionLifecyclePtrOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v ApplicationAppversionLifecycle) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }

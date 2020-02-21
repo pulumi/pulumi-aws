@@ -21,6 +21,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Output("endpointConfigurations")]
         public Output<ImmutableArray<Outputs.EndpointGroupEndpointConfigurations>> EndpointConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the AWS Region where the endpoint group is located.
+        /// </summary>
         [Output("endpointGroupRegion")]
         public Output<string> EndpointGroupRegion { get; private set; } = null!;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.GlobalAccelerator
             set => _endpointConfigurations = value;
         }
 
+        /// <summary>
+        /// The name of the AWS Region where the endpoint group is located.
+        /// </summary>
         [Input("endpointGroupRegion")]
         public Input<string>? EndpointGroupRegion { get; set; }
 
@@ -188,6 +194,9 @@ namespace Pulumi.Aws.GlobalAccelerator
             set => _endpointConfigurations = value;
         }
 
+        /// <summary>
+        /// The name of the AWS Region where the endpoint group is located.
+        /// </summary>
         [Input("endpointGroupRegion")]
         public Input<string>? EndpointGroupRegion { get; set; }
 

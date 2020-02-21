@@ -47,7 +47,7 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly resources!: pulumi.Output<string[]>;
     /**
-     * The account ID of the sender account which extends the invitation.
+     * The account ID of the sender account which submits the invitation.
      */
     public /*out*/ readonly senderAccountId!: pulumi.Output<string>;
     /**
@@ -63,7 +63,7 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly shareName!: pulumi.Output<string>;
     /**
-     * The status of the invitation (e.g., ACCEPTED, REJECTED).
+     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
@@ -129,7 +129,7 @@ export interface ResourceShareAccepterState {
      */
     readonly resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The account ID of the sender account which extends the invitation.
+     * The account ID of the sender account which submits the invitation.
      */
     readonly senderAccountId?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface ResourceShareAccepterState {
      */
     readonly shareName?: pulumi.Input<string>;
     /**
-     * The status of the invitation (e.g., ACCEPTED, REJECTED).
+     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
     readonly status?: pulumi.Input<string>;
 }

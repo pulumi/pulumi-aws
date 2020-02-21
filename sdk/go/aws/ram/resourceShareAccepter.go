@@ -25,7 +25,7 @@ type ResourceShareAccepter struct {
 	ReceiverAccountId pulumi.StringOutput `pulumi:"receiverAccountId"`
 	// A list of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
-	// The account ID of the sender account which extends the invitation.
+	// The account ID of the sender account which submits the invitation.
 	SenderAccountId pulumi.StringOutput `pulumi:"senderAccountId"`
 	// The ARN of the resource share.
 	ShareArn pulumi.StringOutput `pulumi:"shareArn"`
@@ -33,7 +33,7 @@ type ResourceShareAccepter struct {
 	ShareId pulumi.StringOutput `pulumi:"shareId"`
 	// The name of the resource share.
 	ShareName pulumi.StringOutput `pulumi:"shareName"`
-	// The status of the invitation (e.g., ACCEPTED, REJECTED).
+	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -74,7 +74,7 @@ type resourceShareAccepterState struct {
 	ReceiverAccountId *string `pulumi:"receiverAccountId"`
 	// A list of the resource ARNs shared via the resource share.
 	Resources []string `pulumi:"resources"`
-	// The account ID of the sender account which extends the invitation.
+	// The account ID of the sender account which submits the invitation.
 	SenderAccountId *string `pulumi:"senderAccountId"`
 	// The ARN of the resource share.
 	ShareArn *string `pulumi:"shareArn"`
@@ -82,7 +82,7 @@ type resourceShareAccepterState struct {
 	ShareId *string `pulumi:"shareId"`
 	// The name of the resource share.
 	ShareName *string `pulumi:"shareName"`
-	// The status of the invitation (e.g., ACCEPTED, REJECTED).
+	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 	Status *string `pulumi:"status"`
 }
 
@@ -93,7 +93,7 @@ type ResourceShareAccepterState struct {
 	ReceiverAccountId pulumi.StringPtrInput
 	// A list of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayInput
-	// The account ID of the sender account which extends the invitation.
+	// The account ID of the sender account which submits the invitation.
 	SenderAccountId pulumi.StringPtrInput
 	// The ARN of the resource share.
 	ShareArn pulumi.StringPtrInput
@@ -101,7 +101,7 @@ type ResourceShareAccepterState struct {
 	ShareId pulumi.StringPtrInput
 	// The name of the resource share.
 	ShareName pulumi.StringPtrInput
-	// The status of the invitation (e.g., ACCEPTED, REJECTED).
+	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 	Status pulumi.StringPtrInput
 }
 

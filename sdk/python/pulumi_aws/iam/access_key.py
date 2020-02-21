@@ -14,7 +14,6 @@ class AccessKey(pulumi.CustomResource):
     """
     The encrypted secret, base64 encoded, if `pgp_key` was specified.
     > **NOTE:** The encrypted secret may be decrypted using the command line,
-    for example: `... | base64 --decode | keybase pgp decrypt`.
     """
     key_fingerprint: pulumi.Output[str]
     """
@@ -37,9 +36,15 @@ class AccessKey(pulumi.CustomResource):
     """
     ses_smtp_password: pulumi.Output[str]
     """
-    The secret access key converted into an SES SMTP
+    **DEPRECATED** The secret access key converted into an SES SMTP
     password by applying [AWS's documented conversion
+    """
+    ses_smtp_password_v4: pulumi.Output[str]
+    """
+    The secret access key converted into an SES SMTP
+    password by applying [AWS's documented Sigv4 conversion
     algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+    As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
     """
     status: pulumi.Output[str]
     """
@@ -91,6 +96,7 @@ class AccessKey(pulumi.CustomResource):
             __props__['key_fingerprint'] = None
             __props__['secret'] = None
             __props__['ses_smtp_password'] = None
+            __props__['ses_smtp_password_v4'] = None
         super(AccessKey, __self__).__init__(
             'aws:iam/accessKey:AccessKey',
             resource_name,
@@ -98,7 +104,7 @@ class AccessKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, encrypted_secret=None, key_fingerprint=None, pgp_key=None, secret=None, ses_smtp_password=None, status=None, user=None):
+    def get(resource_name, id, opts=None, encrypted_secret=None, key_fingerprint=None, pgp_key=None, secret=None, ses_smtp_password=None, ses_smtp_password_v4=None, status=None, user=None):
         """
         Get an existing AccessKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,7 +114,6 @@ class AccessKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encrypted_secret: The encrypted secret, base64 encoded, if `pgp_key` was specified.
                > **NOTE:** The encrypted secret may be decrypted using the command line,
-               for example: `... | base64 --decode | keybase pgp decrypt`.
         :param pulumi.Input[str] key_fingerprint: The fingerprint of the PGP key used to encrypt
                the secret
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
@@ -119,9 +124,12 @@ class AccessKey(pulumi.CustomResource):
                judiciously. Alternatively, you may supply a `pgp_key` instead, which will
                prevent the secret from being stored in plaintext, at the cost of preventing
                the use of the secret key in automation.
-        :param pulumi.Input[str] ses_smtp_password: The secret access key converted into an SES SMTP
+        :param pulumi.Input[str] ses_smtp_password: **DEPRECATED** The secret access key converted into an SES SMTP
                password by applying [AWS's documented conversion
+        :param pulumi.Input[str] ses_smtp_password_v4: The secret access key converted into an SES SMTP
+               password by applying [AWS's documented Sigv4 conversion
                algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
+               As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region)
         :param pulumi.Input[str] status: The access key status to apply. Defaults to `Active`.
                Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: The IAM user to associate with this access key.
@@ -136,6 +144,7 @@ class AccessKey(pulumi.CustomResource):
         __props__["pgp_key"] = pgp_key
         __props__["secret"] = secret
         __props__["ses_smtp_password"] = ses_smtp_password
+        __props__["ses_smtp_password_v4"] = ses_smtp_password_v4
         __props__["status"] = status
         __props__["user"] = user
         return AccessKey(resource_name, opts=opts, __props__=__props__)
