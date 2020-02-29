@@ -57,7 +57,7 @@ class GetClusterResult:
             raise TypeError("Expected argument 'zookeeper_connect_string' to be a str")
         __self__.zookeeper_connect_string = zookeeper_connect_string
         """
-        A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

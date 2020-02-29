@@ -81,7 +81,7 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
     """
     Use this data source to access information about an existing resource.
     
-    :param str bucket: Lists object keys in this S3 bucket
+    :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param str delimiter: A character used to group keys (Default: none)
     :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
     :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)

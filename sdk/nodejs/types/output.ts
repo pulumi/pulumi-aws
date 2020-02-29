@@ -6194,6 +6194,28 @@ export namespace ec2 {
         volumeType: string;
     }
 
+    export interface TrafficMirrorFilterRuleDestinationPortRange {
+        /**
+         * Starting port of the range
+         */
+        fromPort?: number;
+        /**
+         * Ending port of the range
+         */
+        toPort?: number;
+    }
+
+    export interface TrafficMirrorFilterRuleSourcePortRange {
+        /**
+         * Starting port of the range
+         */
+        fromPort?: number;
+        /**
+         * Ending port of the range
+         */
+        toPort?: number;
+    }
+
     export interface VpcEndpointDnsEntry {
         /**
          * The DNS name.
@@ -8762,7 +8784,7 @@ export namespace glue {
 
     export interface JobCommand {
         /**
-         * The name of the job command. Defaults to `glueetl`
+         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
          */
         name?: string;
         /**
@@ -8780,6 +8802,13 @@ export namespace glue {
          * The maximum number of concurrent runs allowed for a job. The default is 1.
          */
         maxConcurrentRuns?: number;
+    }
+
+    export interface JobNotificationProperty {
+        /**
+         * After a job run starts, the number of minutes to wait before sending a job run delay notification.
+         */
+        notifyDelayAfter?: number;
     }
 
     export interface SecurityConfigurationEncryptionConfiguration {
@@ -10152,6 +10181,20 @@ export namespace lambda {
         additionalVersionWeights?: {[key: string]: number};
     }
 
+    export interface EventSourceMappingDestinationConfig {
+        /**
+         * The destination configuration for failed invocations. Detailed below.
+         */
+        onFailure?: outputs.lambda.EventSourceMappingDestinationConfigOnFailure;
+    }
+
+    export interface EventSourceMappingDestinationConfigOnFailure {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
+        destinationArn: string;
+    }
+
     export interface FunctionDeadLetterConfig {
         /**
          * The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this
@@ -11015,6 +11058,38 @@ export namespace msk {
          */
         inCluster?: boolean;
     }
+
+    export interface ClusterOpenMonitoring {
+        /**
+         * Configuration block for Prometheus settings for open monitoring. See below.
+         */
+        prometheus: outputs.msk.ClusterOpenMonitoringPrometheus;
+    }
+
+    export interface ClusterOpenMonitoringPrometheus {
+        /**
+         * Configuration block for JMX Exporter. See below.
+         */
+        jmxExporter?: outputs.msk.ClusterOpenMonitoringPrometheusJmxExporter;
+        /**
+         * Configuration block for Node Exporter. See below.
+         */
+        nodeExporter?: outputs.msk.ClusterOpenMonitoringPrometheusNodeExporter;
+    }
+
+    export interface ClusterOpenMonitoringPrometheusJmxExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
+        enabledInBroker: boolean;
+    }
+
+    export interface ClusterOpenMonitoringPrometheusNodeExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
+        enabledInBroker: boolean;
+    }
 }
 
 export namespace neptune {
@@ -11793,6 +11868,38 @@ export namespace route53 {
 }
 
 export namespace s3 {
+    export interface AccessPointPublicAccessBlockConfiguration {
+        /**
+         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         * * PUT Object calls fail if the request includes a public ACL.
+         * * PUT Bucket calls fail if the request includes a public ACL.
+         */
+        blockPublicAcls?: boolean;
+        /**
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         */
+        blockPublicPolicy?: boolean;
+        /**
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         */
+        ignorePublicAcls?: boolean;
+        /**
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         */
+        restrictPublicBuckets?: boolean;
+    }
+
+    export interface AccessPointVpcConfiguration {
+        /**
+         * This access point will only allow connections from the specified VPC ID.
+         */
+        vpcId: string;
+    }
+
     export interface AnalyticsConfigurationFilter {
         prefix?: string;
         tags?: {[key: string]: any};

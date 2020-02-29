@@ -3,4 +3,6 @@
 
 // Export members:
 export * from "./activity";
+export * from "./getActivity";
+export * from "./getStateMachine";
 export * from "./stateMachine";

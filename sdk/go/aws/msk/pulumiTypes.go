@@ -781,6 +781,399 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) InCluster() pulumi.Bo
 	return o.ApplyT(func (v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
 }
 
+type ClusterOpenMonitoring struct {
+	// Configuration block for Prometheus settings for open monitoring. See below.
+	Prometheus ClusterOpenMonitoringPrometheus `pulumi:"prometheus"`
+}
+
+type ClusterOpenMonitoringInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringOutput() ClusterOpenMonitoringOutput
+	ToClusterOpenMonitoringOutputWithContext(context.Context) ClusterOpenMonitoringOutput
+}
+
+type ClusterOpenMonitoringArgs struct {
+	// Configuration block for Prometheus settings for open monitoring. See below.
+	Prometheus ClusterOpenMonitoringPrometheusInput `pulumi:"prometheus"`
+}
+
+func (ClusterOpenMonitoringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoring)(nil)).Elem()
+}
+
+func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringOutput() ClusterOpenMonitoringOutput {
+	return i.ToClusterOpenMonitoringOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringOutputWithContext(ctx context.Context) ClusterOpenMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringOutput)
+}
+
+func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringPtrOutput() ClusterOpenMonitoringPtrOutput {
+	return i.ToClusterOpenMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringOutput).ToClusterOpenMonitoringPtrOutputWithContext(ctx)
+}
+
+type ClusterOpenMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringPtrOutput() ClusterOpenMonitoringPtrOutput
+	ToClusterOpenMonitoringPtrOutputWithContext(context.Context) ClusterOpenMonitoringPtrOutput
+}
+
+type clusterOpenMonitoringPtrType ClusterOpenMonitoringArgs
+
+func ClusterOpenMonitoringPtr(v *ClusterOpenMonitoringArgs) ClusterOpenMonitoringPtrInput {	return (*clusterOpenMonitoringPtrType)(v)
+}
+
+func (*clusterOpenMonitoringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOpenMonitoring)(nil)).Elem()
+}
+
+func (i *clusterOpenMonitoringPtrType) ToClusterOpenMonitoringPtrOutput() ClusterOpenMonitoringPtrOutput {
+	return i.ToClusterOpenMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOpenMonitoringPtrType) ToClusterOpenMonitoringPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPtrOutput)
+}
+
+type ClusterOpenMonitoringOutput struct { *pulumi.OutputState }
+
+func (ClusterOpenMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoring)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringOutput() ClusterOpenMonitoringOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringOutputWithContext(ctx context.Context) ClusterOpenMonitoringOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutput() ClusterOpenMonitoringPtrOutput {
+	return o.ToClusterOpenMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPtrOutput {
+	return o.ApplyT(func(v ClusterOpenMonitoring) *ClusterOpenMonitoring {
+		return &v
+	}).(ClusterOpenMonitoringPtrOutput)
+}
+// Configuration block for Prometheus settings for open monitoring. See below.
+func (o ClusterOpenMonitoringOutput) Prometheus() ClusterOpenMonitoringPrometheusOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
+}
+
+type ClusterOpenMonitoringPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterOpenMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOpenMonitoring)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringPtrOutput) ToClusterOpenMonitoringPtrOutput() ClusterOpenMonitoringPtrOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPtrOutput) ToClusterOpenMonitoringPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPtrOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPtrOutput) Elem() ClusterOpenMonitoringOutput {
+	return o.ApplyT(func (v *ClusterOpenMonitoring) ClusterOpenMonitoring { return *v }).(ClusterOpenMonitoringOutput)
+}
+
+// Configuration block for Prometheus settings for open monitoring. See below.
+func (o ClusterOpenMonitoringPtrOutput) Prometheus() ClusterOpenMonitoringPrometheusOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
+}
+
+type ClusterOpenMonitoringPrometheus struct {
+	// Configuration block for JMX Exporter. See below.
+	JmxExporter *ClusterOpenMonitoringPrometheusJmxExporter `pulumi:"jmxExporter"`
+	// Configuration block for Node Exporter. See below.
+	NodeExporter *ClusterOpenMonitoringPrometheusNodeExporter `pulumi:"nodeExporter"`
+}
+
+type ClusterOpenMonitoringPrometheusInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringPrometheusOutput() ClusterOpenMonitoringPrometheusOutput
+	ToClusterOpenMonitoringPrometheusOutputWithContext(context.Context) ClusterOpenMonitoringPrometheusOutput
+}
+
+type ClusterOpenMonitoringPrometheusArgs struct {
+	// Configuration block for JMX Exporter. See below.
+	JmxExporter ClusterOpenMonitoringPrometheusJmxExporterPtrInput `pulumi:"jmxExporter"`
+	// Configuration block for Node Exporter. See below.
+	NodeExporter ClusterOpenMonitoringPrometheusNodeExporterPtrInput `pulumi:"nodeExporter"`
+}
+
+func (ClusterOpenMonitoringPrometheusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoringPrometheus)(nil)).Elem()
+}
+
+func (i ClusterOpenMonitoringPrometheusArgs) ToClusterOpenMonitoringPrometheusOutput() ClusterOpenMonitoringPrometheusOutput {
+	return i.ToClusterOpenMonitoringPrometheusOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringPrometheusArgs) ToClusterOpenMonitoringPrometheusOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusOutput)
+}
+
+type ClusterOpenMonitoringPrometheusOutput struct { *pulumi.OutputState }
+
+func (ClusterOpenMonitoringPrometheusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoringPrometheus)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheusOutput() ClusterOpenMonitoringPrometheusOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheusOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusOutput {
+	return o
+}
+
+// Configuration block for JMX Exporter. See below.
+func (o ClusterOpenMonitoringPrometheusOutput) JmxExporter() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter { return v.JmxExporter }).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
+}
+
+// Configuration block for Node Exporter. See below.
+func (o ClusterOpenMonitoringPrometheusOutput) NodeExporter() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter { return v.NodeExporter }).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
+}
+
+type ClusterOpenMonitoringPrometheusJmxExporter struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
+	EnabledInBroker bool `pulumi:"enabledInBroker"`
+}
+
+type ClusterOpenMonitoringPrometheusJmxExporterInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringPrometheusJmxExporterOutput() ClusterOpenMonitoringPrometheusJmxExporterOutput
+	ToClusterOpenMonitoringPrometheusJmxExporterOutputWithContext(context.Context) ClusterOpenMonitoringPrometheusJmxExporterOutput
+}
+
+type ClusterOpenMonitoringPrometheusJmxExporterArgs struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
+	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
+}
+
+func (ClusterOpenMonitoringPrometheusJmxExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoringPrometheusJmxExporter)(nil)).Elem()
+}
+
+func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringPrometheusJmxExporterOutput() ClusterOpenMonitoringPrometheusJmxExporterOutput {
+	return i.ToClusterOpenMonitoringPrometheusJmxExporterOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringPrometheusJmxExporterOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
+}
+
+func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return i.ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterOutput).ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx)
+}
+
+type ClusterOpenMonitoringPrometheusJmxExporterPtrInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput
+	ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput
+}
+
+type clusterOpenMonitoringPrometheusJmxExporterPtrType ClusterOpenMonitoringPrometheusJmxExporterArgs
+
+func ClusterOpenMonitoringPrometheusJmxExporterPtr(v *ClusterOpenMonitoringPrometheusJmxExporterArgs) ClusterOpenMonitoringPrometheusJmxExporterPtrInput {	return (*clusterOpenMonitoringPrometheusJmxExporterPtrType)(v)
+}
+
+func (*clusterOpenMonitoringPrometheusJmxExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOpenMonitoringPrometheusJmxExporter)(nil)).Elem()
+}
+
+func (i *clusterOpenMonitoringPrometheusJmxExporterPtrType) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return i.ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOpenMonitoringPrometheusJmxExporterPtrType) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
+}
+
+type ClusterOpenMonitoringPrometheusJmxExporterOutput struct { *pulumi.OutputState }
+
+func (ClusterOpenMonitoringPrometheusJmxExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoringPrometheusJmxExporter)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitoringPrometheusJmxExporterOutput() ClusterOpenMonitoringPrometheusJmxExporterOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitoringPrometheusJmxExporterOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return o.ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) *ClusterOpenMonitoringPrometheusJmxExporter {
+		return &v
+	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
+}
+// Indicates whether you want to enable or disable the Node Exporter.
+func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) EnabledInBroker() pulumi.BoolOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+}
+
+type ClusterOpenMonitoringPrometheusJmxExporterPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOpenMonitoringPrometheusJmxExporter)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusJmxExporterOutput {
+	return o.ApplyT(func (v *ClusterOpenMonitoringPrometheusJmxExporter) ClusterOpenMonitoringPrometheusJmxExporter { return *v }).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
+}
+
+// Indicates whether you want to enable or disable the Node Exporter.
+func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+}
+
+type ClusterOpenMonitoringPrometheusNodeExporter struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
+	EnabledInBroker bool `pulumi:"enabledInBroker"`
+}
+
+type ClusterOpenMonitoringPrometheusNodeExporterInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringPrometheusNodeExporterOutput() ClusterOpenMonitoringPrometheusNodeExporterOutput
+	ToClusterOpenMonitoringPrometheusNodeExporterOutputWithContext(context.Context) ClusterOpenMonitoringPrometheusNodeExporterOutput
+}
+
+type ClusterOpenMonitoringPrometheusNodeExporterArgs struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
+	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
+}
+
+func (ClusterOpenMonitoringPrometheusNodeExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporter)(nil)).Elem()
+}
+
+func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoringPrometheusNodeExporterOutput() ClusterOpenMonitoringPrometheusNodeExporterOutput {
+	return i.ToClusterOpenMonitoringPrometheusNodeExporterOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoringPrometheusNodeExporterOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
+}
+
+func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return i.ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterOutput).ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx)
+}
+
+type ClusterOpenMonitoringPrometheusNodeExporterPtrInput interface {
+	pulumi.Input
+
+	ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput
+	ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput
+}
+
+type clusterOpenMonitoringPrometheusNodeExporterPtrType ClusterOpenMonitoringPrometheusNodeExporterArgs
+
+func ClusterOpenMonitoringPrometheusNodeExporterPtr(v *ClusterOpenMonitoringPrometheusNodeExporterArgs) ClusterOpenMonitoringPrometheusNodeExporterPtrInput {	return (*clusterOpenMonitoringPrometheusNodeExporterPtrType)(v)
+}
+
+func (*clusterOpenMonitoringPrometheusNodeExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOpenMonitoringPrometheusNodeExporter)(nil)).Elem()
+}
+
+func (i *clusterOpenMonitoringPrometheusNodeExporterPtrType) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return i.ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOpenMonitoringPrometheusNodeExporterPtrType) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
+}
+
+type ClusterOpenMonitoringPrometheusNodeExporterOutput struct { *pulumi.OutputState }
+
+func (ClusterOpenMonitoringPrometheusNodeExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporter)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitoringPrometheusNodeExporterOutput() ClusterOpenMonitoringPrometheusNodeExporterOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitoringPrometheusNodeExporterOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return o.ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) *ClusterOpenMonitoringPrometheusNodeExporter {
+		return &v
+	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
+}
+// Indicates whether you want to enable or disable the Node Exporter.
+func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) EnabledInBroker() pulumi.BoolOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+}
+
+type ClusterOpenMonitoringPrometheusNodeExporterPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOpenMonitoringPrometheusNodeExporter)(nil)).Elem()
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
+	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusNodeExporterOutput {
+	return o.ApplyT(func (v *ClusterOpenMonitoringPrometheusNodeExporter) ClusterOpenMonitoringPrometheusNodeExporter { return *v }).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
+}
+
+// Indicates whether you want to enable or disable the Node Exporter.
+func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() pulumi.BoolOutput {
+	return o.ApplyT(func (v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
@@ -794,4 +1187,11 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInfoEncryptionInTransitOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInfoEncryptionInTransitPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusJmxExporterOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterOutput{})
+	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput{})
 }

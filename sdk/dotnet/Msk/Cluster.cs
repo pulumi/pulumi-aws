@@ -89,13 +89,19 @@ namespace Pulumi.Aws.Msk
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        /// </summary>
+        [Output("openMonitoring")]
+        public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         /// </summary>
         [Output("zookeeperConnectString")]
         public Output<string> ZookeeperConnectString { get; private set; } = null!;
@@ -194,6 +200,12 @@ namespace Pulumi.Aws.Msk
         [Input("numberOfBrokerNodes", required: true)]
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        /// </summary>
+        [Input("openMonitoring")]
+        public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -286,6 +298,12 @@ namespace Pulumi.Aws.Msk
         [Input("numberOfBrokerNodes")]
         public Input<int>? NumberOfBrokerNodes { get; set; }
 
+        /// <summary>
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        /// </summary>
+        [Input("openMonitoring")]
+        public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -299,7 +317,7 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
-        /// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         /// </summary>
         [Input("zookeeperConnectString")]
         public Input<string>? ZookeeperConnectString { get; set; }
@@ -587,6 +605,122 @@ namespace Pulumi.Aws.Msk
         {
         }
     }
+
+    public sealed class ClusterOpenMonitoringArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Configuration block for Prometheus settings for open monitoring. See below.
+        /// </summary>
+        [Input("prometheus", required: true)]
+        public Input<ClusterOpenMonitoringPrometheusArgs> Prometheus { get; set; } = null!;
+
+        public ClusterOpenMonitoringArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Configuration block for Prometheus settings for open monitoring. See below.
+        /// </summary>
+        [Input("prometheus", required: true)]
+        public Input<ClusterOpenMonitoringPrometheusGetArgs> Prometheus { get; set; } = null!;
+
+        public ClusterOpenMonitoringGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringPrometheusArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Configuration block for JMX Exporter. See below.
+        /// </summary>
+        [Input("jmxExporter")]
+        public Input<ClusterOpenMonitoringPrometheusJmxExporterArgs>? JmxExporter { get; set; }
+
+        /// <summary>
+        /// Configuration block for Node Exporter. See below.
+        /// </summary>
+        [Input("nodeExporter")]
+        public Input<ClusterOpenMonitoringPrometheusNodeExporterArgs>? NodeExporter { get; set; }
+
+        public ClusterOpenMonitoringPrometheusArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringPrometheusGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Configuration block for JMX Exporter. See below.
+        /// </summary>
+        [Input("jmxExporter")]
+        public Input<ClusterOpenMonitoringPrometheusJmxExporterGetArgs>? JmxExporter { get; set; }
+
+        /// <summary>
+        /// Configuration block for Node Exporter. See below.
+        /// </summary>
+        [Input("nodeExporter")]
+        public Input<ClusterOpenMonitoringPrometheusNodeExporterGetArgs>? NodeExporter { get; set; }
+
+        public ClusterOpenMonitoringPrometheusGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringPrometheusJmxExporterArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
+        [Input("enabledInBroker", required: true)]
+        public Input<bool> EnabledInBroker { get; set; } = null!;
+
+        public ClusterOpenMonitoringPrometheusJmxExporterArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringPrometheusJmxExporterGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
+        [Input("enabledInBroker", required: true)]
+        public Input<bool> EnabledInBroker { get; set; } = null!;
+
+        public ClusterOpenMonitoringPrometheusJmxExporterGetArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringPrometheusNodeExporterArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
+        [Input("enabledInBroker", required: true)]
+        public Input<bool> EnabledInBroker { get; set; } = null!;
+
+        public ClusterOpenMonitoringPrometheusNodeExporterArgs()
+        {
+        }
+    }
+
+    public sealed class ClusterOpenMonitoringPrometheusNodeExporterGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
+        [Input("enabledInBroker", required: true)]
+        public Input<bool> EnabledInBroker { get; set; } = null!;
+
+        public ClusterOpenMonitoringPrometheusNodeExporterGetArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -725,6 +859,73 @@ namespace Pulumi.Aws.Msk
         {
             ClientBroker = clientBroker;
             InCluster = inCluster;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterOpenMonitoring
+    {
+        /// <summary>
+        /// Configuration block for Prometheus settings for open monitoring. See below.
+        /// </summary>
+        public readonly ClusterOpenMonitoringPrometheus Prometheus;
+
+        [OutputConstructor]
+        private ClusterOpenMonitoring(ClusterOpenMonitoringPrometheus prometheus)
+        {
+            Prometheus = prometheus;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterOpenMonitoringPrometheus
+    {
+        /// <summary>
+        /// Configuration block for JMX Exporter. See below.
+        /// </summary>
+        public readonly ClusterOpenMonitoringPrometheusJmxExporter? JmxExporter;
+        /// <summary>
+        /// Configuration block for Node Exporter. See below.
+        /// </summary>
+        public readonly ClusterOpenMonitoringPrometheusNodeExporter? NodeExporter;
+
+        [OutputConstructor]
+        private ClusterOpenMonitoringPrometheus(
+            ClusterOpenMonitoringPrometheusJmxExporter? jmxExporter,
+            ClusterOpenMonitoringPrometheusNodeExporter? nodeExporter)
+        {
+            JmxExporter = jmxExporter;
+            NodeExporter = nodeExporter;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterOpenMonitoringPrometheusJmxExporter
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
+        public readonly bool EnabledInBroker;
+
+        [OutputConstructor]
+        private ClusterOpenMonitoringPrometheusJmxExporter(bool enabledInBroker)
+        {
+            EnabledInBroker = enabledInBroker;
+        }
+    }
+
+    [OutputType]
+    public sealed class ClusterOpenMonitoringPrometheusNodeExporter
+    {
+        /// <summary>
+        /// Indicates whether you want to enable or disable the Node Exporter.
+        /// </summary>
+        public readonly bool EnabledInBroker;
+
+        [OutputConstructor]
+        private ClusterOpenMonitoringPrometheusNodeExporter(bool enabledInBroker)
+        {
+            EnabledInBroker = enabledInBroker;
         }
     }
     }

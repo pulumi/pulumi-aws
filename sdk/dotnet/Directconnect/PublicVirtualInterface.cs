@@ -27,6 +27,9 @@ namespace Pulumi.Aws.DirectConnect
         [Output("amazonAddress")]
         public Output<string> AmazonAddress { get; private set; } = null!;
 
+        [Output("amazonSideAsn")]
+        public Output<string> AmazonSideAsn { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the virtual interface.
         /// </summary>
@@ -223,6 +226,9 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("amazonAddress")]
         public Input<string>? AmazonAddress { get; set; }
+
+        [Input("amazonSideAsn")]
+        public Input<string>? AmazonSideAsn { get; set; }
 
         /// <summary>
         /// The ARN of the virtual interface.

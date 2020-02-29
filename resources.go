@@ -1029,6 +1029,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpn_gateway":                            {Tok: awsResource(ec2Mod, "VpnGateway")},
 			"aws_vpn_gateway_attachment":                 {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
 			"aws_vpn_gateway_route_propagation":          {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			"aws_ec2_traffic_mirror_filter":              {Tok: awsResource(ec2Mod, "TrafficMirrorFilter")},
+			"aws_ec2_traffic_mirror_filter_rule":         {Tok: awsResource(ec2Mod, "TrafficMirrorFilterRule")},
+			"aws_ec2_traffic_mirror_session":             {Tok: awsResource(ec2Mod, "TrafficMirrorSession")},
+			"aws_ec2_traffic_mirror_target":              {Tok: awsResource(ec2Mod, "TrafficMirrorTarget")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1883,6 +1887,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_s3_bucket_public_access_block":     {Tok: awsResource(s3Mod, "BucketPublicAccessBlock")},
 			"aws_s3_bucket_analytics_configuration": {Tok: awsResource(s3Mod, "AnalyticsConfiguration")},
+			"aws_s3_access_point":                   {Tok: awsResource(s3Mod, "AccessPoint")},
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -2235,6 +2240,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_guardduty_detector": {Tok: awsDataSource(guarddutyMod, "getDetector")},
 			// Directory Service
 			"aws_directory_service_directory": {Tok: awsDataSource(directoryserviceMod, "getDirectory")},
+			// SFN
+			"aws_sfn_activity":      {Tok: awsDataSource(sfnMod, "getActivity")},
+			"aws_sfn_state_machine": {Tok: awsDataSource(sfnMod, "getStateMachine")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

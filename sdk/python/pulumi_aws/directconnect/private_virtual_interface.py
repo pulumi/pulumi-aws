@@ -18,6 +18,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     """
     The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
     """
+    amazon_side_asn: pulumi.Output[str]
     arn: pulumi.Output[str]
     """
     The ARN of the virtual interface.
@@ -130,6 +131,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vlan'")
             __props__['vlan'] = vlan
             __props__['vpn_gateway_id'] = vpn_gateway_id
+            __props__['amazon_side_asn'] = None
             __props__['arn'] = None
             __props__['aws_device'] = None
             __props__['jumbo_frame_capable'] = None
@@ -140,7 +142,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address_family=None, amazon_address=None, arn=None, aws_device=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, jumbo_frame_capable=None, mtu=None, name=None, tags=None, vlan=None, vpn_gateway_id=None):
+    def get(resource_name, id, opts=None, address_family=None, amazon_address=None, amazon_side_asn=None, arn=None, aws_device=None, bgp_asn=None, bgp_auth_key=None, connection_id=None, customer_address=None, dx_gateway_id=None, jumbo_frame_capable=None, mtu=None, name=None, tags=None, vlan=None, vpn_gateway_id=None):
         """
         Get an existing PrivateVirtualInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -172,6 +174,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         __props__ = dict()
         __props__["address_family"] = address_family
         __props__["amazon_address"] = amazon_address
+        __props__["amazon_side_asn"] = amazon_side_asn
         __props__["arn"] = arn
         __props__["aws_device"] = aws_device
         __props__["bgp_asn"] = bgp_asn
