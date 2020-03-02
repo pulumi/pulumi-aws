@@ -16,6 +16,10 @@ from .default_vpc import *
 from .default_vpc_dhcp_options import *
 from .capacity_reservation import *
 from .fleet import *
+from .traffic_mirror_filter import *
+from .traffic_mirror_filter_rule import *
+from .traffic_mirror_session import *
+from .traffic_mirror_target import *
 from .egress_only_internet_gateway import *
 from .eip import *
 from .eip_association import *

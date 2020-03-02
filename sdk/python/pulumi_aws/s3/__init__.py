@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .access_point import *
 from .account_public_access_block import *
 from .bucket import *
 from .analytics_configuration import *

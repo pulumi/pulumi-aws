@@ -35,7 +35,7 @@ export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.Invok
  */
 export interface GetBucketObjectsArgs {
     /**
-     * Lists object keys in this S3 bucket
+     * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     readonly bucket: string;
     /**

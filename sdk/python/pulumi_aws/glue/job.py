@@ -22,7 +22,7 @@ class Job(pulumi.CustomResource):
     """
     The command of the job. Defined below.
     
-      * `name` (`str`) - The name of the job command. Defaults to `glueetl`
+      * `name` (`str`) - The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
       * `pythonVersion` (`str`) - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
       * `scriptLocation` (`str`) - Specifies the S3 path to a script that executes a job.
     """
@@ -50,7 +50,7 @@ class Job(pulumi.CustomResource):
     """
     max_capacity: pulumi.Output[float]
     """
-    The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+    The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
     """
     max_retries: pulumi.Output[float]
     """
@@ -58,7 +58,13 @@ class Job(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the job command. Defaults to `glueetl`
+    The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+    """
+    notification_property: pulumi.Output[dict]
+    """
+    Notification property of the job. Defined below.
+    
+      * `notifyDelayAfter` (`float`) - After a job run starts, the number of minutes to wait before sending a job run delay notification.
     """
     number_of_workers: pulumi.Output[float]
     """
@@ -84,7 +90,7 @@ class Job(pulumi.CustomResource):
     """
     The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
     """
-    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, notification_property=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Job resource.
         
@@ -99,9 +105,10 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[dict] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
         :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
-        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
+        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        :param pulumi.Input[dict] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[float] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
@@ -111,13 +118,17 @@ class Job(pulumi.CustomResource):
         
         The **command** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The name of the job command. Defaults to `glueetl`
+          * `name` (`pulumi.Input[str]`) - The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
           * `pythonVersion` (`pulumi.Input[str]`) - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
           * `scriptLocation` (`pulumi.Input[str]`) - Specifies the S3 path to a script that executes a job.
         
         The **execution_property** object supports the following:
         
           * `maxConcurrentRuns` (`pulumi.Input[float]`) - The maximum number of concurrent runs allowed for a job. The default is 1.
+        
+        The **notification_property** object supports the following:
+        
+          * `notifyDelayAfter` (`pulumi.Input[float]`) - After a job run starts, the number of minutes to wait before sending a job run delay notification.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
         """
@@ -150,6 +161,7 @@ class Job(pulumi.CustomResource):
             __props__['max_capacity'] = max_capacity
             __props__['max_retries'] = max_retries
             __props__['name'] = name
+            __props__['notification_property'] = notification_property
             __props__['number_of_workers'] = number_of_workers
             if role_arn is None:
                 raise TypeError("Missing required property 'role_arn'")
@@ -166,7 +178,7 @@ class Job(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocated_capacity=None, arn=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
+    def get(resource_name, id, opts=None, allocated_capacity=None, arn=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, notification_property=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -182,9 +194,10 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[dict] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+        :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
         :param pulumi.Input[float] max_retries: The maximum number of times to retry this job if it fails.
-        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`
+        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
+        :param pulumi.Input[dict] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[float] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
@@ -194,13 +207,17 @@ class Job(pulumi.CustomResource):
         
         The **command** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The name of the job command. Defaults to `glueetl`
+          * `name` (`pulumi.Input[str]`) - The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
           * `pythonVersion` (`pulumi.Input[str]`) - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
           * `scriptLocation` (`pulumi.Input[str]`) - Specifies the S3 path to a script that executes a job.
         
         The **execution_property** object supports the following:
         
           * `maxConcurrentRuns` (`pulumi.Input[float]`) - The maximum number of concurrent runs allowed for a job. The default is 1.
+        
+        The **notification_property** object supports the following:
+        
+          * `notifyDelayAfter` (`pulumi.Input[float]`) - After a job run starts, the number of minutes to wait before sending a job run delay notification.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_job.html.markdown.
         """
@@ -218,6 +235,7 @@ class Job(pulumi.CustomResource):
         __props__["max_capacity"] = max_capacity
         __props__["max_retries"] = max_retries
         __props__["name"] = name
+        __props__["notification_property"] = notification_property
         __props__["number_of_workers"] = number_of_workers
         __props__["role_arn"] = role_arn
         __props__["security_configuration"] = security_configuration

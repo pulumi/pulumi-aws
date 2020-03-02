@@ -7643,6 +7643,258 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringP
 	return o.ApplyT(func (v SpotInstanceRequestRootBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
+type TrafficMirrorFilterRuleDestinationPortRange struct {
+	// Starting port of the range
+	FromPort *int `pulumi:"fromPort"`
+	// Ending port of the range
+	ToPort *int `pulumi:"toPort"`
+}
+
+type TrafficMirrorFilterRuleDestinationPortRangeInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleDestinationPortRangeOutput() TrafficMirrorFilterRuleDestinationPortRangeOutput
+	ToTrafficMirrorFilterRuleDestinationPortRangeOutputWithContext(context.Context) TrafficMirrorFilterRuleDestinationPortRangeOutput
+}
+
+type TrafficMirrorFilterRuleDestinationPortRangeArgs struct {
+	// Starting port of the range
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// Ending port of the range
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (TrafficMirrorFilterRuleDestinationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleDestinationPortRange)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterRuleDestinationPortRangeArgs) ToTrafficMirrorFilterRuleDestinationPortRangeOutput() TrafficMirrorFilterRuleDestinationPortRangeOutput {
+	return i.ToTrafficMirrorFilterRuleDestinationPortRangeOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleDestinationPortRangeArgs) ToTrafficMirrorFilterRuleDestinationPortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleDestinationPortRangeOutput)
+}
+
+func (i TrafficMirrorFilterRuleDestinationPortRangeArgs) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutput() TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleDestinationPortRangeArgs) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleDestinationPortRangeOutput).ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx)
+}
+
+type TrafficMirrorFilterRuleDestinationPortRangePtrInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleDestinationPortRangePtrOutput() TrafficMirrorFilterRuleDestinationPortRangePtrOutput
+	ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(context.Context) TrafficMirrorFilterRuleDestinationPortRangePtrOutput
+}
+
+type trafficMirrorFilterRuleDestinationPortRangePtrType TrafficMirrorFilterRuleDestinationPortRangeArgs
+
+func TrafficMirrorFilterRuleDestinationPortRangePtr(v *TrafficMirrorFilterRuleDestinationPortRangeArgs) TrafficMirrorFilterRuleDestinationPortRangePtrInput {	return (*trafficMirrorFilterRuleDestinationPortRangePtrType)(v)
+}
+
+func (*trafficMirrorFilterRuleDestinationPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleDestinationPortRange)(nil)).Elem()
+}
+
+func (i *trafficMirrorFilterRuleDestinationPortRangePtrType) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutput() TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *trafficMirrorFilterRuleDestinationPortRangePtrType) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleDestinationPortRangePtrOutput)
+}
+
+type TrafficMirrorFilterRuleDestinationPortRangeOutput struct { *pulumi.OutputState }
+
+func (TrafficMirrorFilterRuleDestinationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleDestinationPortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToTrafficMirrorFilterRuleDestinationPortRangeOutput() TrafficMirrorFilterRuleDestinationPortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToTrafficMirrorFilterRuleDestinationPortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutput() TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return o.ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterRuleDestinationPortRange) *TrafficMirrorFilterRuleDestinationPortRange {
+		return &v
+	}).(TrafficMirrorFilterRuleDestinationPortRangePtrOutput)
+}
+// Starting port of the range
+func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleDestinationPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// Ending port of the range
+func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleDestinationPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type TrafficMirrorFilterRuleDestinationPortRangePtrOutput struct { *pulumi.OutputState}
+
+func (TrafficMirrorFilterRuleDestinationPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleDestinationPortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutput() TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) Elem() TrafficMirrorFilterRuleDestinationPortRangeOutput {
+	return o.ApplyT(func (v *TrafficMirrorFilterRuleDestinationPortRange) TrafficMirrorFilterRuleDestinationPortRange { return *v }).(TrafficMirrorFilterRuleDestinationPortRangeOutput)
+}
+
+// Starting port of the range
+func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleDestinationPortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// Ending port of the range
+func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleDestinationPortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type TrafficMirrorFilterRuleSourcePortRange struct {
+	// Starting port of the range
+	FromPort *int `pulumi:"fromPort"`
+	// Ending port of the range
+	ToPort *int `pulumi:"toPort"`
+}
+
+type TrafficMirrorFilterRuleSourcePortRangeInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleSourcePortRangeOutput() TrafficMirrorFilterRuleSourcePortRangeOutput
+	ToTrafficMirrorFilterRuleSourcePortRangeOutputWithContext(context.Context) TrafficMirrorFilterRuleSourcePortRangeOutput
+}
+
+type TrafficMirrorFilterRuleSourcePortRangeArgs struct {
+	// Starting port of the range
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// Ending port of the range
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (TrafficMirrorFilterRuleSourcePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleSourcePortRange)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterRuleSourcePortRangeArgs) ToTrafficMirrorFilterRuleSourcePortRangeOutput() TrafficMirrorFilterRuleSourcePortRangeOutput {
+	return i.ToTrafficMirrorFilterRuleSourcePortRangeOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleSourcePortRangeArgs) ToTrafficMirrorFilterRuleSourcePortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleSourcePortRangeOutput)
+}
+
+func (i TrafficMirrorFilterRuleSourcePortRangeArgs) ToTrafficMirrorFilterRuleSourcePortRangePtrOutput() TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleSourcePortRangeArgs) ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleSourcePortRangeOutput).ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx)
+}
+
+type TrafficMirrorFilterRuleSourcePortRangePtrInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleSourcePortRangePtrOutput() TrafficMirrorFilterRuleSourcePortRangePtrOutput
+	ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(context.Context) TrafficMirrorFilterRuleSourcePortRangePtrOutput
+}
+
+type trafficMirrorFilterRuleSourcePortRangePtrType TrafficMirrorFilterRuleSourcePortRangeArgs
+
+func TrafficMirrorFilterRuleSourcePortRangePtr(v *TrafficMirrorFilterRuleSourcePortRangeArgs) TrafficMirrorFilterRuleSourcePortRangePtrInput {	return (*trafficMirrorFilterRuleSourcePortRangePtrType)(v)
+}
+
+func (*trafficMirrorFilterRuleSourcePortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleSourcePortRange)(nil)).Elem()
+}
+
+func (i *trafficMirrorFilterRuleSourcePortRangePtrType) ToTrafficMirrorFilterRuleSourcePortRangePtrOutput() TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *trafficMirrorFilterRuleSourcePortRangePtrType) ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleSourcePortRangePtrOutput)
+}
+
+type TrafficMirrorFilterRuleSourcePortRangeOutput struct { *pulumi.OutputState }
+
+func (TrafficMirrorFilterRuleSourcePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleSourcePortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToTrafficMirrorFilterRuleSourcePortRangeOutput() TrafficMirrorFilterRuleSourcePortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToTrafficMirrorFilterRuleSourcePortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToTrafficMirrorFilterRuleSourcePortRangePtrOutput() TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return o.ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterRuleSourcePortRange) *TrafficMirrorFilterRuleSourcePortRange {
+		return &v
+	}).(TrafficMirrorFilterRuleSourcePortRangePtrOutput)
+}
+// Starting port of the range
+func (o TrafficMirrorFilterRuleSourcePortRangeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleSourcePortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// Ending port of the range
+func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleSourcePortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type TrafficMirrorFilterRuleSourcePortRangePtrOutput struct { *pulumi.OutputState}
+
+func (TrafficMirrorFilterRuleSourcePortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleSourcePortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) ToTrafficMirrorFilterRuleSourcePortRangePtrOutput() TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) Elem() TrafficMirrorFilterRuleSourcePortRangeOutput {
+	return o.ApplyT(func (v *TrafficMirrorFilterRuleSourcePortRange) TrafficMirrorFilterRuleSourcePortRange { return *v }).(TrafficMirrorFilterRuleSourcePortRangeOutput)
+}
+
+// Starting port of the range
+func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleSourcePortRange) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// Ending port of the range
+func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v TrafficMirrorFilterRuleSourcePortRange) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
 type VpcEndpointDnsEntry struct {
 	// The DNS name.
 	DnsName *string `pulumi:"dnsName"`
@@ -13544,6 +13796,10 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestRootBlockDevicePtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleDestinationPortRangeOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleDestinationPortRangePtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleSourcePortRangeOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleSourcePortRangePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeOutput{})

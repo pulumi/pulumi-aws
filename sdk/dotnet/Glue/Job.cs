@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
         /// </summary>
         [Output("maxCapacity")]
         public Output<double> MaxCapacity { get; private set; } = null!;
@@ -78,10 +78,16 @@ namespace Pulumi.Aws.Glue
         public Output<int?> MaxRetries { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Notification property of the job. Defined below.
+        /// </summary>
+        [Output("notificationProperty")]
+        public Output<Outputs.JobNotificationProperty> NotificationProperty { get; private set; } = null!;
 
         /// <summary>
         /// The number of workers of a defined workerType that are allocated when a job runs.
@@ -220,7 +226,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -232,10 +238,16 @@ namespace Pulumi.Aws.Glue
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Notification property of the job. Defined below.
+        /// </summary>
+        [Input("notificationProperty")]
+        public Input<Inputs.JobNotificationPropertyArgs>? NotificationProperty { get; set; }
 
         /// <summary>
         /// The number of workers of a defined workerType that are allocated when a job runs.
@@ -347,7 +359,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -359,10 +371,16 @@ namespace Pulumi.Aws.Glue
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Notification property of the job. Defined below.
+        /// </summary>
+        [Input("notificationProperty")]
+        public Input<Inputs.JobNotificationPropertyGetArgs>? NotificationProperty { get; set; }
 
         /// <summary>
         /// The number of workers of a defined workerType that are allocated when a job runs.
@@ -417,7 +435,7 @@ namespace Pulumi.Aws.Glue
     public sealed class JobCommandArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -442,7 +460,7 @@ namespace Pulumi.Aws.Glue
     public sealed class JobCommandGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -489,6 +507,32 @@ namespace Pulumi.Aws.Glue
         {
         }
     }
+
+    public sealed class JobNotificationPropertyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        /// </summary>
+        [Input("notifyDelayAfter")]
+        public Input<int>? NotifyDelayAfter { get; set; }
+
+        public JobNotificationPropertyArgs()
+        {
+        }
+    }
+
+    public sealed class JobNotificationPropertyGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        /// </summary>
+        [Input("notifyDelayAfter")]
+        public Input<int>? NotifyDelayAfter { get; set; }
+
+        public JobNotificationPropertyGetArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -498,7 +542,7 @@ namespace Pulumi.Aws.Glue
     public sealed class JobCommand
     {
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -534,6 +578,21 @@ namespace Pulumi.Aws.Glue
         private JobExecutionProperty(int? maxConcurrentRuns)
         {
             MaxConcurrentRuns = maxConcurrentRuns;
+        }
+    }
+
+    [OutputType]
+    public sealed class JobNotificationProperty
+    {
+        /// <summary>
+        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        /// </summary>
+        public readonly int? NotifyDelayAfter;
+
+        [OutputConstructor]
+        private JobNotificationProperty(int? notifyDelayAfter)
+        {
+            NotifyDelayAfter = notifyDelayAfter;
         }
     }
     }

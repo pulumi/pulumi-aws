@@ -79,7 +79,7 @@ export interface GetClusterResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     readonly zookeeperConnectString: string;
     /**

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> Acl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bucket to put the file in.
+        /// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// The name of the bucket to put the file in.
+        /// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// The name of the bucket to put the file in.
+        /// The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

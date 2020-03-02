@@ -11,6 +11,296 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+type AccessPointPublicAccessBlockConfiguration struct {
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	// * PUT Object calls fail if the request includes a public ACL.
+	// * PUT Bucket calls fail if the request includes a public ACL.
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
+}
+
+type AccessPointPublicAccessBlockConfigurationInput interface {
+	pulumi.Input
+
+	ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput
+	ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationOutput
+}
+
+type AccessPointPublicAccessBlockConfigurationArgs struct {
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	// * PUT Object calls fail if the request includes a public ACL.
+	// * PUT Bucket calls fail if the request includes a public ACL.
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (AccessPointPublicAccessBlockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput).ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx)
+}
+
+type AccessPointPublicAccessBlockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput
+	ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput
+}
+
+type accessPointPublicAccessBlockConfigurationPtrType AccessPointPublicAccessBlockConfigurationArgs
+
+func AccessPointPublicAccessBlockConfigurationPtr(v *AccessPointPublicAccessBlockConfigurationArgs) AccessPointPublicAccessBlockConfigurationPtrInput {	return (*accessPointPublicAccessBlockConfigurationPtrType)(v)
+}
+
+func (*accessPointPublicAccessBlockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+type AccessPointPublicAccessBlockConfigurationOutput struct { *pulumi.OutputState }
+
+func (AccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
+		return &v
+	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+// * PUT Object calls fail if the request includes a public ACL.
+// * PUT Bucket calls fail if the request includes a public ACL.
+func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+func (o AccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+// * Only the bucket owner and AWS Services can access buckets with public policies.
+func (o AccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type AccessPointPublicAccessBlockConfigurationPtrOutput struct { *pulumi.OutputState}
+
+func (AccessPointPublicAccessBlockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
+	return o.ApplyT(func (v *AccessPointPublicAccessBlockConfiguration) AccessPointPublicAccessBlockConfiguration { return *v }).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+// * PUT Object calls fail if the request includes a public ACL.
+// * PUT Bucket calls fail if the request includes a public ACL.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+// * Only the bucket owner and AWS Services can access buckets with public policies.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v AccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type AccessPointVpcConfiguration struct {
+	// This access point will only allow connections from the specified VPC ID.
+	VpcId string `pulumi:"vpcId"`
+}
+
+type AccessPointVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToAccessPointVpcConfigurationOutput() AccessPointVpcConfigurationOutput
+	ToAccessPointVpcConfigurationOutputWithContext(context.Context) AccessPointVpcConfigurationOutput
+}
+
+type AccessPointVpcConfigurationArgs struct {
+	// This access point will only allow connections from the specified VPC ID.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (AccessPointVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutput() AccessPointVpcConfigurationOutput {
+	return i.ToAccessPointVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutputWithContext(ctx context.Context) AccessPointVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput)
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput).ToAccessPointVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+type AccessPointVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput
+	ToAccessPointVpcConfigurationPtrOutputWithContext(context.Context) AccessPointVpcConfigurationPtrOutput
+}
+
+type accessPointVpcConfigurationPtrType AccessPointVpcConfigurationArgs
+
+func AccessPointVpcConfigurationPtr(v *AccessPointVpcConfigurationArgs) AccessPointVpcConfigurationPtrInput {	return (*accessPointVpcConfigurationPtrType)(v)
+}
+
+func (*accessPointVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
+}
+
+type AccessPointVpcConfigurationOutput struct { *pulumi.OutputState }
+
+func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutput() AccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutputWithContext(ctx context.Context) AccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return o.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v AccessPointVpcConfiguration) *AccessPointVpcConfiguration {
+		return &v
+	}).(AccessPointVpcConfigurationPtrOutput)
+}
+// This access point will only allow connections from the specified VPC ID.
+func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func (v AccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type AccessPointVpcConfigurationPtrOutput struct { *pulumi.OutputState}
+
+func (AccessPointVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfigurationOutput {
+	return o.ApplyT(func (v *AccessPointVpcConfiguration) AccessPointVpcConfiguration { return *v }).(AccessPointVpcConfigurationOutput)
+}
+
+// This access point will only allow connections from the specified VPC ID.
+func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func (v AccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
 type AnalyticsConfigurationFilter struct {
 	Prefix *string `pulumi:"prefix"`
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -4129,6 +4419,10 @@ func (o InventorySchedulePtrOutput) Frequency() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(AccessPointVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationFilterOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationFilterPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisOutput{})

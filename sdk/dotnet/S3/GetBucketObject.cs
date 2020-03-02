@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketObjectArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket to read the object from
+        /// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;

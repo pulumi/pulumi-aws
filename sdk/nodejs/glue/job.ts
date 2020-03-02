@@ -126,7 +126,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
      */
     public readonly maxCapacity!: pulumi.Output<number>;
     /**
@@ -134,9 +134,13 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly maxRetries!: pulumi.Output<number | undefined>;
     /**
-     * The name of the job command. Defaults to `glueetl`
+     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Notification property of the job. Defined below.
+     */
+    public readonly notificationProperty!: pulumi.Output<outputs.glue.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
@@ -185,6 +189,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             inputs["maxRetries"] = state ? state.maxRetries : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["notificationProperty"] = state ? state.notificationProperty : undefined;
             inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
@@ -209,6 +214,7 @@ export class Job extends pulumi.CustomResource {
             inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             inputs["maxRetries"] = args ? args.maxRetries : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["notificationProperty"] = args ? args.notificationProperty : undefined;
             inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
@@ -265,7 +271,7 @@ export interface JobState {
      */
     readonly glueVersion?: pulumi.Input<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
      */
     readonly maxCapacity?: pulumi.Input<number>;
     /**
@@ -273,9 +279,13 @@ export interface JobState {
      */
     readonly maxRetries?: pulumi.Input<number>;
     /**
-     * The name of the job command. Defaults to `glueetl`
+     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Notification property of the job. Defined below.
+     */
+    readonly notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
@@ -335,7 +345,7 @@ export interface JobArgs {
      */
     readonly glueVersion?: pulumi.Input<string>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
      */
     readonly maxCapacity?: pulumi.Input<number>;
     /**
@@ -343,9 +353,13 @@ export interface JobArgs {
      */
     readonly maxRetries?: pulumi.Input<number>;
     /**
-     * The name of the job command. Defaults to `glueetl`
+     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Notification property of the job. Defined below.
+     */
+    readonly notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */

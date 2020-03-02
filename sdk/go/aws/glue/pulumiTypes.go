@@ -2088,7 +2088,7 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 }
 
 type JobCommand struct {
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
 	PythonVersion *string `pulumi:"pythonVersion"`
@@ -2104,7 +2104,7 @@ type JobCommandInput interface {
 }
 
 type JobCommandArgs struct {
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
@@ -2179,7 +2179,7 @@ func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(JobCommandPtrOutput)
 }
-// The name of the job command. Defaults to `glueetl`
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2212,7 +2212,7 @@ func (o JobCommandPtrOutput) Elem() JobCommandOutput {
 	return o.ApplyT(func (v *JobCommand) JobCommand { return *v }).(JobCommandOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2337,6 +2337,118 @@ func (o JobExecutionPropertyPtrOutput) Elem() JobExecutionPropertyOutput {
 // The maximum number of concurrent runs allowed for a job. The default is 1.
 func (o JobExecutionPropertyPtrOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v JobExecutionProperty) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
+}
+
+type JobNotificationProperty struct {
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
+}
+
+type JobNotificationPropertyInput interface {
+	pulumi.Input
+
+	ToJobNotificationPropertyOutput() JobNotificationPropertyOutput
+	ToJobNotificationPropertyOutputWithContext(context.Context) JobNotificationPropertyOutput
+}
+
+type JobNotificationPropertyArgs struct {
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	NotifyDelayAfter pulumi.IntPtrInput `pulumi:"notifyDelayAfter"`
+}
+
+func (JobNotificationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyOutput() JobNotificationPropertyOutput {
+	return i.ToJobNotificationPropertyOutputWithContext(context.Background())
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyOutputWithContext(ctx context.Context) JobNotificationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput)
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return i.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput).ToJobNotificationPropertyPtrOutputWithContext(ctx)
+}
+
+type JobNotificationPropertyPtrInput interface {
+	pulumi.Input
+
+	ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput
+	ToJobNotificationPropertyPtrOutputWithContext(context.Context) JobNotificationPropertyPtrOutput
+}
+
+type jobNotificationPropertyPtrType JobNotificationPropertyArgs
+
+func JobNotificationPropertyPtr(v *JobNotificationPropertyArgs) JobNotificationPropertyPtrInput {	return (*jobNotificationPropertyPtrType)(v)
+}
+
+func (*jobNotificationPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
+}
+
+func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return i.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyPtrOutput)
+}
+
+type JobNotificationPropertyOutput struct { *pulumi.OutputState }
+
+func (JobNotificationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyOutput() JobNotificationPropertyOutput {
+	return o
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyOutputWithContext(ctx context.Context) JobNotificationPropertyOutput {
+	return o
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return o.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return o.ApplyT(func(v JobNotificationProperty) *JobNotificationProperty {
+		return &v
+	}).(JobNotificationPropertyPtrOutput)
+}
+// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+func (o JobNotificationPropertyOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+}
+
+type JobNotificationPropertyPtrOutput struct { *pulumi.OutputState}
+
+func (JobNotificationPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
+}
+
+func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o JobNotificationPropertyPtrOutput) Elem() JobNotificationPropertyOutput {
+	return o.ApplyT(func (v *JobNotificationProperty) JobNotificationProperty { return *v }).(JobNotificationPropertyOutput)
+}
+
+// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfiguration struct {
@@ -3376,6 +3488,8 @@ func init() {
 	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
+	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
+	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput{})

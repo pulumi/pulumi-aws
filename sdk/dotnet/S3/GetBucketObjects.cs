@@ -20,7 +20,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketObjectsArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Lists object keys in this S3 bucket
+        /// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;

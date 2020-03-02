@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
-        /// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         /// </summary>
         public readonly string ZookeeperConnectString;
         /// <summary>

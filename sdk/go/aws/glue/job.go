@@ -35,12 +35,14 @@ type Job struct {
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
 	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrOutput `pulumi:"maxRetries"`
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Notification property of the job. Defined below.
+	NotificationProperty JobNotificationPropertyOutput `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntPtrOutput `pulumi:"numberOfWorkers"`
 	// The ARN of the IAM role associated with this job.
@@ -105,12 +107,14 @@ type jobState struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
+	// Notification property of the job. Defined below.
+	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The ARN of the IAM role associated with this job.
@@ -142,12 +146,14 @@ type JobState struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrInput
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput
+	// Notification property of the job. Defined below.
+	NotificationProperty JobNotificationPropertyPtrInput
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntPtrInput
 	// The ARN of the IAM role associated with this job.
@@ -181,12 +187,14 @@ type jobArgs struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries *int `pulumi:"maxRetries"`
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
+	// Notification property of the job. Defined below.
+	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
 	// The ARN of the IAM role associated with this job.
@@ -217,12 +225,14 @@ type JobArgs struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
-	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`.
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
 	MaxRetries pulumi.IntPtrInput
-	// The name of the job command. Defaults to `glueetl`
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput
+	// Notification property of the job. Defined below.
+	NotificationProperty JobNotificationPropertyPtrInput
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntPtrInput
 	// The ARN of the IAM role associated with this job.

@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .activity import *
 from .state_machine import *
+from .get_activity import *
+from .get_state_machine import *

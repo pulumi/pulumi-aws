@@ -42,9 +42,11 @@ type Cluster struct {
 	KafkaVersion pulumi.StringOutput `pulumi:"kafkaVersion"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
+	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
 	// A mapping of tags to assign to the resource
 	Tags pulumi.MapOutput `pulumi:"tags"`
-	// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
 }
 
@@ -113,9 +115,11 @@ type clusterState struct {
 	KafkaVersion *string `pulumi:"kafkaVersion"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
+	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
 	// A mapping of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
-	// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString *string `pulumi:"zookeeperConnectString"`
 }
 
@@ -145,9 +149,11 @@ type ClusterState struct {
 	KafkaVersion pulumi.StringPtrInput
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes pulumi.IntPtrInput
+	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+	OpenMonitoring ClusterOpenMonitoringPtrInput
 	// A mapping of tags to assign to the resource
 	Tags pulumi.MapInput
-	// A comma separated list of one or more IP:port pairs to use to connect to the Apache Zookeeper cluster.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString pulumi.StringPtrInput
 }
 
@@ -172,6 +178,8 @@ type clusterArgs struct {
 	KafkaVersion string `pulumi:"kafkaVersion"`
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
+	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
 	// A mapping of tags to assign to the resource
 	Tags map[string]interface{} `pulumi:"tags"`
 }
@@ -194,6 +202,8 @@ type ClusterArgs struct {
 	KafkaVersion pulumi.StringInput
 	// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
 	NumberOfBrokerNodes pulumi.IntInput
+	// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+	OpenMonitoring ClusterOpenMonitoringPtrInput
 	// A mapping of tags to assign to the resource
 	Tags pulumi.MapInput
 }
