@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.51.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 1.24.0 (2020-03-03)
+* Upgrade to v2.51.0 of the AWS Terraform Provider
 
 ## 1.23.0 (2020-02-21)
 * Add support for Ruby 2.7 Lambda Runtime
