@@ -84,7 +84,7 @@ export class TopicSubscription extends pulumi.CustomResource {
     /**
      * The ARN of the SNS topic to subscribe to
      */
-    public readonly topic!: pulumi.Output<Topic>;
+    public readonly topic!: pulumi.Output<string>;
 
     /**
      * Create a TopicSubscription resource with the given unique name, arguments, and options.
@@ -178,7 +178,7 @@ export interface TopicSubscriptionState {
     /**
      * The ARN of the SNS topic to subscribe to
      */
-    readonly topic?: pulumi.Input<Topic>;
+    readonly topic?: pulumi.Input<string | Topic>;
 }
 
 /**
@@ -216,5 +216,5 @@ export interface TopicSubscriptionArgs {
     /**
      * The ARN of the SNS topic to subscribe to
      */
-    readonly topic: pulumi.Input<Topic>;
+    readonly topic: pulumi.Input<string | Topic>;
 }

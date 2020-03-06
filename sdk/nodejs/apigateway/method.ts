@@ -139,7 +139,7 @@ export class Method extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
 
     /**
      * Create a Method resource with the given unique name, arguments, and options.
@@ -245,7 +245,7 @@ export interface MethodState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
 }
 
 /**
@@ -294,5 +294,5 @@ export interface MethodArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
 }

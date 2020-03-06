@@ -60,7 +60,7 @@ export class RequestValidator extends pulumi.CustomResource {
     /**
      * The ID of the associated Rest API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
@@ -118,7 +118,7 @@ export interface RequestValidatorState {
     /**
      * The ID of the associated Rest API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
@@ -140,7 +140,7 @@ export interface RequestValidatorArgs {
     /**
      * The ID of the associated Rest API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */

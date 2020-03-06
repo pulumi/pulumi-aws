@@ -110,7 +110,7 @@ export class Environment extends pulumi.CustomResource {
      * Name of the application that contains the version
      * to be deployed
      */
-    public readonly application!: pulumi.Output<Application>;
+    public readonly application!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The autoscaling groups used by this Environment.
@@ -297,7 +297,7 @@ export interface EnvironmentState {
      * Name of the application that contains the version
      * to be deployed
      */
-    readonly application?: pulumi.Input<Application>;
+    readonly application?: pulumi.Input<string | Application>;
     readonly arn?: pulumi.Input<string>;
     /**
      * The autoscaling groups used by this Environment.
@@ -404,7 +404,7 @@ export interface EnvironmentArgs {
      * Name of the application that contains the version
      * to be deployed
      */
-    readonly application: pulumi.Input<Application>;
+    readonly application: pulumi.Input<string | Application>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.

@@ -268,7 +268,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application string `pulumi:"application"`
+	Application interface{} `pulumi:"application"`
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix *string `pulumi:"cnamePrefix"`
@@ -314,7 +314,7 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Name of the application that contains the version
 	// to be deployed
-	Application pulumi.StringInput
+	Application pulumi.Input
 	// Prefix to use for the fully qualified DNS name of
 	// the Environment.
 	CnamePrefix pulumi.StringPtrInput

@@ -220,7 +220,7 @@ type integrationArgs struct {
 	// The API resource ID.
 	ResourceId string `pulumi:"resourceId"`
 	// The ID of the associated REST API.
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
@@ -264,7 +264,7 @@ type IntegrationArgs struct {
 	// The API resource ID.
 	ResourceId pulumi.StringInput
 	// The ID of the associated REST API.
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
 	// The integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.

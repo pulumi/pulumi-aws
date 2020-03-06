@@ -109,7 +109,7 @@ type logSubscriptionFilterArgs struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
 	FilterPattern string `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
-	LogGroup string `pulumi:"logGroup"`
+	LogGroup interface{} `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 
@@ -125,7 +125,7 @@ type LogSubscriptionFilterArgs struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
 	FilterPattern pulumi.StringInput
 	// The name of the log group to associate the subscription filter with
-	LogGroup pulumi.StringInput
+	LogGroup pulumi.Input
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function. 

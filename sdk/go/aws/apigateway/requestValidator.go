@@ -87,7 +87,7 @@ type requestValidatorArgs struct {
 	// The name of the request validator
 	Name *string `pulumi:"name"`
 	// The ID of the associated Rest API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -99,7 +99,7 @@ type RequestValidatorArgs struct {
 	// The name of the request validator
 	Name pulumi.StringPtrInput
 	// The ID of the associated Rest API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
 	// Boolean whether to validate request parameters. Defaults to `false`.

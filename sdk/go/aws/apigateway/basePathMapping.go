@@ -94,7 +94,7 @@ type basePathMappingArgs struct {
 	// The already-registered domain name to connect the API to.
 	DomainName string `pulumi:"domainName"`
 	// The id of the API to connect.
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName *string `pulumi:"stageName"`
 }
@@ -106,7 +106,7 @@ type BasePathMappingArgs struct {
 	// The already-registered domain name to connect the API to.
 	DomainName pulumi.StringInput
 	// The id of the API to connect.
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName pulumi.StringPtrInput
 }

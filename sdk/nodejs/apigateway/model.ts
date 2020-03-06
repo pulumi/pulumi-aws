@@ -75,7 +75,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * The schema of the model in a JSON form
      */
@@ -142,7 +142,7 @@ export interface ModelState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * The schema of the model in a JSON form
      */
@@ -168,7 +168,7 @@ export interface ModelArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * The schema of the model in a JSON form
      */

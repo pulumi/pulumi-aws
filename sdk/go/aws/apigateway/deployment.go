@@ -123,7 +123,7 @@ type deploymentArgs struct {
 	// The description of the deployment
 	Description *string `pulumi:"description"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The description of the stage
 	StageDescription *string `pulumi:"stageDescription"`
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
@@ -137,7 +137,7 @@ type DeploymentArgs struct {
 	// The description of the deployment
 	Description pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The description of the stage
 	StageDescription pulumi.StringPtrInput
 	// The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.

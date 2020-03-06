@@ -146,7 +146,7 @@ type topicSubscriptionArgs struct {
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// The ARN of the SNS topic to subscribe to
-	Topic string `pulumi:"topic"`
+	Topic interface{} `pulumi:"topic"`
 }
 
 // The set of arguments for constructing a TopicSubscription resource.
@@ -166,7 +166,7 @@ type TopicSubscriptionArgs struct {
 	// Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
 	RawMessageDelivery pulumi.BoolPtrInput
 	// The ARN of the SNS topic to subscribe to
-	Topic pulumi.StringInput
+	Topic pulumi.Input
 }
 
 func (TopicSubscriptionArgs) ElementType() reflect.Type {
