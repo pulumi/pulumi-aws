@@ -220,7 +220,7 @@ export interface CallbackFunctionArgs<E, R> extends BaseCallbackFunctionArgs {
 
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some
- * AWS resource an an AWS lambda that will be triggered when something happens to that resource.
+ * AWS resource and an AWS lambda that will be triggered when something happens to that resource.
  */
 export class EventSubscription extends pulumi.ComponentResource {
     public permission!: permission.Permission;
