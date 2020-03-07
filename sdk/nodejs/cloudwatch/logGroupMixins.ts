@@ -93,7 +93,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         region = region || config.region;
 
         this.permission = new lambda.Permission(name, {
-            action: "lambda:invokeFunction",
+            action: "lambda:InvokeFunction",
             function: this.func,
             principal: pulumi.interpolate`logs.${region}.amazonaws.com`,
             sourceArn: logGroup.arn,
