@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.25.0 (2020-03-09)
 * Upgrade to v2.52.0 of the AWS Terraform Provider
 * Ensure that resource types are primitive types and move any
   existing direct type references to be AltTypes 
-
----
 
 ## 1.24.0 (2020-03-03)
 * Upgrade to v2.51.0 of the AWS Terraform Provider
