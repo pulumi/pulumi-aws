@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ebs
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Ebs
         }
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Ebs
         }
 
         /// <summary>
-        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "standard").
+        /// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

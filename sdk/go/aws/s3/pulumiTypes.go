@@ -811,6 +811,122 @@ func (o BucketCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsRuleOutput
 	}).(BucketCorsRuleOutput)
 }
 
+type BucketGrant struct {
+	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+	Id *string `pulumi:"id"`
+	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+	Permissions []string `pulumi:"permissions"`
+	// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+	Type string `pulumi:"type"`
+	// Uri address to grant for. Used only when `type` is `Group`.
+	Uri *string `pulumi:"uri"`
+}
+
+type BucketGrantInput interface {
+	pulumi.Input
+
+	ToBucketGrantOutput() BucketGrantOutput
+	ToBucketGrantOutputWithContext(context.Context) BucketGrantOutput
+}
+
+type BucketGrantArgs struct {
+	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Uri address to grant for. Used only when `type` is `Group`.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (BucketGrantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketGrant)(nil)).Elem()
+}
+
+func (i BucketGrantArgs) ToBucketGrantOutput() BucketGrantOutput {
+	return i.ToBucketGrantOutputWithContext(context.Background())
+}
+
+func (i BucketGrantArgs) ToBucketGrantOutputWithContext(ctx context.Context) BucketGrantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketGrantOutput)
+}
+
+type BucketGrantArrayInput interface {
+	pulumi.Input
+
+	ToBucketGrantArrayOutput() BucketGrantArrayOutput
+	ToBucketGrantArrayOutputWithContext(context.Context) BucketGrantArrayOutput
+}
+
+type BucketGrantArray []BucketGrantInput
+
+func (BucketGrantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketGrant)(nil)).Elem()
+}
+
+func (i BucketGrantArray) ToBucketGrantArrayOutput() BucketGrantArrayOutput {
+	return i.ToBucketGrantArrayOutputWithContext(context.Background())
+}
+
+func (i BucketGrantArray) ToBucketGrantArrayOutputWithContext(ctx context.Context) BucketGrantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketGrantArrayOutput)
+}
+
+type BucketGrantOutput struct { *pulumi.OutputState }
+
+func (BucketGrantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketGrant)(nil)).Elem()
+}
+
+func (o BucketGrantOutput) ToBucketGrantOutput() BucketGrantOutput {
+	return o
+}
+
+func (o BucketGrantOutput) ToBucketGrantOutputWithContext(ctx context.Context) BucketGrantOutput {
+	return o
+}
+
+// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+func (o BucketGrantOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v BucketGrant) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+func (o BucketGrantOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v BucketGrant) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+func (o BucketGrantOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func (v BucketGrant) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Uri address to grant for. Used only when `type` is `Group`.
+func (o BucketGrantOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v BucketGrant) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type BucketGrantArrayOutput struct { *pulumi.OutputState}
+
+func (BucketGrantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketGrant)(nil)).Elem()
+}
+
+func (o BucketGrantArrayOutput) ToBucketGrantArrayOutput() BucketGrantArrayOutput {
+	return o
+}
+
+func (o BucketGrantArrayOutput) ToBucketGrantArrayOutputWithContext(ctx context.Context) BucketGrantArrayOutput {
+	return o
+}
+
+func (o BucketGrantArrayOutput) Index(i pulumi.IntInput) BucketGrantOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) BucketGrant {
+		return vs[0].([]BucketGrant)[vs[1].(int)]
+	}).(BucketGrantOutput)
+}
+
 type BucketLifecycleRule struct {
 	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays *int `pulumi:"abortIncompleteMultipartUploadDays"`
@@ -818,7 +934,7 @@ type BucketLifecycleRule struct {
 	Enabled bool `pulumi:"enabled"`
 	// Specifies a period in the object's expire (documented below).
 	Expiration *BucketLifecycleRuleExpiration `pulumi:"expiration"`
-	// Unique identifier for the rule.
+	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
 	Id *string `pulumi:"id"`
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration *BucketLifecycleRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
@@ -847,7 +963,7 @@ type BucketLifecycleRuleArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies a period in the object's expire (documented below).
 	Expiration BucketLifecycleRuleExpirationPtrInput `pulumi:"expiration"`
-	// Unique identifier for the rule.
+	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration BucketLifecycleRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
@@ -924,7 +1040,7 @@ func (o BucketLifecycleRuleOutput) Expiration() BucketLifecycleRuleExpirationPtr
 	return o.ApplyT(func (v BucketLifecycleRule) *BucketLifecycleRuleExpiration { return v.Expiration }).(BucketLifecycleRuleExpirationPtrOutput)
 }
 
-// Unique identifier for the rule.
+// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
 func (o BucketLifecycleRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v BucketLifecycleRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2466,7 +2582,7 @@ type BucketReplicationConfigurationRule struct {
 	Destination BucketReplicationConfigurationRuleDestination `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
 	Filter *BucketReplicationConfigurationRuleFilter `pulumi:"filter"`
-	// Unique identifier for the rule.
+	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
 	Id *string `pulumi:"id"`
 	// Object keyname prefix that identifies subset of objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
@@ -2490,7 +2606,7 @@ type BucketReplicationConfigurationRuleArgs struct {
 	Destination BucketReplicationConfigurationRuleDestinationInput `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
 	Filter BucketReplicationConfigurationRuleFilterPtrInput `pulumi:"filter"`
-	// Unique identifier for the rule.
+	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Object keyname prefix that identifies subset of objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -2559,7 +2675,7 @@ func (o BucketReplicationConfigurationRuleOutput) Filter() BucketReplicationConf
 	return o.ApplyT(func (v BucketReplicationConfigurationRule) *BucketReplicationConfigurationRuleFilter { return v.Filter }).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
 
-// Unique identifier for the rule.
+// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
 func (o BucketReplicationConfigurationRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v BucketReplicationConfigurationRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -4432,6 +4548,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketGrantOutput{})
+	pulumi.RegisterOutputType(BucketGrantArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleExpirationOutput{})

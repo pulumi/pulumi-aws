@@ -40,7 +40,7 @@ class Trail(pulumi.CustomResource):
     
       * `dataResources` (`list`) - Specifies logging data events. Fields documented below.
     
-        * `type` (`str`) - The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+        * `type` (`str`) - The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
         * `values` (`list`) - A list of ARN for the specified S3 buckets and object prefixes..
     
       * `includeManagementEvents` (`bool`) - Specify if you want your event selector to include management events for your trail.
@@ -127,7 +127,7 @@ class Trail(pulumi.CustomResource):
         
           * `dataResources` (`pulumi.Input[list]`) - Specifies logging data events. Fields documented below.
         
-            * `type` (`pulumi.Input[str]`) - The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+            * `type` (`pulumi.Input[str]`) - The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
             * `values` (`pulumi.Input[list]`) - A list of ARN for the specified S3 buckets and object prefixes..
         
           * `includeManagementEvents` (`pulumi.Input[bool]`) - Specify if you want your event selector to include management events for your trail.
@@ -214,7 +214,7 @@ class Trail(pulumi.CustomResource):
         
           * `dataResources` (`pulumi.Input[list]`) - Specifies logging data events. Fields documented below.
         
-            * `type` (`pulumi.Input[str]`) - The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+            * `type` (`pulumi.Input[str]`) - The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
             * `values` (`pulumi.Input[list]`) - A list of ARN for the specified S3 buckets and object prefixes..
         
           * `includeManagementEvents` (`pulumi.Input[bool]`) - Specify if you want your event selector to include management events for your trail.

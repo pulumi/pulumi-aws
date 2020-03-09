@@ -283,6 +283,8 @@
         "ec2/flowLog.ts",
         "ec2/getCustomerGateway.ts",
         "ec2/getInstance.ts",
+        "ec2/getInstanceTypeOffering.ts",
+        "ec2/getInstanceTypeOfferings.ts",
         "ec2/getInstances.ts",
         "ec2/getInternetGateway.ts",
         "ec2/getLaunchConfiguration.ts",

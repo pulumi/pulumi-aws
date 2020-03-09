@@ -21,6 +21,8 @@ export * from "./fleet";
 export * from "./flowLog";
 export * from "./getCustomerGateway";
 export * from "./getInstance";
+export * from "./getInstanceTypeOffering";
+export * from "./getInstanceTypeOfferings";
 export * from "./getInstances";
 export * from "./getInternetGateway";
 export * from "./getLaunchConfiguration";

@@ -152,7 +152,7 @@ func (o AcceleratorAttributesPtrOutput) FlowLogsS3Prefix() pulumi.StringPtrOutpu
 }
 
 type AcceleratorIpSet struct {
-	// The array of IP addresses in the IP address set.
+	// A list of IP addresses in the IP address set.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The types of IP addresses included in this IP set.
 	IpFamily *string `pulumi:"ipFamily"`
@@ -166,7 +166,7 @@ type AcceleratorIpSetInput interface {
 }
 
 type AcceleratorIpSetArgs struct {
-	// The array of IP addresses in the IP address set.
+	// A list of IP addresses in the IP address set.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 	// The types of IP addresses included in this IP set.
 	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
@@ -219,7 +219,7 @@ func (o AcceleratorIpSetOutput) ToAcceleratorIpSetOutputWithContext(ctx context.
 	return o
 }
 
-// The array of IP addresses in the IP address set.
+// A list of IP addresses in the IP address set.
 func (o AcceleratorIpSetOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v AcceleratorIpSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }

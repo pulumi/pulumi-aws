@@ -119,7 +119,7 @@ func (o TrailEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailEventSelect
 }
 
 type TrailEventSelectorDataResource struct {
-	// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+	// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
 	Type string `pulumi:"type"`
 	// A list of ARN for the specified S3 buckets and object prefixes..
 	Values []string `pulumi:"values"`
@@ -133,7 +133,7 @@ type TrailEventSelectorDataResourceInput interface {
 }
 
 type TrailEventSelectorDataResourceArgs struct {
-	// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+	// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
 	Type pulumi.StringInput `pulumi:"type"`
 	// A list of ARN for the specified S3 buckets and object prefixes..
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -186,7 +186,7 @@ func (o TrailEventSelectorDataResourceOutput) ToTrailEventSelectorDataResourceOu
 	return o
 }
 
-// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
 func (o TrailEventSelectorDataResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func (v TrailEventSelectorDataResource) string { return v.Type }).(pulumi.StringOutput)
 }

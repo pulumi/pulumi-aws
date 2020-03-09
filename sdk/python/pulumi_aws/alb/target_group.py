@@ -41,6 +41,10 @@ class TargetGroup(pulumi.CustomResource):
     """
     Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
     """
+    load_balancing_algorithm_type: pulumi.Output[str]
+    """
+    Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+    """
     name: pulumi.Output[str]
     """
     The name of the target group. If omitted, this provider will assign a random, unique name.
@@ -90,7 +94,7 @@ class TargetGroup(pulumi.CustomResource):
     """
     The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
     """
-    def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
         
@@ -101,6 +105,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[dict] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: The name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[float] port: The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
@@ -158,6 +163,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__['deregistration_delay'] = deregistration_delay
             __props__['health_check'] = health_check
             __props__['lambda_multi_value_headers_enabled'] = lambda_multi_value_headers_enabled
+            __props__['load_balancing_algorithm_type'] = load_balancing_algorithm_type
             __props__['name'] = name
             __props__['name_prefix'] = name_prefix
             __props__['port'] = port
@@ -179,7 +185,7 @@ class TargetGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         """
         Get an existing TargetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -192,6 +198,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[dict] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: The name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[float] port: The port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
@@ -237,6 +244,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__["deregistration_delay"] = deregistration_delay
         __props__["health_check"] = health_check
         __props__["lambda_multi_value_headers_enabled"] = lambda_multi_value_headers_enabled
+        __props__["load_balancing_algorithm_type"] = load_balancing_algorithm_type
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix
         __props__["port"] = port

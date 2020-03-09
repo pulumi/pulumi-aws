@@ -48,6 +48,12 @@ namespace Pulumi.Aws.Alb
         public Output<bool?> LambdaMultiValueHeadersEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        /// </summary>
+        [Output("loadBalancingAlgorithmType")]
+        public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the target group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
 
         /// <summary>
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        /// </summary>
+        [Input("loadBalancingAlgorithmType")]
+        public Input<string>? LoadBalancingAlgorithmType { get; set; }
+
+        /// <summary>
         /// The name of the target group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
+
+        /// <summary>
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        /// </summary>
+        [Input("loadBalancingAlgorithmType")]
+        public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
         /// The name of the target group. If omitted, this provider will assign a random, unique name.

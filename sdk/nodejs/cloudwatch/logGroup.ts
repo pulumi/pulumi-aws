@@ -72,7 +72,7 @@ export class LogGroup extends pulumi.CustomResource {
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of days
-     * you want to retain log events in the specified log group.
+     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface LogGroupState {
     readonly namePrefix?: pulumi.Input<string>;
     /**
      * Specifies the number of days
-     * you want to retain log events in the specified log group.
+     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**
@@ -171,7 +171,7 @@ export interface LogGroupArgs {
     readonly namePrefix?: pulumi.Input<string>;
     /**
      * Specifies the number of days
-     * you want to retain log events in the specified log group.
+     * you want to retain log events in the specified log group.  Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**

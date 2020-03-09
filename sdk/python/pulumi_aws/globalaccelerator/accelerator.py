@@ -18,10 +18,18 @@ class Accelerator(pulumi.CustomResource):
       * `flowLogsS3Bucket` (`str`) - The name of the Amazon S3 bucket for the flow logs.
       * `flowLogsS3Prefix` (`str`) - The prefix for the location in the Amazon S3 bucket for the flow logs.
     """
+    dns_name: pulumi.Output[str]
+    """
+    The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+    * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
+    route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+    """
     enabled: pulumi.Output[bool]
     """
     Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
     """
+    hosted_zone_id: pulumi.Output[str]
     ip_address_type: pulumi.Output[str]
     """
     The value for the address type must be `IPV4`.
@@ -30,7 +38,7 @@ class Accelerator(pulumi.CustomResource):
     """
     IP address set associated with the accelerator.
     
-      * `ipAddresses` (`list`) - The array of IP addresses in the IP address set.
+      * `ipAddresses` (`list`) - A list of IP addresses in the IP address set.
       * `ipFamily` (`str`) - The types of IP addresses included in this IP set.
     """
     name: pulumi.Output[str]
@@ -39,7 +47,7 @@ class Accelerator(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, attributes=None, enabled=None, ip_address_type=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Global Accelerator accelerator.
+        Creates a Global Accelerator accelerator.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -77,6 +85,8 @@ class Accelerator(pulumi.CustomResource):
             __props__['enabled'] = enabled
             __props__['ip_address_type'] = ip_address_type
             __props__['name'] = name
+            __props__['dns_name'] = None
+            __props__['hosted_zone_id'] = None
             __props__['ip_sets'] = None
         super(Accelerator, __self__).__init__(
             'aws:globalaccelerator/accelerator:Accelerator',
@@ -85,7 +95,7 @@ class Accelerator(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, attributes=None, enabled=None, ip_address_type=None, ip_sets=None, name=None):
+    def get(resource_name, id, opts=None, attributes=None, dns_name=None, enabled=None, hosted_zone_id=None, ip_address_type=None, ip_sets=None, name=None):
         """
         Get an existing Accelerator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,6 +104,10 @@ class Accelerator(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] attributes: The attributes of the accelerator. Fields documented below.
+        :param pulumi.Input[str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+               * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
+               route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+               is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
         :param pulumi.Input[str] ip_address_type: The value for the address type must be `IPV4`.
         :param pulumi.Input[list] ip_sets: IP address set associated with the accelerator.
@@ -107,7 +121,7 @@ class Accelerator(pulumi.CustomResource):
         
         The **ip_sets** object supports the following:
         
-          * `ipAddresses` (`pulumi.Input[list]`) - The array of IP addresses in the IP address set.
+          * `ipAddresses` (`pulumi.Input[list]`) - A list of IP addresses in the IP address set.
           * `ipFamily` (`pulumi.Input[str]`) - The types of IP addresses included in this IP set.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
@@ -116,7 +130,9 @@ class Accelerator(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["attributes"] = attributes
+        __props__["dns_name"] = dns_name
         __props__["enabled"] = enabled
+        __props__["hosted_zone_id"] = hosted_zone_id
         __props__["ip_address_type"] = ip_address_type
         __props__["ip_sets"] = ip_sets
         __props__["name"] = name

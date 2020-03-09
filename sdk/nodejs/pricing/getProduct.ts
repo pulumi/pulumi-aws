@@ -42,6 +42,10 @@ import * as utilities from "../utilities";
  *             field: "tenancy",
  *             value: "Shared",
  *         },
+ *         {
+ *             field: "capacitystatus",
+ *             value: "Used",
+ *         },
  *     ],
  *     serviceCode: "AmazonEC2",
  * });

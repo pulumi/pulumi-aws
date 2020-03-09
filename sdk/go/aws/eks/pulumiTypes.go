@@ -123,6 +123,180 @@ func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
+type ClusterEncryptionConfig struct {
+	// Configuration block with provider for encryption. Detailed below.
+	Provider ClusterEncryptionConfigProvider `pulumi:"provider"`
+	// List of strings with resources to be encrypted. Valid values: `secrets`
+	Resources []string `pulumi:"resources"`
+}
+
+type ClusterEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigOutput() ClusterEncryptionConfigOutput
+	ToClusterEncryptionConfigOutputWithContext(context.Context) ClusterEncryptionConfigOutput
+}
+
+type ClusterEncryptionConfigArgs struct {
+	// Configuration block with provider for encryption. Detailed below.
+	Provider ClusterEncryptionConfigProviderInput `pulumi:"provider"`
+	// List of strings with resources to be encrypted. Valid values: `secrets`
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
+}
+
+func (ClusterEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigOutput() ClusterEncryptionConfigOutput {
+	return i.ToClusterEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigOutputWithContext(ctx context.Context) ClusterEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigOutput)
+}
+
+func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigPtrOutput() ClusterEncryptionConfigPtrOutput {
+	return i.ToClusterEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigOutput).ToClusterEncryptionConfigPtrOutputWithContext(ctx)
+}
+
+type ClusterEncryptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigPtrOutput() ClusterEncryptionConfigPtrOutput
+	ToClusterEncryptionConfigPtrOutputWithContext(context.Context) ClusterEncryptionConfigPtrOutput
+}
+
+type clusterEncryptionConfigPtrType ClusterEncryptionConfigArgs
+
+func ClusterEncryptionConfigPtr(v *ClusterEncryptionConfigArgs) ClusterEncryptionConfigPtrInput {	return (*clusterEncryptionConfigPtrType)(v)
+}
+
+func (*clusterEncryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (i *clusterEncryptionConfigPtrType) ToClusterEncryptionConfigPtrOutput() ClusterEncryptionConfigPtrOutput {
+	return i.ToClusterEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEncryptionConfigPtrType) ToClusterEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigPtrOutput)
+}
+
+type ClusterEncryptionConfigOutput struct { *pulumi.OutputState }
+
+func (ClusterEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutput() ClusterEncryptionConfigOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutputWithContext(ctx context.Context) ClusterEncryptionConfigOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigPtrOutput() ClusterEncryptionConfigPtrOutput {
+	return o.ToClusterEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfig) *ClusterEncryptionConfig {
+		return &v
+	}).(ClusterEncryptionConfigPtrOutput)
+}
+// Configuration block with provider for encryption. Detailed below.
+func (o ClusterEncryptionConfigOutput) Provider() ClusterEncryptionConfigProviderOutput {
+	return o.ApplyT(func (v ClusterEncryptionConfig) ClusterEncryptionConfigProvider { return v.Provider }).(ClusterEncryptionConfigProviderOutput)
+}
+
+// List of strings with resources to be encrypted. Valid values: `secrets`
+func (o ClusterEncryptionConfigOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+type ClusterEncryptionConfigPtrOutput struct { *pulumi.OutputState}
+
+func (ClusterEncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigPtrOutput) ToClusterEncryptionConfigPtrOutput() ClusterEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigPtrOutput) ToClusterEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigPtrOutput) Elem() ClusterEncryptionConfigOutput {
+	return o.ApplyT(func (v *ClusterEncryptionConfig) ClusterEncryptionConfig { return *v }).(ClusterEncryptionConfigOutput)
+}
+
+// Configuration block with provider for encryption. Detailed below.
+func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProviderOutput {
+	return o.ApplyT(func (v ClusterEncryptionConfig) ClusterEncryptionConfigProvider { return v.Provider }).(ClusterEncryptionConfigProviderOutput)
+}
+
+// List of strings with resources to be encrypted. Valid values: `secrets`
+func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+type ClusterEncryptionConfigProvider struct {
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+	KeyArn string `pulumi:"keyArn"`
+}
+
+type ClusterEncryptionConfigProviderInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderOutput() ClusterEncryptionConfigProviderOutput
+	ToClusterEncryptionConfigProviderOutputWithContext(context.Context) ClusterEncryptionConfigProviderOutput
+}
+
+type ClusterEncryptionConfigProviderArgs struct {
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+	KeyArn pulumi.StringInput `pulumi:"keyArn"`
+}
+
+func (ClusterEncryptionConfigProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfigProvider)(nil)).Elem()
+}
+
+func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderOutput() ClusterEncryptionConfigProviderOutput {
+	return i.ToClusterEncryptionConfigProviderOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderOutput)
+}
+
+type ClusterEncryptionConfigProviderOutput struct { *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfigProvider)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderOutput() ClusterEncryptionConfigProviderOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+func (o ClusterEncryptionConfigProviderOutput) KeyArn() pulumi.StringOutput {
+	return o.ApplyT(func (v ClusterEncryptionConfigProvider) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
 type ClusterIdentity struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 	Oidcs []ClusterIdentityOidc `pulumi:"oidcs"`
@@ -1375,6 +1549,9 @@ func (o GetClusterVpcConfigOutput) VpcId() pulumi.StringOutput {
 func init() {
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOidcOutput{})
