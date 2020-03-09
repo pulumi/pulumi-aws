@@ -149,19 +149,7 @@ import {Metric, MetricsGranularity} from "./metrics";
  *     launchConfiguration: aws_launch_configuration_foobar.name,
  *     maxSize: 5,
  *     minSize: 2,
- *     tagsCollection: [
- *         {
- *             key: "explicit1",
- *             propagate_at_launch: true,
- *             value: "value1",
- *         },
- *         {
- *             key: "explicit2",
- *             propagate_at_launch: true,
- *             value: "value2",
- *         },
- *         ...[{"key": "interpolation1", "value": "value3", "propagateAtLaunch": true}, {"key": "interpolation2", "value": "value4", "propagateAtLaunch": true}].concat(extraTags),
- *     ],
+ *     tagsCollection: [{"key": "interpolation1", "value": "value3", "propagateAtLaunch": true}, {"key": "interpolation2", "value": "value4", "propagateAtLaunch": true}].concat(extraTags),
  *     vpcZoneIdentifiers: [
  *         aws_subnet_example1.id,
  *         aws_subnet_example2.id,

@@ -438,7 +438,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class TrailEventSelectorsDataResourcesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+        /// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -463,7 +463,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class TrailEventSelectorsDataResourcesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+        /// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -552,7 +552,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class TrailEventSelectorsDataResources
     {
         /// <summary>
-        /// The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+        /// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
         /// </summary>
         public readonly string Type;
         /// <summary>

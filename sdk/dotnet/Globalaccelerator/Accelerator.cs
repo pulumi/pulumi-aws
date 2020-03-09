@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GlobalAccelerator
 {
     /// <summary>
-    /// Provides a Global Accelerator accelerator.
+    /// Creates a Global Accelerator accelerator.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/globalaccelerator_accelerator.html.markdown.
     /// </summary>
@@ -22,10 +22,22 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<Outputs.AcceleratorAttributes?> Attributes { get; private set; } = null!;
 
         /// <summary>
+        /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        /// * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
+        /// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+        /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+        /// </summary>
+        [Output("dnsName")]
+        public Output<string> DnsName { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        [Output("hostedZoneId")]
+        public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// The value for the address type must be `IPV4`.
@@ -129,10 +141,22 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<Inputs.AcceleratorAttributesGetArgs>? Attributes { get; set; }
 
         /// <summary>
+        /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        /// * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
+        /// route an [Alias Resource Record Set][1] to the Global Accelerator. This attribute
+        /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+        /// </summary>
+        [Input("dnsName")]
+        public Input<string>? DnsName { get; set; }
+
+        /// <summary>
         /// Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("hostedZoneId")]
+        public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
         /// The value for the address type must be `IPV4`.
@@ -222,7 +246,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<string>? _ipAddresses;
 
         /// <summary>
-        /// The array of IP addresses in the IP address set.
+        /// A list of IP addresses in the IP address set.
         /// </summary>
         public InputList<string> IpAddresses
         {
@@ -277,7 +301,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class AcceleratorIpSets
     {
         /// <summary>
-        /// The array of IP addresses in the IP address set.
+        /// A list of IP addresses in the IP address set.
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>

@@ -288,6 +288,32 @@ import {RoutingRule} from "./routingRules";
  *     },
  * });
  * ```
+ * 
+ * ### Using ACL policy grants
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const currentUser = aws.getCanonicalUserId();
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     grants: [
+ *         {
+ *             id: currentUser.id,
+ *             permission: ["FULL_ACCESS"],
+ *             type: "CanonicalUser",
+ *         },
+ *         {
+ *             permission: [
+ *                 "READ",
+ *                 "WRITE",
+ *             ],
+ *             type: "Group",
+ *             uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_bucket.html.markdown.
  */
@@ -323,7 +349,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly accelerationStatus!: pulumi.Output<string>;
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
@@ -355,6 +381,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+     */
+    public readonly grants!: pulumi.Output<outputs.s3.BucketGrant[] | undefined>;
+    /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
     public readonly hostedZoneId!: pulumi.Output<string>;
@@ -371,7 +401,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
      */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
@@ -436,6 +466,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["bucketRegionalDomainName"] = state ? state.bucketRegionalDomainName : undefined;
             inputs["corsRules"] = state ? state.corsRules : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            inputs["grants"] = state ? state.grants : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             inputs["lifecycleRules"] = state ? state.lifecycleRules : undefined;
             inputs["loggings"] = state ? state.loggings : undefined;
@@ -459,6 +490,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
             inputs["corsRules"] = args ? args.corsRules : undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            inputs["grants"] = args ? args.grants : undefined;
             inputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
             inputs["lifecycleRules"] = args ? args.lifecycleRules : undefined;
             inputs["loggings"] = args ? args.loggings : undefined;
@@ -496,7 +528,7 @@ export interface BucketState {
      */
     readonly accelerationStatus?: pulumi.Input<string>;
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
      */
     readonly acl?: pulumi.Input<string | CannedAcl>;
     /**
@@ -528,6 +560,10 @@ export interface BucketState {
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+     */
+    readonly grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
+    /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
     readonly hostedZoneId?: pulumi.Input<string>;
@@ -544,7 +580,7 @@ export interface BucketState {
      */
     readonly objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -598,7 +634,7 @@ export interface BucketArgs {
      */
     readonly accelerationStatus?: pulumi.Input<string>;
     /**
-     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+     * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
      */
     readonly acl?: pulumi.Input<string | CannedAcl>;
     /**
@@ -622,6 +658,10 @@ export interface BucketArgs {
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
     /**
+     * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+     */
+    readonly grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
+    /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
     readonly hostedZoneId?: pulumi.Input<string>;
@@ -638,7 +678,7 @@ export interface BucketArgs {
      */
     readonly objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
-     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+     * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**

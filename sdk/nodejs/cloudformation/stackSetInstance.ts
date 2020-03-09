@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a CloudFormation Stack Set Instance. Instances are managed in the account and region of the Stack Set after the target account permissions have been configured. Additional information about Stack Sets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
+ * Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
  * 
- * > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the Stack Set (the `executionRoleName` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for Stack Sets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+ * > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `executionRoleName` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
  * 
  * > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
  * 
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json,
  * });
  * // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
- * // Additional IAM permissions necessary depend on the resources defined in the Stack Set template
+ * // Additional IAM permissions necessary depend on the resources defined in the StackSet template
  * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -92,19 +92,19 @@ export class StackSetInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
+     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * Key-value map of input parameters to override from the Stack Set for this Instance.
+     * Key-value map of input parameters to override from the StackSet for this Instance.
      */
     public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+     * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
     public readonly retainStack!: pulumi.Output<boolean | undefined>;
     /**
@@ -112,7 +112,7 @@ export class StackSetInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly stackId!: pulumi.Output<string>;
     /**
-     * Name of the Stack Set.
+     * Name of the StackSet.
      */
     public readonly stackSetName!: pulumi.Output<string>;
 
@@ -162,19 +162,19 @@ export class StackSetInstance extends pulumi.CustomResource {
  */
 export interface StackSetInstanceState {
     /**
-     * Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
+     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
     readonly accountId?: pulumi.Input<string>;
     /**
-     * Key-value map of input parameters to override from the Stack Set for this Instance.
+     * Key-value map of input parameters to override from the StackSet for this Instance.
      */
     readonly parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
     readonly region?: pulumi.Input<string>;
     /**
-     * During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+     * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
     readonly retainStack?: pulumi.Input<boolean>;
     /**
@@ -182,7 +182,7 @@ export interface StackSetInstanceState {
      */
     readonly stackId?: pulumi.Input<string>;
     /**
-     * Name of the Stack Set.
+     * Name of the StackSet.
      */
     readonly stackSetName?: pulumi.Input<string>;
 }
@@ -192,23 +192,23 @@ export interface StackSetInstanceState {
  */
 export interface StackSetInstanceArgs {
     /**
-     * Target AWS Account ID to create a Stack based on the Stack Set. Defaults to current account.
+     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
     readonly accountId?: pulumi.Input<string>;
     /**
-     * Key-value map of input parameters to override from the Stack Set for this Instance.
+     * Key-value map of input parameters to override from the StackSet for this Instance.
      */
     readonly parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target AWS Region to create a Stack based on the Stack Set. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
     readonly region?: pulumi.Input<string>;
     /**
-     * During resource destroy, remove Instance from Stack Set while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new Stack Set. Defaults to `false`.
+     * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
     readonly retainStack?: pulumi.Input<boolean>;
     /**
-     * Name of the Stack Set.
+     * Name of the StackSet.
      */
     readonly stackSetName: pulumi.Input<string>;
 }

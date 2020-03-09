@@ -16,7 +16,7 @@ class Bucket(pulumi.CustomResource):
     """
     acl: pulumi.Output[str]
     """
-    The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+    The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
     """
     arn: pulumi.Output[str]
     """
@@ -52,6 +52,15 @@ class Bucket(pulumi.CustomResource):
     """
     A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
     """
+    grants: pulumi.Output[list]
+    """
+    An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+    
+      * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+      * `permissions` (`list`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+      * `type` (`str`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+      * `uri` (`str`) - Uri address to grant for. Used only when `type` is `Group`.
+    """
     hosted_zone_id: pulumi.Output[str]
     """
     The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
@@ -68,7 +77,7 @@ class Bucket(pulumi.CustomResource):
         * `days` (`float`) - The number of days that you want to specify for the default retention period.
         * `expiredObjectDeleteMarker` (`bool`) - On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
     
-      * `id` (`str`) - Unique identifier for the rule.
+      * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
       * `noncurrentVersionExpiration` (`dict`) - Specifies when noncurrent object versions expire (documented below).
     
         * `days` (`float`) - The number of days that you want to specify for the default retention period.
@@ -109,7 +118,7 @@ class Bucket(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+    A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
     """
     region: pulumi.Output[str]
     """
@@ -140,7 +149,7 @@ class Bucket(pulumi.CustomResource):
           * `tags` (`dict`) - A mapping of tags that identifies subset of objects to which the rule applies.
             The rule applies only to objects having all the tags in its tagset.
     
-        * `id` (`str`) - Unique identifier for the rule.
+        * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         * `prefix` (`str`) - Object keyname prefix that identifies subset of objects to which the rule applies.
         * `priority` (`float`) - The priority associated with the rule.
         * `sourceSelectionCriteria` (`dict`) - Specifies special object selection criteria (documented below).
@@ -200,24 +209,25 @@ class Bucket(pulumi.CustomResource):
     """
     The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
     """
-    def __init__(__self__, resource_name, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_prefix=None, cors_rules=None, force_destroy=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_prefix=None, cors_rules=None, force_destroy=None, grants=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a S3 bucket resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         :param pulumi.Input[str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
         :param pulumi.Input[list] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+        :param pulumi.Input[list] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -240,6 +250,13 @@ class Bucket(pulumi.CustomResource):
           * `exposeHeaders` (`pulumi.Input[list]`) - Specifies expose header in the response.
           * `maxAgeSeconds` (`pulumi.Input[float]`) - Specifies time in seconds that browser can cache the response for a preflight request.
         
+        The **grants** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+          * `permissions` (`pulumi.Input[list]`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+          * `type` (`pulumi.Input[str]`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+          * `uri` (`pulumi.Input[str]`) - Uri address to grant for. Used only when `type` is `Group`.
+        
         The **lifecycle_rules** object supports the following:
         
           * `abortIncompleteMultipartUploadDays` (`pulumi.Input[float]`) - Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -250,7 +267,7 @@ class Bucket(pulumi.CustomResource):
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `expiredObjectDeleteMarker` (`pulumi.Input[bool]`) - On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
         
-          * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
           * `noncurrentVersionExpiration` (`pulumi.Input[dict]`) - Specifies when noncurrent object versions expire (documented below).
         
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
@@ -308,7 +325,7 @@ class Bucket(pulumi.CustomResource):
               * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
                 The rule applies only to objects having all the tags in its tagset.
         
-            * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+            * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
             * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
             * `priority` (`pulumi.Input[float]`) - The priority associated with the rule.
             * `sourceSelectionCriteria` (`pulumi.Input[dict]`) - Specifies special object selection criteria (documented below).
@@ -368,6 +385,7 @@ class Bucket(pulumi.CustomResource):
             __props__['bucket_prefix'] = bucket_prefix
             __props__['cors_rules'] = cors_rules
             __props__['force_destroy'] = force_destroy
+            __props__['grants'] = grants
             __props__['hosted_zone_id'] = hosted_zone_id
             __props__['lifecycle_rules'] = lifecycle_rules
             __props__['loggings'] = loggings
@@ -391,7 +409,7 @@ class Bucket(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_domain_name=None, bucket_prefix=None, bucket_regional_domain_name=None, cors_rules=None, force_destroy=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None):
+    def get(resource_name, id, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_domain_name=None, bucket_prefix=None, bucket_regional_domain_name=None, cors_rules=None, force_destroy=None, grants=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None):
         """
         Get an existing Bucket resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -400,7 +418,7 @@ class Bucket(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
-        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        :param pulumi.Input[str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         :param pulumi.Input[str] arn: The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[str] bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         :param pulumi.Input[str] bucket_domain_name: The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
@@ -408,11 +426,12 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         :param pulumi.Input[list] cors_rules: A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+        :param pulumi.Input[list] grants: An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         :param pulumi.Input[str] hosted_zone_id: The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         :param pulumi.Input[list] lifecycle_rules: A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
-        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        :param pulumi.Input[str] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -435,6 +454,13 @@ class Bucket(pulumi.CustomResource):
           * `exposeHeaders` (`pulumi.Input[list]`) - Specifies expose header in the response.
           * `maxAgeSeconds` (`pulumi.Input[float]`) - Specifies time in seconds that browser can cache the response for a preflight request.
         
+        The **grants** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+          * `permissions` (`pulumi.Input[list]`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+          * `type` (`pulumi.Input[str]`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+          * `uri` (`pulumi.Input[str]`) - Uri address to grant for. Used only when `type` is `Group`.
+        
         The **lifecycle_rules** object supports the following:
         
           * `abortIncompleteMultipartUploadDays` (`pulumi.Input[float]`) - Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -445,7 +471,7 @@ class Bucket(pulumi.CustomResource):
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
             * `expiredObjectDeleteMarker` (`pulumi.Input[bool]`) - On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
         
-          * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
           * `noncurrentVersionExpiration` (`pulumi.Input[dict]`) - Specifies when noncurrent object versions expire (documented below).
         
             * `days` (`pulumi.Input[float]`) - The number of days that you want to specify for the default retention period.
@@ -503,7 +529,7 @@ class Bucket(pulumi.CustomResource):
               * `tags` (`pulumi.Input[dict]`) - A mapping of tags that identifies subset of objects to which the rule applies.
                 The rule applies only to objects having all the tags in its tagset.
         
-            * `id` (`pulumi.Input[str]`) - Unique identifier for the rule.
+            * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
             * `prefix` (`pulumi.Input[str]`) - Object keyname prefix that identifies subset of objects to which the rule applies.
             * `priority` (`pulumi.Input[float]`) - The priority associated with the rule.
             * `sourceSelectionCriteria` (`pulumi.Input[dict]`) - Specifies special object selection criteria (documented below).
@@ -551,6 +577,7 @@ class Bucket(pulumi.CustomResource):
         __props__["bucket_regional_domain_name"] = bucket_regional_domain_name
         __props__["cors_rules"] = cors_rules
         __props__["force_destroy"] = force_destroy
+        __props__["grants"] = grants
         __props__["hosted_zone_id"] = hosted_zone_id
         __props__["lifecycle_rules"] = lifecycle_rules
         __props__["loggings"] = loggings

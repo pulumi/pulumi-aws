@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3
         public Output<string> AccelerationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         /// </summary>
         [Output("acl")]
         public Output<string?> Acl { get; private set; } = null!;
@@ -70,6 +70,12 @@ namespace Pulumi.Aws.S3
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
+        /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+        /// </summary>
+        [Output("grants")]
+        public Output<ImmutableArray<Outputs.BucketGrants>> Grants { get; private set; } = null!;
+
+        /// <summary>
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
         [Output("hostedZoneId")]
@@ -94,7 +100,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketObjectLockConfiguration?> ObjectLockConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
@@ -210,7 +216,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccelerationStatus { get; set; }
 
         /// <summary>
-        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
@@ -251,6 +257,18 @@ namespace Pulumi.Aws.S3
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
+        [Input("grants")]
+        private InputList<Inputs.BucketGrantsArgs>? _grants;
+
+        /// <summary>
+        /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+        /// </summary>
+        public InputList<Inputs.BucketGrantsArgs> Grants
+        {
+            get => _grants ?? (_grants = new InputList<Inputs.BucketGrantsArgs>());
+            set => _grants = value;
+        }
+
         /// <summary>
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
@@ -288,7 +306,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }
 
         /// <summary>
-        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -371,7 +389,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccelerationStatus { get; set; }
 
         /// <summary>
-        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
+        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
@@ -424,6 +442,18 @@ namespace Pulumi.Aws.S3
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
+        [Input("grants")]
+        private InputList<Inputs.BucketGrantsGetArgs>? _grants;
+
+        /// <summary>
+        /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+        /// </summary>
+        public InputList<Inputs.BucketGrantsGetArgs> Grants
+        {
+            get => _grants ?? (_grants = new InputList<Inputs.BucketGrantsGetArgs>());
+            set => _grants = value;
+        }
+
         /// <summary>
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
@@ -461,7 +491,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectLockConfigurationGetArgs>? ObjectLockConfiguration { get; set; }
 
         /// <summary>
-        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a deployment. In this case, please make sure you use the verbose/specific version of the policy.
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -660,6 +690,80 @@ namespace Pulumi.Aws.S3
         }
     }
 
+    public sealed class BucketGrantsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("permissions", required: true)]
+        private InputList<string>? _permissions;
+
+        /// <summary>
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+        /// </summary>
+        public InputList<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputList<string>());
+            set => _permissions = value;
+        }
+
+        /// <summary>
+        /// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Uri address to grant for. Used only when `type` is `Group`.
+        /// </summary>
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
+
+        public BucketGrantsArgs()
+        {
+        }
+    }
+
+    public sealed class BucketGrantsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("permissions", required: true)]
+        private InputList<string>? _permissions;
+
+        /// <summary>
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+        /// </summary>
+        public InputList<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputList<string>());
+            set => _permissions = value;
+        }
+
+        /// <summary>
+        /// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Uri address to grant for. Used only when `type` is `Group`.
+        /// </summary>
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
+
+        public BucketGrantsGetArgs()
+        {
+        }
+    }
+
     public sealed class BucketLifecycleRulesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -681,7 +785,7 @@ namespace Pulumi.Aws.S3
         public Input<BucketLifecycleRulesExpirationArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -811,7 +915,7 @@ namespace Pulumi.Aws.S3
         public Input<BucketLifecycleRulesExpirationGetArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -1201,7 +1305,7 @@ namespace Pulumi.Aws.S3
         public Input<BucketReplicationConfigurationRulesFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -1404,7 +1508,7 @@ namespace Pulumi.Aws.S3
         public Input<BucketReplicationConfigurationRulesFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -1729,6 +1833,40 @@ namespace Pulumi.Aws.S3
     }
 
     [OutputType]
+    public sealed class BucketGrants
+    {
+        /// <summary>
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+        /// </summary>
+        public readonly ImmutableArray<string> Permissions;
+        /// <summary>
+        /// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        /// </summary>
+        public readonly string Type;
+        /// <summary>
+        /// Uri address to grant for. Used only when `type` is `Group`.
+        /// </summary>
+        public readonly string? Uri;
+
+        [OutputConstructor]
+        private BucketGrants(
+            string? id,
+            ImmutableArray<string> permissions,
+            string type,
+            string? uri)
+        {
+            Id = id;
+            Permissions = permissions;
+            Type = type;
+            Uri = uri;
+        }
+    }
+
+    [OutputType]
     public sealed class BucketLifecycleRules
     {
         /// <summary>
@@ -1744,7 +1882,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly BucketLifecycleRulesExpiration? Expiration;
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -2007,7 +2145,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly BucketReplicationConfigurationRulesFilter? Filter;
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
         /// </summary>
         public readonly string? Id;
         /// <summary>

@@ -3089,7 +3089,7 @@ export namespace cloudtrail {
 
     export interface TrailEventSelectorDataResource {
         /**
-         * The resource type in which you want to log data events. You can specify only the follwing value: "AWS::S3::Object", "AWS::Lambda::Function"
+         * The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
          */
         type: string;
         /**
@@ -5077,6 +5077,28 @@ export namespace ec2 {
         volumeType: string;
     }
 
+    export interface GetInstanceTypeOfferingFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetInstanceTypeOfferingsFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
     export interface GetInstancesFilter {
         name: string;
         values: string[];
@@ -6574,6 +6596,24 @@ export namespace eks {
          * The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
          */
         data: string;
+    }
+
+    export interface ClusterEncryptionConfig {
+        /**
+         * Configuration block with provider for encryption. Detailed below.
+         */
+        provider: outputs.eks.ClusterEncryptionConfigProvider;
+        /**
+         * List of strings with resources to be encrypted. Valid values: `secrets`
+         */
+        resources: string[];
+    }
+
+    export interface ClusterEncryptionConfigProvider {
+        /**
+         * Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+         */
+        keyArn: string;
     }
 
     export interface ClusterIdentity {
@@ -8448,7 +8488,7 @@ export namespace globalaccelerator {
 
     export interface AcceleratorIpSet {
         /**
-         * The array of IP addresses in the IP address set.
+         * A list of IP addresses in the IP address set.
          */
         ipAddresses: string[];
         /**
@@ -11050,7 +11090,7 @@ export namespace msk {
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
         /**
-         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
          */
         clientBroker?: string;
         /**
@@ -11948,6 +11988,25 @@ export namespace s3 {
         maxAgeSeconds?: number;
     }
 
+    export interface BucketGrant {
+        /**
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+         */
+        id?: string;
+        /**
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_ACCESS`.
+         */
+        permissions: string[];
+        /**
+         * - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+         */
+        type: string;
+        /**
+         * Uri address to grant for. Used only when `type` is `Group`.
+         */
+        uri?: string;
+    }
+
     export interface BucketLifecycleRule {
         /**
          * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -11962,7 +12021,7 @@ export namespace s3 {
          */
         expiration?: outputs.s3.BucketLifecycleRuleExpiration;
         /**
-         * Unique identifier for the rule.
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
          */
         id: string;
         /**
@@ -12181,7 +12240,7 @@ export namespace s3 {
          */
         filter?: outputs.s3.BucketReplicationConfigurationRuleFilter;
         /**
-         * Unique identifier for the rule.
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
          */
         id?: string;
         /**

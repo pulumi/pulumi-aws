@@ -68,6 +68,8 @@ from .vpn_gateway import *
 from .vpn_gateway_attachment import *
 from .vpn_gateway_route_propagation import *
 from .get_customer_gateway import *
+from .get_instance_type_offering import *
+from .get_instance_type_offerings import *
 from .get_instance import *
 from .get_instances import *
 from .get_internet_gateway import *

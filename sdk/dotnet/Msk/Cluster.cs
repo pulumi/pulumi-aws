@@ -552,7 +552,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterEncryptionInfoEncryptionInTransitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
         /// </summary>
         [Input("clientBroker")]
         public Input<string>? ClientBroker { get; set; }
@@ -571,7 +571,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterEncryptionInfoEncryptionInTransitGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
         /// </summary>
         [Input("clientBroker")]
         public Input<string>? ClientBroker { get; set; }
@@ -844,7 +844,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterEncryptionInfoEncryptionInTransit
     {
         /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value: `TLS_PLAINTEXT`.
+        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
         /// </summary>
         public readonly string? ClientBroker;
         /// <summary>

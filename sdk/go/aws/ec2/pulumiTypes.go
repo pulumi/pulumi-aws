@@ -9510,6 +9510,202 @@ func (o GetInstanceRootBlockDeviceArrayOutput) Index(i pulumi.IntInput) GetInsta
 	}).(GetInstanceRootBlockDeviceOutput)
 }
 
+type GetInstanceTypeOfferingFilter struct {
+	// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+type GetInstanceTypeOfferingFilterInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingFilterOutput() GetInstanceTypeOfferingFilterOutput
+	ToGetInstanceTypeOfferingFilterOutputWithContext(context.Context) GetInstanceTypeOfferingFilterOutput
+}
+
+type GetInstanceTypeOfferingFilterArgs struct {
+	// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetInstanceTypeOfferingFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingFilter)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingFilterArgs) ToGetInstanceTypeOfferingFilterOutput() GetInstanceTypeOfferingFilterOutput {
+	return i.ToGetInstanceTypeOfferingFilterOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingFilterArgs) ToGetInstanceTypeOfferingFilterOutputWithContext(ctx context.Context) GetInstanceTypeOfferingFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingFilterOutput)
+}
+
+type GetInstanceTypeOfferingFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingFilterArrayOutput() GetInstanceTypeOfferingFilterArrayOutput
+	ToGetInstanceTypeOfferingFilterArrayOutputWithContext(context.Context) GetInstanceTypeOfferingFilterArrayOutput
+}
+
+type GetInstanceTypeOfferingFilterArray []GetInstanceTypeOfferingFilterInput
+
+func (GetInstanceTypeOfferingFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingFilter)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingFilterArray) ToGetInstanceTypeOfferingFilterArrayOutput() GetInstanceTypeOfferingFilterArrayOutput {
+	return i.ToGetInstanceTypeOfferingFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingFilterArray) ToGetInstanceTypeOfferingFilterArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingFilterArrayOutput)
+}
+
+type GetInstanceTypeOfferingFilterOutput struct { *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingFilter)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingFilterOutput) ToGetInstanceTypeOfferingFilterOutput() GetInstanceTypeOfferingFilterOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingFilterOutput) ToGetInstanceTypeOfferingFilterOutputWithContext(ctx context.Context) GetInstanceTypeOfferingFilterOutput {
+	return o
+}
+
+// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+func (o GetInstanceTypeOfferingFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v GetInstanceTypeOfferingFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetInstanceTypeOfferingFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetInstanceTypeOfferingFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetInstanceTypeOfferingFilterArrayOutput struct { *pulumi.OutputState}
+
+func (GetInstanceTypeOfferingFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingFilter)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingFilterArrayOutput) ToGetInstanceTypeOfferingFilterArrayOutput() GetInstanceTypeOfferingFilterArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingFilterArrayOutput) ToGetInstanceTypeOfferingFilterArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingFilterArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeOfferingFilterOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetInstanceTypeOfferingFilter {
+		return vs[0].([]GetInstanceTypeOfferingFilter)[vs[1].(int)]
+	}).(GetInstanceTypeOfferingFilterOutput)
+}
+
+type GetInstanceTypeOfferingsFilter struct {
+	// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+type GetInstanceTypeOfferingsFilterInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingsFilterOutput() GetInstanceTypeOfferingsFilterOutput
+	ToGetInstanceTypeOfferingsFilterOutputWithContext(context.Context) GetInstanceTypeOfferingsFilterOutput
+}
+
+type GetInstanceTypeOfferingsFilterArgs struct {
+	// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetInstanceTypeOfferingsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsFilter)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingsFilterArgs) ToGetInstanceTypeOfferingsFilterOutput() GetInstanceTypeOfferingsFilterOutput {
+	return i.ToGetInstanceTypeOfferingsFilterOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingsFilterArgs) ToGetInstanceTypeOfferingsFilterOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsFilterOutput)
+}
+
+type GetInstanceTypeOfferingsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingsFilterArrayOutput() GetInstanceTypeOfferingsFilterArrayOutput
+	ToGetInstanceTypeOfferingsFilterArrayOutputWithContext(context.Context) GetInstanceTypeOfferingsFilterArrayOutput
+}
+
+type GetInstanceTypeOfferingsFilterArray []GetInstanceTypeOfferingsFilterInput
+
+func (GetInstanceTypeOfferingsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingsFilter)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingsFilterArray) ToGetInstanceTypeOfferingsFilterArrayOutput() GetInstanceTypeOfferingsFilterArrayOutput {
+	return i.ToGetInstanceTypeOfferingsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingsFilterArray) ToGetInstanceTypeOfferingsFilterArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsFilterArrayOutput)
+}
+
+type GetInstanceTypeOfferingsFilterOutput struct { *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsFilter)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsFilterOutput) ToGetInstanceTypeOfferingsFilterOutput() GetInstanceTypeOfferingsFilterOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsFilterOutput) ToGetInstanceTypeOfferingsFilterOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsFilterOutput {
+	return o
+}
+
+// Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+func (o GetInstanceTypeOfferingsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v GetInstanceTypeOfferingsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetInstanceTypeOfferingsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetInstanceTypeOfferingsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetInstanceTypeOfferingsFilterArrayOutput struct { *pulumi.OutputState}
+
+func (GetInstanceTypeOfferingsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingsFilter)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsFilterArrayOutput) ToGetInstanceTypeOfferingsFilterArrayOutput() GetInstanceTypeOfferingsFilterArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsFilterArrayOutput) ToGetInstanceTypeOfferingsFilterArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsFilterArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeOfferingsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetInstanceTypeOfferingsFilter {
+		return vs[0].([]GetInstanceTypeOfferingsFilter)[vs[1].(int)]
+	}).(GetInstanceTypeOfferingsFilterOutput)
+}
+
 type GetInstancesFilter struct {
 	Name string `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -13826,6 +14022,10 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInternetGatewayAttachmentOutput{})

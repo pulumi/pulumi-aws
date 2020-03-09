@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation
 {
     /// <summary>
-    /// Manages a CloudFormation Stack Set. Stack Sets allow CloudFormation templates to be easily deployed across multiple accounts and regions via Stack Set Instances ([`aws.cloudformation.StackSetInstance` resource](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance.html)). Additional information about Stack Sets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
+    /// Manages a CloudFormation StackSet. StackSets allow CloudFormation templates to be easily deployed across multiple accounts and regions via StackSet Instances ([`aws.cloudformation.StackSetInstance` resource](https://www.terraform.io/docs/providers/aws/r/cloudformation_stack_set_instance.html)). Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
     /// 
     /// &gt; **NOTE:** All template parameters, including those with a `Default`, must be configured or ignored with the `lifecycle` configuration block `ignore_changes` argument.
     /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> AdministrationRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Stack Set.
+        /// Amazon Resource Name (ARN) of the StackSet.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -38,37 +38,37 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Stack Set.
+        /// Description of the StackSet.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
         /// </summary>
         [Output("executionRoleName")]
         public Output<string?> ExecutionRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+        /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier of the Stack Set.
+        /// Unique identifier of the StackSet.
         /// </summary>
         [Output("stackSetId")]
         public Output<string> StackSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
@@ -150,19 +150,19 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Description of the Stack Set.
+        /// Description of the StackSet.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
 
         /// <summary>
-        /// Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+        /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? AdministrationRoleArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Stack Set.
+        /// Amazon Resource Name (ARN) of the StackSet.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -235,19 +235,19 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Description of the Stack Set.
+        /// Description of the StackSet.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the IAM Role in all target accounts for Stack Set operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
 
         /// <summary>
-        /// Name of the Stack Set. The name must be unique in the region where you create your Stack Set. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Key-value map of input parameters for the Stack Set template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+        /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Unique identifier of the Stack Set.
+        /// Unique identifier of the StackSet.
         /// </summary>
         [Input("stackSetId")]
         public Input<string>? StackSetId { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value map of tags to associate with this Stack Set and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         /// </summary>
         public InputMap<object> Tags
         {
