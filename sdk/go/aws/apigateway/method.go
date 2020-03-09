@@ -160,7 +160,7 @@ type methodArgs struct {
 	// The API resource ID
 	ResourceId string `pulumi:"resourceId"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Method resource.
@@ -187,7 +187,7 @@ type MethodArgs struct {
 	// The API resource ID
 	ResourceId pulumi.StringInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 }
 
 func (MethodArgs) ElementType() reflect.Type {

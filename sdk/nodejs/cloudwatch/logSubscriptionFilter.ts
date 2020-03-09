@@ -70,7 +70,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
     /**
      * The name of the log group to associate the subscription filter with
      */
-    public readonly logGroup!: pulumi.Output<LogGroup>;
+    public readonly logGroup!: pulumi.Output<string>;
     /**
      * A name for the subscription filter
      */
@@ -146,7 +146,7 @@ export interface LogSubscriptionFilterState {
     /**
      * The name of the log group to associate the subscription filter with
      */
-    readonly logGroup?: pulumi.Input<LogGroup>;
+    readonly logGroup?: pulumi.Input<string | LogGroup>;
     /**
      * A name for the subscription filter
      */
@@ -176,7 +176,7 @@ export interface LogSubscriptionFilterArgs {
     /**
      * The name of the log group to associate the subscription filter with
      */
-    readonly logGroup: pulumi.Input<LogGroup>;
+    readonly logGroup: pulumi.Input<string | LogGroup>;
     /**
      * A name for the subscription filter
      */

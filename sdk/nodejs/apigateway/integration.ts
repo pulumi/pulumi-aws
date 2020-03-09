@@ -258,7 +258,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API.
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
      */
@@ -405,7 +405,7 @@ export interface IntegrationState {
     /**
      * The ID of the associated REST API.
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
      */
@@ -483,7 +483,7 @@ export interface IntegrationArgs {
     /**
      * The ID of the associated REST API.
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
      */

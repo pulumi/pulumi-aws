@@ -95,7 +95,7 @@ export class MethodResponse extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * The HTTP status code
      */
@@ -176,7 +176,7 @@ export interface MethodResponseState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * The HTTP status code
      */
@@ -208,7 +208,7 @@ export interface MethodResponseArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * The HTTP status code
      */

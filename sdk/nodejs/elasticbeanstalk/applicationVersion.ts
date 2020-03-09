@@ -77,7 +77,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    public readonly application!: pulumi.Output<Application>;
+    public readonly application!: pulumi.Output<string>;
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      */
@@ -166,7 +166,7 @@ export interface ApplicationVersionState {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    readonly application?: pulumi.Input<Application>;
+    readonly application?: pulumi.Input<string | Application>;
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      */
@@ -205,7 +205,7 @@ export interface ApplicationVersionArgs {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    readonly application: pulumi.Input<Application>;
+    readonly application: pulumi.Input<string | Application>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */

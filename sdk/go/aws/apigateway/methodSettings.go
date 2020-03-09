@@ -96,7 +96,7 @@ type methodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
 	MethodPath string `pulumi:"methodPath"`
 	// The ID of the REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The settings block, see below.
 	Settings MethodSettingsSettings `pulumi:"settings"`
 	// The name of the stage
@@ -108,7 +108,7 @@ type MethodSettingsArgs struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
 	MethodPath pulumi.StringInput
 	// The ID of the REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The settings block, see below.
 	Settings MethodSettingsSettingsInput
 	// The name of the stage

@@ -133,7 +133,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * The ID of the deployment that the stage points to
      */
-    public readonly deployment!: pulumi.Output<Deployment>;
+    public readonly deployment!: pulumi.Output<string>;
     /**
      * The description of the stage
      */
@@ -156,7 +156,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * The name of the stage
      */
@@ -267,7 +267,7 @@ export interface StageState {
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment?: pulumi.Input<Deployment>;
+    readonly deployment?: pulumi.Input<string | Deployment>;
     /**
      * The description of the stage
      */
@@ -290,7 +290,7 @@ export interface StageState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * The name of the stage
      */
@@ -333,7 +333,7 @@ export interface StageArgs {
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment: pulumi.Input<Deployment>;
+    readonly deployment: pulumi.Input<string | Deployment>;
     /**
      * The description of the stage
      */
@@ -345,7 +345,7 @@ export interface StageArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * The name of the stage
      */

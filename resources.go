@@ -345,8 +345,9 @@ func Provider() tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"rest_api_id": {
-									Name: "restApi",
-									Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+									Name:     "restApi",
+									Type:     "string",
+									AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 								},
 							},
 						},
@@ -357,8 +358,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Authorizer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -366,8 +368,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "BasePathMapping"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -376,8 +379,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Deployment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -395,8 +399,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Integration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -404,8 +409,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "IntegrationResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -413,8 +419,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Method"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -422,32 +429,36 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "MethodResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				}},
 			"aws_api_gateway_method_settings": {
 				Tok: awsResource(apigatewayMod, "MethodSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				}},
 			"aws_api_gateway_model": {
 				Tok: awsResource(apigatewayMod, "Model"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				}},
 			"aws_api_gateway_request_validator": {
 				Tok: awsResource(apigatewayMod, "RequestValidator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -460,8 +471,9 @@ func Provider() tfbridge.ProviderInfo {
 					// 	Type: awsTypeDefaultFile(apigatewayMod, "Resource"),
 					// },
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -471,12 +483,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(apigatewayMod, "Stage"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"deployment_id": {
-						Name: "deployment",
-						Type: awsTypeDefaultFile(apigatewayMod, "Deployment"),
+						Name:     "deployment",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "Deployment")},
 					},
 					"rest_api_id": {
-						Name: "restApi",
-						Type: awsTypeDefaultFile(apigatewayMod, "RestApi"),
+						Name:     "restApi",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -622,8 +636,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"log_group_name": {
-						Name: "logGroup",
-						Type: awsResource(cloudwatchMod, "LogGroup"),
+						Name:     "logGroup",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(cloudwatchMod, "LogGroup")},
 					},
 				},
 				DeleteBeforeReplace: true, // only 1 active filter is legal at once
@@ -790,7 +805,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_application_version": {
 				Tok: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
+					"application": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+					},
 					"bucket": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
@@ -801,8 +819,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsResource(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name":        tfbridge.AutoName("name", 40),
-					"application": {Type: awsResource(elasticbeanstalkMod, "Application")},
+					"name": tfbridge.AutoName("name", 40),
+					"application": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
+					},
 					"version_label": {
 						Name: "version",
 						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
@@ -1945,8 +1966,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(snsMod, "TopicSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"topic_arn": {
-						Name: "topic",
-						Type: awsResource(snsMod, "Topic"),
+						Name:     "topic",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
 					},
 				},
 			},

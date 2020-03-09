@@ -146,7 +146,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * The ID of the associated REST API
      */
-    public readonly restApi!: pulumi.Output<RestApi>;
+    public readonly restApi!: pulumi.Output<string>;
     /**
      * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
      * Defaults to `TOKEN`.
@@ -244,7 +244,7 @@ export interface AuthorizerState {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<RestApi>;
+    readonly restApi?: pulumi.Input<string | RestApi>;
     /**
      * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
      * Defaults to `TOKEN`.
@@ -296,7 +296,7 @@ export interface AuthorizerArgs {
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<RestApi>;
+    readonly restApi: pulumi.Input<string | RestApi>;
     /**
      * The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
      * Defaults to `TOKEN`.

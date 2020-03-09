@@ -128,7 +128,7 @@ func (ApplicationVersionState) ElementType() reflect.Type {
 
 type applicationVersionArgs struct {
 	// Name of the Beanstalk Application the version is associated with.
-	Application string `pulumi:"application"`
+	Application interface{} `pulumi:"application"`
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket interface{} `pulumi:"bucket"`
 	// Short description of the Application Version.
@@ -147,7 +147,7 @@ type applicationVersionArgs struct {
 // The set of arguments for constructing a ApplicationVersion resource.
 type ApplicationVersionArgs struct {
 	// Name of the Beanstalk Application the version is associated with.
-	Application pulumi.StringInput
+	Application pulumi.Input
 	// S3 bucket that contains the Application Version source bundle.
 	Bucket pulumi.Input
 	// Short description of the Application Version.

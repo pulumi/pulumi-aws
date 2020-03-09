@@ -178,13 +178,13 @@ type stageArgs struct {
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The ID of the deployment that the stage points to
-	Deployment string `pulumi:"deployment"`
+	Deployment interface{} `pulumi:"deployment"`
 	// The description of the stage
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation
 	DocumentationVersion *string `pulumi:"documentationVersion"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The name of the stage
 	StageName string `pulumi:"stageName"`
 	// A mapping of tags to assign to the resource.
@@ -207,13 +207,13 @@ type StageArgs struct {
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// The ID of the deployment that the stage points to
-	Deployment pulumi.StringInput
+	Deployment pulumi.Input
 	// The description of the stage
 	Description pulumi.StringPtrInput
 	// The version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The name of the stage
 	StageName pulumi.StringInput
 	// A mapping of tags to assign to the resource.

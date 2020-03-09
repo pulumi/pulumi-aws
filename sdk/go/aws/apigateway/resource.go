@@ -95,7 +95,7 @@ type resourceArgs struct {
 	// The last path segment of this API resource.
 	PathPart string `pulumi:"pathPart"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Resource resource.
@@ -105,7 +105,7 @@ type ResourceArgs struct {
 	// The last path segment of this API resource.
 	PathPart pulumi.StringInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 }
 
 func (ResourceArgs) ElementType() reflect.Type {

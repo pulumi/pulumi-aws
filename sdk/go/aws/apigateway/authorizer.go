@@ -168,7 +168,7 @@ type authorizerArgs struct {
 	// Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns []string `pulumi:"providerArns"`
 	// The ID of the associated REST API
-	RestApi string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
 	// Defaults to `TOKEN`.
 	Type *string `pulumi:"type"`
@@ -200,7 +200,7 @@ type AuthorizerArgs struct {
 	// Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 	ProviderArns pulumi.StringArrayInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringInput
+	RestApi pulumi.Input
 	// The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
 	// Defaults to `TOKEN`.
 	Type pulumi.StringPtrInput
