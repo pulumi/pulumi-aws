@@ -260,16 +260,6 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
-			"access_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AWS_ACCESS_KEY_ID"},
-				},
-			},
-			"secret_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AWS_SECRET_ACCESS_KEY"},
-				},
-			},
 			"region": {
 				Type: awsTypeNoFile("region", "Region"),
 				Default: &tfbridge.DefaultInfo{
@@ -279,16 +269,6 @@ func Provider() tfbridge.ProviderInfo {
 			"profile": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_PROFILE"},
-				},
-			},
-			"token": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AWS_SESSION_TOKEN"},
-				},
-			},
-			"shared_credentials_file": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AWS_SHARED_CREDENTIALS_FILE"},
 				},
 			},
 		},

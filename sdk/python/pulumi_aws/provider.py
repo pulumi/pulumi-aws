@@ -183,8 +183,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_key is None:
-                access_key = utilities.get_env('AWS_ACCESS_KEY_ID')
             __props__['access_key'] = access_key
             __props__['allowed_account_ids'] = pulumi.Output.from_input(allowed_account_ids).apply(json.dumps) if allowed_account_ids is not None else None
             __props__['assume_role'] = pulumi.Output.from_input(assume_role).apply(json.dumps) if assume_role is not None else None
@@ -201,19 +199,13 @@ class Provider(pulumi.ProviderResource):
                 region = utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
             __props__['region'] = region
             __props__['s3_force_path_style'] = pulumi.Output.from_input(s3_force_path_style).apply(json.dumps) if s3_force_path_style is not None else None
-            if secret_key is None:
-                secret_key = utilities.get_env('AWS_SECRET_ACCESS_KEY')
             __props__['secret_key'] = secret_key
-            if shared_credentials_file is None:
-                shared_credentials_file = utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
             __props__['shared_credentials_file'] = shared_credentials_file
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(json.dumps) if skip_credentials_validation is not None else None
             __props__['skip_get_ec2_platforms'] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(json.dumps) if skip_get_ec2_platforms is not None else None
             __props__['skip_metadata_api_check'] = pulumi.Output.from_input(skip_metadata_api_check).apply(json.dumps) if skip_metadata_api_check is not None else None
             __props__['skip_region_validation'] = pulumi.Output.from_input(skip_region_validation).apply(json.dumps) if skip_region_validation is not None else None
             __props__['skip_requesting_account_id'] = pulumi.Output.from_input(skip_requesting_account_id).apply(json.dumps) if skip_requesting_account_id is not None else None
-            if token is None:
-                token = utilities.get_env('AWS_SESSION_TOKEN')
             __props__['token'] = token
         super(Provider, __self__).__init__(
             'aws',
