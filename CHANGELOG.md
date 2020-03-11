@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Avoid storing config from the environment into the state.
-  [#894](https://github.com/pulumi/pulumi-aws/pull/894)
+_(none)_
 
 ---
+
+## 1.26.0 (2020-03-11)
+* Avoid storing config from the environment into the state.
+  [#894](https://github.com/pulumi/pulumi-aws/pull/894)
 
 ## 1.25.0 (2020-03-09)
 * Upgrade to v2.52.0 of the AWS Terraform Provider
