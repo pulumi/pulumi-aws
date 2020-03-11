@@ -11,11 +11,8 @@ import (
 
 // The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 func GetAccessKey(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "aws:accessKey")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AWS_ACCESS_KEY_ID").(string)}
+	return config.Get(ctx, "aws:accessKey")
+}
 func GetAllowedAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:allowedAccountIds")
 }
@@ -66,18 +63,12 @@ func GetS3ForcePathStyle(ctx *pulumi.Context) bool {
 }
 // The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 func GetSecretKey(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "aws:secretKey")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AWS_SECRET_ACCESS_KEY").(string)}
+	return config.Get(ctx, "aws:secretKey")
+}
 // The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
 func GetSharedCredentialsFile(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "aws:sharedCredentialsFile")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AWS_SHARED_CREDENTIALS_FILE").(string)}
+	return config.Get(ctx, "aws:sharedCredentialsFile")
+}
 // Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 // available/implemented.
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
@@ -101,8 +92,5 @@ func GetSkipRequestingAccountId(ctx *pulumi.Context) bool {
 }
 // session token. A session token is only required if you are using temporary security credentials.
 func GetToken(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "aws:token")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AWS_SESSION_TOKEN").(string)}
+	return config.Get(ctx, "aws:token")
+}

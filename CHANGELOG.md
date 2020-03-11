@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Avoid storing config from the environment into the state.
+  [#894](https://github.com/pulumi/pulumi-aws/pull/894)
 
 ---
 
