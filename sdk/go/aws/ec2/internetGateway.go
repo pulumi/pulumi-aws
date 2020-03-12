@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a resource to create a VPC Internet Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/internet_gateway.html.markdown.
 type InternetGateway struct {
 	pulumi.CustomResourceState

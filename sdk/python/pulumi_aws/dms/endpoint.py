@@ -45,7 +45,7 @@ class Endpoint(pulumi.CustomResource):
     mongodb_settings: pulumi.Output[dict]
     """
     Settings for the source MongoDB endpoint. Available settings are `auth_type` (default: `password`), `auth_mechanism` (default: `default`), `nesting_level` (default: `none`), `extract_doc_id` (default: `false`), `docs_to_investigate` (default: `1000`) and `auth_source` (default: `admin`). For more details, see [Using MongoDB as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html).
-    
+
       * `authMechanism` (`str`)
       * `authSource` (`str`)
       * `auth_type` (`str`)
@@ -64,9 +64,9 @@ class Endpoint(pulumi.CustomResource):
     s3_settings: pulumi.Output[dict]
     """
     Settings for the target S3 endpoint. Available settings are `service_access_role_arn`, `external_table_definition`, `csv_row_delimiter` (default: `\\n`), `csv_delimiter` (default: `,`), `bucket_folder`, `bucket_name` and `compression_type` (default: `NONE`). For more details, see [Using Amazon S3 as a Target for AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html).
-    
+
       * `bucketFolder` (`str`)
-      * `bucketName` (`str`)
+      * `bucket_name` (`str`)
       * `compressionType` (`str`)
       * `csvDelimiter` (`str`)
       * `csvRowDelimiter` (`str`)
@@ -96,10 +96,12 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, certificate_arn=None, database_name=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, s3_settings=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
-        
+
         > **Note:** All arguments including the password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
@@ -118,27 +120,25 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
-        
+
         The **mongodb_settings** object supports the following:
-        
+
           * `authMechanism` (`pulumi.Input[str]`)
           * `authSource` (`pulumi.Input[str]`)
           * `auth_type` (`pulumi.Input[str]`)
           * `docsToInvestigate` (`pulumi.Input[str]`)
           * `extractDocId` (`pulumi.Input[str]`)
           * `nestingLevel` (`pulumi.Input[str]`)
-        
+
         The **s3_settings** object supports the following:
-        
+
           * `bucketFolder` (`pulumi.Input[str]`)
-          * `bucketName` (`pulumi.Input[str]`)
+          * `bucket_name` (`pulumi.Input[str]`)
           * `compressionType` (`pulumi.Input[str]`)
           * `csvDelimiter` (`pulumi.Input[str]`)
           * `csvRowDelimiter` (`pulumi.Input[str]`)
           * `externalTableDefinition` (`pulumi.Input[str]`)
           * `serviceAccessRoleArn` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -191,7 +191,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,31 +212,30 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The user name to be used to login to the endpoint database.
-        
+
         The **mongodb_settings** object supports the following:
-        
+
           * `authMechanism` (`pulumi.Input[str]`)
           * `authSource` (`pulumi.Input[str]`)
           * `auth_type` (`pulumi.Input[str]`)
           * `docsToInvestigate` (`pulumi.Input[str]`)
           * `extractDocId` (`pulumi.Input[str]`)
           * `nestingLevel` (`pulumi.Input[str]`)
-        
+
         The **s3_settings** object supports the following:
-        
+
           * `bucketFolder` (`pulumi.Input[str]`)
-          * `bucketName` (`pulumi.Input[str]`)
+          * `bucket_name` (`pulumi.Input[str]`)
           * `compressionType` (`pulumi.Input[str]`)
           * `csvDelimiter` (`pulumi.Input[str]`)
           * `csvRowDelimiter` (`pulumi.Input[str]`)
           * `externalTableDefinition` (`pulumi.Input[str]`)
           * `serviceAccessRoleArn` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dms_endpoint.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["certificate_arn"] = certificate_arn
         __props__["database_name"] = database_name
         __props__["endpoint_arn"] = endpoint_arn

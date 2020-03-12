@@ -57,7 +57,9 @@ class MaintenanceWindow(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_unassociated_targets=None, cutoff=None, description=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -71,8 +73,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         """
         Get an existing MaintenanceWindow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,12 +134,11 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_unassociated_targets"] = allow_unassociated_targets
         __props__["cutoff"] = cutoff
         __props__["description"] = description

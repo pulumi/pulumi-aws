@@ -11,15 +11,15 @@ import (
 )
 
 // Provides a VPC DHCP Options resource.
-// 
+//
 // ## Remarks
-// 
+//
 // * Notice that all arguments are optional but you have to specify at least one argument.
 // * `domainNameServers`, `netbiosNameServers`, `ntpServers` are limited by AWS to maximum four servers only.
 // * To actually use the DHCP Options Set you need to associate it to a VPC using [`ec2.VpcDhcpOptionsAssociation`](https://www.terraform.io/docs/providers/aws/r/vpc_dhcp_options_association.html).
 // * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
 // * In most cases unless you're configuring your own DNS you'll want to set `domainNameServers` to `AmazonProvidedDNS`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_dhcp_options.html.markdown.
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState

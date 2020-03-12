@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
- */
 export class AccessPoint extends pulumi.CustomResource {
     /**
      * Get an existing AccessPoint resource's state with the given name, ID, and optional extra

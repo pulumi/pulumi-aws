@@ -25,7 +25,11 @@ TESTPARALLELISM := 10
 tfgen::
 	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
 
+generate_schema:: tfgen
+	$(TFGEN) schema --out ./cmd/${PROVIDER}
+
 provider::
+	go generate ${PROJECT}/cmd/${PROVIDER}
 	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 
 # NOTE: Since the plugin is published using the nodejs style semver version

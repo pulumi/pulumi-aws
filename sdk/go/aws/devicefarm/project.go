@@ -13,10 +13,10 @@ import (
 // Provides a resource to manage AWS Device Farm Projects. 
 // Please keep in mind that this feature is only supported on the "us-west-2" region.
 // This resource will error if you try to create a project in another region.
-// 
+//
 // For more information about Device Farm Projects, see the AWS Documentation on
 // [Device Farm Projects][aws-get-project].
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/devicefarm_project.html.markdown.
 type Project struct {
 	pulumi.CustomResourceState

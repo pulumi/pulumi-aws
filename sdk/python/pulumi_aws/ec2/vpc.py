@@ -85,7 +85,9 @@ class Vpc(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, assign_generated_ipv6_cidr_block=None, cidr_block=None, enable_classiclink=None, enable_classiclink_dns_support=None, enable_dns_hostnames=None, enable_dns_support=None, instance_tenancy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a VPC resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR
@@ -101,8 +103,6 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -151,7 +151,7 @@ class Vpc(pulumi.CustomResource):
         """
         Get an existing Vpc resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,12 +178,11 @@ class Vpc(pulumi.CustomResource):
                [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html).
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["assign_generated_ipv6_cidr_block"] = assign_generated_ipv6_cidr_block
         __props__["cidr_block"] = cidr_block

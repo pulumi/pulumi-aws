@@ -4,5 +4,5 @@
 
 # Export this package's modules as members:
 from .cluster import *
-from .hsm import *
 from .get_cluster import *
+from .hsm import *

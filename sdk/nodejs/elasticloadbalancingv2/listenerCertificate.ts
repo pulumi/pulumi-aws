@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_certificate_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener_certificate.html.markdown.
  */
 export class ListenerCertificate extends pulumi.CustomResource {
     /**

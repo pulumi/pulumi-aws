@@ -13,7 +13,7 @@ class GetContainerDefinitionResult:
     """
     A collection of values returned by getContainerDefinition.
     """
-    def __init__(__self__, container_name=None, cpu=None, disable_networking=None, docker_labels=None, environment=None, image=None, image_digest=None, memory=None, memory_reservation=None, task_definition=None, id=None):
+    def __init__(__self__, container_name=None, cpu=None, disable_networking=None, docker_labels=None, environment=None, id=None, image=None, image_digest=None, memory=None, memory_reservation=None, task_definition=None):
         if container_name and not isinstance(container_name, str):
             raise TypeError("Expected argument 'container_name' to be a str")
         __self__.container_name = container_name
@@ -40,6 +40,12 @@ class GetContainerDefinitionResult:
         __self__.environment = environment
         """
         The environment in use
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if image and not isinstance(image, str):
             raise TypeError("Expected argument 'image' to be a str")
@@ -68,12 +74,6 @@ class GetContainerDefinitionResult:
         if task_definition and not isinstance(task_definition, str):
             raise TypeError("Expected argument 'task_definition' to be a str")
         __self__.task_definition = task_definition
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetContainerDefinitionResult(GetContainerDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -85,24 +85,26 @@ class AwaitableGetContainerDefinitionResult(GetContainerDefinitionResult):
             disable_networking=self.disable_networking,
             docker_labels=self.docker_labels,
             environment=self.environment,
+            id=self.id,
             image=self.image,
             image_digest=self.image_digest,
             memory=self.memory,
             memory_reservation=self.memory_reservation,
-            task_definition=self.task_definition,
-            id=self.id)
+            task_definition=self.task_definition)
 
 def get_container_definition(container_name=None,task_definition=None,opts=None):
     """
     The ECS container definition data source allows access to details of
     a specific container within an AWS ECS service.
-    
-    :param str container_name: The name of the container definition
-    :param str task_definition: The ARN of the task definition which contains the container
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecs_container_definition.html.markdown.
+
+
+    :param str container_name: The name of the container definition
+    :param str task_definition: The ARN of the task definition which contains the container
     """
     __args__ = dict()
+
 
     __args__['containerName'] = container_name
     __args__['taskDefinition'] = task_definition
@@ -118,9 +120,9 @@ def get_container_definition(container_name=None,task_definition=None,opts=None)
         disable_networking=__ret__.get('disableNetworking'),
         docker_labels=__ret__.get('dockerLabels'),
         environment=__ret__.get('environment'),
+        id=__ret__.get('id'),
         image=__ret__.get('image'),
         image_digest=__ret__.get('imageDigest'),
         memory=__ret__.get('memory'),
         memory_reservation=__ret__.get('memoryReservation'),
-        task_definition=__ret__.get('taskDefinition'),
-        id=__ret__.get('id'))
+        task_definition=__ret__.get('taskDefinition'))

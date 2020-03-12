@@ -29,14 +29,11 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, certificate=None, display_name=None, fleet_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a WebsiteCertificateAuthorityAssociation resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: The root certificate of the Certificate Authority.
         :param pulumi.Input[str] display_name: The certificate name to display.
         :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,7 +71,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         """
         Get an existing WebsiteCertificateAuthorityAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,12 +79,11 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The certificate name to display.
         :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
         :param pulumi.Input[str] website_ca_id: A unique identifier for the Certificate Authority.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/worklink_website_certificate_authority_association.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["certificate"] = certificate
         __props__["display_name"] = display_name
         __props__["fleet_arn"] = fleet_arn

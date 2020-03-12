@@ -17,14 +17,14 @@ class Webhook(pulumi.CustomResource):
     authentication_configuration: pulumi.Output[dict]
     """
     An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
-    
+
       * `allowedIpRange` (`str`)
       * `secretToken` (`str`)
     """
     filters: pulumi.Output[list]
     """
     One or more `filter` blocks. Filter blocks are documented below.
-    
+
       * `jsonPath` (`str`)
       * `matchEquals` (`str`)
     """
@@ -51,7 +51,9 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, authentication=None, authentication_configuration=None, filters=None, name=None, tags=None, target_action=None, target_pipeline=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CodePipeline Webhook.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
@@ -61,18 +63,16 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
-        
+
         The **authentication_configuration** object supports the following:
-        
+
           * `allowedIpRange` (`pulumi.Input[str]`)
           * `secretToken` (`pulumi.Input[str]`)
-        
+
         The **filters** object supports the following:
-        
+
           * `jsonPath` (`pulumi.Input[str]`)
           * `matchEquals` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,7 +118,7 @@ class Webhook(pulumi.CustomResource):
         """
         Get an existing Webhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,22 +130,21 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         :param pulumi.Input[str] url: The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
-        
+
         The **authentication_configuration** object supports the following:
-        
+
           * `allowedIpRange` (`pulumi.Input[str]`)
           * `secretToken` (`pulumi.Input[str]`)
-        
+
         The **filters** object supports the following:
-        
+
           * `jsonPath` (`pulumi.Input[str]`)
           * `matchEquals` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline_webhook.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["authentication"] = authentication
         __props__["authentication_configuration"] = authentication_configuration
         __props__["filters"] = filters

@@ -31,7 +31,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
     Option settings to configure the new Environment. These
     override specific values that are set as defaults. The format is detailed
     below in Option Settings
-    
+
       * `name` (`str`) - A unique name for this Template.
       * `namespace` (`str`)
       * `resource` (`str`)
@@ -47,16 +47,18 @@ class ConfigurationTemplate(pulumi.CustomResource):
         Provides an Elastic Beanstalk Configuration Template, which are associated with
         a specific application and are used to deploy different versions of the
         application with the same configuration settings.
-        
+
         ## Option Settings
-        
+
         The `setting` field supports the following format:
-        
+
         * `namespace` - unique namespace identifying the option's associated AWS resource
         * `name` - name of the configuration option
         * `value` - value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: name of the application to associate with this configuration template
@@ -68,15 +70,13 @@ class ConfigurationTemplate(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
                off of. Example stacks can be found in the [Amazon API documentation][1]
-        
+
         The **settings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - A unique name for this Template.
           * `namespace` (`pulumi.Input[str]`)
           * `resource` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,7 +114,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         """
         Get an existing ConfigurationTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,19 +127,18 @@ class ConfigurationTemplate(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
                off of. Example stacks can be found in the [Amazon API documentation][1]
-        
+
         The **settings** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - A unique name for this Template.
           * `namespace` (`pulumi.Input[str]`)
           * `resource` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application"] = application
         __props__["description"] = description
         __props__["environment_id"] = environment_id

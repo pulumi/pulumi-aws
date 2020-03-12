@@ -11,7 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/s3_access_point.html.markdown.
 type AccessPoint struct {
 	pulumi.CustomResourceState
 

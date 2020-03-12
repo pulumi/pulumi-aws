@@ -36,15 +36,15 @@ class Alias(pulumi.CustomResource):
         Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
         but API (hence this provider too) allows you to create as many aliases as
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         :param pulumi.Input[str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,7 +81,7 @@ class Alias(pulumi.CustomResource):
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,12 +91,11 @@ class Alias(pulumi.CustomResource):
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         :param pulumi.Input[str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
         :param pulumi.Input[str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_alias.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix

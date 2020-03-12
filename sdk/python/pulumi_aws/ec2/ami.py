@@ -22,7 +22,7 @@ class Ami(pulumi.CustomResource):
     """
     Nested block describing an EBS block device that should be
     attached to created instances. The structure of this block is described below.
-    
+
       * `deleteOnTermination` (`bool`)
       * `device_name` (`str`)
       * `encrypted` (`bool`)
@@ -39,7 +39,7 @@ class Ami(pulumi.CustomResource):
     """
     Nested block describing an ephemeral block device that
     should be attached to created instances. The structure of this block is described below.
-    
+
       * `device_name` (`str`)
       * `virtualName` (`str`)
     """
@@ -90,13 +90,15 @@ class Ami(pulumi.CustomResource):
         """
         The AMI resource allows the creation and management of a completely-custom
         *Amazon Machine Image* (AMI).
-        
+
         If you just want to duplicate an existing AMI, possibly copying it to another
         region, it's better to use `ec2.AmiCopy` instead.
-        
+
         If you just want to share an existing AMI with another AWS account,
         it's better to use `ec2.AmiLaunchPermission` instead.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
@@ -120,9 +122,9 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `device_name` (`pulumi.Input[str]`)
           * `encrypted` (`pulumi.Input[bool]`)
@@ -130,13 +132,11 @@ class Ami(pulumi.CustomResource):
           * `snapshot_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`)
           * `virtualName` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -181,7 +181,7 @@ class Ami(pulumi.CustomResource):
         """
         Get an existing Ami resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,9 +207,9 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
-        
+
         The **ebs_block_devices** object supports the following:
-        
+
           * `deleteOnTermination` (`pulumi.Input[bool]`)
           * `device_name` (`pulumi.Input[str]`)
           * `encrypted` (`pulumi.Input[bool]`)
@@ -217,17 +217,16 @@ class Ami(pulumi.CustomResource):
           * `snapshot_id` (`pulumi.Input[str]`)
           * `volume_size` (`pulumi.Input[float]`)
           * `volumeType` (`pulumi.Input[str]`)
-        
+
         The **ephemeral_block_devices** object supports the following:
-        
+
           * `device_name` (`pulumi.Input[str]`)
           * `virtualName` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["architecture"] = architecture
         __props__["description"] = description
         __props__["ebs_block_devices"] = ebs_block_devices

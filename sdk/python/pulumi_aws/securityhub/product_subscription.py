@@ -21,14 +21,14 @@ class ProductSubscription(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, product_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Subscribes to a Security Hub product.
-        
+
         > **NOTE:** This AWS service is in Preview and may change before General Availability release. Backwards compatibility is not guaranteed between AWS Provider releases.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,18 +62,17 @@ class ProductSubscription(pulumi.CustomResource):
         """
         Get an existing ProductSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["product_arn"] = product_arn
         return ProductSubscription(resource_name, opts=opts, __props__=__props__)

@@ -29,15 +29,15 @@ class Template(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, html=None, name=None, subject=None, text=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a SES template.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_template.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[str] subject: The subject line of the email.
         :param pulumi.Input[str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_template.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,7 +71,7 @@ class Template(pulumi.CustomResource):
         """
         Get an existing Template resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,12 +79,11 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[str] subject: The subject line of the email.
         :param pulumi.Input[str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_template.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["html"] = html
         __props__["name"] = name
         __props__["subject"] = subject

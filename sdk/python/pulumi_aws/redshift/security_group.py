@@ -17,7 +17,7 @@ class SecurityGroup(pulumi.CustomResource):
     ingress: pulumi.Output[list]
     """
     A list of ingress rules.
-    
+
       * `cidr` (`str`) - The CIDR block to accept
       * `securityGroupName` (`str`) - The name of the security group to authorize
       * `securityGroupOwnerId` (`str`) - The owner Id of the security group provided
@@ -30,21 +30,21 @@ class SecurityGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, ingress=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Redshift security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the Redshift security group.
-        
+
         The **ingress** object supports the following:
-        
+
           * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
           * `securityGroupName` (`pulumi.Input[str]`) - The name of the security group to authorize
           * `securityGroupOwnerId` (`pulumi.Input[str]`) - The owner Id of the security group provided
             by `security_group_name`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,26 +81,25 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Get an existing SecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Redshift security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[list] ingress: A list of ingress rules.
         :param pulumi.Input[str] name: The name of the Redshift security group.
-        
+
         The **ingress** object supports the following:
-        
+
           * `cidr` (`pulumi.Input[str]`) - The CIDR block to accept
           * `securityGroupName` (`pulumi.Input[str]`) - The name of the security group to authorize
           * `securityGroupOwnerId` (`pulumi.Input[str]`) - The owner Id of the security group provided
             by `security_group_name`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_security_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["ingress"] = ingress
         __props__["name"] = name

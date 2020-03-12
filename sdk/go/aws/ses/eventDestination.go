@@ -12,8 +12,8 @@ import (
 )
 
 // Provides an SES event destination
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_event_destination.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_event_destination.markdown.
 type EventDestination struct {
 	pulumi.CustomResourceState
 

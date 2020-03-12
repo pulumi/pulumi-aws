@@ -25,57 +25,53 @@ class DeploymentConfig(pulumi.CustomResource):
     minimum_healthy_hosts: pulumi.Output[dict]
     """
     A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-    
+
       * `type` (`str`)
       * `value` (`float`)
     """
     traffic_routing_config: pulumi.Output[dict]
     """
     A traffic_routing_config block. Traffic Routing Config is documented below.
-    
+
       * `timeBasedCanary` (`dict`)
-    
         * `interval` (`float`)
         * `percentage` (`float`)
-    
+
       * `timeBasedLinear` (`dict`)
-    
         * `interval` (`float`)
         * `percentage` (`float`)
-    
+
       * `type` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, compute_platform=None, deployment_config_name=None, minimum_healthy_hosts=None, traffic_routing_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CodeDeploy deployment config for an application
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
-        
+
         The **minimum_healthy_hosts** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[float]`)
-        
-        The **traffic_routing_config** object supports the following:
-        
-          * `timeBasedCanary` (`pulumi.Input[dict]`)
-        
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
-        
-          * `timeBasedLinear` (`pulumi.Input[dict]`)
-        
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
-        
-          * `type` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
+        The **traffic_routing_config** object supports the following:
+
+          * `timeBasedCanary` (`pulumi.Input[dict]`)
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+
+          * `timeBasedLinear` (`pulumi.Input[dict]`)
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+
+          * `type` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,7 +108,7 @@ class DeploymentConfig(pulumi.CustomResource):
         """
         Get an existing DeploymentConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,31 +117,28 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[dict] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[dict] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
-        
+
         The **minimum_healthy_hosts** object supports the following:
-        
+
           * `type` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[float]`)
-        
-        The **traffic_routing_config** object supports the following:
-        
-          * `timeBasedCanary` (`pulumi.Input[dict]`)
-        
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
-        
-          * `timeBasedLinear` (`pulumi.Input[dict]`)
-        
-            * `interval` (`pulumi.Input[float]`)
-            * `percentage` (`pulumi.Input[float]`)
-        
-          * `type` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codedeploy_deployment_config.html.markdown.
+        The **traffic_routing_config** object supports the following:
+
+          * `timeBasedCanary` (`pulumi.Input[dict]`)
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+
+          * `timeBasedLinear` (`pulumi.Input[dict]`)
+            * `interval` (`pulumi.Input[float]`)
+            * `percentage` (`pulumi.Input[float]`)
+
+          * `type` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["compute_platform"] = compute_platform
         __props__["deployment_config_id"] = deployment_config_id
         __props__["deployment_config_name"] = deployment_config_name

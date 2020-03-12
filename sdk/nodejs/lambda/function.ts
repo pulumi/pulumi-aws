@@ -8,9 +8,6 @@ import * as utilities from "../utilities";
 
 import {ARN} from "../index";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
- */
 export class Function extends pulumi.CustomResource {
     /**
      * Get an existing Function resource's state with the given name, ID, and optional extra

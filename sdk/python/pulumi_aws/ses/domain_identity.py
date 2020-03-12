@@ -31,12 +31,12 @@ class DomainIdentity(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, domain=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SES domain identity resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,7 +71,7 @@ class DomainIdentity(pulumi.CustomResource):
         """
         Get an existing DomainIdentity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,12 +84,11 @@ class DomainIdentity(pulumi.CustomResource):
                when the domain is hosted in Route 53 and managed by this provider.  Find out
                more about verifying domains in Amazon SES in the [AWS SES
                docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["domain"] = domain
         __props__["verification_token"] = verification_token

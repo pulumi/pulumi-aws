@@ -30,15 +30,15 @@ class VpcLink(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name=None, tags=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway VPC Link.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the VPC link.
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +75,7 @@ class VpcLink(pulumi.CustomResource):
         """
         Get an existing VpcLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,12 +83,11 @@ class VpcLink(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] target_arn: The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_vpc_link.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["name"] = name

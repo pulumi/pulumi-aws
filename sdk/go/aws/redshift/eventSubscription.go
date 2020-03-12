@@ -12,15 +12,15 @@ import (
 )
 
 // Provides a Redshift event subscription resource.
-// 
+//
 // ## Attributes
-// 
+//
 // The following additional atttributes are provided:
-// 
+//
 // * `arn` - Amazon Resource Name (ARN) of the Redshift event notification subscription
 // * `id` - The name of the Redshift event notification subscription
 // * `customerAwsId` - The AWS customer account associated with the Redshift event notification subscription
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/redshift_event_subscription.html.markdown.
 type EventSubscription struct {
 	pulumi.CustomResourceState

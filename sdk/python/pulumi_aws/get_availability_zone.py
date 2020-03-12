@@ -13,7 +13,13 @@ class GetAvailabilityZoneResult:
     """
     A collection of values returned by getAvailabilityZone.
     """
-    def __init__(__self__, name=None, name_suffix=None, region=None, state=None, zone_id=None, id=None):
+    def __init__(__self__, id=None, name=None, name_suffix=None, region=None, state=None, zone_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -47,47 +53,43 @@ class GetAvailabilityZoneResult:
         """
         (Optional) The zone ID of the selected availability zone.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetAvailabilityZoneResult(
+            id=self.id,
             name=self.name,
             name_suffix=self.name_suffix,
             region=self.region,
             state=self.state,
-            zone_id=self.zone_id,
-            id=self.id)
+            zone_id=self.zone_id)
 
 def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     """
     `.getAvailabilityZone` provides details about a specific availability zone (AZ)
     in the current region.
-    
+
     This can be used both to validate an availability zone given in a variable
     and to split the AZ name into its component parts of an AWS region and an
     AZ identifier letter. The latter may be useful e.g. for implementing a
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
-    
+
     This is different from the `.getAvailabilityZones` (plural) data source,
     which provides a list of the available zones.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
+
+
     :param str name: The full name of the availability zone to select.
     :param str state: A specific availability zone state to require. May
            be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: The zone ID of the availability zone to select.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/availability_zone.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['state'] = state
@@ -99,9 +101,9 @@ def get_availability_zone(name=None,state=None,zone_id=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__, opts=opts).value
 
     return AwaitableGetAvailabilityZoneResult(
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         name_suffix=__ret__.get('nameSuffix'),
         region=__ret__.get('region'),
         state=__ret__.get('state'),
-        zone_id=__ret__.get('zoneId'),
-        id=__ret__.get('id'))
+        zone_id=__ret__.get('zoneId'))

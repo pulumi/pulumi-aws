@@ -21,7 +21,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
     destination_port_range: pulumi.Output[dict]
     """
     The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-    
+
       * `from_port` (`float`) - Starting port of the range
       * `to_port` (`float`) - Ending port of the range
     """
@@ -44,7 +44,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
     source_port_range: pulumi.Output[dict]
     """
     The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
-    
+
       * `from_port` (`float`) - Starting port of the range
       * `to_port` (`float`) - Ending port of the range
     """
@@ -60,7 +60,9 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         """
         Provides an Traffic mirror filter rule.  
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter_rule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the traffic mirror filter rule.
@@ -73,18 +75,16 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[dict] source_port_range: The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: The direction of traffic to be captured. Valid values are `ingress` and `egress`
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to which this rule should be added
-        
+
         The **destination_port_range** object supports the following:
-        
-          * `from_port` (`pulumi.Input[float]`) - Starting port of the range
-          * `to_port` (`pulumi.Input[float]`) - Ending port of the range
-        
-        The **source_port_range** object supports the following:
-        
+
           * `from_port` (`pulumi.Input[float]`) - Starting port of the range
           * `to_port` (`pulumi.Input[float]`) - Ending port of the range
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter_rule.html.markdown.
+        The **source_port_range** object supports the following:
+
+          * `from_port` (`pulumi.Input[float]`) - Starting port of the range
+          * `to_port` (`pulumi.Input[float]`) - Ending port of the range
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,7 +136,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         """
         Get an existing TrafficMirrorFilterRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,22 +150,21 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[dict] source_port_range: The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: The direction of traffic to be captured. Valid values are `ingress` and `egress`
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to which this rule should be added
-        
+
         The **destination_port_range** object supports the following:
-        
-          * `from_port` (`pulumi.Input[float]`) - Starting port of the range
-          * `to_port` (`pulumi.Input[float]`) - Ending port of the range
-        
-        The **source_port_range** object supports the following:
-        
+
           * `from_port` (`pulumi.Input[float]`) - Starting port of the range
           * `to_port` (`pulumi.Input[float]`) - Ending port of the range
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter_rule.html.markdown.
+        The **source_port_range** object supports the following:
+
+          * `from_port` (`pulumi.Input[float]`) - Starting port of the range
+          * `to_port` (`pulumi.Input[float]`) - Ending port of the range
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["destination_cidr_block"] = destination_cidr_block
         __props__["destination_port_range"] = destination_port_range

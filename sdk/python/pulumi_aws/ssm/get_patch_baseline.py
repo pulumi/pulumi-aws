@@ -13,7 +13,7 @@ class GetPatchBaselineResult:
     """
     A collection of values returned by getPatchBaseline.
     """
-    def __init__(__self__, default_baseline=None, description=None, name=None, name_prefix=None, operating_system=None, owner=None, id=None):
+    def __init__(__self__, default_baseline=None, description=None, id=None, name=None, name_prefix=None, operating_system=None, owner=None):
         if default_baseline and not isinstance(default_baseline, bool):
             raise TypeError("Expected argument 'default_baseline' to be a bool")
         __self__.default_baseline = default_baseline
@@ -22,6 +22,12 @@ class GetPatchBaselineResult:
         __self__.description = description
         """
         The description of the baseline.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -38,12 +44,6 @@ class GetPatchBaselineResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         __self__.owner = owner
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,24 +52,26 @@ class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
         return GetPatchBaselineResult(
             default_baseline=self.default_baseline,
             description=self.description,
+            id=self.id,
             name=self.name,
             name_prefix=self.name_prefix,
             operating_system=self.operating_system,
-            owner=self.owner,
-            id=self.id)
+            owner=self.owner)
 
 def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=None,owner=None,opts=None):
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
+
+
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
     :param str operating_system: The specified OS for the baseline.
     :param str owner: The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ssm_patch_baseline.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['defaultBaseline'] = default_baseline
     __args__['namePrefix'] = name_prefix
@@ -84,8 +86,8 @@ def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=N
     return AwaitableGetPatchBaselineResult(
         default_baseline=__ret__.get('defaultBaseline'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         name_prefix=__ret__.get('namePrefix'),
         operating_system=__ret__.get('operatingSystem'),
-        owner=__ret__.get('owner'),
-        id=__ret__.get('id'))
+        owner=__ret__.get('owner'))

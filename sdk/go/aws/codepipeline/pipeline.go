@@ -12,10 +12,10 @@ import (
 )
 
 // Provides a CodePipeline.
-// 
+//
 // > **NOTE on `codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codepipeline.markdown.
 type Pipeline struct {
 	pulumi.CustomResourceState
 

@@ -30,10 +30,12 @@ class TableItem(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, hash_key=None, item=None, range_key=None, table_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a DynamoDB table item resource
-        
+
         > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
           You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table_item.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
@@ -41,8 +43,6 @@ class TableItem(pulumi.CustomResource):
                Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: The name of the table to contain the item.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table_item.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,7 +82,7 @@ class TableItem(pulumi.CustomResource):
         """
         Get an existing TableItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -91,12 +91,11 @@ class TableItem(pulumi.CustomResource):
                Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: The name of the table to contain the item.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dynamodb_table_item.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["hash_key"] = hash_key
         __props__["item"] = item
         __props__["range_key"] = range_key

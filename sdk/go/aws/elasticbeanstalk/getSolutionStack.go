@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_solution_stack.html.markdown.
 func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
 	var rv GetSolutionStackResult

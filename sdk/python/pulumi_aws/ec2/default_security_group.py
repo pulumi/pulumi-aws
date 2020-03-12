@@ -19,7 +19,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     """
     Can be specified multiple times for each
     egress rule. Each egress block supports fields documented below.
-    
+
       * `cidr_blocks` (`list`)
       * `description` (`str`) - The description of the security group
       * `from_port` (`float`)
@@ -34,7 +34,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     """
     Can be specified multiple times for each
     ingress rule. Each ingress block supports fields documented below.
-    
+
       * `cidr_blocks` (`list`)
       * `description` (`str`) - The description of the security group
       * `from_port` (`float`)
@@ -67,46 +67,48 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, egress=None, ingress=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage the default AWS Security Group.
-        
+
         For EC2 Classic accounts, each region comes with a Default Security Group.
         Additionally, each VPC created in AWS comes with a Default Security Group that can be managed, but not
         destroyed. **This is an advanced resource**, and has special caveats to be aware
         of when using it. Please read this document in its entirety before using this
         resource.
-        
+
         The `ec2.DefaultSecurityGroup` behaves differently from normal resources, in that
         this provider does not _create_ this resource, but instead "adopts" it
         into management. We can do this because these default security groups cannot be
         destroyed, and are created with a known set of default ingress/egress rules.
-        
+
         When this provider first adopts the Default Security Group, it **immediately removes all
         ingress and egress rules in the Security Group**. It then proceeds to create any rules specified in the
         configuration. This step is required so that only the rules specified in the
         configuration are created.
-        
+
         This resource treats its inline rules as absolute; only the rules defined
         inline are created, and any additions/removals external to this resource will
         result in diff shown. For these reasons, this resource is incompatible with the
         `ec2.SecurityGroupRule` resource.
-        
+
         For more information about Default Security Groups, see the AWS Documentation on
         [Default Security Groups][aws-default-security-groups].
-        
+
         ## Usage
-        
+
         With the exceptions mentioned above, `ec2.DefaultSecurityGroup` should
         identical behavior to `ec2.SecurityGroup`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
         for further usage documentation.
-        
+
         ### Removing `ec2.DefaultSecurityGroup` from your configuration
-        
+
         Each AWS VPC (or region, if using EC2 Classic) comes with a Default Security
         Group that cannot be deleted. The `ec2.DefaultSecurityGroup` allows you to
         manage this Security Group, but this provider cannot destroy it. Removing this resource
         from your configuration will remove it from your statefile and management, but
         will not destroy the Security Group. All ingress or egress rules will be left as
         they are at the time of removal. You can resume managing them via the AWS Console.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] egress: Can be specified multiple times for each
@@ -117,21 +119,9 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing
                the `vpc_id` will _not_ restore any default security group rules that were
                modified, added, or removed.** It will be left in its current state
-        
+
         The **egress** object supports the following:
-        
-          * `cidr_blocks` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - The description of the security group
-          * `from_port` (`pulumi.Input[float]`)
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
-          * `prefix_list_ids` (`pulumi.Input[list]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `self` (`pulumi.Input[bool]`)
-          * `to_port` (`pulumi.Input[float]`)
-        
-        The **ingress** object supports the following:
-        
+
           * `cidr_blocks` (`pulumi.Input[list]`)
           * `description` (`pulumi.Input[str]`) - The description of the security group
           * `from_port` (`pulumi.Input[float]`)
@@ -142,7 +132,17 @@ class DefaultSecurityGroup(pulumi.CustomResource):
           * `self` (`pulumi.Input[bool]`)
           * `to_port` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
+        The **ingress** object supports the following:
+
+          * `cidr_blocks` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - The description of the security group
+          * `from_port` (`pulumi.Input[float]`)
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
+          * `prefix_list_ids` (`pulumi.Input[list]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `self` (`pulumi.Input[bool]`)
+          * `to_port` (`pulumi.Input[float]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -181,7 +181,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         """
         Get an existing DefaultSecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,21 +196,9 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing
                the `vpc_id` will _not_ restore any default security group rules that were
                modified, added, or removed.** It will be left in its current state
-        
+
         The **egress** object supports the following:
-        
-          * `cidr_blocks` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - The description of the security group
-          * `from_port` (`pulumi.Input[float]`)
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
-          * `prefix_list_ids` (`pulumi.Input[list]`)
-          * `protocol` (`pulumi.Input[str]`)
-          * `security_groups` (`pulumi.Input[list]`)
-          * `self` (`pulumi.Input[bool]`)
-          * `to_port` (`pulumi.Input[float]`)
-        
-        The **ingress** object supports the following:
-        
+
           * `cidr_blocks` (`pulumi.Input[list]`)
           * `description` (`pulumi.Input[str]`) - The description of the security group
           * `from_port` (`pulumi.Input[float]`)
@@ -221,11 +209,22 @@ class DefaultSecurityGroup(pulumi.CustomResource):
           * `self` (`pulumi.Input[bool]`)
           * `to_port` (`pulumi.Input[float]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_security_group.html.markdown.
+        The **ingress** object supports the following:
+
+          * `cidr_blocks` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - The description of the security group
+          * `from_port` (`pulumi.Input[float]`)
+          * `ipv6_cidr_blocks` (`pulumi.Input[list]`)
+          * `prefix_list_ids` (`pulumi.Input[list]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `security_groups` (`pulumi.Input[list]`)
+          * `self` (`pulumi.Input[bool]`)
+          * `to_port` (`pulumi.Input[float]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["egress"] = egress

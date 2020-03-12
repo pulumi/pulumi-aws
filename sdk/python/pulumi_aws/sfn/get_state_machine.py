@@ -13,7 +13,7 @@ class GetStateMachineResult:
     """
     A collection of values returned by getStateMachine.
     """
-    def __init__(__self__, arn=None, creation_date=None, definition=None, name=None, role_arn=None, status=None, id=None):
+    def __init__(__self__, arn=None, creation_date=None, definition=None, id=None, name=None, role_arn=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -32,6 +32,12 @@ class GetStateMachineResult:
         """
         Set to the state machine definition.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -47,12 +53,6 @@ class GetStateMachineResult:
         """
         Set to the current status of the state machine.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetStateMachineResult(GetStateMachineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -62,22 +62,24 @@ class AwaitableGetStateMachineResult(GetStateMachineResult):
             arn=self.arn,
             creation_date=self.creation_date,
             definition=self.definition,
+            id=self.id,
             name=self.name,
             role_arn=self.role_arn,
-            status=self.status,
-            id=self.id)
+            status=self.status)
 
 def get_state_machine(name=None,opts=None):
     """
     Use this data source to get the ARN of a State Machine in AWS Step
     Function (SFN). By using this data source, you can reference a
     state machine without having to hard code the ARNs as input.
-    
-    :param str name: The friendly name of the state machine to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_state_machine.html.markdown.
+
+
+    :param str name: The friendly name of the state machine to match.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -90,7 +92,7 @@ def get_state_machine(name=None,opts=None):
         arn=__ret__.get('arn'),
         creation_date=__ret__.get('creationDate'),
         definition=__ret__.get('definition'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         role_arn=__ret__.get('roleArn'),
-        status=__ret__.get('status'),
-        id=__ret__.get('id'))
+        status=__ret__.get('status'))

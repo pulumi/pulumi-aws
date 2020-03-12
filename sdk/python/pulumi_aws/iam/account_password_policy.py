@@ -56,11 +56,13 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_users_to_change_password=None, hard_expiry=None, max_password_age=None, minimum_password_length=None, password_reuse_prevention=None, require_lowercase_characters=None, require_numbers=None, require_symbols=None, require_uppercase_characters=None, __props__=None, __name__=None, __opts__=None):
         """
         > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
-        
+
         Manages Password Policy for the AWS Account.
         See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
         in the official AWS docs.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_users_to_change_password: Whether to allow users to change their own password
@@ -73,8 +75,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] require_numbers: Whether to require numbers for user passwords.
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.
         :param pulumi.Input[bool] require_uppercase_characters: Whether to require uppercase characters for user passwords.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,7 +114,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         """
         Get an existing AccountPasswordPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,12 +131,11 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] require_numbers: Whether to require numbers for user passwords.
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.
         :param pulumi.Input[bool] require_uppercase_characters: Whether to require uppercase characters for user passwords.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_password_policy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_users_to_change_password"] = allow_users_to_change_password
         __props__["expire_passwords"] = expire_passwords
         __props__["hard_expiry"] = hard_expiry

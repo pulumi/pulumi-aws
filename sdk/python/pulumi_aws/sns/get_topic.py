@@ -13,22 +13,22 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, arn=None, name=None, id=None):
+    def __init__(__self__, arn=None, id=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         Set to the ARN of the found topic, suitable for referencing in other resources that support SNS topics.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 class AwaitableGetTopicResult(GetTopicResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -36,20 +36,22 @@ class AwaitableGetTopicResult(GetTopicResult):
             yield self
         return GetTopicResult(
             arn=self.arn,
-            name=self.name,
-            id=self.id)
+            id=self.id,
+            name=self.name)
 
 def get_topic(name=None,opts=None):
     """
     Use this data source to get the ARN of a topic in AWS Simple Notification
     Service (SNS). By using this data source, you can reference SNS topics
     without having to hard code the ARNs as input.
-    
-    :param str name: The friendly name of the topic to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sns_topic.html.markdown.
+
+
+    :param str name: The friendly name of the topic to match.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -60,5 +62,5 @@ def get_topic(name=None,opts=None):
 
     return AwaitableGetTopicResult(
         arn=__ret__.get('arn'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

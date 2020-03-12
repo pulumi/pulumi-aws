@@ -9,8 +9,8 @@ import (
 )
 
 // Use this data source to get a list of cognito user pools.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cognito_user_pools.markdown.
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
 	var rv GetUserPoolsResult
 	err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", args, &rv, opts...)

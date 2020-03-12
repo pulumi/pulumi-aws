@@ -17,28 +17,24 @@ class AnalyticsConfiguration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bucket=None, filter=None, name=None, storage_class_analysis=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a AnalyticsConfiguration resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+
         The **filter** object supports the following:
-        
+
           * `prefix` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[dict]`)
-        
+
         The **storage_class_analysis** object supports the following:
-        
+
           * `dataExport` (`pulumi.Input[dict]`)
-        
             * `destination` (`pulumi.Input[dict]`)
-        
               * `s3BucketDestination` (`pulumi.Input[dict]`)
-        
                 * `bucketAccountId` (`pulumi.Input[str]`)
                 * `bucketArn` (`pulumi.Input[str]`)
                 * `format` (`pulumi.Input[str]`)
                 * `prefix` (`pulumi.Input[str]`)
-        
+
             * `outputSchemaVersion` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
@@ -75,34 +71,32 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         """
         Get an existing AnalyticsConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+
         The **filter** object supports the following:
-        
+
           * `prefix` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[dict]`)
-        
+
         The **storage_class_analysis** object supports the following:
-        
+
           * `dataExport` (`pulumi.Input[dict]`)
-        
             * `destination` (`pulumi.Input[dict]`)
-        
               * `s3BucketDestination` (`pulumi.Input[dict]`)
-        
                 * `bucketAccountId` (`pulumi.Input[str]`)
                 * `bucketArn` (`pulumi.Input[str]`)
                 * `format` (`pulumi.Input[str]`)
                 * `prefix` (`pulumi.Input[str]`)
-        
+
             * `outputSchemaVersion` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["bucket"] = bucket
         __props__["filter"] = filter
         __props__["name"] = name

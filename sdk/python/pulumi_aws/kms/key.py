@@ -54,7 +54,9 @@ class Key(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, customer_master_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a KMS customer master key.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
@@ -68,8 +70,6 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,7 +109,7 @@ class Key(pulumi.CustomResource):
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,12 +126,11 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_key.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["customer_master_key_spec"] = customer_master_key_spec
         __props__["deletion_window_in_days"] = deletion_window_in_days

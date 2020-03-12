@@ -13,7 +13,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, key_id=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None, id=None):
+    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -41,6 +41,12 @@ class GetKeyResult:
         if grant_tokens and not isinstance(grant_tokens, list):
             raise TypeError("Expected argument 'grant_tokens' to be a list")
         __self__.grant_tokens = grant_tokens
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if key_id and not isinstance(key_id, str):
             raise TypeError("Expected argument 'key_id' to be a str")
         __self__.key_id = key_id
@@ -59,12 +65,6 @@ class GetKeyResult:
         if valid_to and not isinstance(valid_to, str):
             raise TypeError("Expected argument 'valid_to' to be a str")
         __self__.valid_to = valid_to
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -80,13 +80,13 @@ class AwaitableGetKeyResult(GetKeyResult):
             enabled=self.enabled,
             expiration_model=self.expiration_model,
             grant_tokens=self.grant_tokens,
+            id=self.id,
             key_id=self.key_id,
             key_manager=self.key_manager,
             key_state=self.key_state,
             key_usage=self.key_usage,
             origin=self.origin,
-            valid_to=self.valid_to,
-            id=self.id)
+            valid_to=self.valid_to)
 
 def get_key(grant_tokens=None,key_id=None,opts=None):
     """
@@ -94,17 +94,19 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
     the specified KMS Key with flexible key id input.
     This can be useful to reference key alias
     without having to hard code the ARN as input.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
+
+
     :param list grant_tokens: List of grant tokens
     :param str key_id: Key identifier which can be one of the following format:
            * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
            * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g.: `alias/my-key`
            * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
@@ -124,10 +126,10 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
         enabled=__ret__.get('enabled'),
         expiration_model=__ret__.get('expirationModel'),
         grant_tokens=__ret__.get('grantTokens'),
+        id=__ret__.get('id'),
         key_id=__ret__.get('keyId'),
         key_manager=__ret__.get('keyManager'),
         key_state=__ret__.get('keyState'),
         key_usage=__ret__.get('keyUsage'),
         origin=__ret__.get('origin'),
-        valid_to=__ret__.get('validTo'),
-        id=__ret__.get('id'))
+        valid_to=__ret__.get('validTo'))

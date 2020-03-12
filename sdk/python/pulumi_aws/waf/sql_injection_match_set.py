@@ -17,16 +17,15 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     sql_injection_match_tuples: pulumi.Output[list]
     """
     The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-    
+
       * `fieldToMatch` (`dict`) - Specifies where in a web request to look for snippets of malicious SQL code.
-    
         * `data` (`str`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
           If `type` is any other value, omit this field.
         * `type` (`str`) - The part of the web request that you want AWS WAF to search for a specified string.
           e.g. `HEADER`, `METHOD` or `BODY`.
           See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
           for all supported values.
-    
+
       * `textTransformation` (`str`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
         e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -36,30 +35,29 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, sql_injection_match_tuples=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a WAF SQL Injection Match Set Resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_sql_injection_match_set.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
         :param pulumi.Input[list] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-        
+
         The **sql_injection_match_tuples** object supports the following:
-        
+
           * `fieldToMatch` (`pulumi.Input[dict]`) - Specifies where in a web request to look for snippets of malicious SQL code.
-        
             * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
               If `type` is any other value, omit this field.
             * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string.
               e.g. `HEADER`, `METHOD` or `BODY`.
               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
               for all supported values.
-        
+
           * `textTransformation` (`pulumi.Input[str]`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
             If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
             e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
             See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
             for all supported values.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_sql_injection_match_set.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,35 +89,33 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         """
         Get an existing SqlInjectionMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
         :param pulumi.Input[list] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-        
+
         The **sql_injection_match_tuples** object supports the following:
-        
+
           * `fieldToMatch` (`pulumi.Input[dict]`) - Specifies where in a web request to look for snippets of malicious SQL code.
-        
             * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
               If `type` is any other value, omit this field.
             * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string.
               e.g. `HEADER`, `METHOD` or `BODY`.
               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
               for all supported values.
-        
+
           * `textTransformation` (`pulumi.Input[str]`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
             If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
             e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
             See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
             for all supported values.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/waf_sql_injection_match_set.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["sql_injection_match_tuples"] = sql_injection_match_tuples
         return SqlInjectionMatchSet(resource_name, opts=opts, __props__=__props__)

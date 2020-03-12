@@ -19,23 +19,23 @@ class Account(pulumi.CustomResource):
     throttle_settings: pulumi.Output[dict]
     """
     Account-Level throttle settings. See exported fields below.
-    
+
       * `burstLimit` (`float`) - The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-      * `rateLimit` (`float`) - The number of times API Gateway allows the API to be called per second on average (RPS).
+      * `rate_limit` (`float`) - The number of times API Gateway allows the API to be called per second on average (RPS).
     """
     def __init__(__self__, resource_name, opts=None, cloudwatch_role_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
-        
+
         > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_account.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_role_arn: The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
                See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
                Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_account.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,7 +67,7 @@ class Account(pulumi.CustomResource):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -75,17 +75,16 @@ class Account(pulumi.CustomResource):
                See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
                Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[dict] throttle_settings: Account-Level throttle settings. See exported fields below.
-        
-        The **throttle_settings** object supports the following:
-        
-          * `burstLimit` (`pulumi.Input[float]`) - The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-          * `rateLimit` (`pulumi.Input[float]`) - The number of times API Gateway allows the API to be called per second on average (RPS).
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_account.html.markdown.
+        The **throttle_settings** object supports the following:
+
+          * `burstLimit` (`pulumi.Input[float]`) - The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+          * `rate_limit` (`pulumi.Input[float]`) - The number of times API Gateway allows the API to be called per second on average (RPS).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cloudwatch_role_arn"] = cloudwatch_role_arn
         __props__["throttle_settings"] = throttle_settings
         return Account(resource_name, opts=opts, __props__=__props__)

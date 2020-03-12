@@ -12,7 +12,7 @@ import (
 )
 
 // Adds permission to create volumes off of a given EBS Snapshot.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/snapshot_create_volume_permission.html.markdown.
 type SnapshotCreateVolumePermission struct {
 	pulumi.CustomResourceState

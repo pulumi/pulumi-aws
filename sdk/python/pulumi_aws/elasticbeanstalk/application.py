@@ -32,24 +32,24 @@ class Application(pulumi.CustomResource):
         Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
         the infrastructure that runs those applications.
-        
+
         This resource creates an application that has one configuration template named
         `default`, and no application versions
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
-        
+
         The **appversion_lifecycle** object supports the following:
-        
+
           * `deleteSourceFromS3` (`pulumi.Input[bool]`) - Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
           * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
           * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
           * `service_role` (`pulumi.Input[str]`) - The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,7 +84,7 @@ class Application(pulumi.CustomResource):
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,19 +92,18 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
         :param pulumi.Input[dict] tags: Key-value mapping of tags for the Elastic Beanstalk Application.
-        
+
         The **appversion_lifecycle** object supports the following:
-        
+
           * `deleteSourceFromS3` (`pulumi.Input[bool]`) - Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
           * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
           * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
           * `service_role` (`pulumi.Input[str]`) - The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_application.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["appversion_lifecycle"] = appversion_lifecycle
         __props__["arn"] = arn
         __props__["description"] = description

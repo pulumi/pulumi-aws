@@ -45,7 +45,7 @@ class LifecycleHook(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, autoscaling_group_name=None, default_result=None, heartbeat_timeout=None, lifecycle_transition=None, name=None, notification_metadata=None, notification_target_arn=None, role_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AutoScaling Lifecycle Hook resource.
-        
+
         > **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
         the `initial_lifecycle_hook` attribute from the
         [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html)
@@ -57,7 +57,9 @@ class LifecycleHook(pulumi.CustomResource):
         `initial_lifecycle_hook` in
         [`autoscaling.Group`](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
         but take care to not duplicate those hooks with this resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group to which you want to assign the lifecycle hook
@@ -68,8 +70,6 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[str] notification_target_arn: The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +111,7 @@ class LifecycleHook(pulumi.CustomResource):
         """
         Get an existing LifecycleHook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,12 +123,11 @@ class LifecycleHook(pulumi.CustomResource):
         :param pulumi.Input[str] notification_metadata: Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         :param pulumi.Input[str] notification_target_arn: The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/autoscaling_lifecycle_hook.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["autoscaling_group_name"] = autoscaling_group_name
         __props__["default_result"] = default_result
         __props__["heartbeat_timeout"] = heartbeat_timeout

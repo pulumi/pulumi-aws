@@ -12,7 +12,7 @@ import (
 // the specified KMS Key with flexible key id input.
 // This can be useful to reference key alias
 // without having to hard code the ARN as input.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/kms_key.html.markdown.
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult

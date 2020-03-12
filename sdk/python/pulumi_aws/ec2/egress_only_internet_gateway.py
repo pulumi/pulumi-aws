@@ -20,12 +20,12 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         An egress-only Internet gateway is used to enable outbound communication
         over IPv6 from instances in your VPC to the Internet, and prevents hosts
         outside of your VPC from initiating an IPv6 connection with your instance.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -58,17 +58,16 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         """
         Get an existing EgressOnlyInternetGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["vpc_id"] = vpc_id
         return EgressOnlyInternetGateway(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

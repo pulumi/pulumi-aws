@@ -57,13 +57,15 @@ class Route(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create a routing table entry (a route) in a VPC routing table.
-        
+
         > **NOTE on Route Tables and Routes:** This provider currently
         provides both a standalone Route resource and a Route Table resource with routes
         defined in-line. At this time you cannot use a Route Table with in-line routes
         in conjunction with any Route resources. Doing so will cause
         a conflict of rule settings and will overwrite rules.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
@@ -76,8 +78,6 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,7 +123,7 @@ class Route(pulumi.CustomResource):
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,12 +137,11 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/route.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["destination_cidr_block"] = destination_cidr_block
         __props__["destination_ipv6_cidr_block"] = destination_ipv6_cidr_block
         __props__["destination_prefix_list_id"] = destination_prefix_list_id

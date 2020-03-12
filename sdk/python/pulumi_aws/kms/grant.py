@@ -13,7 +13,7 @@ class Grant(pulumi.CustomResource):
     constraints: pulumi.Output[list]
     """
     A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
-    
+
       * `encryptionContextEquals` (`dict`)
       * `encryptionContextSubset` (`dict`)
     """
@@ -55,7 +55,9 @@ class Grant(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, constraints=None, grant_creation_tokens=None, grantee_principal=None, key_id=None, name=None, operations=None, retire_on_delete=None, retiring_principal=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
@@ -67,13 +69,11 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[list] operations: A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
         :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-        
+
         The **constraints** object supports the following:
-        
+
           * `encryptionContextEquals` (`pulumi.Input[dict]`)
           * `encryptionContextSubset` (`pulumi.Input[dict]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class Grant(pulumi.CustomResource):
         """
         Get an existing Grant resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,17 +134,16 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[list] operations: A list of operations that the grant permits. The permitted values are: `Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, CreateGrant, RetireGrant, DescribeKey`
         :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
-        
+
         The **constraints** object supports the following:
-        
+
           * `encryptionContextEquals` (`pulumi.Input[dict]`)
           * `encryptionContextSubset` (`pulumi.Input[dict]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["constraints"] = constraints
         __props__["grant_creation_tokens"] = grant_creation_tokens
         __props__["grant_id"] = grant_id

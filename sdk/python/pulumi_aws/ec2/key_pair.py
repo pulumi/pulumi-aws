@@ -37,23 +37,23 @@ class KeyPair(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, key_name=None, key_name_prefix=None, public_key=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an [EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) resource. A key pair is used to control login access to EC2 instances.
-        
+
         Currently this resource requires an existing user-supplied key pair. This key pair's public key will be registered with AWS to allow logging-in to EC2 instances.
-        
+
         When importing an existing key pair the public key material may be in any format supported by AWS. Supported formats (per the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws)) are:
-        
+
         * OpenSSH public key format (the format in ~/.ssh/authorized_keys)
         * Base64 encoded DER format
         * SSH public key file format as specified in RFC4716
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name for the key pair.
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +91,7 @@ class KeyPair(pulumi.CustomResource):
         """
         Get an existing KeyPair resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,12 +101,11 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair_id: The key pair ID.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/key_pair.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["fingerprint"] = fingerprint
         __props__["key_name"] = key_name
         __props__["key_name_prefix"] = key_name_prefix

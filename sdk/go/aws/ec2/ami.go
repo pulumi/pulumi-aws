@@ -12,13 +12,13 @@ import (
 
 // The AMI resource allows the creation and management of a completely-custom
 // *Amazon Machine Image* (AMI).
-// 
+//
 // If you just want to duplicate an existing AMI, possibly copying it to another
 // region, it's better to use `ec2.AmiCopy` instead.
-// 
+//
 // If you just want to share an existing AMI with another AWS account,
 // it's better to use `ec2.AmiLaunchPermission` instead.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami.html.markdown.
 type Ami struct {
 	pulumi.CustomResourceState

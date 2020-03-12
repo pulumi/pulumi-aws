@@ -30,14 +30,14 @@ class PlacementGroup(pulumi.CustomResource):
         """
         Provides an EC2 placement group. Read more about placement groups
         in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/placement_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[str] strategy: The placement strategy.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/placement_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,7 +73,7 @@ class PlacementGroup(pulumi.CustomResource):
         """
         Get an existing PlacementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,12 +81,11 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[str] strategy: The placement strategy.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/placement_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["placement_group_id"] = placement_group_id
         __props__["strategy"] = strategy

@@ -23,16 +23,16 @@ class UserGroupMembership(pulumi.CustomResource):
         Provides a resource for adding an [IAM User][2] to [IAM Groups][1]. This
         resource can be used multiple times with the same user for non-overlapping
         groups.
-        
+
         To exclusively manage the users in a group, see the
         [`iam.GroupMembership` resource][3].
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] groups: A list of [IAM Groups][1] to add the user to
         :param pulumi.Input[str] user: The name of the [IAM User][2] to add to groups
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,18 +68,17 @@ class UserGroupMembership(pulumi.CustomResource):
         """
         Get an existing UserGroupMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] groups: A list of [IAM Groups][1] to add the user to
         :param pulumi.Input[str] user: The name of the [IAM User][2] to add to groups
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_user_group_membership.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["groups"] = groups
         __props__["user"] = user
         return UserGroupMembership(resource_name, opts=opts, __props__=__props__)

@@ -22,13 +22,13 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         """
         Provides an Traffic mirror filter.  
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: amazon-dns
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,18 +60,17 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         """
         Get an existing TrafficMirrorFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: amazon-dns
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_filter.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["network_services"] = network_services
         return TrafficMirrorFilter(resource_name, opts=opts, __props__=__props__)

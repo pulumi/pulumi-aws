@@ -49,12 +49,14 @@ class AwaitableGetDetectorResult(GetDetectorResult):
 def get_detector(id=None,opts=None):
     """
     Retrieve information about a GuardDuty detector.
-    
-    :param str id: The ID of the detector.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/guardduty_detector.html.markdown.
+
+
+    :param str id: The ID of the detector.
     """
     __args__ = dict()
+
 
     __args__['id'] = id
     if opts is None:

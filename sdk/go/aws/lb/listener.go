@@ -12,9 +12,9 @@ import (
 )
 
 // Provides a Load Balancer Listener resource.
-// 
+//
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lb_listener.html.markdown.
 type Listener struct {
 	pulumi.CustomResourceState

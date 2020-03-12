@@ -41,7 +41,9 @@ class User(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, home_directory=None, policy=None, role=None, server_id=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the [`transfer.SshKey` resource](https://www.terraform.io/docs/providers/aws/r/transfer_ssh_key.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
@@ -50,8 +52,6 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,7 +94,7 @@ class User(pulumi.CustomResource):
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,12 +105,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/transfer_user.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["home_directory"] = home_directory
         __props__["policy"] = policy

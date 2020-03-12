@@ -13,18 +13,18 @@ class GetDefaultKmsKeyResult:
     """
     A collection of values returned by getDefaultKmsKey.
     """
-    def __init__(__self__, key_arn=None, id=None):
-        if key_arn and not isinstance(key_arn, str):
-            raise TypeError("Expected argument 'key_arn' to be a str")
-        __self__.key_arn = key_arn
-        """
-        Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-        """
+    def __init__(__self__, id=None, key_arn=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if key_arn and not isinstance(key_arn, str):
+            raise TypeError("Expected argument 'key_arn' to be a str")
+        __self__.key_arn = key_arn
+        """
+        Amazon Resource Name (ARN) of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
         """
 class AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
     # pylint: disable=using-constant-test
@@ -32,8 +32,8 @@ class AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
         if False:
             yield self
         return GetDefaultKmsKeyResult(
-            key_arn=self.key_arn,
-            id=self.id)
+            id=self.id,
+            key_arn=self.key_arn)
 
 def get_default_kms_key(opts=None):
     """
@@ -43,6 +43,7 @@ def get_default_kms_key(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -50,5 +51,5 @@ def get_default_kms_key(opts=None):
     __ret__ = pulumi.runtime.invoke('aws:ebs/getDefaultKmsKey:getDefaultKmsKey', __args__, opts=opts).value
 
     return AwaitableGetDefaultKmsKeyResult(
-        key_arn=__ret__.get('keyArn'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        key_arn=__ret__.get('keyArn'))

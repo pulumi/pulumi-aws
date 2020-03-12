@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_log_subscription.html.markdown.
 type LogService struct {
 	pulumi.CustomResourceState

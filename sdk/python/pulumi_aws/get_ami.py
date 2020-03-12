@@ -13,7 +13,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, executable_users=None, filters=None, hypervisor=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None, id=None):
+    def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         __self__.architecture = architecture
@@ -64,6 +64,12 @@ class GetAmiResult:
         __self__.hypervisor = hypervisor
         """
         The hypervisor type of the image.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")
@@ -200,12 +206,6 @@ class GetAmiResult:
         The type of virtualization of the AMI (ie: `hvm` or
         `paravirtual`).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetAmiResult(GetAmiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -219,6 +219,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             executable_users=self.executable_users,
             filters=self.filters,
             hypervisor=self.hypervisor,
+            id=self.id,
             image_id=self.image_id,
             image_location=self.image_location,
             image_owner_alias=self.image_owner_alias,
@@ -240,14 +241,16 @@ class AwaitableGetAmiResult(GetAmiResult):
             state=self.state,
             state_reason=self.state_reason,
             tags=self.tags,
-            virtualization_type=self.virtualization_type,
-            id=self.id)
+            virtualization_type=self.virtualization_type)
 
 def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,owners=None,tags=None,opts=None):
     """
     Use this data source to get the ID of a registered AMI for use in other
     resources.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
+
+
     :param list executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
     :param list filters: One or more name/value pairs to filter off of. There are
@@ -261,15 +264,14 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
     :param list owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the AMI that was provided during image creation.
       * `values` (`list`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters
@@ -291,6 +293,7 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
         executable_users=__ret__.get('executableUsers'),
         filters=__ret__.get('filters'),
         hypervisor=__ret__.get('hypervisor'),
+        id=__ret__.get('id'),
         image_id=__ret__.get('imageId'),
         image_location=__ret__.get('imageLocation'),
         image_owner_alias=__ret__.get('imageOwnerAlias'),
@@ -312,5 +315,4 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
         state=__ret__.get('state'),
         state_reason=__ret__.get('stateReason'),
         tags=__ret__.get('tags'),
-        virtualization_type=__ret__.get('virtualizationType'),
-        id=__ret__.get('id'))
+        virtualization_type=__ret__.get('virtualizationType'))

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Direct Connect Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_gateway.html.markdown.
 type Gateway struct {
 	pulumi.CustomResourceState

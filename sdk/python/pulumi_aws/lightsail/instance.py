@@ -66,13 +66,13 @@ class Instance(pulumi.CustomResource):
         Provides a Lightsail Instance. Amazon Lightsail is a service to provide easy virtual private servers
         with custom software already setup. See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail)
         for more information.
-        
+
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-        
+
         ## Availability Zones
-        
+
         Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
-        
+
         - `ap-northeast-1{a,c,d}`
         - `ap-northeast-2{a,c}`
         - `ap-south-1{a,b}`
@@ -86,13 +86,13 @@ class Instance(pulumi.CustomResource):
         - `us-east-1{a,b,c,d,e,f}`
         - `us-east-2{a,b,c}`
         - `us-west-2{a,b,c}`
-        
+
         ## Blueprints
-        
+
         Lightsail currently supports the following Blueprint IDs:
-        
+
         ### OS Only
-        
+
         - `amazon_linux_2018_03_0_2`
         - `centos_7_1901_01`
         - `debian_8_7`
@@ -101,9 +101,9 @@ class Instance(pulumi.CustomResource):
         - `opensuse_42_2`
         - `ubuntu_16_04_2`
         - `ubuntu_18_04`
-        
+
         ### Apps and OS
-        
+
         - `drupal_8_5_6`
         - `gitlab_11_1_4_1`
         - `joomla_3_8_11`
@@ -117,15 +117,15 @@ class Instance(pulumi.CustomResource):
         - `redmine_3_4_6`
         - `wordpress_4_9_8`
         - `wordpress_multisite_4_9_8`
-        
+
         ## Bundles
-        
+
         Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
-        
+
         ### Prefix
-        
+
         A Bundle ID starts with one of the below size prefixes:
-        
+
         - `nano_`
         - `micro_`
         - `small_`
@@ -133,11 +133,11 @@ class Instance(pulumi.CustomResource):
         - `large_`
         - `xlarge_`
         - `2xlarge_`
-        
+
         ### Suffix
-        
+
         A Bundle ID ends with one of the following suffixes depending on Availability Zone:
-        
+
         - ap-northeast-1: `2_0`
         - ap-northeast-2: `2_0`
         - ap-south-1: `2_1`
@@ -151,7 +151,9 @@ class Instance(pulumi.CustomResource):
         - us-east-1: `2_0`
         - us-east-2: `2_0`
         - us-west-2: `2_0`
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your
@@ -164,8 +166,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -217,7 +217,7 @@ class Instance(pulumi.CustomResource):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,12 +238,11 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lightsail_instance.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["availability_zone"] = availability_zone
         __props__["blueprint_id"] = blueprint_id

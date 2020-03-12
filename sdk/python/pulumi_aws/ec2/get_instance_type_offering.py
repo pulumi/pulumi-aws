@@ -13,10 +13,16 @@ class GetInstanceTypeOfferingResult:
     """
     A collection of values returned by getInstanceTypeOffering.
     """
-    def __init__(__self__, filters=None, instance_type=None, location_type=None, preferred_instance_types=None, id=None):
+    def __init__(__self__, filters=None, id=None, instance_type=None, location_type=None, preferred_instance_types=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         __self__.instance_type = instance_type
@@ -29,12 +35,6 @@ class GetInstanceTypeOfferingResult:
         if preferred_instance_types and not isinstance(preferred_instance_types, list):
             raise TypeError("Expected argument 'preferred_instance_types' to be a list")
         __self__.preferred_instance_types = preferred_instance_types
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,27 +42,29 @@ class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
             yield self
         return GetInstanceTypeOfferingResult(
             filters=self.filters,
+            id=self.id,
             instance_type=self.instance_type,
             location_type=self.location_type,
-            preferred_instance_types=self.preferred_instance_types,
-            id=self.id)
+            preferred_instance_types=self.preferred_instance_types)
 
 def get_instance_type_offering(filters=None,location_type=None,preferred_instance_types=None,opts=None):
     """
     Information about single EC2 Instance Type Offering.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offering.html.markdown.
+
+
     :param list filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param list preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
       * `values` (`list`) - List of one or more values for the filter.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offering.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['locationType'] = location_type
@@ -75,7 +77,7 @@ def get_instance_type_offering(filters=None,location_type=None,preferred_instanc
 
     return AwaitableGetInstanceTypeOfferingResult(
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         instance_type=__ret__.get('instanceType'),
         location_type=__ret__.get('locationType'),
-        preferred_instance_types=__ret__.get('preferredInstanceTypes'),
-        id=__ret__.get('id'))
+        preferred_instance_types=__ret__.get('preferredInstanceTypes'))

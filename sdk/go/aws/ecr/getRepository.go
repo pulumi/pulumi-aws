@@ -9,7 +9,7 @@ import (
 )
 
 // The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ecr_repository.html.markdown.
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	var rv LookupRepositoryResult

@@ -11,7 +11,7 @@ import (
 )
 
 // Provides a resource to create a VPC VPN Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway.html.markdown.
 type VpnGateway struct {
 	pulumi.CustomResourceState

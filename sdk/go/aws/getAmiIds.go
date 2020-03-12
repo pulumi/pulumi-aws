@@ -9,7 +9,7 @@ import (
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ami_ids.html.markdown.
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	var rv GetAmiIdsResult

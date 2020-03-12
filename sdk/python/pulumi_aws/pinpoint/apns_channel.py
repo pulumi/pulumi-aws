@@ -52,10 +52,12 @@ class ApnsChannel(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_id=None, bundle_id=None, certificate=None, default_authentication_method=None, enabled=None, private_key=None, team_id=None, token_key=None, token_key_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Pinpoint APNs Channel resource.
-        
+
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_channel.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
@@ -70,8 +72,6 @@ class ApnsChannel(pulumi.CustomResource):
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key. 
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,7 +112,7 @@ class ApnsChannel(pulumi.CustomResource):
         """
         Get an existing ApnsChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,12 +128,11 @@ class ApnsChannel(pulumi.CustomResource):
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key. 
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_apns_channel.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_id"] = application_id
         __props__["bundle_id"] = bundle_id
         __props__["certificate"] = certificate

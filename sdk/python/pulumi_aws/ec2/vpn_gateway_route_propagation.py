@@ -21,17 +21,17 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, route_table_id=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Requests automatic route propagation between a VPN gateway and a route table.
-        
+
         > **Note:** This resource should not be used with a route table that has
         the `propagating_vgws` argument set. If that argument is set, any route
         propagation not explicitly listed in its value will be removed.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
         :param pulumi.Input[str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,18 +67,17 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         """
         Get an existing VpnGatewayRoutePropagation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
         :param pulumi.Input[str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpn_gateway_route_propagation.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["route_table_id"] = route_table_id
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return VpnGatewayRoutePropagation(resource_name, opts=opts, __props__=__props__)

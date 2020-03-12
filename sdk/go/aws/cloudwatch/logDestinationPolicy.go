@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a CloudWatch Logs destination policy resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_destination_policy.html.markdown.
 type LogDestinationPolicy struct {
 	pulumi.CustomResourceState

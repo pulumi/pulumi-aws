@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a Direct Connect public virtual interface resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/dx_public_virtual_interface.html.markdown.
 type PublicVirtualInterface struct {
 	pulumi.CustomResourceState

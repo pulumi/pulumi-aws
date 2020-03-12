@@ -12,7 +12,7 @@ import (
 )
 
 // Manages a RDS database instance snapshot. For managing RDS database cluster snapshots, see the [`rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/db_snapshot.html.markdown.
 type Snapshot struct {
 	pulumi.CustomResourceState

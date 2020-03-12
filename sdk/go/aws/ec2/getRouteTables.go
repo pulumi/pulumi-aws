@@ -9,7 +9,7 @@ import (
 )
 
 // This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/route_tables.html.markdown.
 func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetRouteTablesResult, error) {
 	var rv GetRouteTablesResult

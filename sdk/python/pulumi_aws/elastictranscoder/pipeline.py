@@ -18,14 +18,14 @@ class Pipeline(pulumi.CustomResource):
     content_config: pulumi.Output[dict]
     """
     The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-    
+
       * `bucket` (`str`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-      * `storageClass` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+      * `storage_class` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
     """
     content_config_permissions: pulumi.Output[list]
     """
     The permissions for the `content_config` object. (documented below)
-    
+
       * `accesses` (`list`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
       * `grantee` (`str`) - The AWS user or group that you want to have access to thumbnail files.
       * `granteeType` (`str`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
@@ -41,7 +41,7 @@ class Pipeline(pulumi.CustomResource):
     notifications: pulumi.Output[dict]
     """
     The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
-    
+
       * `completed` (`str`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
       * `error` (`str`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
       * `progressing` (`str`) - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
@@ -58,14 +58,14 @@ class Pipeline(pulumi.CustomResource):
     thumbnail_config: pulumi.Output[dict]
     """
     The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-    
+
       * `bucket` (`str`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-      * `storageClass` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+      * `storage_class` (`str`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
     """
     thumbnail_config_permissions: pulumi.Output[list]
     """
     The permissions for the `thumbnail_config` object. (documented below)
-    
+
       * `accesses` (`list`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
       * `grantee` (`str`) - The AWS user or group that you want to have access to thumbnail files.
       * `granteeType` (`str`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
@@ -73,7 +73,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, aws_kms_key_arn=None, content_config=None, content_config_permissions=None, input_bucket=None, name=None, notifications=None, output_bucket=None, role=None, thumbnail_config=None, thumbnail_config_permissions=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Transcoder pipeline resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_pipeline.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -86,37 +88,35 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[dict] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[list] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
-        
+
         The **content_config** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        
+          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+
         The **content_config_permissions** object supports the following:
-        
-          * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
-          * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
-          * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        
-        The **notifications** object supports the following:
-        
-          * `completed` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-          * `error` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-          * `progressing` (`pulumi.Input[str]`) - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-          * `warning` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        
-        The **thumbnail_config** object supports the following:
-        
-          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        
-        The **thumbnail_config_permissions** object supports the following:
-        
+
           * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
           * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
           * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_pipeline.html.markdown.
+        The **notifications** object supports the following:
+
+          * `completed` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
+          * `error` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
+          * `progressing` (`pulumi.Input[str]`) - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
+          * `warning` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+
+        The **thumbnail_config** object supports the following:
+
+          * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
+          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+
+        The **thumbnail_config_permissions** object supports the following:
+
+          * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+          * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
+          * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -161,7 +161,7 @@ class Pipeline(pulumi.CustomResource):
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,41 +175,40 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[dict] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[list] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
-        
+
         The **content_config** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        
+          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+
         The **content_config_permissions** object supports the following:
-        
+
           * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
           * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
           * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-        
+
         The **notifications** object supports the following:
-        
+
           * `completed` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
           * `error` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
           * `progressing` (`pulumi.Input[str]`) - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
           * `warning` (`pulumi.Input[str]`) - The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        
+
         The **thumbnail_config** object supports the following:
-        
+
           * `bucket` (`pulumi.Input[str]`) - The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
-          * `storageClass` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
-        
+          * `storage_class` (`pulumi.Input[str]`) - The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
+
         The **thumbnail_config_permissions** object supports the following:
-        
+
           * `accesses` (`pulumi.Input[list]`) - The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
           * `grantee` (`pulumi.Input[str]`) - The AWS user or group that you want to have access to thumbnail files.
           * `granteeType` (`pulumi.Input[str]`) - Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastictranscoder_pipeline.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["aws_kms_key_arn"] = aws_kms_key_arn
         __props__["content_config"] = content_config

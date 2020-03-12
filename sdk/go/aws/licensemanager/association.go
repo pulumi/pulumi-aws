@@ -12,10 +12,10 @@ import (
 )
 
 // Provides a License Manager association.
-// 
+//
 // > **Note:** License configurations can also be associated with launch templates by specifying the `licenseSpecifications` block for an `ec2.LaunchTemplate`.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/licensemanager_association.markdown.
 type Association struct {
 	pulumi.CustomResourceState
 

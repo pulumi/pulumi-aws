@@ -21,6 +21,9 @@ class RolePolicy(pulumi.CustomResource):
     prefix. Conflicts with `name`.
     """
     policy: pulumi.Output[str]
+    """
+    The policy document attached to the role.
+    """
     role: pulumi.Output[str]
     """
     The IAM role to attach to the policy.
@@ -28,16 +31,17 @@ class RolePolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, policy=None, role=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IAM role policy.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the role policy. If omitted, this provider will
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] role: The IAM role to attach to the policy.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
+        :param pulumi.Input[dict] policy: The policy document attached to the role.
+        :param pulumi.Input[dict] role: The IAM role to attach to the policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +79,7 @@ class RolePolicy(pulumi.CustomResource):
         """
         Get an existing RolePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,13 +87,13 @@ class RolePolicy(pulumi.CustomResource):
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
-        :param pulumi.Input[str] role: The IAM role to attach to the policy.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_role_policy.html.markdown.
+        :param pulumi.Input[dict] policy: The policy document attached to the role.
+        :param pulumi.Input[dict] role: The IAM role to attach to the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix
         __props__["policy"] = policy

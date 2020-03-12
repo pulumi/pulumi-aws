@@ -8,8 +8,8 @@ from .catalog_table import *
 from .classifier import *
 from .connection import *
 from .crawler import *
+from .get_script import *
 from .job import *
 from .security_configuration import *
 from .trigger import *
 from .workflow import *
-from .get_script import *

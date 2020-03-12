@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get the name and value of a pre-existing API Key, for
 // example to supply credentials for a dependency microservice.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_api_key.html.markdown.
 func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
 	var rv GetKeyResult

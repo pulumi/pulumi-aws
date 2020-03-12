@@ -25,7 +25,7 @@ class DeliveryChannel(pulumi.CustomResource):
     snapshot_delivery_properties: pulumi.Output[dict]
     """
     Options for how AWS Config delivers configuration snapshots. See below
-    
+
       * `deliveryFrequency` (`str`) - - The frequency with which AWS Config recurringly delivers configuration snapshots.
         e.g. `One_Hour` or `Three_Hours`.
         Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
@@ -37,9 +37,11 @@ class DeliveryChannel(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, s3_bucket_name=None, s3_key_prefix=None, snapshot_delivery_properties=None, sns_topic_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS Config Delivery Channel.
-        
+
         > **Note:** Delivery Channel requires a [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
@@ -47,14 +49,12 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[dict] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
-        
+
         The **snapshot_delivery_properties** object supports the following:
-        
+
           * `deliveryFrequency` (`pulumi.Input[str]`) - - The frequency with which AWS Config recurringly delivers configuration snapshots.
             e.g. `One_Hour` or `Three_Hours`.
             Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +91,7 @@ class DeliveryChannel(pulumi.CustomResource):
         """
         Get an existing DeliveryChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,18 +100,17 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[dict] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
-        
+
         The **snapshot_delivery_properties** object supports the following:
-        
+
           * `deliveryFrequency` (`pulumi.Input[str]`) - - The frequency with which AWS Config recurringly delivers configuration snapshots.
             e.g. `One_Hour` or `Three_Hours`.
             Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/config_delivery_channel.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["s3_bucket_name"] = s3_bucket_name
         __props__["s3_key_prefix"] = s3_key_prefix

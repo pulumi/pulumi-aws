@@ -4,10 +4,10 @@
 
 # Export this package's modules as members:
 from .aggregate_authorization import *
-from .rule import *
 from .configuration_aggregator import *
-from .recorder import *
-from .recorder_status import *
 from .delivery_channel import *
 from .organization_custom_rule import *
 from .organization_managed_rule import *
+from .recorder import *
+from .recorder_status import *
+from .rule import *

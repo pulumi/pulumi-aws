@@ -13,7 +13,7 @@ class GetVpcDhcpOptionsResult:
     """
     A collection of values returned by getVpcDhcpOptions.
     """
-    def __init__(__self__, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None, id=None):
+    def __init__(__self__, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
         if dhcp_options_id and not isinstance(dhcp_options_id, str):
             raise TypeError("Expected argument 'dhcp_options_id' to be a str")
         __self__.dhcp_options_id = dhcp_options_id
@@ -35,6 +35,12 @@ class GetVpcDhcpOptionsResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if netbios_name_servers and not isinstance(netbios_name_servers, list):
             raise TypeError("Expected argument 'netbios_name_servers' to be a list")
         __self__.netbios_name_servers = netbios_name_servers
@@ -65,12 +71,6 @@ class GetVpcDhcpOptionsResult:
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -81,28 +81,30 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
             domain_name=self.domain_name,
             domain_name_servers=self.domain_name_servers,
             filters=self.filters,
+            id=self.id,
             netbios_name_servers=self.netbios_name_servers,
             netbios_node_type=self.netbios_node_type,
             ntp_servers=self.ntp_servers,
             owner_id=self.owner_id,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
     """
     Retrieve information about an EC2 DHCP Options configuration.
-    
-    :param str dhcp_options_id: The EC2 DHCP Options ID.
-    :param list filters: List of custom filters as described below.
-    
-    The **filters** object supports the following:
-    
-      * `name` (`str`) - The name of the field to filter.
-      * `values` (`list`) - Set of values for filtering.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/vpc_dhcp_options.html.markdown.
+
+
+    :param str dhcp_options_id: The EC2 DHCP Options ID.
+    :param list filters: List of custom filters as described below.
+
+    The **filters** object supports the following:
+
+      * `name` (`str`) - The name of the field to filter.
+      * `values` (`list`) - Set of values for filtering.
     """
     __args__ = dict()
+
 
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
@@ -118,9 +120,9 @@ def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
         domain_name=__ret__.get('domainName'),
         domain_name_servers=__ret__.get('domainNameServers'),
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         netbios_name_servers=__ret__.get('netbiosNameServers'),
         netbios_node_type=__ret__.get('netbiosNodeType'),
         ntp_servers=__ret__.get('ntpServers'),
         owner_id=__ret__.get('ownerId'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

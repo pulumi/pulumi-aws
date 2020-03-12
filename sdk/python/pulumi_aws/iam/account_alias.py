@@ -17,14 +17,14 @@ class AccountAlias(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_alias=None, __props__=None, __name__=None, __opts__=None):
         """
         > **Note:** There is only a single account alias per AWS account.
-        
+
         Manages the account alias for the AWS Account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_alias: The account alias
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,17 +57,16 @@ class AccountAlias(pulumi.CustomResource):
         """
         Get an existing AccountAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_alias: The account alias
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_account_alias.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_alias"] = account_alias
         return AccountAlias(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

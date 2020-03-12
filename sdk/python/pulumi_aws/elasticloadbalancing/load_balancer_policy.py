@@ -17,7 +17,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     policy_attributes: pulumi.Output[list]
     """
     Policy attribute to apply to the policy.
-    
+
       * `name` (`str`)
       * `value` (`str`)
     """
@@ -32,20 +32,20 @@ class LoadBalancerPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, load_balancer_name=None, policy_attributes=None, policy_name=None, policy_type_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer on which the policy is defined.
         :param pulumi.Input[list] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
-        
+
         The **policy_attributes** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy_legacy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,7 +85,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         """
         Get an existing LoadBalancerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,17 +93,16 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[list] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
-        
+
         The **policy_attributes** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`)
           * `value` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/load_balancer_policy_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["load_balancer_name"] = load_balancer_name
         __props__["policy_attributes"] = policy_attributes
         __props__["policy_name"] = policy_name

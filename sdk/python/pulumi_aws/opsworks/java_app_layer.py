@@ -54,7 +54,7 @@ class JavaAppLayer(pulumi.CustomResource):
     ebs_volumes: pulumi.Output[list]
     """
     `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-    
+
       * `encrypted` (`bool`)
       * `iops` (`float`)
       * `mountPoint` (`str`)
@@ -106,7 +106,9 @@ class JavaAppLayer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, app_server=None, app_server_version=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, jvm_options=None, jvm_type=None, jvm_version=None, name=None, stack_id=None, system_packages=None, use_ebs_optimized_instances=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an OpsWorks Java application layer resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_java_app_layer.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_server: Keyword for the application container to use. Defaults to "tomcat".
@@ -129,9 +131,9 @@ class JavaAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        
+
         The **ebs_volumes** object supports the following:
-        
+
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `mountPoint` (`pulumi.Input[str]`)
@@ -139,8 +141,6 @@ class JavaAppLayer(pulumi.CustomResource):
           * `raidLevel` (`pulumi.Input[str]`)
           * `size` (`pulumi.Input[float]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_java_app_layer.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -197,7 +197,7 @@ class JavaAppLayer(pulumi.CustomResource):
         """
         Get an existing JavaAppLayer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,9 +221,9 @@ class JavaAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
         :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        
+
         The **ebs_volumes** object supports the following:
-        
+
           * `encrypted` (`pulumi.Input[bool]`)
           * `iops` (`pulumi.Input[float]`)
           * `mountPoint` (`pulumi.Input[str]`)
@@ -231,12 +231,11 @@ class JavaAppLayer(pulumi.CustomResource):
           * `raidLevel` (`pulumi.Input[str]`)
           * `size` (`pulumi.Input[float]`)
           * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_java_app_layer.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_server"] = app_server
         __props__["app_server_version"] = app_server_version
         __props__["auto_assign_elastic_ips"] = auto_assign_elastic_ips

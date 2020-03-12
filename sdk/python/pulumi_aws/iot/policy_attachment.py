@@ -21,13 +21,13 @@ class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, policy=None, target=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IoT policy attachment.
-        
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The name of the policy to attach.
-        :param pulumi.Input[str] target: The identity to which the policy is attached.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
+
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] policy: The name of the policy to attach.
+        :param pulumi.Input[str] target: The identity to which the policy is attached.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         Get an existing PolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The name of the policy to attach.
+        :param pulumi.Input[dict] policy: The name of the policy to attach.
         :param pulumi.Input[str] target: The identity to which the policy is attached.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iot_policy_attachment.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["policy"] = policy
         __props__["target"] = target
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)

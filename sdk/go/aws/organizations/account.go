@@ -12,11 +12,11 @@ import (
 )
 
 // Provides a resource to create a member account in the current organization.
-// 
+//
 // > **Note:** Account management must be done from the organization's master account.
-// 
+//
 // !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_account.html.markdown.
 type Account struct {
 	pulumi.CustomResourceState

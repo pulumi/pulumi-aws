@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an IAM policy attached to a group.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_group_policy.html.markdown.
 type GroupPolicy struct {
 	pulumi.CustomResourceState
@@ -25,6 +25,7 @@ type GroupPolicy struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	// The policy document attached to the group.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -70,6 +71,7 @@ type groupPolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The policy document attached to the group.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -82,6 +84,7 @@ type GroupPolicyState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The policy document attached to the group.
 	Policy pulumi.StringPtrInput
 }
 
@@ -98,6 +101,7 @@ type groupPolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The policy document attached to the group.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -111,6 +115,7 @@ type GroupPolicyArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The policy document attached to the group.
 	Policy pulumi.Input
 }
 

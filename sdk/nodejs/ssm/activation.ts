@@ -72,6 +72,9 @@ export class Activation extends pulumi.CustomResource {
      * The description of the resource that you want to register.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The date by which this activation request should expire. The default value is 24 hours.
+     */
     public readonly expirationDate!: pulumi.Output<string>;
     /**
      * If the current activation has expired.
@@ -157,6 +160,9 @@ export interface ActivationState {
      * The description of the resource that you want to register.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The date by which this activation request should expire. The default value is 24 hours.
+     */
     readonly expirationDate?: pulumi.Input<string>;
     /**
      * If the current activation has expired.
@@ -192,6 +198,9 @@ export interface ActivationArgs {
      * The description of the resource that you want to register.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The date by which this activation request should expire. The default value is 24 hours.
+     */
     readonly expirationDate?: pulumi.Input<string>;
     /**
      * The IAM Role to attach to the managed instance.

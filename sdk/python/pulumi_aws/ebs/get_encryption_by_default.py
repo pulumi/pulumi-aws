@@ -43,6 +43,7 @@ def get_encryption_by_default(opts=None):
     """
     __args__ = dict()
 
+
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

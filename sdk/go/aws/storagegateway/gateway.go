@@ -12,9 +12,9 @@ import (
 )
 
 // Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
-// 
+//
 // > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/storagegateway_gateway.html.markdown.
 type Gateway struct {
 	pulumi.CustomResourceState

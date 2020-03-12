@@ -9,7 +9,7 @@ import (
 )
 
 // Information about single EC2 Instance Type Offering.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ec2_instance_type_offering.html.markdown.
 func GetInstanceTypeOffering(ctx *pulumi.Context, args *GetInstanceTypeOfferingArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingResult, error) {
 	var rv GetInstanceTypeOfferingResult

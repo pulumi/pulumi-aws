@@ -13,7 +13,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, health_check_grace_period=None, health_check_type=None, launch_configuration=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None, id=None):
+    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -46,6 +46,12 @@ class GetGroupResult:
         __self__.health_check_type = health_check_type
         """
         The service to use for the health checks. The valid values are EC2 and ELB.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if launch_configuration and not isinstance(launch_configuration, str):
             raise TypeError("Expected argument 'launch_configuration' to be a str")
@@ -116,12 +122,6 @@ class GetGroupResult:
         """
         VPC ID for the group.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -134,6 +134,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             desired_capacity=self.desired_capacity,
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
+            id=self.id,
             launch_configuration=self.launch_configuration,
             load_balancers=self.load_balancers,
             max_size=self.max_size,
@@ -145,18 +146,19 @@ class AwaitableGetGroupResult(GetGroupResult):
             status=self.status,
             target_group_arns=self.target_group_arns,
             termination_policies=self.termination_policies,
-            vpc_zone_identifier=self.vpc_zone_identifier,
-            id=self.id)
+            vpc_zone_identifier=self.vpc_zone_identifier)
 
 def get_group(name=None,opts=None):
     """
     Use this data source to get information on an existing autoscaling group.
-    
-    :param str name: Specify the exact name of the desired autoscaling group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/autoscaling_group.html.markdown.
+
+
+    :param str name: Specify the exact name of the desired autoscaling group.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -172,6 +174,7 @@ def get_group(name=None,opts=None):
         desired_capacity=__ret__.get('desiredCapacity'),
         health_check_grace_period=__ret__.get('healthCheckGracePeriod'),
         health_check_type=__ret__.get('healthCheckType'),
+        id=__ret__.get('id'),
         launch_configuration=__ret__.get('launchConfiguration'),
         load_balancers=__ret__.get('loadBalancers'),
         max_size=__ret__.get('maxSize'),
@@ -183,5 +186,4 @@ def get_group(name=None,opts=None):
         status=__ret__.get('status'),
         target_group_arns=__ret__.get('targetGroupArns'),
         termination_policies=__ret__.get('terminationPolicies'),
-        vpc_zone_identifier=__ret__.get('vpcZoneIdentifier'),
-        id=__ret__.get('id'))
+        vpc_zone_identifier=__ret__.get('vpcZoneIdentifier'))

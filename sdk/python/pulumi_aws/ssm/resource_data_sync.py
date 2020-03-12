@@ -17,7 +17,7 @@ class ResourceDataSync(pulumi.CustomResource):
     s3_destination: pulumi.Output[dict]
     """
     Amazon S3 configuration details for the sync.
-    
+
       * `bucket_name` (`str`)
       * `kms_key_arn` (`str`)
       * `prefix` (`str`)
@@ -27,31 +27,31 @@ class ResourceDataSync(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, s3_destination=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a SSM resource data sync.
-        
+
         ## s3_destination
-        
+
         `s3_destination` supports the following:
-        
+
         * `bucket_name` - (Required) Name of S3 bucket where the aggregated data is stored.
         * `region` - (Required) Region with the bucket targeted by the Resource Data Sync.
         * `kms_key_arn` - (Optional) ARN of an encryption key for a destination in Amazon S3.
         * `prefix` - (Optional) Prefix for the bucket.
         * `sync_format` - (Optional) A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.
         :param pulumi.Input[dict] s3_destination: Amazon S3 configuration details for the sync.
-        
+
         The **s3_destination** object supports the following:
-        
+
           * `bucket_name` (`pulumi.Input[str]`)
           * `kms_key_arn` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
           * `region` (`pulumi.Input[str]`)
           * `syncFormat` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,26 +85,25 @@ class ResourceDataSync(pulumi.CustomResource):
         """
         Get an existing ResourceDataSync resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.
         :param pulumi.Input[dict] s3_destination: Amazon S3 configuration details for the sync.
-        
+
         The **s3_destination** object supports the following:
-        
+
           * `bucket_name` (`pulumi.Input[str]`)
           * `kms_key_arn` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
           * `region` (`pulumi.Input[str]`)
           * `syncFormat` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_resource_data_sync.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["s3_destination"] = s3_destination
         return ResourceDataSync(resource_name, opts=opts, __props__=__props__)

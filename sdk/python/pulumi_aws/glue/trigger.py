@@ -13,7 +13,7 @@ class Trigger(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
     List of actions initiated by this trigger when it fires. Defined below.
-    
+
       * `arguments` (`dict`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
       * `crawlerName` (`str`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
       * `jobName` (`str`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
@@ -38,15 +38,14 @@ class Trigger(pulumi.CustomResource):
     predicate: pulumi.Output[dict]
     """
     A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
-    
+
       * `conditions` (`list`) - A list of the conditions that determine when the trigger will fire. Defined below.
-    
         * `crawlState` (`str`) - The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
         * `crawlerName` (`str`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         * `jobName` (`str`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
         * `logicalOperator` (`str`) - A logical operator. Defaults to `EQUALS`.
         * `state` (`str`) - The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-    
+
       * `logical` (`str`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
     """
     schedule: pulumi.Output[str]
@@ -68,7 +67,9 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, actions=None, description=None, enabled=None, name=None, predicate=None, schedule=None, tags=None, type=None, workflow_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Glue Trigger resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: List of actions initiated by this trigger when it fires. Defined below.
@@ -80,27 +81,24 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-        
+
         The **actions** object supports the following:
-        
+
           * `arguments` (`pulumi.Input[dict]`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
           * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
           * `jobName` (`pulumi.Input[str]`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
           * `timeout` (`pulumi.Input[float]`) - The job run timeout in minutes. It overrides the timeout value of the job.
-        
+
         The **predicate** object supports the following:
-        
+
           * `conditions` (`pulumi.Input[list]`) - A list of the conditions that determine when the trigger will fire. Defined below.
-        
             * `crawlState` (`pulumi.Input[str]`) - The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
             * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
             * `jobName` (`pulumi.Input[str]`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
             * `logicalOperator` (`pulumi.Input[str]`) - A logical operator. Defaults to `EQUALS`.
             * `state` (`pulumi.Input[str]`) - The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        
-          * `logical` (`pulumi.Input[str]`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
+          * `logical` (`pulumi.Input[str]`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,7 +142,7 @@ class Trigger(pulumi.CustomResource):
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,31 +156,29 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-        
+
         The **actions** object supports the following:
-        
+
           * `arguments` (`pulumi.Input[dict]`) - Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
           * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
           * `jobName` (`pulumi.Input[str]`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
           * `timeout` (`pulumi.Input[float]`) - The job run timeout in minutes. It overrides the timeout value of the job.
-        
+
         The **predicate** object supports the following:
-        
+
           * `conditions` (`pulumi.Input[list]`) - A list of the conditions that determine when the trigger will fire. Defined below.
-        
             * `crawlState` (`pulumi.Input[str]`) - The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
             * `crawlerName` (`pulumi.Input[str]`) - The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
             * `jobName` (`pulumi.Input[str]`) - The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
             * `logicalOperator` (`pulumi.Input[str]`) - A logical operator. Defaults to `EQUALS`.
             * `state` (`pulumi.Input[str]`) - The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
-        
-          * `logical` (`pulumi.Input[str]`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_trigger.html.markdown.
+          * `logical` (`pulumi.Input[str]`) - How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["actions"] = actions
         __props__["arn"] = arn
         __props__["description"] = description

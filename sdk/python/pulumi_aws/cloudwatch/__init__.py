@@ -7,6 +7,7 @@ from .dashboard import *
 from .event_permission import *
 from .event_rule import *
 from .event_target import *
+from .get_log_group import *
 from .log_destination import *
 from .log_destination_policy import *
 from .log_group import *
@@ -15,4 +16,3 @@ from .log_resource_policy import *
 from .log_stream import *
 from .log_subscription_filter import *
 from .metric_alarm import *
-from .get_log_group import *

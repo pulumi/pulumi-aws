@@ -9,7 +9,7 @@ import (
 )
 
 // Get an existing AWS Customer Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/customer_gateway.html.markdown.
 func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs, opts ...pulumi.InvokeOption) (*LookupCustomerGatewayResult, error) {
 	var rv LookupCustomerGatewayResult
