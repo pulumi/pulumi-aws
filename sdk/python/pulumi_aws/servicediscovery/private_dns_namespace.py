@@ -33,14 +33,14 @@ class PrivateDnsNamespace(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name=None, vpc=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Service Discovery Private DNS Namespace resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] name: The name of the namespace.
         :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,7 +77,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         """
         Get an existing PrivateDnsNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,12 +86,11 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] hosted_zone: The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         :param pulumi.Input[str] name: The name of the namespace.
         :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/service_discovery_private_dns_namespace.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["hosted_zone"] = hosted_zone

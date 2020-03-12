@@ -30,7 +30,7 @@ class Cluster(pulumi.CustomResource):
     """
     List of node objects including `id`, `address`, `port` and `availability_zone`.
     Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
-    
+
       * `address` (`str`)
       * `availability_zone` (`str`) - The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
       * `id` (`str`)
@@ -149,14 +149,16 @@ class Cluster(pulumi.CustomResource):
         Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
         For working with Redis (Cluster Mode Enabled) replication groups, see the
         [`elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
-        
+
         > **Note:** When you change an attribute, such as `node_type`, by default
         it is applied in the next maintenance window. Because of this, this provider may report
         a difference in its planning phase because the actual modification has not yet taken
         place. You can use the `apply_immediately` flag to instruct the service to apply the
         change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
         See the AWS Docs on [Modifying an ElastiCache Cache Cluster][2] for more information.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
@@ -208,8 +210,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
                for the cache cluster.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -265,7 +265,7 @@ class Cluster(pulumi.CustomResource):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,19 +322,18 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used
                for the cache cluster.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource
-        
+
         The **cache_nodes** object supports the following:
-        
+
           * `address` (`pulumi.Input[str]`)
           * `availability_zone` (`pulumi.Input[str]`) - The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
           * `id` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`) - The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elasticache_cluster.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["apply_immediately"] = apply_immediately
         __props__["arn"] = arn
         __props__["availability_zone"] = availability_zone

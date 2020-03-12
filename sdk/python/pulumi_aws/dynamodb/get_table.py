@@ -13,7 +13,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None, id=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -29,6 +29,12 @@ class GetTableResult:
         if hash_key and not isinstance(hash_key, str):
             raise TypeError("Expected argument 'hash_key' to be a str")
         __self__.hash_key = hash_key
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
             raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
         __self__.local_secondary_indexes = local_secondary_indexes
@@ -68,12 +74,6 @@ class GetTableResult:
         if write_capacity and not isinstance(write_capacity, float):
             raise TypeError("Expected argument 'write_capacity' to be a float")
         __self__.write_capacity = write_capacity
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetTableResult(GetTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -85,6 +85,7 @@ class AwaitableGetTableResult(GetTableResult):
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
             hash_key=self.hash_key,
+            id=self.id,
             local_secondary_indexes=self.local_secondary_indexes,
             name=self.name,
             point_in_time_recovery=self.point_in_time_recovery,
@@ -97,23 +98,24 @@ class AwaitableGetTableResult(GetTableResult):
             stream_view_type=self.stream_view_type,
             tags=self.tags,
             ttl=self.ttl,
-            write_capacity=self.write_capacity,
-            id=self.id)
+            write_capacity=self.write_capacity)
 
 def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     """
     Provides information about a DynamoDB table.
-    
-    :param str name: The name of the DynamoDB table.
-    
-    The **server_side_encryption** object supports the following:
-    
-      * `enabled` (`bool`)
-      * `kms_key_arn` (`str`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/dynamodb_table.html.markdown.
+
+
+    :param str name: The name of the DynamoDB table.
+
+    The **server_side_encryption** object supports the following:
+
+      * `enabled` (`bool`)
+      * `kms_key_arn` (`str`)
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['serverSideEncryption'] = server_side_encryption
@@ -130,6 +132,7 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
         billing_mode=__ret__.get('billingMode'),
         global_secondary_indexes=__ret__.get('globalSecondaryIndexes'),
         hash_key=__ret__.get('hashKey'),
+        id=__ret__.get('id'),
         local_secondary_indexes=__ret__.get('localSecondaryIndexes'),
         name=__ret__.get('name'),
         point_in_time_recovery=__ret__.get('pointInTimeRecovery'),
@@ -142,5 +145,4 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
         stream_view_type=__ret__.get('streamViewType'),
         tags=__ret__.get('tags'),
         ttl=__ret__.get('ttl'),
-        write_capacity=__ret__.get('writeCapacity'),
-        id=__ret__.get('id'))
+        write_capacity=__ret__.get('writeCapacity'))

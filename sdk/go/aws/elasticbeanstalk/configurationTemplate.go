@@ -14,16 +14,16 @@ import (
 // Provides an Elastic Beanstalk Configuration Template, which are associated with
 // a specific application and are used to deploy different versions of the
 // application with the same configuration settings.
-// 
+//
 // ## Option Settings
-// 
+//
 // The `setting` field supports the following format:
-// 
+//
 // * `namespace` - unique namespace identifying the option's associated AWS resource
 // * `name` - name of the configuration option
 // * `value` - value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/elastic_beanstalk_configuration_template.html.markdown.
 type ConfigurationTemplate struct {
 	pulumi.CustomResourceState

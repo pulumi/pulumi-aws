@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a resource to manage EC2 Fleets.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_fleet.html.markdown.
 type Fleet struct {
 	pulumi.CustomResourceState

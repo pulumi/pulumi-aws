@@ -9,10 +9,10 @@ import (
 )
 
 // Provides details about a specific S3 bucket.
-// 
+//
 // This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
 // Distribution.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/s3_bucket.html.markdown.
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	var rv LookupBucketResult

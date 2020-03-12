@@ -4,7 +4,7 @@
 
 # Export this package's modules as members:
 from .compute_environment import *
-from .job_definition import *
-from .job_queue import *
 from .get_compute_environment import *
 from .get_job_queue import *
+from .job_definition import *
+from .job_queue import *

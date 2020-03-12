@@ -73,13 +73,15 @@ def get_vpc_link(name=None,tags=None,opts=None):
     API Gateway. To fetch the VPC Link you must provide a name to match against. 
     As there is no unique name constraint on API Gateway VPC Links this data source will 
     error if there is more than one match.
-    
-    :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
-           If multiple API Gateway VPC Links are found with this name, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_vpc_link.html.markdown.
+
+
+    :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
+           If multiple API Gateway VPC Links are found with this name, an error will be returned.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags

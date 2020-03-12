@@ -13,7 +13,7 @@ class GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, dns_name=None, file_system_arn=None, file_system_id=None, ip_address=None, mount_target_id=None, network_interface_id=None, security_groups=None, subnet_id=None, id=None):
+    def __init__(__self__, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_id=None, network_interface_id=None, security_groups=None, subnet_id=None):
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         __self__.dns_name = dns_name
@@ -31,6 +31,12 @@ class GetMountTargetResult:
         __self__.file_system_id = file_system_id
         """
         ID of the file system for which the mount target is intended.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
@@ -59,12 +65,6 @@ class GetMountTargetResult:
         """
         ID of the mount target's subnet.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetMountTargetResult(GetMountTargetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -74,22 +74,24 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
             dns_name=self.dns_name,
             file_system_arn=self.file_system_arn,
             file_system_id=self.file_system_id,
+            id=self.id,
             ip_address=self.ip_address,
             mount_target_id=self.mount_target_id,
             network_interface_id=self.network_interface_id,
             security_groups=self.security_groups,
-            subnet_id=self.subnet_id,
-            id=self.id)
+            subnet_id=self.subnet_id)
 
 def get_mount_target(mount_target_id=None,opts=None):
     """
     Provides information about an Elastic File System Mount Target (EFS).
-    
-    :param str mount_target_id: ID of the mount target that you want to have described
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/efs_mount_target.html.markdown.
+
+
+    :param str mount_target_id: ID of the mount target that you want to have described
     """
     __args__ = dict()
+
 
     __args__['mountTargetId'] = mount_target_id
     if opts is None:
@@ -102,9 +104,9 @@ def get_mount_target(mount_target_id=None,opts=None):
         dns_name=__ret__.get('dnsName'),
         file_system_arn=__ret__.get('fileSystemArn'),
         file_system_id=__ret__.get('fileSystemId'),
+        id=__ret__.get('id'),
         ip_address=__ret__.get('ipAddress'),
         mount_target_id=__ret__.get('mountTargetId'),
         network_interface_id=__ret__.get('networkInterfaceId'),
         security_groups=__ret__.get('securityGroups'),
-        subnet_id=__ret__.get('subnetId'),
-        id=__ret__.get('id'))
+        subnet_id=__ret__.get('subnetId'))

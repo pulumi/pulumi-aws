@@ -21,13 +21,13 @@ class PatchGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, baseline_id=None, patch_group=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Patch Group resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class PatchGroup(pulumi.CustomResource):
         """
         Get an existing PatchGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_patch_group.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["baseline_id"] = baseline_id
         __props__["patch_group"] = patch_group
         return PatchGroup(resource_name, opts=opts, __props__=__props__)

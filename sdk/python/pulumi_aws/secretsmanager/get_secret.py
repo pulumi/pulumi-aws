@@ -13,7 +13,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, arn=None, description=None, kms_key_id=None, name=None, policy=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, id=None):
+    def __init__(__self__, arn=None, description=None, id=None, kms_key_id=None, name=None, policy=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -25,6 +25,12 @@ class GetSecretResult:
         __self__.description = description
         """
         A description of the secret.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
@@ -65,12 +71,6 @@ class GetSecretResult:
         """
         Tags of the secret.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -79,25 +79,27 @@ class AwaitableGetSecretResult(GetSecretResult):
         return GetSecretResult(
             arn=self.arn,
             description=self.description,
+            id=self.id,
             kms_key_id=self.kms_key_id,
             name=self.name,
             policy=self.policy,
             rotation_enabled=self.rotation_enabled,
             rotation_lambda_arn=self.rotation_lambda_arn,
             rotation_rules=self.rotation_rules,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_secret(arn=None,name=None,opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
-    
-    :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
-    :param str name: The name of the secret to retrieve.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret.html.markdown.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
+    :param str name: The name of the secret to retrieve.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     __args__['name'] = name
@@ -110,11 +112,11 @@ def get_secret(arn=None,name=None,opts=None):
     return AwaitableGetSecretResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
         name=__ret__.get('name'),
         policy=__ret__.get('policy'),
         rotation_enabled=__ret__.get('rotationEnabled'),
         rotation_lambda_arn=__ret__.get('rotationLambdaArn'),
         rotation_rules=__ret__.get('rotationRules'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -12,11 +12,11 @@ import (
 )
 
 // Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:
-// 
+//
 // * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
 // * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_parameter_group.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_parameter_group.markdown.
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 

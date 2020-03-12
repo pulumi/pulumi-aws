@@ -13,12 +13,18 @@ class GetSecretVersionResult:
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, arn=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None, id=None):
+    def __init__(__self__, arn=None, id=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
         """
         The ARN of the secret.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if secret_binary and not isinstance(secret_binary, str):
             raise TypeError("Expected argument 'secret_binary' to be a str")
@@ -47,12 +53,6 @@ class GetSecretVersionResult:
         if version_stages and not isinstance(version_stages, list):
             raise TypeError("Expected argument 'version_stages' to be a list")
         __self__.version_stages = version_stages
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetSecretVersionResult(GetSecretVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -60,25 +60,27 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
             yield self
         return GetSecretVersionResult(
             arn=self.arn,
+            id=self.id,
             secret_binary=self.secret_binary,
             secret_id=self.secret_id,
             secret_string=self.secret_string,
             version_id=self.version_id,
             version_stage=self.version_stage,
-            version_stages=self.version_stages,
-            id=self.id)
+            version_stages=self.version_stages)
 
 def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=None):
     """
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
+
+
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
     :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/secretsmanager_secret_version.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['secretId'] = secret_id
     __args__['versionId'] = version_id
@@ -91,10 +93,10 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
 
     return AwaitableGetSecretVersionResult(
         arn=__ret__.get('arn'),
+        id=__ret__.get('id'),
         secret_binary=__ret__.get('secretBinary'),
         secret_id=__ret__.get('secretId'),
         secret_string=__ret__.get('secretString'),
         version_id=__ret__.get('versionId'),
         version_stage=__ret__.get('versionStage'),
-        version_stages=__ret__.get('versionStages'),
-        id=__ret__.get('id'))
+        version_stages=__ret__.get('versionStages'))

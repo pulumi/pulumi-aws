@@ -12,30 +12,30 @@ import (
 )
 
 // Provides an SSM Document resource
-// 
+//
 // > **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
 // or greater can update their content once created, see [SSM Schema Features][1]. To update a document with an older
 // schema version you must recreate the resource.
-// 
+//
 // ## attachmentsSource
-// 
+//
 // The `attachmentsSource` block supports the following:
-// 
+//
 // * `key` - (Required) The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
 // * `values` - (Required) The value describing the location of an attachment to a document
 // * `name` - (Optional) The name of the document attachment file
-// 
+//
 // ## Permissions
-// 
+//
 // The permissions attribute specifies how you want to share the document. If you share a document privately,
 // you must specify the AWS user account IDs for those people who can use the document. If you share a document
 // publicly, you must specify All as the account ID.
-// 
+//
 // The permissions mapping supports the following:
-// 
+//
 // * `type` - The permission type for the document. The permission type can be `Share`.
 // * `accountIds` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_document.html.markdown.
 type Document struct {
 	pulumi.CustomResourceState

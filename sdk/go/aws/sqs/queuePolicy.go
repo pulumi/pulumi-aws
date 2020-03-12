@@ -13,7 +13,7 @@ import (
 
 // Allows you to set a policy of an SQS Queue
 // while referencing ARN of the queue within the policy.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sqs_queue_policy.html.markdown.
 type QueuePolicy struct {
 	pulumi.CustomResourceState

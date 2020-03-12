@@ -6156,9 +6156,6 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: pulumi.Input<boolean>;
-        /**
-         * <elided>
-         */
         publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
@@ -6935,9 +6932,6 @@ export namespace elasticsearch {
          * Whether or not to require HTTPS
          */
         enforceHttps: pulumi.Input<boolean>;
-        /**
-         * <elided>
-         */
         tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
@@ -10182,17 +10176,11 @@ export namespace neptune {
 
 export namespace opsworks {
     export interface ApplicationAppSource {
-        /**
-         * <elided>
-         */
         password?: pulumi.Input<string>;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: pulumi.Input<string>;
-        /**
-         * <elided>
-         */
         sshKey?: pulumi.Input<string>;
         /**
          * The type of source to use. For example, "archive".

@@ -33,7 +33,9 @@ class CatalogDatabase(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, catalog_id=None, description=None, location_uri=None, name=None, parameters=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
@@ -41,8 +43,6 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: The name of the database.
         :param pulumi.Input[dict] parameters: A list of key-value pairs that define parameters and properties of the database.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,7 +77,7 @@ class CatalogDatabase(pulumi.CustomResource):
         """
         Get an existing CatalogDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,12 +86,11 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: The name of the database.
         :param pulumi.Input[dict] parameters: A list of key-value pairs that define parameters and properties of the database.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/glue_catalog_database.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["catalog_id"] = catalog_id
         __props__["description"] = description
         __props__["location_uri"] = location_uri

@@ -15,7 +15,7 @@ import (
 // An egress-only Internet gateway is used to enable outbound communication
 // over IPv6 from instances in your VPC to the Internet, and prevents hosts
 // outside of your VPC from initiating an IPv6 connection with your instance.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/egress_only_internet_gateway.html.markdown.
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState

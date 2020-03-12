@@ -13,7 +13,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, iops=None, kms_key_id=None, most_recent=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None, id=None):
+    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, size=None, snapshot_id=None, tags=None, volume_id=None, volume_type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -35,6 +35,12 @@ class GetVolumeResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if iops and not isinstance(iops, float):
             raise TypeError("Expected argument 'iops' to be a float")
         __self__.iops = iops
@@ -80,12 +86,6 @@ class GetVolumeResult:
         """
         The type of EBS volume.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -96,6 +96,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             availability_zone=self.availability_zone,
             encrypted=self.encrypted,
             filters=self.filters,
+            id=self.id,
             iops=self.iops,
             kms_key_id=self.kms_key_id,
             most_recent=self.most_recent,
@@ -103,28 +104,29 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             snapshot_id=self.snapshot_id,
             tags=self.tags,
             volume_id=self.volume_id,
-            volume_type=self.volume_type,
-            id=self.id)
+            volume_type=self.volume_type)
 
 def get_volume(filters=None,most_recent=None,tags=None,opts=None):
     """
     Use this data source to get information about an EBS volume for use in other
     resources.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
+
+
     :param list filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
            recent Volume.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`)
       * `values` (`list`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_volume.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
@@ -140,6 +142,7 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
         availability_zone=__ret__.get('availabilityZone'),
         encrypted=__ret__.get('encrypted'),
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         iops=__ret__.get('iops'),
         kms_key_id=__ret__.get('kmsKeyId'),
         most_recent=__ret__.get('mostRecent'),
@@ -147,5 +150,4 @@ def get_volume(filters=None,most_recent=None,tags=None,opts=None):
         snapshot_id=__ret__.get('snapshotId'),
         tags=__ret__.get('tags'),
         volume_id=__ret__.get('volumeId'),
-        volume_type=__ret__.get('volumeType'),
-        id=__ret__.get('id'))
+        volume_type=__ret__.get('volumeType'))

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an OpsWorks Ruby on Rails application layer resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_rails_app_layer.html.markdown.
 type RailsAppLayer struct {
 	pulumi.CustomResourceState

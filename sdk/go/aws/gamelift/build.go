@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an Gamelift Build resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_build.html.markdown.
 type Build struct {
 	pulumi.CustomResourceState

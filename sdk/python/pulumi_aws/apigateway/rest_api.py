@@ -37,7 +37,7 @@ class RestApi(pulumi.CustomResource):
     endpoint_configuration: pulumi.Output[dict]
     """
     Nested argument defining API endpoint configuration including endpoint type. Defined below.
-    
+
       * `types` (`str`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
       * `vpcEndpointIds` (`list`) - A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
     """
@@ -67,7 +67,9 @@ class RestApi(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_key_source=None, binary_media_types=None, body=None, description=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an API Gateway REST API.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key_source: The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
@@ -78,13 +80,11 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[float] minimum_compression_size: Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **endpoint_configuration** object supports the following:
-        
+
           * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
           * `vpcEndpointIds` (`pulumi.Input[list]`) - A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +127,7 @@ class RestApi(pulumi.CustomResource):
         """
         Get an existing RestApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,17 +145,16 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the REST API
         :param pulumi.Input[str] root_resource_id: The resource ID of the REST API's root
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **endpoint_configuration** object supports the following:
-        
+
           * `types` (`pulumi.Input[str]`) - A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
           * `vpcEndpointIds` (`pulumi.Input[list]`) - A list of VPC Endpoint Ids. It is only supported for PRIVATE endpoint type.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/api_gateway_rest_api.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_key_source"] = api_key_source
         __props__["arn"] = arn
         __props__["binary_media_types"] = binary_media_types

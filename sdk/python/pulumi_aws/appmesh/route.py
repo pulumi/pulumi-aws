@@ -33,51 +33,41 @@ class Route(pulumi.CustomResource):
     spec: pulumi.Output[dict]
     """
     The route specification to apply.
-    
+
       * `httpRoute` (`dict`) - The HTTP routing information for the route.
-    
         * `action` (`dict`) - The action to take if a match is determined.
-    
           * `weightedTargets` (`list`) - The targets that traffic is routed to when a request matches the route.
             You can specify one or more targets and their relative weights with which to distribute traffic.
-    
             * `virtualNode` (`str`) - The virtual node to associate with the weighted target.
             * `weight` (`float`) - The relative weight of the weighted target. An integer between 0 and 100.
-    
+
         * `match` (`dict`) - The method and value to match the header value sent with a request. Specify one match method.
-    
           * `headers` (`list`) - The client request headers to match on.
-    
             * `invert` (`bool`) - If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
             * `match` (`dict`) - The method and value to match the header value sent with a request. Specify one match method.
-    
               * `exact` (`str`) - The header value sent by the client must match the specified value exactly.
               * `prefix` (`str`) - The header value sent by the client must begin with the specified characters.
                 * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `range` (`dict`)
-    
                 * `end` (`float`) - The end of the range.
                 * `start` (`float`) - The start of the range.
-    
+
               * `regex` (`str`) - The header value sent by the client must include the specified characters.
               * `suffix` (`str`) - The header value sent by the client must end with the specified characters.
-    
+
             * `name` (`str`) - A name for the HTTP header in the client request that will be matched on.
-    
+
           * `method` (`str`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
           * `prefix` (`str`) - The header value sent by the client must begin with the specified characters.
             * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
           * `scheme` (`str`) - The client request header scheme to match on. Valid values: `http`, `https`.
-    
+
       * `priority` (`float`) - The priority for the route, between `0` and `1000`.
         Routes are matched based on the specified value, where `0` is the highest priority.
       * `tcpRoute` (`dict`) - The TCP routing information for the route.
-    
         * `action` (`dict`) - The action to take if a match is determined.
-    
           * `weightedTargets` (`list`) - The targets that traffic is routed to when a request matches the route.
             You can specify one or more targets and their relative weights with which to distribute traffic.
-    
             * `virtualNode` (`str`) - The virtual node to associate with the weighted target.
             * `weight` (`float`) - The relative weight of the weighted target. An integer between 0 and 100.
     """
@@ -92,7 +82,9 @@ class Route(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, mesh_name=None, name=None, spec=None, tags=None, virtual_router_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AWS App Mesh route resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.
@@ -100,57 +92,45 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[dict] spec: The route specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
-        
+
         The **spec** object supports the following:
-        
+
           * `httpRoute` (`pulumi.Input[dict]`) - The HTTP routing information for the route.
-        
             * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
-        
               * `weightedTargets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
                 You can specify one or more targets and their relative weights with which to distribute traffic.
-        
                 * `virtualNode` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
                 * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
-        
+
             * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
-        
               * `headers` (`pulumi.Input[list]`) - The client request headers to match on.
-        
                 * `invert` (`pulumi.Input[bool]`) - If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
                 * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
-        
                   * `exact` (`pulumi.Input[str]`) - The header value sent by the client must match the specified value exactly.
                   * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
                     * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
                   * `range` (`pulumi.Input[dict]`)
-        
                     * `end` (`pulumi.Input[float]`) - The end of the range.
                     * `start` (`pulumi.Input[float]`) - The start of the range.
-        
+
                   * `regex` (`pulumi.Input[str]`) - The header value sent by the client must include the specified characters.
                   * `suffix` (`pulumi.Input[str]`) - The header value sent by the client must end with the specified characters.
-        
+
                 * `name` (`pulumi.Input[str]`) - A name for the HTTP header in the client request that will be matched on.
-        
+
               * `method` (`pulumi.Input[str]`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
               * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
                 * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `scheme` (`pulumi.Input[str]`) - The client request header scheme to match on. Valid values: `http`, `https`.
-        
+
           * `priority` (`pulumi.Input[float]`) - The priority for the route, between `0` and `1000`.
             Routes are matched based on the specified value, where `0` is the highest priority.
           * `tcpRoute` (`pulumi.Input[dict]`) - The TCP routing information for the route.
-        
             * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
-        
               * `weightedTargets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
                 You can specify one or more targets and their relative weights with which to distribute traffic.
-        
                 * `virtualNode` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
                 * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -194,7 +174,7 @@ class Route(pulumi.CustomResource):
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,61 +186,50 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[dict] spec: The route specification to apply.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_router_name: The name of the virtual router in which to create the route.
-        
+
         The **spec** object supports the following:
-        
+
           * `httpRoute` (`pulumi.Input[dict]`) - The HTTP routing information for the route.
-        
             * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
-        
               * `weightedTargets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
                 You can specify one or more targets and their relative weights with which to distribute traffic.
-        
                 * `virtualNode` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
                 * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
-        
+
             * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
-        
               * `headers` (`pulumi.Input[list]`) - The client request headers to match on.
-        
                 * `invert` (`pulumi.Input[bool]`) - If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
                 * `match` (`pulumi.Input[dict]`) - The method and value to match the header value sent with a request. Specify one match method.
-        
                   * `exact` (`pulumi.Input[str]`) - The header value sent by the client must match the specified value exactly.
                   * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
                     * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
                   * `range` (`pulumi.Input[dict]`)
-        
                     * `end` (`pulumi.Input[float]`) - The end of the range.
                     * `start` (`pulumi.Input[float]`) - The start of the range.
-        
+
                   * `regex` (`pulumi.Input[str]`) - The header value sent by the client must include the specified characters.
                   * `suffix` (`pulumi.Input[str]`) - The header value sent by the client must end with the specified characters.
-        
+
                 * `name` (`pulumi.Input[str]`) - A name for the HTTP header in the client request that will be matched on.
-        
+
               * `method` (`pulumi.Input[str]`) - The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
               * `prefix` (`pulumi.Input[str]`) - The header value sent by the client must begin with the specified characters.
                 * `range`- (Optional) The object that specifies the range of numbers that the header value sent by the client must be included in.
               * `scheme` (`pulumi.Input[str]`) - The client request header scheme to match on. Valid values: `http`, `https`.
-        
+
           * `priority` (`pulumi.Input[float]`) - The priority for the route, between `0` and `1000`.
             Routes are matched based on the specified value, where `0` is the highest priority.
           * `tcpRoute` (`pulumi.Input[dict]`) - The TCP routing information for the route.
-        
             * `action` (`pulumi.Input[dict]`) - The action to take if a match is determined.
-        
               * `weightedTargets` (`pulumi.Input[list]`) - The targets that traffic is routed to when a request matches the route.
                 You can specify one or more targets and their relative weights with which to distribute traffic.
-        
                 * `virtualNode` (`pulumi.Input[str]`) - The virtual node to associate with the weighted target.
                 * `weight` (`pulumi.Input[float]`) - The relative weight of the weighted target. An integer between 0 and 100.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_route.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["created_date"] = created_date
         __props__["last_updated_date"] = last_updated_date

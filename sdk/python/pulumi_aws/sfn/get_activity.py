@@ -13,7 +13,7 @@ class GetActivityResult:
     """
     A collection of values returned by getActivity.
     """
-    def __init__(__self__, arn=None, creation_date=None, name=None, id=None):
+    def __init__(__self__, arn=None, creation_date=None, id=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -23,15 +23,15 @@ class GetActivityResult:
         """
         The date the activity was created.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 class AwaitableGetActivityResult(GetActivityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -40,19 +40,21 @@ class AwaitableGetActivityResult(GetActivityResult):
         return GetActivityResult(
             arn=self.arn,
             creation_date=self.creation_date,
-            name=self.name,
-            id=self.id)
+            id=self.id,
+            name=self.name)
 
 def get_activity(arn=None,name=None,opts=None):
     """
     Provides a Step Functions Activity data source
-    
-    :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
-    :param str name: The name that identifies the activity.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/sfn_activity.html.markdown.
+
+
+    :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
+    :param str name: The name that identifies the activity.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     __args__['name'] = name
@@ -65,5 +67,5 @@ def get_activity(arn=None,name=None,opts=None):
     return AwaitableGetActivityResult(
         arn=__ret__.get('arn'),
         creation_date=__ret__.get('creationDate'),
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

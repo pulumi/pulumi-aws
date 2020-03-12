@@ -13,18 +13,18 @@ import (
 
 // Provides an IAM Server Certificate resource to upload Server Certificates.
 // Certs uploaded to IAM can easily work with other AWS services such as:
-// 
+//
 // - AWS Elastic Beanstalk
 // - Elastic Load Balancing
 // - CloudFront
 // - AWS OpsWorks
-// 
+//
 // For information about server certificates in IAM, see [Managing Server
 // Certificates][2] in AWS Documentation.
-// 
+//
 // > **Note:** All arguments including the private key will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/iam_server_certificate.html.markdown.
 type ServerCertificate struct {
 	pulumi.CustomResourceState

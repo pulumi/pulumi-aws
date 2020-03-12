@@ -13,7 +13,7 @@ class GetBundleResult:
     """
     A collection of values returned by getBundle.
     """
-    def __init__(__self__, bundle_id=None, compute_types=None, description=None, name=None, owner=None, root_storages=None, user_storages=None, id=None):
+    def __init__(__self__, bundle_id=None, compute_types=None, description=None, id=None, name=None, owner=None, root_storages=None, user_storages=None):
         if bundle_id and not isinstance(bundle_id, str):
             raise TypeError("Expected argument 'bundle_id' to be a str")
         __self__.bundle_id = bundle_id
@@ -28,6 +28,12 @@ class GetBundleResult:
         __self__.description = description
         """
         The description of the bundle.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -53,12 +59,6 @@ class GetBundleResult:
         """
         The user storage. See supported fields below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetBundleResult(GetBundleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -68,21 +68,23 @@ class AwaitableGetBundleResult(GetBundleResult):
             bundle_id=self.bundle_id,
             compute_types=self.compute_types,
             description=self.description,
+            id=self.id,
             name=self.name,
             owner=self.owner,
             root_storages=self.root_storages,
-            user_storages=self.user_storages,
-            id=self.id)
+            user_storages=self.user_storages)
 
 def get_bundle(bundle_id=None,opts=None):
     """
     Use this data source to get information about a WorkSpaces Bundle.
-    
-    :param str bundle_id: The ID of the bundle.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/workspaces_bundle.html.markdown.
+
+
+    :param str bundle_id: The ID of the bundle.
     """
     __args__ = dict()
+
 
     __args__['bundleId'] = bundle_id
     if opts is None:
@@ -95,8 +97,8 @@ def get_bundle(bundle_id=None,opts=None):
         bundle_id=__ret__.get('bundleId'),
         compute_types=__ret__.get('computeTypes'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         owner=__ret__.get('owner'),
         root_storages=__ret__.get('rootStorages'),
-        user_storages=__ret__.get('userStorages'),
-        id=__ret__.get('id'))
+        user_storages=__ret__.get('userStorages'))

@@ -13,7 +13,7 @@ class GetArnResult:
     """
     A collection of values returned by getArn.
     """
-    def __init__(__self__, account=None, arn=None, partition=None, region=None, resource=None, service=None, id=None):
+    def __init__(__self__, account=None, arn=None, id=None, partition=None, region=None, resource=None, service=None):
         if account and not isinstance(account, str):
             raise TypeError("Expected argument 'account' to be a str")
         __self__.account = account
@@ -23,6 +23,12 @@ class GetArnResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if partition and not isinstance(partition, str):
             raise TypeError("Expected argument 'partition' to be a str")
         __self__.partition = partition
@@ -49,12 +55,6 @@ class GetArnResult:
         """
         The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetArnResult(GetArnResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -63,21 +63,23 @@ class AwaitableGetArnResult(GetArnResult):
         return GetArnResult(
             account=self.account,
             arn=self.arn,
+            id=self.id,
             partition=self.partition,
             region=self.region,
             resource=self.resource,
-            service=self.service,
-            id=self.id)
+            service=self.service)
 
 def get_arn(arn=None,opts=None):
     """
     Parses an Amazon Resource Name (ARN) into its constituent parts.
-    
-    :param str arn: The ARN to parse.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/arn.html.markdown.
+
+
+    :param str arn: The ARN to parse.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     if opts is None:
@@ -89,8 +91,8 @@ def get_arn(arn=None,opts=None):
     return AwaitableGetArnResult(
         account=__ret__.get('account'),
         arn=__ret__.get('arn'),
+        id=__ret__.get('id'),
         partition=__ret__.get('partition'),
         region=__ret__.get('region'),
         resource=__ret__.get('resource'),
-        service=__ret__.get('service'),
-        id=__ret__.get('id'))
+        service=__ret__.get('service'))

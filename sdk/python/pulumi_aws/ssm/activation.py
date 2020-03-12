@@ -19,6 +19,9 @@ class Activation(pulumi.CustomResource):
     The description of the resource that you want to register.
     """
     expiration_date: pulumi.Output[str]
+    """
+    The date by which this activation request should expire. The default value is 24 hours.
+    """
     expired: pulumi.Output[str]
     """
     If the current activation has expired.
@@ -46,16 +49,17 @@ class Activation(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, expiration_date=None, iam_role=None, name=None, registration_limit=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the resource that you want to register.
+        :param pulumi.Input[str] expiration_date: The date by which this activation request should expire. The default value is 24 hours.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,24 +100,24 @@ class Activation(pulumi.CustomResource):
         """
         Get an existing Activation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
         :param pulumi.Input[str] description: The description of the resource that you want to register.
+        :param pulumi.Input[str] expiration_date: The date by which this activation request should expire. The default value is 24 hours.
         :param pulumi.Input[str] expired: If the current activation has expired.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
         :param pulumi.Input[float] registration_count: The number of managed instances that are currently registered using this activation.
         :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_activation.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["activation_code"] = activation_code
         __props__["description"] = description
         __props__["expiration_date"] = expiration_date

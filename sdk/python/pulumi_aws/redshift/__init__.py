@@ -5,11 +5,11 @@
 # Export this package's modules as members:
 from .cluster import *
 from .event_subscription import *
+from .get_cluster import *
+from .get_service_account import *
 from .parameter_group import *
 from .security_group import *
 from .snapshot_copy_grant import *
 from .snapshot_schedule import *
 from .snapshot_schedule_association import *
 from .subnet_group import *
-from .get_cluster import *
-from .get_service_account import *

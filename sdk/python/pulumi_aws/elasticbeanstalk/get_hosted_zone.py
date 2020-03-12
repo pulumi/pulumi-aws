@@ -13,18 +13,18 @@ class GetHostedZoneResult:
     """
     A collection of values returned by getHostedZone.
     """
-    def __init__(__self__, region=None, id=None):
-        if region and not isinstance(region, str):
-            raise TypeError("Expected argument 'region' to be a str")
-        __self__.region = region
-        """
-        The region of the hosted zone.
-        """
+    def __init__(__self__, id=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        __self__.region = region
+        """
+        The region of the hosted zone.
         """
 class AwaitableGetHostedZoneResult(GetHostedZoneResult):
     # pylint: disable=using-constant-test
@@ -32,18 +32,20 @@ class AwaitableGetHostedZoneResult(GetHostedZoneResult):
         if False:
             yield self
         return GetHostedZoneResult(
-            region=self.region,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 def get_hosted_zone(region=None,opts=None):
     """
     Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
-    
-    :param str region: The region you'd like the zone for. By default, fetches the current region.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elastic_beanstalk_hosted_zone.html.markdown.
+
+
+    :param str region: The region you'd like the zone for. By default, fetches the current region.
     """
     __args__ = dict()
+
 
     __args__['region'] = region
     if opts is None:
@@ -53,5 +55,5 @@ def get_hosted_zone(region=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getHostedZone:getHostedZone', __args__, opts=opts).value
 
     return AwaitableGetHostedZoneResult(
-        region=__ret__.get('region'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        region=__ret__.get('region'))

@@ -13,7 +13,7 @@ class GetJobQueueResult:
     """
     A collection of values returned by getJobQueue.
     """
-    def __init__(__self__, arn=None, compute_environment_orders=None, name=None, priority=None, state=None, status=None, status_reason=None, id=None):
+    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, name=None, priority=None, state=None, status=None, status_reason=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -28,6 +28,12 @@ class GetJobQueueResult:
         which job placement is preferred. Compute environments are selected for job placement in ascending order.
         * `compute_environment_order.#.order` - The order of the compute environment.
         * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -58,12 +64,6 @@ class GetJobQueueResult:
         A short, human-readable string to provide additional details about the current status
         of the job queue.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetJobQueueResult(GetJobQueueResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -72,23 +72,25 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
         return GetJobQueueResult(
             arn=self.arn,
             compute_environment_orders=self.compute_environment_orders,
+            id=self.id,
             name=self.name,
             priority=self.priority,
             state=self.state,
             status=self.status,
-            status_reason=self.status_reason,
-            id=self.id)
+            status_reason=self.status_reason)
 
 def get_job_queue(name=None,opts=None):
     """
     The Batch Job Queue data source allows access to details of a specific
     job queue within AWS Batch.
-    
-    :param str name: The name of the job queue.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/batch_job_queue.html.markdown.
+
+
+    :param str name: The name of the job queue.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -100,9 +102,9 @@ def get_job_queue(name=None,opts=None):
     return AwaitableGetJobQueueResult(
         arn=__ret__.get('arn'),
         compute_environment_orders=__ret__.get('computeEnvironmentOrders'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         priority=__ret__.get('priority'),
         state=__ret__.get('state'),
         status=__ret__.get('status'),
-        status_reason=__ret__.get('statusReason'),
-        id=__ret__.get('id'))
+        status_reason=__ret__.get('statusReason'))

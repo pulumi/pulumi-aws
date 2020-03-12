@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * }, {dependsOn: [exampleAccount]});
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/securityhub_product_subscription.markdown.
  */
 export class ProductSubscription extends pulumi.CustomResource {
     /**

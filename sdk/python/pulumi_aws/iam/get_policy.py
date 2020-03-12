@@ -13,7 +13,7 @@ class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, arn=None, description=None, name=None, path=None, policy=None, id=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, path=None, policy=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -25,6 +25,12 @@ class GetPolicyResult:
         __self__.description = description
         """
         The description of the policy.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -44,12 +50,6 @@ class GetPolicyResult:
         """
         The policy document of the policy.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -58,21 +58,23 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         return GetPolicyResult(
             arn=self.arn,
             description=self.description,
+            id=self.id,
             name=self.name,
             path=self.path,
-            policy=self.policy,
-            id=self.id)
+            policy=self.policy)
 
 def get_policy(arn=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM policy.
-    
-    :param str arn: ARN of the IAM policy.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_policy.html.markdown.
+
+
+    :param str arn: ARN of the IAM policy.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     if opts is None:
@@ -84,7 +86,7 @@ def get_policy(arn=None,opts=None):
     return AwaitableGetPolicyResult(
         arn=__ret__.get('arn'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         path=__ret__.get('path'),
-        policy=__ret__.get('policy'),
-        id=__ret__.get('id'))
+        policy=__ret__.get('policy'))

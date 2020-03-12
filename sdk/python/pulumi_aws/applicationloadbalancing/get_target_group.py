@@ -13,7 +13,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, name=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, name=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -26,6 +26,12 @@ class GetTargetGroupResult:
         if health_check and not isinstance(health_check, dict):
             raise TypeError("Expected argument 'health_check' to be a dict")
         __self__.health_check = health_check
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if lambda_multi_value_headers_enabled and not isinstance(lambda_multi_value_headers_enabled, bool):
             raise TypeError("Expected argument 'lambda_multi_value_headers_enabled' to be a bool")
         __self__.lambda_multi_value_headers_enabled = lambda_multi_value_headers_enabled
@@ -56,12 +62,6 @@ class GetTargetGroupResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetTargetGroupResult(GetTargetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -72,6 +72,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             arn_suffix=self.arn_suffix,
             deregistration_delay=self.deregistration_delay,
             health_check=self.health_check,
+            id=self.id,
             lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
             name=self.name,
             port=self.port,
@@ -81,25 +82,26 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             stickiness=self.stickiness,
             tags=self.tags,
             target_type=self.target_type,
-            vpc_id=self.vpc_id,
-            id=self.id)
+            vpc_id=self.vpc_id)
 
 def get_target_group(arn=None,name=None,tags=None,opts=None):
     """
     > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-    
+
     Provides information about a Load Balancer Target Group.
-    
+
     This data source can prove useful when a module accepts an LB Target Group as an
     input variable and needs to know its attributes. It can also be used to get the ARN of
     an LB Target Group for use in other resources, given LB Target Group name.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/lb_target_group.html.markdown.
+
+
     :param str arn: The full ARN of the target group.
     :param str name: The unique name of the target group.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/alb_target_group_legacy.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['arn'] = arn
     __args__['name'] = name
@@ -115,6 +117,7 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
         arn_suffix=__ret__.get('arnSuffix'),
         deregistration_delay=__ret__.get('deregistrationDelay'),
         health_check=__ret__.get('healthCheck'),
+        id=__ret__.get('id'),
         lambda_multi_value_headers_enabled=__ret__.get('lambdaMultiValueHeadersEnabled'),
         name=__ret__.get('name'),
         port=__ret__.get('port'),
@@ -124,5 +127,4 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
         stickiness=__ret__.get('stickiness'),
         tags=__ret__.get('tags'),
         target_type=__ret__.get('targetType'),
-        vpc_id=__ret__.get('vpcId'),
-        id=__ret__.get('id'))
+        vpc_id=__ret__.get('vpcId'))

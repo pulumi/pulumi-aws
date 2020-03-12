@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         __self__.allow_version_upgrade = allow_version_upgrade
@@ -125,6 +125,12 @@ class GetClusterResult:
         """
         The IAM roles associated to the cluster
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         __self__.kms_key_id = kms_key_id
@@ -191,12 +197,6 @@ class GetClusterResult:
         """
         The VPC security group Ids associated with the cluster
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -222,6 +222,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             endpoint=self.endpoint,
             enhanced_vpc_routing=self.enhanced_vpc_routing,
             iam_roles=self.iam_roles,
+            id=self.id,
             kms_key_id=self.kms_key_id,
             master_username=self.master_username,
             node_type=self.node_type,
@@ -232,18 +233,19 @@ class AwaitableGetClusterResult(GetClusterResult):
             s3_key_prefix=self.s3_key_prefix,
             tags=self.tags,
             vpc_id=self.vpc_id,
-            vpc_security_group_ids=self.vpc_security_group_ids,
-            id=self.id)
+            vpc_security_group_ids=self.vpc_security_group_ids)
 
 def get_cluster(cluster_identifier=None,tags=None,opts=None):
     """
     Provides details about a specific redshift cluster.
-    
-    :param str cluster_identifier: The cluster identifier
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/redshift_cluster.html.markdown.
+
+
+    :param str cluster_identifier: The cluster identifier
     """
     __args__ = dict()
+
 
     __args__['clusterIdentifier'] = cluster_identifier
     __args__['tags'] = tags
@@ -273,6 +275,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         endpoint=__ret__.get('endpoint'),
         enhanced_vpc_routing=__ret__.get('enhancedVpcRouting'),
         iam_roles=__ret__.get('iamRoles'),
+        id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
         master_username=__ret__.get('masterUsername'),
         node_type=__ret__.get('nodeType'),
@@ -283,5 +286,4 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         s3_key_prefix=__ret__.get('s3KeyPrefix'),
         tags=__ret__.get('tags'),
         vpc_id=__ret__.get('vpcId'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
-        id=__ret__.get('id'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))

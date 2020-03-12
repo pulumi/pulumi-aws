@@ -29,13 +29,13 @@ class RouteTable(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, tags=None, transit_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EC2 Transit Gateway Route Table.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway Route Table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,7 +71,7 @@ class RouteTable(pulumi.CustomResource):
         """
         Get an existing RouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,12 +79,11 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[bool] default_propagation_route_table: Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway Route Table.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_transit_gateway_route_table.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["default_association_route_table"] = default_association_route_table
         __props__["default_propagation_route_table"] = default_propagation_route_table
         __props__["tags"] = tags

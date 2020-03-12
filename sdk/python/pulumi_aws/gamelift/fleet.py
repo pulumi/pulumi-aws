@@ -25,7 +25,7 @@ class Fleet(pulumi.CustomResource):
     ec2_inbound_permissions: pulumi.Output[list]
     """
     Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-    
+
       * `from_port` (`float`) - Starting value for a range of allowed port numbers.
       * `ipRange` (`str`) - Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
       * `protocol` (`str`) - Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
@@ -63,18 +63,17 @@ class Fleet(pulumi.CustomResource):
     resource_creation_limit_policy: pulumi.Output[dict]
     """
     Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-    
+
       * `newGameSessionsPerCreator` (`float`) - Maximum number of game sessions that an individual can create during the policy period.
       * `policyPeriodInMinutes` (`float`) - Time span used in evaluating the resource creation limit policy.
     """
     runtime_configuration: pulumi.Output[dict]
     """
     Instructions for launching server processes on each instance in the fleet. See below.
-    
+
       * `gameSessionActivationTimeoutSeconds` (`float`) - Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
       * `maxConcurrentGameSessionActivations` (`float`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
       * `serverProcesses` (`list`) - Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-    
         * `concurrentExecutions` (`float`) - Number of server processes using this configuration to run concurrently on an instance.
         * `launchPath` (`str`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
         * `parameters` (`str`) - Optional list of parameters to pass to the server executable on launch.
@@ -86,7 +85,9 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, build_id=None, description=None, ec2_inbound_permissions=None, ec2_instance_type=None, fleet_type=None, instance_role_arn=None, metric_groups=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Gamelift Fleet resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_fleet.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_id: ID of the Gamelift Build to be deployed on the fleet.
@@ -101,30 +102,27 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[dict] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[dict] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **ec2_inbound_permissions** object supports the following:
-        
+
           * `from_port` (`pulumi.Input[float]`) - Starting value for a range of allowed port numbers.
           * `ipRange` (`pulumi.Input[str]`) - Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
           * `protocol` (`pulumi.Input[str]`) - Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
           * `to_port` (`pulumi.Input[float]`) - Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
-        
+
         The **resource_creation_limit_policy** object supports the following:
-        
+
           * `newGameSessionsPerCreator` (`pulumi.Input[float]`) - Maximum number of game sessions that an individual can create during the policy period.
           * `policyPeriodInMinutes` (`pulumi.Input[float]`) - Time span used in evaluating the resource creation limit policy.
-        
+
         The **runtime_configuration** object supports the following:
-        
+
           * `gameSessionActivationTimeoutSeconds` (`pulumi.Input[float]`) - Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
           * `maxConcurrentGameSessionActivations` (`pulumi.Input[float]`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
           * `serverProcesses` (`pulumi.Input[list]`) - Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        
             * `concurrentExecutions` (`pulumi.Input[float]`) - Number of server processes using this configuration to run concurrently on an instance.
             * `launchPath` (`pulumi.Input[str]`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
             * `parameters` (`pulumi.Input[str]`) - Optional list of parameters to pass to the server executable on launch.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_fleet.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -173,7 +171,7 @@ class Fleet(pulumi.CustomResource):
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,34 +189,32 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[dict] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[dict] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        
+
         The **ec2_inbound_permissions** object supports the following:
-        
+
           * `from_port` (`pulumi.Input[float]`) - Starting value for a range of allowed port numbers.
           * `ipRange` (`pulumi.Input[str]`) - Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
           * `protocol` (`pulumi.Input[str]`) - Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
           * `to_port` (`pulumi.Input[float]`) - Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
-        
+
         The **resource_creation_limit_policy** object supports the following:
-        
+
           * `newGameSessionsPerCreator` (`pulumi.Input[float]`) - Maximum number of game sessions that an individual can create during the policy period.
           * `policyPeriodInMinutes` (`pulumi.Input[float]`) - Time span used in evaluating the resource creation limit policy.
-        
+
         The **runtime_configuration** object supports the following:
-        
+
           * `gameSessionActivationTimeoutSeconds` (`pulumi.Input[float]`) - Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
           * `maxConcurrentGameSessionActivations` (`pulumi.Input[float]`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
           * `serverProcesses` (`pulumi.Input[list]`) - Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        
             * `concurrentExecutions` (`pulumi.Input[float]`) - Number of server processes using this configuration to run concurrently on an instance.
             * `launchPath` (`pulumi.Input[str]`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
             * `parameters` (`pulumi.Input[str]`) - Optional list of parameters to pass to the server executable on launch.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/gamelift_fleet.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["build_id"] = build_id
         __props__["description"] = description

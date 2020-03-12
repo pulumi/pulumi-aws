@@ -13,10 +13,16 @@ class GetNetworkAclsResult:
     """
     A collection of values returned by getNetworkAcls.
     """
-    def __init__(__self__, filters=None, ids=None, tags=None, vpc_id=None, id=None):
+    def __init__(__self__, filters=None, id=None, ids=None, tags=None, vpc_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         __self__.ids = ids
@@ -29,12 +35,6 @@ class GetNetworkAclsResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,30 +42,29 @@ class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
             yield self
         return GetNetworkAclsResult(
             filters=self.filters,
+            id=self.id,
             ids=self.ids,
             tags=self.tags,
-            vpc_id=self.vpc_id,
-            id=self.id)
+            vpc_id=self.vpc_id)
 
 def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
     """
     Use this data source to access information about an existing resource.
-    
+
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param str vpc_id: The VPC ID that you want to filter from.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
       * `values` (`list`) - Set of values that are accepted for the given field.
         A VPC will be selected if any one of the given values matches.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/network_acls.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['tags'] = tags
@@ -78,7 +77,7 @@ def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
 
     return AwaitableGetNetworkAclsResult(
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         ids=__ret__.get('ids'),
         tags=__ret__.get('tags'),
-        vpc_id=__ret__.get('vpcId'),
-        id=__ret__.get('id'))
+        vpc_id=__ret__.get('vpcId'))

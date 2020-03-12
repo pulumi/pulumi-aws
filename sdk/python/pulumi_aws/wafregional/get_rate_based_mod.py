@@ -13,34 +13,36 @@ class GetRateBasedModResult:
     """
     A collection of values returned by getRateBasedMod.
     """
-    def __init__(__self__, name=None, id=None):
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+    def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
 class AwaitableGetRateBasedModResult(GetRateBasedModResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
         return GetRateBasedModResult(
-            name=self.name,
-            id=self.id)
+            id=self.id,
+            name=self.name)
 
 def get_rate_based_mod(name=None,opts=None):
     """
     `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
-    
-    :param str name: The name of the WAF Regional rate based rule.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/wafregional_rate_based_rule.html.markdown.
+
+
+    :param str name: The name of the WAF Regional rate based rule.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -50,5 +52,5 @@ def get_rate_based_mod(name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:wafregional/getRateBasedMod:getRateBasedMod', __args__, opts=opts).value
 
     return AwaitableGetRateBasedModResult(
-        name=__ret__.get('name'),
-        id=__ret__.get('id'))
+        id=__ret__.get('id'),
+        name=__ret__.get('name'))

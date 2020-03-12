@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None, id=None):
+    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, maintenance_window=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -56,6 +56,12 @@ class GetClusterResult:
         __self__.engine_version = engine_version
         """
         Version number of the cache engine.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if maintenance_window and not isinstance(maintenance_window, str):
             raise TypeError("Expected argument 'maintenance_window' to be a str")
@@ -140,12 +146,6 @@ class GetClusterResult:
         """
         The tags assigned to the resource
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -160,6 +160,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             configuration_endpoint=self.configuration_endpoint,
             engine=self.engine,
             engine_version=self.engine_version,
+            id=self.id,
             maintenance_window=self.maintenance_window,
             node_type=self.node_type,
             notification_topic_arn=self.notification_topic_arn,
@@ -172,18 +173,19 @@ class AwaitableGetClusterResult(GetClusterResult):
             snapshot_retention_limit=self.snapshot_retention_limit,
             snapshot_window=self.snapshot_window,
             subnet_group_name=self.subnet_group_name,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_cluster(cluster_id=None,tags=None,opts=None):
     """
     Use this data source to get information about an Elasticache Cluster
-    
-    :param str cluster_id: Group identifier.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/elasticache_cluster.html.markdown.
+
+
+    :param str cluster_id: Group identifier.
     """
     __args__ = dict()
+
 
     __args__['clusterId'] = cluster_id
     __args__['tags'] = tags
@@ -202,6 +204,7 @@ def get_cluster(cluster_id=None,tags=None,opts=None):
         configuration_endpoint=__ret__.get('configurationEndpoint'),
         engine=__ret__.get('engine'),
         engine_version=__ret__.get('engineVersion'),
+        id=__ret__.get('id'),
         maintenance_window=__ret__.get('maintenanceWindow'),
         node_type=__ret__.get('nodeType'),
         notification_topic_arn=__ret__.get('notificationTopicArn'),
@@ -214,5 +217,4 @@ def get_cluster(cluster_id=None,tags=None,opts=None):
         snapshot_retention_limit=__ret__.get('snapshotRetentionLimit'),
         snapshot_window=__ret__.get('snapshotWindow'),
         subnet_group_name=__ret__.get('subnetGroupName'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

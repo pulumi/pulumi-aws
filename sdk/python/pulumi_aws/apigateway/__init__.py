@@ -12,7 +12,10 @@ from .deployment import *
 from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
-from .response import *
+from .get_key import *
+from .get_resource import *
+from .get_rest_api import *
+from .get_vpc_link import *
 from .integration import *
 from .integration_response import *
 from .method import *
@@ -21,12 +24,9 @@ from .method_settings import *
 from .model import *
 from .request_validator import *
 from .resource import *
+from .response import *
 from .rest_api import *
 from .stage import *
 from .usage_plan import *
 from .usage_plan_key import *
 from .vpc_link import *
-from .get_key import *
-from .get_resource import *
-from .get_rest_api import *
-from .get_vpc_link import *

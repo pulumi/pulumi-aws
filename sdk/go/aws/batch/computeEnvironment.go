@@ -12,13 +12,13 @@ import (
 )
 
 // Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
-// 
+//
 // For information about AWS Batch, see [What is AWS Batch?][1] .
 // For information about compute environment, see [Compute Environments][2] .
-// 
+//
 // > **Note:** To prevent a race condition during environment deletion, make sure to set `dependsOn` to the related `iam.RolePolicyAttachment`;
 // otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch][3] .
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/batch_compute_environment.html.markdown.
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState

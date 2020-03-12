@@ -37,7 +37,9 @@ class EmailChannel(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_id=None, enabled=None, from_address=None, identity=None, role_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Pinpoint SMS Channel resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
@@ -45,8 +47,6 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] from_address: The email address used to send emails from.
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,7 +90,7 @@ class EmailChannel(pulumi.CustomResource):
         """
         Get an existing EmailChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,12 +100,11 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[float] messages_per_second: Messages per second that can be sent.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/pinpoint_email_channel.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["application_id"] = application_id
         __props__["enabled"] = enabled
         __props__["from_address"] = from_address

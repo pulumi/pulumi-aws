@@ -13,10 +13,16 @@ class GetProductResult:
     """
     A collection of values returned by getProduct.
     """
-    def __init__(__self__, filters=None, result=None, service_code=None, id=None):
+    def __init__(__self__, filters=None, id=None, result=None, service_code=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if result and not isinstance(result, str):
             raise TypeError("Expected argument 'result' to be a str")
         __self__.result = result
@@ -26,12 +32,6 @@ class GetProductResult:
         if service_code and not isinstance(service_code, str):
             raise TypeError("Expected argument 'service_code' to be a str")
         __self__.service_code = service_code
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetProductResult(GetProductResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,26 +39,28 @@ class AwaitableGetProductResult(GetProductResult):
             yield self
         return GetProductResult(
             filters=self.filters,
+            id=self.id,
             result=self.result,
-            service_code=self.service_code,
-            id=self.id)
+            service_code=self.service_code)
 
 def get_product(filters=None,service_code=None,opts=None):
     """
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
-    
-    :param list filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
-    :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-    
-    The **filters** object supports the following:
-    
-      * `field` (`str`) - The product attribute name that you want to filter on.
-      * `value` (`str`) - The product attribute value that you want to filter on.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/pricing_product.html.markdown.
+
+
+    :param list filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+
+    The **filters** object supports the following:
+
+      * `field` (`str`) - The product attribute name that you want to filter on.
+      * `value` (`str`) - The product attribute value that you want to filter on.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['serviceCode'] = service_code
@@ -70,6 +72,6 @@ def get_product(filters=None,service_code=None,opts=None):
 
     return AwaitableGetProductResult(
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         result=__ret__.get('result'),
-        service_code=__ret__.get('serviceCode'),
-        id=__ret__.get('id'))
+        service_code=__ret__.get('serviceCode'))

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .secret import *
-from .secret_version import *
 from .get_secret import *
 from .get_secret_version import *
+from .secret import *
+from .secret_version import *

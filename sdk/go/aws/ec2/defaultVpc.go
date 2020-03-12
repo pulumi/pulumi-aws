@@ -12,15 +12,15 @@ import (
 
 // Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
 // in the current region.
-// 
+//
 // For AWS accounts created after 2013-12-04, each region comes with a Default VPC.
 // **This is an advanced resource**, and has special caveats to be aware of when
 // using it. Please read this document in its entirety before using this resource.
-// 
+//
 // The `ec2.DefaultVpc` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/default_vpc.html.markdown.
 type DefaultVpc struct {
 	pulumi.CustomResourceState

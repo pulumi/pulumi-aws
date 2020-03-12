@@ -13,7 +13,7 @@ class GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
-    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, report_name=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None, id=None):
+    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, report_name=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None):
         if additional_artifacts and not isinstance(additional_artifacts, list):
             raise TypeError("Expected argument 'additional_artifacts' to be a list")
         __self__.additional_artifacts = additional_artifacts
@@ -37,6 +37,12 @@ class GetReportDefinitionResult:
         __self__.format = format
         """
         Preferred compression format for report.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if report_name and not isinstance(report_name, str):
             raise TypeError("Expected argument 'report_name' to be a str")
@@ -65,12 +71,6 @@ class GetReportDefinitionResult:
         """
         The frequency on which report data are measured and displayed.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -81,26 +81,28 @@ class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
             additional_schema_elements=self.additional_schema_elements,
             compression=self.compression,
             format=self.format,
+            id=self.id,
             report_name=self.report_name,
             s3_bucket=self.s3_bucket,
             s3_prefix=self.s3_prefix,
             s3_region=self.s3_region,
-            time_unit=self.time_unit,
-            id=self.id)
+            time_unit=self.time_unit)
 
 def get_report_definition(report_name=None,opts=None):
     """
     Use this data source to get information on an AWS Cost and Usage Report Definition.
-    
+
     > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-    
+
     > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-    
-    :param str report_name: The name of the report definition to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/cur_report_definition.html.markdown.
+
+
+    :param str report_name: The name of the report definition to match.
     """
     __args__ = dict()
+
 
     __args__['reportName'] = report_name
     if opts is None:
@@ -114,9 +116,9 @@ def get_report_definition(report_name=None,opts=None):
         additional_schema_elements=__ret__.get('additionalSchemaElements'),
         compression=__ret__.get('compression'),
         format=__ret__.get('format'),
+        id=__ret__.get('id'),
         report_name=__ret__.get('reportName'),
         s3_bucket=__ret__.get('s3Bucket'),
         s3_prefix=__ret__.get('s3Prefix'),
         s3_region=__ret__.get('s3Region'),
-        time_unit=__ret__.get('timeUnit'),
-        id=__ret__.get('id'))
+        time_unit=__ret__.get('timeUnit'))

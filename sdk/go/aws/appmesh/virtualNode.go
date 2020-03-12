@@ -12,18 +12,18 @@ import (
 )
 
 // Provides an AWS App Mesh virtual node resource.
-// 
+//
 // ## Breaking Changes
-// 
+//
 // Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
-// 
+//
 // * Rename the `serviceName` attribute of the `dns` object to `hostname`.
-// 
+//
 // * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
 // setting `virtualServiceName` to the name of the service.
-// 
+//
 // The state associated with existing resources will automatically be migrated.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/appmesh_virtual_node.html.markdown.
 type VirtualNode struct {
 	pulumi.CustomResourceState

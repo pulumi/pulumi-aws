@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_policy_attachment.html.markdown.
 type PolicyAttachment struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,7 @@ class GetRoleResult:
     """
     A collection of values returned by getRole.
     """
-    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, unique_id=None, id=None):
+    def __init__(__self__, arn=None, assume_role_policy=None, create_date=None, description=None, id=None, max_session_duration=None, name=None, path=None, permissions_boundary=None, unique_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -37,6 +37,12 @@ class GetRoleResult:
         __self__.description = description
         """
         Description for the role.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if max_session_duration and not isinstance(max_session_duration, float):
             raise TypeError("Expected argument 'max_session_duration' to be a float")
@@ -65,12 +71,6 @@ class GetRoleResult:
         """
         The stable and unique string identifying the role.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRoleResult(GetRoleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -81,24 +81,26 @@ class AwaitableGetRoleResult(GetRoleResult):
             assume_role_policy=self.assume_role_policy,
             create_date=self.create_date,
             description=self.description,
+            id=self.id,
             max_session_duration=self.max_session_duration,
             name=self.name,
             path=self.path,
             permissions_boundary=self.permissions_boundary,
-            unique_id=self.unique_id,
-            id=self.id)
+            unique_id=self.unique_id)
 
 def get_role(name=None,opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM role. By using this data source, you can reference IAM role
     properties without having to hard code ARNs as input.
-    
-    :param str name: The friendly IAM role name to match.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/iam_role.html.markdown.
+
+
+    :param str name: The friendly IAM role name to match.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     if opts is None:
@@ -112,9 +114,9 @@ def get_role(name=None,opts=None):
         assume_role_policy=__ret__.get('assumeRolePolicy'),
         create_date=__ret__.get('createDate'),
         description=__ret__.get('description'),
+        id=__ret__.get('id'),
         max_session_duration=__ret__.get('maxSessionDuration'),
         name=__ret__.get('name'),
         path=__ret__.get('path'),
         permissions_boundary=__ret__.get('permissionsBoundary'),
-        unique_id=__ret__.get('uniqueId'),
-        id=__ret__.get('id'))
+        unique_id=__ret__.get('uniqueId'))

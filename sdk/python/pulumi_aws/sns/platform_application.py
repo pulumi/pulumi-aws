@@ -61,7 +61,9 @@ class PlatformApplication(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, event_delivery_failure_topic_arn=None, event_endpoint_created_topic_arn=None, event_endpoint_deleted_topic_arn=None, event_endpoint_updated_topic_arn=None, failure_feedback_role_arn=None, name=None, platform=None, platform_credential=None, platform_principal=None, success_feedback_role_arn=None, success_feedback_sample_rate=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SNS platform application resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
@@ -75,8 +77,6 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
         :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,7 +122,7 @@ class PlatformApplication(pulumi.CustomResource):
         """
         Get an existing PlatformApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,12 +138,11 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal][2] for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
         :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/sns_platform_application.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["event_delivery_failure_topic_arn"] = event_delivery_failure_topic_arn
         __props__["event_endpoint_created_topic_arn"] = event_endpoint_created_topic_arn

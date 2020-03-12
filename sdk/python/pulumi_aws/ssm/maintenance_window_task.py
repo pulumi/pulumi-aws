@@ -17,7 +17,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     logging_info: pulumi.Output[dict]
     """
     A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-    
+
       * `s3_bucket_name` (`str`)
       * `s3BucketPrefix` (`str`)
       * `s3_region` (`str`)
@@ -45,7 +45,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     targets: pulumi.Output[list]
     """
     The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-    
+
       * `key` (`str`)
       * `values` (`list`) - The array of strings.
     """
@@ -56,51 +56,44 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     task_invocation_parameters: pulumi.Output[dict]
     """
     The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
-    
+
       * `automationParameters` (`dict`) - The parameters for an AUTOMATION task type. Documented below.
-    
         * `document_version` (`str`) - The version of an Automation document to use during task execution.
         * `parameters` (`list`) - The parameters for the RUN_COMMAND task execution. Documented below.
-    
           * `name` (`str`) - The parameter name.
           * `values` (`list`) - The array of strings.
-    
+
       * `lambdaParameters` (`dict`) - The parameters for a LAMBDA task type. Documented below.
-    
         * `clientContext` (`str`) - Pass client-specific information to the Lambda function that you are invoking.
         * `payload` (`str`) - JSON to provide to your Lambda function as input.
         * `qualifier` (`str`) - Specify a Lambda function version or alias name.
-    
+
       * `runCommandParameters` (`dict`) - The parameters for a RUN_COMMAND task type. Documented below.
-    
         * `comment` (`str`) - Information about the command(s) to execute.
         * `documentHash` (`str`) - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         * `documentHashType` (`str`) - SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         * `notificationConfig` (`dict`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-    
           * `notificationArn` (`str`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
           * `notificationEvents` (`list`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
           * `notification_type` (`str`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-    
+
         * `outputS3Bucket` (`str`) - The name of the Amazon S3 bucket.
         * `outputS3KeyPrefix` (`str`) - The Amazon S3 bucket subfolder.
         * `parameters` (`list`) - The parameters for the RUN_COMMAND task execution. Documented below.
-    
           * `name` (`str`) - The parameter name.
           * `values` (`list`) - The array of strings.
-    
+
         * `service_role_arn` (`str`) - The IAM service role to assume during task execution.
         * `timeoutSeconds` (`float`) - If this time is reached and the command has not already started executing, it doesn't run.
-    
+
       * `stepFunctionsParameters` (`dict`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
-    
         * `input` (`str`) - The inputs for the STEP_FUNCTION task.
         * `name` (`str`) - The parameter name.
     """
     task_parameters: pulumi.Output[list]
     """
     A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-    
+
       * `name` (`str`) - The parameter name.
       * `values` (`list`) - The array of strings.
     """
@@ -115,7 +108,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, logging_info=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_parameters=None, task_type=None, window_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Maintenance Window Task resource
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the maintenance window task.
@@ -131,66 +126,57 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[list] task_parameters: A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
-        
+
         The **logging_info** object supports the following:
-        
+
           * `s3_bucket_name` (`pulumi.Input[str]`)
           * `s3BucketPrefix` (`pulumi.Input[str]`)
           * `s3_region` (`pulumi.Input[str]`)
-        
+
         The **targets** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`)
           * `values` (`pulumi.Input[list]`) - The array of strings.
-        
+
         The **task_invocation_parameters** object supports the following:
-        
+
           * `automationParameters` (`pulumi.Input[dict]`) - The parameters for an AUTOMATION task type. Documented below.
-        
             * `document_version` (`pulumi.Input[str]`) - The version of an Automation document to use during task execution.
             * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-        
               * `name` (`pulumi.Input[str]`) - The parameter name.
               * `values` (`pulumi.Input[list]`) - The array of strings.
-        
+
           * `lambdaParameters` (`pulumi.Input[dict]`) - The parameters for a LAMBDA task type. Documented below.
-        
             * `clientContext` (`pulumi.Input[str]`) - Pass client-specific information to the Lambda function that you are invoking.
             * `payload` (`pulumi.Input[str]`) - JSON to provide to your Lambda function as input.
             * `qualifier` (`pulumi.Input[str]`) - Specify a Lambda function version or alias name.
-        
+
           * `runCommandParameters` (`pulumi.Input[dict]`) - The parameters for a RUN_COMMAND task type. Documented below.
-        
             * `comment` (`pulumi.Input[str]`) - Information about the command(s) to execute.
             * `documentHash` (`pulumi.Input[str]`) - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
             * `documentHashType` (`pulumi.Input[str]`) - SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
             * `notificationConfig` (`pulumi.Input[dict]`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        
               * `notificationArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
               * `notificationEvents` (`pulumi.Input[list]`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
               * `notification_type` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        
+
             * `outputS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket.
             * `outputS3KeyPrefix` (`pulumi.Input[str]`) - The Amazon S3 bucket subfolder.
             * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-        
               * `name` (`pulumi.Input[str]`) - The parameter name.
               * `values` (`pulumi.Input[list]`) - The array of strings.
-        
+
             * `service_role_arn` (`pulumi.Input[str]`) - The IAM service role to assume during task execution.
             * `timeoutSeconds` (`pulumi.Input[float]`) - If this time is reached and the command has not already started executing, it doesn't run.
-        
+
           * `stepFunctionsParameters` (`pulumi.Input[dict]`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
-        
             * `input` (`pulumi.Input[str]`) - The inputs for the STEP_FUNCTION task.
             * `name` (`pulumi.Input[str]`) - The parameter name.
-        
+
         The **task_parameters** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The parameter name.
           * `values` (`pulumi.Input[list]`) - The array of strings.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -247,7 +233,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         """
         Get an existing MaintenanceWindowTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,70 +250,62 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[list] task_parameters: A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
-        
+
         The **logging_info** object supports the following:
-        
+
           * `s3_bucket_name` (`pulumi.Input[str]`)
           * `s3BucketPrefix` (`pulumi.Input[str]`)
           * `s3_region` (`pulumi.Input[str]`)
-        
+
         The **targets** object supports the following:
-        
+
           * `key` (`pulumi.Input[str]`)
           * `values` (`pulumi.Input[list]`) - The array of strings.
-        
+
         The **task_invocation_parameters** object supports the following:
-        
+
           * `automationParameters` (`pulumi.Input[dict]`) - The parameters for an AUTOMATION task type. Documented below.
-        
             * `document_version` (`pulumi.Input[str]`) - The version of an Automation document to use during task execution.
             * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-        
               * `name` (`pulumi.Input[str]`) - The parameter name.
               * `values` (`pulumi.Input[list]`) - The array of strings.
-        
+
           * `lambdaParameters` (`pulumi.Input[dict]`) - The parameters for a LAMBDA task type. Documented below.
-        
             * `clientContext` (`pulumi.Input[str]`) - Pass client-specific information to the Lambda function that you are invoking.
             * `payload` (`pulumi.Input[str]`) - JSON to provide to your Lambda function as input.
             * `qualifier` (`pulumi.Input[str]`) - Specify a Lambda function version or alias name.
-        
+
           * `runCommandParameters` (`pulumi.Input[dict]`) - The parameters for a RUN_COMMAND task type. Documented below.
-        
             * `comment` (`pulumi.Input[str]`) - Information about the command(s) to execute.
             * `documentHash` (`pulumi.Input[str]`) - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
             * `documentHashType` (`pulumi.Input[str]`) - SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
             * `notificationConfig` (`pulumi.Input[dict]`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-        
               * `notificationArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
               * `notificationEvents` (`pulumi.Input[list]`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
               * `notification_type` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-        
+
             * `outputS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket.
             * `outputS3KeyPrefix` (`pulumi.Input[str]`) - The Amazon S3 bucket subfolder.
             * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-        
               * `name` (`pulumi.Input[str]`) - The parameter name.
               * `values` (`pulumi.Input[list]`) - The array of strings.
-        
+
             * `service_role_arn` (`pulumi.Input[str]`) - The IAM service role to assume during task execution.
             * `timeoutSeconds` (`pulumi.Input[float]`) - If this time is reached and the command has not already started executing, it doesn't run.
-        
+
           * `stepFunctionsParameters` (`pulumi.Input[dict]`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
-        
             * `input` (`pulumi.Input[str]`) - The inputs for the STEP_FUNCTION task.
             * `name` (`pulumi.Input[str]`) - The parameter name.
-        
+
         The **task_parameters** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - The parameter name.
           * `values` (`pulumi.Input[list]`) - The array of strings.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ssm_maintenance_window_task.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["logging_info"] = logging_info
         __props__["max_concurrency"] = max_concurrency

@@ -13,7 +13,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, repository_id=None, repository_name=None, id=None):
+    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, id=None, repository_id=None, repository_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -32,6 +32,12 @@ class GetRepositoryResult:
         """
         The URL to use for cloning the repository over SSH.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if repository_id and not isinstance(repository_id, str):
             raise TypeError("Expected argument 'repository_id' to be a str")
         __self__.repository_id = repository_id
@@ -41,12 +47,6 @@ class GetRepositoryResult:
         if repository_name and not isinstance(repository_name, str):
             raise TypeError("Expected argument 'repository_name' to be a str")
         __self__.repository_name = repository_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRepositoryResult(GetRepositoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -56,19 +56,21 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             arn=self.arn,
             clone_url_http=self.clone_url_http,
             clone_url_ssh=self.clone_url_ssh,
+            id=self.id,
             repository_id=self.repository_id,
-            repository_name=self.repository_name,
-            id=self.id)
+            repository_name=self.repository_name)
 
 def get_repository(repository_name=None,opts=None):
     """
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
-    
-    :param str repository_name: The name for the repository. This needs to be less than 100 characters.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/codecommit_repository.html.markdown.
+
+
+    :param str repository_name: The name for the repository. This needs to be less than 100 characters.
     """
     __args__ = dict()
+
 
     __args__['repositoryName'] = repository_name
     if opts is None:
@@ -81,6 +83,6 @@ def get_repository(repository_name=None,opts=None):
         arn=__ret__.get('arn'),
         clone_url_http=__ret__.get('cloneUrlHttp'),
         clone_url_ssh=__ret__.get('cloneUrlSsh'),
+        id=__ret__.get('id'),
         repository_id=__ret__.get('repositoryId'),
-        repository_name=__ret__.get('repositoryName'),
-        id=__ret__.get('id'))
+        repository_name=__ret__.get('repositoryName'))

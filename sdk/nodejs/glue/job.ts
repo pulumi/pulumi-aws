@@ -240,6 +240,8 @@ export class Job extends pulumi.CustomResource {
 export interface JobState {
     /**
      * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     * 
+     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;
     /**
@@ -318,6 +320,8 @@ export interface JobState {
 export interface JobArgs {
     /**
      * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     * 
+     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;
     /**

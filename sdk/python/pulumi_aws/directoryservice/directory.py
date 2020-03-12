@@ -21,7 +21,7 @@ class Directory(pulumi.CustomResource):
     connect_settings: pulumi.Output[dict]
     """
     Connector related information about the directory. Fields documented below.
-    
+
       * `customerDnsIps` (`list`) - The DNS IP addresses of the domain to connect to.
       * `customerUsername` (`str`) - The username corresponding to the password provided.
       * `subnet_ids` (`list`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
@@ -74,17 +74,19 @@ class Directory(pulumi.CustomResource):
     vpc_settings: pulumi.Output[dict]
     """
     VPC related information about the directory. Fields documented below.
-    
+
       * `subnet_ids` (`list`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
       * `vpc_id` (`str`) - The identifier of the VPC that the directory is in.
     """
     def __init__(__self__, resource_name, opts=None, alias=None, connect_settings=None, description=None, edition=None, enable_sso=None, name=None, password=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
-        
+
         > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_directory.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
@@ -99,20 +101,18 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[dict] vpc_settings: VPC related information about the directory. Fields documented below.
-        
+
         The **connect_settings** object supports the following:
-        
+
           * `customerDnsIps` (`pulumi.Input[list]`) - The DNS IP addresses of the domain to connect to.
           * `customerUsername` (`pulumi.Input[str]`) - The username corresponding to the password provided.
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
           * `vpc_id` (`pulumi.Input[str]`) - The identifier of the VPC that the directory is in.
-        
+
         The **vpc_settings** object supports the following:
-        
+
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
           * `vpc_id` (`pulumi.Input[str]`) - The identifier of the VPC that the directory is in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_directory.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,7 +159,7 @@ class Directory(pulumi.CustomResource):
         """
         Get an existing Directory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,24 +178,23 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[dict] vpc_settings: VPC related information about the directory. Fields documented below.
-        
+
         The **connect_settings** object supports the following:
-        
+
           * `customerDnsIps` (`pulumi.Input[list]`) - The DNS IP addresses of the domain to connect to.
           * `customerUsername` (`pulumi.Input[str]`) - The username corresponding to the password provided.
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
           * `vpc_id` (`pulumi.Input[str]`) - The identifier of the VPC that the directory is in.
-        
+
         The **vpc_settings** object supports the following:
-        
+
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
           * `vpc_id` (`pulumi.Input[str]`) - The identifier of the VPC that the directory is in.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/directory_service_directory.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["access_url"] = access_url
         __props__["alias"] = alias
         __props__["connect_settings"] = connect_settings

@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an SES domain identity resource
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ses_domain_identity.html.markdown.
 type DomainIdentity struct {
 	pulumi.CustomResourceState

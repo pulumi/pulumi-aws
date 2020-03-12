@@ -158,6 +158,9 @@ export interface AccessKeyState {
     /**
      * **DEPRECATED** The secret access key converted into an SES SMTP
      * password by applying [AWS's documented conversion
+     * 
+     * @deprecated AWS SigV2 for SES SMTP passwords isy deprecated.
+Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
      */
     readonly sesSmtpPassword?: pulumi.Input<string>;
     /**

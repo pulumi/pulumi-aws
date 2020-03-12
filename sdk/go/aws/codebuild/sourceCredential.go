@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a CodeBuild Source Credentials Resource.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/codebuild_source_credential.html.markdown.
 type SourceCredential struct {
 	pulumi.CustomResourceState

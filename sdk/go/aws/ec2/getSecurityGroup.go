@@ -9,11 +9,11 @@ import (
 )
 
 // `ec2.SecurityGroup` provides details about a specific Security Group.
-// 
+//
 // This resource can prove useful when a module accepts a Security Group id as
 // an input variable and needs to, for example, determine the id of the
 // VPC that the security group belongs to.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/security_group.html.markdown.
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
 	var rv LookupSecurityGroupResult

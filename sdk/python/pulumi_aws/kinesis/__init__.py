@@ -5,5 +5,5 @@
 # Export this package's modules as members:
 from .analytics_application import *
 from .firehose_delivery_stream import *
-from .stream import *
 from .get_stream import *
+from .stream import *

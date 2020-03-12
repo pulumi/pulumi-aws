@@ -12,8 +12,8 @@ import (
 )
 
 // Provides an Elastic network interface (ENI) resource.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/network_interface.markdown.
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 

@@ -13,13 +13,19 @@ class GetInternetGatewayResult:
     """
     A collection of values returned by getInternetGateway.
     """
-    def __init__(__self__, attachments=None, filters=None, internet_gateway_id=None, owner_id=None, tags=None, id=None):
+    def __init__(__self__, attachments=None, filters=None, id=None, internet_gateway_id=None, owner_id=None, tags=None):
         if attachments and not isinstance(attachments, list):
             raise TypeError("Expected argument 'attachments' to be a list")
         __self__.attachments = attachments
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         __self__.filters = filters
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if internet_gateway_id and not isinstance(internet_gateway_id, str):
             raise TypeError("Expected argument 'internet_gateway_id' to be a str")
         __self__.internet_gateway_id = internet_gateway_id
@@ -32,12 +38,6 @@ class GetInternetGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,30 +46,32 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
         return GetInternetGatewayResult(
             attachments=self.attachments,
             filters=self.filters,
+            id=self.id,
             internet_gateway_id=self.internet_gateway_id,
             owner_id=self.owner_id,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
     """
     `ec2.InternetGateway` provides details about a specific Internet Gateway.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
+
+
     :param list filters: Custom filter block as described below.
     :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`) - The name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
       * `values` (`list`) - Set of values that are accepted for the given field.
         An Internet Gateway will be selected if any one of the given values matches.
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
@@ -83,7 +85,7 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
     return AwaitableGetInternetGatewayResult(
         attachments=__ret__.get('attachments'),
         filters=__ret__.get('filters'),
+        id=__ret__.get('id'),
         internet_gateway_id=__ret__.get('internetGatewayId'),
         owner_id=__ret__.get('ownerId'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

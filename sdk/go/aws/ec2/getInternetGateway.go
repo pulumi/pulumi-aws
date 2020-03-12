@@ -9,7 +9,7 @@ import (
 )
 
 // `ec2.InternetGateway` provides details about a specific Internet Gateway.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/internet_gateway.html.markdown.
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	var rv LookupInternetGatewayResult

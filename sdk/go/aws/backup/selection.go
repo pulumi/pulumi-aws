@@ -12,7 +12,7 @@ import (
 )
 
 // Manages selection conditions for AWS Backup plan resources.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/backup_selection.html.markdown.
 type Selection struct {
 	pulumi.CustomResourceState

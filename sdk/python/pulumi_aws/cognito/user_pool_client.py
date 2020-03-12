@@ -73,7 +73,9 @@ class UserPoolClient(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, callback_urls=None, default_redirect_uri=None, explicit_auth_flows=None, generate_secret=None, logout_urls=None, name=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, user_pool_id=None, write_attributes=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Cognito User Pool Client resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
@@ -90,8 +92,6 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
         :param pulumi.Input[list] write_attributes: List of user pool attributes the application client can write to.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,7 +138,7 @@ class UserPoolClient(pulumi.CustomResource):
         """
         Get an existing UserPoolClient resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,12 +157,11 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[list] supported_identity_providers: List of provider names for the identity providers that are supported on this client.
         :param pulumi.Input[str] user_pool_id: The user pool the client belongs to.
         :param pulumi.Input[list] write_attributes: List of user pool attributes the application client can write to.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cognito_user_pool_client.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allowed_oauth_flows"] = allowed_oauth_flows
         __props__["allowed_oauth_flows_user_pool_client"] = allowed_oauth_flows_user_pool_client
         __props__["allowed_oauth_scopes"] = allowed_oauth_scopes

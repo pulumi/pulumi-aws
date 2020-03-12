@@ -10,7 +10,7 @@ import (
 
 // Use this data source to get a list of EBS Snapshot IDs matching the specified
 // criteria.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/ebs_snapshot_ids.html.markdown.
 func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulumi.InvokeOption) (*GetSnapshotIdsResult, error) {
 	var rv GetSnapshotIdsResult

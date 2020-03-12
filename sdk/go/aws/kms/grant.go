@@ -12,7 +12,7 @@ import (
 )
 
 // Provides a resource-based access control mechanism for a KMS customer master key.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/kms_grant.html.markdown.
 type Grant struct {
 	pulumi.CustomResourceState

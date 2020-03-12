@@ -21,13 +21,13 @@ class AmiLaunchPermission(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_id=None, image_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_launch_permission.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: An AWS Account ID to add launch permissions.
         :param pulumi.Input[str] image_id: A region-unique name for the AMI.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_launch_permission.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class AmiLaunchPermission(pulumi.CustomResource):
         """
         Get an existing AmiLaunchPermission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: An AWS Account ID to add launch permissions.
         :param pulumi.Input[str] image_id: A region-unique name for the AMI.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ami_launch_permission.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_id"] = account_id
         __props__["image_id"] = image_id
         return AmiLaunchPermission(resource_name, opts=opts, __props__=__props__)

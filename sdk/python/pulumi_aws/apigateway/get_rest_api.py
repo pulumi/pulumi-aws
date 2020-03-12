@@ -13,7 +13,7 @@ class GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_configurations=None, execution_arn=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None, tags=None, id=None):
+    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_configurations=None, execution_arn=None, id=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None, tags=None):
         if api_key_source and not isinstance(api_key_source, str):
             raise TypeError("Expected argument 'api_key_source' to be a str")
         __self__.api_key_source = api_key_source
@@ -50,6 +50,12 @@ class GetRestApiResult:
         """
         The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if minimum_compression_size and not isinstance(minimum_compression_size, float):
             raise TypeError("Expected argument 'minimum_compression_size' to be a float")
         __self__.minimum_compression_size = minimum_compression_size
@@ -77,12 +83,6 @@ class GetRestApiResult:
         """
         Key-value mapping of resource tags.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -95,12 +95,12 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             description=self.description,
             endpoint_configurations=self.endpoint_configurations,
             execution_arn=self.execution_arn,
+            id=self.id,
             minimum_compression_size=self.minimum_compression_size,
             name=self.name,
             policy=self.policy,
             root_resource_id=self.root_resource_id,
-            tags=self.tags,
-            id=self.id)
+            tags=self.tags)
 
 def get_rest_api(name=None,tags=None,opts=None):
     """
@@ -108,12 +108,14 @@ def get_rest_api(name=None,tags=None,opts=None):
     API Gateway. To fetch the REST API you must provide a name to match against. 
     As there is no unique name constraint on REST APIs this data source will 
     error if there is more than one match.
-    
-    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/api_gateway_rest_api.html.markdown.
+
+
+    :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     """
     __args__ = dict()
+
 
     __args__['name'] = name
     __args__['tags'] = tags
@@ -130,9 +132,9 @@ def get_rest_api(name=None,tags=None,opts=None):
         description=__ret__.get('description'),
         endpoint_configurations=__ret__.get('endpointConfigurations'),
         execution_arn=__ret__.get('executionArn'),
+        id=__ret__.get('id'),
         minimum_compression_size=__ret__.get('minimumCompressionSize'),
         name=__ret__.get('name'),
         policy=__ret__.get('policy'),
         root_resource_id=__ret__.get('rootResourceId'),
-        tags=__ret__.get('tags'),
-        id=__ret__.get('id'))
+        tags=__ret__.get('tags'))

@@ -12,14 +12,14 @@ import (
 )
 
 // Provides a VPC Endpoint resource.
-// 
+//
 // > **NOTE on VPC Endpoints and VPC Endpoint Associations:** This provider provides both standalone VPC Endpoint Associations for
 // Route Tables - (an association between a VPC endpoint and a single `routeTableId`) and
 // Subnets - (an association between a VPC endpoint and a single `subnetId`) and
 // a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
 // Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
 // Doing so will cause a conflict of associations and will overwrite the association.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/vpc_endpoint.html.markdown.
 type VpcEndpoint struct {
 	pulumi.CustomResourceState

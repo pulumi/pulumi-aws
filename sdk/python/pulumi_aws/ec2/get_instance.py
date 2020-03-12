@@ -13,7 +13,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None, id=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, key_name=None, monitoring=None, network_interface_id=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         __self__.ami = ami
@@ -85,6 +85,12 @@ class GetInstanceResult:
         __self__.iam_instance_profile = iam_instance_profile
         """
         The name of the instance profile associated with the Instance.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
@@ -218,12 +224,6 @@ class GetInstanceResult:
         """
         The associated security groups in a non-default VPC.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -244,6 +244,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             get_user_data=self.get_user_data,
             host_id=self.host_id,
             iam_instance_profile=self.iam_instance_profile,
+            id=self.id,
             instance_id=self.instance_id,
             instance_state=self.instance_state,
             instance_tags=self.instance_tags,
@@ -265,14 +266,16 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             tenancy=self.tenancy,
             user_data=self.user_data,
             user_data_base64=self.user_data_base64,
-            vpc_security_group_ids=self.vpc_security_group_ids,
-            id=self.id)
+            vpc_security_group_ids=self.vpc_security_group_ids)
 
 def get_instance(filters=None,get_password_data=None,get_user_data=None,instance_id=None,instance_tags=None,tags=None,opts=None):
     """
     Use this data source to get the ID of an Amazon EC2 Instance for use in other
     resources.
-    
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
+
+
     :param list filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
@@ -281,15 +284,14 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
     :param str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param dict instance_tags: A mapping of tags, each pair of which must
            exactly match a pair on the desired Instance.
-    
+
     The **filters** object supports the following:
-    
+
       * `name` (`str`)
       * `values` (`list`)
-
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/instance.html.markdown.
     """
     __args__ = dict()
+
 
     __args__['filters'] = filters
     __args__['getPasswordData'] = get_password_data
@@ -318,6 +320,7 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
         get_user_data=__ret__.get('getUserData'),
         host_id=__ret__.get('hostId'),
         iam_instance_profile=__ret__.get('iamInstanceProfile'),
+        id=__ret__.get('id'),
         instance_id=__ret__.get('instanceId'),
         instance_state=__ret__.get('instanceState'),
         instance_tags=__ret__.get('instanceTags'),
@@ -339,5 +342,4 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
         tenancy=__ret__.get('tenancy'),
         user_data=__ret__.get('userData'),
         user_data_base64=__ret__.get('userDataBase64'),
-        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'),
-        id=__ret__.get('id'))
+        vpc_security_group_ids=__ret__.get('vpcSecurityGroupIds'))

@@ -25,13 +25,13 @@ class LogStream(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, log_group_name=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a CloudWatch Log Stream resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,19 +66,18 @@ class LogStream(pulumi.CustomResource):
         """
         Get an existing LogStream resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the log stream.
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/cloudwatch_log_stream.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["log_group_name"] = log_group_name
         __props__["name"] = name

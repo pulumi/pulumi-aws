@@ -12,7 +12,7 @@ import (
 )
 
 // Provides an Elastic File System (EFS) mount target.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/efs_mount_target.html.markdown.
 type MountTarget struct {
 	pulumi.CustomResourceState

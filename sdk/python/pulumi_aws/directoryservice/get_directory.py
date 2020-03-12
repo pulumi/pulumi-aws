@@ -13,7 +13,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, access_url=None, alias=None, connect_settings=None, description=None, directory_id=None, dns_ip_addresses=None, edition=None, enable_sso=None, name=None, security_group_id=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None, id=None):
+    def __init__(__self__, access_url=None, alias=None, connect_settings=None, description=None, directory_id=None, dns_ip_addresses=None, edition=None, enable_sso=None, id=None, name=None, security_group_id=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
         if access_url and not isinstance(access_url, str):
             raise TypeError("Expected argument 'access_url' to be a str")
         __self__.access_url = access_url
@@ -56,6 +56,12 @@ class GetDirectoryResult:
         """
         The directory/connector single-sign on status.
         """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -95,12 +101,6 @@ class GetDirectoryResult:
         if vpc_settings and not isinstance(vpc_settings, list):
             raise TypeError("Expected argument 'vpc_settings' to be a list")
         __self__.vpc_settings = vpc_settings
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetDirectoryResult(GetDirectoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -115,24 +115,26 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             dns_ip_addresses=self.dns_ip_addresses,
             edition=self.edition,
             enable_sso=self.enable_sso,
+            id=self.id,
             name=self.name,
             security_group_id=self.security_group_id,
             short_name=self.short_name,
             size=self.size,
             tags=self.tags,
             type=self.type,
-            vpc_settings=self.vpc_settings,
-            id=self.id)
+            vpc_settings=self.vpc_settings)
 
 def get_directory(directory_id=None,tags=None,opts=None):
     """
     Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration. 
-    
-    :param str directory_id: The ID of the directory.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/d/directory_service_directory.html.markdown.
+
+
+    :param str directory_id: The ID of the directory.
     """
     __args__ = dict()
+
 
     __args__['directoryId'] = directory_id
     __args__['tags'] = tags
@@ -151,11 +153,11 @@ def get_directory(directory_id=None,tags=None,opts=None):
         dns_ip_addresses=__ret__.get('dnsIpAddresses'),
         edition=__ret__.get('edition'),
         enable_sso=__ret__.get('enableSso'),
+        id=__ret__.get('id'),
         name=__ret__.get('name'),
         security_group_id=__ret__.get('securityGroupId'),
         short_name=__ret__.get('shortName'),
         size=__ret__.get('size'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
-        vpc_settings=__ret__.get('vpcSettings'),
-        id=__ret__.get('id'))
+        vpc_settings=__ret__.get('vpcSettings'))

@@ -13,7 +13,7 @@ class Organization(pulumi.CustomResource):
     accounts: pulumi.Output[list]
     """
     List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-    
+
       * `arn` (`str`) - ARN of the root
       * `email` (`str`) - Email of the account
       * `id` (`str`) - Identifier of the root
@@ -51,7 +51,7 @@ class Organization(pulumi.CustomResource):
     non_master_accounts: pulumi.Output[list]
     """
     List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-    
+
       * `arn` (`str`) - ARN of the root
       * `email` (`str`) - Email of the account
       * `id` (`str`) - Identifier of the root
@@ -61,26 +61,25 @@ class Organization(pulumi.CustomResource):
     roots: pulumi.Output[list]
     """
     List of organization roots. All elements have these attributes:
-    
+
       * `arn` (`str`) - ARN of the root
       * `id` (`str`) - Identifier of the root
       * `name` (`str`) - The name of the policy type
       * `policyTypes` (`list`) - List of policy types enabled for this root. All elements have these attributes:
-    
         * `status` (`str`) - The status of the policy type as it relates to the associated root
         * `type` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to create an organization.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organization.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
         :param pulumi.Input[list] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY` and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organization.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,7 +119,7 @@ class Organization(pulumi.CustomResource):
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,38 +133,36 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[str] master_account_id: Identifier of the master account
         :param pulumi.Input[list] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[list] roots: List of organization roots. All elements have these attributes:
-        
+
         The **accounts** object supports the following:
-        
+
           * `arn` (`pulumi.Input[str]`) - ARN of the root
           * `email` (`pulumi.Input[str]`) - Email of the account
           * `id` (`pulumi.Input[str]`) - Identifier of the root
           * `name` (`pulumi.Input[str]`) - The name of the policy type
           * `status` (`pulumi.Input[str]`) - The status of the policy type as it relates to the associated root
-        
+
         The **non_master_accounts** object supports the following:
-        
+
           * `arn` (`pulumi.Input[str]`) - ARN of the root
           * `email` (`pulumi.Input[str]`) - Email of the account
           * `id` (`pulumi.Input[str]`) - Identifier of the root
           * `name` (`pulumi.Input[str]`) - The name of the policy type
           * `status` (`pulumi.Input[str]`) - The status of the policy type as it relates to the associated root
-        
+
         The **roots** object supports the following:
-        
+
           * `arn` (`pulumi.Input[str]`) - ARN of the root
           * `id` (`pulumi.Input[str]`) - Identifier of the root
           * `name` (`pulumi.Input[str]`) - The name of the policy type
           * `policyTypes` (`pulumi.Input[list]`) - List of policy types enabled for this root. All elements have these attributes:
-        
             * `status` (`pulumi.Input[str]`) - The status of the policy type as it relates to the associated root
             * `type` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/organizations_organization.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["accounts"] = accounts
         __props__["arn"] = arn
         __props__["aws_service_access_principals"] = aws_service_access_principals

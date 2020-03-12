@@ -13,19 +13,19 @@ import (
 
 // Provides an EC2 Spot Instance Request resource. This allows instances to be
 // requested on the spot market.
-// 
+//
 // By default this provider creates Spot Instance Requests with a `persistent` type,
 // which means that for the duration of their lifetime, AWS will launch an
 // instance with the configured details if and when the spot market will accept
 // the requested price.
-// 
+//
 // On destruction, this provider will make an attempt to terminate the associated Spot
 // Instance if there is one present.
-// 
+//
 // Spot Instances requests with a `one-time` type will close the spot request
 // when the instance is terminated either by the request being below the current spot
 // price availability or by a user.
-// 
+//
 // > **NOTE:** Because their behavior depends on the live status of the spot
 // market, Spot Instance Requests have a unique lifecycle that makes them behave
 // differently than other resources. Most importantly: there is __no
@@ -33,7 +33,7 @@ import (
 // point in time. See the [AWS Spot Instance
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information.
-// 
+//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/spot_instance_request.html.markdown.
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState

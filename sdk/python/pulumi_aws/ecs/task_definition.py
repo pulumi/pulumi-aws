@@ -54,7 +54,7 @@ class TaskDefinition(pulumi.CustomResource):
     placement_constraints: pulumi.Output[list]
     """
     A set of placement constraints rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`.
-    
+
       * `expression` (`str`) - Cluster Query Language expression to apply to the constraint.
         For more information, see [Cluster Query Language in the Amazon EC2 Container
         Service Developer
@@ -64,8 +64,8 @@ class TaskDefinition(pulumi.CustomResource):
     proxy_configuration: pulumi.Output[dict]
     """
     The proxy configuration details for the App Mesh proxy.
-    
-      * `containerName` (`str`) - The name of the container that will serve as the App Mesh proxy.
+
+      * `container_name` (`str`) - The name of the container that will serve as the App Mesh proxy.
       * `properties` (`dict`) - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
       * `type` (`str`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
     """
@@ -88,20 +88,18 @@ class TaskDefinition(pulumi.CustomResource):
     volumes: pulumi.Output[list]
     """
     A set of volume blocks that containers in your task may use.
-    
+
       * `dockerVolumeConfiguration` (`dict`) - Used to configure a docker volume
-    
         * `autoprovision` (`bool`) - If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
         * `driver` (`str`) - The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
         * `driverOpts` (`dict`) - A map of Docker driver specific options.
         * `labels` (`dict`) - A map of custom metadata to add to your Docker volume.
         * `scope` (`str`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
-    
+
       * `efsVolumeConfiguration` (`dict`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
-    
-        * `fileSystemId` (`str`) - The ID of the EFS File System.
+        * `file_system_id` (`str`) - The ID of the EFS File System.
         * `rootDirectory` (`str`) - The path to mount on the host
-    
+
       * `hostPath` (`str`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
       * `name` (`str`) - The name of the volume. This name is referenced in the `sourceVolume`
         parameter of container definition in the `mountPoints` section.
@@ -109,7 +107,9 @@ class TaskDefinition(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, container_definitions=None, cpu=None, execution_role_arn=None, family=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configuration=None, requires_compatibilities=None, tags=None, task_role_arn=None, volumes=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions]
@@ -131,41 +131,37 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
-        
+
         The **placement_constraints** object supports the following:
-        
+
           * `expression` (`pulumi.Input[str]`) - Cluster Query Language expression to apply to the constraint.
             For more information, see [Cluster Query Language in the Amazon EC2 Container
             Service Developer
             Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
           * `type` (`pulumi.Input[str]`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        
+
         The **proxy_configuration** object supports the following:
-        
-          * `containerName` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
+
+          * `container_name` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
           * `properties` (`pulumi.Input[dict]`) - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
           * `type` (`pulumi.Input[str]`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        
+
         The **volumes** object supports the following:
-        
+
           * `dockerVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a docker volume
-        
             * `autoprovision` (`pulumi.Input[bool]`) - If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
             * `driver` (`pulumi.Input[str]`) - The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
             * `driverOpts` (`pulumi.Input[dict]`) - A map of Docker driver specific options.
             * `labels` (`pulumi.Input[dict]`) - A map of custom metadata to add to your Docker volume.
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
-        
+
           * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
-        
-            * `fileSystemId` (`pulumi.Input[str]`) - The ID of the EFS File System.
+            * `file_system_id` (`pulumi.Input[str]`) - The ID of the EFS File System.
             * `rootDirectory` (`pulumi.Input[str]`) - The path to mount on the host
-        
+
           * `hostPath` (`pulumi.Input[str]`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
           * `name` (`pulumi.Input[str]`) - The name of the volume. This name is referenced in the `sourceVolume`
             parameter of container definition in the `mountPoints` section.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -215,7 +211,7 @@ class TaskDefinition(pulumi.CustomResource):
         """
         Get an existing TaskDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,45 +236,42 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         :param pulumi.Input[str] task_role_arn: The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[list] volumes: A set of volume blocks that containers in your task may use.
-        
+
         The **placement_constraints** object supports the following:
-        
+
           * `expression` (`pulumi.Input[str]`) - Cluster Query Language expression to apply to the constraint.
             For more information, see [Cluster Query Language in the Amazon EC2 Container
             Service Developer
             Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
           * `type` (`pulumi.Input[str]`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        
+
         The **proxy_configuration** object supports the following:
-        
-          * `containerName` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
+
+          * `container_name` (`pulumi.Input[str]`) - The name of the container that will serve as the App Mesh proxy.
           * `properties` (`pulumi.Input[dict]`) - The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
           * `type` (`pulumi.Input[str]`) - The proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
-        
+
         The **volumes** object supports the following:
-        
+
           * `dockerVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a docker volume
-        
             * `autoprovision` (`pulumi.Input[bool]`) - If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
             * `driver` (`pulumi.Input[str]`) - The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
             * `driverOpts` (`pulumi.Input[dict]`) - A map of Docker driver specific options.
             * `labels` (`pulumi.Input[dict]`) - A map of custom metadata to add to your Docker volume.
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
-        
+
           * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
-        
-            * `fileSystemId` (`pulumi.Input[str]`) - The ID of the EFS File System.
+            * `file_system_id` (`pulumi.Input[str]`) - The ID of the EFS File System.
             * `rootDirectory` (`pulumi.Input[str]`) - The path to mount on the host
-        
+
           * `hostPath` (`pulumi.Input[str]`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
           * `name` (`pulumi.Input[str]`) - The name of the volume. This name is referenced in the `sourceVolume`
             parameter of container definition in the `mountPoints` section.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ecs_task_definition.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["arn"] = arn
         __props__["container_definitions"] = container_definitions
         __props__["cpu"] = cpu
