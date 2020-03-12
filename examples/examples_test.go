@@ -367,7 +367,10 @@ func TestAccMultipleRegions(t *testing.T) {
 func TestAccWebserverGo(t *testing.T) {
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
-		Dir:    path.Join(getCwd(t), "webserver-go"),
+		Dir: path.Join(getCwd(t), "webserver-go"),
+		Dependencies: []string{
+			"github.com/pulumi/pulumi-aws",
+		},
 		Config: map[string]string{"aws:region": getEnvRegion(t)},
 	}
 
