@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to Pulumi v1.12.1
-* Upgrade to pulumi-terraform-bridge v1.8.2
+_(none)_
 
 ---
+
+## 1.27.0 (2020-03-13)
+* Upgrade to Pulumi v1.12.1
+* Upgrade to pulumi-terraform-bridge v1.8.2
 
 ## 1.26.0 (2020-03-11)
 * Avoid storing config from the environment into the state.
