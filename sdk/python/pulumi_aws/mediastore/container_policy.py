@@ -15,6 +15,9 @@ class ContainerPolicy(pulumi.CustomResource):
     The name of the container.
     """
     policy: pulumi.Output[str]
+    """
+    The contents of the policy.
+    """
     def __init__(__self__, resource_name, opts=None, container_name=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a MediaStore Container Policy.
@@ -24,6 +27,7 @@ class ContainerPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The name of the container.
+        :param pulumi.Input[str] policy: The contents of the policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,6 +68,7 @@ class ContainerPolicy(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The name of the container.
+        :param pulumi.Input[str] policy: The contents of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

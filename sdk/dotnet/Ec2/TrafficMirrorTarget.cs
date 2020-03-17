@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Ec2
         [Output("networkLoadBalancerArn")]
         public Output<string?> NetworkLoadBalancerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -99,6 +105,18 @@ namespace Pulumi.Aws.Ec2
         [Input("networkLoadBalancerArn")]
         public Input<string>? NetworkLoadBalancerArn { get; set; }
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
+
         public TrafficMirrorTargetArgs()
         {
         }
@@ -123,6 +141,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkLoadBalancerArn")]
         public Input<string>? NetworkLoadBalancerArn { get; set; }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         public TrafficMirrorTargetState()
         {

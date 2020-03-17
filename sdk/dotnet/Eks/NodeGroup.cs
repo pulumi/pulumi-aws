@@ -16,6 +16,9 @@ namespace Pulumi.Aws.Eks
     /// </summary>
     public partial class NodeGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("amiType")]
         public Output<string> AmiType { get; private set; } = null!;
 
@@ -31,9 +34,15 @@ namespace Pulumi.Aws.Eks
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("diskSize")]
         public Output<int> DiskSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+        /// </summary>
         [Output("instanceTypes")]
         public Output<string> InstanceTypes { get; private set; } = null!;
 
@@ -97,6 +106,9 @@ namespace Pulumi.Aws.Eks
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -146,6 +158,9 @@ namespace Pulumi.Aws.Eks
 
     public sealed class NodeGroupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
 
@@ -155,9 +170,15 @@ namespace Pulumi.Aws.Eks
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("diskSize")]
         public Input<int>? DiskSize { get; set; }
 
+        /// <summary>
+        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+        /// </summary>
         [Input("instanceTypes")]
         public Input<string>? InstanceTypes { get; set; }
 
@@ -227,6 +248,9 @@ namespace Pulumi.Aws.Eks
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -237,6 +261,9 @@ namespace Pulumi.Aws.Eks
 
     public sealed class NodeGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
 
@@ -252,9 +279,15 @@ namespace Pulumi.Aws.Eks
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("diskSize")]
         public Input<int>? DiskSize { get; set; }
 
+        /// <summary>
+        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+        /// </summary>
         [Input("instanceTypes")]
         public Input<string>? InstanceTypes { get; set; }
 
@@ -342,6 +375,9 @@ namespace Pulumi.Aws.Eks
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

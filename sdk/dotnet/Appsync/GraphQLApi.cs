@@ -76,6 +76,12 @@ namespace Pulumi.Aws.AppSync
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether tracing with X-ray is enabled. Defaults to false.
+        /// </summary>
+        [Output("xrayEnabled")]
+        public Output<bool?> XrayEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GraphQLApi resource with the given unique name, arguments, and options.
@@ -182,6 +188,12 @@ namespace Pulumi.Aws.AppSync
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
 
+        /// <summary>
+        /// Whether tracing with X-ray is enabled. Defaults to false.
+        /// </summary>
+        [Input("xrayEnabled")]
+        public Input<bool>? XrayEnabled { get; set; }
+
         public GraphQLApiArgs()
         {
         }
@@ -266,6 +278,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigGetArgs>? UserPoolConfig { get; set; }
+
+        /// <summary>
+        /// Whether tracing with X-ray is enabled. Defaults to false.
+        /// </summary>
+        [Input("xrayEnabled")]
+        public Input<bool>? XrayEnabled { get; set; }
 
         public GraphQLApiState()
         {

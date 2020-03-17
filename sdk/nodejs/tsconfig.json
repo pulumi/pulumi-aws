@@ -62,6 +62,8 @@
         "apigateway/usagePlan.ts",
         "apigateway/usagePlanKey.ts",
         "apigateway/vpcLink.ts",
+        "apigatewayv2/api.ts",
+        "apigatewayv2/index.ts",
         "appautoscaling/index.ts",
         "appautoscaling/policy.ts",
         "appautoscaling/scheduledAction.ts",

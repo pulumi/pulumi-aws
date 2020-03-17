@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
         /// </summary>
         [Output("clusterCertificates")]
-        public Output<Outputs.ClusterClusterCertificates> ClusterCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterClusterCertificates>> ClusterCertificates { get; private set; } = null!;
 
         /// <summary>
         /// The id of the CloudHSM cluster.
@@ -173,6 +173,9 @@ namespace Pulumi.Aws.CloudHsmV2
 
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
+        [Input("clusterCertificates")]
+        private InputList<Inputs.ClusterClusterCertificatesGetArgs>? _clusterCertificates;
+
         /// <summary>
         /// The list of cluster certificates.
         /// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
@@ -181,8 +184,11 @@ namespace Pulumi.Aws.CloudHsmV2
         /// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
         /// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
         /// </summary>
-        [Input("clusterCertificates")]
-        public Input<Inputs.ClusterClusterCertificatesGetArgs>? ClusterCertificates { get; set; }
+        public InputList<Inputs.ClusterClusterCertificatesGetArgs> ClusterCertificates
+        {
+            get => _clusterCertificates ?? (_clusterCertificates = new InputList<Inputs.ClusterClusterCertificatesGetArgs>());
+            set => _clusterCertificates = value;
+        }
 
         /// <summary>
         /// The id of the CloudHSM cluster.

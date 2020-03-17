@@ -61,6 +61,9 @@ export class SnapshotSchedule extends pulumi.CustomResource {
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
+     * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     public readonly identifier!: pulumi.Output<string>;
     /**
      * Creates a unique
@@ -132,6 +135,9 @@ export interface SnapshotScheduleState {
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
@@ -160,6 +166,9 @@ export interface SnapshotScheduleArgs {
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      */
     readonly forceDestroy?: pulumi.Input<boolean>;
+    /**
+     * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+     */
     readonly identifier?: pulumi.Input<string>;
     /**
      * Creates a unique

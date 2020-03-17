@@ -19,6 +19,9 @@ class UserPolicy(pulumi.CustomResource):
     Creates a unique name beginning with the specified prefix. Conflicts with `name`.
     """
     policy: pulumi.Output[str]
+    """
+    The policy document. This is a JSON formatted string.
+    """
     user: pulumi.Output[str]
     """
     IAM user to which to attach this policy.
@@ -33,6 +36,7 @@ class UserPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
         """
         if __name__ is not None:
@@ -77,6 +81,7 @@ class UserPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

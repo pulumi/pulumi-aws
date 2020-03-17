@@ -10,13 +10,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Provides an AWS Quantum Ledger Database (QLDB) resource
+//
+// > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletionProtection = false` must be applied before attempting deletion.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/qldb_ledger.html.markdown.
 type Ledger struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the QLDB Ledger
-	Arn                pulumi.StringOutput  `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	Name               pulumi.StringOutput  `pulumi:"name"`
+	// The friendly name for the QLDB Ledger instance.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
@@ -50,18 +57,22 @@ func GetLedger(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Ledger resources.
 type ledgerState struct {
 	// The ARN of the QLDB Ledger
-	Arn                *string `pulumi:"arn"`
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
-	Name               *string `pulumi:"name"`
+	Arn *string `pulumi:"arn"`
+	// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The friendly name for the QLDB Ledger instance.
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type LedgerState struct {
 	// The ARN of the QLDB Ledger
-	Arn                pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
 	DeletionProtection pulumi.BoolPtrInput
-	Name               pulumi.StringPtrInput
+	// The friendly name for the QLDB Ledger instance.
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.MapInput
 }
@@ -71,16 +82,20 @@ func (LedgerState) ElementType() reflect.Type {
 }
 
 type ledgerArgs struct {
-	DeletionProtection *bool   `pulumi:"deletionProtection"`
-	Name               *string `pulumi:"name"`
+	// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The friendly name for the QLDB Ledger instance.
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Ledger resource.
 type LedgerArgs struct {
+	// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
 	DeletionProtection pulumi.BoolPtrInput
-	Name               pulumi.StringPtrInput
+	// The friendly name for the QLDB Ledger instance.
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.MapInput
 }

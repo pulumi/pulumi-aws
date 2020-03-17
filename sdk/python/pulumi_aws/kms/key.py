@@ -47,6 +47,9 @@ class Key(pulumi.CustomResource):
     Defaults to `ENCRYPT_DECRYPT`.
     """
     policy: pulumi.Output[str]
+    """
+    A valid policy JSON document.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the object.
@@ -69,6 +72,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
+        :param pulumi.Input[str] policy: A valid policy JSON document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
         """
         if __name__ is not None:
@@ -125,6 +129,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The globally unique identifier for the key.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
+        :param pulumi.Input[str] policy: A valid policy JSON document.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -172,7 +172,7 @@ import {InstanceProfile} from "../iam";
  * > **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
  * cannot currently be detected by this provider. After updating to block device
  * configuration, resource recreation can be manually triggered by using the
- * [`taint` command](https://www.terraform.io/docs/commands/taint.html).
+ * [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/launch_configuration.html.markdown.
  */

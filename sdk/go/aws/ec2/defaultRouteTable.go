@@ -53,7 +53,6 @@ type DefaultRouteTable struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags  pulumi.MapOutput    `pulumi:"tags"`
@@ -98,7 +97,6 @@ type defaultRouteTableState struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags  map[string]interface{} `pulumi:"tags"`
@@ -113,7 +111,6 @@ type DefaultRouteTableState struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
 	// A list of route objects. Their keys are documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes DefaultRouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags  pulumi.MapInput
@@ -130,7 +127,6 @@ type defaultRouteTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
 	// A list of route objects. Their keys are documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -143,7 +139,6 @@ type DefaultRouteTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
 	// A list of route objects. Their keys are documented below.
-	// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
 	Routes DefaultRouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput

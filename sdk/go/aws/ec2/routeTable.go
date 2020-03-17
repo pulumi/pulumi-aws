@@ -40,7 +40,7 @@ type RouteTable struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
-	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -83,7 +83,7 @@ type routeTableState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -96,7 +96,7 @@ type RouteTableState struct {
 	OwnerId pulumi.StringPtrInput
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput
@@ -111,7 +111,7 @@ func (RouteTableState) ElementType() reflect.Type {
 type routeTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -123,7 +123,7 @@ type routeTableArgs struct {
 type RouteTableArgs struct {
 	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// A list of route objects. Their keys are documented below. This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
+	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.MapInput

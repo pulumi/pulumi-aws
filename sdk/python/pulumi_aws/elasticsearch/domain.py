@@ -37,7 +37,7 @@ class Domain(pulumi.CustomResource):
       * `zoneAwarenessConfig` (`dict`) - Configuration block containing zone awareness settings. Documented below.
         * `availabilityZoneCount` (`float`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
-      * `zoneAwarenessEnabled` (`bool`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+      * `zoneAwarenessEnabled` (`bool`) - Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
     """
     cognito_options: pulumi.Output[dict]
     domain_endpoint_options: pulumi.Output[dict]
@@ -45,7 +45,7 @@ class Domain(pulumi.CustomResource):
     Domain endpoint HTTP(S) related options. See below.
 
       * `enforceHttps` (`bool`) - Whether or not to require HTTPS
-      * `tlsSecurityPolicy` (`str`)
+      * `tlsSecurityPolicy` (`str`) - The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
     """
     domain_id: pulumi.Output[str]
     """
@@ -156,7 +156,7 @@ class Domain(pulumi.CustomResource):
           * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
             * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
-          * `zoneAwarenessEnabled` (`pulumi.Input[bool]`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+          * `zoneAwarenessEnabled` (`pulumi.Input[bool]`) - Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
 
         The **cognito_options** object supports the following:
 
@@ -168,7 +168,7 @@ class Domain(pulumi.CustomResource):
         The **domain_endpoint_options** object supports the following:
 
           * `enforceHttps` (`pulumi.Input[bool]`) - Whether or not to require HTTPS
-          * `tlsSecurityPolicy` (`pulumi.Input[str]`)
+          * `tlsSecurityPolicy` (`pulumi.Input[str]`) - The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 
         The **ebs_options** object supports the following:
 
@@ -289,7 +289,7 @@ class Domain(pulumi.CustomResource):
           * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
             * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
-          * `zoneAwarenessEnabled` (`pulumi.Input[bool]`) - Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+          * `zoneAwarenessEnabled` (`pulumi.Input[bool]`) - Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
 
         The **cognito_options** object supports the following:
 
@@ -301,7 +301,7 @@ class Domain(pulumi.CustomResource):
         The **domain_endpoint_options** object supports the following:
 
           * `enforceHttps` (`pulumi.Input[bool]`) - Whether or not to require HTTPS
-          * `tlsSecurityPolicy` (`pulumi.Input[str]`)
+          * `tlsSecurityPolicy` (`pulumi.Input[str]`) - The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 
         The **ebs_options** object supports the following:
 

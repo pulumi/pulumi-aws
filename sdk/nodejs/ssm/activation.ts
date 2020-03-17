@@ -73,7 +73,7 @@ export class Activation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The date by which this activation request should expire. The default value is 24 hours.
+     * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
     public readonly expirationDate!: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export interface ActivationState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The date by which this activation request should expire. The default value is 24 hours.
+     * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
     readonly expirationDate?: pulumi.Input<string>;
     /**
@@ -199,7 +199,7 @@ export interface ActivationArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The date by which this activation request should expire. The default value is 24 hours.
+     * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      */
     readonly expirationDate?: pulumi.Input<string>;
     /**

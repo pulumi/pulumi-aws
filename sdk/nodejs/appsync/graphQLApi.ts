@@ -197,6 +197,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      * The Amazon Cognito User Pool configuration. Defined below.
      */
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     */
+    public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GraphQLApi resource with the given unique name, arguments, and options.
@@ -220,6 +224,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["uris"] = state ? state.uris : undefined;
             inputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
+            inputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
             if (!args || args.authenticationType === undefined) {
@@ -233,6 +238,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["schema"] = args ? args.schema : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
+            inputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["uris"] = undefined /*out*/;
         }
@@ -291,6 +297,10 @@ export interface GraphQLApiState {
      * The Amazon Cognito User Pool configuration. Defined below.
      */
     readonly userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     */
+    readonly xrayEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -329,4 +339,8 @@ export interface GraphQLApiArgs {
      * The Amazon Cognito User Pool configuration. Defined below.
      */
     readonly userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    /**
+     * Whether tracing with X-ray is enabled. Defaults to false.
+     */
+    readonly xrayEnabled?: pulumi.Input<boolean>;
 }

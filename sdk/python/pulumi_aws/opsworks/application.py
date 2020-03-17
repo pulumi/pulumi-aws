@@ -14,9 +14,9 @@ class Application(pulumi.CustomResource):
     """
     SCM configuration of the app as described below.
 
-      * `password` (`str`)
+      * `password` (`str`) - Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
       * `revision` (`str`) - For sources that are version-aware, the revision to use.
-      * `sshKey` (`str`)
+      * `sshKey` (`str`) - SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
       * `type` (`str`) - The type of source to use. For example, "archive".
       * `url` (`str`) - The URL where the app resource can be found.
       * `username` (`str`) - Username to use when authenticating to the source.
@@ -121,9 +121,9 @@ class Application(pulumi.CustomResource):
 
         The **app_sources** object supports the following:
 
-          * `password` (`pulumi.Input[str]`)
+          * `password` (`pulumi.Input[str]`) - Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
           * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`)
+          * `sshKey` (`pulumi.Input[str]`) - SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
           * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
           * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
           * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
@@ -213,9 +213,9 @@ class Application(pulumi.CustomResource):
 
         The **app_sources** object supports the following:
 
-          * `password` (`pulumi.Input[str]`)
+          * `password` (`pulumi.Input[str]`) - Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
           * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`)
+          * `sshKey` (`pulumi.Input[str]`) - SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
           * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
           * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
           * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.

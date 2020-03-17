@@ -33,7 +33,7 @@ class Policy(pulumi.CustomResource):
     """
     policy: pulumi.Output[str]
     """
-    The policy document.
+    The policy document. This is a JSON formatted string.
     """
     def __init__(__self__, resource_name, opts=None, description=None, name=None, name_prefix=None, path=None, policy=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -48,7 +48,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[dict] policy: The policy document.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,7 +96,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[dict] policy: The policy document.
+        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Add deprecation message for `ec2.Instance` `SecurityGroups` - the messages will be added
   for dotnet and typescript languages
+* Upgrade to v2.53.0 of the AWS Terraform Provider
 
 ---
 

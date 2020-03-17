@@ -16,9 +16,13 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     """
     network_services: pulumi.Output[list]
     """
-    List of amazon network services that should be mirrored. Valid values: amazon-dns
+    List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, network_services=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, network_services=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Traffic mirror filter.  
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
@@ -28,7 +32,8 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: amazon-dns
+        :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -49,6 +54,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['network_services'] = network_services
+            __props__['tags'] = tags
         super(TrafficMirrorFilter, __self__).__init__(
             'aws:ec2/trafficMirrorFilter:TrafficMirrorFilter',
             resource_name,
@@ -56,7 +62,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, network_services=None):
+    def get(resource_name, id, opts=None, description=None, network_services=None, tags=None):
         """
         Get an existing TrafficMirrorFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -65,7 +71,8 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: amazon-dns
+        :param pulumi.Input[list] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -73,6 +80,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         __props__["description"] = description
         __props__["network_services"] = network_services
+        __props__["tags"] = tags
         return TrafficMirrorFilter(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

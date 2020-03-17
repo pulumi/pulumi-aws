@@ -9,6 +9,22 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    /// <summary>
+    /// Provides a security group resource.
+    /// 
+    /// &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently
+    /// provides both a standalone Security Group Rule resource (a single `ingress` or
+    /// `egress` rule), and a Security Group resource with `ingress` and `egress` rules
+    /// defined in-line. At this time you cannot use a Security Group with in-line rules
+    /// in conjunction with any Security Group Rule resources. Doing so will cause
+    /// a conflict of rule settings and will overwrite rules.
+    /// 
+    /// &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
+    /// 
+    /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/security_group.html.markdown.
+    /// </summary>
     public partial class SecurityGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -26,7 +42,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Can be specified multiple times for each
         /// egress rule. Each egress block supports fields documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         [Output("egress")]
         public Output<ImmutableArray<Outputs.SecurityGroupEgress>> Egress { get; private set; } = null!;
@@ -34,7 +49,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Can be specified multiple times for each
         /// ingress rule. Each ingress block supports fields documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.SecurityGroupIngress>> Ingress { get; private set; } = null!;
@@ -141,7 +155,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Can be specified multiple times for each
         /// egress rule. Each egress block supports fields documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.SecurityGroupEgressArgs> Egress
         {
@@ -155,7 +168,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Can be specified multiple times for each
         /// ingress rule. Each ingress block supports fields documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.SecurityGroupIngressArgs> Ingress
         {
@@ -233,7 +245,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Can be specified multiple times for each
         /// egress rule. Each egress block supports fields documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.SecurityGroupEgressGetArgs> Egress
         {
@@ -247,7 +258,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Can be specified multiple times for each
         /// ingress rule. Each ingress block supports fields documented below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.SecurityGroupIngressGetArgs> Ingress
         {

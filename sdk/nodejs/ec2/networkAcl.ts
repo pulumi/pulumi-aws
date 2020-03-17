@@ -77,12 +77,10 @@ export class NetworkAcl extends pulumi.CustomResource {
 
     /**
      * Specifies an egress rule. Parameters defined below.
-     * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
-     * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.NetworkAclIngress[]>;
     /**
@@ -149,12 +147,10 @@ export class NetworkAcl extends pulumi.CustomResource {
 export interface NetworkAclState {
     /**
      * Specifies an egress rule. Parameters defined below.
-     * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
-     * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**
@@ -181,12 +177,10 @@ export interface NetworkAclState {
 export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
-     * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
-     * This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**

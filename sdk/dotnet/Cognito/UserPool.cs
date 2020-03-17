@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
-        /// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
         /// </summary>
         [Output("mfaConfiguration")]
         public Output<string?> MfaConfiguration { get; private set; } = null!;
@@ -113,22 +113,28 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<Outputs.UserPoolSchemas>> Schemas { get; private set; } = null!;
 
         /// <summary>
-        /// A string representing the SMS authentication message.
+        /// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
         [Output("smsAuthenticationMessage")]
         public Output<string?> SmsAuthenticationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The SMS Configuration.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
         /// </summary>
         [Output("smsConfiguration")]
-        public Output<Outputs.UserPoolSmsConfiguration?> SmsConfiguration { get; private set; } = null!;
+        public Output<Outputs.UserPoolSmsConfiguration> SmsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A string representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         /// </summary>
         [Output("smsVerificationMessage")]
         public Output<string> SmsVerificationMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        /// </summary>
+        [Output("softwareTokenMfaConfiguration")]
+        public Output<Outputs.UserPoolSoftwareTokenMfaConfiguration?> SoftwareTokenMfaConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the User Pool.
@@ -261,7 +267,7 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolLambdaConfigArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -291,13 +297,13 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// A string representing the SMS authentication message.
+        /// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
         [Input("smsAuthenticationMessage")]
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// The SMS Configuration.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
@@ -307,6 +313,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
+
+        /// <summary>
+        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        /// </summary>
+        [Input("softwareTokenMfaConfiguration")]
+        public Input<Inputs.UserPoolSoftwareTokenMfaConfigurationArgs>? SoftwareTokenMfaConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -436,7 +448,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? LastModifiedDate { get; set; }
 
         /// <summary>
-        /// Set to enable multi-factor authentication. Must be one of the following values (ON, OFF, OPTIONAL)
+        /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values:
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -466,13 +478,13 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// A string representing the SMS authentication message.
+        /// A string representing the SMS authentication message. The message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
         [Input("smsAuthenticationMessage")]
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// The SMS Configuration.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationGetArgs>? SmsConfiguration { get; set; }
@@ -482,6 +494,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
+
+        /// <summary>
+        /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
+        /// </summary>
+        [Input("softwareTokenMfaConfiguration")]
+        public Input<Inputs.UserPoolSoftwareTokenMfaConfigurationGetArgs>? SoftwareTokenMfaConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -1147,6 +1165,32 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
+    public sealed class UserPoolSoftwareTokenMfaConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        public UserPoolSoftwareTokenMfaConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class UserPoolSoftwareTokenMfaConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        public UserPoolSoftwareTokenMfaConfigurationGetArgs()
+        {
+        }
+    }
+
     public sealed class UserPoolUserPoolAddOnsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -1600,6 +1644,21 @@ namespace Pulumi.Aws.Cognito
         {
             ExternalId = externalId;
             SnsCallerArn = snsCallerArn;
+        }
+    }
+
+    [OutputType]
+    public sealed class UserPoolSoftwareTokenMfaConfiguration
+    {
+        /// <summary>
+        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        /// </summary>
+        public readonly bool Enabled;
+
+        [OutputConstructor]
+        private UserPoolSoftwareTokenMfaConfiguration(bool enabled)
+        {
+            Enabled = enabled;
         }
     }
 

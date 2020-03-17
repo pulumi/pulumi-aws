@@ -456,7 +456,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<DomainClusterConfigZoneAwarenessConfigArgs>? ZoneAwarenessConfig { get; set; }
 
         /// <summary>
-        /// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        /// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         /// </summary>
         [Input("zoneAwarenessEnabled")]
         public Input<bool>? ZoneAwarenessEnabled { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<DomainClusterConfigZoneAwarenessConfigGetArgs>? ZoneAwarenessConfig { get; set; }
 
         /// <summary>
-        /// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        /// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         /// </summary>
         [Input("zoneAwarenessEnabled")]
         public Input<bool>? ZoneAwarenessEnabled { get; set; }
@@ -611,6 +611,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Input("enforceHttps", required: true)]
         public Input<bool> EnforceHttps { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("tlsSecurityPolicy")]
         public Input<string>? TlsSecurityPolicy { get; set; }
 
@@ -627,6 +630,9 @@ namespace Pulumi.Aws.ElasticSearch
         [Input("enforceHttps", required: true)]
         public Input<bool> EnforceHttps { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("tlsSecurityPolicy")]
         public Input<string>? TlsSecurityPolicy { get; set; }
 
@@ -959,7 +965,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         public readonly DomainClusterConfigZoneAwarenessConfig? ZoneAwarenessConfig;
         /// <summary>
-        /// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        /// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         /// </summary>
         public readonly bool? ZoneAwarenessEnabled;
 
@@ -1039,6 +1045,9 @@ namespace Pulumi.Aws.ElasticSearch
         /// Whether or not to require HTTPS
         /// </summary>
         public readonly bool EnforceHttps;
+        /// <summary>
+        /// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         public readonly string TlsSecurityPolicy;
 
         [OutputConstructor]

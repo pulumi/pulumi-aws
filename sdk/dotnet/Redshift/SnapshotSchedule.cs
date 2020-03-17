@@ -32,6 +32,9 @@ namespace Pulumi.Aws.RedShift
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
+        /// <summary>
+        /// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.RedShift
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
+        /// <summary>
+        /// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
@@ -174,6 +180,9 @@ namespace Pulumi.Aws.RedShift
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
+        /// <summary>
+        /// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
+        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 

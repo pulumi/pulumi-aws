@@ -3065,7 +3065,7 @@ export namespace cloudfront {
 }
 
 export namespace cloudhsmv2 {
-    export interface ClusterClusterCertificates {
+    export interface ClusterClusterCertificate {
         awsHardwareCertificate: string;
         clusterCertificate: string;
         clusterCsr: string;
@@ -4329,6 +4329,13 @@ export namespace cognito {
          * The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
          */
         snsCallerArn: string;
+    }
+
+    export interface UserPoolSoftwareTokenMfaConfiguration {
+        /**
+         * Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+         */
+        enabled: boolean;
     }
 
     export interface UserPoolUserPoolAddOns {
@@ -6122,11 +6129,11 @@ export namespace ec2 {
          */
         deviceIndex?: number;
         /**
-         * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4AddressCount`
+         * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
          */
         ipv4AddressCount?: number;
         /**
-         * One or more private IPv4 addresses to associate. Conflicts with `ipv4Addresses`
+         * One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
          */
         ipv4Addresses?: string[];
         /**
@@ -7044,6 +7051,9 @@ export namespace eks {
          * Indicates whether or not the Amazon EKS public API server endpoint is enabled. Default is `true`.
          */
         endpointPublicAccess?: boolean;
+        /**
+         * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
+         */
         publicAccessCidrs: string[];
         /**
          * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
@@ -7974,7 +7984,7 @@ export namespace elasticsearch {
          */
         zoneAwarenessConfig?: outputs.elasticsearch.DomainClusterConfigZoneAwarenessConfig;
         /**
-         * Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+         * Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
          */
         zoneAwarenessEnabled?: boolean;
     }
@@ -8010,6 +8020,9 @@ export namespace elasticsearch {
          * Whether or not to require HTTPS
          */
         enforceHttps: boolean;
+        /**
+         * The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
+         */
         tlsSecurityPolicy: string;
     }
 
@@ -11754,11 +11767,17 @@ export namespace neptune {
 
 export namespace opsworks {
     export interface ApplicationAppSource {
+        /**
+         * Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+         */
         password?: string;
         /**
          * For sources that are version-aware, the revision to use.
          */
         revision?: string;
+        /**
+         * SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+         */
         sshKey?: string;
         /**
          * The type of source to use. For example, "archive".

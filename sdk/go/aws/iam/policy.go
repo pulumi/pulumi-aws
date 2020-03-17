@@ -28,7 +28,7 @@ type Policy struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The policy document.
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -74,7 +74,7 @@ type policyState struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
-	// The policy document.
+	// The policy document. This is a JSON formatted string.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -90,7 +90,7 @@ type PolicyState struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
-	// The policy document.
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringPtrInput
 }
 
@@ -108,7 +108,7 @@ type policyArgs struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
-	// The policy document.
+	// The policy document. This is a JSON formatted string.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -123,7 +123,7 @@ type PolicyArgs struct {
 	// Path in which to create the policy.
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
-	// The policy document.
+	// The policy document. This is a JSON formatted string.
 	Policy pulumi.Input
 }
 

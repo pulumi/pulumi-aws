@@ -24,10 +24,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of amazon network services that should be mirrored. Valid values: amazon-dns
+        /// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         /// </summary>
         [Output("networkServices")]
         public Output<ImmutableArray<string>> NetworkServices { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,12 +91,24 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _networkServices;
 
         /// <summary>
-        /// List of amazon network services that should be mirrored. Valid values: amazon-dns
+        /// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         /// </summary>
         public InputList<string> NetworkServices
         {
             get => _networkServices ?? (_networkServices = new InputList<string>());
             set => _networkServices = value;
+        }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
         }
 
         public TrafficMirrorFilterArgs()
@@ -110,12 +128,24 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _networkServices;
 
         /// <summary>
-        /// List of amazon network services that should be mirrored. Valid values: amazon-dns
+        /// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         /// </summary>
         public InputList<string> NetworkServices
         {
             get => _networkServices ?? (_networkServices = new InputList<string>());
             set => _networkServices = value;
+        }
+
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags.
+        /// </summary>
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
         }
 
         public TrafficMirrorFilterState()

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a DynamoDB table resource
  * 
- * > **Note:** It is recommended to use `lifecycle` [`ignoreChanges`](https://www.terraform.io/docs/configuration/resources.html#ignore_changes) for `readCapacity` and/or `writeCapacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
+ * > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's [autoscaling policy](https://www.terraform.io/docs/providers/aws/r/appautoscaling_policy.html) attached to the table.
  * 
  * ## Example Usage
  * 

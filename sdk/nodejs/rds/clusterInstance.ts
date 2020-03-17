@@ -9,6 +9,51 @@ import * as utilities from "../utilities";
 import {EngineType} from "./engineType";
 import {InstanceType} from "./instanceType";
 
+/**
+ * Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
+ * attributes that are specific to a single instance in a [RDS Cluster][3],
+ * specifically running Amazon Aurora.
+ * 
+ * Unlike other RDS resources that support replication, with Amazon Aurora you do
+ * not designate a primary and subsequent replicas. Instead, you simply add RDS
+ * Instances and Aurora manages the replication. You can use the [count][5]
+ * meta-parameter to make multiple instances and join them all to the same RDS
+ * Cluster, or you may specify different Cluster Instance resources with various
+ * `instanceClass` sizes.
+ * 
+ * For more information on Amazon Aurora, see [Aurora on Amazon RDS][2] in the Amazon RDS User Guide.
+ * 
+ * > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const defaultCluster = new aws.rds.Cluster("default", {
+ *     availabilityZones: [
+ *         "us-west-2a",
+ *         "us-west-2b",
+ *         "us-west-2c",
+ *     ],
+ *     clusterIdentifier: "aurora-cluster-demo",
+ *     databaseName: "mydb",
+ *     masterPassword: "barbut8chars",
+ *     masterUsername: "foo",
+ * });
+ * const clusterInstances: aws.rds.ClusterInstance[] = [];
+ * for (let i = 0; i < 2; i++) {
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${i}`, {
+ *         clusterIdentifier: defaultCluster.id,
+ *         identifier: `aurora-cluster-demo-${i}`,
+ *         instanceClass: "db.r4.large",
+ *     }));
+ * }
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/rds_cluster_instance.html.markdown.
+ */
 export class ClusterInstance extends pulumi.CustomResource {
     /**
      * Get an existing ClusterInstance resource's state with the given name, ID, and optional extra

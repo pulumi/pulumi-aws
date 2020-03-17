@@ -22,7 +22,11 @@ class TrafficMirrorTarget(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, network_interface_id=None, network_load_balancer_arn=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value mapping of resource tags.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, network_interface_id=None, network_load_balancer_arn=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Traffic mirror target.  
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
@@ -34,6 +38,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,6 +60,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__['description'] = description
             __props__['network_interface_id'] = network_interface_id
             __props__['network_load_balancer_arn'] = network_load_balancer_arn
+            __props__['tags'] = tags
         super(TrafficMirrorTarget, __self__).__init__(
             'aws:ec2/trafficMirrorTarget:TrafficMirrorTarget',
             resource_name,
@@ -62,7 +68,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, network_interface_id=None, network_load_balancer_arn=None):
+    def get(resource_name, id, opts=None, description=None, network_interface_id=None, network_load_balancer_arn=None, tags=None):
         """
         Get an existing TrafficMirrorTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -73,6 +79,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -81,6 +88,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         __props__["description"] = description
         __props__["network_interface_id"] = network_interface_id
         __props__["network_load_balancer_arn"] = network_load_balancer_arn
+        __props__["tags"] = tags
         return TrafficMirrorTarget(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Ecr
     /// </summary>
     public partial class RepositoryPolicy : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The policy document. This is a JSON formatted string.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -79,6 +82,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RepositoryPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy document. This is a JSON formatted string.
+        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -95,6 +101,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class RepositoryPolicyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy document. This is a JSON formatted string.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

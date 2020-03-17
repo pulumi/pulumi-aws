@@ -15,16 +15,29 @@ class Ledger(pulumi.CustomResource):
     The ARN of the QLDB Ledger
     """
     deletion_protection: pulumi.Output[bool]
+    """
+    The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+    """
     name: pulumi.Output[str]
+    """
+    The friendly name for the QLDB Ledger instance.
+    """
     tags: pulumi.Output[dict]
     """
     Key-value mapping of resource tags
     """
     def __init__(__self__, resource_name, opts=None, deletion_protection=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Ledger resource with the given unique name, props, and options.
+        Provides an AWS Quantum Ledger Database (QLDB) resource
+
+        > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/qldb_ledger.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] deletion_protection: The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+        :param pulumi.Input[str] name: The friendly name for the QLDB Ledger instance.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         """
         if __name__ is not None:
@@ -64,6 +77,8 @@ class Ledger(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the QLDB Ledger
+        :param pulumi.Input[bool] deletion_protection: The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+        :param pulumi.Input[str] name: The friendly name for the QLDB Ledger instance.
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

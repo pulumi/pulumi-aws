@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string UserData;
         /// <summary>
-        /// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `get_user_data` is true.
+        /// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
         /// </summary>
         public readonly string UserDataBase64;
         /// <summary>

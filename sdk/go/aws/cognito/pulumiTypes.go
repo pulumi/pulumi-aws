@@ -2080,6 +2080,120 @@ func (o UserPoolSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolSmsConfiguration) string { return v.SnsCallerArn }).(pulumi.StringOutput)
 }
 
+type UserPoolSoftwareTokenMfaConfiguration struct {
+	// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+	Enabled bool `pulumi:"enabled"`
+}
+
+type UserPoolSoftwareTokenMfaConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolSoftwareTokenMfaConfigurationOutput() UserPoolSoftwareTokenMfaConfigurationOutput
+	ToUserPoolSoftwareTokenMfaConfigurationOutputWithContext(context.Context) UserPoolSoftwareTokenMfaConfigurationOutput
+}
+
+type UserPoolSoftwareTokenMfaConfigurationArgs struct {
+	// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (UserPoolSoftwareTokenMfaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSoftwareTokenMfaConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolSoftwareTokenMfaConfigurationArgs) ToUserPoolSoftwareTokenMfaConfigurationOutput() UserPoolSoftwareTokenMfaConfigurationOutput {
+	return i.ToUserPoolSoftwareTokenMfaConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolSoftwareTokenMfaConfigurationArgs) ToUserPoolSoftwareTokenMfaConfigurationOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSoftwareTokenMfaConfigurationOutput)
+}
+
+func (i UserPoolSoftwareTokenMfaConfigurationArgs) ToUserPoolSoftwareTokenMfaConfigurationPtrOutput() UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return i.ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolSoftwareTokenMfaConfigurationArgs) ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSoftwareTokenMfaConfigurationOutput).ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(ctx)
+}
+
+type UserPoolSoftwareTokenMfaConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolSoftwareTokenMfaConfigurationPtrOutput() UserPoolSoftwareTokenMfaConfigurationPtrOutput
+	ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(context.Context) UserPoolSoftwareTokenMfaConfigurationPtrOutput
+}
+
+type userPoolSoftwareTokenMfaConfigurationPtrType UserPoolSoftwareTokenMfaConfigurationArgs
+
+func UserPoolSoftwareTokenMfaConfigurationPtr(v *UserPoolSoftwareTokenMfaConfigurationArgs) UserPoolSoftwareTokenMfaConfigurationPtrInput {
+	return (*userPoolSoftwareTokenMfaConfigurationPtrType)(v)
+}
+
+func (*userPoolSoftwareTokenMfaConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSoftwareTokenMfaConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolSoftwareTokenMfaConfigurationPtrType) ToUserPoolSoftwareTokenMfaConfigurationPtrOutput() UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return i.ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolSoftwareTokenMfaConfigurationPtrType) ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSoftwareTokenMfaConfigurationPtrOutput)
+}
+
+type UserPoolSoftwareTokenMfaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSoftwareTokenMfaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSoftwareTokenMfaConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaConfigurationOutput() UserPoolSoftwareTokenMfaConfigurationOutput {
+	return o
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaConfigurationOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationOutput {
+	return o
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaConfigurationPtrOutput() UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return o.ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return o.ApplyT(func(v UserPoolSoftwareTokenMfaConfiguration) *UserPoolSoftwareTokenMfaConfiguration {
+		return &v
+	}).(UserPoolSoftwareTokenMfaConfigurationPtrOutput)
+}
+
+// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+func (o UserPoolSoftwareTokenMfaConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserPoolSoftwareTokenMfaConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type UserPoolSoftwareTokenMfaConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSoftwareTokenMfaConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSoftwareTokenMfaConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) ToUserPoolSoftwareTokenMfaConfigurationPtrOutput() UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Elem() UserPoolSoftwareTokenMfaConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolSoftwareTokenMfaConfiguration) UserPoolSoftwareTokenMfaConfiguration { return *v }).(UserPoolSoftwareTokenMfaConfigurationOutput)
+}
+
+// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
+func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v UserPoolSoftwareTokenMfaConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
 type UserPoolUserPoolAddOns struct {
 	// The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
 	AdvancedSecurityMode string `pulumi:"advancedSecurityMode"`
@@ -2409,6 +2523,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolSchemaStringAttributeConstraintsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolSoftwareTokenMfaConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolSoftwareTokenMfaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsOutput{})
 	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{})

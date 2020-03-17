@@ -64,7 +64,7 @@ namespace Pulumi.Aws.OpsWorks
     /// &gt; **NOTE:** Currently, changes to `*_block_device` configuration of _existing_
     /// resources cannot be automatically detected by this provider. After making updates
     /// to block device configuration, resource recreation can be manually triggered by
-    /// using the [`taint` command](https://www.terraform.io/docs/commands/taint.html).
+    /// using the [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/opsworks_instance.html.markdown.
     /// </summary>

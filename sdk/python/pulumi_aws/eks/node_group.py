@@ -11,6 +11,9 @@ from .. import utilities, tables
 
 class NodeGroup(pulumi.CustomResource):
     ami_type: pulumi.Output[str]
+    """
+    Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
+    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of the EKS Node Group.
@@ -20,7 +23,13 @@ class NodeGroup(pulumi.CustomResource):
     Name of the EKS Cluster.
     """
     disk_size: pulumi.Output[float]
+    """
+    Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+    """
     instance_types: pulumi.Output[str]
+    """
+    Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
+    """
     labels: pulumi.Output[dict]
     """
     Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
@@ -74,6 +83,9 @@ class NodeGroup(pulumi.CustomResource):
     Key-value mapping of resource tags.
     """
     version: pulumi.Output[str]
+    """
+    Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
+    """
     def __init__(__self__, resource_name, opts=None, ami_type=None, cluster_name=None, disk_size=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_access=None, scaling_config=None, subnet_ids=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
@@ -82,7 +94,10 @@ class NodeGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
+        :param pulumi.Input[float] disk_size: Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] instance_types: Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
         :param pulumi.Input[dict] labels: Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -91,6 +106,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[list] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
 
         The **remote_access** object supports the following:
 
@@ -159,8 +175,11 @@ class NodeGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
+        :param pulumi.Input[float] disk_size: Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[str] instance_types: Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
         :param pulumi.Input[dict] labels: Key-value mapping of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
@@ -171,6 +190,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[list] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         :param pulumi.Input[dict] tags: Key-value mapping of resource tags.
+        :param pulumi.Input[str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
 
         The **remote_access** object supports the following:
 

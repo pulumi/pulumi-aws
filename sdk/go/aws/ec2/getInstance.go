@@ -112,7 +112,7 @@ type LookupInstanceResult struct {
 	Tenancy string `pulumi:"tenancy"`
 	// SHA-1 hash of User Data supplied to the Instance.
 	UserData string `pulumi:"userData"`
-	// Base64 encoded contents of User Data supplied to the Instance. Valid UTF-8 contents can be decoded with the [`base64decode` function](https://www.terraform.io/docs/configuration/functions/base64decode.html). This attribute is only exported if `getUserData` is true.
+	// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `getUserData` is true.
 	UserDataBase64 string `pulumi:"userDataBase64"`
 	// The associated security groups in a non-default VPC.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`

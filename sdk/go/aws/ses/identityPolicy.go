@@ -20,7 +20,8 @@ type IdentityPolicy struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringOutput `pulumi:"identity"`
 	// Name of the policy.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// JSON string of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -61,7 +62,8 @@ type identityPolicyState struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity *string `pulumi:"identity"`
 	// Name of the policy.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// JSON string of the policy.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -69,7 +71,8 @@ type IdentityPolicyState struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringPtrInput
 	// Name of the policy.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// JSON string of the policy.
 	Policy pulumi.StringPtrInput
 }
 
@@ -81,8 +84,9 @@ type identityPolicyArgs struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity string `pulumi:"identity"`
 	// Name of the policy.
-	Name   *string `pulumi:"name"`
-	Policy string  `pulumi:"policy"`
+	Name *string `pulumi:"name"`
+	// JSON string of the policy.
+	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a IdentityPolicy resource.
@@ -90,7 +94,8 @@ type IdentityPolicyArgs struct {
 	// Name or Amazon Resource Name (ARN) of the SES Identity.
 	Identity pulumi.StringInput
 	// Name of the policy.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// JSON string of the policy.
 	Policy pulumi.StringInput
 }
 

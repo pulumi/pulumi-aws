@@ -75,7 +75,11 @@ class GraphQLApi(pulumi.CustomResource):
       * `default_action` (`str`) - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
       * `user_pool_id` (`str`) - The user pool ID.
     """
-    def __init__(__self__, resource_name, opts=None, additional_authentication_providers=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, __props__=None, __name__=None, __opts__=None):
+    xray_enabled: pulumi.Output[bool]
+    """
+    Whether tracing with X-ray is enabled. Defaults to false.
+    """
+    def __init__(__self__, resource_name, opts=None, additional_authentication_providers=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, user_pool_config=None, xray_enabled=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an AppSync GraphQL API.
 
@@ -91,6 +95,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
 
         The **additional_authentication_providers** object supports the following:
 
@@ -152,6 +157,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__['schema'] = schema
             __props__['tags'] = tags
             __props__['user_pool_config'] = user_pool_config
+            __props__['xray_enabled'] = xray_enabled
             __props__['arn'] = None
             __props__['uris'] = None
         super(GraphQLApi, __self__).__init__(
@@ -161,7 +167,7 @@ class GraphQLApi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_authentication_providers=None, arn=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, uris=None, user_pool_config=None):
+    def get(resource_name, id, opts=None, additional_authentication_providers=None, arn=None, authentication_type=None, log_config=None, name=None, openid_connect_config=None, schema=None, tags=None, uris=None, user_pool_config=None, xray_enabled=None):
         """
         Get an existing GraphQLApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -179,6 +185,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[dict] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
 
         The **additional_authentication_providers** object supports the following:
 
@@ -227,6 +234,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["uris"] = uris
         __props__["user_pool_config"] = user_pool_config
+        __props__["xray_enabled"] = xray_enabled
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -25,14 +25,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         [Output("egress")]
         public Output<ImmutableArray<Outputs.NetworkAclEgress>> Egress { get; private set; } = null!;
 
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.NetworkAclIngress>> Ingress { get; private set; } = null!;
@@ -112,7 +110,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.NetworkAclEgressArgs> Egress
         {
@@ -125,7 +122,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.NetworkAclIngressArgs> Ingress
         {
@@ -175,7 +171,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.NetworkAclEgressGetArgs> Egress
         {
@@ -188,7 +183,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
-        /// This argument is processed in [attribute-as-blocks mode](https://www.terraform.io/docs/configuration/attr-as-blocks.html).
         /// </summary>
         public InputList<Inputs.NetworkAclIngressGetArgs> Ingress
         {

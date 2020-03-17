@@ -37,6 +37,8 @@ type GraphQLApi struct {
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
+	// Whether tracing with X-ray is enabled. Defaults to false.
+	XrayEnabled pulumi.BoolPtrOutput `pulumi:"xrayEnabled"`
 }
 
 // NewGraphQLApi registers a new resource with the given unique name, arguments, and options.
@@ -90,6 +92,8 @@ type graphQLApiState struct {
 	Uris map[string]string `pulumi:"uris"`
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
+	// Whether tracing with X-ray is enabled. Defaults to false.
+	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
 
 type GraphQLApiState struct {
@@ -113,6 +117,8 @@ type GraphQLApiState struct {
 	Uris pulumi.StringMapInput
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
+	// Whether tracing with X-ray is enabled. Defaults to false.
+	XrayEnabled pulumi.BoolPtrInput
 }
 
 func (GraphQLApiState) ElementType() reflect.Type {
@@ -136,6 +142,8 @@ type graphQLApiArgs struct {
 	Tags map[string]interface{} `pulumi:"tags"`
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
+	// Whether tracing with X-ray is enabled. Defaults to false.
+	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
 
 // The set of arguments for constructing a GraphQLApi resource.
@@ -156,6 +164,8 @@ type GraphQLApiArgs struct {
 	Tags pulumi.MapInput
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
+	// Whether tracing with X-ray is enabled. Defaults to false.
+	XrayEnabled pulumi.BoolPtrInput
 }
 
 func (GraphQLApiArgs) ElementType() reflect.Type {

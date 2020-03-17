@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Qldb
 {
+    /// <summary>
+    /// Provides an AWS Quantum Ledger Database (QLDB) resource
+    /// 
+    /// &gt; **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/qldb_ledger.html.markdown.
+    /// </summary>
     public partial class Ledger : Pulumi.CustomResource
     {
         /// <summary>
@@ -17,9 +24,15 @@ namespace Pulumi.Aws.Qldb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+        /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
+        /// <summary>
+        /// The friendly name for the QLDB Ledger instance.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -75,9 +88,15 @@ namespace Pulumi.Aws.Qldb
 
     public sealed class LedgerArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
+        /// <summary>
+        /// The friendly name for the QLDB Ledger instance.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -106,9 +125,15 @@ namespace Pulumi.Aws.Qldb
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via this provider, this value must be configured to `false` and applied first before attempting deletion.
+        /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
+        /// <summary>
+        /// The friendly name for the QLDB Ledger instance.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

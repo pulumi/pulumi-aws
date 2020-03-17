@@ -24,7 +24,7 @@ type DomainClusterConfig struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// Configuration block containing zone awareness settings. Documented below.
 	ZoneAwarenessConfig *DomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
-	// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+	// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 	ZoneAwarenessEnabled *bool `pulumi:"zoneAwarenessEnabled"`
 }
 
@@ -48,7 +48,7 @@ type DomainClusterConfigArgs struct {
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Configuration block containing zone awareness settings. Documented below.
 	ZoneAwarenessConfig DomainClusterConfigZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
-	// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+	// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 	ZoneAwarenessEnabled pulumi.BoolPtrInput `pulumi:"zoneAwarenessEnabled"`
 }
 
@@ -151,7 +151,7 @@ func (o DomainClusterConfigOutput) ZoneAwarenessConfig() DomainClusterConfigZone
 	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
-// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 func (o DomainClusterConfigOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -204,7 +204,7 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessConfig() DomainClusterConfigZ
 	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
 
-// Indicates whether zone awareness is enabled. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
 func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.ZoneAwarenessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -481,7 +481,8 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringOutput {
 
 type DomainDomainEndpointOptions struct {
 	// Whether or not to require HTTPS
-	EnforceHttps      bool    `pulumi:"enforceHttps"`
+	EnforceHttps bool `pulumi:"enforceHttps"`
+	// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -494,7 +495,8 @@ type DomainDomainEndpointOptionsInput interface {
 
 type DomainDomainEndpointOptionsArgs struct {
 	// Whether or not to require HTTPS
-	EnforceHttps      pulumi.BoolInput      `pulumi:"enforceHttps"`
+	EnforceHttps pulumi.BoolInput `pulumi:"enforceHttps"`
+	// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -572,6 +574,7 @@ func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
 }
 
+// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -599,6 +602,7 @@ func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) bool { return v.EnforceHttps }).(pulumi.BoolOutput)
 }
 
+// The name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. This provider will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }

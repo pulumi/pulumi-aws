@@ -76,6 +76,9 @@ export class UserPolicy extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * IAM user to which to attach this policy.
@@ -134,6 +137,9 @@ export interface UserPolicyState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * IAM user to which to attach this policy.
@@ -153,6 +159,9 @@ export interface UserPolicyArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     readonly namePrefix?: pulumi.Input<string>;
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * IAM user to which to attach this policy.

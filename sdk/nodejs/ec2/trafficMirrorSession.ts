@@ -6,6 +6,35 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Provides an Traffic mirror session.  
+ * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
+ * 
+ * ## Example Usage
+ * 
+ * To create a basic traffic mirror session
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * 
+ * const filter = new aws.ec2.TrafficMirrorFilter("filter", {
+ *     description: "traffic mirror filter - example",
+ *     networkServices: ["amazon-dns"],
+ * });
+ * const target = new aws.ec2.TrafficMirrorTarget("target", {
+ *     networkLoadBalancerArn: aws_lb_lb.arn,
+ * });
+ * const session = new aws.ec2.TrafficMirrorSession("session", {
+ *     description: "traffic mirror session - example",
+ *     networkInterfaceId: aws_instance_test.primaryNetworkInterfaceId,
+ *     trafficMirrorFilterId: filter.id,
+ *     trafficMirrorTargetId: target.id,
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/ec2_traffic_mirror_session.html.markdown.
+ */
 export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * Get an existing TrafficMirrorSession resource's state with the given name, ID, and optional extra
@@ -50,6 +79,10 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly sessionNumber!: pulumi.Output<number>;
     /**
+     * Key-value mapping of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * ID of the traffic mirror filter to be used
      */
     public readonly trafficMirrorFilterId!: pulumi.Output<string>;
@@ -78,6 +111,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["packetLength"] = state ? state.packetLength : undefined;
             inputs["sessionNumber"] = state ? state.sessionNumber : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["trafficMirrorFilterId"] = state ? state.trafficMirrorFilterId : undefined;
             inputs["trafficMirrorTargetId"] = state ? state.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
@@ -99,6 +133,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["packetLength"] = args ? args.packetLength : undefined;
             inputs["sessionNumber"] = args ? args.sessionNumber : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
             inputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
@@ -135,6 +170,10 @@ export interface TrafficMirrorSessionState {
      */
     readonly sessionNumber?: pulumi.Input<number>;
     /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * ID of the traffic mirror filter to be used
      */
     readonly trafficMirrorFilterId?: pulumi.Input<string>;
@@ -168,6 +207,10 @@ export interface TrafficMirrorSessionArgs {
      * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
      */
     readonly sessionNumber: pulumi.Input<number>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * ID of the traffic mirror filter to be used
      */

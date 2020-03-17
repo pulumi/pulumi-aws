@@ -19,6 +19,7 @@ type BucketPolicy struct {
 
 	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// The text of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -58,12 +59,14 @@ func GetBucketPolicy(ctx *pulumi.Context,
 type bucketPolicyState struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket *string `pulumi:"bucket"`
+	// The text of the policy.
 	Policy *string `pulumi:"policy"`
 }
 
 type BucketPolicyState struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringPtrInput
+	// The text of the policy.
 	Policy pulumi.StringPtrInput
 }
 
@@ -73,7 +76,8 @@ func (BucketPolicyState) ElementType() reflect.Type {
 
 type bucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
-	Bucket string      `pulumi:"bucket"`
+	Bucket string `pulumi:"bucket"`
+	// The text of the policy.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -81,6 +85,7 @@ type bucketPolicyArgs struct {
 type BucketPolicyArgs struct {
 	// The name of the bucket to which to apply the policy.
 	Bucket pulumi.StringInput
+	// The text of the policy.
 	Policy pulumi.Input
 }
 

@@ -81,6 +81,9 @@ export class RepositoryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryPolicy.__pulumiType;
     }
 
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * The registry ID where the repository was created.
@@ -133,6 +136,9 @@ export class RepositoryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPolicy resources.
  */
 export interface RepositoryPolicyState {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The registry ID where the repository was created.
@@ -148,6 +154,9 @@ export interface RepositoryPolicyState {
  * The set of arguments for constructing a RepositoryPolicy resource.
  */
 export interface RepositoryPolicyArgs {
+    /**
+     * The policy document. This is a JSON formatted string.
+     */
     readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the repository to apply the policy.

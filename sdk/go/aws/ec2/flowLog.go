@@ -32,6 +32,8 @@ type FlowLog struct {
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	// Key-value mapping of resource tags
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -83,6 +85,8 @@ type flowLogState struct {
 	LogGroupName *string `pulumi:"logGroupName"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -104,6 +108,8 @@ type FlowLogState struct {
 	LogGroupName pulumi.StringPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
 	// VPC ID to attach to
@@ -129,6 +135,8 @@ type flowLogArgs struct {
 	LogGroupName *string `pulumi:"logGroupName"`
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
+	// Key-value mapping of resource tags
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType string `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -151,6 +159,8 @@ type FlowLogArgs struct {
 	LogGroupName pulumi.StringPtrInput
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
+	// Key-value mapping of resource tags
+	Tags pulumi.MapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringInput
 	// VPC ID to attach to

@@ -34,7 +34,8 @@ type VpcEndpoint struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	Policy  pulumi.StringOutput `pulumi:"policy"`
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
@@ -104,7 +105,8 @@ type vpcEndpointState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
 	OwnerId *string `pulumi:"ownerId"`
-	Policy  *string `pulumi:"policy"`
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+	Policy *string `pulumi:"policy"`
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId *string `pulumi:"prefixListId"`
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
@@ -141,7 +143,8 @@ type VpcEndpointState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// The ID of the AWS account that owns the VPC endpoint.
 	OwnerId pulumi.StringPtrInput
-	Policy  pulumi.StringPtrInput
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+	Policy pulumi.StringPtrInput
 	// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId pulumi.StringPtrInput
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
@@ -173,8 +176,9 @@ func (VpcEndpointState) ElementType() reflect.Type {
 
 type vpcEndpointArgs struct {
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-	AutoAccept *bool   `pulumi:"autoAccept"`
-	Policy     *string `pulumi:"policy"`
+	AutoAccept *bool `pulumi:"autoAccept"`
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+	Policy *string `pulumi:"policy"`
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
 	// Defaults to `false`.
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
@@ -198,7 +202,8 @@ type vpcEndpointArgs struct {
 type VpcEndpointArgs struct {
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
-	Policy     pulumi.StringPtrInput
+	// A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+	Policy pulumi.StringPtrInput
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
 	// Defaults to `false`.
 	PrivateDnsEnabled pulumi.BoolPtrInput

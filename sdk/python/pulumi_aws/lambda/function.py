@@ -129,7 +129,27 @@ class Function(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, code=None, dead_letter_config=None, description=None, environment=None, handler=None, kms_key_arn=None, layers=None, memory_size=None, name=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Function resource with the given unique name, props, and options.
+        Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
+
+        For information about Lambda and how to use it, see [What is AWS Lambda?][1]
+
+        > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
+
+        ## Specifying the Deployment Package
+
+        AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use.
+        See [Runtimes][6] for the valid values of `runtime`. The expected structure of the deployment package can be found in
+        [the AWS Lambda documentation for each runtime][8].
+
+        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+        indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
+        package via S3 it may be useful to use the `s3.BucketObject` resource to upload it.
+
+        For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading
+        large files efficiently.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-aws/blob/master/website/docs/r/lambda_function.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
